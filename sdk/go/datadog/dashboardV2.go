@@ -224,6 +224,8 @@ type DashboardV2 struct {
 	Title pulumi.StringOutput `pulumi:"title"`
 	// The URL of the dashboard.
 	Url pulumi.StringOutput `pulumi:"url"`
+	// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
 	// The list of widgets to display on the dashboard.
 	Widgets DashboardV2WidgetArrayOutput `pulumi:"widgets"`
 }
@@ -294,6 +296,8 @@ type dashboardV2State struct {
 	Title *string `pulumi:"title"`
 	// The URL of the dashboard.
 	Url *string `pulumi:"url"`
+	// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+	Validate *bool `pulumi:"validate"`
 	// The list of widgets to display on the dashboard.
 	Widgets []DashboardV2Widget `pulumi:"widgets"`
 }
@@ -329,6 +333,8 @@ type DashboardV2State struct {
 	Title pulumi.StringPtrInput
 	// The URL of the dashboard.
 	Url pulumi.StringPtrInput
+	// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+	Validate pulumi.BoolPtrInput
 	// The list of widgets to display on the dashboard.
 	Widgets DashboardV2WidgetArrayInput
 }
@@ -368,6 +374,8 @@ type dashboardV2Args struct {
 	Title string `pulumi:"title"`
 	// The URL of the dashboard.
 	Url *string `pulumi:"url"`
+	// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+	Validate *bool `pulumi:"validate"`
 	// The list of widgets to display on the dashboard.
 	Widgets []DashboardV2Widget `pulumi:"widgets"`
 }
@@ -404,6 +412,8 @@ type DashboardV2Args struct {
 	Title pulumi.StringInput
 	// The URL of the dashboard.
 	Url pulumi.StringPtrInput
+	// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+	Validate pulumi.BoolPtrInput
 	// The list of widgets to display on the dashboard.
 	Widgets DashboardV2WidgetArrayInput
 }
@@ -565,6 +575,11 @@ func (o DashboardV2Output) Title() pulumi.StringOutput {
 // The URL of the dashboard.
 func (o DashboardV2Output) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *DashboardV2) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+func (o DashboardV2Output) Validate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DashboardV2) pulumi.BoolPtrOutput { return v.Validate }).(pulumi.BoolPtrOutput)
 }
 
 // The list of widgets to display on the dashboard.

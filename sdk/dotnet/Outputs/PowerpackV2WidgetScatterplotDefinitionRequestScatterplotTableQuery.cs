@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQuery? ApmMetricsQuery;
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery? ApmResourceStatsQuery;
@@ -38,13 +42,27 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery? ProcessQuery;
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQuery? ProductAnalyticsExtendedQuery;
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQuery? RetentionQuery;
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery? SloQuery;
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQuery? UserJourneyQuery;
 
         [OutputConstructor]
         private PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuery(
             Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
+
+            Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQuery? apmMetricsQuery,
 
             Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQuery? apmResourceStatsQuery,
 
@@ -56,15 +74,25 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQuery? processQuery,
 
-            Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery? sloQuery)
+            Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQuery? productAnalyticsExtendedQuery,
+
+            Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQuery? retentionQuery,
+
+            Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQuerySloQuery? sloQuery,
+
+            Outputs.PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQuery? userJourneyQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
+            ApmMetricsQuery = apmMetricsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             CloudCostQuery = cloudCostQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            ProductAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            RetentionQuery = retentionQuery;
             SloQuery = sloQuery;
+            UserJourneyQuery = userJourneyQuery;
         }
     }
 }

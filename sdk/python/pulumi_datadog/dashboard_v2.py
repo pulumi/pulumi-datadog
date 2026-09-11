@@ -35,6 +35,7 @@ class DashboardV2Args:
                  template_variable_presets: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2TemplateVariablePresetArgs']]]] = None,
                  template_variables: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2TemplateVariableArgs']]]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
                  widgets: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetArgs']]]] = None):
         """
         The set of arguments for constructing a DashboardV2 resource.
@@ -53,6 +54,7 @@ class DashboardV2Args:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2TemplateVariablePresetArgs']]] template_variable_presets: The list of selectable template variable presets for this dashboard.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2TemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
+        :param pulumi.Input[_builtins.bool] validate: Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetArgs']]] widgets: The list of widgets to display on the dashboard.
         """
         pulumi.set(__self__, "layout_type", layout_type)
@@ -84,6 +86,8 @@ class DashboardV2Args:
             pulumi.set(__self__, "template_variables", template_variables)
         if url is not None:
             pulumi.set(__self__, "url", url)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
         if widgets is not None:
             pulumi.set(__self__, "widgets", widgets)
 
@@ -258,6 +262,18 @@ class DashboardV2Args:
 
     @_builtins.property
     @pulumi.getter
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "validate", value)
+
+    @_builtins.property
+    @pulumi.getter
     def widgets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetArgs']]]]:
         """
         The list of widgets to display on the dashboard.
@@ -286,6 +302,7 @@ class _DashboardV2State:
                  template_variables: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2TemplateVariableArgs']]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
                  widgets: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetArgs']]]] = None):
         """
         Input properties used for looking up and filtering DashboardV2 resources.
@@ -304,6 +321,7 @@ class _DashboardV2State:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2TemplateVariableArgs']]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[_builtins.str] title: The title of the dashboard.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
+        :param pulumi.Input[_builtins.bool] validate: Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetArgs']]] widgets: The list of widgets to display on the dashboard.
         """
         if dashboard_lists is not None:
@@ -337,6 +355,8 @@ class _DashboardV2State:
             pulumi.set(__self__, "title", title)
         if url is not None:
             pulumi.set(__self__, "url", url)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
         if widgets is not None:
             pulumi.set(__self__, "widgets", widgets)
 
@@ -511,6 +531,18 @@ class _DashboardV2State:
 
     @_builtins.property
     @pulumi.getter
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "validate", value)
+
+    @_builtins.property
+    @pulumi.getter
     def widgets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetArgs']]]]:
         """
         The list of widgets to display on the dashboard.
@@ -542,6 +574,7 @@ class DashboardV2(pulumi.CustomResource):
                  template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardV2TemplateVariableArgs', 'DashboardV2TemplateVariableArgsDict']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
                  widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardV2WidgetArgs', 'DashboardV2WidgetArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -696,6 +729,7 @@ class DashboardV2(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardV2TemplateVariableArgs', 'DashboardV2TemplateVariableArgsDict']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[_builtins.str] title: The title of the dashboard.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
+        :param pulumi.Input[_builtins.bool] validate: Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardV2WidgetArgs', 'DashboardV2WidgetArgsDict']]]] widgets: The list of widgets to display on the dashboard.
         """
         ...
@@ -869,6 +903,7 @@ class DashboardV2(pulumi.CustomResource):
                  template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardV2TemplateVariableArgs', 'DashboardV2TemplateVariableArgsDict']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
                  widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardV2WidgetArgs', 'DashboardV2WidgetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -897,6 +932,7 @@ class DashboardV2(pulumi.CustomResource):
                 raise TypeError("Missing required property 'title'")
             __props__.__dict__["title"] = title
             __props__.__dict__["url"] = url
+            __props__.__dict__["validate"] = validate
             __props__.__dict__["widgets"] = widgets
         super(DashboardV2, __self__).__init__(
             'datadog:index/dashboardV2:DashboardV2',
@@ -922,6 +958,7 @@ class DashboardV2(pulumi.CustomResource):
             template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardV2TemplateVariableArgs', 'DashboardV2TemplateVariableArgsDict']]]]] = None,
             title: pulumi.Input[Optional[_builtins.str]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None,
             widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardV2WidgetArgs', 'DashboardV2WidgetArgsDict']]]]] = None) -> 'DashboardV2':
         """
         Get an existing DashboardV2 resource's state with the given name, id, and optional extra
@@ -944,6 +981,7 @@ class DashboardV2(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardV2TemplateVariableArgs', 'DashboardV2TemplateVariableArgsDict']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[_builtins.str] title: The title of the dashboard.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
+        :param pulumi.Input[_builtins.bool] validate: Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardV2WidgetArgs', 'DashboardV2WidgetArgsDict']]]] widgets: The list of widgets to display on the dashboard.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -964,6 +1002,7 @@ class DashboardV2(pulumi.CustomResource):
         __props__.__dict__["template_variables"] = template_variables
         __props__.__dict__["title"] = title
         __props__.__dict__["url"] = url
+        __props__.__dict__["validate"] = validate
         __props__.__dict__["widgets"] = widgets
         return DashboardV2(resource_name, opts=opts, __props__=__props__)
 
@@ -1079,6 +1118,14 @@ class DashboardV2(pulumi.CustomResource):
         The URL of the dashboard.
         """
         return pulumi.get(self, "url")
+
+    @_builtins.property
+    @pulumi.getter
+    def validate(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        """
+        return pulumi.get(self, "validate")
 
     @_builtins.property
     @pulumi.getter

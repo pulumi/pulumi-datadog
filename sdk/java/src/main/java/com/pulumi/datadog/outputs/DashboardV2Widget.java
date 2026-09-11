@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.DashboardV2WidgetAlertValueDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetBarChartDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetChangeDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetCheckStatusDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetCohortDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetEventStreamDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetEventTimelineDefinition;
@@ -26,8 +27,10 @@ import com.pulumi.datadog.outputs.DashboardV2WidgetManageStatusDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetNoteDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetPointPlotDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetPowerpackDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetProductAnalyticsFunnelDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetRetentionCurveDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetRunWorkflowDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetSankeyDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetScatterplotDefinition;
@@ -75,6 +78,11 @@ public final class DashboardV2Widget {
      * 
      */
     private @Nullable DashboardV2WidgetCheckStatusDefinition checkStatusDefinition;
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    private @Nullable DashboardV2WidgetCohortDefinition cohortDefinition;
     /**
      * @return The definition for a Distribution widget.
      * 
@@ -166,6 +174,11 @@ public final class DashboardV2Widget {
      */
     private @Nullable DashboardV2WidgetPowerpackDefinition powerpackDefinition;
     /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    private @Nullable DashboardV2WidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition;
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -175,6 +188,11 @@ public final class DashboardV2Widget {
      * 
      */
     private @Nullable DashboardV2WidgetQueryValueDefinition queryValueDefinition;
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    private @Nullable DashboardV2WidgetRetentionCurveDefinition retentionCurveDefinition;
     /**
      * @return The definition for a Run Workflow widget.
      * 
@@ -286,6 +304,13 @@ public final class DashboardV2Widget {
      */
     public Optional<DashboardV2WidgetCheckStatusDefinition> checkStatusDefinition() {
         return Optional.ofNullable(this.checkStatusDefinition);
+    }
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    public Optional<DashboardV2WidgetCohortDefinition> cohortDefinition() {
+        return Optional.ofNullable(this.cohortDefinition);
     }
     /**
      * @return The definition for a Distribution widget.
@@ -414,6 +439,13 @@ public final class DashboardV2Widget {
         return Optional.ofNullable(this.powerpackDefinition);
     }
     /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    public Optional<DashboardV2WidgetProductAnalyticsFunnelDefinition> productAnalyticsFunnelDefinition() {
+        return Optional.ofNullable(this.productAnalyticsFunnelDefinition);
+    }
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -426,6 +458,13 @@ public final class DashboardV2Widget {
      */
     public Optional<DashboardV2WidgetQueryValueDefinition> queryValueDefinition() {
         return Optional.ofNullable(this.queryValueDefinition);
+    }
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    public Optional<DashboardV2WidgetRetentionCurveDefinition> retentionCurveDefinition() {
+        return Optional.ofNullable(this.retentionCurveDefinition);
     }
     /**
      * @return The definition for a Run Workflow widget.
@@ -547,6 +586,7 @@ public final class DashboardV2Widget {
         private @Nullable DashboardV2WidgetBarChartDefinition barChartDefinition;
         private @Nullable DashboardV2WidgetChangeDefinition changeDefinition;
         private @Nullable DashboardV2WidgetCheckStatusDefinition checkStatusDefinition;
+        private @Nullable DashboardV2WidgetCohortDefinition cohortDefinition;
         private @Nullable DashboardV2WidgetDistributionDefinition distributionDefinition;
         private @Nullable DashboardV2WidgetEventStreamDefinition eventStreamDefinition;
         private @Nullable DashboardV2WidgetEventTimelineDefinition eventTimelineDefinition;
@@ -565,8 +605,10 @@ public final class DashboardV2Widget {
         private @Nullable DashboardV2WidgetNoteDefinition noteDefinition;
         private @Nullable DashboardV2WidgetPointPlotDefinition pointPlotDefinition;
         private @Nullable DashboardV2WidgetPowerpackDefinition powerpackDefinition;
+        private @Nullable DashboardV2WidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition;
         private @Nullable DashboardV2WidgetQueryTableDefinition queryTableDefinition;
         private @Nullable DashboardV2WidgetQueryValueDefinition queryValueDefinition;
+        private @Nullable DashboardV2WidgetRetentionCurveDefinition retentionCurveDefinition;
         private @Nullable DashboardV2WidgetRunWorkflowDefinition runWorkflowDefinition;
         private @Nullable DashboardV2WidgetSankeyDefinition sankeyDefinition;
         private @Nullable DashboardV2WidgetScatterplotDefinition scatterplotDefinition;
@@ -590,6 +632,7 @@ public final class DashboardV2Widget {
     	      this.barChartDefinition = defaults.barChartDefinition;
     	      this.changeDefinition = defaults.changeDefinition;
     	      this.checkStatusDefinition = defaults.checkStatusDefinition;
+    	      this.cohortDefinition = defaults.cohortDefinition;
     	      this.distributionDefinition = defaults.distributionDefinition;
     	      this.eventStreamDefinition = defaults.eventStreamDefinition;
     	      this.eventTimelineDefinition = defaults.eventTimelineDefinition;
@@ -608,8 +651,10 @@ public final class DashboardV2Widget {
     	      this.noteDefinition = defaults.noteDefinition;
     	      this.pointPlotDefinition = defaults.pointPlotDefinition;
     	      this.powerpackDefinition = defaults.powerpackDefinition;
+    	      this.productAnalyticsFunnelDefinition = defaults.productAnalyticsFunnelDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
+    	      this.retentionCurveDefinition = defaults.retentionCurveDefinition;
     	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
     	      this.sankeyDefinition = defaults.sankeyDefinition;
     	      this.scatterplotDefinition = defaults.scatterplotDefinition;
@@ -655,6 +700,12 @@ public final class DashboardV2Widget {
         public Builder checkStatusDefinition(@Nullable DashboardV2WidgetCheckStatusDefinition checkStatusDefinition) {
 
             this.checkStatusDefinition = checkStatusDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cohortDefinition(@Nullable DashboardV2WidgetCohortDefinition cohortDefinition) {
+
+            this.cohortDefinition = cohortDefinition;
             return this;
         }
         @CustomType.Setter
@@ -766,6 +817,12 @@ public final class DashboardV2Widget {
             return this;
         }
         @CustomType.Setter
+        public Builder productAnalyticsFunnelDefinition(@Nullable DashboardV2WidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition) {
+
+            this.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder queryTableDefinition(@Nullable DashboardV2WidgetQueryTableDefinition queryTableDefinition) {
 
             this.queryTableDefinition = queryTableDefinition;
@@ -775,6 +832,12 @@ public final class DashboardV2Widget {
         public Builder queryValueDefinition(@Nullable DashboardV2WidgetQueryValueDefinition queryValueDefinition) {
 
             this.queryValueDefinition = queryValueDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder retentionCurveDefinition(@Nullable DashboardV2WidgetRetentionCurveDefinition retentionCurveDefinition) {
+
+            this.retentionCurveDefinition = retentionCurveDefinition;
             return this;
         }
         @CustomType.Setter
@@ -874,6 +937,7 @@ public final class DashboardV2Widget {
             _resultValue.barChartDefinition = barChartDefinition;
             _resultValue.changeDefinition = changeDefinition;
             _resultValue.checkStatusDefinition = checkStatusDefinition;
+            _resultValue.cohortDefinition = cohortDefinition;
             _resultValue.distributionDefinition = distributionDefinition;
             _resultValue.eventStreamDefinition = eventStreamDefinition;
             _resultValue.eventTimelineDefinition = eventTimelineDefinition;
@@ -892,8 +956,10 @@ public final class DashboardV2Widget {
             _resultValue.noteDefinition = noteDefinition;
             _resultValue.pointPlotDefinition = pointPlotDefinition;
             _resultValue.powerpackDefinition = powerpackDefinition;
+            _resultValue.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;
+            _resultValue.retentionCurveDefinition = retentionCurveDefinition;
             _resultValue.runWorkflowDefinition = runWorkflowDefinition;
             _resultValue.sankeyDefinition = sankeyDefinition;
             _resultValue.scatterplotDefinition = scatterplotDefinition;

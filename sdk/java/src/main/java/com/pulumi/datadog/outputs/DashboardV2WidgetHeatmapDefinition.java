@@ -56,7 +56,7 @@ public final class DashboardV2WidgetHeatmapDefinition {
      */
     private @Nullable List<DashboardV2WidgetHeatmapDefinitionMarker> markers;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardV2WidgetHeatmapDefinitionRequest> requests;
@@ -147,7 +147,7 @@ public final class DashboardV2WidgetHeatmapDefinition {
         return this.markers == null ? List.of() : this.markers;
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardV2WidgetHeatmapDefinitionRequest> requests() {

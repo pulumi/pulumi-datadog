@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationAzureStorageBuffer? Buffer;
         /// <summary>
+        /// Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAzureStorageCompression? Compression;
+        /// <summary>
         /// Name of the environment variable or secret that holds the Azure Storage connection string.
         /// </summary>
         public readonly string? ConnectionStringKey;
@@ -36,12 +40,15 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigDestinationAzureStorageBuffer? buffer,
 
+            Outputs.ObservabilityPipelineConfigDestinationAzureStorageCompression? compression,
+
             string? connectionStringKey,
 
             string containerName)
         {
             BlobPrefix = blobPrefix;
             Buffer = buffer;
+            Compression = compression;
             ConnectionStringKey = connectionStringKey;
             ContainerName = containerName;
         }

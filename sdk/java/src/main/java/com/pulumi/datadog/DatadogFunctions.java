@@ -98,6 +98,22 @@ import com.pulumi.datadog.inputs.GetServiceLevelObjectivesArgs;
 import com.pulumi.datadog.inputs.GetServiceLevelObjectivesPlainArgs;
 import com.pulumi.datadog.inputs.GetSoftwareCatalogArgs;
 import com.pulumi.datadog.inputs.GetSoftwareCatalogPlainArgs;
+import com.pulumi.datadog.inputs.GetStatusPageArgs;
+import com.pulumi.datadog.inputs.GetStatusPageComponentArgs;
+import com.pulumi.datadog.inputs.GetStatusPageComponentPlainArgs;
+import com.pulumi.datadog.inputs.GetStatusPageComponentsArgs;
+import com.pulumi.datadog.inputs.GetStatusPageComponentsPlainArgs;
+import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplateArgs;
+import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplatePlainArgs;
+import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplatesArgs;
+import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplatesPlainArgs;
+import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplateArgs;
+import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplatePlainArgs;
+import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplatesArgs;
+import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplatesPlainArgs;
+import com.pulumi.datadog.inputs.GetStatusPagePlainArgs;
+import com.pulumi.datadog.inputs.GetStatusPagesArgs;
+import com.pulumi.datadog.inputs.GetStatusPagesPlainArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsGlobalVariableArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsGlobalVariablePlainArgs;
 import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
@@ -183,6 +199,14 @@ import com.pulumi.datadog.outputs.GetServiceAccountResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectiveResult;
 import com.pulumi.datadog.outputs.GetServiceLevelObjectivesResult;
 import com.pulumi.datadog.outputs.GetSoftwareCatalogResult;
+import com.pulumi.datadog.outputs.GetStatusPageComponentResult;
+import com.pulumi.datadog.outputs.GetStatusPageComponentsResult;
+import com.pulumi.datadog.outputs.GetStatusPageDegradationTemplateResult;
+import com.pulumi.datadog.outputs.GetStatusPageDegradationTemplatesResult;
+import com.pulumi.datadog.outputs.GetStatusPageMaintenanceTemplateResult;
+import com.pulumi.datadog.outputs.GetStatusPageMaintenanceTemplatesResult;
+import com.pulumi.datadog.outputs.GetStatusPageResult;
+import com.pulumi.datadog.outputs.GetStatusPagesResult;
 import com.pulumi.datadog.outputs.GetSyntheticsGlobalVariableResult;
 import com.pulumi.datadog.outputs.GetSyntheticsLocationsResult;
 import com.pulumi.datadog.outputs.GetSyntheticsTestResult;
@@ -10992,6 +11016,1701 @@ public final class DatadogFunctions {
         return Deployment.getInstance().invokeAsync("datadog:index/getSoftwareCatalog:getSoftwareCatalog", TypeShape.of(GetSoftwareCatalogResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to retrieve information about an existing Datadog status page.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPage = DatadogFunctions.getStatusPage(GetStatusPageArgs.builder()
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageResult> getStatusPage(GetStatusPageArgs args) {
+        return getStatusPage(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPage = DatadogFunctions.getStatusPage(GetStatusPageArgs.builder()
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageResult> getStatusPagePlain(GetStatusPagePlainArgs args) {
+        return getStatusPagePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPage = DatadogFunctions.getStatusPage(GetStatusPageArgs.builder()
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageResult> getStatusPage(GetStatusPageArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPage:getStatusPage", TypeShape.of(GetStatusPageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPage = DatadogFunctions.getStatusPage(GetStatusPageArgs.builder()
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageResult> getStatusPage(GetStatusPageArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPage:getStatusPage", TypeShape.of(GetStatusPageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPage = DatadogFunctions.getStatusPage(GetStatusPageArgs.builder()
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageResult> getStatusPagePlain(GetStatusPagePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getStatusPage:getStatusPage", TypeShape.of(GetStatusPageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page component.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageComponentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var api = DatadogFunctions.getStatusPageComponent(GetStatusPageComponentArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageComponentResult> getStatusPageComponent(GetStatusPageComponentArgs args) {
+        return getStatusPageComponent(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page component.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageComponentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var api = DatadogFunctions.getStatusPageComponent(GetStatusPageComponentArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageComponentResult> getStatusPageComponentPlain(GetStatusPageComponentPlainArgs args) {
+        return getStatusPageComponentPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page component.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageComponentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var api = DatadogFunctions.getStatusPageComponent(GetStatusPageComponentArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageComponentResult> getStatusPageComponent(GetStatusPageComponentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageComponent:getStatusPageComponent", TypeShape.of(GetStatusPageComponentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page component.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageComponentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var api = DatadogFunctions.getStatusPageComponent(GetStatusPageComponentArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageComponentResult> getStatusPageComponent(GetStatusPageComponentArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageComponent:getStatusPageComponent", TypeShape.of(GetStatusPageComponentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page component.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageComponentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var api = DatadogFunctions.getStatusPageComponent(GetStatusPageComponentArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageComponentResult> getStatusPageComponentPlain(GetStatusPageComponentPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getStatusPageComponent:getStatusPageComponent", TypeShape.of(GetStatusPageComponentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list the components and groups of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageComponentsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageComponents(GetStatusPageComponentsArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageComponentsResult> getStatusPageComponents(GetStatusPageComponentsArgs args) {
+        return getStatusPageComponents(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list the components and groups of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageComponentsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageComponents(GetStatusPageComponentsArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageComponentsResult> getStatusPageComponentsPlain(GetStatusPageComponentsPlainArgs args) {
+        return getStatusPageComponentsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list the components and groups of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageComponentsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageComponents(GetStatusPageComponentsArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageComponentsResult> getStatusPageComponents(GetStatusPageComponentsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageComponents:getStatusPageComponents", TypeShape.of(GetStatusPageComponentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list the components and groups of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageComponentsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageComponents(GetStatusPageComponentsArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageComponentsResult> getStatusPageComponents(GetStatusPageComponentsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageComponents:getStatusPageComponents", TypeShape.of(GetStatusPageComponentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list the components and groups of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageComponentsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageComponents(GetStatusPageComponentsArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageComponentsResult> getStatusPageComponentsPlain(GetStatusPageComponentsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getStatusPageComponents:getStatusPageComponents", TypeShape.of(GetStatusPageComponentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page degradation template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplateArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outage = DatadogFunctions.getStatusPageDegradationTemplate(GetStatusPageDegradationTemplateArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageDegradationTemplateResult> getStatusPageDegradationTemplate(GetStatusPageDegradationTemplateArgs args) {
+        return getStatusPageDegradationTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page degradation template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplateArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outage = DatadogFunctions.getStatusPageDegradationTemplate(GetStatusPageDegradationTemplateArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageDegradationTemplateResult> getStatusPageDegradationTemplatePlain(GetStatusPageDegradationTemplatePlainArgs args) {
+        return getStatusPageDegradationTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page degradation template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplateArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outage = DatadogFunctions.getStatusPageDegradationTemplate(GetStatusPageDegradationTemplateArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageDegradationTemplateResult> getStatusPageDegradationTemplate(GetStatusPageDegradationTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageDegradationTemplate:getStatusPageDegradationTemplate", TypeShape.of(GetStatusPageDegradationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page degradation template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplateArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outage = DatadogFunctions.getStatusPageDegradationTemplate(GetStatusPageDegradationTemplateArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageDegradationTemplateResult> getStatusPageDegradationTemplate(GetStatusPageDegradationTemplateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageDegradationTemplate:getStatusPageDegradationTemplate", TypeShape.of(GetStatusPageDegradationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page degradation template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplateArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outage = DatadogFunctions.getStatusPageDegradationTemplate(GetStatusPageDegradationTemplateArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageDegradationTemplateResult> getStatusPageDegradationTemplatePlain(GetStatusPageDegradationTemplatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getStatusPageDegradationTemplate:getStatusPageDegradationTemplate", TypeShape.of(GetStatusPageDegradationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list the degradation templates of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageDegradationTemplates(GetStatusPageDegradationTemplatesArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageDegradationTemplatesResult> getStatusPageDegradationTemplates(GetStatusPageDegradationTemplatesArgs args) {
+        return getStatusPageDegradationTemplates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list the degradation templates of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageDegradationTemplates(GetStatusPageDegradationTemplatesArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageDegradationTemplatesResult> getStatusPageDegradationTemplatesPlain(GetStatusPageDegradationTemplatesPlainArgs args) {
+        return getStatusPageDegradationTemplatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list the degradation templates of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageDegradationTemplates(GetStatusPageDegradationTemplatesArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageDegradationTemplatesResult> getStatusPageDegradationTemplates(GetStatusPageDegradationTemplatesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageDegradationTemplates:getStatusPageDegradationTemplates", TypeShape.of(GetStatusPageDegradationTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list the degradation templates of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageDegradationTemplates(GetStatusPageDegradationTemplatesArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageDegradationTemplatesResult> getStatusPageDegradationTemplates(GetStatusPageDegradationTemplatesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageDegradationTemplates:getStatusPageDegradationTemplates", TypeShape.of(GetStatusPageDegradationTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list the degradation templates of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageDegradationTemplatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageDegradationTemplates(GetStatusPageDegradationTemplatesArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageDegradationTemplatesResult> getStatusPageDegradationTemplatesPlain(GetStatusPageDegradationTemplatesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getStatusPageDegradationTemplates:getStatusPageDegradationTemplates", TypeShape.of(GetStatusPageDegradationTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page maintenance template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplateArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var routine = DatadogFunctions.getStatusPageMaintenanceTemplate(GetStatusPageMaintenanceTemplateArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageMaintenanceTemplateResult> getStatusPageMaintenanceTemplate(GetStatusPageMaintenanceTemplateArgs args) {
+        return getStatusPageMaintenanceTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page maintenance template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplateArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var routine = DatadogFunctions.getStatusPageMaintenanceTemplate(GetStatusPageMaintenanceTemplateArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageMaintenanceTemplateResult> getStatusPageMaintenanceTemplatePlain(GetStatusPageMaintenanceTemplatePlainArgs args) {
+        return getStatusPageMaintenanceTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page maintenance template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplateArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var routine = DatadogFunctions.getStatusPageMaintenanceTemplate(GetStatusPageMaintenanceTemplateArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageMaintenanceTemplateResult> getStatusPageMaintenanceTemplate(GetStatusPageMaintenanceTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageMaintenanceTemplate:getStatusPageMaintenanceTemplate", TypeShape.of(GetStatusPageMaintenanceTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page maintenance template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplateArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var routine = DatadogFunctions.getStatusPageMaintenanceTemplate(GetStatusPageMaintenanceTemplateArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageMaintenanceTemplateResult> getStatusPageMaintenanceTemplate(GetStatusPageMaintenanceTemplateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageMaintenanceTemplate:getStatusPageMaintenanceTemplate", TypeShape.of(GetStatusPageMaintenanceTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an existing Datadog status page maintenance template.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplateArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var routine = DatadogFunctions.getStatusPageMaintenanceTemplate(GetStatusPageMaintenanceTemplateArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .id("8fd8c3ef-07b1-4441-b52a-7e42d8474d5c")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageMaintenanceTemplateResult> getStatusPageMaintenanceTemplatePlain(GetStatusPageMaintenanceTemplatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getStatusPageMaintenanceTemplate:getStatusPageMaintenanceTemplate", TypeShape.of(GetStatusPageMaintenanceTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list the maintenance templates of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageMaintenanceTemplates(GetStatusPageMaintenanceTemplatesArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageMaintenanceTemplatesResult> getStatusPageMaintenanceTemplates(GetStatusPageMaintenanceTemplatesArgs args) {
+        return getStatusPageMaintenanceTemplates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list the maintenance templates of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageMaintenanceTemplates(GetStatusPageMaintenanceTemplatesArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageMaintenanceTemplatesResult> getStatusPageMaintenanceTemplatesPlain(GetStatusPageMaintenanceTemplatesPlainArgs args) {
+        return getStatusPageMaintenanceTemplatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list the maintenance templates of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageMaintenanceTemplates(GetStatusPageMaintenanceTemplatesArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageMaintenanceTemplatesResult> getStatusPageMaintenanceTemplates(GetStatusPageMaintenanceTemplatesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageMaintenanceTemplates:getStatusPageMaintenanceTemplates", TypeShape.of(GetStatusPageMaintenanceTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list the maintenance templates of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageMaintenanceTemplates(GetStatusPageMaintenanceTemplatesArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPageMaintenanceTemplatesResult> getStatusPageMaintenanceTemplates(GetStatusPageMaintenanceTemplatesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPageMaintenanceTemplates:getStatusPageMaintenanceTemplates", TypeShape.of(GetStatusPageMaintenanceTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list the maintenance templates of a Datadog status page, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPageMaintenanceTemplatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = DatadogFunctions.getStatusPageMaintenanceTemplates(GetStatusPageMaintenanceTemplatesArgs.builder()
+     *             .pageId("5e9bd12c-6cde-4247-85fd-98045fbd9b8f")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPageMaintenanceTemplatesResult> getStatusPageMaintenanceTemplatesPlain(GetStatusPageMaintenanceTemplatesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getStatusPageMaintenanceTemplates:getStatusPageMaintenanceTemplates", TypeShape.of(GetStatusPageMaintenanceTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list existing Datadog status pages, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPagesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPages = DatadogFunctions.getStatusPages(GetStatusPagesArgs.builder()
+     *             .name("Acme Status")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPagesResult> getStatusPages() {
+        return getStatusPages(GetStatusPagesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list existing Datadog status pages, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPagesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPages = DatadogFunctions.getStatusPages(GetStatusPagesArgs.builder()
+     *             .name("Acme Status")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPagesResult> getStatusPagesPlain() {
+        return getStatusPagesPlain(GetStatusPagesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list existing Datadog status pages, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPagesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPages = DatadogFunctions.getStatusPages(GetStatusPagesArgs.builder()
+     *             .name("Acme Status")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPagesResult> getStatusPages(GetStatusPagesArgs args) {
+        return getStatusPages(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list existing Datadog status pages, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPagesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPages = DatadogFunctions.getStatusPages(GetStatusPagesArgs.builder()
+     *             .name("Acme Status")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPagesResult> getStatusPagesPlain(GetStatusPagesPlainArgs args) {
+        return getStatusPagesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to list existing Datadog status pages, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPagesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPages = DatadogFunctions.getStatusPages(GetStatusPagesArgs.builder()
+     *             .name("Acme Status")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPagesResult> getStatusPages(GetStatusPagesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPages:getStatusPages", TypeShape.of(GetStatusPagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list existing Datadog status pages, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPagesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPages = DatadogFunctions.getStatusPages(GetStatusPagesArgs.builder()
+     *             .name("Acme Status")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetStatusPagesResult> getStatusPages(GetStatusPagesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getStatusPages:getStatusPages", TypeShape.of(GetStatusPagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to list existing Datadog status pages, for discovery or import. An empty result is not an error.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetStatusPagesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var acmeStatusPages = DatadogFunctions.getStatusPages(GetStatusPagesArgs.builder()
+     *             .name("Acme Status")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetStatusPagesResult> getStatusPagesPlain(GetStatusPagesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getStatusPages:getStatusPages", TypeShape.of(GetStatusPagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to retrieve a Datadog Synthetics global variable (to be used in Synthetics tests).
      * 
      */
@@ -11078,12 +12797,136 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve a Datadog Synthetic Test.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
+     * import com.pulumi.datadog.SyntheticsTest;
+     * import com.pulumi.datadog.SyntheticsTestArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // The existing API test another team owns.
+     *         final var checkoutApi = DatadogFunctions.getSyntheticsTest(GetSyntheticsTestArgs.builder()
+     *             .testId("abc-123-xyz")
+     *             .build());
+     * 
+     *         // A browser test over the same journey, kept in lockstep with the API test's
+     *         // cadence, coverage, and alerting behavior.
+     *         var checkoutBrowser = new SyntheticsTest("checkoutBrowser", SyntheticsTestArgs.builder()
+     *             .name("Checkout journey (browser)")
+     *             .type("browser")
+     *             .status(checkoutApi.status())
+     *             .locations(checkoutApi.locations())
+     *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+     *                 .method("GET")
+     *                 .url("https://www.example.com/checkout")
+     *                 .build())
+     *             .deviceIds("laptop_large")
+     *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+     *                 .tickEvery(checkoutApi.optionsLists()[0].tickEvery())
+     *                 .minLocationFailed(checkoutApi.optionsLists()[0].minLocationFailed())
+     *                 .monitorPriority(checkoutApi.optionsLists()[0].monitorPriority())
+     *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+     *                     .count(checkoutApi.optionsLists()[0].retries()[0].count())
+     *                     .interval(checkoutApi.optionsLists()[0].retries()[0].interval())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSyntheticsTestResult> getSyntheticsTest(GetSyntheticsTestArgs args) {
         return getSyntheticsTest(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve a Datadog Synthetic Test.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
+     * import com.pulumi.datadog.SyntheticsTest;
+     * import com.pulumi.datadog.SyntheticsTestArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // The existing API test another team owns.
+     *         final var checkoutApi = DatadogFunctions.getSyntheticsTest(GetSyntheticsTestArgs.builder()
+     *             .testId("abc-123-xyz")
+     *             .build());
+     * 
+     *         // A browser test over the same journey, kept in lockstep with the API test's
+     *         // cadence, coverage, and alerting behavior.
+     *         var checkoutBrowser = new SyntheticsTest("checkoutBrowser", SyntheticsTestArgs.builder()
+     *             .name("Checkout journey (browser)")
+     *             .type("browser")
+     *             .status(checkoutApi.status())
+     *             .locations(checkoutApi.locations())
+     *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+     *                 .method("GET")
+     *                 .url("https://www.example.com/checkout")
+     *                 .build())
+     *             .deviceIds("laptop_large")
+     *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+     *                 .tickEvery(checkoutApi.optionsLists()[0].tickEvery())
+     *                 .minLocationFailed(checkoutApi.optionsLists()[0].minLocationFailed())
+     *                 .monitorPriority(checkoutApi.optionsLists()[0].monitorPriority())
+     *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+     *                     .count(checkoutApi.optionsLists()[0].retries()[0].count())
+     *                     .interval(checkoutApi.optionsLists()[0].retries()[0].interval())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSyntheticsTestResult> getSyntheticsTestPlain(GetSyntheticsTestPlainArgs args) {
@@ -11092,6 +12935,68 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve a Datadog Synthetic Test.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
+     * import com.pulumi.datadog.SyntheticsTest;
+     * import com.pulumi.datadog.SyntheticsTestArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // The existing API test another team owns.
+     *         final var checkoutApi = DatadogFunctions.getSyntheticsTest(GetSyntheticsTestArgs.builder()
+     *             .testId("abc-123-xyz")
+     *             .build());
+     * 
+     *         // A browser test over the same journey, kept in lockstep with the API test's
+     *         // cadence, coverage, and alerting behavior.
+     *         var checkoutBrowser = new SyntheticsTest("checkoutBrowser", SyntheticsTestArgs.builder()
+     *             .name("Checkout journey (browser)")
+     *             .type("browser")
+     *             .status(checkoutApi.status())
+     *             .locations(checkoutApi.locations())
+     *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+     *                 .method("GET")
+     *                 .url("https://www.example.com/checkout")
+     *                 .build())
+     *             .deviceIds("laptop_large")
+     *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+     *                 .tickEvery(checkoutApi.optionsLists()[0].tickEvery())
+     *                 .minLocationFailed(checkoutApi.optionsLists()[0].minLocationFailed())
+     *                 .monitorPriority(checkoutApi.optionsLists()[0].monitorPriority())
+     *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+     *                     .count(checkoutApi.optionsLists()[0].retries()[0].count())
+     *                     .interval(checkoutApi.optionsLists()[0].retries()[0].interval())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSyntheticsTestResult> getSyntheticsTest(GetSyntheticsTestArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSyntheticsTest:getSyntheticsTest", TypeShape.of(GetSyntheticsTestResult.class), args, Utilities.withVersion(options));
@@ -11099,12 +13004,136 @@ public final class DatadogFunctions {
     /**
      * Use this data source to retrieve a Datadog Synthetic Test.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
+     * import com.pulumi.datadog.SyntheticsTest;
+     * import com.pulumi.datadog.SyntheticsTestArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // The existing API test another team owns.
+     *         final var checkoutApi = DatadogFunctions.getSyntheticsTest(GetSyntheticsTestArgs.builder()
+     *             .testId("abc-123-xyz")
+     *             .build());
+     * 
+     *         // A browser test over the same journey, kept in lockstep with the API test's
+     *         // cadence, coverage, and alerting behavior.
+     *         var checkoutBrowser = new SyntheticsTest("checkoutBrowser", SyntheticsTestArgs.builder()
+     *             .name("Checkout journey (browser)")
+     *             .type("browser")
+     *             .status(checkoutApi.status())
+     *             .locations(checkoutApi.locations())
+     *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+     *                 .method("GET")
+     *                 .url("https://www.example.com/checkout")
+     *                 .build())
+     *             .deviceIds("laptop_large")
+     *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+     *                 .tickEvery(checkoutApi.optionsLists()[0].tickEvery())
+     *                 .minLocationFailed(checkoutApi.optionsLists()[0].minLocationFailed())
+     *                 .monitorPriority(checkoutApi.optionsLists()[0].monitorPriority())
+     *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+     *                     .count(checkoutApi.optionsLists()[0].retries()[0].count())
+     *                     .interval(checkoutApi.optionsLists()[0].retries()[0].interval())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetSyntheticsTestResult> getSyntheticsTest(GetSyntheticsTestArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("datadog:index/getSyntheticsTest:getSyntheticsTest", TypeShape.of(GetSyntheticsTestResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a Datadog Synthetic Test.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetSyntheticsTestArgs;
+     * import com.pulumi.datadog.SyntheticsTest;
+     * import com.pulumi.datadog.SyntheticsTestArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestRequestDefinitionArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListArgs;
+     * import com.pulumi.datadog.inputs.SyntheticsTestOptionsListRetryArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // The existing API test another team owns.
+     *         final var checkoutApi = DatadogFunctions.getSyntheticsTest(GetSyntheticsTestArgs.builder()
+     *             .testId("abc-123-xyz")
+     *             .build());
+     * 
+     *         // A browser test over the same journey, kept in lockstep with the API test's
+     *         // cadence, coverage, and alerting behavior.
+     *         var checkoutBrowser = new SyntheticsTest("checkoutBrowser", SyntheticsTestArgs.builder()
+     *             .name("Checkout journey (browser)")
+     *             .type("browser")
+     *             .status(checkoutApi.status())
+     *             .locations(checkoutApi.locations())
+     *             .requestDefinition(SyntheticsTestRequestDefinitionArgs.builder()
+     *                 .method("GET")
+     *                 .url("https://www.example.com/checkout")
+     *                 .build())
+     *             .deviceIds("laptop_large")
+     *             .optionsList(SyntheticsTestOptionsListArgs.builder()
+     *                 .tickEvery(checkoutApi.optionsLists()[0].tickEvery())
+     *                 .minLocationFailed(checkoutApi.optionsLists()[0].minLocationFailed())
+     *                 .monitorPriority(checkoutApi.optionsLists()[0].monitorPriority())
+     *                 .retry(SyntheticsTestOptionsListRetryArgs.builder()
+     *                     .count(checkoutApi.optionsLists()[0].retries()[0].count())
+     *                     .interval(checkoutApi.optionsLists()[0].retries()[0].interval())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetSyntheticsTestResult> getSyntheticsTestPlain(GetSyntheticsTestPlainArgs args, InvokeOptions options) {

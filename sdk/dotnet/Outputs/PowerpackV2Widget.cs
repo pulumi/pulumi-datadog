@@ -34,6 +34,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetCheckStatusDefinition? CheckStatusDefinition;
         /// <summary>
+        /// The definition for a Cohort retention-grid widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetCohortDefinition? CohortDefinition;
+        /// <summary>
         /// The definition for a Distribution widget.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetDistributionDefinition? DistributionDefinition;
@@ -102,6 +106,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetPointPlotDefinition? PointPlotDefinition;
         /// <summary>
+        /// The definition for a Product Analytics user journey funnel widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetProductAnalyticsFunnelDefinition? ProductAnalyticsFunnelDefinition;
+        /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetQueryTableDefinition? QueryTableDefinition;
@@ -109,6 +117,10 @@ namespace Pulumi.Datadog.Outputs
         /// The definition for a Query Value widget.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetQueryValueDefinition? QueryValueDefinition;
+        /// <summary>
+        /// The definition for a Retention Curve widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetRetentionCurveDefinition? RetentionCurveDefinition;
         /// <summary>
         /// The definition for a Run Workflow widget.
         /// </summary>
@@ -178,6 +190,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetCheckStatusDefinition? checkStatusDefinition,
 
+            Outputs.PowerpackV2WidgetCohortDefinition? cohortDefinition,
+
             Outputs.PowerpackV2WidgetDistributionDefinition? distributionDefinition,
 
             Outputs.PowerpackV2WidgetEventStreamDefinition? eventStreamDefinition,
@@ -212,9 +226,13 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetPointPlotDefinition? pointPlotDefinition,
 
+            Outputs.PowerpackV2WidgetProductAnalyticsFunnelDefinition? productAnalyticsFunnelDefinition,
+
             Outputs.PowerpackV2WidgetQueryTableDefinition? queryTableDefinition,
 
             Outputs.PowerpackV2WidgetQueryValueDefinition? queryValueDefinition,
+
+            Outputs.PowerpackV2WidgetRetentionCurveDefinition? retentionCurveDefinition,
 
             Outputs.PowerpackV2WidgetRunWorkflowDefinition? runWorkflowDefinition,
 
@@ -249,6 +267,7 @@ namespace Pulumi.Datadog.Outputs
             BarChartDefinition = barChartDefinition;
             ChangeDefinition = changeDefinition;
             CheckStatusDefinition = checkStatusDefinition;
+            CohortDefinition = cohortDefinition;
             DistributionDefinition = distributionDefinition;
             EventStreamDefinition = eventStreamDefinition;
             EventTimelineDefinition = eventTimelineDefinition;
@@ -266,8 +285,10 @@ namespace Pulumi.Datadog.Outputs
             ManageStatusDefinition = manageStatusDefinition;
             NoteDefinition = noteDefinition;
             PointPlotDefinition = pointPlotDefinition;
+            ProductAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
             QueryTableDefinition = queryTableDefinition;
             QueryValueDefinition = queryValueDefinition;
+            RetentionCurveDefinition = retentionCurveDefinition;
             RunWorkflowDefinition = runWorkflowDefinition;
             SankeyDefinition = sankeyDefinition;
             ScatterplotDefinition = scatterplotDefinition;

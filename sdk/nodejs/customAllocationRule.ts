@@ -36,6 +36,37 @@ import * as utilities from "./utilities";
  *         method: "even",
  *     }],
  * });
+ * // A "Dynamic by metric" rule, which splits costs by each destination's share of a
+ * // metric rather than by spend. The query is supplied as JSON using Datadog's
+ * // formulas-and-functions request format.
+ * const myTimeseriesAllocationRule = new datadog.CustomAllocationRule("my_timeseries_allocation_rule", {
+ *     costsToAllocates: [{
+ *         condition: "is",
+ *         tag: "azure_product_family",
+ *         value: "dbforpostgresql",
+ *     }],
+ *     enabled: true,
+ *     providernames: ["azure"],
+ *     ruleName: "postgres-by-query-time",
+ *     strategy: [{
+ *         granularity: "daily",
+ *         method: "proportional_timeseries",
+ *         evaluateGroupedByTagKeys: ["env"],
+ *         basedOnTimeseries: [{
+ *             json: JSON.stringify({
+ *                 response_format: "timeseries",
+ *                 queries: [{
+ *                     name: "query1",
+ *                     data_source: "metrics",
+ *                     query: "sum:postgresql.queries.time{*} by {user,env}.as_count()",
+ *                 }],
+ *                 formulas: [{
+ *                     formula: "query1",
+ *                 }],
+ *             }),
+ *         }],
+ *     }],
+ * });
  * ```
  *
  * ## Import

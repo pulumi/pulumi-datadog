@@ -25,6 +25,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationKafkaArgs
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationNewRelicArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpensearchArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpentelemetryArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationRsyslogArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSentinelOneArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSocketArgs;
@@ -375,6 +376,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
+     * The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+     * 
+     */
+    @Import(name="opentelemetry")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationOpentelemetryArgs> opentelemetry;
+
+    /**
+     * @return The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationOpentelemetryArgs>> opentelemetry() {
+        return Optional.ofNullable(this.opentelemetry);
+    }
+
+    /**
      * The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
      * 
      */
@@ -504,6 +520,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         this.microsoftSentinels = $.microsoftSentinels;
         this.newRelics = $.newRelics;
         this.opensearches = $.opensearches;
+        this.opentelemetry = $.opentelemetry;
         this.rsyslogs = $.rsyslogs;
         this.sentinelOnes = $.sentinelOnes;
         this.sockets = $.sockets;
@@ -1161,6 +1178,27 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
          */
         public Builder opensearches(ObservabilityPipelineConfigDestinationOpensearchArgs... opensearches) {
             return opensearches(List.of(opensearches));
+        }
+
+        /**
+         * @param opentelemetry The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder opentelemetry(@Nullable Output<ObservabilityPipelineConfigDestinationOpentelemetryArgs> opentelemetry) {
+            $.opentelemetry = opentelemetry;
+            return this;
+        }
+
+        /**
+         * @param opentelemetry The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder opentelemetry(ObservabilityPipelineConfigDestinationOpentelemetryArgs opentelemetry) {
+            return opentelemetry(Output.of(opentelemetry));
         }
 
         /**

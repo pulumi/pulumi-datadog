@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmMetricsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmResourceStatsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryMetricQuery;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery {
+    /**
+     * @return APM metrics query for histogram-mode distribution.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmMetricsQuery apmMetricsQuery;
     /**
      * @return APM resource stats query for histogram-mode distribution.
      * 
@@ -30,6 +36,13 @@ public final class DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionR
     private @Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryMetricQuery metricQuery;
 
     private DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery() {}
+    /**
+     * @return APM metrics query for histogram-mode distribution.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmMetricsQuery> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
+    }
     /**
      * @return APM resource stats query for histogram-mode distribution.
      * 
@@ -61,17 +74,25 @@ public final class DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionR
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmMetricsQuery apmMetricsQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmResourceStatsQuery apmResourceStatsQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryEventQuery eventQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryMetricQuery metricQuery;
         public Builder() {}
         public Builder(DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.apmMetricsQuery = defaults.apmMetricsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
         }
 
+        @CustomType.Setter
+        public Builder apmMetricsQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmMetricsQuery apmMetricsQuery) {
+
+            this.apmMetricsQuery = apmMetricsQuery;
+            return this;
+        }
         @CustomType.Setter
         public Builder apmResourceStatsQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmResourceStatsQuery apmResourceStatsQuery) {
 
@@ -92,6 +113,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionR
         }
         public DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery build() {
             final var _resultValue = new DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery();
+            _resultValue.apmMetricsQuery = apmMetricsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;

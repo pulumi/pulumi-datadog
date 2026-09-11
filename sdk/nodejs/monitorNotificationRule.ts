@@ -86,6 +86,10 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
     }
 
     /**
+     * Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+     */
+    declare public readonly bundleConfig: pulumi.Output<outputs.MonitorNotificationRuleBundleConfig | undefined>;
+    /**
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      */
     declare public readonly conditionalRecipients: pulumi.Output<outputs.MonitorNotificationRuleConditionalRecipients | undefined>;
@@ -115,6 +119,7 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorNotificationRuleState | undefined;
+            resourceInputs["bundleConfig"] = state?.bundleConfig;
             resourceInputs["conditionalRecipients"] = state?.conditionalRecipients;
             resourceInputs["filter"] = state?.filter;
             resourceInputs["name"] = state?.name;
@@ -127,6 +132,7 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            resourceInputs["bundleConfig"] = args?.bundleConfig;
             resourceInputs["conditionalRecipients"] = args?.conditionalRecipients;
             resourceInputs["filter"] = args?.filter;
             resourceInputs["name"] = args?.name;
@@ -141,6 +147,10 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MonitorNotificationRule resources.
  */
 export interface MonitorNotificationRuleState {
+    /**
+     * Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+     */
+    bundleConfig?: pulumi.Input<inputs.MonitorNotificationRuleBundleConfig | undefined>;
     /**
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      */
@@ -163,6 +173,10 @@ export interface MonitorNotificationRuleState {
  * The set of arguments for constructing a MonitorNotificationRule resource.
  */
 export interface MonitorNotificationRuleArgs {
+    /**
+     * Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+     */
+    bundleConfig?: pulumi.Input<inputs.MonitorNotificationRuleBundleConfig | undefined>;
     /**
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      */

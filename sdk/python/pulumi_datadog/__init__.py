@@ -7,6 +7,7 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .action_connection import *
+from .action_execution_policy import *
 from .agentless_scanning_aws_scan_options import *
 from .agentless_scanning_azure_scan_options import *
 from .agentless_scanning_gcp_scan_options import *
@@ -106,6 +107,14 @@ from .get_service_account import *
 from .get_service_level_objective import *
 from .get_service_level_objectives import *
 from .get_software_catalog import *
+from .get_status_page import *
+from .get_status_page_component import *
+from .get_status_page_components import *
+from .get_status_page_degradation_template import *
+from .get_status_page_degradation_templates import *
+from .get_status_page_maintenance_template import *
+from .get_status_page_maintenance_templates import *
+from .get_status_pages import *
 from .get_synthetics_global_variable import *
 from .get_synthetics_locations import *
 from .get_synthetics_test import *
@@ -119,6 +128,7 @@ from .get_teams import *
 from .get_user import *
 from .get_users import *
 from .get_workflow_automation import *
+from .governance_control import *
 from .incident_notification_rule import *
 from .incident_notification_template import *
 from .incident_postmortem_template import *
@@ -162,9 +172,11 @@ from .reference_table import *
 from .restriction_policy import *
 from .role import *
 from .rum_application import *
+from .rum_exclusion_filter import *
 from .rum_metric import *
 from .rum_retention_filter import *
 from .rum_retention_filters_order import *
+from .rum_retention_quota import *
 from .secure_embed_dashboard import *
 from .security_findings_due_date_rule import *
 from .security_findings_due_date_rules_order import *
@@ -190,6 +202,10 @@ from .service_level_objective import *
 from .slo_correction import *
 from .software_catalog import *
 from .spans_metric import *
+from .status_page import *
+from .status_page_component import *
+from .status_page_degradation_template import *
+from .status_page_maintenance_template import *
 from .synthetics_concurrency_cap import *
 from .synthetics_global_variable import *
 from .synthetics_private_location import *
@@ -200,6 +216,7 @@ from .tag_indexing_rule_exemption import *
 from .tag_indexing_rule_order import *
 from .tag_pipeline_ruleset import *
 from .tag_pipeline_rulesets import *
+from .tag_rule import *
 from .team import *
 from .team_connection import *
 from .team_hierarchy_links import *
@@ -212,6 +229,7 @@ from .user import *
 from .user_role import *
 from .webhook import *
 from .webhook_custom_variable import *
+from .webhook_oauth2_client_credentials import *
 from .workflow_automation import *
 from ._inputs import *
 from . import outputs
@@ -358,6 +376,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/actionConnection:ActionConnection": "ActionConnection"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/actionExecutionPolicy",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/actionExecutionPolicy:ActionExecutionPolicy": "ActionExecutionPolicy"
   }
  },
  {
@@ -662,6 +688,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/gcpUcConfig:GcpUcConfig": "GcpUcConfig"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/governanceControl",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/governanceControl:GovernanceControl": "GovernanceControl"
   }
  },
  {
@@ -1002,6 +1036,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/rumExclusionFilter",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/rumExclusionFilter:RumExclusionFilter": "RumExclusionFilter"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/rumMetric",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -1022,6 +1064,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder": "RumRetentionFiltersOrder"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/rumRetentionQuota",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/rumRetentionQuota:RumRetentionQuota": "RumRetentionQuota"
   }
  },
  {
@@ -1226,6 +1276,38 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/statusPage",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/statusPage:StatusPage": "StatusPage"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/statusPageComponent",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/statusPageComponent:StatusPageComponent": "StatusPageComponent"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/statusPageDegradationTemplate",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/statusPageDegradationTemplate:StatusPageDegradationTemplate": "StatusPageDegradationTemplate"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/statusPageMaintenanceTemplate",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/statusPageMaintenanceTemplate:StatusPageMaintenanceTemplate": "StatusPageMaintenanceTemplate"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/syntheticsConcurrencyCap",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -1302,6 +1384,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/tagPipelineRulesets:TagPipelineRulesets": "TagPipelineRulesets"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/tagRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/tagRule:TagRule": "TagRule"
   }
  },
  {
@@ -1398,6 +1488,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/webhookCustomVariable:WebhookCustomVariable": "WebhookCustomVariable"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/webhookOauth2ClientCredentials",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials": "WebhookOauth2ClientCredentials"
   }
  },
  {

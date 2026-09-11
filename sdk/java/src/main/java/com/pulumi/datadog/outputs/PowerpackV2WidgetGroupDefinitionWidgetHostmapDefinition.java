@@ -63,7 +63,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinition {
      */
     private @Nullable String notes;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+     * @return A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
      * 
      */
     private @Nullable PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequest request;
@@ -163,7 +163,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinition {
         return Optional.ofNullable(this.notes);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+     * @return A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
      * 
      */
     public Optional<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionRequest> request() {
