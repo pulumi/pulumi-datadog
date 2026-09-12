@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetAlertVal
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetChangeDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetCohortDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinition;
@@ -24,8 +25,10 @@ import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetLogStrea
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetRetentionCurveDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinition;
@@ -72,6 +75,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      * 
      */
     private @Nullable PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition checkStatusDefinition;
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetCohortDefinition cohortDefinition;
     /**
      * @return The definition for a Distribution widget.
      * 
@@ -153,6 +161,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      */
     private @Nullable PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition;
     /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition;
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -162,6 +175,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      * 
      */
     private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetRetentionCurveDefinition retentionCurveDefinition;
     /**
      * @return The definition for a Run Workflow widget.
      * 
@@ -268,6 +286,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      */
     public Optional<PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition> checkStatusDefinition() {
         return Optional.ofNullable(this.checkStatusDefinition);
+    }
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetCohortDefinition> cohortDefinition() {
+        return Optional.ofNullable(this.cohortDefinition);
     }
     /**
      * @return The definition for a Distribution widget.
@@ -382,6 +407,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
         return Optional.ofNullable(this.pointPlotDefinition);
     }
     /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinition> productAnalyticsFunnelDefinition() {
+        return Optional.ofNullable(this.productAnalyticsFunnelDefinition);
+    }
+    /**
      * @return The definition for a Query Table widget.
      * 
      */
@@ -394,6 +426,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      */
     public Optional<PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition> queryValueDefinition() {
         return Optional.ofNullable(this.queryValueDefinition);
+    }
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetRetentionCurveDefinition> retentionCurveDefinition() {
+        return Optional.ofNullable(this.retentionCurveDefinition);
     }
     /**
      * @return The definition for a Run Workflow widget.
@@ -508,6 +547,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinition barChartDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetChangeDefinition changeDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition checkStatusDefinition;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetCohortDefinition cohortDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition distributionDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinition eventStreamDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinition eventTimelineDefinition;
@@ -524,8 +564,10 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition manageStatusDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetRetentionCurveDefinition retentionCurveDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinition sankeyDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinition scatterplotDefinition;
@@ -548,6 +590,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
     	      this.barChartDefinition = defaults.barChartDefinition;
     	      this.changeDefinition = defaults.changeDefinition;
     	      this.checkStatusDefinition = defaults.checkStatusDefinition;
+    	      this.cohortDefinition = defaults.cohortDefinition;
     	      this.distributionDefinition = defaults.distributionDefinition;
     	      this.eventStreamDefinition = defaults.eventStreamDefinition;
     	      this.eventTimelineDefinition = defaults.eventTimelineDefinition;
@@ -564,8 +607,10 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
     	      this.manageStatusDefinition = defaults.manageStatusDefinition;
     	      this.noteDefinition = defaults.noteDefinition;
     	      this.pointPlotDefinition = defaults.pointPlotDefinition;
+    	      this.productAnalyticsFunnelDefinition = defaults.productAnalyticsFunnelDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
+    	      this.retentionCurveDefinition = defaults.retentionCurveDefinition;
     	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
     	      this.sankeyDefinition = defaults.sankeyDefinition;
     	      this.scatterplotDefinition = defaults.scatterplotDefinition;
@@ -610,6 +655,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
         public Builder checkStatusDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition checkStatusDefinition) {
 
             this.checkStatusDefinition = checkStatusDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cohortDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetCohortDefinition cohortDefinition) {
+
+            this.cohortDefinition = cohortDefinition;
             return this;
         }
         @CustomType.Setter
@@ -709,6 +760,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder productAnalyticsFunnelDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition) {
+
+            this.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder queryTableDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition) {
 
             this.queryTableDefinition = queryTableDefinition;
@@ -718,6 +775,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
         public Builder queryValueDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition) {
 
             this.queryValueDefinition = queryValueDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder retentionCurveDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetRetentionCurveDefinition retentionCurveDefinition) {
+
+            this.retentionCurveDefinition = retentionCurveDefinition;
             return this;
         }
         @CustomType.Setter
@@ -811,6 +874,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
             _resultValue.barChartDefinition = barChartDefinition;
             _resultValue.changeDefinition = changeDefinition;
             _resultValue.checkStatusDefinition = checkStatusDefinition;
+            _resultValue.cohortDefinition = cohortDefinition;
             _resultValue.distributionDefinition = distributionDefinition;
             _resultValue.eventStreamDefinition = eventStreamDefinition;
             _resultValue.eventTimelineDefinition = eventTimelineDefinition;
@@ -827,8 +891,10 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
             _resultValue.manageStatusDefinition = manageStatusDefinition;
             _resultValue.noteDefinition = noteDefinition;
             _resultValue.pointPlotDefinition = pointPlotDefinition;
+            _resultValue.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;
+            _resultValue.retentionCurveDefinition = retentionCurveDefinition;
             _resultValue.runWorkflowDefinition = runWorkflowDefinition;
             _resultValue.sankeyDefinition = sankeyDefinition;
             _resultValue.scatterplotDefinition = scatterplotDefinition;

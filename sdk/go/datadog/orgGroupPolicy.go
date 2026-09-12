@@ -55,6 +55,28 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON1, err := json.Marshal(map[string][]string{
+//				"permissions": []string{
+//					"<permission-uuid>",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			// Provisions a shared role with the given permissions into every member org.
+//			// role policies only support GROUP_MANAGED/DELEGATE; DELEGATE disables the
+//			// shared role and cannot be reversed.
+//			_, err = datadog.NewOrgGroupPolicy(ctx, "role_example", &datadog.OrgGroupPolicyArgs{
+//				OrgGroupId:      prod.ID().ToIDOutput().ToStringOutput(),
+//				PolicyName:      pulumi.String("finance_read_only"),
+//				PolicyType:      pulumi.String("role"),
+//				Content:         pulumi.String(json1),
+//				EnforcementTier: pulumi.String("GROUP_MANAGED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -76,6 +98,14 @@ import (
 //
 // Changing `enforcementTier` to `"GROUP_MANAGED"` automatically deletes every override associated with this policy server-side. Any `OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform's next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
 //
+// ### `role` policies
+//
+// `role` policies only support `GROUP_MANAGED` and `DELEGATE` for `enforcementTier`; `OVERRIDE_ALLOWED` is rejected. Setting `enforcementTier` to `"DELEGATE"` disables the shared role and cannot be reversed — the API rejects transitioning a `DELEGATE` `role` policy back to `GROUP_MANAGED`.
+//
+// `policyName` can be changed in place for `role` policies without replacing the resource. Renaming an `orgConfig` policy is not supported by the API and forces a replace.
+//
+// `role` policies cannot be deleted. `terraform destroy` (or removing the resource from configuration) only succeeds once the policy is already disabled (`enforcementTier = "DELEGATE"`); otherwise it fails with an error asking you to disable it first. On success the resource is removed from state, but the disabled policy itself is not deleted server-side.
+//
 // ## Import
 //
 // ```sh
@@ -92,7 +122,7 @@ type OrgGroupPolicy struct {
 	OrgGroupId pulumi.StringOutput `pulumi:"orgGroupId"`
 	// The name of the policy. String length must be at least 1.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
-	// The type of the policy. Valid values are `orgConfig`.
+	// The type of the policy. Valid values are `orgConfig`, `role`.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
 }
 
@@ -143,7 +173,7 @@ type orgGroupPolicyState struct {
 	OrgGroupId *string `pulumi:"orgGroupId"`
 	// The name of the policy. String length must be at least 1.
 	PolicyName *string `pulumi:"policyName"`
-	// The type of the policy. Valid values are `orgConfig`.
+	// The type of the policy. Valid values are `orgConfig`, `role`.
 	PolicyType *string `pulumi:"policyType"`
 }
 
@@ -156,7 +186,7 @@ type OrgGroupPolicyState struct {
 	OrgGroupId pulumi.StringPtrInput
 	// The name of the policy. String length must be at least 1.
 	PolicyName pulumi.StringPtrInput
-	// The type of the policy. Valid values are `orgConfig`.
+	// The type of the policy. Valid values are `orgConfig`, `role`.
 	PolicyType pulumi.StringPtrInput
 }
 
@@ -173,7 +203,7 @@ type orgGroupPolicyArgs struct {
 	OrgGroupId string `pulumi:"orgGroupId"`
 	// The name of the policy. String length must be at least 1.
 	PolicyName string `pulumi:"policyName"`
-	// The type of the policy. Valid values are `orgConfig`.
+	// The type of the policy. Valid values are `orgConfig`, `role`.
 	PolicyType *string `pulumi:"policyType"`
 }
 
@@ -187,7 +217,7 @@ type OrgGroupPolicyArgs struct {
 	OrgGroupId pulumi.StringInput
 	// The name of the policy. String length must be at least 1.
 	PolicyName pulumi.StringInput
-	// The type of the policy. Valid values are `orgConfig`.
+	// The type of the policy. Valid values are `orgConfig`, `role`.
 	PolicyType pulumi.StringPtrInput
 }
 
@@ -298,7 +328,7 @@ func (o OrgGroupPolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrgGroupPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }
 
-// The type of the policy. Valid values are `orgConfig`.
+// The type of the policy. Valid values are `orgConfig`, `role`.
 func (o OrgGroupPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrgGroupPolicy) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
 }

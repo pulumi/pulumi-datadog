@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryApmMetricsQuery? ApmMetricsQuery;
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
@@ -38,13 +42,27 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryProcessQuery? ProcessQuery;
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryProductAnalyticsExtendedQuery? ProductAnalyticsExtendedQuery;
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryRetentionQuery? RetentionQuery;
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQuerySloQuery? SloQuery;
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryUserJourneyQuery? UserJourneyQuery;
 
         [OutputConstructor]
         private PowerpackV2WidgetQueryValueDefinitionRequestQuery(
             Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
+
+            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryApmMetricsQuery? apmMetricsQuery,
 
             Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery? apmResourceStatsQuery,
 
@@ -56,15 +74,25 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryProcessQuery? processQuery,
 
-            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQuerySloQuery? sloQuery)
+            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryProductAnalyticsExtendedQuery? productAnalyticsExtendedQuery,
+
+            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryRetentionQuery? retentionQuery,
+
+            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQuerySloQuery? sloQuery,
+
+            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQueryUserJourneyQuery? userJourneyQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
+            ApmMetricsQuery = apmMetricsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             CloudCostQuery = cloudCostQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            ProductAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            RetentionQuery = retentionQuery;
             SloQuery = sloQuery;
+            UserJourneyQuery = userJourneyQuery;
         }
     }
 }

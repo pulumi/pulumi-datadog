@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestHistogramRequest;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestQuery;
@@ -34,6 +35,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionReques
      * 
      */
     private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula> formulas;
+    /**
+     * @return Histogram request for distribution of point values.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestHistogramRequest histogramRequest;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -108,6 +114,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionReques
      */
     public List<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
+    }
+    /**
+     * @return Histogram request for distribution of point values.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestHistogramRequest> histogramRequest() {
+        return Optional.ofNullable(this.histogramRequest);
     }
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -190,6 +203,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionReques
     public static final class Builder {
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestApmQuery apmQuery;
         private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula> formulas;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestHistogramRequest histogramRequest;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery logQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
@@ -202,6 +216,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionReques
     	      Objects.requireNonNull(defaults);
     	      this.apmQuery = defaults.apmQuery;
     	      this.formulas = defaults.formulas;
+    	      this.histogramRequest = defaults.histogramRequest;
     	      this.logQuery = defaults.logQuery;
     	      this.processQuery = defaults.processQuery;
     	      this.q = defaults.q;
@@ -225,6 +240,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionReques
         }
         public Builder formulas(PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestFormula... formulas) {
             return formulas(List.of(formulas));
+        }
+        @CustomType.Setter
+        public Builder histogramRequest(@Nullable PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestHistogramRequest histogramRequest) {
+
+            this.histogramRequest = histogramRequest;
+            return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequestLogQuery logQuery) {
@@ -275,6 +296,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionReques
             final var _resultValue = new PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequest();
             _resultValue.apmQuery = apmQuery;
             _resultValue.formulas = formulas;
+            _resultValue.histogramRequest = histogramRequest;
             _resultValue.logQuery = logQuery;
             _resultValue.processQuery = processQuery;
             _resultValue.q = q;

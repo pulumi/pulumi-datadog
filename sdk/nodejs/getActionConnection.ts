@@ -262,6 +262,10 @@ export interface GetActionConnectionResult {
      */
     readonly statsig?: outputs.GetActionConnectionStatsig;
     /**
+     * Tags associated with the connection.
+     */
+    readonly tags: string[];
+    /**
      * Configuration for a VirusTotal connection
      */
     readonly virusTotal?: outputs.GetActionConnectionVirusTotal;

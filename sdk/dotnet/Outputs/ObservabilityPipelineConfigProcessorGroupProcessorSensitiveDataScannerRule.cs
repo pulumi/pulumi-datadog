@@ -24,15 +24,15 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The action to take when a sensitive value is found.
         /// </summary>
-        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatch? OnMatch;
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatch OnMatch;
         /// <summary>
         /// Pattern detection configuration for identifying sensitive data using either a custom regex or a library reference.
         /// </summary>
-        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePattern? Pattern;
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePattern Pattern;
         /// <summary>
         /// Field-level targeting options that determine where the scanner should operate.
         /// </summary>
-        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScope? Scope;
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScope Scope;
         /// <summary>
         /// Tags assigned to this rule for filtering and classification.
         /// </summary>
@@ -44,11 +44,11 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
-            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatch? onMatch,
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatch onMatch,
 
-            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePattern? pattern,
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePattern pattern,
 
-            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScope? scope,
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScope scope,
 
             ImmutableArray<string> tags)
         {

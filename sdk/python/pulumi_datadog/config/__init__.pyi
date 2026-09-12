@@ -62,7 +62,7 @@ Specifies the cloud provider used for cloud-provider-based authentication, enabl
 
 defaultTags: Optional[str]
 """
-[Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+[Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 """
 
 httpClientRetryBackoffBase: Optional[int]
@@ -78,6 +78,11 @@ The HTTP request retry back off multiplier. Defaults to 2.
 httpClientRetryEnabled: Optional[str]
 """
 Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+"""
+
+httpClientRetryJitter: Optional[int]
+"""
+The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
 """
 
 httpClientRetryMaxRetries: Optional[int]

@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardV2WidgetGroupDefinitionWidgetTopologyMapDefinitionRequestQuery
     {
         /// <summary>
-        /// The data source for the Topology request ('service*map' or 'data*streams').
+        /// The data source for the Topology request. Valid values are `ServiceMap`, `DataStreams`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
@@ -22,7 +22,11 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Filters;
         /// <summary>
-        /// Name of the service.
+        /// A search string for filtering services. When set, this replaces the `Service` field.
+        /// </summary>
+        public readonly string? QueryString;
+        /// <summary>
+        /// Name of the service. Leave this empty and use `QueryString` instead.
         /// </summary>
         public readonly string Service;
 
@@ -32,10 +36,13 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> filters,
 
+            string? queryString,
+
             string service)
         {
             DataSource = dataSource;
             Filters = filters;
+            QueryString = queryString;
             Service = service;
         }
     }

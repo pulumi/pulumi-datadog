@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQuery
     {
         /// <summary>
+        /// Product Analytics and RUM audience filters.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters? AudienceFilters;
+        /// <summary>
         /// The data source for the Sankey RUM query. Valid values are `Rum`, `ProductAnalytics`.
         /// </summary>
         public readonly string DataSource;
@@ -22,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly int? EntriesPerStep;
         /// <summary>
+        /// Join keys for the Sankey query.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryJoinKeys? JoinKeys;
+        /// <summary>
         /// The mode for the Sankey RUM query. Valid values are `Source`, `Target`.
         /// </summary>
         public readonly string Mode;
@@ -29,6 +37,10 @@ namespace Pulumi.Datadog.Outputs
         /// Number of steps.
         /// </summary>
         public readonly int? NumberOfSteps;
+        /// <summary>
+        /// Filter applied to occurrence counts when building a Product Analytics audience.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryOccurrence? Occurrence;
         /// <summary>
         /// The search query string.
         /// </summary>
@@ -48,13 +60,19 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQuery(
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters? audienceFilters,
+
             string dataSource,
 
             int? entriesPerStep,
 
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryJoinKeys? joinKeys,
+
             string mode,
 
             int? numberOfSteps,
+
+            Outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionRequestRumRequestQueryOccurrence? occurrence,
 
             string queryString,
 
@@ -64,10 +82,13 @@ namespace Pulumi.Datadog.Outputs
 
             string? target)
         {
+            AudienceFilters = audienceFilters;
             DataSource = dataSource;
             EntriesPerStep = entriesPerStep;
+            JoinKeys = joinKeys;
             Mode = mode;
             NumberOfSteps = numberOfSteps;
+            Occurrence = occurrence;
             QueryString = queryString;
             Source = source;
             SubqueryId = subqueryId;

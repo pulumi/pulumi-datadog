@@ -5,12 +5,16 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmResourceStatsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQueryCloudCostQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQueryRetentionQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQuerySloQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +26,11 @@ public final class DashboardV2WidgetHostmapDefinitionRequestSizeQuery {
      * 
      */
     private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery apmMetricsQuery;
     /**
      * @return The APM Resource Stats query using formulas and functions.
      * 
@@ -48,10 +57,25 @@ public final class DashboardV2WidgetHostmapDefinitionRequestSizeQuery {
      */
     private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery processQuery;
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryRetentionQuery retentionQuery;
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQuerySloQuery sloQuery;
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery userJourneyQuery;
 
     private DashboardV2WidgetHostmapDefinitionRequestSizeQuery() {}
     /**
@@ -60,6 +84,13 @@ public final class DashboardV2WidgetHostmapDefinitionRequestSizeQuery {
      */
     public Optional<DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
     /**
      * @return The APM Resource Stats query using formulas and functions.
@@ -97,11 +128,32 @@ public final class DashboardV2WidgetHostmapDefinitionRequestSizeQuery {
         return Optional.ofNullable(this.processQuery);
     }
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetHostmapDefinitionRequestSizeQueryRetentionQuery> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardV2WidgetHostmapDefinitionRequestSizeQuerySloQuery> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
+    }
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
     }
 
     public static Builder builder() {
@@ -114,28 +166,42 @@ public final class DashboardV2WidgetHostmapDefinitionRequestSizeQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+        private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery apmMetricsQuery;
         private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmResourceStatsQuery apmResourceStatsQuery;
         private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryCloudCostQuery cloudCostQuery;
         private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuery eventQuery;
         private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryMetricQuery metricQuery;
         private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery processQuery;
+        private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+        private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryRetentionQuery retentionQuery;
         private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQuerySloQuery sloQuery;
+        private @Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery userJourneyQuery;
         public Builder() {}
         public Builder(DashboardV2WidgetHostmapDefinitionRequestSizeQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apmDependencyStatsQuery = defaults.apmDependencyStatsQuery;
+    	      this.apmMetricsQuery = defaults.apmMetricsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
     	      this.cloudCostQuery = defaults.cloudCostQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.productAnalyticsExtendedQuery = defaults.productAnalyticsExtendedQuery;
+    	      this.retentionQuery = defaults.retentionQuery;
     	      this.sloQuery = defaults.sloQuery;
+    	      this.userJourneyQuery = defaults.userJourneyQuery;
         }
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
 
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder apmMetricsQuery(@Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery apmMetricsQuery) {
+
+            this.apmMetricsQuery = apmMetricsQuery;
             return this;
         }
         @CustomType.Setter
@@ -169,20 +235,42 @@ public final class DashboardV2WidgetHostmapDefinitionRequestSizeQuery {
             return this;
         }
         @CustomType.Setter
+        public Builder productAnalyticsExtendedQuery(@Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery) {
+
+            this.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder retentionQuery(@Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryRetentionQuery retentionQuery) {
+
+            this.retentionQuery = retentionQuery;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sloQuery(@Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQuerySloQuery sloQuery) {
 
             this.sloQuery = sloQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder userJourneyQuery(@Nullable DashboardV2WidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery userJourneyQuery) {
+
+            this.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
         public DashboardV2WidgetHostmapDefinitionRequestSizeQuery build() {
             final var _resultValue = new DashboardV2WidgetHostmapDefinitionRequestSizeQuery();
             _resultValue.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            _resultValue.apmMetricsQuery = apmMetricsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
             _resultValue.cloudCostQuery = cloudCostQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;
             _resultValue.processQuery = processQuery;
+            _resultValue.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            _resultValue.retentionQuery = retentionQuery;
             _resultValue.sloQuery = sloQuery;
+            _resultValue.userJourneyQuery = userJourneyQuery;
             return _resultValue;
         }
     }

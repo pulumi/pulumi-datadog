@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryApmDependencyStatsQueryArgs>? ApmDependencyStatsQuery { get; set; }
 
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryApmMetricsQueryArgs>? ApmMetricsQuery { get; set; }
+
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         [Input("apmResourceStatsQuery")]
@@ -49,10 +55,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryProcessQueryArgs>? ProcessQuery { get; set; }
 
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        [Input("productAnalyticsExtendedQuery")]
+        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryProductAnalyticsExtendedQueryArgs>? ProductAnalyticsExtendedQuery { get; set; }
+
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        [Input("retentionQuery")]
+        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQueryArgs>? RetentionQuery { get; set; }
+
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         [Input("sloQuery")]
         public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs>? SloQuery { get; set; }
+
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        [Input("userJourneyQuery")]
+        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs>? UserJourneyQuery { get; set; }
 
         public PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryArgs()
         {

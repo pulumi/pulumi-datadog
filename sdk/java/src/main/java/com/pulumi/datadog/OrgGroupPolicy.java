@@ -60,6 +60,20 @@ import javax.annotation.Nullable;
  *             .enforcementTier("OVERRIDE_ALLOWED")
  *             .build());
  * 
+ *         // Provisions a shared role with the given permissions into every member org.
+ *         // role policies only support GROUP_MANAGED/DELEGATE; DELEGATE disables the
+ *         // shared role and cannot be reversed.
+ *         var roleExample = new OrgGroupPolicy("roleExample", OrgGroupPolicyArgs.builder()
+ *             .orgGroupId(prod.id())
+ *             .policyName("finance_read_only")
+ *             .policyType("role")
+ *             .content(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("permissions", jsonArray("<permission-uuid>"))
+ *                 )))
+ *             .enforcementTier("GROUP_MANAGED")
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -79,6 +93,14 @@ import javax.annotation.Nullable;
  * ### Transitioning to GROUP_MANAGED
  * 
  * Changing `enforcementTier` to `&#34;GROUP_MANAGED&#34;` automatically deletes every override associated with this policy server-side. Any `datadog.OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform&#39;s next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
+ * 
+ * ### `role` policies
+ * 
+ * `role` policies only support `GROUP_MANAGED` and `DELEGATE` for `enforcementTier`; `OVERRIDE_ALLOWED` is rejected. Setting `enforcementTier` to `&#34;DELEGATE&#34;` disables the shared role and cannot be reversed — the API rejects transitioning a `DELEGATE` `role` policy back to `GROUP_MANAGED`.
+ * 
+ * `policyName` can be changed in place for `role` policies without replacing the resource. Renaming an `orgConfig` policy is not supported by the API and forces a replace.
+ * 
+ * `role` policies cannot be deleted. `terraform destroy` (or removing the resource from configuration) only succeeds once the policy is already disabled (`enforcementTier = &#34;DELEGATE&#34;`); otherwise it fails with an error asking you to disable it first. On success the resource is removed from state, but the disabled policy itself is not deleted server-side.
  * 
  * ## Import
  * 
@@ -146,14 +168,14 @@ public class OrgGroupPolicy extends com.pulumi.resources.CustomResource {
         return this.policyName;
     }
     /**
-     * The type of the policy. Valid values are `orgConfig`.
+     * The type of the policy. Valid values are `orgConfig`, `role`.
      * 
      */
     @Export(name="policyType", refs={String.class}, tree="[0]")
     private Output<String> policyType;
 
     /**
-     * @return The type of the policy. Valid values are `orgConfig`.
+     * @return The type of the policy. Valid values are `orgConfig`, `role`.
      * 
      */
     public Output<String> policyType() {

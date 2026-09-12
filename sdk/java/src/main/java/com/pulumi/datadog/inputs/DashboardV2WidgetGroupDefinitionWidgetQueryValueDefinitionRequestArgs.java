@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestApmQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestComparisonArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestFormulaArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestLogQueryArgs;
@@ -84,6 +85,21 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
     @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryArgs>> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
+    }
+
+    /**
+     * A change indicator that compares the current value to a historical period.
+     * 
+     */
+    @Import(name="comparison")
+    private @Nullable Output<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestComparisonArgs> comparison;
+
+    /**
+     * @return A change indicator that compares the current value to a historical period.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestComparisonArgs>> comparison() {
+        return Optional.ofNullable(this.comparison);
     }
 
     /**
@@ -252,6 +268,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
         this.aggregator = $.aggregator;
         this.apmQuery = $.apmQuery;
         this.auditQuery = $.auditQuery;
+        this.comparison = $.comparison;
         this.conditionalFormats = $.conditionalFormats;
         this.formulas = $.formulas;
         this.logQuery = $.logQuery;
@@ -357,6 +374,27 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
         @Deprecated /* Use queries and formulas instead. */
         public Builder auditQuery(DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestAuditQueryArgs auditQuery) {
             return auditQuery(Output.of(auditQuery));
+        }
+
+        /**
+         * @param comparison A change indicator that compares the current value to a historical period.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder comparison(@Nullable Output<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestComparisonArgs> comparison) {
+            $.comparison = comparison;
+            return this;
+        }
+
+        /**
+         * @param comparison A change indicator that compares the current value to a historical period.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder comparison(DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestComparisonArgs comparison) {
+            return comparison(Output.of(comparison));
         }
 
         /**

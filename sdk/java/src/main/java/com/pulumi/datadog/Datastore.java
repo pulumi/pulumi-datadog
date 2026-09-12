@@ -202,18 +202,18 @@ public class Datastore extends com.pulumi.resources.CustomResource {
         return this.primaryColumnName;
     }
     /**
-     * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+     * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `&#34;none&#34;`.
      * 
      */
     @Export(name="primaryKeyGenerationStrategy", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> primaryKeyGenerationStrategy;
+    private Output<String> primaryKeyGenerationStrategy;
 
     /**
-     * @return Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+     * @return Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `&#34;none&#34;`.
      * 
      */
-    public Output<Optional<String>> primaryKeyGenerationStrategy() {
-        return Codegen.optional(this.primaryKeyGenerationStrategy);
+    public Output<String> primaryKeyGenerationStrategy() {
+        return this.primaryKeyGenerationStrategy;
     }
 
     /**

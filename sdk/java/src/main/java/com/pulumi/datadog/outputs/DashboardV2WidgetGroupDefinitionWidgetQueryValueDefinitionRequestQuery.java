@@ -5,12 +5,16 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmMetricsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryCloudCostQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProductAnalyticsExtendedQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryRetentionQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryUserJourneyQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +26,11 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
      * 
      */
     private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmMetricsQuery apmMetricsQuery;
     /**
      * @return The APM Resource Stats query using formulas and functions.
      * 
@@ -48,10 +57,25 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
      */
     private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery processQuery;
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryRetentionQuery retentionQuery;
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery sloQuery;
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryUserJourneyQuery userJourneyQuery;
 
     private DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery() {}
     /**
@@ -60,6 +84,13 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
      */
     public Optional<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmMetricsQuery> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
     /**
      * @return The APM Resource Stats query using formulas and functions.
@@ -97,11 +128,32 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
         return Optional.ofNullable(this.processQuery);
     }
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProductAnalyticsExtendedQuery> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryRetentionQuery> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
+    }
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryUserJourneyQuery> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
     }
 
     public static Builder builder() {
@@ -114,28 +166,42 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmMetricsQuery apmMetricsQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryCloudCostQuery cloudCostQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryEventQuery eventQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryMetricQuery metricQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProcessQuery processQuery;
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryRetentionQuery retentionQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery sloQuery;
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryUserJourneyQuery userJourneyQuery;
         public Builder() {}
         public Builder(DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apmDependencyStatsQuery = defaults.apmDependencyStatsQuery;
+    	      this.apmMetricsQuery = defaults.apmMetricsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
     	      this.cloudCostQuery = defaults.cloudCostQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.productAnalyticsExtendedQuery = defaults.productAnalyticsExtendedQuery;
+    	      this.retentionQuery = defaults.retentionQuery;
     	      this.sloQuery = defaults.sloQuery;
+    	      this.userJourneyQuery = defaults.userJourneyQuery;
         }
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
 
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder apmMetricsQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryApmMetricsQuery apmMetricsQuery) {
+
+            this.apmMetricsQuery = apmMetricsQuery;
             return this;
         }
         @CustomType.Setter
@@ -169,20 +235,42 @@ public final class DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionReq
             return this;
         }
         @CustomType.Setter
+        public Builder productAnalyticsExtendedQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery) {
+
+            this.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder retentionQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryRetentionQuery retentionQuery) {
+
+            this.retentionQuery = retentionQuery;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sloQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuerySloQuery sloQuery) {
 
             this.sloQuery = sloQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder userJourneyQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQueryUserJourneyQuery userJourneyQuery) {
+
+            this.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
         public DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery build() {
             final var _resultValue = new DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionRequestQuery();
             _resultValue.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            _resultValue.apmMetricsQuery = apmMetricsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
             _resultValue.cloudCostQuery = cloudCostQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;
             _resultValue.processQuery = processQuery;
+            _resultValue.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            _resultValue.retentionQuery = retentionQuery;
             _resultValue.sloQuery = sloQuery;
+            _resultValue.userJourneyQuery = userJourneyQuery;
             return _resultValue;
         }
     }

@@ -103,9 +103,9 @@ export class Datastore extends pulumi.CustomResource {
      */
     declare public readonly primaryColumnName: pulumi.Output<string>;
     /**
-     * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+     * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
      */
-    declare public readonly primaryKeyGenerationStrategy: pulumi.Output<string | undefined>;
+    declare public readonly primaryKeyGenerationStrategy: pulumi.Output<string>;
 
     /**
      * Create a Datastore resource with the given unique name, arguments, and options.
@@ -195,7 +195,7 @@ export interface DatastoreState {
      */
     primaryColumnName?: pulumi.Input<string | undefined>;
     /**
-     * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+     * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
      */
     primaryKeyGenerationStrategy?: pulumi.Input<string | undefined>;
 }
@@ -221,7 +221,7 @@ export interface DatastoreArgs {
      */
     primaryColumnName: pulumi.Input<string>;
     /**
-     * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+     * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
      */
     primaryKeyGenerationStrategy?: pulumi.Input<string | undefined>;
 }

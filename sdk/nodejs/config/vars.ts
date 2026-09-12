@@ -109,7 +109,7 @@ Object.defineProperty(exports, "cloudProviderType", {
 });
 
 /**
- * [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+ * [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
  */
 export declare const defaultTags: outputs.config.DefaultTags | undefined;
 Object.defineProperty(exports, "defaultTags", {
@@ -148,6 +148,17 @@ export declare const httpClientRetryEnabled: string | undefined;
 Object.defineProperty(exports, "httpClientRetryEnabled", {
     get() {
         return __config.get("httpClientRetryEnabled");
+    },
+    enumerable: true,
+});
+
+/**
+ * The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+ */
+export declare const httpClientRetryJitter: number | undefined;
+Object.defineProperty(exports, "httpClientRetryJitter", {
+    get() {
+        return __config.getObject<number>("httpClientRetryJitter");
     },
     enumerable: true,
 });

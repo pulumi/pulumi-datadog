@@ -5,12 +5,16 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmMetricsQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryCloudCostQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProductAnalyticsExtendedQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryRetentionQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryUserJourneyQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +26,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionReques
      * 
      */
     private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmMetricsQuery apmMetricsQuery;
     /**
      * @return The APM Resource Stats query using formulas and functions.
      * 
@@ -48,10 +57,25 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionReques
      */
     private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery processQuery;
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryRetentionQuery retentionQuery;
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery sloQuery;
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryUserJourneyQuery userJourneyQuery;
 
     private PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQuery() {}
     /**
@@ -60,6 +84,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionReques
      */
     public Optional<PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmMetricsQuery> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
     /**
      * @return The APM Resource Stats query using formulas and functions.
@@ -97,11 +128,32 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionReques
         return Optional.ofNullable(this.processQuery);
     }
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProductAnalyticsExtendedQuery> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryRetentionQuery> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
+    }
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryUserJourneyQuery> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
     }
 
     public static Builder builder() {
@@ -114,28 +166,42 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionReques
     @CustomType.Builder
     public static final class Builder {
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmMetricsQuery apmMetricsQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmResourceStatsQuery apmResourceStatsQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryCloudCostQuery cloudCostQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryEventQuery eventQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryMetricQuery metricQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProcessQuery processQuery;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryRetentionQuery retentionQuery;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery sloQuery;
+        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryUserJourneyQuery userJourneyQuery;
         public Builder() {}
         public Builder(PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apmDependencyStatsQuery = defaults.apmDependencyStatsQuery;
+    	      this.apmMetricsQuery = defaults.apmMetricsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
     	      this.cloudCostQuery = defaults.cloudCostQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.productAnalyticsExtendedQuery = defaults.productAnalyticsExtendedQuery;
+    	      this.retentionQuery = defaults.retentionQuery;
     	      this.sloQuery = defaults.sloQuery;
+    	      this.userJourneyQuery = defaults.userJourneyQuery;
         }
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
 
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder apmMetricsQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryApmMetricsQuery apmMetricsQuery) {
+
+            this.apmMetricsQuery = apmMetricsQuery;
             return this;
         }
         @CustomType.Setter
@@ -169,20 +235,42 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionReques
             return this;
         }
         @CustomType.Setter
+        public Builder productAnalyticsExtendedQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery) {
+
+            this.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder retentionQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryRetentionQuery retentionQuery) {
+
+            this.retentionQuery = retentionQuery;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sloQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQuerySloQuery sloQuery) {
 
             this.sloQuery = sloQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder userJourneyQuery(@Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQueryUserJourneyQuery userJourneyQuery) {
+
+            this.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
         public PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQuery build() {
             final var _resultValue = new PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionRequestQuery();
             _resultValue.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            _resultValue.apmMetricsQuery = apmMetricsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
             _resultValue.cloudCostQuery = cloudCostQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;
             _resultValue.processQuery = processQuery;
+            _resultValue.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            _resultValue.retentionQuery = retentionQuery;
             _resultValue.sloQuery = sloQuery;
+            _resultValue.userJourneyQuery = userJourneyQuery;
             return _resultValue;
         }
     }

@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryGetArgs>? ApmDependencyStatsQuery { get; set; }
 
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestQueryApmMetricsQueryGetArgs>? ApmMetricsQuery { get; set; }
+
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         [Input("apmResourceStatsQuery")]
@@ -49,10 +55,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestQueryProcessQueryGetArgs>? ProcessQuery { get; set; }
 
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        [Input("productAnalyticsExtendedQuery")]
+        public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestQueryProductAnalyticsExtendedQueryGetArgs>? ProductAnalyticsExtendedQuery { get; set; }
+
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        [Input("retentionQuery")]
+        public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestQueryRetentionQueryGetArgs>? RetentionQuery { get; set; }
+
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         [Input("sloQuery")]
         public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestQuerySloQueryGetArgs>? SloQuery { get; set; }
+
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        [Input("userJourneyQuery")]
+        public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestQueryUserJourneyQueryGetArgs>? UserJourneyQuery { get; set; }
 
         public PowerpackV2WidgetQueryTableDefinitionRequestQueryGetArgs()
         {

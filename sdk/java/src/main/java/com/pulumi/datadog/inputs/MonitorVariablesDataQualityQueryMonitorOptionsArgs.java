@@ -5,6 +5,9 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.MonitorVariablesDataQualityQueryMonitorOptionsModelConfigurationArgs;
+import com.pulumi.datadog.inputs.MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfigArgs;
+import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -77,6 +80,21 @@ public final class MonitorVariablesDataQualityQueryMonitorOptionsArgs extends co
     }
 
     /**
+     * Tuning options for the anomaly detection model used by the monitor.
+     * 
+     */
+    @Import(name="modelConfiguration")
+    private @Nullable Output<MonitorVariablesDataQualityQueryMonitorOptionsModelConfigurationArgs> modelConfiguration;
+
+    /**
+     * @return Tuning options for the anomaly detection model used by the monitor.
+     * 
+     */
+    public Optional<Output<MonitorVariablesDataQualityQueryMonitorOptionsModelConfigurationArgs>> modelConfiguration() {
+        return Optional.ofNullable(this.modelConfiguration);
+    }
+
+    /**
      * Override for the model type. Valid values are `freshness`, `percentage`, `any`.
      * 
      */
@@ -91,6 +109,36 @@ public final class MonitorVariablesDataQualityQueryMonitorOptionsArgs extends co
         return Optional.ofNullable(this.modelTypeOverride);
     }
 
+    /**
+     * Sensitivity of the anomaly detection model, expressed as a multiplier on the width of the predicted bounds. Higher values widen the bounds and produce fewer alerts; lower values tighten them and produce more alerts. Defaults to `3.0`.
+     * 
+     */
+    @Import(name="sensitivity")
+    private @Nullable Output<Double> sensitivity;
+
+    /**
+     * @return Sensitivity of the anomaly detection model, expressed as a multiplier on the width of the predicted bounds. Higher values widen the bounds and produce fewer alerts; lower values tighten them and produce more alerts. Defaults to `3.0`.
+     * 
+     */
+    public Optional<Output<Double>> sensitivity() {
+        return Optional.ofNullable(this.sensitivity);
+    }
+
+    /**
+     * Compare the same measure across two data entities and alert on the difference between them.
+     * 
+     */
+    @Import(name="sourceToTargetConfig")
+    private @Nullable Output<MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfigArgs> sourceToTargetConfig;
+
+    /**
+     * @return Compare the same measure across two data entities and alert on the difference between them.
+     * 
+     */
+    public Optional<Output<MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfigArgs>> sourceToTargetConfig() {
+        return Optional.ofNullable(this.sourceToTargetConfig);
+    }
+
     private MonitorVariablesDataQualityQueryMonitorOptionsArgs() {}
 
     private MonitorVariablesDataQualityQueryMonitorOptionsArgs(MonitorVariablesDataQualityQueryMonitorOptionsArgs $) {
@@ -98,7 +146,10 @@ public final class MonitorVariablesDataQualityQueryMonitorOptionsArgs extends co
         this.customSql = $.customSql;
         this.customWhere = $.customWhere;
         this.groupByColumns = $.groupByColumns;
+        this.modelConfiguration = $.modelConfiguration;
         this.modelTypeOverride = $.modelTypeOverride;
+        this.sensitivity = $.sensitivity;
+        this.sourceToTargetConfig = $.sourceToTargetConfig;
     }
 
     public static Builder builder() {
@@ -214,6 +265,27 @@ public final class MonitorVariablesDataQualityQueryMonitorOptionsArgs extends co
         }
 
         /**
+         * @param modelConfiguration Tuning options for the anomaly detection model used by the monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelConfiguration(@Nullable Output<MonitorVariablesDataQualityQueryMonitorOptionsModelConfigurationArgs> modelConfiguration) {
+            $.modelConfiguration = modelConfiguration;
+            return this;
+        }
+
+        /**
+         * @param modelConfiguration Tuning options for the anomaly detection model used by the monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelConfiguration(MonitorVariablesDataQualityQueryMonitorOptionsModelConfigurationArgs modelConfiguration) {
+            return modelConfiguration(Output.of(modelConfiguration));
+        }
+
+        /**
          * @param modelTypeOverride Override for the model type. Valid values are `freshness`, `percentage`, `any`.
          * 
          * @return builder
@@ -232,6 +304,48 @@ public final class MonitorVariablesDataQualityQueryMonitorOptionsArgs extends co
          */
         public Builder modelTypeOverride(String modelTypeOverride) {
             return modelTypeOverride(Output.of(modelTypeOverride));
+        }
+
+        /**
+         * @param sensitivity Sensitivity of the anomaly detection model, expressed as a multiplier on the width of the predicted bounds. Higher values widen the bounds and produce fewer alerts; lower values tighten them and produce more alerts. Defaults to `3.0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sensitivity(@Nullable Output<Double> sensitivity) {
+            $.sensitivity = sensitivity;
+            return this;
+        }
+
+        /**
+         * @param sensitivity Sensitivity of the anomaly detection model, expressed as a multiplier on the width of the predicted bounds. Higher values widen the bounds and produce fewer alerts; lower values tighten them and produce more alerts. Defaults to `3.0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sensitivity(Double sensitivity) {
+            return sensitivity(Output.of(sensitivity));
+        }
+
+        /**
+         * @param sourceToTargetConfig Compare the same measure across two data entities and alert on the difference between them.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceToTargetConfig(@Nullable Output<MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfigArgs> sourceToTargetConfig) {
+            $.sourceToTargetConfig = sourceToTargetConfig;
+            return this;
+        }
+
+        /**
+         * @param sourceToTargetConfig Compare the same measure across two data entities and alert on the difference between them.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceToTargetConfig(MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfigArgs sourceToTargetConfig) {
+            return sourceToTargetConfig(Output.of(sourceToTargetConfig));
         }
 
         public MonitorVariablesDataQualityQueryMonitorOptionsArgs build() {

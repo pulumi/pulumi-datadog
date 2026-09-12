@@ -4,7 +4,10 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetSyntheticsTestMobileOptionsList;
+import com.pulumi.datadog.outputs.GetSyntheticsTestOptionsList;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -12,15 +15,55 @@ import java.util.Objects;
 @CustomType
 public final class GetSyntheticsTestResult {
     /**
+     * @return Array with the different device IDs used to run the test. Only set for browser tests.
+     * 
+     */
+    private List<String> deviceIds;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
+     * @return Array of locations used to run the synthetic test.
+     * 
+     */
+    private List<String> locations;
+    /**
+     * @return A message to include with notifications for this synthetic test.
+     * 
+     */
+    private String message;
+    /**
+     * @return The mobile synthetic test extra options.
+     * 
+     */
+    private List<GetSyntheticsTestMobileOptionsList> mobileOptionsLists;
+    /**
+     * @return ID of the monitor associated with the synthetic test.
+     * 
+     */
+    private Integer monitorId;
+    /**
      * @return The name of the synthetic test.
      * 
      */
     private String name;
+    /**
+     * @return The synthetic test extra options.
+     * 
+     */
+    private List<GetSyntheticsTestOptionsList> optionsLists;
+    /**
+     * @return Whether the synthetic test is started (`live`) or paused (`paused`).
+     * 
+     */
+    private String status;
+    /**
+     * @return The subtype of the synthetic test. Only set for API tests.
+     * 
+     */
+    private String subtype;
     /**
      * @return A list of tags assigned to the synthetic test.
      * 
@@ -32,12 +75,24 @@ public final class GetSyntheticsTestResult {
      */
     private String testId;
     /**
+     * @return The type of the synthetic test.
+     * 
+     */
+    private String type;
+    /**
      * @return The start URL of the synthetic test.
      * 
      */
     private String url;
 
     private GetSyntheticsTestResult() {}
+    /**
+     * @return Array with the different device IDs used to run the test. Only set for browser tests.
+     * 
+     */
+    public List<String> deviceIds() {
+        return this.deviceIds;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -46,11 +101,60 @@ public final class GetSyntheticsTestResult {
         return this.id;
     }
     /**
+     * @return Array of locations used to run the synthetic test.
+     * 
+     */
+    public List<String> locations() {
+        return this.locations;
+    }
+    /**
+     * @return A message to include with notifications for this synthetic test.
+     * 
+     */
+    public String message() {
+        return this.message;
+    }
+    /**
+     * @return The mobile synthetic test extra options.
+     * 
+     */
+    public List<GetSyntheticsTestMobileOptionsList> mobileOptionsLists() {
+        return this.mobileOptionsLists;
+    }
+    /**
+     * @return ID of the monitor associated with the synthetic test.
+     * 
+     */
+    public Integer monitorId() {
+        return this.monitorId;
+    }
+    /**
      * @return The name of the synthetic test.
      * 
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The synthetic test extra options.
+     * 
+     */
+    public List<GetSyntheticsTestOptionsList> optionsLists() {
+        return this.optionsLists;
+    }
+    /**
+     * @return Whether the synthetic test is started (`live`) or paused (`paused`).
+     * 
+     */
+    public String status() {
+        return this.status;
+    }
+    /**
+     * @return The subtype of the synthetic test. Only set for API tests.
+     * 
+     */
+    public String subtype() {
+        return this.subtype;
     }
     /**
      * @return A list of tags assigned to the synthetic test.
@@ -65,6 +169,13 @@ public final class GetSyntheticsTestResult {
      */
     public String testId() {
         return this.testId;
+    }
+    /**
+     * @return The type of the synthetic test.
+     * 
+     */
+    public String type() {
+        return this.type;
     }
     /**
      * @return The start URL of the synthetic test.
@@ -83,21 +194,50 @@ public final class GetSyntheticsTestResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> deviceIds;
         private String id;
+        private List<String> locations;
+        private String message;
+        private List<GetSyntheticsTestMobileOptionsList> mobileOptionsLists;
+        private Integer monitorId;
         private String name;
+        private List<GetSyntheticsTestOptionsList> optionsLists;
+        private String status;
+        private String subtype;
         private List<String> tags;
         private String testId;
+        private String type;
         private String url;
         public Builder() {}
         public Builder(GetSyntheticsTestResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.deviceIds = defaults.deviceIds;
     	      this.id = defaults.id;
+    	      this.locations = defaults.locations;
+    	      this.message = defaults.message;
+    	      this.mobileOptionsLists = defaults.mobileOptionsLists;
+    	      this.monitorId = defaults.monitorId;
     	      this.name = defaults.name;
+    	      this.optionsLists = defaults.optionsLists;
+    	      this.status = defaults.status;
+    	      this.subtype = defaults.subtype;
     	      this.tags = defaults.tags;
     	      this.testId = defaults.testId;
+    	      this.type = defaults.type;
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
+        public Builder deviceIds(List<String> deviceIds) {
+            if (deviceIds == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "deviceIds");
+            }
+            this.deviceIds = deviceIds;
+            return this;
+        }
+        public Builder deviceIds(String... deviceIds) {
+            return deviceIds(List.of(deviceIds));
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -107,11 +247,76 @@ public final class GetSyntheticsTestResult {
             return this;
         }
         @CustomType.Setter
+        public Builder locations(List<String> locations) {
+            if (locations == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "locations");
+            }
+            this.locations = locations;
+            return this;
+        }
+        public Builder locations(String... locations) {
+            return locations(List.of(locations));
+        }
+        @CustomType.Setter
+        public Builder message(String message) {
+            if (message == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "message");
+            }
+            this.message = message;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mobileOptionsLists(List<GetSyntheticsTestMobileOptionsList> mobileOptionsLists) {
+            if (mobileOptionsLists == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "mobileOptionsLists");
+            }
+            this.mobileOptionsLists = mobileOptionsLists;
+            return this;
+        }
+        public Builder mobileOptionsLists(GetSyntheticsTestMobileOptionsList... mobileOptionsLists) {
+            return mobileOptionsLists(List.of(mobileOptionsLists));
+        }
+        @CustomType.Setter
+        public Builder monitorId(Integer monitorId) {
+            if (monitorId == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "monitorId");
+            }
+            this.monitorId = monitorId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder optionsLists(List<GetSyntheticsTestOptionsList> optionsLists) {
+            if (optionsLists == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "optionsLists");
+            }
+            this.optionsLists = optionsLists;
+            return this;
+        }
+        public Builder optionsLists(GetSyntheticsTestOptionsList... optionsLists) {
+            return optionsLists(List.of(optionsLists));
+        }
+        @CustomType.Setter
+        public Builder status(String status) {
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "status");
+            }
+            this.status = status;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder subtype(String subtype) {
+            if (subtype == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "subtype");
+            }
+            this.subtype = subtype;
             return this;
         }
         @CustomType.Setter
@@ -134,6 +339,14 @@ public final class GetSyntheticsTestResult {
             return this;
         }
         @CustomType.Setter
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "type");
+            }
+            this.type = type;
+            return this;
+        }
+        @CustomType.Setter
         public Builder url(String url) {
             if (url == null) {
               throw new MissingRequiredPropertyException("GetSyntheticsTestResult", "url");
@@ -143,10 +356,19 @@ public final class GetSyntheticsTestResult {
         }
         public GetSyntheticsTestResult build() {
             final var _resultValue = new GetSyntheticsTestResult();
+            _resultValue.deviceIds = deviceIds;
             _resultValue.id = id;
+            _resultValue.locations = locations;
+            _resultValue.message = message;
+            _resultValue.mobileOptionsLists = mobileOptionsLists;
+            _resultValue.monitorId = monitorId;
             _resultValue.name = name;
+            _resultValue.optionsLists = optionsLists;
+            _resultValue.status = status;
+            _resultValue.subtype = subtype;
             _resultValue.tags = tags;
             _resultValue.testId = testId;
+            _resultValue.type = type;
             _resultValue.url = url;
             return _resultValue;
         }

@@ -83,8 +83,8 @@ type Datastore struct {
 	OrgId pulumi.IntOutput `pulumi:"orgId"`
 	// The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
 	PrimaryColumnName pulumi.StringOutput `pulumi:"primaryColumnName"`
-	// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
-	PrimaryKeyGenerationStrategy pulumi.StringPtrOutput `pulumi:"primaryKeyGenerationStrategy"`
+	// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
+	PrimaryKeyGenerationStrategy pulumi.StringOutput `pulumi:"primaryKeyGenerationStrategy"`
 }
 
 // NewDatastore registers a new resource with the given unique name, arguments, and options.
@@ -141,7 +141,7 @@ type datastoreState struct {
 	OrgId *int `pulumi:"orgId"`
 	// The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
 	PrimaryColumnName *string `pulumi:"primaryColumnName"`
-	// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+	// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
 	PrimaryKeyGenerationStrategy *string `pulumi:"primaryKeyGenerationStrategy"`
 }
 
@@ -164,7 +164,7 @@ type DatastoreState struct {
 	OrgId pulumi.IntPtrInput
 	// The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
 	PrimaryColumnName pulumi.StringPtrInput
-	// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+	// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
 	PrimaryKeyGenerationStrategy pulumi.StringPtrInput
 }
 
@@ -181,7 +181,7 @@ type datastoreArgs struct {
 	OrgAccess *string `pulumi:"orgAccess"`
 	// The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
 	PrimaryColumnName string `pulumi:"primaryColumnName"`
-	// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+	// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
 	PrimaryKeyGenerationStrategy *string `pulumi:"primaryKeyGenerationStrategy"`
 }
 
@@ -195,7 +195,7 @@ type DatastoreArgs struct {
 	OrgAccess pulumi.StringPtrInput
 	// The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
 	PrimaryColumnName pulumi.StringInput
-	// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+	// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
 	PrimaryKeyGenerationStrategy pulumi.StringPtrInput
 }
 
@@ -331,9 +331,9 @@ func (o DatastoreOutput) PrimaryColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.PrimaryColumnName }).(pulumi.StringOutput)
 }
 
-// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
-func (o DatastoreOutput) PrimaryKeyGenerationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Datastore) pulumi.StringPtrOutput { return v.PrimaryKeyGenerationStrategy }).(pulumi.StringPtrOutput)
+// Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
+func (o DatastoreOutput) PrimaryKeyGenerationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.PrimaryKeyGenerationStrategy }).(pulumi.StringOutput)
 }
 
 type DatastoreArrayOutput struct{ *pulumi.OutputState }

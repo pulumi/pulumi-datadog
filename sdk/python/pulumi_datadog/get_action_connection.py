@@ -28,7 +28,7 @@ class GetActionConnectionResult:
     """
     A collection of values returned by getActionConnection.
     """
-    def __init__(__self__, anthropic=None, asana=None, aws=None, azure=None, circle_ci=None, clickup=None, cloudflare=None, config_cat=None, datadog=None, fastly=None, freshservice=None, gcp=None, gemini=None, gitlab=None, grey_noise=None, http=None, id=None, launch_darkly=None, name=None, notion=None, okta=None, openai=None, service_now=None, split=None, statsig=None, virus_total=None):
+    def __init__(__self__, anthropic=None, asana=None, aws=None, azure=None, circle_ci=None, clickup=None, cloudflare=None, config_cat=None, datadog=None, fastly=None, freshservice=None, gcp=None, gemini=None, gitlab=None, grey_noise=None, http=None, id=None, launch_darkly=None, name=None, notion=None, okta=None, openai=None, service_now=None, split=None, statsig=None, tags=None, virus_total=None):
         if anthropic and not isinstance(anthropic, dict):
             raise TypeError("Expected argument 'anthropic' to be a dict")
         pulumi.set(__self__, "anthropic", anthropic)
@@ -104,6 +104,9 @@ class GetActionConnectionResult:
         if statsig and not isinstance(statsig, dict):
             raise TypeError("Expected argument 'statsig' to be a dict")
         pulumi.set(__self__, "statsig", statsig)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if virus_total and not isinstance(virus_total, dict):
             raise TypeError("Expected argument 'virus_total' to be a dict")
         pulumi.set(__self__, "virus_total", virus_total)
@@ -309,6 +312,14 @@ class GetActionConnectionResult:
         return pulumi.get(self, "statsig")
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Sequence[_builtins.str]:
+        """
+        Tags associated with the connection.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
     @pulumi.getter(name="virusTotal")
     def virus_total(self) -> Optional['outputs.GetActionConnectionVirusTotalResult']:
         """
@@ -348,6 +359,7 @@ class AwaitableGetActionConnectionResult(GetActionConnectionResult):
             service_now=self.service_now,
             split=self.split,
             statsig=self.statsig,
+            tags=self.tags,
             virus_total=self.virus_total)
 
 
@@ -471,6 +483,7 @@ def get_action_connection(anthropic: Optional[Union['GetActionConnectionAnthropi
         service_now=pulumi.get(__ret__, 'service_now'),
         split=pulumi.get(__ret__, 'split'),
         statsig=pulumi.get(__ret__, 'statsig'),
+        tags=pulumi.get(__ret__, 'tags'),
         virus_total=pulumi.get(__ret__, 'virus_total'))
 def get_action_connection_output(anthropic: pulumi.Input[Optional[Optional[Union['GetActionConnectionAnthropicArgs', 'GetActionConnectionAnthropicArgsDict']]]] = None,
                                  asana: pulumi.Input[Optional[Optional[Union['GetActionConnectionAsanaArgs', 'GetActionConnectionAsanaArgsDict']]]] = None,
@@ -591,4 +604,5 @@ def get_action_connection_output(anthropic: pulumi.Input[Optional[Optional[Union
         service_now=pulumi.get(__response__, 'service_now'),
         split=pulumi.get(__response__, 'split'),
         statsig=pulumi.get(__response__, 'statsig'),
+        tags=pulumi.get(__response__, 'tags'),
         virus_total=pulumi.get(__response__, 'virus_total')))

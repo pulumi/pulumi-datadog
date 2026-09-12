@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetAlertValu
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetBarChartDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetChangeDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetCheckStatusDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetCohortDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetEventStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetEventTimelineDefinitionArgs;
@@ -25,8 +26,10 @@ import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetLogStream
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetManageStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetNoteDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryTableDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetRetentionCurveDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetSankeyDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetScatterplotDefinitionArgs;
@@ -124,6 +127,21 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      */
     public Optional<Output<DashboardV2WidgetGroupDefinitionWidgetCheckStatusDefinitionArgs>> checkStatusDefinition() {
         return Optional.ofNullable(this.checkStatusDefinition);
+    }
+
+    /**
+     * The definition for a Cohort retention-grid widget.
+     * 
+     */
+    @Import(name="cohortDefinition")
+    private @Nullable Output<DashboardV2WidgetGroupDefinitionWidgetCohortDefinitionArgs> cohortDefinition;
+
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetGroupDefinitionWidgetCohortDefinitionArgs>> cohortDefinition() {
+        return Optional.ofNullable(this.cohortDefinition);
     }
 
     /**
@@ -367,6 +385,21 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
     }
 
     /**
+     * The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    @Import(name="productAnalyticsFunnelDefinition")
+    private @Nullable Output<DashboardV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinitionArgs> productAnalyticsFunnelDefinition;
+
+    /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinitionArgs>> productAnalyticsFunnelDefinition() {
+        return Optional.ofNullable(this.productAnalyticsFunnelDefinition);
+    }
+
+    /**
      * The definition for a Query Table widget.
      * 
      */
@@ -394,6 +427,21 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      */
     public Optional<Output<DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionArgs>> queryValueDefinition() {
         return Optional.ofNullable(this.queryValueDefinition);
+    }
+
+    /**
+     * The definition for a Retention Curve widget.
+     * 
+     */
+    @Import(name="retentionCurveDefinition")
+    private @Nullable Output<DashboardV2WidgetGroupDefinitionWidgetRetentionCurveDefinitionArgs> retentionCurveDefinition;
+
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetGroupDefinitionWidgetRetentionCurveDefinitionArgs>> retentionCurveDefinition() {
+        return Optional.ofNullable(this.retentionCurveDefinition);
     }
 
     /**
@@ -614,6 +662,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
         this.barChartDefinition = $.barChartDefinition;
         this.changeDefinition = $.changeDefinition;
         this.checkStatusDefinition = $.checkStatusDefinition;
+        this.cohortDefinition = $.cohortDefinition;
         this.distributionDefinition = $.distributionDefinition;
         this.eventStreamDefinition = $.eventStreamDefinition;
         this.eventTimelineDefinition = $.eventTimelineDefinition;
@@ -630,8 +679,10 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
         this.manageStatusDefinition = $.manageStatusDefinition;
         this.noteDefinition = $.noteDefinition;
         this.pointPlotDefinition = $.pointPlotDefinition;
+        this.productAnalyticsFunnelDefinition = $.productAnalyticsFunnelDefinition;
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
+        this.retentionCurveDefinition = $.retentionCurveDefinition;
         this.runWorkflowDefinition = $.runWorkflowDefinition;
         this.sankeyDefinition = $.sankeyDefinition;
         this.scatterplotDefinition = $.scatterplotDefinition;
@@ -769,6 +820,27 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          */
         public Builder checkStatusDefinition(DashboardV2WidgetGroupDefinitionWidgetCheckStatusDefinitionArgs checkStatusDefinition) {
             return checkStatusDefinition(Output.of(checkStatusDefinition));
+        }
+
+        /**
+         * @param cohortDefinition The definition for a Cohort retention-grid widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cohortDefinition(@Nullable Output<DashboardV2WidgetGroupDefinitionWidgetCohortDefinitionArgs> cohortDefinition) {
+            $.cohortDefinition = cohortDefinition;
+            return this;
+        }
+
+        /**
+         * @param cohortDefinition The definition for a Cohort retention-grid widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cohortDefinition(DashboardV2WidgetGroupDefinitionWidgetCohortDefinitionArgs cohortDefinition) {
+            return cohortDefinition(Output.of(cohortDefinition));
         }
 
         /**
@@ -1108,6 +1180,27 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
         }
 
         /**
+         * @param productAnalyticsFunnelDefinition The definition for a Product Analytics user journey funnel widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsFunnelDefinition(@Nullable Output<DashboardV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinitionArgs> productAnalyticsFunnelDefinition) {
+            $.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
+            return this;
+        }
+
+        /**
+         * @param productAnalyticsFunnelDefinition The definition for a Product Analytics user journey funnel widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsFunnelDefinition(DashboardV2WidgetGroupDefinitionWidgetProductAnalyticsFunnelDefinitionArgs productAnalyticsFunnelDefinition) {
+            return productAnalyticsFunnelDefinition(Output.of(productAnalyticsFunnelDefinition));
+        }
+
+        /**
          * @param queryTableDefinition The definition for a Query Table widget.
          * 
          * @return builder
@@ -1147,6 +1240,27 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          */
         public Builder queryValueDefinition(DashboardV2WidgetGroupDefinitionWidgetQueryValueDefinitionArgs queryValueDefinition) {
             return queryValueDefinition(Output.of(queryValueDefinition));
+        }
+
+        /**
+         * @param retentionCurveDefinition The definition for a Retention Curve widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionCurveDefinition(@Nullable Output<DashboardV2WidgetGroupDefinitionWidgetRetentionCurveDefinitionArgs> retentionCurveDefinition) {
+            $.retentionCurveDefinition = retentionCurveDefinition;
+            return this;
+        }
+
+        /**
+         * @param retentionCurveDefinition The definition for a Retention Curve widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionCurveDefinition(DashboardV2WidgetGroupDefinitionWidgetRetentionCurveDefinitionArgs retentionCurveDefinition) {
+            return retentionCurveDefinition(Output.of(retentionCurveDefinition));
         }
 
         /**

@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestAuditQuery? AuditQuery;
         /// <summary>
+        /// A change indicator that compares the current value to a historical period.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestComparison? Comparison;
+        /// <summary>
         /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `ConditionalFormats` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackV2WidgetQueryValueDefinitionRequestConditionalFormat> ConditionalFormats;
@@ -66,6 +70,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetQueryValueDefinitionRequestAuditQuery? auditQuery,
 
+            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestComparison? comparison,
+
             ImmutableArray<Outputs.PowerpackV2WidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats,
 
             ImmutableArray<Outputs.PowerpackV2WidgetQueryValueDefinitionRequestFormula> formulas,
@@ -85,6 +91,7 @@ namespace Pulumi.Datadog.Outputs
             Aggregator = aggregator;
             ApmQuery = apmQuery;
             AuditQuery = auditQuery;
+            Comparison = comparison;
             ConditionalFormats = conditionalFormats;
             Formulas = formulas;
             LogQuery = logQuery;

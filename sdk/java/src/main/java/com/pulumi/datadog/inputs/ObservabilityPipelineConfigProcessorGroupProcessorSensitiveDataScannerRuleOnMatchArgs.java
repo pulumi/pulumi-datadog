@@ -48,14 +48,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     }
 
     /**
-     * Redacts the matched value.
+     * Redacts the matched value. Exactly one of `redact`, `hash`, or `partialRedact` must be specified.
      * 
      */
     @Import(name="redact")
     private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchRedactArgs> redact;
 
     /**
-     * @return Redacts the matched value.
+     * @return Redacts the matched value. Exactly one of `redact`, `hash`, or `partialRedact` must be specified.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchRedactArgs>> redact() {
@@ -131,7 +131,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         }
 
         /**
-         * @param redact Redacts the matched value.
+         * @param redact Redacts the matched value. Exactly one of `redact`, `hash`, or `partialRedact` must be specified.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         }
 
         /**
-         * @param redact Redacts the matched value.
+         * @param redact Redacts the matched value. Exactly one of `redact`, `hash`, or `partialRedact` must be specified.
          * 
          * @return builder
          * 

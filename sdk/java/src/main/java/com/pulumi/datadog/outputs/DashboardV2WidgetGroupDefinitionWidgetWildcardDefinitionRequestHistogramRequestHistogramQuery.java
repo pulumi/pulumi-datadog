@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQuery;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQuery {
+    /**
+     * @return APM metrics query for histogram-mode distribution.
+     * 
+     */
+    private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQuery apmMetricsQuery;
     /**
      * @return APM resource stats query for histogram-mode distribution.
      * 
@@ -30,6 +36,13 @@ public final class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
     private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQuery metricQuery;
 
     private DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQuery() {}
+    /**
+     * @return APM metrics query for histogram-mode distribution.
+     * 
+     */
+    public Optional<DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQuery> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
+    }
     /**
      * @return APM resource stats query for histogram-mode distribution.
      * 
@@ -61,17 +74,25 @@ public final class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQuery apmMetricsQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQuery apmResourceStatsQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQuery eventQuery;
         private @Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQuery metricQuery;
         public Builder() {}
         public Builder(DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.apmMetricsQuery = defaults.apmMetricsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
         }
 
+        @CustomType.Setter
+        public Builder apmMetricsQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmMetricsQuery apmMetricsQuery) {
+
+            this.apmMetricsQuery = apmMetricsQuery;
+            return this;
+        }
         @CustomType.Setter
         public Builder apmResourceStatsQuery(@Nullable DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQuery apmResourceStatsQuery) {
 
@@ -92,6 +113,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionReque
         }
         public DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQuery build() {
             final var _resultValue = new DashboardV2WidgetGroupDefinitionWidgetWildcardDefinitionRequestHistogramRequestHistogramQuery();
+            _resultValue.apmMetricsQuery = apmMetricsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;

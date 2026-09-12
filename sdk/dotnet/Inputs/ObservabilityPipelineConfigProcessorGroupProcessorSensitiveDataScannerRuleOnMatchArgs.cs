@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchPartialRedactArgs>? PartialRedact { get; set; }
 
         /// <summary>
-        /// Redacts the matched value.
+        /// Redacts the matched value. Exactly one of `Redact`, `Hash`, or `PartialRedact` must be specified.
         /// </summary>
         [Input("redact")]
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchRedactArgs>? Redact { get; set; }

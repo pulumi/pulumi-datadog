@@ -43,10 +43,28 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// Tuning options for the anomaly detection model used by the monitor.
+        /// </summary>
+        [Input("modelConfiguration")]
+        public Input<Inputs.MonitorVariablesDataQualityQueryMonitorOptionsModelConfigurationGetArgs>? ModelConfiguration { get; set; }
+
+        /// <summary>
         /// Override for the model type. Valid values are `Freshness`, `Percentage`, `Any`.
         /// </summary>
         [Input("modelTypeOverride")]
         public Input<string>? ModelTypeOverride { get; set; }
+
+        /// <summary>
+        /// Sensitivity of the anomaly detection model, expressed as a multiplier on the width of the predicted bounds. Higher values widen the bounds and produce fewer alerts; lower values tighten them and produce more alerts. Defaults to `3.0`.
+        /// </summary>
+        [Input("sensitivity")]
+        public Input<double>? Sensitivity { get; set; }
+
+        /// <summary>
+        /// Compare the same measure across two data entities and alert on the difference between them.
+        /// </summary>
+        [Input("sourceToTargetConfig")]
+        public Input<Inputs.MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfigGetArgs>? SourceToTargetConfig { get; set; }
 
         public MonitorVariablesDataQualityQueryMonitorOptionsGetArgs()
         {

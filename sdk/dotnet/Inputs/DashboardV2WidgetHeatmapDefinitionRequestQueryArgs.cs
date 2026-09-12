@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryApmDependencyStatsQueryArgs>? ApmDependencyStatsQuery { get; set; }
 
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryApmMetricsQueryArgs>? ApmMetricsQuery { get; set; }
+
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         [Input("apmResourceStatsQuery")]
@@ -49,10 +55,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryProcessQueryArgs>? ProcessQuery { get; set; }
 
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        [Input("productAnalyticsExtendedQuery")]
+        public Input<Inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryProductAnalyticsExtendedQueryArgs>? ProductAnalyticsExtendedQuery { get; set; }
+
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        [Input("retentionQuery")]
+        public Input<Inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryRetentionQueryArgs>? RetentionQuery { get; set; }
+
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         [Input("sloQuery")]
         public Input<Inputs.DashboardV2WidgetHeatmapDefinitionRequestQuerySloQueryArgs>? SloQuery { get; set; }
+
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        [Input("userJourneyQuery")]
+        public Input<Inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryUserJourneyQueryArgs>? UserJourneyQuery { get; set; }
 
         public DashboardV2WidgetHeatmapDefinitionRequestQueryArgs()
         {

@@ -45,6 +45,7 @@ class ActionConnectionArgs:
                  service_now: pulumi.Input[Optional['ActionConnectionServiceNowArgs']] = None,
                  split: pulumi.Input[Optional['ActionConnectionSplitArgs']] = None,
                  statsig: pulumi.Input[Optional['ActionConnectionStatsigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  virus_total: pulumi.Input[Optional['ActionConnectionVirusTotalArgs']] = None):
         """
         The set of arguments for constructing a ActionConnection resource.
@@ -73,6 +74,7 @@ class ActionConnectionArgs:
         :param pulumi.Input['ActionConnectionServiceNowArgs'] service_now: Configuration for a ServiceNow connection
         :param pulumi.Input['ActionConnectionSplitArgs'] split: Configuration for a Split connection
         :param pulumi.Input['ActionConnectionStatsigArgs'] statsig: Configuration for a Statsig connection
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effective_tags`, which includes provider-level `default_tags`.
         :param pulumi.Input['ActionConnectionVirusTotalArgs'] virus_total: Configuration for a VirusTotal connection
         """
         pulumi.set(__self__, "name", name)
@@ -122,6 +124,8 @@ class ActionConnectionArgs:
             pulumi.set(__self__, "split", split)
         if statsig is not None:
             pulumi.set(__self__, "statsig", statsig)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if virus_total is not None:
             pulumi.set(__self__, "virus_total", virus_total)
 
@@ -414,6 +418,18 @@ class ActionConnectionArgs:
         pulumi.set(self, "statsig", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effective_tags`, which includes provider-level `default_tags`.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="virusTotal")
     def virus_total(self) -> pulumi.Input[Optional['ActionConnectionVirusTotalArgs']]:
         """
@@ -438,6 +454,7 @@ class _ActionConnectionState:
                  cloudflare: pulumi.Input[Optional['ActionConnectionCloudflareArgs']] = None,
                  config_cat: pulumi.Input[Optional['ActionConnectionConfigCatArgs']] = None,
                  datadog: pulumi.Input[Optional['ActionConnectionDatadogArgs']] = None,
+                 effective_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  fastly: pulumi.Input[Optional['ActionConnectionFastlyArgs']] = None,
                  freshservice: pulumi.Input[Optional['ActionConnectionFreshserviceArgs']] = None,
                  gcp: pulumi.Input[Optional['ActionConnectionGcpArgs']] = None,
@@ -453,6 +470,7 @@ class _ActionConnectionState:
                  service_now: pulumi.Input[Optional['ActionConnectionServiceNowArgs']] = None,
                  split: pulumi.Input[Optional['ActionConnectionSplitArgs']] = None,
                  statsig: pulumi.Input[Optional['ActionConnectionStatsigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  virus_total: pulumi.Input[Optional['ActionConnectionVirusTotalArgs']] = None):
         """
         Input properties used for looking up and filtering ActionConnection resources.
@@ -466,6 +484,7 @@ class _ActionConnectionState:
         :param pulumi.Input['ActionConnectionCloudflareArgs'] cloudflare: Configuration for a Cloudflare connection
         :param pulumi.Input['ActionConnectionConfigCatArgs'] config_cat: Configuration for a ConfigCat connection
         :param pulumi.Input['ActionConnectionDatadogArgs'] datadog: Configuration for a Datadog connection
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] effective_tags: Tags associated with the connection, including those inherited from the provider's `default_tags` configuration.
         :param pulumi.Input['ActionConnectionFastlyArgs'] fastly: Configuration for a Fastly connection
         :param pulumi.Input['ActionConnectionFreshserviceArgs'] freshservice: Configuration for a Freshservice connection
         :param pulumi.Input['ActionConnectionGcpArgs'] gcp: Configuration for a Google Cloud connection
@@ -481,6 +500,7 @@ class _ActionConnectionState:
         :param pulumi.Input['ActionConnectionServiceNowArgs'] service_now: Configuration for a ServiceNow connection
         :param pulumi.Input['ActionConnectionSplitArgs'] split: Configuration for a Split connection
         :param pulumi.Input['ActionConnectionStatsigArgs'] statsig: Configuration for a Statsig connection
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effective_tags`, which includes provider-level `default_tags`.
         :param pulumi.Input['ActionConnectionVirusTotalArgs'] virus_total: Configuration for a VirusTotal connection
         """
         if anthropic is not None:
@@ -501,6 +521,8 @@ class _ActionConnectionState:
             pulumi.set(__self__, "config_cat", config_cat)
         if datadog is not None:
             pulumi.set(__self__, "datadog", datadog)
+        if effective_tags is not None:
+            pulumi.set(__self__, "effective_tags", effective_tags)
         if fastly is not None:
             pulumi.set(__self__, "fastly", fastly)
         if freshservice is not None:
@@ -531,6 +553,8 @@ class _ActionConnectionState:
             pulumi.set(__self__, "split", split)
         if statsig is not None:
             pulumi.set(__self__, "statsig", statsig)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if virus_total is not None:
             pulumi.set(__self__, "virus_total", virus_total)
 
@@ -641,6 +665,18 @@ class _ActionConnectionState:
     @datadog.setter
     def datadog(self, value: pulumi.Input[Optional['ActionConnectionDatadogArgs']]):
         pulumi.set(self, "datadog", value)
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveTags")
+    def effective_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Tags associated with the connection, including those inherited from the provider's `default_tags` configuration.
+        """
+        return pulumi.get(self, "effective_tags")
+
+    @effective_tags.setter
+    def effective_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "effective_tags", value)
 
     @_builtins.property
     @pulumi.getter
@@ -823,6 +859,18 @@ class _ActionConnectionState:
         pulumi.set(self, "statsig", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effective_tags`, which includes provider-level `default_tags`.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="virusTotal")
     def virus_total(self) -> pulumi.Input[Optional['ActionConnectionVirusTotalArgs']]:
         """
@@ -865,6 +913,7 @@ class ActionConnection(pulumi.CustomResource):
                  service_now: pulumi.Input[Optional[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict']]] = None,
                  split: pulumi.Input[Optional[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict']]] = None,
                  statsig: pulumi.Input[Optional[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict']]] = None,
                  __props__=None):
         """
@@ -879,6 +928,10 @@ class ActionConnection(pulumi.CustomResource):
 
         aws_connection = datadog.ActionConnection("aws_connection",
             name="My AWS Connection",
+            tags=[
+                "env:prod",
+                "team:action-platform",
+            ],
             aws=[{
                 "assumeRole": [{
                     "accountId": "123456789012",
@@ -971,6 +1024,7 @@ class ActionConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict']] service_now: Configuration for a ServiceNow connection
         :param pulumi.Input[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict']] split: Configuration for a Split connection
         :param pulumi.Input[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict']] statsig: Configuration for a Statsig connection
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effective_tags`, which includes provider-level `default_tags`.
         :param pulumi.Input[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict']] virus_total: Configuration for a VirusTotal connection
         """
         ...
@@ -991,6 +1045,10 @@ class ActionConnection(pulumi.CustomResource):
 
         aws_connection = datadog.ActionConnection("aws_connection",
             name="My AWS Connection",
+            tags=[
+                "env:prod",
+                "team:action-platform",
+            ],
             aws=[{
                 "assumeRole": [{
                     "accountId": "123456789012",
@@ -1096,6 +1154,7 @@ class ActionConnection(pulumi.CustomResource):
                  service_now: pulumi.Input[Optional[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict']]] = None,
                  split: pulumi.Input[Optional[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict']]] = None,
                  statsig: pulumi.Input[Optional[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1132,7 +1191,9 @@ class ActionConnection(pulumi.CustomResource):
             __props__.__dict__["service_now"] = service_now
             __props__.__dict__["split"] = split
             __props__.__dict__["statsig"] = statsig
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["virus_total"] = virus_total
+            __props__.__dict__["effective_tags"] = None
         super(ActionConnection, __self__).__init__(
             'datadog:index/actionConnection:ActionConnection',
             resource_name,
@@ -1152,6 +1213,7 @@ class ActionConnection(pulumi.CustomResource):
             cloudflare: pulumi.Input[Optional[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict']]] = None,
             config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict']]] = None,
             datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict']]] = None,
+            effective_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict']]] = None,
             freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict']]] = None,
             gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict']]] = None,
@@ -1167,6 +1229,7 @@ class ActionConnection(pulumi.CustomResource):
             service_now: pulumi.Input[Optional[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict']]] = None,
             split: pulumi.Input[Optional[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict']]] = None,
             statsig: pulumi.Input[Optional[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict']]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict']]] = None) -> 'ActionConnection':
         """
         Get an existing ActionConnection resource's state with the given name, id, and optional extra
@@ -1184,6 +1247,7 @@ class ActionConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict']] cloudflare: Configuration for a Cloudflare connection
         :param pulumi.Input[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict']] config_cat: Configuration for a ConfigCat connection
         :param pulumi.Input[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict']] datadog: Configuration for a Datadog connection
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] effective_tags: Tags associated with the connection, including those inherited from the provider's `default_tags` configuration.
         :param pulumi.Input[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict']] fastly: Configuration for a Fastly connection
         :param pulumi.Input[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict']] freshservice: Configuration for a Freshservice connection
         :param pulumi.Input[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict']] gcp: Configuration for a Google Cloud connection
@@ -1199,6 +1263,7 @@ class ActionConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict']] service_now: Configuration for a ServiceNow connection
         :param pulumi.Input[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict']] split: Configuration for a Split connection
         :param pulumi.Input[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict']] statsig: Configuration for a Statsig connection
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effective_tags`, which includes provider-level `default_tags`.
         :param pulumi.Input[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict']] virus_total: Configuration for a VirusTotal connection
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1214,6 +1279,7 @@ class ActionConnection(pulumi.CustomResource):
         __props__.__dict__["cloudflare"] = cloudflare
         __props__.__dict__["config_cat"] = config_cat
         __props__.__dict__["datadog"] = datadog
+        __props__.__dict__["effective_tags"] = effective_tags
         __props__.__dict__["fastly"] = fastly
         __props__.__dict__["freshservice"] = freshservice
         __props__.__dict__["gcp"] = gcp
@@ -1229,6 +1295,7 @@ class ActionConnection(pulumi.CustomResource):
         __props__.__dict__["service_now"] = service_now
         __props__.__dict__["split"] = split
         __props__.__dict__["statsig"] = statsig
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["virus_total"] = virus_total
         return ActionConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -1303,6 +1370,14 @@ class ActionConnection(pulumi.CustomResource):
         Configuration for a Datadog connection
         """
         return pulumi.get(self, "datadog")
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveTags")
+    def effective_tags(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        Tags associated with the connection, including those inherited from the provider's `default_tags` configuration.
+        """
+        return pulumi.get(self, "effective_tags")
 
     @_builtins.property
     @pulumi.getter
@@ -1423,6 +1498,14 @@ class ActionConnection(pulumi.CustomResource):
         Configuration for a Statsig connection
         """
         return pulumi.get(self, "statsig")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effective_tags`, which includes provider-level `default_tags`.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="virusTotal")

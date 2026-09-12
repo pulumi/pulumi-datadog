@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery
     {
         /// <summary>
+        /// APM metrics query for histogram-mode distribution.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmMetricsQuery? ApmMetricsQuery;
+        /// <summary>
         /// APM resource stats query for histogram-mode distribution.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmResourceStatsQuery? ApmResourceStatsQuery;
@@ -28,12 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQuery(
+            Outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmMetricsQuery? apmMetricsQuery,
+
             Outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryApmResourceStatsQuery? apmResourceStatsQuery,
 
             Outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryEventQuery? eventQuery,
 
             Outputs.DashboardV2WidgetGroupDefinitionWidgetDistributionDefinitionRequestHistogramQueryMetricQuery? metricQuery)
         {
+            ApmMetricsQuery = apmMetricsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;

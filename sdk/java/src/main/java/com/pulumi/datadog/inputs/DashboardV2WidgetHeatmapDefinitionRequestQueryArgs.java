@@ -6,12 +6,16 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryApmDependencyStatsQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryApmMetricsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryApmResourceStatsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryCloudCostQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryProductAnalyticsExtendedQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryRetentionQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQuerySloQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryUserJourneyQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,6 +38,21 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestQueryArgs extends co
      */
     public Optional<Output<DashboardV2WidgetHeatmapDefinitionRequestQueryApmDependencyStatsQueryArgs>> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+
+    /**
+     * The APM metrics query using formulas and functions.
+     * 
+     */
+    @Import(name="apmMetricsQuery")
+    private @Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestQueryApmMetricsQueryArgs> apmMetricsQuery;
+
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetHeatmapDefinitionRequestQueryApmMetricsQueryArgs>> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
 
     /**
@@ -112,6 +131,36 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestQueryArgs extends co
     }
 
     /**
+     * The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    @Import(name="productAnalyticsExtendedQuery")
+    private @Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestQueryProductAnalyticsExtendedQueryArgs> productAnalyticsExtendedQuery;
+
+    /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetHeatmapDefinitionRequestQueryProductAnalyticsExtendedQueryArgs>> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+
+    /**
+     * The retention query using formulas and functions.
+     * 
+     */
+    @Import(name="retentionQuery")
+    private @Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestQueryRetentionQueryArgs> retentionQuery;
+
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetHeatmapDefinitionRequestQueryRetentionQueryArgs>> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+
+    /**
      * The SLO query using formulas and functions.
      * 
      */
@@ -126,16 +175,35 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestQueryArgs extends co
         return Optional.ofNullable(this.sloQuery);
     }
 
+    /**
+     * The User Journey query using formulas and functions.
+     * 
+     */
+    @Import(name="userJourneyQuery")
+    private @Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestQueryUserJourneyQueryArgs> userJourneyQuery;
+
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetHeatmapDefinitionRequestQueryUserJourneyQueryArgs>> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
+    }
+
     private DashboardV2WidgetHeatmapDefinitionRequestQueryArgs() {}
 
     private DashboardV2WidgetHeatmapDefinitionRequestQueryArgs(DashboardV2WidgetHeatmapDefinitionRequestQueryArgs $) {
         this.apmDependencyStatsQuery = $.apmDependencyStatsQuery;
+        this.apmMetricsQuery = $.apmMetricsQuery;
         this.apmResourceStatsQuery = $.apmResourceStatsQuery;
         this.cloudCostQuery = $.cloudCostQuery;
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.productAnalyticsExtendedQuery = $.productAnalyticsExtendedQuery;
+        this.retentionQuery = $.retentionQuery;
         this.sloQuery = $.sloQuery;
+        this.userJourneyQuery = $.userJourneyQuery;
     }
 
     public static Builder builder() {
@@ -175,6 +243,27 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestQueryArgs extends co
          */
         public Builder apmDependencyStatsQuery(DashboardV2WidgetHeatmapDefinitionRequestQueryApmDependencyStatsQueryArgs apmDependencyStatsQuery) {
             return apmDependencyStatsQuery(Output.of(apmDependencyStatsQuery));
+        }
+
+        /**
+         * @param apmMetricsQuery The APM metrics query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(@Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestQueryApmMetricsQueryArgs> apmMetricsQuery) {
+            $.apmMetricsQuery = apmMetricsQuery;
+            return this;
+        }
+
+        /**
+         * @param apmMetricsQuery The APM metrics query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(DashboardV2WidgetHeatmapDefinitionRequestQueryApmMetricsQueryArgs apmMetricsQuery) {
+            return apmMetricsQuery(Output.of(apmMetricsQuery));
         }
 
         /**
@@ -283,6 +372,48 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestQueryArgs extends co
         }
 
         /**
+         * @param productAnalyticsExtendedQuery The Product Analytics Extended query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsExtendedQuery(@Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestQueryProductAnalyticsExtendedQueryArgs> productAnalyticsExtendedQuery) {
+            $.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+
+        /**
+         * @param productAnalyticsExtendedQuery The Product Analytics Extended query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsExtendedQuery(DashboardV2WidgetHeatmapDefinitionRequestQueryProductAnalyticsExtendedQueryArgs productAnalyticsExtendedQuery) {
+            return productAnalyticsExtendedQuery(Output.of(productAnalyticsExtendedQuery));
+        }
+
+        /**
+         * @param retentionQuery The retention query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionQuery(@Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestQueryRetentionQueryArgs> retentionQuery) {
+            $.retentionQuery = retentionQuery;
+            return this;
+        }
+
+        /**
+         * @param retentionQuery The retention query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionQuery(DashboardV2WidgetHeatmapDefinitionRequestQueryRetentionQueryArgs retentionQuery) {
+            return retentionQuery(Output.of(retentionQuery));
+        }
+
+        /**
          * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
@@ -301,6 +432,27 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestQueryArgs extends co
          */
         public Builder sloQuery(DashboardV2WidgetHeatmapDefinitionRequestQuerySloQueryArgs sloQuery) {
             return sloQuery(Output.of(sloQuery));
+        }
+
+        /**
+         * @param userJourneyQuery The User Journey query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyQuery(@Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestQueryUserJourneyQueryArgs> userJourneyQuery) {
+            $.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
+
+        /**
+         * @param userJourneyQuery The User Journey query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyQuery(DashboardV2WidgetHeatmapDefinitionRequestQueryUserJourneyQueryArgs userJourneyQuery) {
+            return userJourneyQuery(Output.of(userJourneyQuery));
         }
 
         public DashboardV2WidgetHeatmapDefinitionRequestQueryArgs build() {

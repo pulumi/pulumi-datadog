@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestQueryApmDependencyStatsQueryGetArgs>? ApmDependencyStatsQuery { get; set; }
 
         /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestQueryApmMetricsQueryGetArgs>? ApmMetricsQuery { get; set; }
+
+        /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         [Input("apmResourceStatsQuery")]
@@ -49,10 +55,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestQueryProcessQueryGetArgs>? ProcessQuery { get; set; }
 
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        [Input("productAnalyticsExtendedQuery")]
+        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestQueryProductAnalyticsExtendedQueryGetArgs>? ProductAnalyticsExtendedQuery { get; set; }
+
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        [Input("retentionQuery")]
+        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestQueryRetentionQueryGetArgs>? RetentionQuery { get; set; }
+
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         [Input("sloQuery")]
         public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestQuerySloQueryGetArgs>? SloQuery { get; set; }
+
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        [Input("userJourneyQuery")]
+        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestQueryUserJourneyQueryGetArgs>? UserJourneyQuery { get; set; }
 
         public PowerpackV2WidgetDistributionDefinitionRequestQueryGetArgs()
         {
