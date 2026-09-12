@@ -56,7 +56,7 @@ func GetCloudProviderType(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:cloudProviderType")
 }
 
-// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+// [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 func GetDefaultTags(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:defaultTags")
 }
@@ -74,6 +74,11 @@ func GetHttpClientRetryBackoffMultiplier(ctx *pulumi.Context) int {
 // Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
 func GetHttpClientRetryEnabled(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:httpClientRetryEnabled")
+}
+
+// The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+func GetHttpClientRetryJitter(ctx *pulumi.Context) int {
+	return config.GetInt(ctx, "datadog:httpClientRetryJitter")
 }
 
 // The HTTP request maximum retry number. Defaults to 3.

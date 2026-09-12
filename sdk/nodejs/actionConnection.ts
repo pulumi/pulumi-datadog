@@ -17,6 +17,10 @@ import * as utilities from "./utilities";
  *
  * const awsConnection = new datadog.ActionConnection("aws_connection", {
  *     name: "My AWS Connection",
+ *     tags: [
+ *         "env:prod",
+ *         "team:action-platform",
+ *     ],
  *     aws: [{
  *         assumeRole: [{
  *             accountId: "123456789012",
@@ -149,6 +153,10 @@ export class ActionConnection extends pulumi.CustomResource {
      */
     declare public readonly datadog: pulumi.Output<outputs.ActionConnectionDatadog | undefined>;
     /**
+     * Tags associated with the connection, including those inherited from the provider's `defaultTags` configuration.
+     */
+    declare public /*out*/ readonly effectiveTags: pulumi.Output<string[]>;
+    /**
      * Configuration for a Fastly connection
      */
     declare public readonly fastly: pulumi.Output<outputs.ActionConnectionFastly | undefined>;
@@ -209,6 +217,10 @@ export class ActionConnection extends pulumi.CustomResource {
      */
     declare public readonly statsig: pulumi.Output<outputs.ActionConnectionStatsig | undefined>;
     /**
+     * User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+     */
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
+    /**
      * Configuration for a VirusTotal connection
      */
     declare public readonly virusTotal: pulumi.Output<outputs.ActionConnectionVirusTotal | undefined>;
@@ -235,6 +247,7 @@ export class ActionConnection extends pulumi.CustomResource {
             resourceInputs["cloudflare"] = state?.cloudflare;
             resourceInputs["configCat"] = state?.configCat;
             resourceInputs["datadog"] = state?.datadog;
+            resourceInputs["effectiveTags"] = state?.effectiveTags;
             resourceInputs["fastly"] = state?.fastly;
             resourceInputs["freshservice"] = state?.freshservice;
             resourceInputs["gcp"] = state?.gcp;
@@ -250,6 +263,7 @@ export class ActionConnection extends pulumi.CustomResource {
             resourceInputs["serviceNow"] = state?.serviceNow;
             resourceInputs["split"] = state?.split;
             resourceInputs["statsig"] = state?.statsig;
+            resourceInputs["tags"] = state?.tags;
             resourceInputs["virusTotal"] = state?.virusTotal;
         } else {
             const args = argsOrState as ActionConnectionArgs | undefined;
@@ -280,7 +294,9 @@ export class ActionConnection extends pulumi.CustomResource {
             resourceInputs["serviceNow"] = args?.serviceNow;
             resourceInputs["split"] = args?.split;
             resourceInputs["statsig"] = args?.statsig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["virusTotal"] = args?.virusTotal;
+            resourceInputs["effectiveTags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionConnection.__pulumiType, name, resourceInputs, opts);
@@ -327,6 +343,10 @@ export interface ActionConnectionState {
      * Configuration for a Datadog connection
      */
     datadog?: pulumi.Input<inputs.ActionConnectionDatadog | undefined>;
+    /**
+     * Tags associated with the connection, including those inherited from the provider's `defaultTags` configuration.
+     */
+    effectiveTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration for a Fastly connection
      */
@@ -387,6 +407,10 @@ export interface ActionConnectionState {
      * Configuration for a Statsig connection
      */
     statsig?: pulumi.Input<inputs.ActionConnectionStatsig | undefined>;
+    /**
+     * User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration for a VirusTotal connection
      */
@@ -493,6 +517,10 @@ export interface ActionConnectionArgs {
      * Configuration for a Statsig connection
      */
     statsig?: pulumi.Input<inputs.ActionConnectionStatsig | undefined>;
+    /**
+     * User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+     */
+    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Configuration for a VirusTotal connection
      */

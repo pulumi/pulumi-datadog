@@ -87,7 +87,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def default_tags(self) -> Optional[str]:
         """
-        [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+        [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         """
         return __config__.get('defaultTags')
 
@@ -111,6 +111,13 @@ class _ExportableConfig(types.ModuleType):
         Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
         """
         return __config__.get('httpClientRetryEnabled')
+
+    @_builtins.property
+    def http_client_retry_jitter(self) -> Optional[int]:
+        """
+        The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+        """
+        return __config__.get_int('httpClientRetryJitter')
 
     @_builtins.property
     def http_client_retry_max_retries(self) -> Optional[int]:

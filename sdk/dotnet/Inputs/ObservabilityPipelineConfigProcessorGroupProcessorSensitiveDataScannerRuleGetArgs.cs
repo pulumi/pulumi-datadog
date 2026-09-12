@@ -27,20 +27,20 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// The action to take when a sensitive value is found.
         /// </summary>
-        [Input("onMatch")]
-        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchGetArgs>? OnMatch { get; set; }
+        [Input("onMatch", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchGetArgs> OnMatch { get; set; } = null!;
 
         /// <summary>
         /// Pattern detection configuration for identifying sensitive data using either a custom regex or a library reference.
         /// </summary>
-        [Input("pattern")]
-        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternGetArgs>? Pattern { get; set; }
+        [Input("pattern", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternGetArgs> Pattern { get; set; } = null!;
 
         /// <summary>
         /// Field-level targeting options that determine where the scanner should operate.
         /// </summary>
-        [Input("scope")]
-        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeGetArgs>? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeGetArgs> Scope { get; set; } = null!;
 
         [Input("tags")]
         private InputList<string>? _tags;

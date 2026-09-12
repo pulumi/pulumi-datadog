@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackV2WidgetSankeyDefinitionRequestRumRequestQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Product Analytics and RUM audience filters.
+        /// </summary>
+        [Input("audienceFilters")]
+        public Input<Inputs.PowerpackV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFiltersGetArgs>? AudienceFilters { get; set; }
+
+        /// <summary>
         /// The data source for the Sankey RUM query. Valid values are `Rum`, `ProductAnalytics`.
         /// </summary>
         [Input("dataSource", required: true)]
@@ -25,6 +31,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<int>? EntriesPerStep { get; set; }
 
         /// <summary>
+        /// Join keys for the Sankey query.
+        /// </summary>
+        [Input("joinKeys")]
+        public Input<Inputs.PowerpackV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeysGetArgs>? JoinKeys { get; set; }
+
+        /// <summary>
         /// The mode for the Sankey RUM query. Valid values are `Source`, `Target`.
         /// </summary>
         [Input("mode", required: true)]
@@ -35,6 +47,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("numberOfSteps")]
         public Input<int>? NumberOfSteps { get; set; }
+
+        /// <summary>
+        /// Filter applied to occurrence counts when building a Product Analytics audience.
+        /// </summary>
+        [Input("occurrence")]
+        public Input<Inputs.PowerpackV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrenceGetArgs>? Occurrence { get; set; }
 
         /// <summary>
         /// The search query string.

@@ -30,6 +30,7 @@ import com.pulumi.datadog.inputs.ActionConnectionSplitArgs;
 import com.pulumi.datadog.inputs.ActionConnectionStatsigArgs;
 import com.pulumi.datadog.inputs.ActionConnectionVirusTotalArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -172,6 +173,21 @@ public final class ActionConnectionState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<ActionConnectionDatadogArgs>> datadog() {
         return Optional.ofNullable(this.datadog);
+    }
+
+    /**
+     * Tags associated with the connection, including those inherited from the provider&#39;s `defaultTags` configuration.
+     * 
+     */
+    @Import(name="effectiveTags")
+    private @Nullable Output<List<String>> effectiveTags;
+
+    /**
+     * @return Tags associated with the connection, including those inherited from the provider&#39;s `defaultTags` configuration.
+     * 
+     */
+    public Optional<Output<List<String>>> effectiveTags() {
+        return Optional.ofNullable(this.effectiveTags);
     }
 
     /**
@@ -400,6 +416,21 @@ public final class ActionConnectionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<List<String>> tags;
+
+    /**
+     * @return User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+     * 
+     */
+    public Optional<Output<List<String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
      * Configuration for a VirusTotal connection
      * 
      */
@@ -426,6 +457,7 @@ public final class ActionConnectionState extends com.pulumi.resources.ResourceAr
         this.cloudflare = $.cloudflare;
         this.configCat = $.configCat;
         this.datadog = $.datadog;
+        this.effectiveTags = $.effectiveTags;
         this.fastly = $.fastly;
         this.freshservice = $.freshservice;
         this.gcp = $.gcp;
@@ -441,6 +473,7 @@ public final class ActionConnectionState extends com.pulumi.resources.ResourceAr
         this.serviceNow = $.serviceNow;
         this.split = $.split;
         this.statsig = $.statsig;
+        this.tags = $.tags;
         this.virusTotal = $.virusTotal;
     }
 
@@ -649,6 +682,37 @@ public final class ActionConnectionState extends com.pulumi.resources.ResourceAr
          */
         public Builder datadog(ActionConnectionDatadogArgs datadog) {
             return datadog(Output.of(datadog));
+        }
+
+        /**
+         * @param effectiveTags Tags associated with the connection, including those inherited from the provider&#39;s `defaultTags` configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder effectiveTags(@Nullable Output<List<String>> effectiveTags) {
+            $.effectiveTags = effectiveTags;
+            return this;
+        }
+
+        /**
+         * @param effectiveTags Tags associated with the connection, including those inherited from the provider&#39;s `defaultTags` configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder effectiveTags(List<String> effectiveTags) {
+            return effectiveTags(Output.of(effectiveTags));
+        }
+
+        /**
+         * @param effectiveTags Tags associated with the connection, including those inherited from the provider&#39;s `defaultTags` configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder effectiveTags(String... effectiveTags) {
+            return effectiveTags(List.of(effectiveTags));
         }
 
         /**
@@ -964,6 +1028,37 @@ public final class ActionConnectionState extends com.pulumi.resources.ResourceAr
          */
         public Builder statsig(ActionConnectionStatsigArgs statsig) {
             return statsig(Output.of(statsig));
+        }
+
+        /**
+         * @param tags User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<List<String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(List<String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tags User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
         }
 
         /**

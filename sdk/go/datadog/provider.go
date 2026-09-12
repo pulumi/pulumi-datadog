@@ -106,7 +106,7 @@ type providerArgs struct {
 	CloudProviderRegion *string `pulumi:"cloudProviderRegion"`
 	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 	CloudProviderType *string `pulumi:"cloudProviderType"`
-	// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+	// [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
 	// The HTTP request retry back off base. Defaults to 2.
 	HttpClientRetryBackoffBase *int `pulumi:"httpClientRetryBackoffBase"`
@@ -114,6 +114,8 @@ type providerArgs struct {
 	HttpClientRetryBackoffMultiplier *int `pulumi:"httpClientRetryBackoffMultiplier"`
 	// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
 	HttpClientRetryEnabled *string `pulumi:"httpClientRetryEnabled"`
+	// The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+	HttpClientRetryJitter *int `pulumi:"httpClientRetryJitter"`
 	// The HTTP request maximum retry number. Defaults to 3.
 	HttpClientRetryMaxRetries *int `pulumi:"httpClientRetryMaxRetries"`
 	// The HTTP request retry timeout period. Defaults to 60 seconds.
@@ -146,7 +148,7 @@ type ProviderArgs struct {
 	CloudProviderRegion pulumi.StringPtrInput
 	// Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
 	CloudProviderType pulumi.StringPtrInput
-	// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+	// [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
 	DefaultTags ProviderDefaultTagsPtrInput
 	// The HTTP request retry back off base. Defaults to 2.
 	HttpClientRetryBackoffBase pulumi.IntPtrInput
@@ -154,6 +156,8 @@ type ProviderArgs struct {
 	HttpClientRetryBackoffMultiplier pulumi.IntPtrInput
 	// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
 	HttpClientRetryEnabled pulumi.StringPtrInput
+	// The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+	HttpClientRetryJitter pulumi.IntPtrInput
 	// The HTTP request maximum retry number. Defaults to 3.
 	HttpClientRetryMaxRetries pulumi.IntPtrInput
 	// The HTTP request retry timeout period. Defaults to 60 seconds.

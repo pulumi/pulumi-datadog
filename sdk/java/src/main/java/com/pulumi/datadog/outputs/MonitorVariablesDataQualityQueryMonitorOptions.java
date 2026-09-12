@@ -4,6 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.MonitorVariablesDataQualityQueryMonitorOptionsModelConfiguration;
+import com.pulumi.datadog.outputs.MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfig;
+import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -33,10 +36,25 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
      */
     private @Nullable List<String> groupByColumns;
     /**
+     * @return Tuning options for the anomaly detection model used by the monitor.
+     * 
+     */
+    private @Nullable MonitorVariablesDataQualityQueryMonitorOptionsModelConfiguration modelConfiguration;
+    /**
      * @return Override for the model type. Valid values are `freshness`, `percentage`, `any`.
      * 
      */
     private @Nullable String modelTypeOverride;
+    /**
+     * @return Sensitivity of the anomaly detection model, expressed as a multiplier on the width of the predicted bounds. Higher values widen the bounds and produce fewer alerts; lower values tighten them and produce more alerts. Defaults to `3.0`.
+     * 
+     */
+    private @Nullable Double sensitivity;
+    /**
+     * @return Compare the same measure across two data entities and alert on the difference between them.
+     * 
+     */
+    private @Nullable MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfig sourceToTargetConfig;
 
     private MonitorVariablesDataQualityQueryMonitorOptions() {}
     /**
@@ -68,11 +86,32 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
         return this.groupByColumns == null ? List.of() : this.groupByColumns;
     }
     /**
+     * @return Tuning options for the anomaly detection model used by the monitor.
+     * 
+     */
+    public Optional<MonitorVariablesDataQualityQueryMonitorOptionsModelConfiguration> modelConfiguration() {
+        return Optional.ofNullable(this.modelConfiguration);
+    }
+    /**
      * @return Override for the model type. Valid values are `freshness`, `percentage`, `any`.
      * 
      */
     public Optional<String> modelTypeOverride() {
         return Optional.ofNullable(this.modelTypeOverride);
+    }
+    /**
+     * @return Sensitivity of the anomaly detection model, expressed as a multiplier on the width of the predicted bounds. Higher values widen the bounds and produce fewer alerts; lower values tighten them and produce more alerts. Defaults to `3.0`.
+     * 
+     */
+    public Optional<Double> sensitivity() {
+        return Optional.ofNullable(this.sensitivity);
+    }
+    /**
+     * @return Compare the same measure across two data entities and alert on the difference between them.
+     * 
+     */
+    public Optional<MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfig> sourceToTargetConfig() {
+        return Optional.ofNullable(this.sourceToTargetConfig);
     }
 
     public static Builder builder() {
@@ -88,7 +127,10 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
         private @Nullable String customSql;
         private @Nullable String customWhere;
         private @Nullable List<String> groupByColumns;
+        private @Nullable MonitorVariablesDataQualityQueryMonitorOptionsModelConfiguration modelConfiguration;
         private @Nullable String modelTypeOverride;
+        private @Nullable Double sensitivity;
+        private @Nullable MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfig sourceToTargetConfig;
         public Builder() {}
         public Builder(MonitorVariablesDataQualityQueryMonitorOptions defaults) {
     	      Objects.requireNonNull(defaults);
@@ -96,7 +138,10 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
     	      this.customSql = defaults.customSql;
     	      this.customWhere = defaults.customWhere;
     	      this.groupByColumns = defaults.groupByColumns;
+    	      this.modelConfiguration = defaults.modelConfiguration;
     	      this.modelTypeOverride = defaults.modelTypeOverride;
+    	      this.sensitivity = defaults.sensitivity;
+    	      this.sourceToTargetConfig = defaults.sourceToTargetConfig;
         }
 
         @CustomType.Setter
@@ -127,9 +172,27 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
             return groupByColumns(List.of(groupByColumns));
         }
         @CustomType.Setter
+        public Builder modelConfiguration(@Nullable MonitorVariablesDataQualityQueryMonitorOptionsModelConfiguration modelConfiguration) {
+
+            this.modelConfiguration = modelConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder modelTypeOverride(@Nullable String modelTypeOverride) {
 
             this.modelTypeOverride = modelTypeOverride;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sensitivity(@Nullable Double sensitivity) {
+
+            this.sensitivity = sensitivity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sourceToTargetConfig(@Nullable MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfig sourceToTargetConfig) {
+
+            this.sourceToTargetConfig = sourceToTargetConfig;
             return this;
         }
         public MonitorVariablesDataQualityQueryMonitorOptions build() {
@@ -138,7 +201,10 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
             _resultValue.customSql = customSql;
             _resultValue.customWhere = customWhere;
             _resultValue.groupByColumns = groupByColumns;
+            _resultValue.modelConfiguration = modelConfiguration;
             _resultValue.modelTypeOverride = modelTypeOverride;
+            _resultValue.sensitivity = sensitivity;
+            _resultValue.sourceToTargetConfig = sourceToTargetConfig;
             return _resultValue;
         }
     }

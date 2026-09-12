@@ -55,45 +55,45 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
      * The action to take when a sensitive value is found.
      * 
      */
-    @Import(name="onMatch")
-    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchArgs> onMatch;
+    @Import(name="onMatch", required=true)
+    private Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchArgs> onMatch;
 
     /**
      * @return The action to take when a sensitive value is found.
      * 
      */
-    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchArgs>> onMatch() {
-        return Optional.ofNullable(this.onMatch);
+    public Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchArgs> onMatch() {
+        return this.onMatch;
     }
 
     /**
      * Pattern detection configuration for identifying sensitive data using either a custom regex or a library reference.
      * 
      */
-    @Import(name="pattern")
-    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternArgs> pattern;
+    @Import(name="pattern", required=true)
+    private Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternArgs> pattern;
 
     /**
      * @return Pattern detection configuration for identifying sensitive data using either a custom regex or a library reference.
      * 
      */
-    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternArgs>> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternArgs> pattern() {
+        return this.pattern;
     }
 
     /**
      * Field-level targeting options that determine where the scanner should operate.
      * 
      */
-    @Import(name="scope")
-    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeArgs> scope;
+    @Import(name="scope", required=true)
+    private Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeArgs> scope;
 
     /**
      * @return Field-level targeting options that determine where the scanner should operate.
      * 
      */
-    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeArgs>> scope() {
-        return Optional.ofNullable(this.scope);
+    public Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeArgs> scope() {
+        return this.scope;
     }
 
     /**
@@ -188,7 +188,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
          * @return builder
          * 
          */
-        public Builder onMatch(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchArgs> onMatch) {
+        public Builder onMatch(Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchArgs> onMatch) {
             $.onMatch = onMatch;
             return this;
         }
@@ -209,7 +209,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
          * @return builder
          * 
          */
-        public Builder pattern(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternArgs> pattern) {
+        public Builder pattern(Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternArgs> pattern) {
             $.pattern = pattern;
             return this;
         }
@@ -230,7 +230,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
          * @return builder
          * 
          */
-        public Builder scope(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeArgs> scope) {
+        public Builder scope(Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeArgs> scope) {
             $.scope = scope;
             return this;
         }
@@ -279,6 +279,15 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         public ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleArgs", "name");
+            }
+            if ($.onMatch == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleArgs", "onMatch");
+            }
+            if ($.pattern == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleArgs", "pattern");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleArgs", "scope");
             }
             return $;
         }

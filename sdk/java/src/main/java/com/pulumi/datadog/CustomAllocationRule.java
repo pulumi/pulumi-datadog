@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.CustomAllocationRule;
  * import com.pulumi.datadog.CustomAllocationRuleArgs;
  * import com.pulumi.datadog.inputs.CustomAllocationRuleCostsToAllocateArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -66,6 +67,39 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .granularity("daily")
  *                 .method("even")
+ *                 .build())
+ *             .build());
+ * 
+ *         // A "Dynamic by metric" rule, which splits costs by each destination's share of a
+ *         // metric rather than by spend. The query is supplied as JSON using Datadog's
+ *         // formulas-and-functions request format.
+ *         var myTimeseriesAllocationRule = new CustomAllocationRule("myTimeseriesAllocationRule", CustomAllocationRuleArgs.builder()
+ *             .costsToAllocates(CustomAllocationRuleCostsToAllocateArgs.builder()
+ *                 .condition("is")
+ *                 .tag("azure_product_family")
+ *                 .value("dbforpostgresql")
+ *                 .build())
+ *             .enabled(true)
+ *             .providernames("azure")
+ *             .ruleName("postgres-by-query-time")
+ *             .strategy(com.pulumi.datadog.inputs.CustomAllocationRuleStrategyArgs.builder()
+ *                 .granularity("daily")
+ *                 .method("proportional_timeseries")
+ *                 .evaluateGroupedByTagKeys("env")
+ *                 .basedOnTimeseries(com.pulumi.datadog.inputs.CustomAllocationRuleStrategyBasedOnTimeseriesArgs.builder()
+ *                     .json(serializeJson(
+ *                         jsonObject(
+ *                             jsonProperty("response_format", "timeseries"),
+ *                             jsonProperty("queries", jsonArray(jsonObject(
+ *                                 jsonProperty("name", "query1"),
+ *                                 jsonProperty("data_source", "metrics"),
+ *                                 jsonProperty("query", "sum:postgresql.queries.time{*} by {user,env}.as_count()")
+ *                             ))),
+ *                             jsonProperty("formulas", jsonArray(jsonObject(
+ *                                 jsonProperty("formula", "query1")
+ *                             )))
+ *                         )))
+ *                     .build())
  *                 .build())
  *             .build());
  * 

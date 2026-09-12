@@ -74,6 +74,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetQueryTableDefinitionRequestSecurityQuery? SecurityQuery;
         /// <summary>
+        /// The controls for sorting the widget request.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetQueryTableDefinitionRequestSort? Sort;
+        /// <summary>
         /// Text formats define how to format text in table widget content. Multiple `TextFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackV2WidgetQueryTableDefinitionRequestTextFormat> TextFormats;
@@ -110,6 +114,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetQueryTableDefinitionRequestSecurityQuery? securityQuery,
 
+            Outputs.PowerpackV2WidgetQueryTableDefinitionRequestSort? sort,
+
             ImmutableArray<Outputs.PowerpackV2WidgetQueryTableDefinitionRequestTextFormat> textFormats)
         {
             Aggregator = aggregator;
@@ -127,6 +133,7 @@ namespace Pulumi.Datadog.Outputs
             Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
+            Sort = sort;
             TextFormats = textFormats;
         }
     }

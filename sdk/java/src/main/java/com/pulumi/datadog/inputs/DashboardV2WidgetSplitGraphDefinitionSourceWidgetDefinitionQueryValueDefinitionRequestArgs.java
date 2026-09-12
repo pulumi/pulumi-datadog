@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestApmQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestComparisonArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestFormulaArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestLogQueryArgs;
@@ -84,6 +85,21 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
     @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryArgs>> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
+    }
+
+    /**
+     * A change indicator that compares the current value to a historical period.
+     * 
+     */
+    @Import(name="comparison")
+    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestComparisonArgs> comparison;
+
+    /**
+     * @return A change indicator that compares the current value to a historical period.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestComparisonArgs>> comparison() {
+        return Optional.ofNullable(this.comparison);
     }
 
     /**
@@ -252,6 +268,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
         this.aggregator = $.aggregator;
         this.apmQuery = $.apmQuery;
         this.auditQuery = $.auditQuery;
+        this.comparison = $.comparison;
         this.conditionalFormats = $.conditionalFormats;
         this.formulas = $.formulas;
         this.logQuery = $.logQuery;
@@ -357,6 +374,27 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQu
         @Deprecated /* Use queries and formulas instead. */
         public Builder auditQuery(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestAuditQueryArgs auditQuery) {
             return auditQuery(Output.of(auditQuery));
+        }
+
+        /**
+         * @param comparison A change indicator that compares the current value to a historical period.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder comparison(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestComparisonArgs> comparison) {
+            $.comparison = comparison;
+            return this;
+        }
+
+        /**
+         * @param comparison A change indicator that compares the current value to a historical period.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder comparison(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionRequestComparisonArgs comparison) {
+            return comparison(Output.of(comparison));
         }
 
         /**

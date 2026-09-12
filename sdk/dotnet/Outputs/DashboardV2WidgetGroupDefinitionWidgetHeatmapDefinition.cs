@@ -42,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinitionMarker> Markers;
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
+        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequest> Requests;
         /// <summary>

@@ -100,6 +100,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["httpClientRetryBackoffBase"] = pulumi.output(args?.httpClientRetryBackoffBase).apply(JSON.stringify);
             resourceInputs["httpClientRetryBackoffMultiplier"] = pulumi.output(args?.httpClientRetryBackoffMultiplier).apply(JSON.stringify);
             resourceInputs["httpClientRetryEnabled"] = args?.httpClientRetryEnabled;
+            resourceInputs["httpClientRetryJitter"] = pulumi.output(args?.httpClientRetryJitter).apply(JSON.stringify);
             resourceInputs["httpClientRetryMaxRetries"] = pulumi.output(args?.httpClientRetryMaxRetries).apply(JSON.stringify);
             resourceInputs["httpClientRetryTimeout"] = pulumi.output(args?.httpClientRetryTimeout).apply(JSON.stringify);
             resourceInputs["ignoreTagKeys"] = pulumi.output(args?.ignoreTagKeys).apply(JSON.stringify);
@@ -163,7 +164,7 @@ export interface ProviderArgs {
      */
     cloudProviderType?: pulumi.Input<string | undefined>;
     /**
-     * [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+     * [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
      */
     defaultTags?: pulumi.Input<inputs.ProviderDefaultTags | undefined>;
     /**
@@ -178,6 +179,10 @@ export interface ProviderArgs {
      * Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
      */
     httpClientRetryEnabled?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+     */
+    httpClientRetryJitter?: pulumi.Input<number | undefined>;
     /**
      * The HTTP request maximum retry number. Defaults to 3.
      */

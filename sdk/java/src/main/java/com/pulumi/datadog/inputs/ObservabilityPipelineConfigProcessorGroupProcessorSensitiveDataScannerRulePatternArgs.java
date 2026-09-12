@@ -17,14 +17,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     public static final ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternArgs();
 
     /**
-     * Pattern detection using a custom regular expression.
+     * Pattern detection using a custom regular expression. Exactly one of `custom` or `library` must be specified.
      * 
      */
     @Import(name="custom")
     private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustomArgs> custom;
 
     /**
-     * @return Pattern detection using a custom regular expression.
+     * @return Pattern detection using a custom regular expression. Exactly one of `custom` or `library` must be specified.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustomArgs>> custom() {
@@ -72,7 +72,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         }
 
         /**
-         * @param custom Pattern detection using a custom regular expression.
+         * @param custom Pattern detection using a custom regular expression. Exactly one of `custom` or `library` must be specified.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         }
 
         /**
-         * @param custom Pattern detection using a custom regular expression.
+         * @param custom Pattern detection using a custom regular expression. Exactly one of `custom` or `library` must be specified.
          * 
          * @return builder
          * 

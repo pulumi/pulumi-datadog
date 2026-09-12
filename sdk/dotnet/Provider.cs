@@ -248,7 +248,7 @@ namespace Pulumi.Datadog
         public Input<string>? CloudProviderType { get; set; }
 
         /// <summary>
-        /// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+        /// [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         /// </summary>
         [Input("defaultTags", json: true)]
         public Input<Inputs.ProviderDefaultTagsArgs>? DefaultTags { get; set; }
@@ -270,6 +270,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("httpClientRetryEnabled")]
         public Input<string>? HttpClientRetryEnabled { get; set; }
+
+        /// <summary>
+        /// The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+        /// </summary>
+        [Input("httpClientRetryJitter", json: true)]
+        public Input<int>? HttpClientRetryJitter { get; set; }
 
         /// <summary>
         /// The HTTP request maximum retry number. Defaults to 3.

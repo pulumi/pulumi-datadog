@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Granularity;
         /// <summary>
-        /// The allocation method. Valid values are `Even`, `Proportional`, `ProportionalTimeseries`, or `Percent`.
+        /// The allocation method. Valid values are `Even`, `Percent`, `Proportional`, `ProportionalTimeseries`.
         /// </summary>
         public readonly string? Method;
 

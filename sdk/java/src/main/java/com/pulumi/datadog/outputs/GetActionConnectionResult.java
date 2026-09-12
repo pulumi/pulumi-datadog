@@ -30,6 +30,7 @@ import com.pulumi.datadog.outputs.GetActionConnectionStatsig;
 import com.pulumi.datadog.outputs.GetActionConnectionVirusTotal;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -161,6 +162,11 @@ public final class GetActionConnectionResult {
      * 
      */
     private @Nullable GetActionConnectionStatsig statsig;
+    /**
+     * @return Tags associated with the connection.
+     * 
+     */
+    private List<String> tags;
     /**
      * @return Configuration for a VirusTotal connection
      * 
@@ -344,6 +350,13 @@ public final class GetActionConnectionResult {
         return Optional.ofNullable(this.statsig);
     }
     /**
+     * @return Tags associated with the connection.
+     * 
+     */
+    public List<String> tags() {
+        return this.tags;
+    }
+    /**
      * @return Configuration for a VirusTotal connection
      * 
      */
@@ -385,6 +398,7 @@ public final class GetActionConnectionResult {
         private @Nullable GetActionConnectionServiceNow serviceNow;
         private @Nullable GetActionConnectionSplit split;
         private @Nullable GetActionConnectionStatsig statsig;
+        private List<String> tags;
         private @Nullable GetActionConnectionVirusTotal virusTotal;
         public Builder() {}
         public Builder(GetActionConnectionResult defaults) {
@@ -414,6 +428,7 @@ public final class GetActionConnectionResult {
     	      this.serviceNow = defaults.serviceNow;
     	      this.split = defaults.split;
     	      this.statsig = defaults.statsig;
+    	      this.tags = defaults.tags;
     	      this.virusTotal = defaults.virusTotal;
         }
 
@@ -572,6 +587,17 @@ public final class GetActionConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder tags(List<String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetActionConnectionResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
+        }
+        @CustomType.Setter
         public Builder virusTotal(@Nullable GetActionConnectionVirusTotal virusTotal) {
 
             this.virusTotal = virusTotal;
@@ -604,6 +630,7 @@ public final class GetActionConnectionResult {
             _resultValue.serviceNow = serviceNow;
             _resultValue.split = split;
             _resultValue.statsig = statsig;
+            _resultValue.tags = tags;
             _resultValue.virusTotal = virusTotal;
             return _resultValue;
         }

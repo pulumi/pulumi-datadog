@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeExclude? Exclude;
         /// <summary>
-        /// Explicitly include these fields for scanning.
+        /// Explicitly include these fields for scanning. Exactly one of `Include`, `Exclude`, or `All` must be specified.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeInclude? Include;
 

@@ -24,7 +24,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchPartialRedact partialRedact;
     /**
-     * @return Redacts the matched value.
+     * @return Redacts the matched value. Exactly one of `redact`, `hash`, or `partialRedact` must be specified.
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchRedact redact;
@@ -45,7 +45,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         return Optional.ofNullable(this.partialRedact);
     }
     /**
-     * @return Redacts the matched value.
+     * @return Redacts the matched value. Exactly one of `redact`, `hash`, or `partialRedact` must be specified.
      * 
      */
     public Optional<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchRedact> redact() {

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePattern {
     /**
-     * @return Pattern detection using a custom regular expression.
+     * @return Pattern detection using a custom regular expression. Exactly one of `custom` or `library` must be specified.
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom custom;
@@ -25,7 +25,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
 
     private ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePattern() {}
     /**
-     * @return Pattern detection using a custom regular expression.
+     * @return Pattern detection using a custom regular expression. Exactly one of `custom` or `library` must be specified.
      * 
      */
     public Optional<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom> custom() {

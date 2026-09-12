@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeExcludeGetArgs>? Exclude { get; set; }
 
         /// <summary>
-        /// Explicitly include these fields for scanning.
+        /// Explicitly include these fields for scanning. Exactly one of `Include`, `Exclude`, or `All` must be specified.
         /// </summary>
         [Input("include")]
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeIncludeGetArgs>? Include { get; set; }

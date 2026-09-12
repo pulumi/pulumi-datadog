@@ -5,12 +5,16 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmResourceStatsQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQueryCloudCostQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQueryMetricQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQueryRetentionQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQuerySloQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +26,11 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSizeQuery {
      * 
      */
     private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery apmMetricsQuery;
     /**
      * @return The APM Resource Stats query using formulas and functions.
      * 
@@ -48,10 +57,25 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSizeQuery {
      */
     private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery processQuery;
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryRetentionQuery retentionQuery;
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQuerySloQuery sloQuery;
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery userJourneyQuery;
 
     private PowerpackV2WidgetHostmapDefinitionRequestSizeQuery() {}
     /**
@@ -60,6 +84,13 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSizeQuery {
      */
     public Optional<PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
     /**
      * @return The APM Resource Stats query using formulas and functions.
@@ -97,11 +128,32 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSizeQuery {
         return Optional.ofNullable(this.processQuery);
     }
     /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetHostmapDefinitionRequestSizeQueryRetentionQuery> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+    /**
      * @return The SLO query using formulas and functions.
      * 
      */
     public Optional<PowerpackV2WidgetHostmapDefinitionRequestSizeQuerySloQuery> sloQuery() {
         return Optional.ofNullable(this.sloQuery);
+    }
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<PowerpackV2WidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
     }
 
     public static Builder builder() {
@@ -114,28 +166,42 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSizeQuery {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery apmDependencyStatsQuery;
+        private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery apmMetricsQuery;
         private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmResourceStatsQuery apmResourceStatsQuery;
         private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryCloudCostQuery cloudCostQuery;
         private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQuery eventQuery;
         private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryMetricQuery metricQuery;
         private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery processQuery;
+        private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery;
+        private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryRetentionQuery retentionQuery;
         private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQuerySloQuery sloQuery;
+        private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery userJourneyQuery;
         public Builder() {}
         public Builder(PowerpackV2WidgetHostmapDefinitionRequestSizeQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apmDependencyStatsQuery = defaults.apmDependencyStatsQuery;
+    	      this.apmMetricsQuery = defaults.apmMetricsQuery;
     	      this.apmResourceStatsQuery = defaults.apmResourceStatsQuery;
     	      this.cloudCostQuery = defaults.cloudCostQuery;
     	      this.eventQuery = defaults.eventQuery;
     	      this.metricQuery = defaults.metricQuery;
     	      this.processQuery = defaults.processQuery;
+    	      this.productAnalyticsExtendedQuery = defaults.productAnalyticsExtendedQuery;
+    	      this.retentionQuery = defaults.retentionQuery;
     	      this.sloQuery = defaults.sloQuery;
+    	      this.userJourneyQuery = defaults.userJourneyQuery;
         }
 
         @CustomType.Setter
         public Builder apmDependencyStatsQuery(@Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmDependencyStatsQuery apmDependencyStatsQuery) {
 
             this.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder apmMetricsQuery(@Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryApmMetricsQuery apmMetricsQuery) {
+
+            this.apmMetricsQuery = apmMetricsQuery;
             return this;
         }
         @CustomType.Setter
@@ -169,20 +235,42 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSizeQuery {
             return this;
         }
         @CustomType.Setter
+        public Builder productAnalyticsExtendedQuery(@Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryProductAnalyticsExtendedQuery productAnalyticsExtendedQuery) {
+
+            this.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder retentionQuery(@Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryRetentionQuery retentionQuery) {
+
+            this.retentionQuery = retentionQuery;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sloQuery(@Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQuerySloQuery sloQuery) {
 
             this.sloQuery = sloQuery;
             return this;
         }
+        @CustomType.Setter
+        public Builder userJourneyQuery(@Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeQueryUserJourneyQuery userJourneyQuery) {
+
+            this.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
         public PowerpackV2WidgetHostmapDefinitionRequestSizeQuery build() {
             final var _resultValue = new PowerpackV2WidgetHostmapDefinitionRequestSizeQuery();
             _resultValue.apmDependencyStatsQuery = apmDependencyStatsQuery;
+            _resultValue.apmMetricsQuery = apmMetricsQuery;
             _resultValue.apmResourceStatsQuery = apmResourceStatsQuery;
             _resultValue.cloudCostQuery = cloudCostQuery;
             _resultValue.eventQuery = eventQuery;
             _resultValue.metricQuery = metricQuery;
             _resultValue.processQuery = processQuery;
+            _resultValue.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            _resultValue.retentionQuery = retentionQuery;
             _resultValue.sloQuery = sloQuery;
+            _resultValue.userJourneyQuery = userJourneyQuery;
             return _resultValue;
         }
     }

@@ -56,7 +56,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinition {
      */
     private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionMarker> markers;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequest> requests;
@@ -147,7 +147,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinition {
         return this.markers == null ? List.of() : this.markers;
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     public List<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionRequest> requests() {
