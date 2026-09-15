@@ -4,6 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeys;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrence;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
@@ -13,6 +16,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
+    /**
+     * @return Product Analytics and RUM audience filters.
+     * 
+     */
+    private @Nullable DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters audienceFilters;
     /**
      * @return The data source for the Sankey RUM query. Valid values are `rum`, `productAnalytics`.
      * 
@@ -24,6 +32,11 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
      */
     private @Nullable Integer entriesPerStep;
     /**
+     * @return Join keys for the Sankey query.
+     * 
+     */
+    private @Nullable DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeys joinKeys;
+    /**
      * @return The mode for the Sankey RUM query. Valid values are `source`, `target`.
      * 
      */
@@ -33,6 +46,11 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
      * 
      */
     private @Nullable Integer numberOfSteps;
+    /**
+     * @return Filter applied to occurrence counts when building a Product Analytics audience.
+     * 
+     */
+    private @Nullable DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrence occurrence;
     /**
      * @return The search query string.
      * 
@@ -56,6 +74,13 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
 
     private DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery() {}
     /**
+     * @return Product Analytics and RUM audience filters.
+     * 
+     */
+    public Optional<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters> audienceFilters() {
+        return Optional.ofNullable(this.audienceFilters);
+    }
+    /**
      * @return The data source for the Sankey RUM query. Valid values are `rum`, `productAnalytics`.
      * 
      */
@@ -70,6 +95,13 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
         return Optional.ofNullable(this.entriesPerStep);
     }
     /**
+     * @return Join keys for the Sankey query.
+     * 
+     */
+    public Optional<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeys> joinKeys() {
+        return Optional.ofNullable(this.joinKeys);
+    }
+    /**
      * @return The mode for the Sankey RUM query. Valid values are `source`, `target`.
      * 
      */
@@ -82,6 +114,13 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
      */
     public Optional<Integer> numberOfSteps() {
         return Optional.ofNullable(this.numberOfSteps);
+    }
+    /**
+     * @return Filter applied to occurrence counts when building a Product Analytics audience.
+     * 
+     */
+    public Optional<DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrence> occurrence() {
+        return Optional.ofNullable(this.occurrence);
     }
     /**
      * @return The search query string.
@@ -121,10 +160,13 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters audienceFilters;
         private String dataSource;
         private @Nullable Integer entriesPerStep;
+        private @Nullable DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeys joinKeys;
         private String mode;
         private @Nullable Integer numberOfSteps;
+        private @Nullable DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrence occurrence;
         private String queryString;
         private @Nullable String source;
         private @Nullable String subqueryId;
@@ -132,16 +174,25 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
         public Builder() {}
         public Builder(DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.audienceFilters = defaults.audienceFilters;
     	      this.dataSource = defaults.dataSource;
     	      this.entriesPerStep = defaults.entriesPerStep;
+    	      this.joinKeys = defaults.joinKeys;
     	      this.mode = defaults.mode;
     	      this.numberOfSteps = defaults.numberOfSteps;
+    	      this.occurrence = defaults.occurrence;
     	      this.queryString = defaults.queryString;
     	      this.source = defaults.source;
     	      this.subqueryId = defaults.subqueryId;
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
+        public Builder audienceFilters(@Nullable DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryAudienceFilters audienceFilters) {
+
+            this.audienceFilters = audienceFilters;
+            return this;
+        }
         @CustomType.Setter
         public Builder dataSource(String dataSource) {
             if (dataSource == null) {
@@ -157,6 +208,12 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
             return this;
         }
         @CustomType.Setter
+        public Builder joinKeys(@Nullable DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryJoinKeys joinKeys) {
+
+            this.joinKeys = joinKeys;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mode(String mode) {
             if (mode == null) {
               throw new MissingRequiredPropertyException("DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery", "mode");
@@ -168,6 +225,12 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
         public Builder numberOfSteps(@Nullable Integer numberOfSteps) {
 
             this.numberOfSteps = numberOfSteps;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder occurrence(@Nullable DashboardV2WidgetSankeyDefinitionRequestRumRequestQueryOccurrence occurrence) {
+
+            this.occurrence = occurrence;
             return this;
         }
         @CustomType.Setter
@@ -198,10 +261,13 @@ public final class DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery {
         }
         public DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery build() {
             final var _resultValue = new DashboardV2WidgetSankeyDefinitionRequestRumRequestQuery();
+            _resultValue.audienceFilters = audienceFilters;
             _resultValue.dataSource = dataSource;
             _resultValue.entriesPerStep = entriesPerStep;
+            _resultValue.joinKeys = joinKeys;
             _resultValue.mode = mode;
             _resultValue.numberOfSteps = numberOfSteps;
+            _resultValue.occurrence = occurrence;
             _resultValue.queryString = queryString;
             _resultValue.source = source;
             _resultValue.subqueryId = subqueryId;

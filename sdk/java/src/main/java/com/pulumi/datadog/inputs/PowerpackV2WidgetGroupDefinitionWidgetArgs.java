@@ -5,42 +5,45 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetChangeDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetIframeDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetImageDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetNoteDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetSloListDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinitionArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetAlertGraphDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetAlertValueDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetBarChartDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetChangeDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetCheckStatusDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetCohortDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetDistributionDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetEventStreamDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetEventTimelineDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetFreeTextDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetFunnelDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetGeomapDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWidgetLayoutArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetHeatmapDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetHostmapDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetIframeDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetImageDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetListStreamDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetLogStreamDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetManageStatusDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetNoteDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetPointPlotDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetProductAnalyticsFunnelDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetQueryTableDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetQueryValueDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetRetentionCurveDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetRunWorkflowDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetSankeyDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetScatterplotDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetServiceLevelObjectiveDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetServicemapDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetSloListDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetSunburstDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetTimeseriesDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetToplistDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetTopologyMapDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetTraceServiceDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetTreemapDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionArgs;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -56,13 +59,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="alertGraphDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinitionArgs> alertGraphDefinition;
+    private @Nullable Output<PowerpackV2WidgetAlertGraphDefinitionArgs> alertGraphDefinition;
 
     /**
      * @return The definition for a Alert Graph widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinitionArgs>> alertGraphDefinition() {
+    public Optional<Output<PowerpackV2WidgetAlertGraphDefinitionArgs>> alertGraphDefinition() {
         return Optional.ofNullable(this.alertGraphDefinition);
     }
 
@@ -71,13 +74,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="alertValueDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinitionArgs> alertValueDefinition;
+    private @Nullable Output<PowerpackV2WidgetAlertValueDefinitionArgs> alertValueDefinition;
 
     /**
      * @return The definition for a Alert Value widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinitionArgs>> alertValueDefinition() {
+    public Optional<Output<PowerpackV2WidgetAlertValueDefinitionArgs>> alertValueDefinition() {
         return Optional.ofNullable(this.alertValueDefinition);
     }
 
@@ -86,13 +89,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="barChartDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinitionArgs> barChartDefinition;
+    private @Nullable Output<PowerpackV2WidgetBarChartDefinitionArgs> barChartDefinition;
 
     /**
      * @return The definition for a Bar Chart widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinitionArgs>> barChartDefinition() {
+    public Optional<Output<PowerpackV2WidgetBarChartDefinitionArgs>> barChartDefinition() {
         return Optional.ofNullable(this.barChartDefinition);
     }
 
@@ -101,13 +104,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="changeDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetChangeDefinitionArgs> changeDefinition;
+    private @Nullable Output<PowerpackV2WidgetChangeDefinitionArgs> changeDefinition;
 
     /**
      * @return The definition for a Change widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetChangeDefinitionArgs>> changeDefinition() {
+    public Optional<Output<PowerpackV2WidgetChangeDefinitionArgs>> changeDefinition() {
         return Optional.ofNullable(this.changeDefinition);
     }
 
@@ -116,14 +119,29 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="checkStatusDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinitionArgs> checkStatusDefinition;
+    private @Nullable Output<PowerpackV2WidgetCheckStatusDefinitionArgs> checkStatusDefinition;
 
     /**
      * @return The definition for a Check Status widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinitionArgs>> checkStatusDefinition() {
+    public Optional<Output<PowerpackV2WidgetCheckStatusDefinitionArgs>> checkStatusDefinition() {
         return Optional.ofNullable(this.checkStatusDefinition);
+    }
+
+    /**
+     * The definition for a Cohort retention-grid widget.
+     * 
+     */
+    @Import(name="cohortDefinition")
+    private @Nullable Output<PowerpackV2WidgetCohortDefinitionArgs> cohortDefinition;
+
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetCohortDefinitionArgs>> cohortDefinition() {
+        return Optional.ofNullable(this.cohortDefinition);
     }
 
     /**
@@ -131,13 +149,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="distributionDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionArgs> distributionDefinition;
+    private @Nullable Output<PowerpackV2WidgetDistributionDefinitionArgs> distributionDefinition;
 
     /**
      * @return The definition for a Distribution widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionArgs>> distributionDefinition() {
+    public Optional<Output<PowerpackV2WidgetDistributionDefinitionArgs>> distributionDefinition() {
         return Optional.ofNullable(this.distributionDefinition);
     }
 
@@ -146,13 +164,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="eventStreamDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinitionArgs> eventStreamDefinition;
+    private @Nullable Output<PowerpackV2WidgetEventStreamDefinitionArgs> eventStreamDefinition;
 
     /**
      * @return The definition for a Event Stream widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinitionArgs>> eventStreamDefinition() {
+    public Optional<Output<PowerpackV2WidgetEventStreamDefinitionArgs>> eventStreamDefinition() {
         return Optional.ofNullable(this.eventStreamDefinition);
     }
 
@@ -161,13 +179,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="eventTimelineDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinitionArgs> eventTimelineDefinition;
+    private @Nullable Output<PowerpackV2WidgetEventTimelineDefinitionArgs> eventTimelineDefinition;
 
     /**
      * @return The definition for a Event Timeline widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinitionArgs>> eventTimelineDefinition() {
+    public Optional<Output<PowerpackV2WidgetEventTimelineDefinitionArgs>> eventTimelineDefinition() {
         return Optional.ofNullable(this.eventTimelineDefinition);
     }
 
@@ -176,13 +194,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="freeTextDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinitionArgs> freeTextDefinition;
+    private @Nullable Output<PowerpackV2WidgetFreeTextDefinitionArgs> freeTextDefinition;
 
     /**
      * @return The definition for a Free Text widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinitionArgs>> freeTextDefinition() {
+    public Optional<Output<PowerpackV2WidgetFreeTextDefinitionArgs>> freeTextDefinition() {
         return Optional.ofNullable(this.freeTextDefinition);
     }
 
@@ -191,13 +209,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="funnelDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinitionArgs> funnelDefinition;
+    private @Nullable Output<PowerpackV2WidgetFunnelDefinitionArgs> funnelDefinition;
 
     /**
      * @return The definition for a Funnel widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinitionArgs>> funnelDefinition() {
+    public Optional<Output<PowerpackV2WidgetFunnelDefinitionArgs>> funnelDefinition() {
         return Optional.ofNullable(this.funnelDefinition);
     }
 
@@ -206,13 +224,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="geomapDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinitionArgs> geomapDefinition;
+    private @Nullable Output<PowerpackV2WidgetGeomapDefinitionArgs> geomapDefinition;
 
     /**
      * @return The definition for a Geomap widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinitionArgs>> geomapDefinition() {
+    public Optional<Output<PowerpackV2WidgetGeomapDefinitionArgs>> geomapDefinition() {
         return Optional.ofNullable(this.geomapDefinition);
     }
 
@@ -221,13 +239,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="heatmapDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionArgs> heatmapDefinition;
+    private @Nullable Output<PowerpackV2WidgetHeatmapDefinitionArgs> heatmapDefinition;
 
     /**
      * @return The definition for a Heatmap widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionArgs>> heatmapDefinition() {
+    public Optional<Output<PowerpackV2WidgetHeatmapDefinitionArgs>> heatmapDefinition() {
         return Optional.ofNullable(this.heatmapDefinition);
     }
 
@@ -236,13 +254,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="hostmapDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionArgs> hostmapDefinition;
+    private @Nullable Output<PowerpackV2WidgetHostmapDefinitionArgs> hostmapDefinition;
 
     /**
      * @return The definition for a Hostmap widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionArgs>> hostmapDefinition() {
+    public Optional<Output<PowerpackV2WidgetHostmapDefinitionArgs>> hostmapDefinition() {
         return Optional.ofNullable(this.hostmapDefinition);
     }
 
@@ -266,13 +284,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="iframeDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetIframeDefinitionArgs> iframeDefinition;
+    private @Nullable Output<PowerpackV2WidgetIframeDefinitionArgs> iframeDefinition;
 
     /**
      * @return The definition for an Iframe widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetIframeDefinitionArgs>> iframeDefinition() {
+    public Optional<Output<PowerpackV2WidgetIframeDefinitionArgs>> iframeDefinition() {
         return Optional.ofNullable(this.iframeDefinition);
     }
 
@@ -281,13 +299,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="imageDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetImageDefinitionArgs> imageDefinition;
+    private @Nullable Output<PowerpackV2WidgetImageDefinitionArgs> imageDefinition;
 
     /**
      * @return The definition for an Image widget
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetImageDefinitionArgs>> imageDefinition() {
+    public Optional<Output<PowerpackV2WidgetImageDefinitionArgs>> imageDefinition() {
         return Optional.ofNullable(this.imageDefinition);
     }
 
@@ -296,13 +314,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="listStreamDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinitionArgs> listStreamDefinition;
+    private @Nullable Output<PowerpackV2WidgetListStreamDefinitionArgs> listStreamDefinition;
 
     /**
      * @return The definition for a List Stream widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinitionArgs>> listStreamDefinition() {
+    public Optional<Output<PowerpackV2WidgetListStreamDefinitionArgs>> listStreamDefinition() {
         return Optional.ofNullable(this.listStreamDefinition);
     }
 
@@ -311,13 +329,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="logStreamDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinitionArgs> logStreamDefinition;
+    private @Nullable Output<PowerpackV2WidgetLogStreamDefinitionArgs> logStreamDefinition;
 
     /**
      * @return The definition for an Log Stream widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinitionArgs>> logStreamDefinition() {
+    public Optional<Output<PowerpackV2WidgetLogStreamDefinitionArgs>> logStreamDefinition() {
         return Optional.ofNullable(this.logStreamDefinition);
     }
 
@@ -326,13 +344,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="manageStatusDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinitionArgs> manageStatusDefinition;
+    private @Nullable Output<PowerpackV2WidgetManageStatusDefinitionArgs> manageStatusDefinition;
 
     /**
      * @return The definition for an Manage Status widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinitionArgs>> manageStatusDefinition() {
+    public Optional<Output<PowerpackV2WidgetManageStatusDefinitionArgs>> manageStatusDefinition() {
         return Optional.ofNullable(this.manageStatusDefinition);
     }
 
@@ -341,13 +359,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="noteDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetNoteDefinitionArgs> noteDefinition;
+    private @Nullable Output<PowerpackV2WidgetNoteDefinitionArgs> noteDefinition;
 
     /**
      * @return The definition for a Note widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetNoteDefinitionArgs>> noteDefinition() {
+    public Optional<Output<PowerpackV2WidgetNoteDefinitionArgs>> noteDefinition() {
         return Optional.ofNullable(this.noteDefinition);
     }
 
@@ -356,14 +374,29 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="pointPlotDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs> pointPlotDefinition;
+    private @Nullable Output<PowerpackV2WidgetPointPlotDefinitionArgs> pointPlotDefinition;
 
     /**
      * @return The definition for a Point Plot widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs>> pointPlotDefinition() {
+    public Optional<Output<PowerpackV2WidgetPointPlotDefinitionArgs>> pointPlotDefinition() {
         return Optional.ofNullable(this.pointPlotDefinition);
+    }
+
+    /**
+     * The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    @Import(name="productAnalyticsFunnelDefinition")
+    private @Nullable Output<PowerpackV2WidgetProductAnalyticsFunnelDefinitionArgs> productAnalyticsFunnelDefinition;
+
+    /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetProductAnalyticsFunnelDefinitionArgs>> productAnalyticsFunnelDefinition() {
+        return Optional.ofNullable(this.productAnalyticsFunnelDefinition);
     }
 
     /**
@@ -371,13 +404,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="queryTableDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionArgs> queryTableDefinition;
+    private @Nullable Output<PowerpackV2WidgetQueryTableDefinitionArgs> queryTableDefinition;
 
     /**
      * @return The definition for a Query Table widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionArgs>> queryTableDefinition() {
+    public Optional<Output<PowerpackV2WidgetQueryTableDefinitionArgs>> queryTableDefinition() {
         return Optional.ofNullable(this.queryTableDefinition);
     }
 
@@ -386,14 +419,29 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="queryValueDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionArgs> queryValueDefinition;
+    private @Nullable Output<PowerpackV2WidgetQueryValueDefinitionArgs> queryValueDefinition;
 
     /**
      * @return The definition for a Query Value widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionArgs>> queryValueDefinition() {
+    public Optional<Output<PowerpackV2WidgetQueryValueDefinitionArgs>> queryValueDefinition() {
         return Optional.ofNullable(this.queryValueDefinition);
+    }
+
+    /**
+     * The definition for a Retention Curve widget.
+     * 
+     */
+    @Import(name="retentionCurveDefinition")
+    private @Nullable Output<PowerpackV2WidgetRetentionCurveDefinitionArgs> retentionCurveDefinition;
+
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetRetentionCurveDefinitionArgs>> retentionCurveDefinition() {
+        return Optional.ofNullable(this.retentionCurveDefinition);
     }
 
     /**
@@ -401,13 +449,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="runWorkflowDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition;
+    private @Nullable Output<PowerpackV2WidgetRunWorkflowDefinitionArgs> runWorkflowDefinition;
 
     /**
      * @return The definition for a Run Workflow widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs>> runWorkflowDefinition() {
+    public Optional<Output<PowerpackV2WidgetRunWorkflowDefinitionArgs>> runWorkflowDefinition() {
         return Optional.ofNullable(this.runWorkflowDefinition);
     }
 
@@ -416,13 +464,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="sankeyDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionArgs> sankeyDefinition;
+    private @Nullable Output<PowerpackV2WidgetSankeyDefinitionArgs> sankeyDefinition;
 
     /**
      * @return The definition for a Sankey diagram widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionArgs>> sankeyDefinition() {
+    public Optional<Output<PowerpackV2WidgetSankeyDefinitionArgs>> sankeyDefinition() {
         return Optional.ofNullable(this.sankeyDefinition);
     }
 
@@ -431,13 +479,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="scatterplotDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinitionArgs> scatterplotDefinition;
+    private @Nullable Output<PowerpackV2WidgetScatterplotDefinitionArgs> scatterplotDefinition;
 
     /**
      * @return The definition for a Scatterplot widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinitionArgs>> scatterplotDefinition() {
+    public Optional<Output<PowerpackV2WidgetScatterplotDefinitionArgs>> scatterplotDefinition() {
         return Optional.ofNullable(this.scatterplotDefinition);
     }
 
@@ -446,13 +494,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="serviceLevelObjectiveDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs> serviceLevelObjectiveDefinition;
+    private @Nullable Output<PowerpackV2WidgetServiceLevelObjectiveDefinitionArgs> serviceLevelObjectiveDefinition;
 
     /**
      * @return The definition for a Service Level Objective widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs>> serviceLevelObjectiveDefinition() {
+    public Optional<Output<PowerpackV2WidgetServiceLevelObjectiveDefinitionArgs>> serviceLevelObjectiveDefinition() {
         return Optional.ofNullable(this.serviceLevelObjectiveDefinition);
     }
 
@@ -461,13 +509,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="servicemapDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinitionArgs> servicemapDefinition;
+    private @Nullable Output<PowerpackV2WidgetServicemapDefinitionArgs> servicemapDefinition;
 
     /**
      * @return The definition for a Service Map widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinitionArgs>> servicemapDefinition() {
+    public Optional<Output<PowerpackV2WidgetServicemapDefinitionArgs>> servicemapDefinition() {
         return Optional.ofNullable(this.servicemapDefinition);
     }
 
@@ -476,13 +524,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="sloListDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetSloListDefinitionArgs> sloListDefinition;
+    private @Nullable Output<PowerpackV2WidgetSloListDefinitionArgs> sloListDefinition;
 
     /**
      * @return The definition for an SLO (Service Level Objective) List widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetSloListDefinitionArgs>> sloListDefinition() {
+    public Optional<Output<PowerpackV2WidgetSloListDefinitionArgs>> sloListDefinition() {
         return Optional.ofNullable(this.sloListDefinition);
     }
 
@@ -491,13 +539,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="sunburstDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinitionArgs> sunburstDefinition;
+    private @Nullable Output<PowerpackV2WidgetSunburstDefinitionArgs> sunburstDefinition;
 
     /**
      * @return The definition for a Sunburst widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinitionArgs>> sunburstDefinition() {
+    public Optional<Output<PowerpackV2WidgetSunburstDefinitionArgs>> sunburstDefinition() {
         return Optional.ofNullable(this.sunburstDefinition);
     }
 
@@ -506,13 +554,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="timeseriesDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinitionArgs> timeseriesDefinition;
+    private @Nullable Output<PowerpackV2WidgetTimeseriesDefinitionArgs> timeseriesDefinition;
 
     /**
      * @return The definition for a Timeseries widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinitionArgs>> timeseriesDefinition() {
+    public Optional<Output<PowerpackV2WidgetTimeseriesDefinitionArgs>> timeseriesDefinition() {
         return Optional.ofNullable(this.timeseriesDefinition);
     }
 
@@ -521,13 +569,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="toplistDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionArgs> toplistDefinition;
+    private @Nullable Output<PowerpackV2WidgetToplistDefinitionArgs> toplistDefinition;
 
     /**
      * @return The definition for a Toplist widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionArgs>> toplistDefinition() {
+    public Optional<Output<PowerpackV2WidgetToplistDefinitionArgs>> toplistDefinition() {
         return Optional.ofNullable(this.toplistDefinition);
     }
 
@@ -536,13 +584,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="topologyMapDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionArgs> topologyMapDefinition;
+    private @Nullable Output<PowerpackV2WidgetTopologyMapDefinitionArgs> topologyMapDefinition;
 
     /**
      * @return The definition for a Topology Map widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionArgs>> topologyMapDefinition() {
+    public Optional<Output<PowerpackV2WidgetTopologyMapDefinitionArgs>> topologyMapDefinition() {
         return Optional.ofNullable(this.topologyMapDefinition);
     }
 
@@ -551,13 +599,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="traceServiceDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinitionArgs> traceServiceDefinition;
+    private @Nullable Output<PowerpackV2WidgetTraceServiceDefinitionArgs> traceServiceDefinition;
 
     /**
      * @return The definition for a Trace Service widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinitionArgs>> traceServiceDefinition() {
+    public Optional<Output<PowerpackV2WidgetTraceServiceDefinitionArgs>> traceServiceDefinition() {
         return Optional.ofNullable(this.traceServiceDefinition);
     }
 
@@ -566,13 +614,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="treemapDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionArgs> treemapDefinition;
+    private @Nullable Output<PowerpackV2WidgetTreemapDefinitionArgs> treemapDefinition;
 
     /**
      * @return The definition for a Treemap widget.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionArgs>> treemapDefinition() {
+    public Optional<Output<PowerpackV2WidgetTreemapDefinitionArgs>> treemapDefinition() {
         return Optional.ofNullable(this.treemapDefinition);
     }
 
@@ -596,13 +644,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      * 
      */
     @Import(name="wildcardDefinition")
-    private @Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionArgs> wildcardDefinition;
+    private @Nullable Output<PowerpackV2WidgetWildcardDefinitionArgs> wildcardDefinition;
 
     /**
      * @return The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionArgs>> wildcardDefinition() {
+    public Optional<Output<PowerpackV2WidgetWildcardDefinitionArgs>> wildcardDefinition() {
         return Optional.ofNullable(this.wildcardDefinition);
     }
 
@@ -614,6 +662,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
         this.barChartDefinition = $.barChartDefinition;
         this.changeDefinition = $.changeDefinition;
         this.checkStatusDefinition = $.checkStatusDefinition;
+        this.cohortDefinition = $.cohortDefinition;
         this.distributionDefinition = $.distributionDefinition;
         this.eventStreamDefinition = $.eventStreamDefinition;
         this.eventTimelineDefinition = $.eventTimelineDefinition;
@@ -630,8 +679,10 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
         this.manageStatusDefinition = $.manageStatusDefinition;
         this.noteDefinition = $.noteDefinition;
         this.pointPlotDefinition = $.pointPlotDefinition;
+        this.productAnalyticsFunnelDefinition = $.productAnalyticsFunnelDefinition;
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
+        this.retentionCurveDefinition = $.retentionCurveDefinition;
         this.runWorkflowDefinition = $.runWorkflowDefinition;
         this.sankeyDefinition = $.sankeyDefinition;
         this.scatterplotDefinition = $.scatterplotDefinition;
@@ -672,7 +723,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder alertGraphDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinitionArgs> alertGraphDefinition) {
+        public Builder alertGraphDefinition(@Nullable Output<PowerpackV2WidgetAlertGraphDefinitionArgs> alertGraphDefinition) {
             $.alertGraphDefinition = alertGraphDefinition;
             return this;
         }
@@ -683,7 +734,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder alertGraphDefinition(PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinitionArgs alertGraphDefinition) {
+        public Builder alertGraphDefinition(PowerpackV2WidgetAlertGraphDefinitionArgs alertGraphDefinition) {
             return alertGraphDefinition(Output.of(alertGraphDefinition));
         }
 
@@ -693,7 +744,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder alertValueDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinitionArgs> alertValueDefinition) {
+        public Builder alertValueDefinition(@Nullable Output<PowerpackV2WidgetAlertValueDefinitionArgs> alertValueDefinition) {
             $.alertValueDefinition = alertValueDefinition;
             return this;
         }
@@ -704,7 +755,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder alertValueDefinition(PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinitionArgs alertValueDefinition) {
+        public Builder alertValueDefinition(PowerpackV2WidgetAlertValueDefinitionArgs alertValueDefinition) {
             return alertValueDefinition(Output.of(alertValueDefinition));
         }
 
@@ -714,7 +765,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder barChartDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinitionArgs> barChartDefinition) {
+        public Builder barChartDefinition(@Nullable Output<PowerpackV2WidgetBarChartDefinitionArgs> barChartDefinition) {
             $.barChartDefinition = barChartDefinition;
             return this;
         }
@@ -725,7 +776,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder barChartDefinition(PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinitionArgs barChartDefinition) {
+        public Builder barChartDefinition(PowerpackV2WidgetBarChartDefinitionArgs barChartDefinition) {
             return barChartDefinition(Output.of(barChartDefinition));
         }
 
@@ -735,7 +786,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder changeDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetChangeDefinitionArgs> changeDefinition) {
+        public Builder changeDefinition(@Nullable Output<PowerpackV2WidgetChangeDefinitionArgs> changeDefinition) {
             $.changeDefinition = changeDefinition;
             return this;
         }
@@ -746,7 +797,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder changeDefinition(PowerpackV2WidgetGroupDefinitionWidgetChangeDefinitionArgs changeDefinition) {
+        public Builder changeDefinition(PowerpackV2WidgetChangeDefinitionArgs changeDefinition) {
             return changeDefinition(Output.of(changeDefinition));
         }
 
@@ -756,7 +807,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder checkStatusDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinitionArgs> checkStatusDefinition) {
+        public Builder checkStatusDefinition(@Nullable Output<PowerpackV2WidgetCheckStatusDefinitionArgs> checkStatusDefinition) {
             $.checkStatusDefinition = checkStatusDefinition;
             return this;
         }
@@ -767,8 +818,29 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder checkStatusDefinition(PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinitionArgs checkStatusDefinition) {
+        public Builder checkStatusDefinition(PowerpackV2WidgetCheckStatusDefinitionArgs checkStatusDefinition) {
             return checkStatusDefinition(Output.of(checkStatusDefinition));
+        }
+
+        /**
+         * @param cohortDefinition The definition for a Cohort retention-grid widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cohortDefinition(@Nullable Output<PowerpackV2WidgetCohortDefinitionArgs> cohortDefinition) {
+            $.cohortDefinition = cohortDefinition;
+            return this;
+        }
+
+        /**
+         * @param cohortDefinition The definition for a Cohort retention-grid widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cohortDefinition(PowerpackV2WidgetCohortDefinitionArgs cohortDefinition) {
+            return cohortDefinition(Output.of(cohortDefinition));
         }
 
         /**
@@ -777,7 +849,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder distributionDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionArgs> distributionDefinition) {
+        public Builder distributionDefinition(@Nullable Output<PowerpackV2WidgetDistributionDefinitionArgs> distributionDefinition) {
             $.distributionDefinition = distributionDefinition;
             return this;
         }
@@ -788,7 +860,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder distributionDefinition(PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionArgs distributionDefinition) {
+        public Builder distributionDefinition(PowerpackV2WidgetDistributionDefinitionArgs distributionDefinition) {
             return distributionDefinition(Output.of(distributionDefinition));
         }
 
@@ -798,7 +870,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder eventStreamDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinitionArgs> eventStreamDefinition) {
+        public Builder eventStreamDefinition(@Nullable Output<PowerpackV2WidgetEventStreamDefinitionArgs> eventStreamDefinition) {
             $.eventStreamDefinition = eventStreamDefinition;
             return this;
         }
@@ -809,7 +881,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder eventStreamDefinition(PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinitionArgs eventStreamDefinition) {
+        public Builder eventStreamDefinition(PowerpackV2WidgetEventStreamDefinitionArgs eventStreamDefinition) {
             return eventStreamDefinition(Output.of(eventStreamDefinition));
         }
 
@@ -819,7 +891,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder eventTimelineDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinitionArgs> eventTimelineDefinition) {
+        public Builder eventTimelineDefinition(@Nullable Output<PowerpackV2WidgetEventTimelineDefinitionArgs> eventTimelineDefinition) {
             $.eventTimelineDefinition = eventTimelineDefinition;
             return this;
         }
@@ -830,7 +902,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder eventTimelineDefinition(PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinitionArgs eventTimelineDefinition) {
+        public Builder eventTimelineDefinition(PowerpackV2WidgetEventTimelineDefinitionArgs eventTimelineDefinition) {
             return eventTimelineDefinition(Output.of(eventTimelineDefinition));
         }
 
@@ -840,7 +912,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder freeTextDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinitionArgs> freeTextDefinition) {
+        public Builder freeTextDefinition(@Nullable Output<PowerpackV2WidgetFreeTextDefinitionArgs> freeTextDefinition) {
             $.freeTextDefinition = freeTextDefinition;
             return this;
         }
@@ -851,7 +923,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder freeTextDefinition(PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinitionArgs freeTextDefinition) {
+        public Builder freeTextDefinition(PowerpackV2WidgetFreeTextDefinitionArgs freeTextDefinition) {
             return freeTextDefinition(Output.of(freeTextDefinition));
         }
 
@@ -861,7 +933,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder funnelDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinitionArgs> funnelDefinition) {
+        public Builder funnelDefinition(@Nullable Output<PowerpackV2WidgetFunnelDefinitionArgs> funnelDefinition) {
             $.funnelDefinition = funnelDefinition;
             return this;
         }
@@ -872,7 +944,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder funnelDefinition(PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinitionArgs funnelDefinition) {
+        public Builder funnelDefinition(PowerpackV2WidgetFunnelDefinitionArgs funnelDefinition) {
             return funnelDefinition(Output.of(funnelDefinition));
         }
 
@@ -882,7 +954,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder geomapDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinitionArgs> geomapDefinition) {
+        public Builder geomapDefinition(@Nullable Output<PowerpackV2WidgetGeomapDefinitionArgs> geomapDefinition) {
             $.geomapDefinition = geomapDefinition;
             return this;
         }
@@ -893,7 +965,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder geomapDefinition(PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinitionArgs geomapDefinition) {
+        public Builder geomapDefinition(PowerpackV2WidgetGeomapDefinitionArgs geomapDefinition) {
             return geomapDefinition(Output.of(geomapDefinition));
         }
 
@@ -903,7 +975,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder heatmapDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionArgs> heatmapDefinition) {
+        public Builder heatmapDefinition(@Nullable Output<PowerpackV2WidgetHeatmapDefinitionArgs> heatmapDefinition) {
             $.heatmapDefinition = heatmapDefinition;
             return this;
         }
@@ -914,7 +986,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder heatmapDefinition(PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionArgs heatmapDefinition) {
+        public Builder heatmapDefinition(PowerpackV2WidgetHeatmapDefinitionArgs heatmapDefinition) {
             return heatmapDefinition(Output.of(heatmapDefinition));
         }
 
@@ -924,7 +996,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder hostmapDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionArgs> hostmapDefinition) {
+        public Builder hostmapDefinition(@Nullable Output<PowerpackV2WidgetHostmapDefinitionArgs> hostmapDefinition) {
             $.hostmapDefinition = hostmapDefinition;
             return this;
         }
@@ -935,7 +1007,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder hostmapDefinition(PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionArgs hostmapDefinition) {
+        public Builder hostmapDefinition(PowerpackV2WidgetHostmapDefinitionArgs hostmapDefinition) {
             return hostmapDefinition(Output.of(hostmapDefinition));
         }
 
@@ -966,7 +1038,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder iframeDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetIframeDefinitionArgs> iframeDefinition) {
+        public Builder iframeDefinition(@Nullable Output<PowerpackV2WidgetIframeDefinitionArgs> iframeDefinition) {
             $.iframeDefinition = iframeDefinition;
             return this;
         }
@@ -977,7 +1049,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder iframeDefinition(PowerpackV2WidgetGroupDefinitionWidgetIframeDefinitionArgs iframeDefinition) {
+        public Builder iframeDefinition(PowerpackV2WidgetIframeDefinitionArgs iframeDefinition) {
             return iframeDefinition(Output.of(iframeDefinition));
         }
 
@@ -987,7 +1059,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder imageDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetImageDefinitionArgs> imageDefinition) {
+        public Builder imageDefinition(@Nullable Output<PowerpackV2WidgetImageDefinitionArgs> imageDefinition) {
             $.imageDefinition = imageDefinition;
             return this;
         }
@@ -998,7 +1070,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder imageDefinition(PowerpackV2WidgetGroupDefinitionWidgetImageDefinitionArgs imageDefinition) {
+        public Builder imageDefinition(PowerpackV2WidgetImageDefinitionArgs imageDefinition) {
             return imageDefinition(Output.of(imageDefinition));
         }
 
@@ -1008,7 +1080,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder listStreamDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinitionArgs> listStreamDefinition) {
+        public Builder listStreamDefinition(@Nullable Output<PowerpackV2WidgetListStreamDefinitionArgs> listStreamDefinition) {
             $.listStreamDefinition = listStreamDefinition;
             return this;
         }
@@ -1019,7 +1091,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder listStreamDefinition(PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinitionArgs listStreamDefinition) {
+        public Builder listStreamDefinition(PowerpackV2WidgetListStreamDefinitionArgs listStreamDefinition) {
             return listStreamDefinition(Output.of(listStreamDefinition));
         }
 
@@ -1029,7 +1101,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder logStreamDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinitionArgs> logStreamDefinition) {
+        public Builder logStreamDefinition(@Nullable Output<PowerpackV2WidgetLogStreamDefinitionArgs> logStreamDefinition) {
             $.logStreamDefinition = logStreamDefinition;
             return this;
         }
@@ -1040,7 +1112,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder logStreamDefinition(PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinitionArgs logStreamDefinition) {
+        public Builder logStreamDefinition(PowerpackV2WidgetLogStreamDefinitionArgs logStreamDefinition) {
             return logStreamDefinition(Output.of(logStreamDefinition));
         }
 
@@ -1050,7 +1122,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder manageStatusDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinitionArgs> manageStatusDefinition) {
+        public Builder manageStatusDefinition(@Nullable Output<PowerpackV2WidgetManageStatusDefinitionArgs> manageStatusDefinition) {
             $.manageStatusDefinition = manageStatusDefinition;
             return this;
         }
@@ -1061,7 +1133,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder manageStatusDefinition(PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinitionArgs manageStatusDefinition) {
+        public Builder manageStatusDefinition(PowerpackV2WidgetManageStatusDefinitionArgs manageStatusDefinition) {
             return manageStatusDefinition(Output.of(manageStatusDefinition));
         }
 
@@ -1071,7 +1143,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder noteDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetNoteDefinitionArgs> noteDefinition) {
+        public Builder noteDefinition(@Nullable Output<PowerpackV2WidgetNoteDefinitionArgs> noteDefinition) {
             $.noteDefinition = noteDefinition;
             return this;
         }
@@ -1082,7 +1154,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder noteDefinition(PowerpackV2WidgetGroupDefinitionWidgetNoteDefinitionArgs noteDefinition) {
+        public Builder noteDefinition(PowerpackV2WidgetNoteDefinitionArgs noteDefinition) {
             return noteDefinition(Output.of(noteDefinition));
         }
 
@@ -1092,7 +1164,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder pointPlotDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs> pointPlotDefinition) {
+        public Builder pointPlotDefinition(@Nullable Output<PowerpackV2WidgetPointPlotDefinitionArgs> pointPlotDefinition) {
             $.pointPlotDefinition = pointPlotDefinition;
             return this;
         }
@@ -1103,8 +1175,29 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder pointPlotDefinition(PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionArgs pointPlotDefinition) {
+        public Builder pointPlotDefinition(PowerpackV2WidgetPointPlotDefinitionArgs pointPlotDefinition) {
             return pointPlotDefinition(Output.of(pointPlotDefinition));
+        }
+
+        /**
+         * @param productAnalyticsFunnelDefinition The definition for a Product Analytics user journey funnel widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsFunnelDefinition(@Nullable Output<PowerpackV2WidgetProductAnalyticsFunnelDefinitionArgs> productAnalyticsFunnelDefinition) {
+            $.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
+            return this;
+        }
+
+        /**
+         * @param productAnalyticsFunnelDefinition The definition for a Product Analytics user journey funnel widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsFunnelDefinition(PowerpackV2WidgetProductAnalyticsFunnelDefinitionArgs productAnalyticsFunnelDefinition) {
+            return productAnalyticsFunnelDefinition(Output.of(productAnalyticsFunnelDefinition));
         }
 
         /**
@@ -1113,7 +1206,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder queryTableDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionArgs> queryTableDefinition) {
+        public Builder queryTableDefinition(@Nullable Output<PowerpackV2WidgetQueryTableDefinitionArgs> queryTableDefinition) {
             $.queryTableDefinition = queryTableDefinition;
             return this;
         }
@@ -1124,7 +1217,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder queryTableDefinition(PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionArgs queryTableDefinition) {
+        public Builder queryTableDefinition(PowerpackV2WidgetQueryTableDefinitionArgs queryTableDefinition) {
             return queryTableDefinition(Output.of(queryTableDefinition));
         }
 
@@ -1134,7 +1227,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder queryValueDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionArgs> queryValueDefinition) {
+        public Builder queryValueDefinition(@Nullable Output<PowerpackV2WidgetQueryValueDefinitionArgs> queryValueDefinition) {
             $.queryValueDefinition = queryValueDefinition;
             return this;
         }
@@ -1145,8 +1238,29 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder queryValueDefinition(PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionArgs queryValueDefinition) {
+        public Builder queryValueDefinition(PowerpackV2WidgetQueryValueDefinitionArgs queryValueDefinition) {
             return queryValueDefinition(Output.of(queryValueDefinition));
+        }
+
+        /**
+         * @param retentionCurveDefinition The definition for a Retention Curve widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionCurveDefinition(@Nullable Output<PowerpackV2WidgetRetentionCurveDefinitionArgs> retentionCurveDefinition) {
+            $.retentionCurveDefinition = retentionCurveDefinition;
+            return this;
+        }
+
+        /**
+         * @param retentionCurveDefinition The definition for a Retention Curve widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionCurveDefinition(PowerpackV2WidgetRetentionCurveDefinitionArgs retentionCurveDefinition) {
+            return retentionCurveDefinition(Output.of(retentionCurveDefinition));
         }
 
         /**
@@ -1155,7 +1269,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder runWorkflowDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs> runWorkflowDefinition) {
+        public Builder runWorkflowDefinition(@Nullable Output<PowerpackV2WidgetRunWorkflowDefinitionArgs> runWorkflowDefinition) {
             $.runWorkflowDefinition = runWorkflowDefinition;
             return this;
         }
@@ -1166,7 +1280,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder runWorkflowDefinition(PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinitionArgs runWorkflowDefinition) {
+        public Builder runWorkflowDefinition(PowerpackV2WidgetRunWorkflowDefinitionArgs runWorkflowDefinition) {
             return runWorkflowDefinition(Output.of(runWorkflowDefinition));
         }
 
@@ -1176,7 +1290,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder sankeyDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionArgs> sankeyDefinition) {
+        public Builder sankeyDefinition(@Nullable Output<PowerpackV2WidgetSankeyDefinitionArgs> sankeyDefinition) {
             $.sankeyDefinition = sankeyDefinition;
             return this;
         }
@@ -1187,7 +1301,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder sankeyDefinition(PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionArgs sankeyDefinition) {
+        public Builder sankeyDefinition(PowerpackV2WidgetSankeyDefinitionArgs sankeyDefinition) {
             return sankeyDefinition(Output.of(sankeyDefinition));
         }
 
@@ -1197,7 +1311,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder scatterplotDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinitionArgs> scatterplotDefinition) {
+        public Builder scatterplotDefinition(@Nullable Output<PowerpackV2WidgetScatterplotDefinitionArgs> scatterplotDefinition) {
             $.scatterplotDefinition = scatterplotDefinition;
             return this;
         }
@@ -1208,7 +1322,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder scatterplotDefinition(PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinitionArgs scatterplotDefinition) {
+        public Builder scatterplotDefinition(PowerpackV2WidgetScatterplotDefinitionArgs scatterplotDefinition) {
             return scatterplotDefinition(Output.of(scatterplotDefinition));
         }
 
@@ -1218,7 +1332,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder serviceLevelObjectiveDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs> serviceLevelObjectiveDefinition) {
+        public Builder serviceLevelObjectiveDefinition(@Nullable Output<PowerpackV2WidgetServiceLevelObjectiveDefinitionArgs> serviceLevelObjectiveDefinition) {
             $.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             return this;
         }
@@ -1229,7 +1343,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder serviceLevelObjectiveDefinition(PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionArgs serviceLevelObjectiveDefinition) {
+        public Builder serviceLevelObjectiveDefinition(PowerpackV2WidgetServiceLevelObjectiveDefinitionArgs serviceLevelObjectiveDefinition) {
             return serviceLevelObjectiveDefinition(Output.of(serviceLevelObjectiveDefinition));
         }
 
@@ -1239,7 +1353,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder servicemapDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinitionArgs> servicemapDefinition) {
+        public Builder servicemapDefinition(@Nullable Output<PowerpackV2WidgetServicemapDefinitionArgs> servicemapDefinition) {
             $.servicemapDefinition = servicemapDefinition;
             return this;
         }
@@ -1250,7 +1364,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder servicemapDefinition(PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinitionArgs servicemapDefinition) {
+        public Builder servicemapDefinition(PowerpackV2WidgetServicemapDefinitionArgs servicemapDefinition) {
             return servicemapDefinition(Output.of(servicemapDefinition));
         }
 
@@ -1260,7 +1374,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder sloListDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetSloListDefinitionArgs> sloListDefinition) {
+        public Builder sloListDefinition(@Nullable Output<PowerpackV2WidgetSloListDefinitionArgs> sloListDefinition) {
             $.sloListDefinition = sloListDefinition;
             return this;
         }
@@ -1271,7 +1385,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder sloListDefinition(PowerpackV2WidgetGroupDefinitionWidgetSloListDefinitionArgs sloListDefinition) {
+        public Builder sloListDefinition(PowerpackV2WidgetSloListDefinitionArgs sloListDefinition) {
             return sloListDefinition(Output.of(sloListDefinition));
         }
 
@@ -1281,7 +1395,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder sunburstDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinitionArgs> sunburstDefinition) {
+        public Builder sunburstDefinition(@Nullable Output<PowerpackV2WidgetSunburstDefinitionArgs> sunburstDefinition) {
             $.sunburstDefinition = sunburstDefinition;
             return this;
         }
@@ -1292,7 +1406,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder sunburstDefinition(PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinitionArgs sunburstDefinition) {
+        public Builder sunburstDefinition(PowerpackV2WidgetSunburstDefinitionArgs sunburstDefinition) {
             return sunburstDefinition(Output.of(sunburstDefinition));
         }
 
@@ -1302,7 +1416,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder timeseriesDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinitionArgs> timeseriesDefinition) {
+        public Builder timeseriesDefinition(@Nullable Output<PowerpackV2WidgetTimeseriesDefinitionArgs> timeseriesDefinition) {
             $.timeseriesDefinition = timeseriesDefinition;
             return this;
         }
@@ -1313,7 +1427,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder timeseriesDefinition(PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinitionArgs timeseriesDefinition) {
+        public Builder timeseriesDefinition(PowerpackV2WidgetTimeseriesDefinitionArgs timeseriesDefinition) {
             return timeseriesDefinition(Output.of(timeseriesDefinition));
         }
 
@@ -1323,7 +1437,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder toplistDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionArgs> toplistDefinition) {
+        public Builder toplistDefinition(@Nullable Output<PowerpackV2WidgetToplistDefinitionArgs> toplistDefinition) {
             $.toplistDefinition = toplistDefinition;
             return this;
         }
@@ -1334,7 +1448,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder toplistDefinition(PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionArgs toplistDefinition) {
+        public Builder toplistDefinition(PowerpackV2WidgetToplistDefinitionArgs toplistDefinition) {
             return toplistDefinition(Output.of(toplistDefinition));
         }
 
@@ -1344,7 +1458,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder topologyMapDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionArgs> topologyMapDefinition) {
+        public Builder topologyMapDefinition(@Nullable Output<PowerpackV2WidgetTopologyMapDefinitionArgs> topologyMapDefinition) {
             $.topologyMapDefinition = topologyMapDefinition;
             return this;
         }
@@ -1355,7 +1469,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder topologyMapDefinition(PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionArgs topologyMapDefinition) {
+        public Builder topologyMapDefinition(PowerpackV2WidgetTopologyMapDefinitionArgs topologyMapDefinition) {
             return topologyMapDefinition(Output.of(topologyMapDefinition));
         }
 
@@ -1365,7 +1479,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder traceServiceDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinitionArgs> traceServiceDefinition) {
+        public Builder traceServiceDefinition(@Nullable Output<PowerpackV2WidgetTraceServiceDefinitionArgs> traceServiceDefinition) {
             $.traceServiceDefinition = traceServiceDefinition;
             return this;
         }
@@ -1376,7 +1490,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder traceServiceDefinition(PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinitionArgs traceServiceDefinition) {
+        public Builder traceServiceDefinition(PowerpackV2WidgetTraceServiceDefinitionArgs traceServiceDefinition) {
             return traceServiceDefinition(Output.of(traceServiceDefinition));
         }
 
@@ -1386,7 +1500,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder treemapDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionArgs> treemapDefinition) {
+        public Builder treemapDefinition(@Nullable Output<PowerpackV2WidgetTreemapDefinitionArgs> treemapDefinition) {
             $.treemapDefinition = treemapDefinition;
             return this;
         }
@@ -1397,7 +1511,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder treemapDefinition(PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionArgs treemapDefinition) {
+        public Builder treemapDefinition(PowerpackV2WidgetTreemapDefinitionArgs treemapDefinition) {
             return treemapDefinition(Output.of(treemapDefinition));
         }
 
@@ -1428,7 +1542,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder wildcardDefinition(@Nullable Output<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionArgs> wildcardDefinition) {
+        public Builder wildcardDefinition(@Nullable Output<PowerpackV2WidgetWildcardDefinitionArgs> wildcardDefinition) {
             $.wildcardDefinition = wildcardDefinition;
             return this;
         }
@@ -1439,7 +1553,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder wildcardDefinition(PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionArgs wildcardDefinition) {
+        public Builder wildcardDefinition(PowerpackV2WidgetWildcardDefinitionArgs wildcardDefinition) {
             return wildcardDefinition(Output.of(wildcardDefinition));
         }
 

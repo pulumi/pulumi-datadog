@@ -25,6 +25,18 @@ import * as utilities from "./utilities";
  *     }),
  *     enforcementTier: "OVERRIDE_ALLOWED",
  * });
+ * // Provisions a shared role with the given permissions into every member org.
+ * // role policies only support GROUP_MANAGED/DELEGATE; DELEGATE disables the
+ * // shared role and cannot be reversed.
+ * const roleExample = new datadog.OrgGroupPolicy("role_example", {
+ *     orgGroupId: prod.id,
+ *     policyName: "finance_read_only",
+ *     policyType: "role",
+ *     content: JSON.stringify({
+ *         permissions: ["<permission-uuid>"],
+ *     }),
+ *     enforcementTier: "GROUP_MANAGED",
+ * });
  * ```
  *
  * ## Behavior notes
@@ -41,6 +53,14 @@ import * as utilities from "./utilities";
  * ### Transitioning to GROUP_MANAGED
  *
  * Changing `enforcementTier` to `"GROUP_MANAGED"` automatically deletes every override associated with this policy server-side. Any `datadog.OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform's next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
+ *
+ * ### `role` policies
+ *
+ * `role` policies only support `GROUP_MANAGED` and `DELEGATE` for `enforcementTier`; `OVERRIDE_ALLOWED` is rejected. Setting `enforcementTier` to `"DELEGATE"` disables the shared role and cannot be reversed — the API rejects transitioning a `DELEGATE` `role` policy back to `GROUP_MANAGED`.
+ *
+ * `policyName` can be changed in place for `role` policies without replacing the resource. Renaming an `orgConfig` policy is not supported by the API and forces a replace.
+ *
+ * `role` policies cannot be deleted. `terraform destroy` (or removing the resource from configuration) only succeeds once the policy is already disabled (`enforcementTier = "DELEGATE"`); otherwise it fails with an error asking you to disable it first. On success the resource is removed from state, but the disabled policy itself is not deleted server-side.
  *
  * ## Import
  *
@@ -93,7 +113,7 @@ export class OrgGroupPolicy extends pulumi.CustomResource {
      */
     declare public readonly policyName: pulumi.Output<string>;
     /**
-     * The type of the policy. Valid values are `orgConfig`.
+     * The type of the policy. Valid values are `orgConfig`, `role`.
      */
     declare public readonly policyType: pulumi.Output<string>;
 
@@ -158,7 +178,7 @@ export interface OrgGroupPolicyState {
      */
     policyName?: pulumi.Input<string | undefined>;
     /**
-     * The type of the policy. Valid values are `orgConfig`.
+     * The type of the policy. Valid values are `orgConfig`, `role`.
      */
     policyType?: pulumi.Input<string | undefined>;
 }
@@ -184,7 +204,7 @@ export interface OrgGroupPolicyArgs {
      */
     policyName: pulumi.Input<string>;
     /**
-     * The type of the policy. Valid values are `orgConfig`.
+     * The type of the policy. Valid values are `orgConfig`, `role`.
      */
     policyType?: pulumi.Input<string | undefined>;
 }

@@ -5,9 +5,10 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetApmMetricsQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetApmResourceStatsQueryArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetMetricQueryArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryArgs;
-import com.pulumi.datadog.inputs.PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -18,17 +19,32 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHis
     public static final PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryArgs Empty = new PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryArgs();
 
     /**
+     * APM metrics query for histogram-mode distribution.
+     * 
+     */
+    @Import(name="apmMetricsQuery")
+    private @Nullable Output<PowerpackV2WidgetApmMetricsQueryArgs> apmMetricsQuery;
+
+    /**
+     * @return APM metrics query for histogram-mode distribution.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetApmMetricsQueryArgs>> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
+    }
+
+    /**
      * APM resource stats query for histogram-mode distribution.
      * 
      */
     @Import(name="apmResourceStatsQuery")
-    private @Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQueryArgs> apmResourceStatsQuery;
+    private @Nullable Output<PowerpackV2WidgetApmResourceStatsQueryArgs> apmResourceStatsQuery;
 
     /**
      * @return APM resource stats query for histogram-mode distribution.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQueryArgs>> apmResourceStatsQuery() {
+    public Optional<Output<PowerpackV2WidgetApmResourceStatsQueryArgs>> apmResourceStatsQuery() {
         return Optional.ofNullable(this.apmResourceStatsQuery);
     }
 
@@ -52,19 +68,20 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHis
      * 
      */
     @Import(name="metricQuery")
-    private @Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQueryArgs> metricQuery;
+    private @Nullable Output<PowerpackV2WidgetMetricQueryArgs> metricQuery;
 
     /**
      * @return Metric query for histogram-mode distribution.
      * 
      */
-    public Optional<Output<PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQueryArgs>> metricQuery() {
+    public Optional<Output<PowerpackV2WidgetMetricQueryArgs>> metricQuery() {
         return Optional.ofNullable(this.metricQuery);
     }
 
     private PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryArgs() {}
 
     private PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryArgs(PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryArgs $) {
+        this.apmMetricsQuery = $.apmMetricsQuery;
         this.apmResourceStatsQuery = $.apmResourceStatsQuery;
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
@@ -89,12 +106,33 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHis
         }
 
         /**
+         * @param apmMetricsQuery APM metrics query for histogram-mode distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(@Nullable Output<PowerpackV2WidgetApmMetricsQueryArgs> apmMetricsQuery) {
+            $.apmMetricsQuery = apmMetricsQuery;
+            return this;
+        }
+
+        /**
+         * @param apmMetricsQuery APM metrics query for histogram-mode distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(PowerpackV2WidgetApmMetricsQueryArgs apmMetricsQuery) {
+            return apmMetricsQuery(Output.of(apmMetricsQuery));
+        }
+
+        /**
          * @param apmResourceStatsQuery APM resource stats query for histogram-mode distribution.
          * 
          * @return builder
          * 
          */
-        public Builder apmResourceStatsQuery(@Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQueryArgs> apmResourceStatsQuery) {
+        public Builder apmResourceStatsQuery(@Nullable Output<PowerpackV2WidgetApmResourceStatsQueryArgs> apmResourceStatsQuery) {
             $.apmResourceStatsQuery = apmResourceStatsQuery;
             return this;
         }
@@ -105,7 +143,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHis
          * @return builder
          * 
          */
-        public Builder apmResourceStatsQuery(PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQueryArgs apmResourceStatsQuery) {
+        public Builder apmResourceStatsQuery(PowerpackV2WidgetApmResourceStatsQueryArgs apmResourceStatsQuery) {
             return apmResourceStatsQuery(Output.of(apmResourceStatsQuery));
         }
 
@@ -136,7 +174,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHis
          * @return builder
          * 
          */
-        public Builder metricQuery(@Nullable Output<PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQueryArgs> metricQuery) {
+        public Builder metricQuery(@Nullable Output<PowerpackV2WidgetMetricQueryArgs> metricQuery) {
             $.metricQuery = metricQuery;
             return this;
         }
@@ -147,7 +185,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHis
          * @return builder
          * 
          */
-        public Builder metricQuery(PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQueryArgs metricQuery) {
+        public Builder metricQuery(PowerpackV2WidgetMetricQueryArgs metricQuery) {
             return metricQuery(Output.of(metricQuery));
         }
 

@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.PowerpackV2WidgetChangeDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// Whether to show absolute or relative change. Valid values are `Absolute`, `Relative`.
@@ -52,7 +52,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.PowerpackV2WidgetChangeDefinitionRequestLogQueryGetArgs>? LogQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// What to order by. Valid values are `Change`, `Name`, `Present`, `Past`.
@@ -94,13 +94,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.PowerpackV2WidgetChangeDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.PowerpackV2WidgetChangeDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
         /// <summary>
         /// If set to `True`, displays the current value.

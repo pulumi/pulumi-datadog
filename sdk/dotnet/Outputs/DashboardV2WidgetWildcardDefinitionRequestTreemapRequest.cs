@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// A list of formulas to use in the widget.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -40,11 +40,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardV2WidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The controls for sorting the widget.
         /// </summary>
@@ -56,11 +56,11 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardV2WidgetWildcardDefinitionRequestTreemapRequest(
-            Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery? apmQuery,
+            Outputs.DashboardV2WidgetApmQuery? apmQuery,
 
             ImmutableArray<Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestFormula> formulas,
 
-            Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery? logQuery,
+            Outputs.DashboardV2WidgetLogQuery? logQuery,
 
             Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestProcessQuery? processQuery,
 
@@ -68,9 +68,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQuery> queries,
 
-            Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery? rumQuery,
+            Outputs.DashboardV2WidgetRumQuery? rumQuery,
 
-            Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery? securityQuery,
+            Outputs.DashboardV2WidgetSecurityQuery? securityQuery,
 
             Outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestSort? sort,
 

@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestApmQuery? ApmQuery;
+        public readonly Outputs.PowerpackV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// How the data points are displayed on the graph.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestLogQuery? LogQuery;
+        public readonly Outputs.PowerpackV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -44,11 +44,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestRumQuery? RumQuery;
+        public readonly Outputs.PowerpackV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.PowerpackV2WidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The controls for sorting the widget.
         /// </summary>
@@ -60,13 +60,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequest(
-            Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestApmQuery? apmQuery,
+            Outputs.PowerpackV2WidgetApmQuery? apmQuery,
 
             string? displayType,
 
             ImmutableArray<Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula> formulas,
 
-            Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestLogQuery? logQuery,
+            Outputs.PowerpackV2WidgetLogQuery? logQuery,
 
             Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQuery? processQuery,
 
@@ -74,9 +74,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQuery> queries,
 
-            Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestRumQuery? rumQuery,
+            Outputs.PowerpackV2WidgetRumQuery? rumQuery,
 
-            Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestSecurityQuery? securityQuery,
+            Outputs.PowerpackV2WidgetSecurityQuery? securityQuery,
 
             Outputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestSort? sort,
 

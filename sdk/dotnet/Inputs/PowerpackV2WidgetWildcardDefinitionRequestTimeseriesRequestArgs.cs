@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestApmQueryArgs>? ApmQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetApmQueryArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// How the data points are displayed on the graph.
@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestLogQueryArgs>? LogQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetLogQueryArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
@@ -70,13 +70,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestRumQueryArgs>? RumQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetRumQueryArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestSecurityQueryArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetSecurityQueryArgs>? SecurityQuery { get; set; }
 
         /// <summary>
         /// The controls for sorting the widget.

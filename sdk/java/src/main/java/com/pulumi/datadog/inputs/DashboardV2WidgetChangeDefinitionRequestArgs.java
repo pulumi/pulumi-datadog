@@ -5,13 +5,13 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardV2WidgetChangeDefinitionRequestApmQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetApmQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetChangeDefinitionRequestFormulaArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetChangeDefinitionRequestLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetChangeDefinitionRequestProcessQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetChangeDefinitionRequestQueryArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetChangeDefinitionRequestRumQueryArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetChangeDefinitionRequestSecurityQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetRumQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetSecurityQueryArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -33,7 +33,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="apmQuery")
-    private @Nullable Output<DashboardV2WidgetChangeDefinitionRequestApmQueryArgs> apmQuery;
+    private @Nullable Output<DashboardV2WidgetApmQueryArgs> apmQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -43,7 +43,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetChangeDefinitionRequestApmQueryArgs>> apmQuery() {
+    public Optional<Output<DashboardV2WidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
@@ -116,7 +116,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="logQuery")
-    private @Nullable Output<DashboardV2WidgetChangeDefinitionRequestLogQueryArgs> logQuery;
+    private @Nullable Output<DashboardV2WidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -126,7 +126,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetChangeDefinitionRequestLogQueryArgs>> logQuery() {
+    public Optional<Output<DashboardV2WidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
@@ -230,7 +230,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="rumQuery")
-    private @Nullable Output<DashboardV2WidgetChangeDefinitionRequestRumQueryArgs> rumQuery;
+    private @Nullable Output<DashboardV2WidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -240,7 +240,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetChangeDefinitionRequestRumQueryArgs>> rumQuery() {
+    public Optional<Output<DashboardV2WidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -253,7 +253,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="securityQuery")
-    private @Nullable Output<DashboardV2WidgetChangeDefinitionRequestSecurityQueryArgs> securityQuery;
+    private @Nullable Output<DashboardV2WidgetSecurityQueryArgs> securityQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -263,7 +263,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetChangeDefinitionRequestSecurityQueryArgs>> securityQuery() {
+    public Optional<Output<DashboardV2WidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -329,7 +329,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder apmQuery(@Nullable Output<DashboardV2WidgetChangeDefinitionRequestApmQueryArgs> apmQuery) {
+        public Builder apmQuery(@Nullable Output<DashboardV2WidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
@@ -344,7 +344,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder apmQuery(DashboardV2WidgetChangeDefinitionRequestApmQueryArgs apmQuery) {
+        public Builder apmQuery(DashboardV2WidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
@@ -452,7 +452,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder logQuery(@Nullable Output<DashboardV2WidgetChangeDefinitionRequestLogQueryArgs> logQuery) {
+        public Builder logQuery(@Nullable Output<DashboardV2WidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
@@ -467,7 +467,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder logQuery(DashboardV2WidgetChangeDefinitionRequestLogQueryArgs logQuery) {
+        public Builder logQuery(DashboardV2WidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
@@ -612,7 +612,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder rumQuery(@Nullable Output<DashboardV2WidgetChangeDefinitionRequestRumQueryArgs> rumQuery) {
+        public Builder rumQuery(@Nullable Output<DashboardV2WidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
@@ -627,7 +627,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder rumQuery(DashboardV2WidgetChangeDefinitionRequestRumQueryArgs rumQuery) {
+        public Builder rumQuery(DashboardV2WidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
@@ -641,7 +641,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder securityQuery(@Nullable Output<DashboardV2WidgetChangeDefinitionRequestSecurityQueryArgs> securityQuery) {
+        public Builder securityQuery(@Nullable Output<DashboardV2WidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
@@ -656,7 +656,7 @@ public final class DashboardV2WidgetChangeDefinitionRequestArgs extends com.pulu
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder securityQuery(DashboardV2WidgetChangeDefinitionRequestSecurityQueryArgs securityQuery) {
+        public Builder securityQuery(DashboardV2WidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 

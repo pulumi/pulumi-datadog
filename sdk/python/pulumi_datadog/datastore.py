@@ -31,7 +31,7 @@ class DatastoreArgs:
         :param pulumi.Input[_builtins.str] primary_column_name: The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
         :param pulumi.Input[_builtins.str] description: A human-readable description about the datastore.
         :param pulumi.Input[_builtins.str] org_access: The organization access level for the datastore. For example, 'contributor'.
-        :param pulumi.Input[_builtins.str] primary_key_generation_strategy: Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+        :param pulumi.Input[_builtins.str] primary_key_generation_strategy: Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "primary_column_name", primary_column_name)
@@ -94,7 +94,7 @@ class DatastoreArgs:
     @pulumi.getter(name="primaryKeyGenerationStrategy")
     def primary_key_generation_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+        Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
         """
         return pulumi.get(self, "primary_key_generation_strategy")
 
@@ -128,7 +128,7 @@ class _DatastoreState:
         :param pulumi.Input[_builtins.str] org_access: The organization access level for the datastore. For example, 'contributor'.
         :param pulumi.Input[_builtins.int] org_id: The ID of the organization that owns this datastore.
         :param pulumi.Input[_builtins.str] primary_column_name: The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
-        :param pulumi.Input[_builtins.str] primary_key_generation_strategy: Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+        :param pulumi.Input[_builtins.str] primary_key_generation_strategy: Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -263,7 +263,7 @@ class _DatastoreState:
     @pulumi.getter(name="primaryKeyGenerationStrategy")
     def primary_key_generation_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+        Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
         """
         return pulumi.get(self, "primary_key_generation_strategy")
 
@@ -323,7 +323,7 @@ class Datastore(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The display name for the new datastore.
         :param pulumi.Input[_builtins.str] org_access: The organization access level for the datastore. For example, 'contributor'.
         :param pulumi.Input[_builtins.str] primary_column_name: The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
-        :param pulumi.Input[_builtins.str] primary_key_generation_strategy: Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+        :param pulumi.Input[_builtins.str] primary_key_generation_strategy: Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
         """
         ...
     @overload
@@ -443,7 +443,7 @@ class Datastore(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] org_access: The organization access level for the datastore. For example, 'contributor'.
         :param pulumi.Input[_builtins.int] org_id: The ID of the organization that owns this datastore.
         :param pulumi.Input[_builtins.str] primary_column_name: The name of the primary key column for this datastore. Primary column names:   - Must abide by both [PostgreSQL naming conventions](https://www.postgresql.org/docs/7.0/syntax525.htm)   - Cannot exceed 63 characters
-        :param pulumi.Input[_builtins.str] primary_key_generation_strategy: Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+        :param pulumi.Input[_builtins.str] primary_key_generation_strategy: Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -535,9 +535,9 @@ class Datastore(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="primaryKeyGenerationStrategy")
-    def primary_key_generation_strategy(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def primary_key_generation_strategy(self) -> pulumi.Output[_builtins.str]:
         """
-        Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+        Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
         """
         return pulumi.get(self, "primary_key_generation_strategy")
 

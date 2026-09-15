@@ -33,6 +33,7 @@ class ProviderArgs:
                  http_client_retry_backoff_base: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_backoff_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_client_retry_jitter: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -50,10 +51,11 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] bearer_token: Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
         :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
-        :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+        :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[_builtins.str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+        :param pulumi.Input[_builtins.int] http_client_retry_jitter: The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignore_tag_keys`. A resource's own `ignore_tag_keys` is merged with this list for that resource. Any `:value` suffix is ignored.
@@ -86,6 +88,8 @@ class ProviderArgs:
             pulumi.set(__self__, "http_client_retry_backoff_multiplier", http_client_retry_backoff_multiplier)
         if http_client_retry_enabled is not None:
             pulumi.set(__self__, "http_client_retry_enabled", http_client_retry_enabled)
+        if http_client_retry_jitter is not None:
+            pulumi.set(__self__, "http_client_retry_jitter", http_client_retry_jitter)
         if http_client_retry_max_retries is not None:
             pulumi.set(__self__, "http_client_retry_max_retries", http_client_retry_max_retries)
         if http_client_retry_timeout is not None:
@@ -209,7 +213,7 @@ class ProviderArgs:
     @pulumi.getter(name="defaultTags")
     def default_tags(self) -> pulumi.Input[Optional['ProviderDefaultTagsArgs']]:
         """
-        [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+        [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         """
         return pulumi.get(self, "default_tags")
 
@@ -252,6 +256,18 @@ class ProviderArgs:
     @http_client_retry_enabled.setter
     def http_client_retry_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_client_retry_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="httpClientRetryJitter")
+    def http_client_retry_jitter(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+        """
+        return pulumi.get(self, "http_client_retry_jitter")
+
+    @http_client_retry_jitter.setter
+    def http_client_retry_jitter(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "http_client_retry_jitter", value)
 
     @_builtins.property
     @pulumi.getter(name="httpClientRetryMaxRetries")
@@ -333,6 +349,7 @@ class Provider(pulumi.ProviderResource):
                  http_client_retry_backoff_base: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_backoff_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_client_retry_jitter: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -357,10 +374,11 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] bearer_token: Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
         :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
-        :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+        :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_multiplier: The HTTP request retry back off multiplier. Defaults to 2.
         :param pulumi.Input[_builtins.str] http_client_retry_enabled: Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
+        :param pulumi.Input[_builtins.int] http_client_retry_jitter: The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignore_tag_keys`. A resource's own `ignore_tag_keys` is merged with this list for that resource. Any `:value` suffix is ignored.
@@ -408,6 +426,7 @@ class Provider(pulumi.ProviderResource):
                  http_client_retry_backoff_base: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_backoff_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_client_retry_jitter: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -435,6 +454,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["http_client_retry_backoff_base"] = pulumi.Output.from_input(http_client_retry_backoff_base).apply(pulumi.runtime.to_json) if http_client_retry_backoff_base is not None else None
             __props__.__dict__["http_client_retry_backoff_multiplier"] = pulumi.Output.from_input(http_client_retry_backoff_multiplier).apply(pulumi.runtime.to_json) if http_client_retry_backoff_multiplier is not None else None
             __props__.__dict__["http_client_retry_enabled"] = http_client_retry_enabled
+            __props__.__dict__["http_client_retry_jitter"] = pulumi.Output.from_input(http_client_retry_jitter).apply(pulumi.runtime.to_json) if http_client_retry_jitter is not None else None
             __props__.__dict__["http_client_retry_max_retries"] = pulumi.Output.from_input(http_client_retry_max_retries).apply(pulumi.runtime.to_json) if http_client_retry_max_retries is not None else None
             __props__.__dict__["http_client_retry_timeout"] = pulumi.Output.from_input(http_client_retry_timeout).apply(pulumi.runtime.to_json) if http_client_retry_timeout is not None else None
             __props__.__dict__["ignore_tag_keys"] = pulumi.Output.from_input(ignore_tag_keys).apply(pulumi.runtime.to_json) if ignore_tag_keys is not None else None

@@ -154,14 +154,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+     * [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
      * 
      */
     @Import(name="defaultTags", json=true)
     private @Nullable Output<ProviderDefaultTagsArgs> defaultTags;
 
     /**
-     * @return [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+     * @return [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
      * 
      */
     public Optional<Output<ProviderDefaultTagsArgs>> defaultTags() {
@@ -211,6 +211,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> httpClientRetryEnabled() {
         return Optional.ofNullable(this.httpClientRetryEnabled);
+    }
+
+    /**
+     * The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+     * 
+     */
+    @Import(name="httpClientRetryJitter", json=true)
+    private @Nullable Output<Integer> httpClientRetryJitter;
+
+    /**
+     * @return The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+     * 
+     */
+    public Optional<Output<Integer>> httpClientRetryJitter() {
+        return Optional.ofNullable(this.httpClientRetryJitter);
     }
 
     /**
@@ -304,6 +319,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.httpClientRetryBackoffBase = $.httpClientRetryBackoffBase;
         this.httpClientRetryBackoffMultiplier = $.httpClientRetryBackoffMultiplier;
         this.httpClientRetryEnabled = $.httpClientRetryEnabled;
+        this.httpClientRetryJitter = $.httpClientRetryJitter;
         this.httpClientRetryMaxRetries = $.httpClientRetryMaxRetries;
         this.httpClientRetryTimeout = $.httpClientRetryTimeout;
         this.ignoreTagKeys = $.ignoreTagKeys;
@@ -519,7 +535,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultTags [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+         * @param defaultTags [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
          * 
          * @return builder
          * 
@@ -530,7 +546,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultTags [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+         * @param defaultTags [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
          * 
          * @return builder
          * 
@@ -600,6 +616,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder httpClientRetryEnabled(String httpClientRetryEnabled) {
             return httpClientRetryEnabled(Output.of(httpClientRetryEnabled));
+        }
+
+        /**
+         * @param httpClientRetryJitter The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClientRetryJitter(@Nullable Output<Integer> httpClientRetryJitter) {
+            $.httpClientRetryJitter = httpClientRetryJitter;
+            return this;
+        }
+
+        /**
+         * @param httpClientRetryJitter The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpClientRetryJitter(Integer httpClientRetryJitter) {
+            return httpClientRetryJitter(Output.of(httpClientRetryJitter));
         }
 
         /**

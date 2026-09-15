@@ -20,7 +20,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGeomapDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.PowerpackV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -32,19 +32,19 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGeomapDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.PowerpackV2WidgetRumQuery? RumQuery;
 
         [OutputConstructor]
         private PowerpackV2WidgetGeomapDefinitionRequest(
             ImmutableArray<Outputs.PowerpackV2WidgetGeomapDefinitionRequestFormula> formulas,
 
-            Outputs.PowerpackV2WidgetGeomapDefinitionRequestLogQuery? logQuery,
+            Outputs.PowerpackV2WidgetLogQuery? logQuery,
 
             string? q,
 
             ImmutableArray<Outputs.PowerpackV2WidgetGeomapDefinitionRequestQuery> queries,
 
-            Outputs.PowerpackV2WidgetGeomapDefinitionRequestRumQuery? rumQuery)
+            Outputs.PowerpackV2WidgetRumQuery? rumQuery)
         {
             Formulas = formulas;
             LogQuery = logQuery;

@@ -66,7 +66,7 @@ namespace Pulumi.Datadog
     ///                             {
     ///                                 new Datadog.Inputs.PowerpackV2WidgetTimeseriesDefinitionRequestQueryArgs
     ///                                 {
-    ///                                     MetricQuery = new Datadog.Inputs.PowerpackV2WidgetTimeseriesDefinitionRequestQueryMetricQueryArgs
+    ///                                     MetricQuery = new Datadog.Inputs.PowerpackV2WidgetMetricQueryArgs
     ///                                     {
     ///                                         DataSource = "metrics",
     ///                                         Query = "avg:system.cpu.user{*} by {env}",

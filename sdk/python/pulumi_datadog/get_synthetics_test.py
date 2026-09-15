@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'GetSyntheticsTestResult',
@@ -26,22 +27,57 @@ class GetSyntheticsTestResult:
     """
     A collection of values returned by getSyntheticsTest.
     """
-    def __init__(__self__, id=None, name=None, tags=None, test_id=None, url=None):
+    def __init__(__self__, device_ids=None, id=None, locations=None, message=None, mobile_options_lists=None, monitor_id=None, name=None, options_lists=None, status=None, subtype=None, tags=None, test_id=None, type=None, url=None):
+        if device_ids and not isinstance(device_ids, list):
+            raise TypeError("Expected argument 'device_ids' to be a list")
+        pulumi.set(__self__, "device_ids", device_ids)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if locations and not isinstance(locations, list):
+            raise TypeError("Expected argument 'locations' to be a list")
+        pulumi.set(__self__, "locations", locations)
+        if message and not isinstance(message, str):
+            raise TypeError("Expected argument 'message' to be a str")
+        pulumi.set(__self__, "message", message)
+        if mobile_options_lists and not isinstance(mobile_options_lists, list):
+            raise TypeError("Expected argument 'mobile_options_lists' to be a list")
+        pulumi.set(__self__, "mobile_options_lists", mobile_options_lists)
+        if monitor_id and not isinstance(monitor_id, int):
+            raise TypeError("Expected argument 'monitor_id' to be a int")
+        pulumi.set(__self__, "monitor_id", monitor_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if options_lists and not isinstance(options_lists, list):
+            raise TypeError("Expected argument 'options_lists' to be a list")
+        pulumi.set(__self__, "options_lists", options_lists)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if subtype and not isinstance(subtype, str):
+            raise TypeError("Expected argument 'subtype' to be a str")
+        pulumi.set(__self__, "subtype", subtype)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
         if test_id and not isinstance(test_id, str):
             raise TypeError("Expected argument 'test_id' to be a str")
         pulumi.set(__self__, "test_id", test_id)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceIds")
+    def device_ids(self) -> Sequence[_builtins.str]:
+        """
+        Array with the different device IDs used to run the test. Only set for browser tests.
+        """
+        return pulumi.get(self, "device_ids")
 
     @_builtins.property
     @pulumi.getter
@@ -53,11 +89,67 @@ class GetSyntheticsTestResult:
 
     @_builtins.property
     @pulumi.getter
+    def locations(self) -> Sequence[_builtins.str]:
+        """
+        Array of locations used to run the synthetic test.
+        """
+        return pulumi.get(self, "locations")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        A message to include with notifications for this synthetic test.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter(name="mobileOptionsLists")
+    def mobile_options_lists(self) -> Sequence['outputs.GetSyntheticsTestMobileOptionsListResult']:
+        """
+        The mobile synthetic test extra options.
+        """
+        return pulumi.get(self, "mobile_options_lists")
+
+    @_builtins.property
+    @pulumi.getter(name="monitorId")
+    def monitor_id(self) -> _builtins.int:
+        """
+        ID of the monitor associated with the synthetic test.
+        """
+        return pulumi.get(self, "monitor_id")
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> _builtins.str:
         """
         The name of the synthetic test.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="optionsLists")
+    def options_lists(self) -> Sequence['outputs.GetSyntheticsTestOptionsListResult']:
+        """
+        The synthetic test extra options.
+        """
+        return pulumi.get(self, "options_lists")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Whether the synthetic test is started (`live`) or paused (`paused`).
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def subtype(self) -> _builtins.str:
+        """
+        The subtype of the synthetic test. Only set for API tests.
+        """
+        return pulumi.get(self, "subtype")
 
     @_builtins.property
     @pulumi.getter
@@ -77,6 +169,14 @@ class GetSyntheticsTestResult:
 
     @_builtins.property
     @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the synthetic test.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
     def url(self) -> _builtins.str:
         """
         The start URL of the synthetic test.
@@ -90,10 +190,19 @@ class AwaitableGetSyntheticsTestResult(GetSyntheticsTestResult):
         if False:
             yield self
         return GetSyntheticsTestResult(
+            device_ids=self.device_ids,
             id=self.id,
+            locations=self.locations,
+            message=self.message,
+            mobile_options_lists=self.mobile_options_lists,
+            monitor_id=self.monitor_id,
             name=self.name,
+            options_lists=self.options_lists,
+            status=self.status,
+            subtype=self.subtype,
             tags=self.tags,
             test_id=self.test_id,
+            type=self.type,
             url=self.url)
 
 
@@ -101,6 +210,37 @@ def get_synthetics_test(test_id: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyntheticsTestResult:
     """
     Use this data source to retrieve a Datadog Synthetic Test.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    # The existing API test another team owns.
+    checkout_api = datadog.get_synthetics_test(test_id="abc-123-xyz")
+    # A browser test over the same journey, kept in lockstep with the API test's
+    # cadence, coverage, and alerting behavior.
+    checkout_browser = datadog.SyntheticsTest("checkout_browser",
+        name="Checkout journey (browser)",
+        type="browser",
+        status=checkout_api.status,
+        locations=checkout_api.locations,
+        request_definition={
+            "method": "GET",
+            "url": "https://www.example.com/checkout",
+        },
+        device_ids=["laptop_large"],
+        options_list={
+            "tick_every": checkout_api.options_lists[0].tick_every,
+            "min_location_failed": checkout_api.options_lists[0].min_location_failed,
+            "monitor_priority": checkout_api.options_lists[0].monitor_priority,
+            "retry": {
+                "count": checkout_api.options_lists[0].retries[0].count,
+                "interval": checkout_api.options_lists[0].retries[0].interval,
+            },
+        })
+    ```
 
 
     :param _builtins.str test_id: The synthetic test id or URL to search for
@@ -111,15 +251,55 @@ def get_synthetics_test(test_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('datadog:index/getSyntheticsTest:getSyntheticsTest', __args__, opts=opts, typ=GetSyntheticsTestResult).value
 
     return AwaitableGetSyntheticsTestResult(
+        device_ids=pulumi.get(__ret__, 'device_ids'),
         id=pulumi.get(__ret__, 'id'),
+        locations=pulumi.get(__ret__, 'locations'),
+        message=pulumi.get(__ret__, 'message'),
+        mobile_options_lists=pulumi.get(__ret__, 'mobile_options_lists'),
+        monitor_id=pulumi.get(__ret__, 'monitor_id'),
         name=pulumi.get(__ret__, 'name'),
+        options_lists=pulumi.get(__ret__, 'options_lists'),
+        status=pulumi.get(__ret__, 'status'),
+        subtype=pulumi.get(__ret__, 'subtype'),
         tags=pulumi.get(__ret__, 'tags'),
         test_id=pulumi.get(__ret__, 'test_id'),
+        type=pulumi.get(__ret__, 'type'),
         url=pulumi.get(__ret__, 'url'))
 def get_synthetics_test_output(test_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyntheticsTestResult]:
     """
     Use this data source to retrieve a Datadog Synthetic Test.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_datadog as datadog
+
+    # The existing API test another team owns.
+    checkout_api = datadog.get_synthetics_test(test_id="abc-123-xyz")
+    # A browser test over the same journey, kept in lockstep with the API test's
+    # cadence, coverage, and alerting behavior.
+    checkout_browser = datadog.SyntheticsTest("checkout_browser",
+        name="Checkout journey (browser)",
+        type="browser",
+        status=checkout_api.status,
+        locations=checkout_api.locations,
+        request_definition={
+            "method": "GET",
+            "url": "https://www.example.com/checkout",
+        },
+        device_ids=["laptop_large"],
+        options_list={
+            "tick_every": checkout_api.options_lists[0].tick_every,
+            "min_location_failed": checkout_api.options_lists[0].min_location_failed,
+            "monitor_priority": checkout_api.options_lists[0].monitor_priority,
+            "retry": {
+                "count": checkout_api.options_lists[0].retries[0].count,
+                "interval": checkout_api.options_lists[0].retries[0].interval,
+            },
+        })
+    ```
 
 
     :param _builtins.str test_id: The synthetic test id or URL to search for
@@ -129,8 +309,17 @@ def get_synthetics_test_output(test_id: pulumi.Input[Optional[_builtins.str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('datadog:index/getSyntheticsTest:getSyntheticsTest', __args__, opts=opts, typ=GetSyntheticsTestResult)
     return __ret__.apply(lambda __response__: GetSyntheticsTestResult(
+        device_ids=pulumi.get(__response__, 'device_ids'),
         id=pulumi.get(__response__, 'id'),
+        locations=pulumi.get(__response__, 'locations'),
+        message=pulumi.get(__response__, 'message'),
+        mobile_options_lists=pulumi.get(__response__, 'mobile_options_lists'),
+        monitor_id=pulumi.get(__response__, 'monitor_id'),
         name=pulumi.get(__response__, 'name'),
+        options_lists=pulumi.get(__response__, 'options_lists'),
+        status=pulumi.get(__response__, 'status'),
+        subtype=pulumi.get(__response__, 'subtype'),
         tags=pulumi.get(__response__, 'tags'),
         test_id=pulumi.get(__response__, 'test_id'),
+        type=pulumi.get(__response__, 'type'),
         url=pulumi.get(__response__, 'url')))

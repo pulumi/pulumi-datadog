@@ -20,7 +20,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXApmQuery? ApmQuery;
+        public readonly Outputs.PowerpackV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// A list of formulas to use in the widget.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXLogQuery? LogQuery;
+        public readonly Outputs.PowerpackV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -44,21 +44,21 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXRumQuery? RumQuery;
+        public readonly Outputs.PowerpackV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXSecurityQuery? SecurityQuery;
+        public readonly Outputs.PowerpackV2WidgetSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private PowerpackV2WidgetScatterplotDefinitionRequestX(
             string? aggregator,
 
-            Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXApmQuery? apmQuery,
+            Outputs.PowerpackV2WidgetApmQuery? apmQuery,
 
             ImmutableArray<Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXFormula> formulas,
 
-            Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXLogQuery? logQuery,
+            Outputs.PowerpackV2WidgetLogQuery? logQuery,
 
             Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXProcessQuery? processQuery,
 
@@ -66,9 +66,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXQuery> queries,
 
-            Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXRumQuery? rumQuery,
+            Outputs.PowerpackV2WidgetRumQuery? rumQuery,
 
-            Outputs.PowerpackV2WidgetScatterplotDefinitionRequestXSecurityQuery? securityQuery)
+            Outputs.PowerpackV2WidgetSecurityQuery? securityQuery)
         {
             Aggregator = aggregator;
             ApmQuery = apmQuery;

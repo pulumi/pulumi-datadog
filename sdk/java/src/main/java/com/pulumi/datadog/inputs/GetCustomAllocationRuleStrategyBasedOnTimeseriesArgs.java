@@ -3,15 +3,43 @@
 
 package com.pulumi.datadog.inputs;
 
-
+import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
+import java.util.Objects;
 
 
 public final class GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs Empty = new GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs();
 
+    /**
+     * The timeseries query that determines the allocation proportions, encoded as a JSON object. Set when `method` is `proportionalTimeseries`.
+     * 
+     */
+    @Import(name="json", required=true)
+    private Output<String> json;
+
+    /**
+     * @return The timeseries query that determines the allocation proportions, encoded as a JSON object. Set when `method` is `proportionalTimeseries`.
+     * 
+     */
+    public Output<String> json() {
+        return this.json;
+    }
+
+    private GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs() {}
+
+    private GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs(GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs $) {
+        this.json = $.json;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,7 +48,36 @@ public final class GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs extends 
         public Builder() {
             $ = new GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs();
         }
+
+        public Builder(GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs defaults) {
+            $ = new GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param json The timeseries query that determines the allocation proportions, encoded as a JSON object. Set when `method` is `proportionalTimeseries`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder json(Output<String> json) {
+            $.json = json;
+            return this;
+        }
+
+        /**
+         * @param json The timeseries query that determines the allocation proportions, encoded as a JSON object. Set when `method` is `proportionalTimeseries`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder json(String json) {
+            return json(Output.of(json));
+        }
+
         public GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs build() {
+            if ($.json == null) {
+                throw new MissingRequiredPropertyException("GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs", "json");
+            }
             return $;
         }
     }

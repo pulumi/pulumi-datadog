@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// How the data points are displayed on the graph.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -44,11 +44,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardV2WidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The controls for sorting the widget.
         /// </summary>
@@ -60,13 +60,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest(
-            Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestApmQuery? apmQuery,
+            Outputs.DashboardV2WidgetApmQuery? apmQuery,
 
             string? displayType,
 
             ImmutableArray<Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula> formulas,
 
-            Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestLogQuery? logQuery,
+            Outputs.DashboardV2WidgetLogQuery? logQuery,
 
             Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQuery? processQuery,
 
@@ -74,9 +74,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuery> queries,
 
-            Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestRumQuery? rumQuery,
+            Outputs.DashboardV2WidgetRumQuery? rumQuery,
 
-            Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSecurityQuery? securityQuery,
+            Outputs.DashboardV2WidgetSecurityQuery? securityQuery,
 
             Outputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSort? sort,
 

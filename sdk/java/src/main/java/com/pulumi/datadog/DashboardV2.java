@@ -40,16 +40,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestFormulaArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs;
- * import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryMetricQueryArgs;
+ * import com.pulumi.datadog.inputs.DashboardV2WidgetMetricQueryArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetQueryValueDefinitionArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetQueryValueDefinitionRequestArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetQueryValueDefinitionRequestFormulaArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetQueryValueDefinitionRequestQueryArgs;
- * import com.pulumi.datadog.inputs.DashboardV2WidgetQueryValueDefinitionRequestQueryMetricQueryArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetQueryValueDefinitionRequestConditionalFormatArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetArgs;
- * import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetNoteDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardV2WidgetNoteDefinitionArgs;
  * import com.pulumi.datadog.inputs.DashboardV2TemplateVariableArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetWidgetLayoutArgs;
  * import java.util.ArrayList;
@@ -79,7 +78,7 @@ import javax.annotation.Nullable;
  *                                 .alias("CPU Usage")
  *                                 .build())
  *                             .queries(DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs.builder()
- *                                 .metricQuery(DashboardV2WidgetTimeseriesDefinitionRequestQueryMetricQueryArgs.builder()
+ *                                 .metricQuery(DashboardV2WidgetMetricQueryArgs.builder()
  *                                     .dataSource("metrics")
  *                                     .query("avg:system.cpu.user{*} by {env}")
  *                                     .name("my_query_1")
@@ -98,7 +97,7 @@ import javax.annotation.Nullable;
  *                                 .formulaExpression("my_query_1")
  *                                 .build())
  *                             .queries(DashboardV2WidgetQueryValueDefinitionRequestQueryArgs.builder()
- *                                 .metricQuery(DashboardV2WidgetQueryValueDefinitionRequestQueryMetricQueryArgs.builder()
+ *                                 .metricQuery(DashboardV2WidgetMetricQueryArgs.builder()
  *                                     .dataSource("metrics")
  *                                     .query("avg:system.load.1{*}")
  *                                     .name("my_query_1")
@@ -129,7 +128,7 @@ import javax.annotation.Nullable;
  *                         .layoutType("ordered")
  *                         .title("Group Widget")
  *                         .widgets(DashboardV2WidgetGroupDefinitionWidgetArgs.builder()
- *                             .noteDefinition(DashboardV2WidgetGroupDefinitionWidgetNoteDefinitionArgs.builder()
+ *                             .noteDefinition(DashboardV2WidgetNoteDefinitionArgs.builder()
  *                                 .content("cluster note widget")
  *                                 .backgroundColor("pink")
  *                                 .fontSize("14")
@@ -160,7 +159,7 @@ import javax.annotation.Nullable;
  *                             .formulaExpression("my_query_1")
  *                             .build())
  *                         .queries(DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs.builder()
- *                             .metricQuery(DashboardV2WidgetTimeseriesDefinitionRequestQueryMetricQueryArgs.builder()
+ *                             .metricQuery(DashboardV2WidgetMetricQueryArgs.builder()
  *                                 .dataSource("metrics")
  *                                 .query("avg:system.cpu.user{*} by {env}")
  *                                 .name("my_query_1")
@@ -398,6 +397,20 @@ public class DashboardV2 extends com.pulumi.resources.CustomResource {
      */
     public Output<String> url() {
         return this.url;
+    }
+    /**
+     * Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+     * 
+     */
+    @Export(name="validate", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> validate;
+
+    /**
+     * @return Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+     * 
+     */
+    public Output<Optional<Boolean>> validate() {
+        return Codegen.optional(this.validate);
     }
     /**
      * The list of widgets to display on the dashboard.

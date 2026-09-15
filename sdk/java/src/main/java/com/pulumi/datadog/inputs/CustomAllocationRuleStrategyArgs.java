@@ -102,14 +102,14 @@ public final class CustomAllocationRuleStrategyArgs extends com.pulumi.resources
     }
 
     /**
-     * The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+     * The allocation method. Valid values are `even`, `percent`, `proportional`, `proportionalTimeseries`.
      * 
      */
     @Import(name="method")
     private @Nullable Output<String> method;
 
     /**
-     * @return The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+     * @return The allocation method. Valid values are `even`, `percent`, `proportional`, `proportionalTimeseries`.
      * 
      */
     public Optional<Output<String>> method() {
@@ -293,7 +293,7 @@ public final class CustomAllocationRuleStrategyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param method The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+         * @param method The allocation method. Valid values are `even`, `percent`, `proportional`, `proportionalTimeseries`.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class CustomAllocationRuleStrategyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param method The allocation method. Valid values are `even`, `proportional`, `proportionalTimeseries`, or `percent`.
+         * @param method The allocation method. Valid values are `even`, `percent`, `proportional`, `proportionalTimeseries`.
          * 
          * @return builder
          * 

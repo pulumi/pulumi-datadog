@@ -33,6 +33,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datadog.NewActionConnection(ctx, "aws_connection", &datadog.ActionConnectionArgs{
 //				Name: pulumi.String("My AWS Connection"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("env:prod"),
+//					pulumi.String("team:action-platform"),
+//				},
 //				Aws: datadog.ActionConnectionAwsArgs{
 //					map[string][]map[string]string{
 //						"assumeRole": []map[string]string{
@@ -145,6 +149,8 @@ type ActionConnection struct {
 	ConfigCat ActionConnectionConfigCatPtrOutput `pulumi:"configCat"`
 	// Configuration for a Datadog connection
 	Datadog ActionConnectionDatadogPtrOutput `pulumi:"datadog"`
+	// Tags associated with the connection, including those inherited from the provider's `defaultTags` configuration.
+	EffectiveTags pulumi.StringArrayOutput `pulumi:"effectiveTags"`
 	// Configuration for a Fastly connection
 	Fastly ActionConnectionFastlyPtrOutput `pulumi:"fastly"`
 	// Configuration for a Freshservice connection
@@ -175,6 +181,8 @@ type ActionConnection struct {
 	Split ActionConnectionSplitPtrOutput `pulumi:"split"`
 	// Configuration for a Statsig connection
 	Statsig ActionConnectionStatsigPtrOutput `pulumi:"statsig"`
+	// User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Configuration for a VirusTotal connection
 	VirusTotal ActionConnectionVirusTotalPtrOutput `pulumi:"virusTotal"`
 }
@@ -230,6 +238,8 @@ type actionConnectionState struct {
 	ConfigCat *ActionConnectionConfigCat `pulumi:"configCat"`
 	// Configuration for a Datadog connection
 	Datadog *ActionConnectionDatadog `pulumi:"datadog"`
+	// Tags associated with the connection, including those inherited from the provider's `defaultTags` configuration.
+	EffectiveTags []string `pulumi:"effectiveTags"`
 	// Configuration for a Fastly connection
 	Fastly *ActionConnectionFastly `pulumi:"fastly"`
 	// Configuration for a Freshservice connection
@@ -260,6 +270,8 @@ type actionConnectionState struct {
 	Split *ActionConnectionSplit `pulumi:"split"`
 	// Configuration for a Statsig connection
 	Statsig *ActionConnectionStatsig `pulumi:"statsig"`
+	// User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+	Tags []string `pulumi:"tags"`
 	// Configuration for a VirusTotal connection
 	VirusTotal *ActionConnectionVirusTotal `pulumi:"virusTotal"`
 }
@@ -283,6 +295,8 @@ type ActionConnectionState struct {
 	ConfigCat ActionConnectionConfigCatPtrInput
 	// Configuration for a Datadog connection
 	Datadog ActionConnectionDatadogPtrInput
+	// Tags associated with the connection, including those inherited from the provider's `defaultTags` configuration.
+	EffectiveTags pulumi.StringArrayInput
 	// Configuration for a Fastly connection
 	Fastly ActionConnectionFastlyPtrInput
 	// Configuration for a Freshservice connection
@@ -313,6 +327,8 @@ type ActionConnectionState struct {
 	Split ActionConnectionSplitPtrInput
 	// Configuration for a Statsig connection
 	Statsig ActionConnectionStatsigPtrInput
+	// User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+	Tags pulumi.StringArrayInput
 	// Configuration for a VirusTotal connection
 	VirusTotal ActionConnectionVirusTotalPtrInput
 }
@@ -370,6 +386,8 @@ type actionConnectionArgs struct {
 	Split *ActionConnectionSplit `pulumi:"split"`
 	// Configuration for a Statsig connection
 	Statsig *ActionConnectionStatsig `pulumi:"statsig"`
+	// User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+	Tags []string `pulumi:"tags"`
 	// Configuration for a VirusTotal connection
 	VirusTotal *ActionConnectionVirusTotal `pulumi:"virusTotal"`
 }
@@ -424,6 +442,8 @@ type ActionConnectionArgs struct {
 	Split ActionConnectionSplitPtrInput
 	// Configuration for a Statsig connection
 	Statsig ActionConnectionStatsigPtrInput
+	// User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+	Tags pulumi.StringArrayInput
 	// Configuration for a VirusTotal connection
 	VirusTotal ActionConnectionVirusTotalPtrInput
 }
@@ -560,6 +580,11 @@ func (o ActionConnectionOutput) Datadog() ActionConnectionDatadogPtrOutput {
 	return o.ApplyT(func(v *ActionConnection) ActionConnectionDatadogPtrOutput { return v.Datadog }).(ActionConnectionDatadogPtrOutput)
 }
 
+// Tags associated with the connection, including those inherited from the provider's `defaultTags` configuration.
+func (o ActionConnectionOutput) EffectiveTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionConnection) pulumi.StringArrayOutput { return v.EffectiveTags }).(pulumi.StringArrayOutput)
+}
+
 // Configuration for a Fastly connection
 func (o ActionConnectionOutput) Fastly() ActionConnectionFastlyPtrOutput {
 	return o.ApplyT(func(v *ActionConnection) ActionConnectionFastlyPtrOutput { return v.Fastly }).(ActionConnectionFastlyPtrOutput)
@@ -633,6 +658,11 @@ func (o ActionConnectionOutput) Split() ActionConnectionSplitPtrOutput {
 // Configuration for a Statsig connection
 func (o ActionConnectionOutput) Statsig() ActionConnectionStatsigPtrOutput {
 	return o.ApplyT(func(v *ActionConnection) ActionConnectionStatsigPtrOutput { return v.Statsig }).(ActionConnectionStatsigPtrOutput)
+}
+
+// User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+func (o ActionConnectionOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionConnection) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 // Configuration for a VirusTotal connection

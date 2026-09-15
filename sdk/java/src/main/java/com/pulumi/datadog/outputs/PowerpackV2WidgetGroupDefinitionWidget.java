@@ -4,42 +4,45 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetChangeDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetIframeDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetImageDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetSloListDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinition;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetAlertGraphDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetAlertValueDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetChangeDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetCheckStatusDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetCohortDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetEventStreamDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetEventTimelineDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetFreeTextDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetFunnelDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetGeomapDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetWidgetLayout;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetHeatmapDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetIframeDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetImageDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetListStreamDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogStreamDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetManageStatusDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetNoteDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetPointPlotDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetProductAnalyticsFunnelDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryValueDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRetentionCurveDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRunWorkflowDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSankeyDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetServiceLevelObjectiveDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetServicemapDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSloListDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetToplistDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetTopologyMapDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetTraceServiceDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetTreemapDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinition;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -51,67 +54,72 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      * @return The definition for a Alert Graph widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinition alertGraphDefinition;
+    private @Nullable PowerpackV2WidgetAlertGraphDefinition alertGraphDefinition;
     /**
      * @return The definition for a Alert Value widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinition alertValueDefinition;
+    private @Nullable PowerpackV2WidgetAlertValueDefinition alertValueDefinition;
     /**
      * @return The definition for a Bar Chart widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinition barChartDefinition;
+    private @Nullable PowerpackV2WidgetBarChartDefinition barChartDefinition;
     /**
      * @return The definition for a Change widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetChangeDefinition changeDefinition;
+    private @Nullable PowerpackV2WidgetChangeDefinition changeDefinition;
     /**
      * @return The definition for a Check Status widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition checkStatusDefinition;
+    private @Nullable PowerpackV2WidgetCheckStatusDefinition checkStatusDefinition;
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetCohortDefinition cohortDefinition;
     /**
      * @return The definition for a Distribution widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition distributionDefinition;
+    private @Nullable PowerpackV2WidgetDistributionDefinition distributionDefinition;
     /**
      * @return The definition for a Event Stream widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinition eventStreamDefinition;
+    private @Nullable PowerpackV2WidgetEventStreamDefinition eventStreamDefinition;
     /**
      * @return The definition for a Event Timeline widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinition eventTimelineDefinition;
+    private @Nullable PowerpackV2WidgetEventTimelineDefinition eventTimelineDefinition;
     /**
      * @return The definition for a Free Text widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinition freeTextDefinition;
+    private @Nullable PowerpackV2WidgetFreeTextDefinition freeTextDefinition;
     /**
      * @return The definition for a Funnel widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition funnelDefinition;
+    private @Nullable PowerpackV2WidgetFunnelDefinition funnelDefinition;
     /**
      * @return The definition for a Geomap widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinition geomapDefinition;
+    private @Nullable PowerpackV2WidgetGeomapDefinition geomapDefinition;
     /**
      * @return The definition for a Heatmap widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinition heatmapDefinition;
+    private @Nullable PowerpackV2WidgetHeatmapDefinition heatmapDefinition;
     /**
      * @return The definition for a Hostmap widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinition hostmapDefinition;
+    private @Nullable PowerpackV2WidgetHostmapDefinition hostmapDefinition;
     /**
      * @return The ID of the widget.
      * 
@@ -121,107 +129,117 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      * @return The definition for an Iframe widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetIframeDefinition iframeDefinition;
+    private @Nullable PowerpackV2WidgetIframeDefinition iframeDefinition;
     /**
      * @return The definition for an Image widget
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetImageDefinition imageDefinition;
+    private @Nullable PowerpackV2WidgetImageDefinition imageDefinition;
     /**
      * @return The definition for a List Stream widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinition listStreamDefinition;
+    private @Nullable PowerpackV2WidgetListStreamDefinition listStreamDefinition;
     /**
      * @return The definition for an Log Stream widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinition logStreamDefinition;
+    private @Nullable PowerpackV2WidgetLogStreamDefinition logStreamDefinition;
     /**
      * @return The definition for an Manage Status widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition manageStatusDefinition;
+    private @Nullable PowerpackV2WidgetManageStatusDefinition manageStatusDefinition;
     /**
      * @return The definition for a Note widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
+    private @Nullable PowerpackV2WidgetNoteDefinition noteDefinition;
     /**
      * @return The definition for a Point Plot widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition;
+    private @Nullable PowerpackV2WidgetPointPlotDefinition pointPlotDefinition;
+    /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition;
     /**
      * @return The definition for a Query Table widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition;
+    private @Nullable PowerpackV2WidgetQueryTableDefinition queryTableDefinition;
     /**
      * @return The definition for a Query Value widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
+    private @Nullable PowerpackV2WidgetQueryValueDefinition queryValueDefinition;
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetRetentionCurveDefinition retentionCurveDefinition;
     /**
      * @return The definition for a Run Workflow widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
+    private @Nullable PowerpackV2WidgetRunWorkflowDefinition runWorkflowDefinition;
     /**
      * @return The definition for a Sankey diagram widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinition sankeyDefinition;
+    private @Nullable PowerpackV2WidgetSankeyDefinition sankeyDefinition;
     /**
      * @return The definition for a Scatterplot widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinition scatterplotDefinition;
+    private @Nullable PowerpackV2WidgetScatterplotDefinition scatterplotDefinition;
     /**
      * @return The definition for a Service Level Objective widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
+    private @Nullable PowerpackV2WidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
     /**
      * @return The definition for a Service Map widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinition servicemapDefinition;
+    private @Nullable PowerpackV2WidgetServicemapDefinition servicemapDefinition;
     /**
      * @return The definition for an SLO (Service Level Objective) List widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSloListDefinition sloListDefinition;
+    private @Nullable PowerpackV2WidgetSloListDefinition sloListDefinition;
     /**
      * @return The definition for a Sunburst widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinition sunburstDefinition;
+    private @Nullable PowerpackV2WidgetSunburstDefinition sunburstDefinition;
     /**
      * @return The definition for a Timeseries widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinition timeseriesDefinition;
+    private @Nullable PowerpackV2WidgetTimeseriesDefinition timeseriesDefinition;
     /**
      * @return The definition for a Toplist widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinition toplistDefinition;
+    private @Nullable PowerpackV2WidgetToplistDefinition toplistDefinition;
     /**
      * @return The definition for a Topology Map widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinition topologyMapDefinition;
+    private @Nullable PowerpackV2WidgetTopologyMapDefinition topologyMapDefinition;
     /**
      * @return The definition for a Trace Service widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinition traceServiceDefinition;
+    private @Nullable PowerpackV2WidgetTraceServiceDefinition traceServiceDefinition;
     /**
      * @return The definition for a Treemap widget.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinition treemapDefinition;
+    private @Nullable PowerpackV2WidgetTreemapDefinition treemapDefinition;
     /**
      * @return The layout of the widget on a &#39;free&#39; dashboard.
      * 
@@ -231,98 +249,105 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      * @return The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
      * 
      */
-    private @Nullable PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinition wildcardDefinition;
+    private @Nullable PowerpackV2WidgetWildcardDefinition wildcardDefinition;
 
     private PowerpackV2WidgetGroupDefinitionWidget() {}
     /**
      * @return The definition for a Alert Graph widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinition> alertGraphDefinition() {
+    public Optional<PowerpackV2WidgetAlertGraphDefinition> alertGraphDefinition() {
         return Optional.ofNullable(this.alertGraphDefinition);
     }
     /**
      * @return The definition for a Alert Value widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinition> alertValueDefinition() {
+    public Optional<PowerpackV2WidgetAlertValueDefinition> alertValueDefinition() {
         return Optional.ofNullable(this.alertValueDefinition);
     }
     /**
      * @return The definition for a Bar Chart widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinition> barChartDefinition() {
+    public Optional<PowerpackV2WidgetBarChartDefinition> barChartDefinition() {
         return Optional.ofNullable(this.barChartDefinition);
     }
     /**
      * @return The definition for a Change widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetChangeDefinition> changeDefinition() {
+    public Optional<PowerpackV2WidgetChangeDefinition> changeDefinition() {
         return Optional.ofNullable(this.changeDefinition);
     }
     /**
      * @return The definition for a Check Status widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition> checkStatusDefinition() {
+    public Optional<PowerpackV2WidgetCheckStatusDefinition> checkStatusDefinition() {
         return Optional.ofNullable(this.checkStatusDefinition);
+    }
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetCohortDefinition> cohortDefinition() {
+        return Optional.ofNullable(this.cohortDefinition);
     }
     /**
      * @return The definition for a Distribution widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition> distributionDefinition() {
+    public Optional<PowerpackV2WidgetDistributionDefinition> distributionDefinition() {
         return Optional.ofNullable(this.distributionDefinition);
     }
     /**
      * @return The definition for a Event Stream widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinition> eventStreamDefinition() {
+    public Optional<PowerpackV2WidgetEventStreamDefinition> eventStreamDefinition() {
         return Optional.ofNullable(this.eventStreamDefinition);
     }
     /**
      * @return The definition for a Event Timeline widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinition> eventTimelineDefinition() {
+    public Optional<PowerpackV2WidgetEventTimelineDefinition> eventTimelineDefinition() {
         return Optional.ofNullable(this.eventTimelineDefinition);
     }
     /**
      * @return The definition for a Free Text widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinition> freeTextDefinition() {
+    public Optional<PowerpackV2WidgetFreeTextDefinition> freeTextDefinition() {
         return Optional.ofNullable(this.freeTextDefinition);
     }
     /**
      * @return The definition for a Funnel widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition> funnelDefinition() {
+    public Optional<PowerpackV2WidgetFunnelDefinition> funnelDefinition() {
         return Optional.ofNullable(this.funnelDefinition);
     }
     /**
      * @return The definition for a Geomap widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinition> geomapDefinition() {
+    public Optional<PowerpackV2WidgetGeomapDefinition> geomapDefinition() {
         return Optional.ofNullable(this.geomapDefinition);
     }
     /**
      * @return The definition for a Heatmap widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinition> heatmapDefinition() {
+    public Optional<PowerpackV2WidgetHeatmapDefinition> heatmapDefinition() {
         return Optional.ofNullable(this.heatmapDefinition);
     }
     /**
      * @return The definition for a Hostmap widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinition> hostmapDefinition() {
+    public Optional<PowerpackV2WidgetHostmapDefinition> hostmapDefinition() {
         return Optional.ofNullable(this.hostmapDefinition);
     }
     /**
@@ -336,147 +361,161 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      * @return The definition for an Iframe widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetIframeDefinition> iframeDefinition() {
+    public Optional<PowerpackV2WidgetIframeDefinition> iframeDefinition() {
         return Optional.ofNullable(this.iframeDefinition);
     }
     /**
      * @return The definition for an Image widget
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetImageDefinition> imageDefinition() {
+    public Optional<PowerpackV2WidgetImageDefinition> imageDefinition() {
         return Optional.ofNullable(this.imageDefinition);
     }
     /**
      * @return The definition for a List Stream widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinition> listStreamDefinition() {
+    public Optional<PowerpackV2WidgetListStreamDefinition> listStreamDefinition() {
         return Optional.ofNullable(this.listStreamDefinition);
     }
     /**
      * @return The definition for an Log Stream widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinition> logStreamDefinition() {
+    public Optional<PowerpackV2WidgetLogStreamDefinition> logStreamDefinition() {
         return Optional.ofNullable(this.logStreamDefinition);
     }
     /**
      * @return The definition for an Manage Status widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition> manageStatusDefinition() {
+    public Optional<PowerpackV2WidgetManageStatusDefinition> manageStatusDefinition() {
         return Optional.ofNullable(this.manageStatusDefinition);
     }
     /**
      * @return The definition for a Note widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition> noteDefinition() {
+    public Optional<PowerpackV2WidgetNoteDefinition> noteDefinition() {
         return Optional.ofNullable(this.noteDefinition);
     }
     /**
      * @return The definition for a Point Plot widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition> pointPlotDefinition() {
+    public Optional<PowerpackV2WidgetPointPlotDefinition> pointPlotDefinition() {
         return Optional.ofNullable(this.pointPlotDefinition);
+    }
+    /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetProductAnalyticsFunnelDefinition> productAnalyticsFunnelDefinition() {
+        return Optional.ofNullable(this.productAnalyticsFunnelDefinition);
     }
     /**
      * @return The definition for a Query Table widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition> queryTableDefinition() {
+    public Optional<PowerpackV2WidgetQueryTableDefinition> queryTableDefinition() {
         return Optional.ofNullable(this.queryTableDefinition);
     }
     /**
      * @return The definition for a Query Value widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition> queryValueDefinition() {
+    public Optional<PowerpackV2WidgetQueryValueDefinition> queryValueDefinition() {
         return Optional.ofNullable(this.queryValueDefinition);
+    }
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetRetentionCurveDefinition> retentionCurveDefinition() {
+        return Optional.ofNullable(this.retentionCurveDefinition);
     }
     /**
      * @return The definition for a Run Workflow widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition> runWorkflowDefinition() {
+    public Optional<PowerpackV2WidgetRunWorkflowDefinition> runWorkflowDefinition() {
         return Optional.ofNullable(this.runWorkflowDefinition);
     }
     /**
      * @return The definition for a Sankey diagram widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinition> sankeyDefinition() {
+    public Optional<PowerpackV2WidgetSankeyDefinition> sankeyDefinition() {
         return Optional.ofNullable(this.sankeyDefinition);
     }
     /**
      * @return The definition for a Scatterplot widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinition> scatterplotDefinition() {
+    public Optional<PowerpackV2WidgetScatterplotDefinition> scatterplotDefinition() {
         return Optional.ofNullable(this.scatterplotDefinition);
     }
     /**
      * @return The definition for a Service Level Objective widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition> serviceLevelObjectiveDefinition() {
+    public Optional<PowerpackV2WidgetServiceLevelObjectiveDefinition> serviceLevelObjectiveDefinition() {
         return Optional.ofNullable(this.serviceLevelObjectiveDefinition);
     }
     /**
      * @return The definition for a Service Map widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinition> servicemapDefinition() {
+    public Optional<PowerpackV2WidgetServicemapDefinition> servicemapDefinition() {
         return Optional.ofNullable(this.servicemapDefinition);
     }
     /**
      * @return The definition for an SLO (Service Level Objective) List widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetSloListDefinition> sloListDefinition() {
+    public Optional<PowerpackV2WidgetSloListDefinition> sloListDefinition() {
         return Optional.ofNullable(this.sloListDefinition);
     }
     /**
      * @return The definition for a Sunburst widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinition> sunburstDefinition() {
+    public Optional<PowerpackV2WidgetSunburstDefinition> sunburstDefinition() {
         return Optional.ofNullable(this.sunburstDefinition);
     }
     /**
      * @return The definition for a Timeseries widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinition> timeseriesDefinition() {
+    public Optional<PowerpackV2WidgetTimeseriesDefinition> timeseriesDefinition() {
         return Optional.ofNullable(this.timeseriesDefinition);
     }
     /**
      * @return The definition for a Toplist widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetToplistDefinition> toplistDefinition() {
+    public Optional<PowerpackV2WidgetToplistDefinition> toplistDefinition() {
         return Optional.ofNullable(this.toplistDefinition);
     }
     /**
      * @return The definition for a Topology Map widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinition> topologyMapDefinition() {
+    public Optional<PowerpackV2WidgetTopologyMapDefinition> topologyMapDefinition() {
         return Optional.ofNullable(this.topologyMapDefinition);
     }
     /**
      * @return The definition for a Trace Service widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinition> traceServiceDefinition() {
+    public Optional<PowerpackV2WidgetTraceServiceDefinition> traceServiceDefinition() {
         return Optional.ofNullable(this.traceServiceDefinition);
     }
     /**
      * @return The definition for a Treemap widget.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinition> treemapDefinition() {
+    public Optional<PowerpackV2WidgetTreemapDefinition> treemapDefinition() {
         return Optional.ofNullable(this.treemapDefinition);
     }
     /**
@@ -490,7 +529,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      * @return The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
      * 
      */
-    public Optional<PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinition> wildcardDefinition() {
+    public Optional<PowerpackV2WidgetWildcardDefinition> wildcardDefinition() {
         return Optional.ofNullable(this.wildcardDefinition);
     }
 
@@ -503,43 +542,46 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinition alertGraphDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinition alertValueDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinition barChartDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetChangeDefinition changeDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition checkStatusDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition distributionDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinition eventStreamDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinition eventTimelineDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinition freeTextDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition funnelDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinition geomapDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinition heatmapDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinition hostmapDefinition;
+        private @Nullable PowerpackV2WidgetAlertGraphDefinition alertGraphDefinition;
+        private @Nullable PowerpackV2WidgetAlertValueDefinition alertValueDefinition;
+        private @Nullable PowerpackV2WidgetBarChartDefinition barChartDefinition;
+        private @Nullable PowerpackV2WidgetChangeDefinition changeDefinition;
+        private @Nullable PowerpackV2WidgetCheckStatusDefinition checkStatusDefinition;
+        private @Nullable PowerpackV2WidgetCohortDefinition cohortDefinition;
+        private @Nullable PowerpackV2WidgetDistributionDefinition distributionDefinition;
+        private @Nullable PowerpackV2WidgetEventStreamDefinition eventStreamDefinition;
+        private @Nullable PowerpackV2WidgetEventTimelineDefinition eventTimelineDefinition;
+        private @Nullable PowerpackV2WidgetFreeTextDefinition freeTextDefinition;
+        private @Nullable PowerpackV2WidgetFunnelDefinition funnelDefinition;
+        private @Nullable PowerpackV2WidgetGeomapDefinition geomapDefinition;
+        private @Nullable PowerpackV2WidgetHeatmapDefinition heatmapDefinition;
+        private @Nullable PowerpackV2WidgetHostmapDefinition hostmapDefinition;
         private @Nullable Integer id;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetIframeDefinition iframeDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetImageDefinition imageDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinition listStreamDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinition logStreamDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition manageStatusDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinition sankeyDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinition scatterplotDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinition servicemapDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSloListDefinition sloListDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinition sunburstDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinition timeseriesDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinition toplistDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinition topologyMapDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinition traceServiceDefinition;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinition treemapDefinition;
+        private @Nullable PowerpackV2WidgetIframeDefinition iframeDefinition;
+        private @Nullable PowerpackV2WidgetImageDefinition imageDefinition;
+        private @Nullable PowerpackV2WidgetListStreamDefinition listStreamDefinition;
+        private @Nullable PowerpackV2WidgetLogStreamDefinition logStreamDefinition;
+        private @Nullable PowerpackV2WidgetManageStatusDefinition manageStatusDefinition;
+        private @Nullable PowerpackV2WidgetNoteDefinition noteDefinition;
+        private @Nullable PowerpackV2WidgetPointPlotDefinition pointPlotDefinition;
+        private @Nullable PowerpackV2WidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition;
+        private @Nullable PowerpackV2WidgetQueryTableDefinition queryTableDefinition;
+        private @Nullable PowerpackV2WidgetQueryValueDefinition queryValueDefinition;
+        private @Nullable PowerpackV2WidgetRetentionCurveDefinition retentionCurveDefinition;
+        private @Nullable PowerpackV2WidgetRunWorkflowDefinition runWorkflowDefinition;
+        private @Nullable PowerpackV2WidgetSankeyDefinition sankeyDefinition;
+        private @Nullable PowerpackV2WidgetScatterplotDefinition scatterplotDefinition;
+        private @Nullable PowerpackV2WidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
+        private @Nullable PowerpackV2WidgetServicemapDefinition servicemapDefinition;
+        private @Nullable PowerpackV2WidgetSloListDefinition sloListDefinition;
+        private @Nullable PowerpackV2WidgetSunburstDefinition sunburstDefinition;
+        private @Nullable PowerpackV2WidgetTimeseriesDefinition timeseriesDefinition;
+        private @Nullable PowerpackV2WidgetToplistDefinition toplistDefinition;
+        private @Nullable PowerpackV2WidgetTopologyMapDefinition topologyMapDefinition;
+        private @Nullable PowerpackV2WidgetTraceServiceDefinition traceServiceDefinition;
+        private @Nullable PowerpackV2WidgetTreemapDefinition treemapDefinition;
         private @Nullable PowerpackV2WidgetGroupDefinitionWidgetWidgetLayout widgetLayout;
-        private @Nullable PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinition wildcardDefinition;
+        private @Nullable PowerpackV2WidgetWildcardDefinition wildcardDefinition;
         public Builder() {}
         public Builder(PowerpackV2WidgetGroupDefinitionWidget defaults) {
     	      Objects.requireNonNull(defaults);
@@ -548,6 +590,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
     	      this.barChartDefinition = defaults.barChartDefinition;
     	      this.changeDefinition = defaults.changeDefinition;
     	      this.checkStatusDefinition = defaults.checkStatusDefinition;
+    	      this.cohortDefinition = defaults.cohortDefinition;
     	      this.distributionDefinition = defaults.distributionDefinition;
     	      this.eventStreamDefinition = defaults.eventStreamDefinition;
     	      this.eventTimelineDefinition = defaults.eventTimelineDefinition;
@@ -564,8 +607,10 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
     	      this.manageStatusDefinition = defaults.manageStatusDefinition;
     	      this.noteDefinition = defaults.noteDefinition;
     	      this.pointPlotDefinition = defaults.pointPlotDefinition;
+    	      this.productAnalyticsFunnelDefinition = defaults.productAnalyticsFunnelDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
+    	      this.retentionCurveDefinition = defaults.retentionCurveDefinition;
     	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
     	      this.sankeyDefinition = defaults.sankeyDefinition;
     	      this.scatterplotDefinition = defaults.scatterplotDefinition;
@@ -583,79 +628,85 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
         }
 
         @CustomType.Setter
-        public Builder alertGraphDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinition alertGraphDefinition) {
+        public Builder alertGraphDefinition(@Nullable PowerpackV2WidgetAlertGraphDefinition alertGraphDefinition) {
 
             this.alertGraphDefinition = alertGraphDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder alertValueDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinition alertValueDefinition) {
+        public Builder alertValueDefinition(@Nullable PowerpackV2WidgetAlertValueDefinition alertValueDefinition) {
 
             this.alertValueDefinition = alertValueDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder barChartDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinition barChartDefinition) {
+        public Builder barChartDefinition(@Nullable PowerpackV2WidgetBarChartDefinition barChartDefinition) {
 
             this.barChartDefinition = barChartDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder changeDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetChangeDefinition changeDefinition) {
+        public Builder changeDefinition(@Nullable PowerpackV2WidgetChangeDefinition changeDefinition) {
 
             this.changeDefinition = changeDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder checkStatusDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition checkStatusDefinition) {
+        public Builder checkStatusDefinition(@Nullable PowerpackV2WidgetCheckStatusDefinition checkStatusDefinition) {
 
             this.checkStatusDefinition = checkStatusDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder distributionDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition distributionDefinition) {
+        public Builder cohortDefinition(@Nullable PowerpackV2WidgetCohortDefinition cohortDefinition) {
+
+            this.cohortDefinition = cohortDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder distributionDefinition(@Nullable PowerpackV2WidgetDistributionDefinition distributionDefinition) {
 
             this.distributionDefinition = distributionDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder eventStreamDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinition eventStreamDefinition) {
+        public Builder eventStreamDefinition(@Nullable PowerpackV2WidgetEventStreamDefinition eventStreamDefinition) {
 
             this.eventStreamDefinition = eventStreamDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder eventTimelineDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinition eventTimelineDefinition) {
+        public Builder eventTimelineDefinition(@Nullable PowerpackV2WidgetEventTimelineDefinition eventTimelineDefinition) {
 
             this.eventTimelineDefinition = eventTimelineDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder freeTextDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinition freeTextDefinition) {
+        public Builder freeTextDefinition(@Nullable PowerpackV2WidgetFreeTextDefinition freeTextDefinition) {
 
             this.freeTextDefinition = freeTextDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder funnelDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition funnelDefinition) {
+        public Builder funnelDefinition(@Nullable PowerpackV2WidgetFunnelDefinition funnelDefinition) {
 
             this.funnelDefinition = funnelDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder geomapDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinition geomapDefinition) {
+        public Builder geomapDefinition(@Nullable PowerpackV2WidgetGeomapDefinition geomapDefinition) {
 
             this.geomapDefinition = geomapDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder heatmapDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinition heatmapDefinition) {
+        public Builder heatmapDefinition(@Nullable PowerpackV2WidgetHeatmapDefinition heatmapDefinition) {
 
             this.heatmapDefinition = heatmapDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder hostmapDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinition hostmapDefinition) {
+        public Builder hostmapDefinition(@Nullable PowerpackV2WidgetHostmapDefinition hostmapDefinition) {
 
             this.hostmapDefinition = hostmapDefinition;
             return this;
@@ -667,127 +718,139 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
             return this;
         }
         @CustomType.Setter
-        public Builder iframeDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetIframeDefinition iframeDefinition) {
+        public Builder iframeDefinition(@Nullable PowerpackV2WidgetIframeDefinition iframeDefinition) {
 
             this.iframeDefinition = iframeDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder imageDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetImageDefinition imageDefinition) {
+        public Builder imageDefinition(@Nullable PowerpackV2WidgetImageDefinition imageDefinition) {
 
             this.imageDefinition = imageDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder listStreamDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinition listStreamDefinition) {
+        public Builder listStreamDefinition(@Nullable PowerpackV2WidgetListStreamDefinition listStreamDefinition) {
 
             this.listStreamDefinition = listStreamDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder logStreamDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinition logStreamDefinition) {
+        public Builder logStreamDefinition(@Nullable PowerpackV2WidgetLogStreamDefinition logStreamDefinition) {
 
             this.logStreamDefinition = logStreamDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder manageStatusDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition manageStatusDefinition) {
+        public Builder manageStatusDefinition(@Nullable PowerpackV2WidgetManageStatusDefinition manageStatusDefinition) {
 
             this.manageStatusDefinition = manageStatusDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder noteDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition noteDefinition) {
+        public Builder noteDefinition(@Nullable PowerpackV2WidgetNoteDefinition noteDefinition) {
 
             this.noteDefinition = noteDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder pointPlotDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition pointPlotDefinition) {
+        public Builder pointPlotDefinition(@Nullable PowerpackV2WidgetPointPlotDefinition pointPlotDefinition) {
 
             this.pointPlotDefinition = pointPlotDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder queryTableDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition queryTableDefinition) {
+        public Builder productAnalyticsFunnelDefinition(@Nullable PowerpackV2WidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition) {
+
+            this.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder queryTableDefinition(@Nullable PowerpackV2WidgetQueryTableDefinition queryTableDefinition) {
 
             this.queryTableDefinition = queryTableDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder queryValueDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition queryValueDefinition) {
+        public Builder queryValueDefinition(@Nullable PowerpackV2WidgetQueryValueDefinition queryValueDefinition) {
 
             this.queryValueDefinition = queryValueDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder runWorkflowDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition runWorkflowDefinition) {
+        public Builder retentionCurveDefinition(@Nullable PowerpackV2WidgetRetentionCurveDefinition retentionCurveDefinition) {
+
+            this.retentionCurveDefinition = retentionCurveDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder runWorkflowDefinition(@Nullable PowerpackV2WidgetRunWorkflowDefinition runWorkflowDefinition) {
 
             this.runWorkflowDefinition = runWorkflowDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder sankeyDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinition sankeyDefinition) {
+        public Builder sankeyDefinition(@Nullable PowerpackV2WidgetSankeyDefinition sankeyDefinition) {
 
             this.sankeyDefinition = sankeyDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder scatterplotDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinition scatterplotDefinition) {
+        public Builder scatterplotDefinition(@Nullable PowerpackV2WidgetScatterplotDefinition scatterplotDefinition) {
 
             this.scatterplotDefinition = scatterplotDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder serviceLevelObjectiveDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition) {
+        public Builder serviceLevelObjectiveDefinition(@Nullable PowerpackV2WidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition) {
 
             this.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder servicemapDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinition servicemapDefinition) {
+        public Builder servicemapDefinition(@Nullable PowerpackV2WidgetServicemapDefinition servicemapDefinition) {
 
             this.servicemapDefinition = servicemapDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder sloListDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetSloListDefinition sloListDefinition) {
+        public Builder sloListDefinition(@Nullable PowerpackV2WidgetSloListDefinition sloListDefinition) {
 
             this.sloListDefinition = sloListDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder sunburstDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinition sunburstDefinition) {
+        public Builder sunburstDefinition(@Nullable PowerpackV2WidgetSunburstDefinition sunburstDefinition) {
 
             this.sunburstDefinition = sunburstDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder timeseriesDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinition timeseriesDefinition) {
+        public Builder timeseriesDefinition(@Nullable PowerpackV2WidgetTimeseriesDefinition timeseriesDefinition) {
 
             this.timeseriesDefinition = timeseriesDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder toplistDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetToplistDefinition toplistDefinition) {
+        public Builder toplistDefinition(@Nullable PowerpackV2WidgetToplistDefinition toplistDefinition) {
 
             this.toplistDefinition = toplistDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder topologyMapDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinition topologyMapDefinition) {
+        public Builder topologyMapDefinition(@Nullable PowerpackV2WidgetTopologyMapDefinition topologyMapDefinition) {
 
             this.topologyMapDefinition = topologyMapDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder traceServiceDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinition traceServiceDefinition) {
+        public Builder traceServiceDefinition(@Nullable PowerpackV2WidgetTraceServiceDefinition traceServiceDefinition) {
 
             this.traceServiceDefinition = traceServiceDefinition;
             return this;
         }
         @CustomType.Setter
-        public Builder treemapDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinition treemapDefinition) {
+        public Builder treemapDefinition(@Nullable PowerpackV2WidgetTreemapDefinition treemapDefinition) {
 
             this.treemapDefinition = treemapDefinition;
             return this;
@@ -799,7 +862,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
             return this;
         }
         @CustomType.Setter
-        public Builder wildcardDefinition(@Nullable PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinition wildcardDefinition) {
+        public Builder wildcardDefinition(@Nullable PowerpackV2WidgetWildcardDefinition wildcardDefinition) {
 
             this.wildcardDefinition = wildcardDefinition;
             return this;
@@ -811,6 +874,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
             _resultValue.barChartDefinition = barChartDefinition;
             _resultValue.changeDefinition = changeDefinition;
             _resultValue.checkStatusDefinition = checkStatusDefinition;
+            _resultValue.cohortDefinition = cohortDefinition;
             _resultValue.distributionDefinition = distributionDefinition;
             _resultValue.eventStreamDefinition = eventStreamDefinition;
             _resultValue.eventTimelineDefinition = eventTimelineDefinition;
@@ -827,8 +891,10 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
             _resultValue.manageStatusDefinition = manageStatusDefinition;
             _resultValue.noteDefinition = noteDefinition;
             _resultValue.pointPlotDefinition = pointPlotDefinition;
+            _resultValue.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;
+            _resultValue.retentionCurveDefinition = retentionCurveDefinition;
             _resultValue.runWorkflowDefinition = runWorkflowDefinition;
             _resultValue.sankeyDefinition = sankeyDefinition;
             _resultValue.scatterplotDefinition = scatterplotDefinition;

@@ -77,14 +77,14 @@ public final class DatastoreArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+     * Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `&#34;none&#34;`.
      * 
      */
     @Import(name="primaryKeyGenerationStrategy")
     private @Nullable Output<String> primaryKeyGenerationStrategy;
 
     /**
-     * @return Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+     * @return Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `&#34;none&#34;`.
      * 
      */
     public Optional<Output<String>> primaryKeyGenerationStrategy() {
@@ -204,7 +204,7 @@ public final class DatastoreArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryKeyGenerationStrategy Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+         * @param primaryKeyGenerationStrategy Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `&#34;none&#34;`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DatastoreArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryKeyGenerationStrategy Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item.
+         * @param primaryKeyGenerationStrategy Can be set to `uuid` to automatically generate primary keys when new items are added. Default value is `none`, which requires you to supply a primary key for each new item. Defaults to `&#34;none&#34;`.
          * 
          * @return builder
          * 

@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorArrayProcessorOperationAppend;
+import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorArrayProcessorOperationKeyValue;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorArrayProcessorOperationLength;
 import com.pulumi.datadog.outputs.LogsCustomPipelineProcessorArrayProcessorOperationSelect;
 import java.util.Objects;
@@ -18,6 +19,11 @@ public final class LogsCustomPipelineProcessorArrayProcessorOperation {
      * 
      */
     private @Nullable LogsCustomPipelineProcessorArrayProcessorOperationAppend append;
+    /**
+     * @return Operation that extracts key-value pairs from a source array and stores the result in the target attribute.
+     * 
+     */
+    private @Nullable LogsCustomPipelineProcessorArrayProcessorOperationKeyValue keyValue;
     /**
      * @return Operation that computes the length of a source array and stores the result in a target attribute.
      * 
@@ -36,6 +42,13 @@ public final class LogsCustomPipelineProcessorArrayProcessorOperation {
      */
     public Optional<LogsCustomPipelineProcessorArrayProcessorOperationAppend> append() {
         return Optional.ofNullable(this.append);
+    }
+    /**
+     * @return Operation that extracts key-value pairs from a source array and stores the result in the target attribute.
+     * 
+     */
+    public Optional<LogsCustomPipelineProcessorArrayProcessorOperationKeyValue> keyValue() {
+        return Optional.ofNullable(this.keyValue);
     }
     /**
      * @return Operation that computes the length of a source array and stores the result in a target attribute.
@@ -62,12 +75,14 @@ public final class LogsCustomPipelineProcessorArrayProcessorOperation {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable LogsCustomPipelineProcessorArrayProcessorOperationAppend append;
+        private @Nullable LogsCustomPipelineProcessorArrayProcessorOperationKeyValue keyValue;
         private @Nullable LogsCustomPipelineProcessorArrayProcessorOperationLength length;
         private @Nullable LogsCustomPipelineProcessorArrayProcessorOperationSelect select;
         public Builder() {}
         public Builder(LogsCustomPipelineProcessorArrayProcessorOperation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.append = defaults.append;
+    	      this.keyValue = defaults.keyValue;
     	      this.length = defaults.length;
     	      this.select = defaults.select;
         }
@@ -76,6 +91,12 @@ public final class LogsCustomPipelineProcessorArrayProcessorOperation {
         public Builder append(@Nullable LogsCustomPipelineProcessorArrayProcessorOperationAppend append) {
 
             this.append = append;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keyValue(@Nullable LogsCustomPipelineProcessorArrayProcessorOperationKeyValue keyValue) {
+
+            this.keyValue = keyValue;
             return this;
         }
         @CustomType.Setter
@@ -93,6 +114,7 @@ public final class LogsCustomPipelineProcessorArrayProcessorOperation {
         public LogsCustomPipelineProcessorArrayProcessorOperation build() {
             final var _resultValue = new LogsCustomPipelineProcessorArrayProcessorOperation();
             _resultValue.append = append;
+            _resultValue.keyValue = keyValue;
             _resultValue.length = length;
             _resultValue.select = select;
             return _resultValue;

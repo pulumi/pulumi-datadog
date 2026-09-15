@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
@@ -82,7 +82,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestLogQueryGetArgs>? LogQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The sort order for the rows. Valid values are `Asc`, `Desc`.
@@ -118,13 +118,19 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }
+
+        /// <summary>
+        /// The controls for sorting the widget request.
+        /// </summary>
+        [Input("sort")]
+        public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestSortGetArgs>? Sort { get; set; }
 
         [Input("textFormats")]
         private InputList<Inputs.PowerpackV2WidgetQueryTableDefinitionRequestTextFormatGetArgs>? _textFormats;

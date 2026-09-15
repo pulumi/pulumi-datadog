@@ -5,14 +5,15 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestApmQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetApmQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestFormulaArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestHistogramRequestArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestProcessQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestQueryArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestRumQueryArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestSecurityQueryArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetHeatmapDefinitionRequestStyleArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetLogQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetRumQueryArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetSecurityQueryArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -33,7 +34,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="apmQuery")
-    private @Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestApmQueryArgs> apmQuery;
+    private @Nullable Output<DashboardV2WidgetApmQueryArgs> apmQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -43,7 +44,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetHeatmapDefinitionRequestApmQueryArgs>> apmQuery() {
+    public Optional<Output<DashboardV2WidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
@@ -63,6 +64,21 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
     }
 
     /**
+     * Histogram request for distribution of point values.
+     * 
+     */
+    @Import(name="histogramRequest")
+    private @Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestHistogramRequestArgs> histogramRequest;
+
+    /**
+     * @return Histogram request for distribution of point values.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetHeatmapDefinitionRequestHistogramRequestArgs>> histogramRequest() {
+        return Optional.ofNullable(this.histogramRequest);
+    }
+
+    /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
      * @deprecated
@@ -71,7 +87,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="logQuery")
-    private @Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestLogQueryArgs> logQuery;
+    private @Nullable Output<DashboardV2WidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -81,7 +97,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetHeatmapDefinitionRequestLogQueryArgs>> logQuery() {
+    public Optional<Output<DashboardV2WidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
@@ -155,7 +171,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="rumQuery")
-    private @Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestRumQueryArgs> rumQuery;
+    private @Nullable Output<DashboardV2WidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -165,7 +181,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetHeatmapDefinitionRequestRumQueryArgs>> rumQuery() {
+    public Optional<Output<DashboardV2WidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -178,7 +194,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
      */
     @Deprecated /* Use queries and formulas instead. */
     @Import(name="securityQuery")
-    private @Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestSecurityQueryArgs> securityQuery;
+    private @Nullable Output<DashboardV2WidgetSecurityQueryArgs> securityQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -188,7 +204,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<Output<DashboardV2WidgetHeatmapDefinitionRequestSecurityQueryArgs>> securityQuery() {
+    public Optional<Output<DashboardV2WidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -212,6 +228,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
     private DashboardV2WidgetHeatmapDefinitionRequestArgs(DashboardV2WidgetHeatmapDefinitionRequestArgs $) {
         this.apmQuery = $.apmQuery;
         this.formulas = $.formulas;
+        this.histogramRequest = $.histogramRequest;
         this.logQuery = $.logQuery;
         this.processQuery = $.processQuery;
         this.q = $.q;
@@ -249,7 +266,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder apmQuery(@Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestApmQueryArgs> apmQuery) {
+        public Builder apmQuery(@Nullable Output<DashboardV2WidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
@@ -264,7 +281,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder apmQuery(DashboardV2WidgetHeatmapDefinitionRequestApmQueryArgs apmQuery) {
+        public Builder apmQuery(DashboardV2WidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
@@ -300,6 +317,27 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
         }
 
         /**
+         * @param histogramRequest Histogram request for distribution of point values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder histogramRequest(@Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestHistogramRequestArgs> histogramRequest) {
+            $.histogramRequest = histogramRequest;
+            return this;
+        }
+
+        /**
+         * @param histogramRequest Histogram request for distribution of point values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder histogramRequest(DashboardV2WidgetHeatmapDefinitionRequestHistogramRequestArgs histogramRequest) {
+            return histogramRequest(Output.of(histogramRequest));
+        }
+
+        /**
          * @param logQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
@@ -309,7 +347,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder logQuery(@Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestLogQueryArgs> logQuery) {
+        public Builder logQuery(@Nullable Output<DashboardV2WidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
@@ -324,7 +362,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder logQuery(DashboardV2WidgetHeatmapDefinitionRequestLogQueryArgs logQuery) {
+        public Builder logQuery(DashboardV2WidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
@@ -427,7 +465,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder rumQuery(@Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestRumQueryArgs> rumQuery) {
+        public Builder rumQuery(@Nullable Output<DashboardV2WidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
@@ -442,7 +480,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder rumQuery(DashboardV2WidgetHeatmapDefinitionRequestRumQueryArgs rumQuery) {
+        public Builder rumQuery(DashboardV2WidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
@@ -456,7 +494,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder securityQuery(@Nullable Output<DashboardV2WidgetHeatmapDefinitionRequestSecurityQueryArgs> securityQuery) {
+        public Builder securityQuery(@Nullable Output<DashboardV2WidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
@@ -471,7 +509,7 @@ public final class DashboardV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          */
         @Deprecated /* Use queries and formulas instead. */
-        public Builder securityQuery(DashboardV2WidgetHeatmapDefinitionRequestSecurityQueryArgs securityQuery) {
+        public Builder securityQuery(DashboardV2WidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }
 

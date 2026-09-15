@@ -20,11 +20,15 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.PowerpackV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestAuditQuery? AuditQuery;
+        /// <summary>
+        /// A change indicator that compares the current value to a historical period.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestComparison? Comparison;
         /// <summary>
         /// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `ConditionalFormats` blocks are allowed using the structure below.
         /// </summary>
@@ -36,7 +40,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.PowerpackV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -52,25 +56,27 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.PowerpackV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetQueryValueDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.PowerpackV2WidgetSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private PowerpackV2WidgetQueryValueDefinitionRequest(
             string? aggregator,
 
-            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestApmQuery? apmQuery,
+            Outputs.PowerpackV2WidgetApmQuery? apmQuery,
 
             Outputs.PowerpackV2WidgetQueryValueDefinitionRequestAuditQuery? auditQuery,
+
+            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestComparison? comparison,
 
             ImmutableArray<Outputs.PowerpackV2WidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats,
 
             ImmutableArray<Outputs.PowerpackV2WidgetQueryValueDefinitionRequestFormula> formulas,
 
-            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestLogQuery? logQuery,
+            Outputs.PowerpackV2WidgetLogQuery? logQuery,
 
             Outputs.PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery? processQuery,
 
@@ -78,13 +84,14 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackV2WidgetQueryValueDefinitionRequestQuery> queries,
 
-            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestRumQuery? rumQuery,
+            Outputs.PowerpackV2WidgetRumQuery? rumQuery,
 
-            Outputs.PowerpackV2WidgetQueryValueDefinitionRequestSecurityQuery? securityQuery)
+            Outputs.PowerpackV2WidgetSecurityQuery? securityQuery)
         {
             Aggregator = aggregator;
             ApmQuery = apmQuery;
             AuditQuery = auditQuery;
+            Comparison = comparison;
             ConditionalFormats = conditionalFormats;
             Formulas = formulas;
             LogQuery = logQuery;

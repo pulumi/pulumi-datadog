@@ -110,10 +110,10 @@ namespace Pulumi.Datadog
         public Output<string> PrimaryColumnName { get; private set; } = null!;
 
         /// <summary>
-        /// Can be set to `Uuid` to automatically generate primary keys when new items are added. Default value is `None`, which requires you to supply a primary key for each new item.
+        /// Can be set to `Uuid` to automatically generate primary keys when new items are added. Default value is `None`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
         /// </summary>
         [Output("primaryKeyGenerationStrategy")]
-        public Output<string?> PrimaryKeyGenerationStrategy { get; private set; } = null!;
+        public Output<string> PrimaryKeyGenerationStrategy { get; private set; } = null!;
 
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace Pulumi.Datadog
         public Input<string> PrimaryColumnName { get; set; } = null!;
 
         /// <summary>
-        /// Can be set to `Uuid` to automatically generate primary keys when new items are added. Default value is `None`, which requires you to supply a primary key for each new item.
+        /// Can be set to `Uuid` to automatically generate primary keys when new items are added. Default value is `None`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
         /// </summary>
         [Input("primaryKeyGenerationStrategy")]
         public Input<string>? PrimaryKeyGenerationStrategy { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Datadog
         public Input<string>? PrimaryColumnName { get; set; }
 
         /// <summary>
-        /// Can be set to `Uuid` to automatically generate primary keys when new items are added. Default value is `None`, which requires you to supply a primary key for each new item.
+        /// Can be set to `Uuid` to automatically generate primary keys when new items are added. Default value is `None`, which requires you to supply a primary key for each new item. Defaults to `"none"`.
         /// </summary>
         [Input("primaryKeyGenerationStrategy")]
         public Input<string>? PrimaryKeyGenerationStrategy { get; set; }

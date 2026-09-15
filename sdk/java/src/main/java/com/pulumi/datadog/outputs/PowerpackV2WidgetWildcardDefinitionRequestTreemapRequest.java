@@ -4,13 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSecurityQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestFormula;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSort;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle;
 import java.lang.String;
@@ -29,7 +29,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery apmQuery;
+    private @Nullable PowerpackV2WidgetApmQuery apmQuery;
     /**
      * @return A list of formulas to use in the widget.
      * 
@@ -43,7 +43,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery logQuery;
+    private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
@@ -75,7 +75,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery rumQuery;
+    private @Nullable PowerpackV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -84,7 +84,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery securityQuery;
+    private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
     /**
      * @return The controls for sorting the widget.
      * 
@@ -105,7 +105,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery> apmQuery() {
+    public Optional<PowerpackV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -123,7 +123,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery> logQuery() {
+    public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -163,7 +163,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery> rumQuery() {
+    public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -174,7 +174,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery> securityQuery() {
+    public Optional<PowerpackV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -201,14 +201,14 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery apmQuery;
+        private @Nullable PowerpackV2WidgetApmQuery apmQuery;
         private @Nullable List<PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestFormula> formulas;
-        private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery logQuery;
+        private @Nullable PowerpackV2WidgetLogQuery logQuery;
         private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQuery> queries;
-        private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery rumQuery;
-        private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetRumQuery rumQuery;
+        private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
         private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSort sort;
         private @Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle style;
         public Builder() {}
@@ -227,7 +227,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable PowerpackV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -242,7 +242,7 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable PowerpackV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -269,13 +269,13 @@ public final class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable PowerpackV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable PowerpackV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

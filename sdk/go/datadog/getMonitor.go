@@ -101,7 +101,7 @@ type LookupMonitorResult struct {
 	NotificationPresetName string `pulumi:"notificationPresetName"`
 	// Whether or not tagged users are notified on changes to the monitor.
 	NotifyAudit bool `pulumi:"notifyAudit"`
-	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
+	// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a proper subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region` because `region` is not part of the grouping tags; furthermore, the same query cannot set `notifyBy` to `['cluster', 'namespace']` because that is not a proper subset. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
 	NotifyBies []string `pulumi:"notifyBies"`
 	// Whether or not this monitor notifies when data stops reporting.
 	NotifyNoData bool `pulumi:"notifyNoData"`
@@ -259,7 +259,7 @@ func (o LookupMonitorResultOutput) NotifyAudit() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupMonitorResult) bool { return v.NotifyAudit }).(pulumi.BoolOutput)
 }
 
-// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region`. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
+// Controls what granularity a monitor alerts on. Only available for monitors with groupings. For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each new `cluster` violating the alert conditions by setting `notifyBy` to `['cluster']`. Tags mentioned in `notifyBy` must be a proper subset of the grouping tags in the query. For example, a query grouped by `cluster` and `namespace` cannot notify on `region` because `region` is not part of the grouping tags; furthermore, the same query cannot set `notifyBy` to `['cluster', 'namespace']` because that is not a proper subset. Setting `notifyBy` to `[*]` configures the monitor to notify as a simple-alert.
 func (o LookupMonitorResultOutput) NotifyBies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupMonitorResult) []string { return v.NotifyBies }).(pulumi.StringArrayOutput)
 }

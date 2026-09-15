@@ -34,6 +34,21 @@ public final class DashboardV2WidgetFunnelDefinitionArgs extends com.pulumi.reso
     }
 
     /**
+     * Display mode for grouped funnel results. Valid values are `stacked`, `sideBySide`.
+     * 
+     */
+    @Import(name="groupedDisplay")
+    private @Nullable Output<String> groupedDisplay;
+
+    /**
+     * @return Display mode for grouped funnel results. Valid values are `stacked`, `sideBySide`.
+     * 
+     */
+    public Optional<Output<String>> groupedDisplay() {
+        return Optional.ofNullable(this.groupedDisplay);
+    }
+
+    /**
      * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -142,6 +157,7 @@ public final class DashboardV2WidgetFunnelDefinitionArgs extends com.pulumi.reso
 
     private DashboardV2WidgetFunnelDefinitionArgs(DashboardV2WidgetFunnelDefinitionArgs $) {
         this.description = $.description;
+        this.groupedDisplay = $.groupedDisplay;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.request = $.request;
@@ -188,6 +204,27 @@ public final class DashboardV2WidgetFunnelDefinitionArgs extends com.pulumi.reso
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param groupedDisplay Display mode for grouped funnel results. Valid values are `stacked`, `sideBySide`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupedDisplay(@Nullable Output<String> groupedDisplay) {
+            $.groupedDisplay = groupedDisplay;
+            return this;
+        }
+
+        /**
+         * @param groupedDisplay Display mode for grouped funnel results. Valid values are `stacked`, `sideBySide`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupedDisplay(String groupedDisplay) {
+            return groupedDisplay(Output.of(groupedDisplay));
         }
 
         /**

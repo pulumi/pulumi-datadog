@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetQueryTableDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.PowerpackV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetQueryTableDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.PowerpackV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The sort order for the rows. Valid values are `Asc`, `Desc`.
         /// </summary>
@@ -68,11 +68,15 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetQueryTableDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.PowerpackV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetQueryTableDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.PowerpackV2WidgetSecurityQuery? SecurityQuery;
+        /// <summary>
+        /// The controls for sorting the widget request.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetQueryTableDefinitionRequestSort? Sort;
         /// <summary>
         /// Text formats define how to format text in table widget content. Multiple `TextFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
         /// </summary>
@@ -84,7 +88,7 @@ namespace Pulumi.Datadog.Outputs
 
             string? alias,
 
-            Outputs.PowerpackV2WidgetQueryTableDefinitionRequestApmQuery? apmQuery,
+            Outputs.PowerpackV2WidgetApmQuery? apmQuery,
 
             Outputs.PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery? apmStatsQuery,
 
@@ -96,7 +100,7 @@ namespace Pulumi.Datadog.Outputs
 
             int? limit,
 
-            Outputs.PowerpackV2WidgetQueryTableDefinitionRequestLogQuery? logQuery,
+            Outputs.PowerpackV2WidgetLogQuery? logQuery,
 
             string? order,
 
@@ -106,9 +110,11 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackV2WidgetQueryTableDefinitionRequestQuery> queries,
 
-            Outputs.PowerpackV2WidgetQueryTableDefinitionRequestRumQuery? rumQuery,
+            Outputs.PowerpackV2WidgetRumQuery? rumQuery,
 
-            Outputs.PowerpackV2WidgetQueryTableDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.PowerpackV2WidgetSecurityQuery? securityQuery,
+
+            Outputs.PowerpackV2WidgetQueryTableDefinitionRequestSort? sort,
 
             ImmutableArray<Outputs.PowerpackV2WidgetQueryTableDefinitionRequestTextFormat> textFormats)
         {
@@ -127,6 +133,7 @@ namespace Pulumi.Datadog.Outputs
             Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
+            Sort = sort;
             TextFormats = textFormats;
         }
     }

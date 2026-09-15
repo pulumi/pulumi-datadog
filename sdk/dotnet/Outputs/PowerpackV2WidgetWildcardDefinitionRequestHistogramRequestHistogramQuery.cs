@@ -14,9 +14,13 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQuery
     {
         /// <summary>
+        /// APM metrics query for histogram-mode distribution.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetApmMetricsQuery? ApmMetricsQuery;
+        /// <summary>
         /// APM resource stats query for histogram-mode distribution.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQuery? ApmResourceStatsQuery;
+        public readonly Outputs.PowerpackV2WidgetApmResourceStatsQuery? ApmResourceStatsQuery;
         /// <summary>
         /// Event query for histogram-mode distribution.
         /// </summary>
@@ -24,16 +28,19 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Metric query for histogram-mode distribution.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQuery? MetricQuery;
+        public readonly Outputs.PowerpackV2WidgetMetricQuery? MetricQuery;
 
         [OutputConstructor]
         private PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQuery(
-            Outputs.PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQuery? apmResourceStatsQuery,
+            Outputs.PowerpackV2WidgetApmMetricsQuery? apmMetricsQuery,
+
+            Outputs.PowerpackV2WidgetApmResourceStatsQuery? apmResourceStatsQuery,
 
             Outputs.PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQuery? eventQuery,
 
-            Outputs.PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQuery? metricQuery)
+            Outputs.PowerpackV2WidgetMetricQuery? metricQuery)
         {
+            ApmMetricsQuery = apmMetricsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;

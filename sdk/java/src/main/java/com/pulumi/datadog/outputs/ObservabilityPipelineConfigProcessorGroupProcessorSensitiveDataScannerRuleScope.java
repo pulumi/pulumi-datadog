@@ -24,7 +24,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeExclude exclude;
     /**
-     * @return Explicitly include these fields for scanning.
+     * @return Explicitly include these fields for scanning. Exactly one of `include`, `exclude`, or `all` must be specified.
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeInclude include;
@@ -45,7 +45,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         return Optional.ofNullable(this.exclude);
     }
     /**
-     * @return Explicitly include these fields for scanning.
+     * @return Explicitly include these fields for scanning. Exactly one of `include`, `exclude`, or `all` must be specified.
      * 
      */
     public Optional<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeInclude> include() {

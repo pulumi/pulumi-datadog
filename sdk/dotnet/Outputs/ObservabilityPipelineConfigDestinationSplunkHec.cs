@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationSplunkHec
     {
         /// <summary>
-        /// If `True`, Splunk tries to extract timestamps from incoming log events.
+        /// If `True`, Splunk tries to extract timestamps from incoming log events. If `False`, Splunk assigns the time the event was received. Only applies when `EndpointTarget` is `Event`; cannot be `True` when `EndpointTarget` is `Raw`.
         /// </summary>
         public readonly bool? AutoExtractTimestamp;
         /// <summary>
@@ -25,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// Encoding format for log events. Valid values are `Json`, `RawMessage`.
         /// </summary>
         public readonly string Encoding;
+        /// <summary>
+        /// The Splunk HEC endpoint to send events to. Use `Event` to send structured events to the `/event` endpoint, or `Raw` to send the raw message to the `/raw` endpoint. Valid values are `Event`, `Raw`.
+        /// </summary>
+        public readonly string? EndpointTarget;
         /// <summary>
         /// Name of the environment variable or secret that holds the Splunk HEC endpoint URL.
         /// </summary>
@@ -58,6 +62,8 @@ namespace Pulumi.Datadog.Outputs
 
             string encoding,
 
+            string? endpointTarget,
+
             string? endpointUrlKey,
 
             string? index,
@@ -73,6 +79,7 @@ namespace Pulumi.Datadog.Outputs
             AutoExtractTimestamp = autoExtractTimestamp;
             Buffer = buffer;
             Encoding = encoding;
+            EndpointTarget = endpointTarget;
             EndpointUrlKey = endpointUrlKey;
             Index = index;
             IndexedFields = indexedFields;

@@ -4,18 +4,18 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestAuditQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestEventQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestMetadata;
 import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestNetworkQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestProfileMetricsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetTimeseriesDefinitionRequestStyle;
 import java.lang.Boolean;
 import java.lang.String;
@@ -34,7 +34,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestApmQuery apmQuery;
+    private @Nullable DashboardV2WidgetApmQuery apmQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -71,7 +71,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestLogQuery logQuery;
+    private @Nullable DashboardV2WidgetLogQuery logQuery;
     /**
      * @return Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
      * 
@@ -127,7 +127,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestRumQuery rumQuery;
+    private @Nullable DashboardV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -136,7 +136,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
     /**
      * @return The style of the widget graph. Exactly one `style` block is allowed using the structure below.
      * 
@@ -152,7 +152,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetTimeseriesDefinitionRequestApmQuery> apmQuery() {
+    public Optional<DashboardV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -199,7 +199,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetTimeseriesDefinitionRequestLogQuery> logQuery() {
+    public Optional<DashboardV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -271,7 +271,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetTimeseriesDefinitionRequestRumQuery> rumQuery() {
+    public Optional<DashboardV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -282,7 +282,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetTimeseriesDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<DashboardV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -302,12 +302,12 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestApmQuery apmQuery;
+        private @Nullable DashboardV2WidgetApmQuery apmQuery;
         private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestAuditQuery auditQuery;
         private @Nullable String displayType;
         private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestEventQuery eventQuery;
         private @Nullable List<DashboardV2WidgetTimeseriesDefinitionRequestFormula> formulas;
-        private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestLogQuery logQuery;
+        private @Nullable DashboardV2WidgetLogQuery logQuery;
         private @Nullable List<DashboardV2WidgetTimeseriesDefinitionRequestMetadata> metadatas;
         private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestNetworkQuery networkQuery;
         private @Nullable Boolean onRightYaxis;
@@ -315,8 +315,8 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
         private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestProfileMetricsQuery profileMetricsQuery;
         private @Nullable String q;
         private @Nullable List<DashboardV2WidgetTimeseriesDefinitionRequestQuery> queries;
-        private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestRumQuery rumQuery;
-        private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardV2WidgetRumQuery rumQuery;
+        private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
         private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestStyle style;
         public Builder() {}
         public Builder(DashboardV2WidgetTimeseriesDefinitionRequest defaults) {
@@ -340,7 +340,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardV2WidgetTimeseriesDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -373,7 +373,7 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardV2WidgetTimeseriesDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -427,13 +427,13 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardV2WidgetTimeseriesDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardV2WidgetTimeseriesDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

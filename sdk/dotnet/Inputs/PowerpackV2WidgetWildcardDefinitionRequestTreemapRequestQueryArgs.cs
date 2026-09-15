@@ -16,19 +16,25 @@ namespace Pulumi.Datadog.Inputs
         /// The APM Dependency Stats query using formulas and functions.
         /// </summary>
         [Input("apmDependencyStatsQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryApmDependencyStatsQueryArgs>? ApmDependencyStatsQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetApmDependencyStatsQueryArgs>? ApmDependencyStatsQuery { get; set; }
+
+        /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.PowerpackV2WidgetApmMetricsQueryArgs>? ApmMetricsQuery { get; set; }
 
         /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         [Input("apmResourceStatsQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryApmResourceStatsQueryArgs>? ApmResourceStatsQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetApmResourceStatsQueryArgs>? ApmResourceStatsQuery { get; set; }
 
         /// <summary>
         /// The Cloud Cost query using formulas and functions.
         /// </summary>
         [Input("cloudCostQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryCloudCostQueryArgs>? CloudCostQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetCloudCostQueryArgs>? CloudCostQuery { get; set; }
 
         /// <summary>
         /// A timeseries formula and functions events query.
@@ -40,7 +46,7 @@ namespace Pulumi.Datadog.Inputs
         /// A timeseries formula and functions metrics query.
         /// </summary>
         [Input("metricQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryMetricQueryArgs>? MetricQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetMetricQueryArgs>? MetricQuery { get; set; }
 
         /// <summary>
         /// The process query using formulas and functions.
@@ -49,10 +55,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryProcessQueryArgs>? ProcessQuery { get; set; }
 
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        [Input("productAnalyticsExtendedQuery")]
+        public Input<Inputs.PowerpackV2WidgetProductAnalyticsExtendedQueryArgs>? ProductAnalyticsExtendedQuery { get; set; }
+
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        [Input("retentionQuery")]
+        public Input<Inputs.PowerpackV2WidgetRetentionQueryArgs>? RetentionQuery { get; set; }
+
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         [Input("sloQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs>? SloQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetSloQueryArgs>? SloQuery { get; set; }
+
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        [Input("userJourneyQuery")]
+        public Input<Inputs.PowerpackV2WidgetUserJourneyQueryArgs>? UserJourneyQuery { get; set; }
 
         public PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryArgs()
         {

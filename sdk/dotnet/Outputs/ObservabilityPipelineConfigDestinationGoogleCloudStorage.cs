@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer? Buffer;
         /// <summary>
+        /// Compression configuration for archived logs. When omitted, the worker default (gzip) is used.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageCompression? Compression;
+        /// <summary>
         /// Optional prefix for object keys within the GCS bucket.
         /// </summary>
         public readonly string? KeyPrefix;
@@ -52,6 +56,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageBuffer? buffer,
 
+            Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageCompression? compression,
+
             string? keyPrefix,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageMetadata> metadatas,
@@ -62,6 +68,7 @@ namespace Pulumi.Datadog.Outputs
             Auth = auth;
             Bucket = bucket;
             Buffer = buffer;
+            Compression = compression;
             KeyPrefix = keyPrefix;
             Metadatas = metadatas;
             StorageClass = storageClass;

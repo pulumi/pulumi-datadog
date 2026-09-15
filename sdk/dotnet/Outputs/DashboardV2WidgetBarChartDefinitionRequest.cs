@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetBarChartDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetBarChartDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -44,11 +44,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetBarChartDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetBarChartDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardV2WidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The controls for sorting the widget. Only applicable for formula-style requests.
         /// </summary>
@@ -60,13 +60,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardV2WidgetBarChartDefinitionRequest(
-            Outputs.DashboardV2WidgetBarChartDefinitionRequestApmQuery? apmQuery,
+            Outputs.DashboardV2WidgetApmQuery? apmQuery,
 
             ImmutableArray<Outputs.DashboardV2WidgetBarChartDefinitionRequestConditionalFormat> conditionalFormats,
 
             ImmutableArray<Outputs.DashboardV2WidgetBarChartDefinitionRequestFormula> formulas,
 
-            Outputs.DashboardV2WidgetBarChartDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardV2WidgetLogQuery? logQuery,
 
             Outputs.DashboardV2WidgetBarChartDefinitionRequestProcessQuery? processQuery,
 
@@ -74,9 +74,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardV2WidgetBarChartDefinitionRequestQuery> queries,
 
-            Outputs.DashboardV2WidgetBarChartDefinitionRequestRumQuery? rumQuery,
+            Outputs.DashboardV2WidgetRumQuery? rumQuery,
 
-            Outputs.DashboardV2WidgetBarChartDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.DashboardV2WidgetSecurityQuery? securityQuery,
 
             Outputs.DashboardV2WidgetBarChartDefinitionRequestSort? sort,
 

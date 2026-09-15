@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.MonitorNotificationRuleArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.MonitorNotificationRuleState;
+import com.pulumi.datadog.outputs.MonitorNotificationRuleBundleConfig;
 import com.pulumi.datadog.outputs.MonitorNotificationRuleConditionalRecipients;
 import com.pulumi.datadog.outputs.MonitorNotificationRuleFilter;
 import java.lang.String;
@@ -91,6 +92,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="datadog:index/monitorNotificationRule:MonitorNotificationRule")
 public class MonitorNotificationRule extends com.pulumi.resources.CustomResource {
+    /**
+     * Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+     * 
+     */
+    @Export(name="bundleConfig", refs={MonitorNotificationRuleBundleConfig.class}, tree="[0]")
+    private Output</* @Nullable */ MonitorNotificationRuleBundleConfig> bundleConfig;
+
+    /**
+     * @return Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+     * 
+     */
+    public Output<Optional<MonitorNotificationRuleBundleConfig>> bundleConfig() {
+        return Codegen.optional(this.bundleConfig);
+    }
     /**
      * Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
      * 

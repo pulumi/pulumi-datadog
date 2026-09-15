@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardV2WidgetToplistDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetApmQueryArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -52,7 +52,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardV2WidgetToplistDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetLogQueryArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
@@ -82,13 +82,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardV2WidgetToplistDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetRumQueryArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardV2WidgetToplistDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetSecurityQueryArgs>? SecurityQuery { get; set; }
 
         /// <summary>
         /// The controls for sorting the widget. Only applicable for formula-style requests.

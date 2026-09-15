@@ -12,6 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The timeseries query that determines the allocation proportions, encoded as a JSON object. Set when `Method` is `ProportionalTimeseries`.
+        /// </summary>
+        [Input("json", required: true)]
+        public string Json { get; set; } = null!;
+
         public GetCustomAllocationRuleStrategyBasedOnTimeseriesArgs()
         {
         }

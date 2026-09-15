@@ -3,15 +3,44 @@
 
 package com.pulumi.datadog.inputs;
 
-
+import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Import;
+import java.lang.String;
+import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CustomAllocationRuleStrategyBasedOnTimeseriesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CustomAllocationRuleStrategyBasedOnTimeseriesArgs Empty = new CustomAllocationRuleStrategyBasedOnTimeseriesArgs();
 
+    /**
+     * The timeseries query that determines the allocation proportions, encoded as a JSON object. Required when `method` is `proportionalTimeseries`. Uses Datadog&#39;s formulas-and-functions request format with `queries`, `formulas`, and `responseFormat` keys. Build it with `jsonencode()`. The set of supported `dataSource` values is defined by the API, not by this provider.
+     * 
+     */
+    @Import(name="json")
+    private @Nullable Output<String> json;
+
+    /**
+     * @return The timeseries query that determines the allocation proportions, encoded as a JSON object. Required when `method` is `proportionalTimeseries`. Uses Datadog&#39;s formulas-and-functions request format with `queries`, `formulas`, and `responseFormat` keys. Build it with `jsonencode()`. The set of supported `dataSource` values is defined by the API, not by this provider.
+     * 
+     */
+    public Optional<Output<String>> json() {
+        return Optional.ofNullable(this.json);
+    }
+
+    private CustomAllocationRuleStrategyBasedOnTimeseriesArgs() {}
+
+    private CustomAllocationRuleStrategyBasedOnTimeseriesArgs(CustomAllocationRuleStrategyBasedOnTimeseriesArgs $) {
+        this.json = $.json;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(CustomAllocationRuleStrategyBasedOnTimeseriesArgs defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,6 +49,32 @@ public final class CustomAllocationRuleStrategyBasedOnTimeseriesArgs extends com
         public Builder() {
             $ = new CustomAllocationRuleStrategyBasedOnTimeseriesArgs();
         }
+
+        public Builder(CustomAllocationRuleStrategyBasedOnTimeseriesArgs defaults) {
+            $ = new CustomAllocationRuleStrategyBasedOnTimeseriesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param json The timeseries query that determines the allocation proportions, encoded as a JSON object. Required when `method` is `proportionalTimeseries`. Uses Datadog&#39;s formulas-and-functions request format with `queries`, `formulas`, and `responseFormat` keys. Build it with `jsonencode()`. The set of supported `dataSource` values is defined by the API, not by this provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder json(@Nullable Output<String> json) {
+            $.json = json;
+            return this;
+        }
+
+        /**
+         * @param json The timeseries query that determines the allocation proportions, encoded as a JSON object. Required when `method` is `proportionalTimeseries`. Uses Datadog&#39;s formulas-and-functions request format with `queries`, `formulas`, and `responseFormat` keys. Build it with `jsonencode()`. The set of supported `dataSource` values is defined by the API, not by this provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder json(String json) {
+            return json(Output.of(json));
+        }
+
         public CustomAllocationRuleStrategyBasedOnTimeseriesArgs build() {
             return $;
         }

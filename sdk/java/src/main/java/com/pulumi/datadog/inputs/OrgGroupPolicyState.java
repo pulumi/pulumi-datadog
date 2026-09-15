@@ -76,14 +76,14 @@ public final class OrgGroupPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The type of the policy. Valid values are `orgConfig`.
+     * The type of the policy. Valid values are `orgConfig`, `role`.
      * 
      */
     @Import(name="policyType")
     private @Nullable Output<String> policyType;
 
     /**
-     * @return The type of the policy. Valid values are `orgConfig`.
+     * @return The type of the policy. Valid values are `orgConfig`, `role`.
      * 
      */
     public Optional<Output<String>> policyType() {
@@ -203,7 +203,7 @@ public final class OrgGroupPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policyType The type of the policy. Valid values are `orgConfig`.
+         * @param policyType The type of the policy. Valid values are `orgConfig`, `role`.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class OrgGroupPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policyType The type of the policy. Valid values are `orgConfig`.
+         * @param policyType The type of the policy. Valid values are `orgConfig`, `role`.
          * 
          * @return builder
          * 

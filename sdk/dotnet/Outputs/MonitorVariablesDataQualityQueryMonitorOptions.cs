@@ -30,9 +30,21 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GroupByColumns;
         /// <summary>
+        /// Tuning options for the anomaly detection model used by the monitor.
+        /// </summary>
+        public readonly Outputs.MonitorVariablesDataQualityQueryMonitorOptionsModelConfiguration? ModelConfiguration;
+        /// <summary>
         /// Override for the model type. Valid values are `Freshness`, `Percentage`, `Any`.
         /// </summary>
         public readonly string? ModelTypeOverride;
+        /// <summary>
+        /// Sensitivity of the anomaly detection model, expressed as a multiplier on the width of the predicted bounds. Higher values widen the bounds and produce fewer alerts; lower values tighten them and produce more alerts. Defaults to `3.0`.
+        /// </summary>
+        public readonly double? Sensitivity;
+        /// <summary>
+        /// Compare the same measure across two data entities and alert on the difference between them.
+        /// </summary>
+        public readonly Outputs.MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfig? SourceToTargetConfig;
 
         [OutputConstructor]
         private MonitorVariablesDataQualityQueryMonitorOptions(
@@ -44,13 +56,22 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> groupByColumns,
 
-            string? modelTypeOverride)
+            Outputs.MonitorVariablesDataQualityQueryMonitorOptionsModelConfiguration? modelConfiguration,
+
+            string? modelTypeOverride,
+
+            double? sensitivity,
+
+            Outputs.MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfig? sourceToTargetConfig)
         {
             CrontabOverride = crontabOverride;
             CustomSql = customSql;
             CustomWhere = customWhere;
             GroupByColumns = groupByColumns;
+            ModelConfiguration = modelConfiguration;
             ModelTypeOverride = modelTypeOverride;
+            Sensitivity = sensitivity;
+            SourceToTargetConfig = sourceToTargetConfig;
         }
     }
 }

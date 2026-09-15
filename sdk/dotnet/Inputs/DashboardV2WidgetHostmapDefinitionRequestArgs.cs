@@ -13,16 +13,112 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardV2WidgetHostmapDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Optional child request for one level of hierarchical visualization.
+        /// </summary>
+        [Input("child")]
+        public Input<Inputs.DashboardV2WidgetHostmapDefinitionRequestChildArgs>? Child { get; set; }
+
+        [Input("conditionalFormats")]
+        private InputList<Inputs.DashboardV2WidgetHostmapDefinitionRequestConditionalFormatArgs>? _conditionalFormats;
+
+        /// <summary>
+        /// Conditional formatting rules applied to fill values.
+        /// </summary>
+        public InputList<Inputs.DashboardV2WidgetHostmapDefinitionRequestConditionalFormatArgs> ConditionalFormats
+        {
+            get => _conditionalFormats ?? (_conditionalFormats = new InputList<Inputs.DashboardV2WidgetHostmapDefinitionRequestConditionalFormatArgs>());
+            set => _conditionalFormats = value;
+        }
+
+        [Input("enrichments")]
+        private InputList<Inputs.DashboardV2WidgetHostmapDefinitionRequestEnrichmentArgs>? _enrichments;
+
+        /// <summary>
+        /// Metric or event queries joined to the entity set.
+        /// </summary>
+        public InputList<Inputs.DashboardV2WidgetHostmapDefinitionRequestEnrichmentArgs> Enrichments
+        {
+            get => _enrichments ?? (_enrichments = new InputList<Inputs.DashboardV2WidgetHostmapDefinitionRequestEnrichmentArgs>());
+            set => _enrichments = value;
+        }
+
+        /// <summary>
         /// The query used to fill the map. Exactly one nested block is allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
         /// </summary>
         [Input("fill")]
         public Input<Inputs.DashboardV2WidgetHostmapDefinitionRequestFillArgs>? Fill { get; set; }
 
         /// <summary>
+        /// Filter string for the entity set in tag format, such as `env:prod`.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        [Input("groupBies")]
+        private InputList<Inputs.DashboardV2WidgetHostmapDefinitionRequestGroupByArgs>? _groupBies;
+
+        /// <summary>
+        /// Ordered grouping hierarchy for infrastructure entities.
+        /// </summary>
+        public InputList<Inputs.DashboardV2WidgetHostmapDefinitionRequestGroupByArgs> GroupBies
+        {
+            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardV2WidgetHostmapDefinitionRequestGroupByArgs>());
+            set => _groupBies = value;
+        }
+
+        /// <summary>
+        /// Maximum number of rows to return from the DDSQL data-projection request.
+        /// </summary>
+        [Input("limit")]
+        public Input<int>? Limit { get; set; }
+
+        /// <summary>
+        /// Whether to hide entities that have no group assignment.
+        /// </summary>
+        [Input("noGroupHosts")]
+        public Input<bool>? NoGroupHosts { get; set; }
+
+        /// <summary>
+        /// Whether to hide entities that have no enrichment data.
+        /// </summary>
+        [Input("noMetricHosts")]
+        public Input<bool>? NoMetricHosts { get; set; }
+
+        /// <summary>
+        /// Infrastructure entity type to visualize. Valid values are `Host`, `Container`, `Pod`, `Cluster`.
+        /// </summary>
+        [Input("nodeType")]
+        public Input<string>? NodeType { get; set; }
+
+        /// <summary>
+        /// Mapping from published-dataset columns to host map dimensions.
+        /// </summary>
+        [Input("projection")]
+        public Input<Inputs.DashboardV2WidgetHostmapDefinitionRequestProjectionArgs>? Projection { get; set; }
+
+        /// <summary>
+        /// Published-dataset query used by the DDSQL data-projection request.
+        /// </summary>
+        [Input("query")]
+        public Input<Inputs.DashboardV2WidgetHostmapDefinitionRequestQueryArgs>? Query { get; set; }
+
+        /// <summary>
+        /// Identifies an infrastructure-backed or DDSQL data-projection host map request. Valid values are `InfrastructureHostmap`, `DataProjection`.
+        /// </summary>
+        [Input("requestType")]
+        public Input<string>? RequestType { get; set; }
+
+        /// <summary>
         /// The query used to size the map. Exactly one nested block is allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
         /// </summary>
         [Input("size")]
         public Input<Inputs.DashboardV2WidgetHostmapDefinitionRequestSizeArgs>? Size { get; set; }
+
+        /// <summary>
+        /// Style configuration for the infrastructure host map.
+        /// </summary>
+        [Input("style")]
+        public Input<Inputs.DashboardV2WidgetHostmapDefinitionRequestStyleArgs>? Style { get; set; }
 
         public DashboardV2WidgetHostmapDefinitionRequestArgs()
         {

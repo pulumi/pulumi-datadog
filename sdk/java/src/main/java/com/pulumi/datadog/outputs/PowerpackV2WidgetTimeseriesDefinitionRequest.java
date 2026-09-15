@@ -4,18 +4,18 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSecurityQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestAuditQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestEventQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestMetadata;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestNetworkQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestProfileMetricsQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetTimeseriesDefinitionRequestStyle;
 import java.lang.Boolean;
 import java.lang.String;
@@ -34,7 +34,7 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestApmQuery apmQuery;
+    private @Nullable PowerpackV2WidgetApmQuery apmQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -71,7 +71,7 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestLogQuery logQuery;
+    private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
      * 
@@ -127,7 +127,7 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestRumQuery rumQuery;
+    private @Nullable PowerpackV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -136,7 +136,7 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
     /**
      * @return The style of the widget graph. Exactly one `style` block is allowed using the structure below.
      * 
@@ -152,7 +152,7 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetTimeseriesDefinitionRequestApmQuery> apmQuery() {
+    public Optional<PowerpackV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -199,7 +199,7 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetTimeseriesDefinitionRequestLogQuery> logQuery() {
+    public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -271,7 +271,7 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetTimeseriesDefinitionRequestRumQuery> rumQuery() {
+    public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -282,7 +282,7 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetTimeseriesDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<PowerpackV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -302,12 +302,12 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestApmQuery apmQuery;
+        private @Nullable PowerpackV2WidgetApmQuery apmQuery;
         private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestAuditQuery auditQuery;
         private @Nullable String displayType;
         private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestEventQuery eventQuery;
         private @Nullable List<PowerpackV2WidgetTimeseriesDefinitionRequestFormula> formulas;
-        private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestLogQuery logQuery;
+        private @Nullable PowerpackV2WidgetLogQuery logQuery;
         private @Nullable List<PowerpackV2WidgetTimeseriesDefinitionRequestMetadata> metadatas;
         private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestNetworkQuery networkQuery;
         private @Nullable Boolean onRightYaxis;
@@ -315,8 +315,8 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
         private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestProfileMetricsQuery profileMetricsQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetTimeseriesDefinitionRequestQuery> queries;
-        private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestRumQuery rumQuery;
-        private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetRumQuery rumQuery;
+        private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
         private @Nullable PowerpackV2WidgetTimeseriesDefinitionRequestStyle style;
         public Builder() {}
         public Builder(PowerpackV2WidgetTimeseriesDefinitionRequest defaults) {
@@ -340,7 +340,7 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable PowerpackV2WidgetTimeseriesDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable PowerpackV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -373,7 +373,7 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable PowerpackV2WidgetTimeseriesDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable PowerpackV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -427,13 +427,13 @@ public final class PowerpackV2WidgetTimeseriesDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable PowerpackV2WidgetTimeseriesDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable PowerpackV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable PowerpackV2WidgetTimeseriesDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable PowerpackV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;
