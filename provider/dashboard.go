@@ -16,6 +16,7 @@ package datadog
 
 import (
 	"fmt"
+	"slices"
 	"strings"
 
 	"golang.org/x/text/cases"
@@ -42,7 +43,14 @@ func (r recType) canonical() string {
 }
 
 func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
-	widget, ok := spec.Types["datadog:index/DashboardWidget:DashboardWidget"]
+	rerollDashboardWidget(spec, "DashboardWidget")
+	for _, prefix := range []string{"DashboardV2Widget", "PowerpackV2Widget"} {
+		rerollDashboardWidget(spec, prefix)
+	}
+}
+
+func rerollDashboardWidget(spec *schema.PackageSpec, prefix string) {
+	widget, ok := spec.Types[(recType{prefix: prefix}).canonical()]
 	contract.Assertf(ok, "must be able to find top level widget")
 
 	var defs []recType
@@ -52,7 +60,7 @@ func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
 			continue
 		}
 		defs = append(defs, recType{
-			prefix: "DashboardWidget",
+			prefix: prefix,
 			suffix: cases.Title(language.English, cases.NoLower).String(prop),
 		})
 	}
@@ -67,15 +75,51 @@ func rerollRecursiveDashboardWidget(spec *schema.PackageSpec) {
 		return recType{prefix, postfix}
 	}
 
-	rerollRecursiveTypes(spec, []recType{
-		mkRec("DashboardWidget", "RumQuery", "DashboardWidgetToplistDefinitionRequestRumQuery"),
-		mkRec("DashboardWidget", "SecurityQuery", "DashboardWidgetToplistDefinitionRequestSecurityQuery"),
-		mkRec("DashboardWidget", "ApmQuery", "DashboardWidgetQueryTableDefinitionRequestApmQuery"),
-		mkRec("DashboardWidget", "LogQuery", "DashboardWidgetHostmapDefinitionRequestFillLogQuery"),
-	})
+	if prefix == "DashboardWidget" {
+		// Keep the existing dashboard types and their chosen canonical shapes unchanged.
+		rerollRecursiveTypes(spec, []recType{
+			mkRec(prefix, "RumQuery", prefix+"ToplistDefinitionRequestRumQuery"),
+			mkRec(prefix, "SecurityQuery", prefix+"ToplistDefinitionRequestSecurityQuery"),
+			mkRec(prefix, "ApmQuery", prefix+"QueryTableDefinitionRequestApmQuery"),
+			mkRec(prefix, "LogQuery", prefix+"HostmapDefinitionRequestFillLogQuery"),
+		})
+		return
+	}
+
+	// V2 repeats these query trees across widget definitions. EventQuery and
+	// ProcessQuery have different shapes in different widgets, so keep them separate.
+	var queries []recType
+	for _, suffix := range []string{"RumQuery", "SecurityQuery", "ApmQuery", "LogQuery"} {
+		queries = append(queries, mkRec(prefix, suffix, prefix+"ChangeDefinitionRequest"+suffix))
+	}
+	for _, suffix := range []string{
+		"ApmMetricsQuery", "ApmDependencyStatsQuery", "ApmResourceStatsQuery",
+		"CloudCostQuery", "ProductAnalyticsExtendedQuery", "RetentionQuery",
+		"SloQuery", "UserJourneyQuery", "MetricQuery",
+	} {
+		queries = append(queries, mkRec(prefix, suffix, prefix+"ChangeDefinitionRequestQuery"+suffix))
+	}
+	rerollRecursiveTypes(spec, queries)
 }
 
 func rerollRecursiveTypes(spec *schema.PackageSpec, defs []recType) {
+	// Prefer ProductAnalyticsFunnelDefinition to FunnelDefinition, for example.
+	// Include canonical types in matching so they cannot match a shorter suffix.
+	defs = slices.Clone(defs)
+	slices.SortFunc(defs, func(a, b recType) int {
+		if n := len(b.suffix) - len(a.suffix); n != 0 {
+			return n
+		}
+		return strings.Compare(a.canonical(), b.canonical())
+	})
+	canonical := func(tok tokens.Type) string {
+		for _, def := range defs {
+			if tok.String() == def.canonical() || def.has(tok) {
+				return def.canonical()
+			}
+		}
+		return tok.String()
+	}
 	for _, def := range defs {
 		typ := def.canonical()
 		_, ok := spec.Types[typ]
@@ -88,20 +132,16 @@ func rerollRecursiveTypes(spec *schema.PackageSpec, defs []recType) {
 	// type, so that we could remove all of elided types and their children.
 	var elidedRefs []tokens.Type
 
-typ:
 	for tok := range spec.Types {
 		tok, err := tokens.ParseTypeToken(tok)
 		contract.AssertNoErrorf(err, "invalid type token")
 
-		for _, def := range defs {
-			if def.has(tok) {
-				contract.AssertNoErrorf(
-					psed.AssertSuperSetOf(spec, tok, tokens.Type(def.canonical())),
-					"Attempted to introduce a breaking change",
-				)
-				elidedRefs = append(elidedRefs, tok)
-				continue typ
-			}
+		if root := canonical(tok); root != tok.String() {
+			contract.AssertNoErrorf(
+				psed.AssertSuperSetOf(spec, tok, tokens.Type(root)),
+				"Attempted to introduce a breaking change",
+			)
+			elidedRefs = append(elidedRefs, tok)
 		}
 	}
 
@@ -126,27 +166,19 @@ typ:
 		tok, err := tokens.ParseTypeToken(tokStr)
 		contract.AssertNoErrorf(err, "invalid type token")
 
-		for _, def := range defs {
-			if def.has(tok) {
-				t.Ref = prefix + def.canonical()
-				return
-			}
-		}
+		t.Ref = prefix + canonical(tok)
 	}
 
 	for k, r := range spec.Resources {
-		r := r
 		psed.TraverseResourceTypes(&r, fixup)
 		spec.Resources[k] = r
 
 	}
 	for k, d := range spec.Functions {
-		d := d
 		psed.TraverseFunctionTypes(&d, fixup)
 		spec.Functions[k] = d
 	}
 	for k, typ := range spec.Types {
-		typ := typ
 		psed.TraverseTypes(&typ, fixup)
 		spec.Types[k] = typ
 	}
