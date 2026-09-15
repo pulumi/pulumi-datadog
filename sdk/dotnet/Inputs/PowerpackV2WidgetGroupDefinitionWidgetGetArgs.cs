@@ -16,79 +16,85 @@ namespace Pulumi.Datadog.Inputs
         /// The definition for a Alert Graph widget.
         /// </summary>
         [Input("alertGraphDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinitionGetArgs>? AlertGraphDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetAlertGraphDefinitionGetArgs>? AlertGraphDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Alert Value widget.
         /// </summary>
         [Input("alertValueDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinitionGetArgs>? AlertValueDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetAlertValueDefinitionGetArgs>? AlertValueDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Bar Chart widget.
         /// </summary>
         [Input("barChartDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinitionGetArgs>? BarChartDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetBarChartDefinitionGetArgs>? BarChartDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Change widget.
         /// </summary>
         [Input("changeDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetChangeDefinitionGetArgs>? ChangeDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetChangeDefinitionGetArgs>? ChangeDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Check Status widget.
         /// </summary>
         [Input("checkStatusDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinitionGetArgs>? CheckStatusDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetCheckStatusDefinitionGetArgs>? CheckStatusDefinition { get; set; }
+
+        /// <summary>
+        /// The definition for a Cohort retention-grid widget.
+        /// </summary>
+        [Input("cohortDefinition")]
+        public Input<Inputs.PowerpackV2WidgetCohortDefinitionGetArgs>? CohortDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Distribution widget.
         /// </summary>
         [Input("distributionDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinitionGetArgs>? DistributionDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionGetArgs>? DistributionDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Event Stream widget.
         /// </summary>
         [Input("eventStreamDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinitionGetArgs>? EventStreamDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetEventStreamDefinitionGetArgs>? EventStreamDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Event Timeline widget.
         /// </summary>
         [Input("eventTimelineDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinitionGetArgs>? EventTimelineDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetEventTimelineDefinitionGetArgs>? EventTimelineDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Free Text widget.
         /// </summary>
         [Input("freeTextDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinitionGetArgs>? FreeTextDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetFreeTextDefinitionGetArgs>? FreeTextDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Funnel widget.
         /// </summary>
         [Input("funnelDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinitionGetArgs>? FunnelDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetFunnelDefinitionGetArgs>? FunnelDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Geomap widget.
         /// </summary>
         [Input("geomapDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinitionGetArgs>? GeomapDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetGeomapDefinitionGetArgs>? GeomapDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Heatmap widget.
         /// </summary>
         [Input("heatmapDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinitionGetArgs>? HeatmapDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetHeatmapDefinitionGetArgs>? HeatmapDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Hostmap widget.
         /// </summary>
         [Input("hostmapDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinitionGetArgs>? HostmapDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetHostmapDefinitionGetArgs>? HostmapDefinition { get; set; }
 
         /// <summary>
         /// The ID of the widget.
@@ -100,127 +106,139 @@ namespace Pulumi.Datadog.Inputs
         /// The definition for an Iframe widget.
         /// </summary>
         [Input("iframeDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetIframeDefinitionGetArgs>? IframeDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetIframeDefinitionGetArgs>? IframeDefinition { get; set; }
 
         /// <summary>
         /// The definition for an Image widget
         /// </summary>
         [Input("imageDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetImageDefinitionGetArgs>? ImageDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetImageDefinitionGetArgs>? ImageDefinition { get; set; }
 
         /// <summary>
         /// The definition for a List Stream widget.
         /// </summary>
         [Input("listStreamDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinitionGetArgs>? ListStreamDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetListStreamDefinitionGetArgs>? ListStreamDefinition { get; set; }
 
         /// <summary>
         /// The definition for an Log Stream widget.
         /// </summary>
         [Input("logStreamDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinitionGetArgs>? LogStreamDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetLogStreamDefinitionGetArgs>? LogStreamDefinition { get; set; }
 
         /// <summary>
         /// The definition for an Manage Status widget.
         /// </summary>
         [Input("manageStatusDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinitionGetArgs>? ManageStatusDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetManageStatusDefinitionGetArgs>? ManageStatusDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Note widget.
         /// </summary>
         [Input("noteDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetNoteDefinitionGetArgs>? NoteDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetNoteDefinitionGetArgs>? NoteDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Point Plot widget.
         /// </summary>
         [Input("pointPlotDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinitionGetArgs>? PointPlotDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetPointPlotDefinitionGetArgs>? PointPlotDefinition { get; set; }
+
+        /// <summary>
+        /// The definition for a Product Analytics user journey funnel widget.
+        /// </summary>
+        [Input("productAnalyticsFunnelDefinition")]
+        public Input<Inputs.PowerpackV2WidgetProductAnalyticsFunnelDefinitionGetArgs>? ProductAnalyticsFunnelDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
         [Input("queryTableDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinitionGetArgs>? QueryTableDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetQueryTableDefinitionGetArgs>? QueryTableDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Query Value widget.
         /// </summary>
         [Input("queryValueDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinitionGetArgs>? QueryValueDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetQueryValueDefinitionGetArgs>? QueryValueDefinition { get; set; }
+
+        /// <summary>
+        /// The definition for a Retention Curve widget.
+        /// </summary>
+        [Input("retentionCurveDefinition")]
+        public Input<Inputs.PowerpackV2WidgetRetentionCurveDefinitionGetArgs>? RetentionCurveDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Run Workflow widget.
         /// </summary>
         [Input("runWorkflowDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinitionGetArgs>? RunWorkflowDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetRunWorkflowDefinitionGetArgs>? RunWorkflowDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Sankey diagram widget.
         /// </summary>
         [Input("sankeyDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinitionGetArgs>? SankeyDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetSankeyDefinitionGetArgs>? SankeyDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
         [Input("scatterplotDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinitionGetArgs>? ScatterplotDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetScatterplotDefinitionGetArgs>? ScatterplotDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Service Level Objective widget.
         /// </summary>
         [Input("serviceLevelObjectiveDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinitionGetArgs>? ServiceLevelObjectiveDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetServiceLevelObjectiveDefinitionGetArgs>? ServiceLevelObjectiveDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Service Map widget.
         /// </summary>
         [Input("servicemapDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinitionGetArgs>? ServicemapDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetServicemapDefinitionGetArgs>? ServicemapDefinition { get; set; }
 
         /// <summary>
         /// The definition for an SLO (Service Level Objective) List widget.
         /// </summary>
         [Input("sloListDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetSloListDefinitionGetArgs>? SloListDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetSloListDefinitionGetArgs>? SloListDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Sunburst widget.
         /// </summary>
         [Input("sunburstDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinitionGetArgs>? SunburstDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetSunburstDefinitionGetArgs>? SunburstDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Timeseries widget.
         /// </summary>
         [Input("timeseriesDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinitionGetArgs>? TimeseriesDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetTimeseriesDefinitionGetArgs>? TimeseriesDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Toplist widget.
         /// </summary>
         [Input("toplistDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinitionGetArgs>? ToplistDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetToplistDefinitionGetArgs>? ToplistDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Topology Map widget.
         /// </summary>
         [Input("topologyMapDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinitionGetArgs>? TopologyMapDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetTopologyMapDefinitionGetArgs>? TopologyMapDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Trace Service widget.
         /// </summary>
         [Input("traceServiceDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinitionGetArgs>? TraceServiceDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetTraceServiceDefinitionGetArgs>? TraceServiceDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Treemap widget.
         /// </summary>
         [Input("treemapDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinitionGetArgs>? TreemapDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetTreemapDefinitionGetArgs>? TreemapDefinition { get; set; }
 
         /// <summary>
         /// The layout of the widget on a 'free' dashboard.
@@ -232,7 +250,7 @@ namespace Pulumi.Datadog.Inputs
         /// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
         /// </summary>
         [Input("wildcardDefinition")]
-        public Input<Inputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinitionGetArgs>? WildcardDefinition { get; set; }
+        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionGetArgs>? WildcardDefinition { get; set; }
 
         public PowerpackV2WidgetGroupDefinitionWidgetGetArgs()
         {

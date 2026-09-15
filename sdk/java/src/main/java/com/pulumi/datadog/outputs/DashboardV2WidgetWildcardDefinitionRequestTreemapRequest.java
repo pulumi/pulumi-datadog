@@ -4,13 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestFormula;
-import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestSort;
 import com.pulumi.datadog.outputs.DashboardV2WidgetWildcardDefinitionRequestTreemapRequestStyle;
 import java.lang.String;
@@ -29,7 +29,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery apmQuery;
+    private @Nullable DashboardV2WidgetApmQuery apmQuery;
     /**
      * @return A list of formulas to use in the widget.
      * 
@@ -43,7 +43,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery logQuery;
+    private @Nullable DashboardV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
@@ -75,7 +75,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery rumQuery;
+    private @Nullable DashboardV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -84,7 +84,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery securityQuery;
+    private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
     /**
      * @return The controls for sorting the widget.
      * 
@@ -105,7 +105,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery> apmQuery() {
+    public Optional<DashboardV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -123,7 +123,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery> logQuery() {
+    public Optional<DashboardV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -163,7 +163,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery> rumQuery() {
+    public Optional<DashboardV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -174,7 +174,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery> securityQuery() {
+    public Optional<DashboardV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -201,14 +201,14 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery apmQuery;
+        private @Nullable DashboardV2WidgetApmQuery apmQuery;
         private @Nullable List<DashboardV2WidgetWildcardDefinitionRequestTreemapRequestFormula> formulas;
-        private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery logQuery;
+        private @Nullable DashboardV2WidgetLogQuery logQuery;
         private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQuery> queries;
-        private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery rumQuery;
-        private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery securityQuery;
+        private @Nullable DashboardV2WidgetRumQuery rumQuery;
+        private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
         private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestSort sort;
         private @Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestStyle style;
         public Builder() {}
@@ -227,7 +227,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -242,7 +242,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -269,13 +269,13 @@ public final class DashboardV2WidgetWildcardDefinitionRequestTreemapRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

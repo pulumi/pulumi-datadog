@@ -26,6 +26,11 @@ namespace Pulumi.Datadog
     ///     var awsConnection = new Datadog.ActionConnection("aws_connection", new()
     ///     {
     ///         Name = "My AWS Connection",
+    ///         Tags = new[]
+    ///         {
+    ///             "env:prod",
+    ///             "team:action-platform",
+    ///         },
     ///         Aws = new[]
     ///         {
     ///             
@@ -185,6 +190,12 @@ namespace Pulumi.Datadog
         public Output<Outputs.ActionConnectionDatadog?> Datadog { get; private set; } = null!;
 
         /// <summary>
+        /// Tags associated with the connection, including those inherited from the provider's `DefaultTags` configuration.
+        /// </summary>
+        [Output("effectiveTags")]
+        public Output<ImmutableArray<string>> EffectiveTags { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration for a Fastly connection
         /// </summary>
         [Output("fastly")]
@@ -273,6 +284,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("statsig")]
         public Output<Outputs.ActionConnectionStatsig?> Statsig { get; private set; } = null!;
+
+        /// <summary>
+        /// User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `Default` tag key is reserved. See also `EffectiveTags`, which includes provider-level `DefaultTags`.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Configuration for a VirusTotal connection
@@ -470,6 +487,18 @@ namespace Pulumi.Datadog
         [Input("statsig")]
         public Input<Inputs.ActionConnectionStatsigArgs>? Statsig { get; set; }
 
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `Default` tag key is reserved. See also `EffectiveTags`, which includes provider-level `DefaultTags`.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// Configuration for a VirusTotal connection
         /// </summary>
@@ -537,6 +566,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("datadog")]
         public Input<Inputs.ActionConnectionDatadogGetArgs>? Datadog { get; set; }
+
+        [Input("effectiveTags")]
+        private InputList<string>? _effectiveTags;
+
+        /// <summary>
+        /// Tags associated with the connection, including those inherited from the provider's `DefaultTags` configuration.
+        /// </summary>
+        public InputList<string> EffectiveTags
+        {
+            get => _effectiveTags ?? (_effectiveTags = new InputList<string>());
+            set => _effectiveTags = value;
+        }
 
         /// <summary>
         /// Configuration for a Fastly connection
@@ -627,6 +668,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("statsig")]
         public Input<Inputs.ActionConnectionStatsigGetArgs>? Statsig { get; set; }
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `Default` tag key is reserved. See also `EffectiveTags`, which includes provider-level `DefaultTags`.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Configuration for a VirusTotal connection

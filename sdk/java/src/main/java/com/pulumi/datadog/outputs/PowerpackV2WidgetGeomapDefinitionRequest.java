@@ -5,9 +5,9 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGeomapDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGeomapDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetGeomapDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetGeomapDefinitionRequestRumQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRumQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -29,7 +29,7 @@ public final class PowerpackV2WidgetGeomapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetGeomapDefinitionRequestLogQuery logQuery;
+    private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -52,7 +52,7 @@ public final class PowerpackV2WidgetGeomapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetGeomapDefinitionRequestRumQuery rumQuery;
+    private @Nullable PowerpackV2WidgetRumQuery rumQuery;
 
     private PowerpackV2WidgetGeomapDefinitionRequest() {}
     /**
@@ -70,7 +70,7 @@ public final class PowerpackV2WidgetGeomapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetGeomapDefinitionRequestLogQuery> logQuery() {
+    public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -99,7 +99,7 @@ public final class PowerpackV2WidgetGeomapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetGeomapDefinitionRequestRumQuery> rumQuery() {
+    public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
@@ -113,10 +113,10 @@ public final class PowerpackV2WidgetGeomapDefinitionRequest {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PowerpackV2WidgetGeomapDefinitionRequestFormula> formulas;
-        private @Nullable PowerpackV2WidgetGeomapDefinitionRequestLogQuery logQuery;
+        private @Nullable PowerpackV2WidgetLogQuery logQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetGeomapDefinitionRequestQuery> queries;
-        private @Nullable PowerpackV2WidgetGeomapDefinitionRequestRumQuery rumQuery;
+        private @Nullable PowerpackV2WidgetRumQuery rumQuery;
         public Builder() {}
         public Builder(PowerpackV2WidgetGeomapDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
@@ -137,7 +137,7 @@ public final class PowerpackV2WidgetGeomapDefinitionRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable PowerpackV2WidgetGeomapDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable PowerpackV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -158,7 +158,7 @@ public final class PowerpackV2WidgetGeomapDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable PowerpackV2WidgetGeomapDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable PowerpackV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;

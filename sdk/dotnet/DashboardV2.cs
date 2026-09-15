@@ -50,7 +50,7 @@ namespace Pulumi.Datadog
     ///                             {
     ///                                 new Datadog.Inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs
     ///                                 {
-    ///                                     MetricQuery = new Datadog.Inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryMetricQueryArgs
+    ///                                     MetricQuery = new Datadog.Inputs.DashboardV2WidgetMetricQueryArgs
     ///                                     {
     ///                                         DataSource = "metrics",
     ///                                         Query = "avg:system.cpu.user{*} by {env}",
@@ -84,7 +84,7 @@ namespace Pulumi.Datadog
     ///                             {
     ///                                 new Datadog.Inputs.DashboardV2WidgetQueryValueDefinitionRequestQueryArgs
     ///                                 {
-    ///                                     MetricQuery = new Datadog.Inputs.DashboardV2WidgetQueryValueDefinitionRequestQueryMetricQueryArgs
+    ///                                     MetricQuery = new Datadog.Inputs.DashboardV2WidgetMetricQueryArgs
     ///                                     {
     ///                                         DataSource = "metrics",
     ///                                         Query = "avg:system.load.1{*}",
@@ -127,7 +127,7 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         new Datadog.Inputs.DashboardV2WidgetGroupDefinitionWidgetArgs
     ///                         {
-    ///                             NoteDefinition = new Datadog.Inputs.DashboardV2WidgetGroupDefinitionWidgetNoteDefinitionArgs
+    ///                             NoteDefinition = new Datadog.Inputs.DashboardV2WidgetNoteDefinitionArgs
     ///                             {
     ///                                 Content = "cluster note widget",
     ///                                 BackgroundColor = "pink",
@@ -180,7 +180,7 @@ namespace Pulumi.Datadog
     ///                             {
     ///                                 new Datadog.Inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryArgs
     ///                                 {
-    ///                                     MetricQuery = new Datadog.Inputs.DashboardV2WidgetTimeseriesDefinitionRequestQueryMetricQueryArgs
+    ///                                     MetricQuery = new Datadog.Inputs.DashboardV2WidgetMetricQueryArgs
     ///                                     {
     ///                                         DataSource = "metrics",
     ///                                         Query = "avg:system.cpu.user{*} by {env}",
@@ -309,6 +309,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `True`. Setting this to `False` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        /// </summary>
+        [Output("validate")]
+        public Output<bool?> Validate { get; private set; } = null!;
 
         /// <summary>
         /// The list of widgets to display on the dashboard.
@@ -494,6 +500,12 @@ namespace Pulumi.Datadog
         [Input("url")]
         public Input<string>? Url { get; set; }
 
+        /// <summary>
+        /// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `True`. Setting this to `False` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        /// </summary>
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
+
         [Input("widgets")]
         private InputList<Inputs.DashboardV2WidgetArgs>? _widgets;
 
@@ -645,6 +657,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
+
+        /// <summary>
+        /// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `True`. Setting this to `False` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        /// </summary>
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
 
         [Input("widgets")]
         private InputList<Inputs.DashboardV2WidgetGetArgs>? _widgets;

@@ -13,10 +13,16 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// APM metrics query for histogram-mode distribution.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.DashboardV2WidgetApmMetricsQueryGetArgs>? ApmMetricsQuery { get; set; }
+
+        /// <summary>
         /// APM resource stats query for histogram-mode distribution.
         /// </summary>
         [Input("apmResourceStatsQuery")]
-        public Input<Inputs.DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQueryGetArgs>? ApmResourceStatsQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetApmResourceStatsQueryGetArgs>? ApmResourceStatsQuery { get; set; }
 
         /// <summary>
         /// Event query for histogram-mode distribution.
@@ -28,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         /// Metric query for histogram-mode distribution.
         /// </summary>
         [Input("metricQuery")]
-        public Input<Inputs.DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQueryGetArgs>? MetricQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetMetricQueryGetArgs>? MetricQuery { get; set; }
 
         public DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryGetArgs()
         {

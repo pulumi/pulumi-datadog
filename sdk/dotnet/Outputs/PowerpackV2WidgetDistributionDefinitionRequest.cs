@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.PowerpackV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// The APM stats query to use in the widget.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.PowerpackV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -52,11 +52,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.PowerpackV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.PowerpackV2WidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The style of the widget graph. One nested block is allowed using the structure below.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackV2WidgetDistributionDefinitionRequest(
-            Outputs.PowerpackV2WidgetDistributionDefinitionRequestApmQuery? apmQuery,
+            Outputs.PowerpackV2WidgetApmQuery? apmQuery,
 
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestApmStatsQuery? apmStatsQuery,
 
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQuery? histogramQuery,
 
-            Outputs.PowerpackV2WidgetDistributionDefinitionRequestLogQuery? logQuery,
+            Outputs.PowerpackV2WidgetLogQuery? logQuery,
 
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestProcessQuery? processQuery,
 
@@ -82,9 +82,9 @@ namespace Pulumi.Datadog.Outputs
 
             string? requestType,
 
-            Outputs.PowerpackV2WidgetDistributionDefinitionRequestRumQuery? rumQuery,
+            Outputs.PowerpackV2WidgetRumQuery? rumQuery,
 
-            Outputs.PowerpackV2WidgetDistributionDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.PowerpackV2WidgetSecurityQuery? securityQuery,
 
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestStyle? style)
         {

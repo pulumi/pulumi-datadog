@@ -3,15 +3,42 @@
 
 package com.pulumi.datadog.inputs;
 
-
+import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
+import java.util.Objects;
 
 
 public final class GetCustomAllocationRuleStrategyBasedOnTimeseries extends com.pulumi.resources.InvokeArgs {
 
     public static final GetCustomAllocationRuleStrategyBasedOnTimeseries Empty = new GetCustomAllocationRuleStrategyBasedOnTimeseries();
 
+    /**
+     * The timeseries query that determines the allocation proportions, encoded as a JSON object. Set when `method` is `proportionalTimeseries`.
+     * 
+     */
+    @Import(name="json", required=true)
+    private String json;
+
+    /**
+     * @return The timeseries query that determines the allocation proportions, encoded as a JSON object. Set when `method` is `proportionalTimeseries`.
+     * 
+     */
+    public String json() {
+        return this.json;
+    }
+
+    private GetCustomAllocationRuleStrategyBasedOnTimeseries() {}
+
+    private GetCustomAllocationRuleStrategyBasedOnTimeseries(GetCustomAllocationRuleStrategyBasedOnTimeseries $) {
+        this.json = $.json;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(GetCustomAllocationRuleStrategyBasedOnTimeseries defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,7 +47,26 @@ public final class GetCustomAllocationRuleStrategyBasedOnTimeseries extends com.
         public Builder() {
             $ = new GetCustomAllocationRuleStrategyBasedOnTimeseries();
         }
+
+        public Builder(GetCustomAllocationRuleStrategyBasedOnTimeseries defaults) {
+            $ = new GetCustomAllocationRuleStrategyBasedOnTimeseries(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param json The timeseries query that determines the allocation proportions, encoded as a JSON object. Set when `method` is `proportionalTimeseries`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder json(String json) {
+            $.json = json;
+            return this;
+        }
+
         public GetCustomAllocationRuleStrategyBasedOnTimeseries build() {
+            if ($.json == null) {
+                throw new MissingRequiredPropertyException("GetCustomAllocationRuleStrategyBasedOnTimeseries", "json");
+            }
             return $;
         }
     }

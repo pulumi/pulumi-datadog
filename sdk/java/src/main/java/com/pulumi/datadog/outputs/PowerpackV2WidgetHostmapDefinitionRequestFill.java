@@ -4,13 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestFillApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetApmQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestFillFormula;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestFillLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestFillProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestFillQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestFillRumQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetHostmapDefinitionRequestFillSecurityQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSecurityQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -27,7 +27,7 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetHostmapDefinitionRequestFillApmQuery apmQuery;
+    private @Nullable PowerpackV2WidgetApmQuery apmQuery;
     /**
      * @return A list of formulas to use in the widget.
      * 
@@ -41,7 +41,7 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetHostmapDefinitionRequestFillLogQuery logQuery;
+    private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
@@ -73,7 +73,7 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetHostmapDefinitionRequestFillRumQuery rumQuery;
+    private @Nullable PowerpackV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -82,7 +82,7 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetHostmapDefinitionRequestFillSecurityQuery securityQuery;
+    private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
 
     private PowerpackV2WidgetHostmapDefinitionRequestFill() {}
     /**
@@ -93,7 +93,7 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetHostmapDefinitionRequestFillApmQuery> apmQuery() {
+    public Optional<PowerpackV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -111,7 +111,7 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetHostmapDefinitionRequestFillLogQuery> logQuery() {
+    public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -151,7 +151,7 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetHostmapDefinitionRequestFillRumQuery> rumQuery() {
+    public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -162,7 +162,7 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetHostmapDefinitionRequestFillSecurityQuery> securityQuery() {
+    public Optional<PowerpackV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -175,14 +175,14 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable PowerpackV2WidgetHostmapDefinitionRequestFillApmQuery apmQuery;
+        private @Nullable PowerpackV2WidgetApmQuery apmQuery;
         private @Nullable List<PowerpackV2WidgetHostmapDefinitionRequestFillFormula> formulas;
-        private @Nullable PowerpackV2WidgetHostmapDefinitionRequestFillLogQuery logQuery;
+        private @Nullable PowerpackV2WidgetLogQuery logQuery;
         private @Nullable PowerpackV2WidgetHostmapDefinitionRequestFillProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetHostmapDefinitionRequestFillQuery> queries;
-        private @Nullable PowerpackV2WidgetHostmapDefinitionRequestFillRumQuery rumQuery;
-        private @Nullable PowerpackV2WidgetHostmapDefinitionRequestFillSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetRumQuery rumQuery;
+        private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
         public Builder() {}
         public Builder(PowerpackV2WidgetHostmapDefinitionRequestFill defaults) {
     	      Objects.requireNonNull(defaults);
@@ -197,7 +197,7 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable PowerpackV2WidgetHostmapDefinitionRequestFillApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable PowerpackV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -212,7 +212,7 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable PowerpackV2WidgetHostmapDefinitionRequestFillLogQuery logQuery) {
+        public Builder logQuery(@Nullable PowerpackV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -239,13 +239,13 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestFill {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable PowerpackV2WidgetHostmapDefinitionRequestFillRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable PowerpackV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable PowerpackV2WidgetHostmapDefinitionRequestFillSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable PowerpackV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

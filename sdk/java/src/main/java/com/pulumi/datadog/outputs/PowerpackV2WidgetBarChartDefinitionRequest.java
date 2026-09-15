@@ -4,16 +4,16 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetApmQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinitionRequestSort;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetBarChartDefinitionRequestStyle;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSecurityQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -30,7 +30,7 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetBarChartDefinitionRequestApmQuery apmQuery;
+    private @Nullable PowerpackV2WidgetApmQuery apmQuery;
     /**
      * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data.
      * 
@@ -49,7 +49,7 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetBarChartDefinitionRequestLogQuery logQuery;
+    private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
@@ -81,7 +81,7 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetBarChartDefinitionRequestRumQuery rumQuery;
+    private @Nullable PowerpackV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -90,7 +90,7 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetBarChartDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
     /**
      * @return The controls for sorting the widget. Only applicable for formula-style requests.
      * 
@@ -111,7 +111,7 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetBarChartDefinitionRequestApmQuery> apmQuery() {
+    public Optional<PowerpackV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -136,7 +136,7 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetBarChartDefinitionRequestLogQuery> logQuery() {
+    public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -176,7 +176,7 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetBarChartDefinitionRequestRumQuery> rumQuery() {
+    public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -187,7 +187,7 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetBarChartDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<PowerpackV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -214,15 +214,15 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable PowerpackV2WidgetBarChartDefinitionRequestApmQuery apmQuery;
+        private @Nullable PowerpackV2WidgetApmQuery apmQuery;
         private @Nullable List<PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat> conditionalFormats;
         private @Nullable List<PowerpackV2WidgetBarChartDefinitionRequestFormula> formulas;
-        private @Nullable PowerpackV2WidgetBarChartDefinitionRequestLogQuery logQuery;
+        private @Nullable PowerpackV2WidgetLogQuery logQuery;
         private @Nullable PowerpackV2WidgetBarChartDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetBarChartDefinitionRequestQuery> queries;
-        private @Nullable PowerpackV2WidgetBarChartDefinitionRequestRumQuery rumQuery;
-        private @Nullable PowerpackV2WidgetBarChartDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetRumQuery rumQuery;
+        private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
         private @Nullable PowerpackV2WidgetBarChartDefinitionRequestSort sort;
         private @Nullable PowerpackV2WidgetBarChartDefinitionRequestStyle style;
         public Builder() {}
@@ -242,7 +242,7 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable PowerpackV2WidgetBarChartDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable PowerpackV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -266,7 +266,7 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable PowerpackV2WidgetBarChartDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable PowerpackV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -293,13 +293,13 @@ public final class PowerpackV2WidgetBarChartDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable PowerpackV2WidgetBarChartDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable PowerpackV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable PowerpackV2WidgetBarChartDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable PowerpackV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

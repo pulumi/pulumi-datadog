@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.inputs.PowerpackV2WidgetTimeseriesDefinitionRequestArgs;
  * import com.pulumi.datadog.inputs.PowerpackV2WidgetTimeseriesDefinitionRequestFormulaArgs;
  * import com.pulumi.datadog.inputs.PowerpackV2WidgetTimeseriesDefinitionRequestQueryArgs;
- * import com.pulumi.datadog.inputs.PowerpackV2WidgetTimeseriesDefinitionRequestQueryMetricQueryArgs;
+ * import com.pulumi.datadog.inputs.PowerpackV2WidgetMetricQueryArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *                             .formulaExpression("my_query_1")
  *                             .build())
  *                         .queries(PowerpackV2WidgetTimeseriesDefinitionRequestQueryArgs.builder()
- *                             .metricQuery(PowerpackV2WidgetTimeseriesDefinitionRequestQueryMetricQueryArgs.builder()
+ *                             .metricQuery(PowerpackV2WidgetMetricQueryArgs.builder()
  *                                 .dataSource("metrics")
  *                                 .query("avg:system.cpu.user{*} by {env}")
  *                                 .name("my_query_1")

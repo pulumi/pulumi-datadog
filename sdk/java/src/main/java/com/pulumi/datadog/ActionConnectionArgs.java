@@ -31,6 +31,7 @@ import com.pulumi.datadog.inputs.ActionConnectionStatsigArgs;
 import com.pulumi.datadog.inputs.ActionConnectionVirusTotalArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -401,6 +402,21 @@ public final class ActionConnectionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<List<String>> tags;
+
+    /**
+     * @return User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+     * 
+     */
+    public Optional<Output<List<String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
      * Configuration for a VirusTotal connection
      * 
      */
@@ -442,6 +458,7 @@ public final class ActionConnectionArgs extends com.pulumi.resources.ResourceArg
         this.serviceNow = $.serviceNow;
         this.split = $.split;
         this.statsig = $.statsig;
+        this.tags = $.tags;
         this.virusTotal = $.virusTotal;
     }
 
@@ -965,6 +982,37 @@ public final class ActionConnectionArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder statsig(ActionConnectionStatsigArgs statsig) {
             return statsig(Output.of(statsig));
+        }
+
+        /**
+         * @param tags User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<List<String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(List<String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tags User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(String... tags) {
+            return tags(List.of(tags));
         }
 
         /**

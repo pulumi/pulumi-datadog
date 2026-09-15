@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorArrayProcessorOperationAppendArgs;
+import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorArrayProcessorOperationKeyValueArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorArrayProcessorOperationLengthArgs;
 import com.pulumi.datadog.inputs.LogsCustomPipelineProcessorArrayProcessorOperationSelectArgs;
 import java.util.Objects;
@@ -30,6 +31,21 @@ public final class LogsCustomPipelineProcessorArrayProcessorOperationArgs extend
      */
     public Optional<Output<LogsCustomPipelineProcessorArrayProcessorOperationAppendArgs>> append() {
         return Optional.ofNullable(this.append);
+    }
+
+    /**
+     * Operation that extracts key-value pairs from a source array and stores the result in the target attribute.
+     * 
+     */
+    @Import(name="keyValue")
+    private @Nullable Output<LogsCustomPipelineProcessorArrayProcessorOperationKeyValueArgs> keyValue;
+
+    /**
+     * @return Operation that extracts key-value pairs from a source array and stores the result in the target attribute.
+     * 
+     */
+    public Optional<Output<LogsCustomPipelineProcessorArrayProcessorOperationKeyValueArgs>> keyValue() {
+        return Optional.ofNullable(this.keyValue);
     }
 
     /**
@@ -66,6 +82,7 @@ public final class LogsCustomPipelineProcessorArrayProcessorOperationArgs extend
 
     private LogsCustomPipelineProcessorArrayProcessorOperationArgs(LogsCustomPipelineProcessorArrayProcessorOperationArgs $) {
         this.append = $.append;
+        this.keyValue = $.keyValue;
         this.length = $.length;
         this.select = $.select;
     }
@@ -107,6 +124,27 @@ public final class LogsCustomPipelineProcessorArrayProcessorOperationArgs extend
          */
         public Builder append(LogsCustomPipelineProcessorArrayProcessorOperationAppendArgs append) {
             return append(Output.of(append));
+        }
+
+        /**
+         * @param keyValue Operation that extracts key-value pairs from a source array and stores the result in the target attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyValue(@Nullable Output<LogsCustomPipelineProcessorArrayProcessorOperationKeyValueArgs> keyValue) {
+            $.keyValue = keyValue;
+            return this;
+        }
+
+        /**
+         * @param keyValue Operation that extracts key-value pairs from a source array and stores the result in the target attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyValue(LogsCustomPipelineProcessorArrayProcessorOperationKeyValueArgs keyValue) {
+            return keyValue(Output.of(keyValue));
         }
 
         /**

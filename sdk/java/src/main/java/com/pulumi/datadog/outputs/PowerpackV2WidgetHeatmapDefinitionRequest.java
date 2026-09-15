@@ -4,14 +4,15 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetHeatmapDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetApmQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHeatmapDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetHeatmapDefinitionRequestLogQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetHeatmapDefinitionRequestHistogramRequest;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHeatmapDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHeatmapDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetHeatmapDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetHeatmapDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetHeatmapDefinitionRequestStyle;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSecurityQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -28,12 +29,17 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestApmQuery apmQuery;
+    private @Nullable PowerpackV2WidgetApmQuery apmQuery;
     /**
      * @return A list of formulas to use in the widget.
      * 
      */
     private @Nullable List<PowerpackV2WidgetHeatmapDefinitionRequestFormula> formulas;
+    /**
+     * @return Histogram request for distribution of point values.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestHistogramRequest histogramRequest;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -42,7 +48,7 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestLogQuery logQuery;
+    private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
@@ -74,7 +80,7 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestRumQuery rumQuery;
+    private @Nullable PowerpackV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -83,7 +89,7 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
     /**
      * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
@@ -99,7 +105,7 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetHeatmapDefinitionRequestApmQuery> apmQuery() {
+    public Optional<PowerpackV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -110,6 +116,13 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
         return this.formulas == null ? List.of() : this.formulas;
     }
     /**
+     * @return Histogram request for distribution of point values.
+     * 
+     */
+    public Optional<PowerpackV2WidgetHeatmapDefinitionRequestHistogramRequest> histogramRequest() {
+        return Optional.ofNullable(this.histogramRequest);
+    }
+    /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
      * @deprecated
@@ -117,7 +130,7 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetHeatmapDefinitionRequestLogQuery> logQuery() {
+    public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -157,7 +170,7 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetHeatmapDefinitionRequestRumQuery> rumQuery() {
+    public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -168,7 +181,7 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetHeatmapDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<PowerpackV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -188,20 +201,22 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestApmQuery apmQuery;
+        private @Nullable PowerpackV2WidgetApmQuery apmQuery;
         private @Nullable List<PowerpackV2WidgetHeatmapDefinitionRequestFormula> formulas;
-        private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestLogQuery logQuery;
+        private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestHistogramRequest histogramRequest;
+        private @Nullable PowerpackV2WidgetLogQuery logQuery;
         private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetHeatmapDefinitionRequestQuery> queries;
-        private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestRumQuery rumQuery;
-        private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetRumQuery rumQuery;
+        private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
         private @Nullable PowerpackV2WidgetHeatmapDefinitionRequestStyle style;
         public Builder() {}
         public Builder(PowerpackV2WidgetHeatmapDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apmQuery = defaults.apmQuery;
     	      this.formulas = defaults.formulas;
+    	      this.histogramRequest = defaults.histogramRequest;
     	      this.logQuery = defaults.logQuery;
     	      this.processQuery = defaults.processQuery;
     	      this.q = defaults.q;
@@ -212,7 +227,7 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable PowerpackV2WidgetHeatmapDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable PowerpackV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -227,7 +242,13 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable PowerpackV2WidgetHeatmapDefinitionRequestLogQuery logQuery) {
+        public Builder histogramRequest(@Nullable PowerpackV2WidgetHeatmapDefinitionRequestHistogramRequest histogramRequest) {
+
+            this.histogramRequest = histogramRequest;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder logQuery(@Nullable PowerpackV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -254,13 +275,13 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable PowerpackV2WidgetHeatmapDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable PowerpackV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable PowerpackV2WidgetHeatmapDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable PowerpackV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;
@@ -275,6 +296,7 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequest {
             final var _resultValue = new PowerpackV2WidgetHeatmapDefinitionRequest();
             _resultValue.apmQuery = apmQuery;
             _resultValue.formulas = formulas;
+            _resultValue.histogramRequest = histogramRequest;
             _resultValue.logQuery = logQuery;
             _resultValue.processQuery = processQuery;
             _resultValue.q = q;

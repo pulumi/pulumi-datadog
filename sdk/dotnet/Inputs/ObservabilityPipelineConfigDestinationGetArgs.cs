@@ -246,6 +246,12 @@ namespace Pulumi.Datadog.Inputs
             set => _opensearches = value;
         }
 
+        /// <summary>
+        /// The `Opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+        /// </summary>
+        [Input("opentelemetry")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationOpentelemetryGetArgs>? Opentelemetry { get; set; }
+
         [Input("rsyslogs")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationRsyslogGetArgs>? _rsyslogs;
 

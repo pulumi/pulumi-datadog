@@ -5,15 +5,15 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetChangeDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetGeomapDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetQueryTableDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetQueryValueDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetScatterplotDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetSunburstDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetTimeseriesDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetToplistDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetTreemapDefinitionArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -28,13 +28,13 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
      * 
      */
     @Import(name="changeDefinition")
-    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionArgs> changeDefinition;
+    private @Nullable Output<DashboardV2WidgetChangeDefinitionArgs> changeDefinition;
 
     /**
      * @return The definition for a Change widget.
      * 
      */
-    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionArgs>> changeDefinition() {
+    public Optional<Output<DashboardV2WidgetChangeDefinitionArgs>> changeDefinition() {
         return Optional.ofNullable(this.changeDefinition);
     }
 
@@ -43,13 +43,13 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
      * 
      */
     @Import(name="geomapDefinition")
-    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionArgs> geomapDefinition;
+    private @Nullable Output<DashboardV2WidgetGeomapDefinitionArgs> geomapDefinition;
 
     /**
      * @return The definition for a Geomap widget.
      * 
      */
-    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionArgs>> geomapDefinition() {
+    public Optional<Output<DashboardV2WidgetGeomapDefinitionArgs>> geomapDefinition() {
         return Optional.ofNullable(this.geomapDefinition);
     }
 
@@ -58,13 +58,13 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
      * 
      */
     @Import(name="queryTableDefinition")
-    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionArgs> queryTableDefinition;
+    private @Nullable Output<DashboardV2WidgetQueryTableDefinitionArgs> queryTableDefinition;
 
     /**
      * @return The definition for a Query Table widget.
      * 
      */
-    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionArgs>> queryTableDefinition() {
+    public Optional<Output<DashboardV2WidgetQueryTableDefinitionArgs>> queryTableDefinition() {
         return Optional.ofNullable(this.queryTableDefinition);
     }
 
@@ -73,13 +73,13 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
      * 
      */
     @Import(name="queryValueDefinition")
-    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionArgs> queryValueDefinition;
+    private @Nullable Output<DashboardV2WidgetQueryValueDefinitionArgs> queryValueDefinition;
 
     /**
      * @return The definition for a Query Value widget.
      * 
      */
-    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionArgs>> queryValueDefinition() {
+    public Optional<Output<DashboardV2WidgetQueryValueDefinitionArgs>> queryValueDefinition() {
         return Optional.ofNullable(this.queryValueDefinition);
     }
 
@@ -88,13 +88,13 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
      * 
      */
     @Import(name="scatterplotDefinition")
-    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionArgs> scatterplotDefinition;
+    private @Nullable Output<DashboardV2WidgetScatterplotDefinitionArgs> scatterplotDefinition;
 
     /**
      * @return The definition for a Scatterplot widget.
      * 
      */
-    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionArgs>> scatterplotDefinition() {
+    public Optional<Output<DashboardV2WidgetScatterplotDefinitionArgs>> scatterplotDefinition() {
         return Optional.ofNullable(this.scatterplotDefinition);
     }
 
@@ -103,13 +103,13 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
      * 
      */
     @Import(name="sunburstDefinition")
-    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionArgs> sunburstDefinition;
+    private @Nullable Output<DashboardV2WidgetSunburstDefinitionArgs> sunburstDefinition;
 
     /**
      * @return The definition for a Sunburst widget.
      * 
      */
-    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionArgs>> sunburstDefinition() {
+    public Optional<Output<DashboardV2WidgetSunburstDefinitionArgs>> sunburstDefinition() {
         return Optional.ofNullable(this.sunburstDefinition);
     }
 
@@ -118,13 +118,13 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
      * 
      */
     @Import(name="timeseriesDefinition")
-    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionArgs> timeseriesDefinition;
+    private @Nullable Output<DashboardV2WidgetTimeseriesDefinitionArgs> timeseriesDefinition;
 
     /**
      * @return The definition for a Timeseries widget.
      * 
      */
-    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionArgs>> timeseriesDefinition() {
+    public Optional<Output<DashboardV2WidgetTimeseriesDefinitionArgs>> timeseriesDefinition() {
         return Optional.ofNullable(this.timeseriesDefinition);
     }
 
@@ -133,13 +133,13 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
      * 
      */
     @Import(name="toplistDefinition")
-    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionArgs> toplistDefinition;
+    private @Nullable Output<DashboardV2WidgetToplistDefinitionArgs> toplistDefinition;
 
     /**
      * @return The definition for a Toplist widget.
      * 
      */
-    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionArgs>> toplistDefinition() {
+    public Optional<Output<DashboardV2WidgetToplistDefinitionArgs>> toplistDefinition() {
         return Optional.ofNullable(this.toplistDefinition);
     }
 
@@ -148,13 +148,13 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
      * 
      */
     @Import(name="treemapDefinition")
-    private @Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionArgs> treemapDefinition;
+    private @Nullable Output<DashboardV2WidgetTreemapDefinitionArgs> treemapDefinition;
 
     /**
      * @return The definition for a Treemap widget.
      * 
      */
-    public Optional<Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionArgs>> treemapDefinition() {
+    public Optional<Output<DashboardV2WidgetTreemapDefinitionArgs>> treemapDefinition() {
         return Optional.ofNullable(this.treemapDefinition);
     }
 
@@ -196,7 +196,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder changeDefinition(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionArgs> changeDefinition) {
+        public Builder changeDefinition(@Nullable Output<DashboardV2WidgetChangeDefinitionArgs> changeDefinition) {
             $.changeDefinition = changeDefinition;
             return this;
         }
@@ -207,7 +207,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder changeDefinition(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionChangeDefinitionArgs changeDefinition) {
+        public Builder changeDefinition(DashboardV2WidgetChangeDefinitionArgs changeDefinition) {
             return changeDefinition(Output.of(changeDefinition));
         }
 
@@ -217,7 +217,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder geomapDefinition(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionArgs> geomapDefinition) {
+        public Builder geomapDefinition(@Nullable Output<DashboardV2WidgetGeomapDefinitionArgs> geomapDefinition) {
             $.geomapDefinition = geomapDefinition;
             return this;
         }
@@ -228,7 +228,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder geomapDefinition(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionGeomapDefinitionArgs geomapDefinition) {
+        public Builder geomapDefinition(DashboardV2WidgetGeomapDefinitionArgs geomapDefinition) {
             return geomapDefinition(Output.of(geomapDefinition));
         }
 
@@ -238,7 +238,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder queryTableDefinition(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionArgs> queryTableDefinition) {
+        public Builder queryTableDefinition(@Nullable Output<DashboardV2WidgetQueryTableDefinitionArgs> queryTableDefinition) {
             $.queryTableDefinition = queryTableDefinition;
             return this;
         }
@@ -249,7 +249,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder queryTableDefinition(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryTableDefinitionArgs queryTableDefinition) {
+        public Builder queryTableDefinition(DashboardV2WidgetQueryTableDefinitionArgs queryTableDefinition) {
             return queryTableDefinition(Output.of(queryTableDefinition));
         }
 
@@ -259,7 +259,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder queryValueDefinition(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionArgs> queryValueDefinition) {
+        public Builder queryValueDefinition(@Nullable Output<DashboardV2WidgetQueryValueDefinitionArgs> queryValueDefinition) {
             $.queryValueDefinition = queryValueDefinition;
             return this;
         }
@@ -270,7 +270,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder queryValueDefinition(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionQueryValueDefinitionArgs queryValueDefinition) {
+        public Builder queryValueDefinition(DashboardV2WidgetQueryValueDefinitionArgs queryValueDefinition) {
             return queryValueDefinition(Output.of(queryValueDefinition));
         }
 
@@ -280,7 +280,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder scatterplotDefinition(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionArgs> scatterplotDefinition) {
+        public Builder scatterplotDefinition(@Nullable Output<DashboardV2WidgetScatterplotDefinitionArgs> scatterplotDefinition) {
             $.scatterplotDefinition = scatterplotDefinition;
             return this;
         }
@@ -291,7 +291,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder scatterplotDefinition(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionScatterplotDefinitionArgs scatterplotDefinition) {
+        public Builder scatterplotDefinition(DashboardV2WidgetScatterplotDefinitionArgs scatterplotDefinition) {
             return scatterplotDefinition(Output.of(scatterplotDefinition));
         }
 
@@ -301,7 +301,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder sunburstDefinition(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionArgs> sunburstDefinition) {
+        public Builder sunburstDefinition(@Nullable Output<DashboardV2WidgetSunburstDefinitionArgs> sunburstDefinition) {
             $.sunburstDefinition = sunburstDefinition;
             return this;
         }
@@ -312,7 +312,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder sunburstDefinition(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionSunburstDefinitionArgs sunburstDefinition) {
+        public Builder sunburstDefinition(DashboardV2WidgetSunburstDefinitionArgs sunburstDefinition) {
             return sunburstDefinition(Output.of(sunburstDefinition));
         }
 
@@ -322,7 +322,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder timeseriesDefinition(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionArgs> timeseriesDefinition) {
+        public Builder timeseriesDefinition(@Nullable Output<DashboardV2WidgetTimeseriesDefinitionArgs> timeseriesDefinition) {
             $.timeseriesDefinition = timeseriesDefinition;
             return this;
         }
@@ -333,7 +333,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder timeseriesDefinition(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTimeseriesDefinitionArgs timeseriesDefinition) {
+        public Builder timeseriesDefinition(DashboardV2WidgetTimeseriesDefinitionArgs timeseriesDefinition) {
             return timeseriesDefinition(Output.of(timeseriesDefinition));
         }
 
@@ -343,7 +343,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder toplistDefinition(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionArgs> toplistDefinition) {
+        public Builder toplistDefinition(@Nullable Output<DashboardV2WidgetToplistDefinitionArgs> toplistDefinition) {
             $.toplistDefinition = toplistDefinition;
             return this;
         }
@@ -354,7 +354,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder toplistDefinition(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionToplistDefinitionArgs toplistDefinition) {
+        public Builder toplistDefinition(DashboardV2WidgetToplistDefinitionArgs toplistDefinition) {
             return toplistDefinition(Output.of(toplistDefinition));
         }
 
@@ -364,7 +364,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder treemapDefinition(@Nullable Output<DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionArgs> treemapDefinition) {
+        public Builder treemapDefinition(@Nullable Output<DashboardV2WidgetTreemapDefinitionArgs> treemapDefinition) {
             $.treemapDefinition = treemapDefinition;
             return this;
         }
@@ -375,7 +375,7 @@ public final class DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionAr
          * @return builder
          * 
          */
-        public Builder treemapDefinition(DashboardV2WidgetSplitGraphDefinitionSourceWidgetDefinitionTreemapDefinitionArgs treemapDefinition) {
+        public Builder treemapDefinition(DashboardV2WidgetTreemapDefinitionArgs treemapDefinition) {
             return treemapDefinition(Output.of(treemapDefinition));
         }
 

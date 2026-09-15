@@ -4,11 +4,27 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomAllocationRuleStrategyBasedOnTimeseries {
+    /**
+     * @return The timeseries query that determines the allocation proportions, encoded as a JSON object. Required when `method` is `proportionalTimeseries`. Uses Datadog&#39;s formulas-and-functions request format with `queries`, `formulas`, and `responseFormat` keys. Build it with `jsonencode()`. The set of supported `dataSource` values is defined by the API, not by this provider.
+     * 
+     */
+    private @Nullable String json;
+
     private CustomAllocationRuleStrategyBasedOnTimeseries() {}
+    /**
+     * @return The timeseries query that determines the allocation proportions, encoded as a JSON object. Required when `method` is `proportionalTimeseries`. Uses Datadog&#39;s formulas-and-functions request format with `queries`, `formulas`, and `responseFormat` keys. Build it with `jsonencode()`. The set of supported `dataSource` values is defined by the API, not by this provider.
+     * 
+     */
+    public Optional<String> json() {
+        return Optional.ofNullable(this.json);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +35,22 @@ public final class CustomAllocationRuleStrategyBasedOnTimeseries {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String json;
         public Builder() {}
         public Builder(CustomAllocationRuleStrategyBasedOnTimeseries defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.json = defaults.json;
         }
 
+        @CustomType.Setter
+        public Builder json(@Nullable String json) {
+
+            this.json = json;
+            return this;
+        }
         public CustomAllocationRuleStrategyBasedOnTimeseries build() {
             final var _resultValue = new CustomAllocationRuleStrategyBasedOnTimeseries();
+            _resultValue.json = json;
             return _resultValue;
         }
     }

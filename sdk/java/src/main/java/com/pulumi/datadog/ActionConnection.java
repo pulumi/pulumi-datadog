@@ -35,6 +35,7 @@ import com.pulumi.datadog.outputs.ActionConnectionSplit;
 import com.pulumi.datadog.outputs.ActionConnectionStatsig;
 import com.pulumi.datadog.outputs.ActionConnectionVirusTotal;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -69,6 +70,9 @@ import javax.annotation.Nullable;
  *         final var config = ctx.config();
  *         var awsConnection = new ActionConnection("awsConnection", ActionConnectionArgs.builder()
  *             .name("My AWS Connection")
+ *             .tags(            
+ *                 "env:prod",
+ *                 "team:action-platform")
  *             .aws(com.pulumi.datadog.inputs.ActionConnectionAwsArgs.builder()
  *                 .assumeRole(com.pulumi.datadog.inputs.ActionConnectionAwsAssumeRoleArgs.builder()
  *                     .accountId("123456789012")
@@ -266,6 +270,20 @@ public class ActionConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ActionConnectionDatadog>> datadog() {
         return Codegen.optional(this.datadog);
+    }
+    /**
+     * Tags associated with the connection, including those inherited from the provider&#39;s `defaultTags` configuration.
+     * 
+     */
+    @Export(name="effectiveTags", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> effectiveTags;
+
+    /**
+     * @return Tags associated with the connection, including those inherited from the provider&#39;s `defaultTags` configuration.
+     * 
+     */
+    public Output<List<String>> effectiveTags() {
+        return this.effectiveTags;
     }
     /**
      * Configuration for a Fastly connection
@@ -476,6 +494,20 @@ public class ActionConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ActionConnectionStatsig>> statsig() {
         return Codegen.optional(this.statsig);
+    }
+    /**
+     * User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+     * 
+     */
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> tags;
+
+    /**
+     * @return User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effectiveTags`, which includes provider-level `defaultTags`.
+     * 
+     */
+    public Output<Optional<List<String>>> tags() {
+        return Codegen.optional(this.tags);
     }
     /**
      * Configuration for a VirusTotal connection

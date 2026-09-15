@@ -31,7 +31,7 @@ class OrgGroupPolicyArgs:
         :param pulumi.Input[_builtins.str] org_group_id: The UUID of the org group this policy belongs to. Must be a valid UUID.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy. String length must be at least 1.
         :param pulumi.Input[_builtins.str] enforcement_tier: The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
-        :param pulumi.Input[_builtins.str] policy_type: The type of the policy. Valid values are `org_config`.
+        :param pulumi.Input[_builtins.str] policy_type: The type of the policy. Valid values are `org_config`, `role`.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "org_group_id", org_group_id)
@@ -93,7 +93,7 @@ class OrgGroupPolicyArgs:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of the policy. Valid values are `org_config`.
+        The type of the policy. Valid values are `org_config`, `role`.
         """
         return pulumi.get(self, "policy_type")
 
@@ -117,7 +117,7 @@ class _OrgGroupPolicyState:
         :param pulumi.Input[_builtins.str] enforcement_tier: The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
         :param pulumi.Input[_builtins.str] org_group_id: The UUID of the org group this policy belongs to. Must be a valid UUID.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy. String length must be at least 1.
-        :param pulumi.Input[_builtins.str] policy_type: The type of the policy. Valid values are `org_config`.
+        :param pulumi.Input[_builtins.str] policy_type: The type of the policy. Valid values are `org_config`, `role`.
         """
         if content is not None:
             pulumi.set(__self__, "content", content)
@@ -182,7 +182,7 @@ class _OrgGroupPolicyState:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of the policy. Valid values are `org_config`.
+        The type of the policy. Valid values are `org_config`, `role`.
         """
         return pulumi.get(self, "policy_type")
 
@@ -224,6 +224,17 @@ class OrgGroupPolicy(pulumi.CustomResource):
                 "org_config": False,
             }),
             enforcement_tier="OVERRIDE_ALLOWED")
+        # Provisions a shared role with the given permissions into every member org.
+        # role policies only support GROUP_MANAGED/DELEGATE; DELEGATE disables the
+        # shared role and cannot be reversed.
+        role_example = datadog.OrgGroupPolicy("role_example",
+            org_group_id=prod.id,
+            policy_name="finance_read_only",
+            policy_type="role",
+            content=json.dumps({
+                "permissions": ["<permission-uuid>"],
+            }),
+            enforcement_tier="GROUP_MANAGED")
         ```
 
         ## Behavior notes
@@ -241,6 +252,14 @@ class OrgGroupPolicy(pulumi.CustomResource):
 
         Changing `enforcement_tier` to `"GROUP_MANAGED"` automatically deletes every override associated with this policy server-side. Any `OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform's next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
 
+        ### `role` policies
+
+        `role` policies only support `GROUP_MANAGED` and `DELEGATE` for `enforcement_tier`; `OVERRIDE_ALLOWED` is rejected. Setting `enforcement_tier` to `"DELEGATE"` disables the shared role and cannot be reversed — the API rejects transitioning a `DELEGATE` `role` policy back to `GROUP_MANAGED`.
+
+        `policy_name` can be changed in place for `role` policies without replacing the resource. Renaming an `org_config` policy is not supported by the API and forces a replace.
+
+        `role` policies cannot be deleted. `terraform destroy` (or removing the resource from configuration) only succeeds once the policy is already disabled (`enforcement_tier = "DELEGATE"`); otherwise it fails with an error asking you to disable it first. On success the resource is removed from state, but the disabled policy itself is not deleted server-side.
+
         ## Import
 
         ```sh
@@ -254,7 +273,7 @@ class OrgGroupPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] enforcement_tier: The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
         :param pulumi.Input[_builtins.str] org_group_id: The UUID of the org group this policy belongs to. Must be a valid UUID.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy. String length must be at least 1.
-        :param pulumi.Input[_builtins.str] policy_type: The type of the policy. Valid values are `org_config`.
+        :param pulumi.Input[_builtins.str] policy_type: The type of the policy. Valid values are `org_config`, `role`.
         """
         ...
     @overload
@@ -283,6 +302,17 @@ class OrgGroupPolicy(pulumi.CustomResource):
                 "org_config": False,
             }),
             enforcement_tier="OVERRIDE_ALLOWED")
+        # Provisions a shared role with the given permissions into every member org.
+        # role policies only support GROUP_MANAGED/DELEGATE; DELEGATE disables the
+        # shared role and cannot be reversed.
+        role_example = datadog.OrgGroupPolicy("role_example",
+            org_group_id=prod.id,
+            policy_name="finance_read_only",
+            policy_type="role",
+            content=json.dumps({
+                "permissions": ["<permission-uuid>"],
+            }),
+            enforcement_tier="GROUP_MANAGED")
         ```
 
         ## Behavior notes
@@ -299,6 +329,14 @@ class OrgGroupPolicy(pulumi.CustomResource):
         ### Transitioning to GROUP_MANAGED
 
         Changing `enforcement_tier` to `"GROUP_MANAGED"` automatically deletes every override associated with this policy server-side. Any `OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform's next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
+
+        ### `role` policies
+
+        `role` policies only support `GROUP_MANAGED` and `DELEGATE` for `enforcement_tier`; `OVERRIDE_ALLOWED` is rejected. Setting `enforcement_tier` to `"DELEGATE"` disables the shared role and cannot be reversed — the API rejects transitioning a `DELEGATE` `role` policy back to `GROUP_MANAGED`.
+
+        `policy_name` can be changed in place for `role` policies without replacing the resource. Renaming an `org_config` policy is not supported by the API and forces a replace.
+
+        `role` policies cannot be deleted. `terraform destroy` (or removing the resource from configuration) only succeeds once the policy is already disabled (`enforcement_tier = "DELEGATE"`); otherwise it fails with an error asking you to disable it first. On success the resource is removed from state, but the disabled policy itself is not deleted server-side.
 
         ## Import
 
@@ -373,7 +411,7 @@ class OrgGroupPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] enforcement_tier: The enforcement tier of the policy. `OVERRIDE_ALLOWED` means the policy is set but member orgs may mutate it. `GROUP_MANAGED` means the policy is strictly controlled and mutations are blocked for affected orgs. `DELEGATE` means each member org controls its own value. Valid values are `OVERRIDE_ALLOWED`, `GROUP_MANAGED`, `DELEGATE`.
         :param pulumi.Input[_builtins.str] org_group_id: The UUID of the org group this policy belongs to. Must be a valid UUID.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy. String length must be at least 1.
-        :param pulumi.Input[_builtins.str] policy_type: The type of the policy. Valid values are `org_config`.
+        :param pulumi.Input[_builtins.str] policy_type: The type of the policy. Valid values are `org_config`, `role`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -422,7 +460,7 @@ class OrgGroupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the policy. Valid values are `org_config`.
+        The type of the policy. Valid values are `org_config`, `role`.
         """
         return pulumi.get(self, "policy_type")
 

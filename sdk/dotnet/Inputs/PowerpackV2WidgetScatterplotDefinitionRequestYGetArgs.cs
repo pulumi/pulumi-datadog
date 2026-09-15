@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.PowerpackV2WidgetScatterplotDefinitionRequestYApmQueryGetArgs>? ApmQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
         [Input("formulas")]
         private InputList<Inputs.PowerpackV2WidgetScatterplotDefinitionRequestYFormulaGetArgs>? _formulas;
@@ -40,7 +40,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.PowerpackV2WidgetScatterplotDefinitionRequestYLogQueryGetArgs>? LogQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
@@ -70,13 +70,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.PowerpackV2WidgetScatterplotDefinitionRequestYRumQueryGetArgs>? RumQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.PowerpackV2WidgetScatterplotDefinitionRequestYSecurityQueryGetArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
         public PowerpackV2WidgetScatterplotDefinitionRequestYGetArgs()
         {

@@ -16,19 +16,25 @@ namespace Pulumi.Datadog.Inputs
         /// The APM Dependency Stats query using formulas and functions.
         /// </summary>
         [Input("apmDependencyStatsQuery")]
-        public Input<Inputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmDependencyStatsQueryGetArgs>? ApmDependencyStatsQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetApmDependencyStatsQueryGetArgs>? ApmDependencyStatsQuery { get; set; }
+
+        /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.DashboardV2WidgetApmMetricsQueryGetArgs>? ApmMetricsQuery { get; set; }
 
         /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
         [Input("apmResourceStatsQuery")]
-        public Input<Inputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryApmResourceStatsQueryGetArgs>? ApmResourceStatsQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetApmResourceStatsQueryGetArgs>? ApmResourceStatsQuery { get; set; }
 
         /// <summary>
         /// The Cloud Cost query using formulas and functions.
         /// </summary>
         [Input("cloudCostQuery")]
-        public Input<Inputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryCloudCostQueryGetArgs>? CloudCostQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetCloudCostQueryGetArgs>? CloudCostQuery { get; set; }
 
         /// <summary>
         /// A timeseries formula and functions events query.
@@ -40,7 +46,7 @@ namespace Pulumi.Datadog.Inputs
         /// A timeseries formula and functions metrics query.
         /// </summary>
         [Input("metricQuery")]
-        public Input<Inputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryMetricQueryGetArgs>? MetricQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetMetricQueryGetArgs>? MetricQuery { get; set; }
 
         /// <summary>
         /// The process query using formulas and functions.
@@ -49,10 +55,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryProcessQueryGetArgs>? ProcessQuery { get; set; }
 
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        [Input("productAnalyticsExtendedQuery")]
+        public Input<Inputs.DashboardV2WidgetProductAnalyticsExtendedQueryGetArgs>? ProductAnalyticsExtendedQuery { get; set; }
+
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        [Input("retentionQuery")]
+        public Input<Inputs.DashboardV2WidgetRetentionQueryGetArgs>? RetentionQuery { get; set; }
+
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
         [Input("sloQuery")]
-        public Input<Inputs.DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuerySloQueryGetArgs>? SloQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetSloQueryGetArgs>? SloQuery { get; set; }
+
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        [Input("userJourneyQuery")]
+        public Input<Inputs.DashboardV2WidgetUserJourneyQueryGetArgs>? UserJourneyQuery { get; set; }
 
         public DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryGetArgs()
         {

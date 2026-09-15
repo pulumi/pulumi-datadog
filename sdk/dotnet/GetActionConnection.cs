@@ -506,6 +506,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly Outputs.GetActionConnectionStatsigResult? Statsig;
         /// <summary>
+        /// Tags associated with the connection.
+        /// </summary>
+        public readonly ImmutableArray<string> Tags;
+        /// <summary>
         /// Configuration for a VirusTotal connection
         /// </summary>
         public readonly Outputs.GetActionConnectionVirusTotalResult? VirusTotal;
@@ -562,6 +566,8 @@ namespace Pulumi.Datadog
 
             Outputs.GetActionConnectionStatsigResult? statsig,
 
+            ImmutableArray<string> tags,
+
             Outputs.GetActionConnectionVirusTotalResult? virusTotal)
         {
             Anthropic = anthropic;
@@ -589,6 +595,7 @@ namespace Pulumi.Datadog
             ServiceNow = serviceNow;
             Split = split;
             Statsig = statsig;
+            Tags = tags;
             VirusTotal = virusTotal;
         }
     }

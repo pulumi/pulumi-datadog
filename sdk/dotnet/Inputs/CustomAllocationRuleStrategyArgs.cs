@@ -78,7 +78,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Granularity { get; set; }
 
         /// <summary>
-        /// The allocation method. Valid values are `Even`, `Proportional`, `ProportionalTimeseries`, or `Percent`.
+        /// The allocation method. Valid values are `Even`, `Percent`, `Proportional`, `ProportionalTimeseries`.
         /// </summary>
         [Input("method")]
         public Input<string>? Method { get; set; }

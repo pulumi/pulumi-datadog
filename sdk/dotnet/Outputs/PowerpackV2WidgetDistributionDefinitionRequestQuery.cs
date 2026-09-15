@@ -16,15 +16,19 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The APM Dependency Stats query using formulas and functions.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
+        public readonly Outputs.PowerpackV2WidgetApmDependencyStatsQuery? ApmDependencyStatsQuery;
+        /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetApmMetricsQuery? ApmMetricsQuery;
         /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
+        public readonly Outputs.PowerpackV2WidgetApmResourceStatsQuery? ApmResourceStatsQuery;
         /// <summary>
         /// The Cloud Cost query using formulas and functions.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryCloudCostQuery? CloudCostQuery;
+        public readonly Outputs.PowerpackV2WidgetCloudCostQuery? CloudCostQuery;
         /// <summary>
         /// A timeseries formula and functions events query.
         /// </summary>
@@ -32,39 +36,63 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// A timeseries formula and functions metrics query.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryMetricQuery? MetricQuery;
+        public readonly Outputs.PowerpackV2WidgetMetricQuery? MetricQuery;
         /// <summary>
         /// The process query using formulas and functions.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryProcessQuery? ProcessQuery;
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetProductAnalyticsExtendedQuery? ProductAnalyticsExtendedQuery;
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetRetentionQuery? RetentionQuery;
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetDistributionDefinitionRequestQuerySloQuery? SloQuery;
+        public readonly Outputs.PowerpackV2WidgetSloQuery? SloQuery;
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetUserJourneyQuery? UserJourneyQuery;
 
         [OutputConstructor]
         private PowerpackV2WidgetDistributionDefinitionRequestQuery(
-            Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
+            Outputs.PowerpackV2WidgetApmDependencyStatsQuery? apmDependencyStatsQuery,
 
-            Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryApmResourceStatsQuery? apmResourceStatsQuery,
+            Outputs.PowerpackV2WidgetApmMetricsQuery? apmMetricsQuery,
 
-            Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryCloudCostQuery? cloudCostQuery,
+            Outputs.PowerpackV2WidgetApmResourceStatsQuery? apmResourceStatsQuery,
+
+            Outputs.PowerpackV2WidgetCloudCostQuery? cloudCostQuery,
 
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryEventQuery? eventQuery,
 
-            Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryMetricQuery? metricQuery,
+            Outputs.PowerpackV2WidgetMetricQuery? metricQuery,
 
             Outputs.PowerpackV2WidgetDistributionDefinitionRequestQueryProcessQuery? processQuery,
 
-            Outputs.PowerpackV2WidgetDistributionDefinitionRequestQuerySloQuery? sloQuery)
+            Outputs.PowerpackV2WidgetProductAnalyticsExtendedQuery? productAnalyticsExtendedQuery,
+
+            Outputs.PowerpackV2WidgetRetentionQuery? retentionQuery,
+
+            Outputs.PowerpackV2WidgetSloQuery? sloQuery,
+
+            Outputs.PowerpackV2WidgetUserJourneyQuery? userJourneyQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
+            ApmMetricsQuery = apmMetricsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             CloudCostQuery = cloudCostQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            ProductAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            RetentionQuery = retentionQuery;
             SloQuery = sloQuery;
+            UserJourneyQuery = userJourneyQuery;
         }
     }
 }

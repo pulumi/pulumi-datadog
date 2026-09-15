@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetHostmapDefinitionRequestFillApmQuery? ApmQuery;
+        public readonly Outputs.DashboardV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// A list of formulas to use in the widget.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetHostmapDefinitionRequestFillLogQuery? LogQuery;
+        public readonly Outputs.DashboardV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -40,19 +40,19 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetHostmapDefinitionRequestFillRumQuery? RumQuery;
+        public readonly Outputs.DashboardV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetHostmapDefinitionRequestFillSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardV2WidgetSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private DashboardV2WidgetHostmapDefinitionRequestFill(
-            Outputs.DashboardV2WidgetHostmapDefinitionRequestFillApmQuery? apmQuery,
+            Outputs.DashboardV2WidgetApmQuery? apmQuery,
 
             ImmutableArray<Outputs.DashboardV2WidgetHostmapDefinitionRequestFillFormula> formulas,
 
-            Outputs.DashboardV2WidgetHostmapDefinitionRequestFillLogQuery? logQuery,
+            Outputs.DashboardV2WidgetLogQuery? logQuery,
 
             Outputs.DashboardV2WidgetHostmapDefinitionRequestFillProcessQuery? processQuery,
 
@@ -60,9 +60,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardV2WidgetHostmapDefinitionRequestFillQuery> queries,
 
-            Outputs.DashboardV2WidgetHostmapDefinitionRequestFillRumQuery? rumQuery,
+            Outputs.DashboardV2WidgetRumQuery? rumQuery,
 
-            Outputs.DashboardV2WidgetHostmapDefinitionRequestFillSecurityQuery? securityQuery)
+            Outputs.DashboardV2WidgetSecurityQuery? securityQuery)
         {
             ApmQuery = apmQuery;
             Formulas = formulas;

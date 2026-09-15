@@ -4,13 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardV2WidgetChangeDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetApmQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetChangeDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.DashboardV2WidgetChangeDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetChangeDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetChangeDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetChangeDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetChangeDefinitionRequestSecurityQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSecurityQuery;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -28,7 +28,7 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetChangeDefinitionRequestApmQuery apmQuery;
+    private @Nullable DashboardV2WidgetApmQuery apmQuery;
     /**
      * @return Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
      * 
@@ -57,7 +57,7 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetChangeDefinitionRequestLogQuery logQuery;
+    private @Nullable DashboardV2WidgetLogQuery logQuery;
     /**
      * @return What to order by. Valid values are `change`, `name`, `present`, `past`.
      * 
@@ -99,7 +99,7 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetChangeDefinitionRequestRumQuery rumQuery;
+    private @Nullable DashboardV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -108,7 +108,7 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetChangeDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
     /**
      * @return If set to `true`, displays the current value.
      * 
@@ -124,7 +124,7 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetChangeDefinitionRequestApmQuery> apmQuery() {
+    public Optional<DashboardV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -163,7 +163,7 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetChangeDefinitionRequestLogQuery> logQuery() {
+    public Optional<DashboardV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -217,7 +217,7 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetChangeDefinitionRequestRumQuery> rumQuery() {
+    public Optional<DashboardV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -228,7 +228,7 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetChangeDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<DashboardV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -248,19 +248,19 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable DashboardV2WidgetChangeDefinitionRequestApmQuery apmQuery;
+        private @Nullable DashboardV2WidgetApmQuery apmQuery;
         private @Nullable String changeType;
         private @Nullable String compareTo;
         private @Nullable List<DashboardV2WidgetChangeDefinitionRequestFormula> formulas;
         private @Nullable Boolean increaseGood;
-        private @Nullable DashboardV2WidgetChangeDefinitionRequestLogQuery logQuery;
+        private @Nullable DashboardV2WidgetLogQuery logQuery;
         private @Nullable String orderBy;
         private @Nullable String orderDir;
         private @Nullable DashboardV2WidgetChangeDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<DashboardV2WidgetChangeDefinitionRequestQuery> queries;
-        private @Nullable DashboardV2WidgetChangeDefinitionRequestRumQuery rumQuery;
-        private @Nullable DashboardV2WidgetChangeDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardV2WidgetRumQuery rumQuery;
+        private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
         private @Nullable Boolean showPresent;
         public Builder() {}
         public Builder(DashboardV2WidgetChangeDefinitionRequest defaults) {
@@ -282,7 +282,7 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardV2WidgetChangeDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -315,7 +315,7 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardV2WidgetChangeDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -354,13 +354,13 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardV2WidgetChangeDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardV2WidgetChangeDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

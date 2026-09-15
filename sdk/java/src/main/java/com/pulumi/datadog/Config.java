@@ -78,7 +78,7 @@ public final class Config {
         return Codegen.stringProp("cloudProviderType").config(config).get();
     }
 /**
- * [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+ * [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
  * 
  */
     public Optional<DefaultTags> defaultTags() {
@@ -104,6 +104,13 @@ public final class Config {
  */
     public Optional<String> httpClientRetryEnabled() {
         return Codegen.stringProp("httpClientRetryEnabled").config(config).get();
+    }
+/**
+ * The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+ * 
+ */
+    public Optional<Integer> httpClientRetryJitter() {
+        return Codegen.integerProp("httpClientRetryJitter").config(config).get();
     }
 /**
  * The HTTP request maximum retry number. Defaults to 3.

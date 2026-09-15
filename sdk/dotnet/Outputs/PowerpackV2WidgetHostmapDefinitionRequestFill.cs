@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillApmQuery? ApmQuery;
+        public readonly Outputs.PowerpackV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// A list of formulas to use in the widget.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillLogQuery? LogQuery;
+        public readonly Outputs.PowerpackV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -40,19 +40,19 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillRumQuery? RumQuery;
+        public readonly Outputs.PowerpackV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillSecurityQuery? SecurityQuery;
+        public readonly Outputs.PowerpackV2WidgetSecurityQuery? SecurityQuery;
 
         [OutputConstructor]
         private PowerpackV2WidgetHostmapDefinitionRequestFill(
-            Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillApmQuery? apmQuery,
+            Outputs.PowerpackV2WidgetApmQuery? apmQuery,
 
             ImmutableArray<Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillFormula> formulas,
 
-            Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillLogQuery? logQuery,
+            Outputs.PowerpackV2WidgetLogQuery? logQuery,
 
             Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillProcessQuery? processQuery,
 
@@ -60,9 +60,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillQuery> queries,
 
-            Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillRumQuery? rumQuery,
+            Outputs.PowerpackV2WidgetRumQuery? rumQuery,
 
-            Outputs.PowerpackV2WidgetHostmapDefinitionRequestFillSecurityQuery? securityQuery)
+            Outputs.PowerpackV2WidgetSecurityQuery? securityQuery)
         {
             ApmQuery = apmQuery;
             Formulas = formulas;

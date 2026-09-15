@@ -6,8 +6,11 @@ package com.pulumi.datadog.aws;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.datadog.Utilities;
+import com.pulumi.datadog.aws.inputs.GetIntegrationAccountArgs;
+import com.pulumi.datadog.aws.inputs.GetIntegrationAccountPlainArgs;
 import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdArgs;
 import com.pulumi.datadog.aws.inputs.GetIntegrationExternalIdPlainArgs;
+import com.pulumi.datadog.aws.outputs.GetIntegrationAccountResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationAvailableLogsServicesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationAvailableNamespacesResult;
 import com.pulumi.datadog.aws.outputs.GetIntegrationExternalIdResult;
@@ -23,6 +26,41 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class AwsFunctions {
+    /**
+     * Use this data source to retrieve the Datadog AWS account integration config ID for a given AWS Account ID. This is the ID used to import an existing AWS integration into the `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAccountResult> getIntegrationAccount(GetIntegrationAccountArgs args) {
+        return getIntegrationAccount(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the Datadog AWS account integration config ID for a given AWS Account ID. This is the ID used to import an existing AWS integration into the `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationAccountResult> getIntegrationAccountPlain(GetIntegrationAccountPlainArgs args) {
+        return getIntegrationAccountPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve the Datadog AWS account integration config ID for a given AWS Account ID. This is the ID used to import an existing AWS integration into the `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAccountResult> getIntegrationAccount(GetIntegrationAccountArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationAccount:getIntegrationAccount", TypeShape.of(GetIntegrationAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the Datadog AWS account integration config ID for a given AWS Account ID. This is the ID used to import an existing AWS integration into the `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static Output<GetIntegrationAccountResult> getIntegrationAccount(GetIntegrationAccountArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:aws/getIntegrationAccount:getIntegrationAccount", TypeShape.of(GetIntegrationAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve the Datadog AWS account integration config ID for a given AWS Account ID. This is the ID used to import an existing AWS integration into the `datadog.aws.IntegrationAccount` resource.
+     * 
+     */
+    public static CompletableFuture<GetIntegrationAccountResult> getIntegrationAccountPlain(GetIntegrationAccountPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:aws/getIntegrationAccount:getIntegrationAccount", TypeShape.of(GetIntegrationAccountResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to retrieve all AWS log ready services. This is the list of allowed values for `logs_config.lambda_forwarder.sources` in `datadog.aws.IntegrationAccount` resource.
      * 

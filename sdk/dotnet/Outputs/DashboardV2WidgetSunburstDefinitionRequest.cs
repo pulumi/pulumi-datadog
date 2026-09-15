@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSunburstDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.DashboardV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSunburstDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.DashboardV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -48,11 +48,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSunburstDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.DashboardV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetSunburstDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.DashboardV2WidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The controls for sorting the widget. Only applicable for formula-style requests.
         /// </summary>
@@ -64,13 +64,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardV2WidgetSunburstDefinitionRequest(
-            Outputs.DashboardV2WidgetSunburstDefinitionRequestApmQuery? apmQuery,
+            Outputs.DashboardV2WidgetApmQuery? apmQuery,
 
             Outputs.DashboardV2WidgetSunburstDefinitionRequestAuditQuery? auditQuery,
 
             ImmutableArray<Outputs.DashboardV2WidgetSunburstDefinitionRequestFormula> formulas,
 
-            Outputs.DashboardV2WidgetSunburstDefinitionRequestLogQuery? logQuery,
+            Outputs.DashboardV2WidgetLogQuery? logQuery,
 
             Outputs.DashboardV2WidgetSunburstDefinitionRequestNetworkQuery? networkQuery,
 
@@ -80,9 +80,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardV2WidgetSunburstDefinitionRequestQuery> queries,
 
-            Outputs.DashboardV2WidgetSunburstDefinitionRequestRumQuery? rumQuery,
+            Outputs.DashboardV2WidgetRumQuery? rumQuery,
 
-            Outputs.DashboardV2WidgetSunburstDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.DashboardV2WidgetSecurityQuery? securityQuery,
 
             Outputs.DashboardV2WidgetSunburstDefinitionRequestSort? sort,
 

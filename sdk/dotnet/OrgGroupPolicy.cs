@@ -42,6 +42,24 @@ namespace Pulumi.Datadog
     ///         EnforcementTier = "OVERRIDE_ALLOWED",
     ///     });
     /// 
+    ///     // Provisions a shared role with the given permissions into every member org.
+    ///     // role policies only support GROUP_MANAGED/DELEGATE; DELEGATE disables the
+    ///     // shared role and cannot be reversed.
+    ///     var roleExample = new Datadog.OrgGroupPolicy("role_example", new()
+    ///     {
+    ///         OrgGroupId = prod.Id,
+    ///         PolicyName = "finance_read_only",
+    ///         PolicyType = "role",
+    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["permissions"] = new[]
+    ///             {
+    ///                 "&lt;permission-uuid&gt;",
+    ///             },
+    ///         }),
+    ///         EnforcementTier = "GROUP_MANAGED",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -59,6 +77,14 @@ namespace Pulumi.Datadog
     /// ### Transitioning to GROUP_MANAGED
     /// 
     /// Changing `EnforcementTier` to `"GROUP_MANAGED"` automatically deletes every override associated with this policy server-side. Any `datadog.OrgGroupPolicyOverride` resources pointing at this policy must be removed from configuration in the same commit. Otherwise, Terraform's next apply will try to recreate the server-deleted overrides and fail with a `FailedPrecondition` error.
+    /// 
+    /// ### `Role` policies
+    /// 
+    /// `Role` policies only support `GROUP_MANAGED` and `DELEGATE` for `EnforcementTier`; `OVERRIDE_ALLOWED` is rejected. Setting `EnforcementTier` to `"DELEGATE"` disables the shared role and cannot be reversed — the API rejects transitioning a `DELEGATE` `Role` policy back to `GROUP_MANAGED`.
+    /// 
+    /// `PolicyName` can be changed in place for `Role` policies without replacing the resource. Renaming an `OrgConfig` policy is not supported by the API and forces a replace.
+    /// 
+    /// `Role` policies cannot be deleted. `terraform destroy` (or removing the resource from configuration) only succeeds once the policy is already disabled (`EnforcementTier = "DELEGATE"`); otherwise it fails with an error asking you to disable it first. On success the resource is removed from state, but the disabled policy itself is not deleted server-side.
     /// 
     /// ## Import
     /// 
@@ -94,7 +120,7 @@ namespace Pulumi.Datadog
         public Output<string> PolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the policy. Valid values are `OrgConfig`.
+        /// The type of the policy. Valid values are `OrgConfig`, `Role`.
         /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
@@ -170,7 +196,7 @@ namespace Pulumi.Datadog
         public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the policy. Valid values are `OrgConfig`.
+        /// The type of the policy. Valid values are `OrgConfig`, `Role`.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
@@ -208,7 +234,7 @@ namespace Pulumi.Datadog
         public Input<string>? PolicyName { get; set; }
 
         /// <summary>
-        /// The type of the policy. Valid values are `OrgConfig`.
+        /// The type of the policy. Valid values are `OrgConfig`, `Role`.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }

@@ -4,15 +4,16 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetLogQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinitionRequestAuditQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinitionRequestComparison;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinitionRequestConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetQueryValueDefinitionRequestSecurityQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSecurityQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -34,7 +35,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetQueryValueDefinitionRequestApmQuery apmQuery;
+    private @Nullable DashboardV2WidgetApmQuery apmQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -44,6 +45,11 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
      */
     @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardV2WidgetQueryValueDefinitionRequestAuditQuery auditQuery;
+    /**
+     * @return A change indicator that compares the current value to a historical period.
+     * 
+     */
+    private @Nullable DashboardV2WidgetQueryValueDefinitionRequestComparison comparison;
     /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
@@ -62,7 +68,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetQueryValueDefinitionRequestLogQuery logQuery;
+    private @Nullable DashboardV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
@@ -94,7 +100,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetQueryValueDefinitionRequestRumQuery rumQuery;
+    private @Nullable DashboardV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -103,7 +109,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetQueryValueDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
 
     private DashboardV2WidgetQueryValueDefinitionRequest() {}
     /**
@@ -121,7 +127,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetQueryValueDefinitionRequestApmQuery> apmQuery() {
+    public Optional<DashboardV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -134,6 +140,13 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
     @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardV2WidgetQueryValueDefinitionRequestAuditQuery> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
+    }
+    /**
+     * @return A change indicator that compares the current value to a historical period.
+     * 
+     */
+    public Optional<DashboardV2WidgetQueryValueDefinitionRequestComparison> comparison() {
+        return Optional.ofNullable(this.comparison);
     }
     /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
@@ -157,7 +170,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetQueryValueDefinitionRequestLogQuery> logQuery() {
+    public Optional<DashboardV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -197,7 +210,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetQueryValueDefinitionRequestRumQuery> rumQuery() {
+    public Optional<DashboardV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -208,7 +221,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetQueryValueDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<DashboardV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -222,22 +235,24 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregator;
-        private @Nullable DashboardV2WidgetQueryValueDefinitionRequestApmQuery apmQuery;
+        private @Nullable DashboardV2WidgetApmQuery apmQuery;
         private @Nullable DashboardV2WidgetQueryValueDefinitionRequestAuditQuery auditQuery;
+        private @Nullable DashboardV2WidgetQueryValueDefinitionRequestComparison comparison;
         private @Nullable List<DashboardV2WidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats;
         private @Nullable List<DashboardV2WidgetQueryValueDefinitionRequestFormula> formulas;
-        private @Nullable DashboardV2WidgetQueryValueDefinitionRequestLogQuery logQuery;
+        private @Nullable DashboardV2WidgetLogQuery logQuery;
         private @Nullable DashboardV2WidgetQueryValueDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<DashboardV2WidgetQueryValueDefinitionRequestQuery> queries;
-        private @Nullable DashboardV2WidgetQueryValueDefinitionRequestRumQuery rumQuery;
-        private @Nullable DashboardV2WidgetQueryValueDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardV2WidgetRumQuery rumQuery;
+        private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
         public Builder() {}
         public Builder(DashboardV2WidgetQueryValueDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregator = defaults.aggregator;
     	      this.apmQuery = defaults.apmQuery;
     	      this.auditQuery = defaults.auditQuery;
+    	      this.comparison = defaults.comparison;
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulas = defaults.formulas;
     	      this.logQuery = defaults.logQuery;
@@ -255,7 +270,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardV2WidgetQueryValueDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -264,6 +279,12 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
         public Builder auditQuery(@Nullable DashboardV2WidgetQueryValueDefinitionRequestAuditQuery auditQuery) {
 
             this.auditQuery = auditQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder comparison(@Nullable DashboardV2WidgetQueryValueDefinitionRequestComparison comparison) {
+
+            this.comparison = comparison;
             return this;
         }
         @CustomType.Setter
@@ -285,7 +306,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardV2WidgetQueryValueDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -312,13 +333,13 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardV2WidgetQueryValueDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardV2WidgetQueryValueDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;
@@ -328,6 +349,7 @@ public final class DashboardV2WidgetQueryValueDefinitionRequest {
             _resultValue.aggregator = aggregator;
             _resultValue.apmQuery = apmQuery;
             _resultValue.auditQuery = auditQuery;
+            _resultValue.comparison = comparison;
             _resultValue.conditionalFormats = conditionalFormats;
             _resultValue.formulas = formulas;
             _resultValue.logQuery = logQuery;

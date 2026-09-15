@@ -22,13 +22,19 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.DashboardV2WidgetQueryValueDefinitionRequestApmQueryGetArgs>? ApmQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("auditQuery")]
         public Input<Inputs.DashboardV2WidgetQueryValueDefinitionRequestAuditQueryGetArgs>? AuditQuery { get; set; }
+
+        /// <summary>
+        /// A change indicator that compares the current value to a historical period.
+        /// </summary>
+        [Input("comparison")]
+        public Input<Inputs.DashboardV2WidgetQueryValueDefinitionRequestComparisonGetArgs>? Comparison { get; set; }
 
         [Input("conditionalFormats")]
         private InputList<Inputs.DashboardV2WidgetQueryValueDefinitionRequestConditionalFormatGetArgs>? _conditionalFormats;
@@ -58,7 +64,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.DashboardV2WidgetQueryValueDefinitionRequestLogQueryGetArgs>? LogQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
@@ -88,13 +94,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.DashboardV2WidgetQueryValueDefinitionRequestRumQueryGetArgs>? RumQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.DashboardV2WidgetQueryValueDefinitionRequestSecurityQueryGetArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.DashboardV2WidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }
 
         public DashboardV2WidgetQueryValueDefinitionRequestGetArgs()
         {

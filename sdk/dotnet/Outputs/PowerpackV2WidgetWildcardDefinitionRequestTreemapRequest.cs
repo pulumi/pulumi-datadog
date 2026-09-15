@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery? ApmQuery;
+        public readonly Outputs.PowerpackV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// A list of formulas to use in the widget.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery? LogQuery;
+        public readonly Outputs.PowerpackV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -40,11 +40,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery? RumQuery;
+        public readonly Outputs.PowerpackV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.PowerpackV2WidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The controls for sorting the widget.
         /// </summary>
@@ -56,11 +56,11 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackV2WidgetWildcardDefinitionRequestTreemapRequest(
-            Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestApmQuery? apmQuery,
+            Outputs.PowerpackV2WidgetApmQuery? apmQuery,
 
             ImmutableArray<Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestFormula> formulas,
 
-            Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestLogQuery? logQuery,
+            Outputs.PowerpackV2WidgetLogQuery? logQuery,
 
             Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestProcessQuery? processQuery,
 
@@ -68,9 +68,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQuery> queries,
 
-            Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestRumQuery? rumQuery,
+            Outputs.PowerpackV2WidgetRumQuery? rumQuery,
 
-            Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSecurityQuery? securityQuery,
+            Outputs.PowerpackV2WidgetSecurityQuery? securityQuery,
 
             Outputs.PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSort? sort,
 

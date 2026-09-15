@@ -154,6 +154,8 @@ type LookupActionConnectionResult struct {
 	Split *GetActionConnectionSplit `pulumi:"split"`
 	// Configuration for a Statsig connection
 	Statsig *GetActionConnectionStatsig `pulumi:"statsig"`
+	// Tags associated with the connection.
+	Tags []string `pulumi:"tags"`
 	// Configuration for a VirusTotal connection
 	VirusTotal *GetActionConnectionVirusTotal `pulumi:"virusTotal"`
 }
@@ -359,6 +361,11 @@ func (o LookupActionConnectionResultOutput) Split() GetActionConnectionSplitPtrO
 // Configuration for a Statsig connection
 func (o LookupActionConnectionResultOutput) Statsig() GetActionConnectionStatsigPtrOutput {
 	return o.ApplyT(func(v LookupActionConnectionResult) *GetActionConnectionStatsig { return v.Statsig }).(GetActionConnectionStatsigPtrOutput)
+}
+
+// Tags associated with the connection.
+func (o LookupActionConnectionResultOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupActionConnectionResult) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
 // Configuration for a VirusTotal connection

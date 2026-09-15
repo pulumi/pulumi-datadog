@@ -4,16 +4,17 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestSecurityQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestSort;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetQueryTableDefinitionRequestTextFormat;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSecurityQuery;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -41,7 +42,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestApmQuery apmQuery;
+    private @Nullable PowerpackV2WidgetApmQuery apmQuery;
     /**
      * @return The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
      * 
@@ -79,7 +80,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestLogQuery logQuery;
+    private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return The sort order for the rows. Valid values are `asc`, `desc`.
      * 
@@ -116,7 +117,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestRumQuery rumQuery;
+    private @Nullable PowerpackV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -125,7 +126,12 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestSort sort;
     /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
@@ -155,7 +161,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetQueryTableDefinitionRequestApmQuery> apmQuery() {
+    public Optional<PowerpackV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -205,7 +211,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetQueryTableDefinitionRequestLogQuery> logQuery() {
+    public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -252,7 +258,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetQueryTableDefinitionRequestRumQuery> rumQuery() {
+    public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -263,8 +269,15 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetQueryTableDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<PowerpackV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
+    }
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    public Optional<PowerpackV2WidgetQueryTableDefinitionRequestSort> sort() {
+        return Optional.ofNullable(this.sort);
     }
     /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
@@ -285,19 +298,20 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
     public static final class Builder {
         private @Nullable String aggregator;
         private @Nullable String alias;
-        private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestApmQuery apmQuery;
+        private @Nullable PowerpackV2WidgetApmQuery apmQuery;
         private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery apmStatsQuery;
         private @Nullable List<String> cellDisplayModes;
         private @Nullable List<PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat> conditionalFormats;
         private @Nullable List<PowerpackV2WidgetQueryTableDefinitionRequestFormula> formulas;
         private @Nullable Integer limit;
-        private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestLogQuery logQuery;
+        private @Nullable PowerpackV2WidgetLogQuery logQuery;
         private @Nullable String order;
         private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetQueryTableDefinitionRequestQuery> queries;
-        private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestRumQuery rumQuery;
-        private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetRumQuery rumQuery;
+        private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetQueryTableDefinitionRequestSort sort;
         private @Nullable List<PowerpackV2WidgetQueryTableDefinitionRequestTextFormat> textFormats;
         public Builder() {}
         public Builder(PowerpackV2WidgetQueryTableDefinitionRequest defaults) {
@@ -317,6 +331,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
+    	      this.sort = defaults.sort;
     	      this.textFormats = defaults.textFormats;
         }
 
@@ -333,7 +348,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder apmQuery(@Nullable PowerpackV2WidgetQueryTableDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable PowerpackV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -378,7 +393,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable PowerpackV2WidgetQueryTableDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable PowerpackV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -411,15 +426,21 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable PowerpackV2WidgetQueryTableDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable PowerpackV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable PowerpackV2WidgetQueryTableDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable PowerpackV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sort(@Nullable PowerpackV2WidgetQueryTableDefinitionRequestSort sort) {
+
+            this.sort = sort;
             return this;
         }
         @CustomType.Setter
@@ -448,6 +469,7 @@ public final class PowerpackV2WidgetQueryTableDefinitionRequest {
             _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
+            _resultValue.sort = sort;
             _resultValue.textFormats = textFormats;
             return _resultValue;
         }

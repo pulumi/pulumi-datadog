@@ -124,7 +124,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<Pulumi.Datadog.Config.Types.DefaultTags?> _defaultTags = new __Value<Pulumi.Datadog.Config.Types.DefaultTags?>(() => __config.GetObject<Pulumi.Datadog.Config.Types.DefaultTags>("defaultTags"));
         /// <summary>
-        /// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
+        /// [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         /// </summary>
         public static Pulumi.Datadog.Config.Types.DefaultTags? DefaultTags
         {
@@ -160,6 +160,16 @@ namespace Pulumi.Datadog
         {
             get => _httpClientRetryEnabled.Get();
             set => _httpClientRetryEnabled.Set(value);
+        }
+
+        private static readonly __Value<int?> _httpClientRetryJitter = new __Value<int?>(() => __config.GetInt32("httpClientRetryJitter"));
+        /// <summary>
+        /// The maximum random delay added to each HTTP request retry. Defaults to 0 seconds.
+        /// </summary>
+        public static int? HttpClientRetryJitter
+        {
+            get => _httpClientRetryJitter.Get();
+            set => _httpClientRetryJitter.Set(value);
         }
 
         private static readonly __Value<int?> _httpClientRetryMaxRetries = new __Value<int?>(() => __config.GetInt32("httpClientRetryMaxRetries"));
@@ -218,7 +228,7 @@ namespace Pulumi.Datadog
              public class DefaultTags
              {
             /// <summary>
-            /// [Experimental - Logs Indexes, Logs Pipelines, Monitors Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
+            /// [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Resource tags to be applied by default across all resources.
             /// </summary>
                 public ImmutableDictionary<string, string>? Tags { get; set; } = null!;
             }

@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetToplistDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.PowerpackV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetToplistDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.PowerpackV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -48,11 +48,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetToplistDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.PowerpackV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetToplistDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.PowerpackV2WidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The controls for sorting the widget. Only applicable for formula-style requests.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackV2WidgetToplistDefinitionRequest(
-            Outputs.PowerpackV2WidgetToplistDefinitionRequestApmQuery? apmQuery,
+            Outputs.PowerpackV2WidgetApmQuery? apmQuery,
 
             Outputs.PowerpackV2WidgetToplistDefinitionRequestAuditQuery? auditQuery,
 
@@ -72,7 +72,7 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackV2WidgetToplistDefinitionRequestFormula> formulas,
 
-            Outputs.PowerpackV2WidgetToplistDefinitionRequestLogQuery? logQuery,
+            Outputs.PowerpackV2WidgetLogQuery? logQuery,
 
             Outputs.PowerpackV2WidgetToplistDefinitionRequestProcessQuery? processQuery,
 
@@ -80,9 +80,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackV2WidgetToplistDefinitionRequestQuery> queries,
 
-            Outputs.PowerpackV2WidgetToplistDefinitionRequestRumQuery? rumQuery,
+            Outputs.PowerpackV2WidgetRumQuery? rumQuery,
 
-            Outputs.PowerpackV2WidgetToplistDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.PowerpackV2WidgetSecurityQuery? securityQuery,
 
             Outputs.PowerpackV2WidgetToplistDefinitionRequestSort? sort,
 

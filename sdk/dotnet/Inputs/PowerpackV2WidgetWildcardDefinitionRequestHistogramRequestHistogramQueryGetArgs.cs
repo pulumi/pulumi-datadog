@@ -13,10 +13,16 @@ namespace Pulumi.Datadog.Inputs
     public sealed class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// APM metrics query for histogram-mode distribution.
+        /// </summary>
+        [Input("apmMetricsQuery")]
+        public Input<Inputs.PowerpackV2WidgetApmMetricsQueryGetArgs>? ApmMetricsQuery { get; set; }
+
+        /// <summary>
         /// APM resource stats query for histogram-mode distribution.
         /// </summary>
         [Input("apmResourceStatsQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryApmResourceStatsQueryGetArgs>? ApmResourceStatsQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetApmResourceStatsQueryGetArgs>? ApmResourceStatsQuery { get; set; }
 
         /// <summary>
         /// Event query for histogram-mode distribution.
@@ -28,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         /// Metric query for histogram-mode distribution.
         /// </summary>
         [Input("metricQuery")]
-        public Input<Inputs.PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryMetricQueryGetArgs>? MetricQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetMetricQueryGetArgs>? MetricQuery { get; set; }
 
         public PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryGetArgs()
         {

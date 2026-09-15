@@ -16,55 +16,59 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The definition for a Alert Graph widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinition? AlertGraphDefinition;
+        public readonly Outputs.PowerpackV2WidgetAlertGraphDefinition? AlertGraphDefinition;
         /// <summary>
         /// The definition for a Alert Value widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinition? AlertValueDefinition;
+        public readonly Outputs.PowerpackV2WidgetAlertValueDefinition? AlertValueDefinition;
         /// <summary>
         /// The definition for a Bar Chart widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinition? BarChartDefinition;
+        public readonly Outputs.PowerpackV2WidgetBarChartDefinition? BarChartDefinition;
         /// <summary>
         /// The definition for a Change widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetChangeDefinition? ChangeDefinition;
+        public readonly Outputs.PowerpackV2WidgetChangeDefinition? ChangeDefinition;
         /// <summary>
         /// The definition for a Check Status widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition? CheckStatusDefinition;
+        public readonly Outputs.PowerpackV2WidgetCheckStatusDefinition? CheckStatusDefinition;
+        /// <summary>
+        /// The definition for a Cohort retention-grid widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetCohortDefinition? CohortDefinition;
         /// <summary>
         /// The definition for a Distribution widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition? DistributionDefinition;
+        public readonly Outputs.PowerpackV2WidgetDistributionDefinition? DistributionDefinition;
         /// <summary>
         /// The definition for a Event Stream widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinition? EventStreamDefinition;
+        public readonly Outputs.PowerpackV2WidgetEventStreamDefinition? EventStreamDefinition;
         /// <summary>
         /// The definition for a Event Timeline widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinition? EventTimelineDefinition;
+        public readonly Outputs.PowerpackV2WidgetEventTimelineDefinition? EventTimelineDefinition;
         /// <summary>
         /// The definition for a Free Text widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinition? FreeTextDefinition;
+        public readonly Outputs.PowerpackV2WidgetFreeTextDefinition? FreeTextDefinition;
         /// <summary>
         /// The definition for a Funnel widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition? FunnelDefinition;
+        public readonly Outputs.PowerpackV2WidgetFunnelDefinition? FunnelDefinition;
         /// <summary>
         /// The definition for a Geomap widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinition? GeomapDefinition;
+        public readonly Outputs.PowerpackV2WidgetGeomapDefinition? GeomapDefinition;
         /// <summary>
         /// The definition for a Heatmap widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinition? HeatmapDefinition;
+        public readonly Outputs.PowerpackV2WidgetHeatmapDefinition? HeatmapDefinition;
         /// <summary>
         /// The definition for a Hostmap widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinition? HostmapDefinition;
+        public readonly Outputs.PowerpackV2WidgetHostmapDefinition? HostmapDefinition;
         /// <summary>
         /// The ID of the widget.
         /// </summary>
@@ -72,87 +76,95 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The definition for an Iframe widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetIframeDefinition? IframeDefinition;
+        public readonly Outputs.PowerpackV2WidgetIframeDefinition? IframeDefinition;
         /// <summary>
         /// The definition for an Image widget
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetImageDefinition? ImageDefinition;
+        public readonly Outputs.PowerpackV2WidgetImageDefinition? ImageDefinition;
         /// <summary>
         /// The definition for a List Stream widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinition? ListStreamDefinition;
+        public readonly Outputs.PowerpackV2WidgetListStreamDefinition? ListStreamDefinition;
         /// <summary>
         /// The definition for an Log Stream widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinition? LogStreamDefinition;
+        public readonly Outputs.PowerpackV2WidgetLogStreamDefinition? LogStreamDefinition;
         /// <summary>
         /// The definition for an Manage Status widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition? ManageStatusDefinition;
+        public readonly Outputs.PowerpackV2WidgetManageStatusDefinition? ManageStatusDefinition;
         /// <summary>
         /// The definition for a Note widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition? NoteDefinition;
+        public readonly Outputs.PowerpackV2WidgetNoteDefinition? NoteDefinition;
         /// <summary>
         /// The definition for a Point Plot widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition? PointPlotDefinition;
+        public readonly Outputs.PowerpackV2WidgetPointPlotDefinition? PointPlotDefinition;
+        /// <summary>
+        /// The definition for a Product Analytics user journey funnel widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetProductAnalyticsFunnelDefinition? ProductAnalyticsFunnelDefinition;
         /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition? QueryTableDefinition;
+        public readonly Outputs.PowerpackV2WidgetQueryTableDefinition? QueryTableDefinition;
         /// <summary>
         /// The definition for a Query Value widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition? QueryValueDefinition;
+        public readonly Outputs.PowerpackV2WidgetQueryValueDefinition? QueryValueDefinition;
+        /// <summary>
+        /// The definition for a Retention Curve widget.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetRetentionCurveDefinition? RetentionCurveDefinition;
         /// <summary>
         /// The definition for a Run Workflow widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition? RunWorkflowDefinition;
+        public readonly Outputs.PowerpackV2WidgetRunWorkflowDefinition? RunWorkflowDefinition;
         /// <summary>
         /// The definition for a Sankey diagram widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinition? SankeyDefinition;
+        public readonly Outputs.PowerpackV2WidgetSankeyDefinition? SankeyDefinition;
         /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinition? ScatterplotDefinition;
+        public readonly Outputs.PowerpackV2WidgetScatterplotDefinition? ScatterplotDefinition;
         /// <summary>
         /// The definition for a Service Level Objective widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition? ServiceLevelObjectiveDefinition;
+        public readonly Outputs.PowerpackV2WidgetServiceLevelObjectiveDefinition? ServiceLevelObjectiveDefinition;
         /// <summary>
         /// The definition for a Service Map widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinition? ServicemapDefinition;
+        public readonly Outputs.PowerpackV2WidgetServicemapDefinition? ServicemapDefinition;
         /// <summary>
         /// The definition for an SLO (Service Level Objective) List widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetSloListDefinition? SloListDefinition;
+        public readonly Outputs.PowerpackV2WidgetSloListDefinition? SloListDefinition;
         /// <summary>
         /// The definition for a Sunburst widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinition? SunburstDefinition;
+        public readonly Outputs.PowerpackV2WidgetSunburstDefinition? SunburstDefinition;
         /// <summary>
         /// The definition for a Timeseries widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinition? TimeseriesDefinition;
+        public readonly Outputs.PowerpackV2WidgetTimeseriesDefinition? TimeseriesDefinition;
         /// <summary>
         /// The definition for a Toplist widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinition? ToplistDefinition;
+        public readonly Outputs.PowerpackV2WidgetToplistDefinition? ToplistDefinition;
         /// <summary>
         /// The definition for a Topology Map widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinition? TopologyMapDefinition;
+        public readonly Outputs.PowerpackV2WidgetTopologyMapDefinition? TopologyMapDefinition;
         /// <summary>
         /// The definition for a Trace Service widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinition? TraceServiceDefinition;
+        public readonly Outputs.PowerpackV2WidgetTraceServiceDefinition? TraceServiceDefinition;
         /// <summary>
         /// The definition for a Treemap widget.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinition? TreemapDefinition;
+        public readonly Outputs.PowerpackV2WidgetTreemapDefinition? TreemapDefinition;
         /// <summary>
         /// The layout of the widget on a 'free' dashboard.
         /// </summary>
@@ -160,89 +172,96 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinition? WildcardDefinition;
+        public readonly Outputs.PowerpackV2WidgetWildcardDefinition? WildcardDefinition;
 
         [OutputConstructor]
         private PowerpackV2WidgetGroupDefinitionWidget(
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetAlertGraphDefinition? alertGraphDefinition,
+            Outputs.PowerpackV2WidgetAlertGraphDefinition? alertGraphDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetAlertValueDefinition? alertValueDefinition,
+            Outputs.PowerpackV2WidgetAlertValueDefinition? alertValueDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetBarChartDefinition? barChartDefinition,
+            Outputs.PowerpackV2WidgetBarChartDefinition? barChartDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetChangeDefinition? changeDefinition,
+            Outputs.PowerpackV2WidgetChangeDefinition? changeDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetCheckStatusDefinition? checkStatusDefinition,
+            Outputs.PowerpackV2WidgetCheckStatusDefinition? checkStatusDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetDistributionDefinition? distributionDefinition,
+            Outputs.PowerpackV2WidgetCohortDefinition? cohortDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetEventStreamDefinition? eventStreamDefinition,
+            Outputs.PowerpackV2WidgetDistributionDefinition? distributionDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetEventTimelineDefinition? eventTimelineDefinition,
+            Outputs.PowerpackV2WidgetEventStreamDefinition? eventStreamDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetFreeTextDefinition? freeTextDefinition,
+            Outputs.PowerpackV2WidgetEventTimelineDefinition? eventTimelineDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetFunnelDefinition? funnelDefinition,
+            Outputs.PowerpackV2WidgetFreeTextDefinition? freeTextDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetGeomapDefinition? geomapDefinition,
+            Outputs.PowerpackV2WidgetFunnelDefinition? funnelDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetHeatmapDefinition? heatmapDefinition,
+            Outputs.PowerpackV2WidgetGeomapDefinition? geomapDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetHostmapDefinition? hostmapDefinition,
+            Outputs.PowerpackV2WidgetHeatmapDefinition? heatmapDefinition,
+
+            Outputs.PowerpackV2WidgetHostmapDefinition? hostmapDefinition,
 
             int? id,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetIframeDefinition? iframeDefinition,
+            Outputs.PowerpackV2WidgetIframeDefinition? iframeDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetImageDefinition? imageDefinition,
+            Outputs.PowerpackV2WidgetImageDefinition? imageDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetListStreamDefinition? listStreamDefinition,
+            Outputs.PowerpackV2WidgetListStreamDefinition? listStreamDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetLogStreamDefinition? logStreamDefinition,
+            Outputs.PowerpackV2WidgetLogStreamDefinition? logStreamDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetManageStatusDefinition? manageStatusDefinition,
+            Outputs.PowerpackV2WidgetManageStatusDefinition? manageStatusDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetNoteDefinition? noteDefinition,
+            Outputs.PowerpackV2WidgetNoteDefinition? noteDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetPointPlotDefinition? pointPlotDefinition,
+            Outputs.PowerpackV2WidgetPointPlotDefinition? pointPlotDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryTableDefinition? queryTableDefinition,
+            Outputs.PowerpackV2WidgetProductAnalyticsFunnelDefinition? productAnalyticsFunnelDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetQueryValueDefinition? queryValueDefinition,
+            Outputs.PowerpackV2WidgetQueryTableDefinition? queryTableDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetRunWorkflowDefinition? runWorkflowDefinition,
+            Outputs.PowerpackV2WidgetQueryValueDefinition? queryValueDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetSankeyDefinition? sankeyDefinition,
+            Outputs.PowerpackV2WidgetRetentionCurveDefinition? retentionCurveDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetScatterplotDefinition? scatterplotDefinition,
+            Outputs.PowerpackV2WidgetRunWorkflowDefinition? runWorkflowDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetServiceLevelObjectiveDefinition? serviceLevelObjectiveDefinition,
+            Outputs.PowerpackV2WidgetSankeyDefinition? sankeyDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetServicemapDefinition? servicemapDefinition,
+            Outputs.PowerpackV2WidgetScatterplotDefinition? scatterplotDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetSloListDefinition? sloListDefinition,
+            Outputs.PowerpackV2WidgetServiceLevelObjectiveDefinition? serviceLevelObjectiveDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetSunburstDefinition? sunburstDefinition,
+            Outputs.PowerpackV2WidgetServicemapDefinition? servicemapDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetTimeseriesDefinition? timeseriesDefinition,
+            Outputs.PowerpackV2WidgetSloListDefinition? sloListDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetToplistDefinition? toplistDefinition,
+            Outputs.PowerpackV2WidgetSunburstDefinition? sunburstDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetTopologyMapDefinition? topologyMapDefinition,
+            Outputs.PowerpackV2WidgetTimeseriesDefinition? timeseriesDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetTraceServiceDefinition? traceServiceDefinition,
+            Outputs.PowerpackV2WidgetToplistDefinition? toplistDefinition,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetTreemapDefinition? treemapDefinition,
+            Outputs.PowerpackV2WidgetTopologyMapDefinition? topologyMapDefinition,
+
+            Outputs.PowerpackV2WidgetTraceServiceDefinition? traceServiceDefinition,
+
+            Outputs.PowerpackV2WidgetTreemapDefinition? treemapDefinition,
 
             Outputs.PowerpackV2WidgetGroupDefinitionWidgetWidgetLayout? widgetLayout,
 
-            Outputs.PowerpackV2WidgetGroupDefinitionWidgetWildcardDefinition? wildcardDefinition)
+            Outputs.PowerpackV2WidgetWildcardDefinition? wildcardDefinition)
         {
             AlertGraphDefinition = alertGraphDefinition;
             AlertValueDefinition = alertValueDefinition;
             BarChartDefinition = barChartDefinition;
             ChangeDefinition = changeDefinition;
             CheckStatusDefinition = checkStatusDefinition;
+            CohortDefinition = cohortDefinition;
             DistributionDefinition = distributionDefinition;
             EventStreamDefinition = eventStreamDefinition;
             EventTimelineDefinition = eventTimelineDefinition;
@@ -259,8 +278,10 @@ namespace Pulumi.Datadog.Outputs
             ManageStatusDefinition = manageStatusDefinition;
             NoteDefinition = noteDefinition;
             PointPlotDefinition = pointPlotDefinition;
+            ProductAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
             QueryTableDefinition = queryTableDefinition;
             QueryValueDefinition = queryValueDefinition;
+            RetentionCurveDefinition = retentionCurveDefinition;
             RunWorkflowDefinition = runWorkflowDefinition;
             SankeyDefinition = sankeyDefinition;
             ScatterplotDefinition = scatterplotDefinition;

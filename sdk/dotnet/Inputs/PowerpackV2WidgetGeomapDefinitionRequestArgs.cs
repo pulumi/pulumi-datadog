@@ -28,7 +28,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.PowerpackV2WidgetGeomapDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetLogQueryArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
@@ -52,7 +52,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.PowerpackV2WidgetGeomapDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetRumQueryArgs>? RumQuery { get; set; }
 
         public PowerpackV2WidgetGeomapDefinitionRequestArgs()
         {

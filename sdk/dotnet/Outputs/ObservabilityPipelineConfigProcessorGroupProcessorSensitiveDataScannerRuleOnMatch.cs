@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchPartialRedact? PartialRedact;
         /// <summary>
-        /// Redacts the matched value.
+        /// Redacts the matched value. Exactly one of `Redact`, `Hash`, or `PartialRedact` must be specified.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleOnMatchRedact? Redact;
 

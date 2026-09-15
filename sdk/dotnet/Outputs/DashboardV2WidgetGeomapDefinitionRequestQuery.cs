@@ -16,15 +16,19 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The APM Dependency Stats query using formulas and functions.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery? ApmDependencyStatsQuery;
+        public readonly Outputs.DashboardV2WidgetApmDependencyStatsQuery? ApmDependencyStatsQuery;
+        /// <summary>
+        /// The APM metrics query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetApmMetricsQuery? ApmMetricsQuery;
         /// <summary>
         /// The APM Resource Stats query using formulas and functions.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryApmResourceStatsQuery? ApmResourceStatsQuery;
+        public readonly Outputs.DashboardV2WidgetApmResourceStatsQuery? ApmResourceStatsQuery;
         /// <summary>
         /// The Cloud Cost query using formulas and functions.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryCloudCostQuery? CloudCostQuery;
+        public readonly Outputs.DashboardV2WidgetCloudCostQuery? CloudCostQuery;
         /// <summary>
         /// A timeseries formula and functions events query.
         /// </summary>
@@ -32,39 +36,63 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// A timeseries formula and functions metrics query.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryMetricQuery? MetricQuery;
+        public readonly Outputs.DashboardV2WidgetMetricQuery? MetricQuery;
         /// <summary>
         /// The process query using formulas and functions.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryProcessQuery? ProcessQuery;
         /// <summary>
+        /// The Product Analytics Extended query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetProductAnalyticsExtendedQuery? ProductAnalyticsExtendedQuery;
+        /// <summary>
+        /// The retention query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetRetentionQuery? RetentionQuery;
+        /// <summary>
         /// The SLO query using formulas and functions.
         /// </summary>
-        public readonly Outputs.DashboardV2WidgetGeomapDefinitionRequestQuerySloQuery? SloQuery;
+        public readonly Outputs.DashboardV2WidgetSloQuery? SloQuery;
+        /// <summary>
+        /// The User Journey query using formulas and functions.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetUserJourneyQuery? UserJourneyQuery;
 
         [OutputConstructor]
         private DashboardV2WidgetGeomapDefinitionRequestQuery(
-            Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryApmDependencyStatsQuery? apmDependencyStatsQuery,
+            Outputs.DashboardV2WidgetApmDependencyStatsQuery? apmDependencyStatsQuery,
 
-            Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryApmResourceStatsQuery? apmResourceStatsQuery,
+            Outputs.DashboardV2WidgetApmMetricsQuery? apmMetricsQuery,
 
-            Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryCloudCostQuery? cloudCostQuery,
+            Outputs.DashboardV2WidgetApmResourceStatsQuery? apmResourceStatsQuery,
+
+            Outputs.DashboardV2WidgetCloudCostQuery? cloudCostQuery,
 
             Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryEventQuery? eventQuery,
 
-            Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryMetricQuery? metricQuery,
+            Outputs.DashboardV2WidgetMetricQuery? metricQuery,
 
             Outputs.DashboardV2WidgetGeomapDefinitionRequestQueryProcessQuery? processQuery,
 
-            Outputs.DashboardV2WidgetGeomapDefinitionRequestQuerySloQuery? sloQuery)
+            Outputs.DashboardV2WidgetProductAnalyticsExtendedQuery? productAnalyticsExtendedQuery,
+
+            Outputs.DashboardV2WidgetRetentionQuery? retentionQuery,
+
+            Outputs.DashboardV2WidgetSloQuery? sloQuery,
+
+            Outputs.DashboardV2WidgetUserJourneyQuery? userJourneyQuery)
         {
             ApmDependencyStatsQuery = apmDependencyStatsQuery;
+            ApmMetricsQuery = apmMetricsQuery;
             ApmResourceStatsQuery = apmResourceStatsQuery;
             CloudCostQuery = cloudCostQuery;
             EventQuery = eventQuery;
             MetricQuery = metricQuery;
             ProcessQuery = processQuery;
+            ProductAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            RetentionQuery = retentionQuery;
             SloQuery = sloQuery;
+            UserJourneyQuery = userJourneyQuery;
         }
     }
 }

@@ -57,7 +57,7 @@ import (
 //									},
 //									Queries: datadog.PowerpackV2WidgetTimeseriesDefinitionRequestQueryArray{
 //										&datadog.PowerpackV2WidgetTimeseriesDefinitionRequestQueryArgs{
-//											MetricQuery: &datadog.PowerpackV2WidgetTimeseriesDefinitionRequestQueryMetricQueryArgs{
+//											MetricQuery: &datadog.PowerpackV2WidgetMetricQueryArgs{
 //												DataSource: pulumi.String("metrics"),
 //												Query:      pulumi.String("avg:system.cpu.user{*} by {env}"),
 //												Name:       pulumi.String("my_query_1"),

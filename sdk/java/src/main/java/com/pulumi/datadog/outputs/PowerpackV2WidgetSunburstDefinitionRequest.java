@@ -4,15 +4,15 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSecurityQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestAuditQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestFormula;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestNetworkQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestSort;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetSunburstDefinitionRequestStyle;
 import java.lang.String;
@@ -31,7 +31,7 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetSunburstDefinitionRequestApmQuery apmQuery;
+    private @Nullable PowerpackV2WidgetApmQuery apmQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -54,7 +54,7 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetSunburstDefinitionRequestLogQuery logQuery;
+    private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -95,7 +95,7 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetSunburstDefinitionRequestRumQuery rumQuery;
+    private @Nullable PowerpackV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -104,7 +104,7 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetSunburstDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
     /**
      * @return The controls for sorting the widget. Only applicable for formula-style requests.
      * 
@@ -125,7 +125,7 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetSunburstDefinitionRequestApmQuery> apmQuery() {
+    public Optional<PowerpackV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -154,7 +154,7 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetSunburstDefinitionRequestLogQuery> logQuery() {
+    public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -205,7 +205,7 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetSunburstDefinitionRequestRumQuery> rumQuery() {
+    public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -216,7 +216,7 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetSunburstDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<PowerpackV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -243,16 +243,16 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable PowerpackV2WidgetSunburstDefinitionRequestApmQuery apmQuery;
+        private @Nullable PowerpackV2WidgetApmQuery apmQuery;
         private @Nullable PowerpackV2WidgetSunburstDefinitionRequestAuditQuery auditQuery;
         private @Nullable List<PowerpackV2WidgetSunburstDefinitionRequestFormula> formulas;
-        private @Nullable PowerpackV2WidgetSunburstDefinitionRequestLogQuery logQuery;
+        private @Nullable PowerpackV2WidgetLogQuery logQuery;
         private @Nullable PowerpackV2WidgetSunburstDefinitionRequestNetworkQuery networkQuery;
         private @Nullable PowerpackV2WidgetSunburstDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetSunburstDefinitionRequestQuery> queries;
-        private @Nullable PowerpackV2WidgetSunburstDefinitionRequestRumQuery rumQuery;
-        private @Nullable PowerpackV2WidgetSunburstDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetRumQuery rumQuery;
+        private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
         private @Nullable PowerpackV2WidgetSunburstDefinitionRequestSort sort;
         private @Nullable PowerpackV2WidgetSunburstDefinitionRequestStyle style;
         public Builder() {}
@@ -273,7 +273,7 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable PowerpackV2WidgetSunburstDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable PowerpackV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -294,7 +294,7 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable PowerpackV2WidgetSunburstDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable PowerpackV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -327,13 +327,13 @@ public final class PowerpackV2WidgetSunburstDefinitionRequest {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable PowerpackV2WidgetSunburstDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable PowerpackV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable PowerpackV2WidgetSunburstDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable PowerpackV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

@@ -230,6 +230,10 @@ export class DashboardV2 extends pulumi.CustomResource {
      */
     declare public readonly url: pulumi.Output<string>;
     /**
+     * Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+     */
+    declare public readonly validate: pulumi.Output<boolean | undefined>;
+    /**
      * The list of widgets to display on the dashboard.
      */
     declare public readonly widgets: pulumi.Output<outputs.DashboardV2Widget[] | undefined>;
@@ -261,6 +265,7 @@ export class DashboardV2 extends pulumi.CustomResource {
             resourceInputs["templateVariables"] = state?.templateVariables;
             resourceInputs["title"] = state?.title;
             resourceInputs["url"] = state?.url;
+            resourceInputs["validate"] = state?.validate;
             resourceInputs["widgets"] = state?.widgets;
         } else {
             const args = argsOrState as DashboardV2Args | undefined;
@@ -284,6 +289,7 @@ export class DashboardV2 extends pulumi.CustomResource {
             resourceInputs["templateVariables"] = args?.templateVariables;
             resourceInputs["title"] = args?.title;
             resourceInputs["url"] = args?.url;
+            resourceInputs["validate"] = args?.validate;
             resourceInputs["widgets"] = args?.widgets;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -354,6 +360,10 @@ export interface DashboardV2State {
      */
     url?: pulumi.Input<string | undefined>;
     /**
+     * Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+     */
+    validate?: pulumi.Input<boolean | undefined>;
+    /**
      * The list of widgets to display on the dashboard.
      */
     widgets?: pulumi.Input<pulumi.Input<inputs.DashboardV2Widget>[] | undefined>;
@@ -421,6 +431,10 @@ export interface DashboardV2Args {
      * The URL of the dashboard.
      */
     url?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+     */
+    validate?: pulumi.Input<boolean | undefined>;
     /**
      * The list of widgets to display on the dashboard.
      */

@@ -28,7 +28,7 @@ public final class OrganizationSettingsSettings {
      */
     private OrganizationSettingsSettingsSaml saml;
     /**
-     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`. When omitted, the current value is left unchanged.
      * 
      */
     private @Nullable String samlAutocreateAccessRole;
@@ -84,7 +84,7 @@ public final class OrganizationSettingsSettings {
         return this.saml;
     }
     /**
-     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm` , `ro`, `ERROR` Defaults to `&#34;st&#34;`.
+     * @return The access role of the user. Options are `st` (standard user), `adm` (admin user), or `ro` (read-only user). Allowed enum values: `st`, `adm`, `ro`, `ERROR`. When omitted, the current value is left unchanged.
      * 
      */
     public Optional<String> samlAutocreateAccessRole() {

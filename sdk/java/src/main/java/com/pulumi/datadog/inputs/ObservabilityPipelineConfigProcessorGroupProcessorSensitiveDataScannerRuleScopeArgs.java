@@ -48,14 +48,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
     }
 
     /**
-     * Explicitly include these fields for scanning.
+     * Explicitly include these fields for scanning. Exactly one of `include`, `exclude`, or `all` must be specified.
      * 
      */
     @Import(name="include")
     private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeIncludeArgs> include;
 
     /**
-     * @return Explicitly include these fields for scanning.
+     * @return Explicitly include these fields for scanning. Exactly one of `include`, `exclude`, or `all` must be specified.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeIncludeArgs>> include() {
@@ -131,7 +131,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         }
 
         /**
-         * @param include Explicitly include these fields for scanning.
+         * @param include Explicitly include these fields for scanning. Exactly one of `include`, `exclude`, or `all` must be specified.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDa
         }
 
         /**
-         * @param include Explicitly include these fields for scanning.
+         * @param include Explicitly include these fields for scanning. Exactly one of `include`, `exclude`, or `all` must be specified.
          * 
          * @return builder
          * 

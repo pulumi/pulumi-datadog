@@ -4,16 +4,16 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetApmQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinitionRequestApmStatsQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinitionRequestHistogramQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinitionRequestStyle;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSecurityQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -30,7 +30,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetDistributionDefinitionRequestApmQuery apmQuery;
+    private @Nullable PowerpackV2WidgetApmQuery apmQuery;
     /**
      * @return The APM stats query to use in the widget.
      * 
@@ -54,7 +54,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetDistributionDefinitionRequestLogQuery logQuery;
+    private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
@@ -91,7 +91,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetDistributionDefinitionRequestRumQuery rumQuery;
+    private @Nullable PowerpackV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -100,7 +100,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetDistributionDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
     /**
      * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
@@ -116,7 +116,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetDistributionDefinitionRequestApmQuery> apmQuery() {
+    public Optional<PowerpackV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -148,7 +148,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetDistributionDefinitionRequestLogQuery> logQuery() {
+    public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -195,7 +195,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetDistributionDefinitionRequestRumQuery> rumQuery() {
+    public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -206,7 +206,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetDistributionDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<PowerpackV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -226,17 +226,17 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable PowerpackV2WidgetDistributionDefinitionRequestApmQuery apmQuery;
+        private @Nullable PowerpackV2WidgetApmQuery apmQuery;
         private @Nullable PowerpackV2WidgetDistributionDefinitionRequestApmStatsQuery apmStatsQuery;
         private @Nullable List<PowerpackV2WidgetDistributionDefinitionRequestFormula> formulas;
         private @Nullable PowerpackV2WidgetDistributionDefinitionRequestHistogramQuery histogramQuery;
-        private @Nullable PowerpackV2WidgetDistributionDefinitionRequestLogQuery logQuery;
+        private @Nullable PowerpackV2WidgetLogQuery logQuery;
         private @Nullable PowerpackV2WidgetDistributionDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetDistributionDefinitionRequestQuery> queries;
         private @Nullable String requestType;
-        private @Nullable PowerpackV2WidgetDistributionDefinitionRequestRumQuery rumQuery;
-        private @Nullable PowerpackV2WidgetDistributionDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetRumQuery rumQuery;
+        private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
         private @Nullable PowerpackV2WidgetDistributionDefinitionRequestStyle style;
         public Builder() {}
         public Builder(PowerpackV2WidgetDistributionDefinitionRequest defaults) {
@@ -256,7 +256,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable PowerpackV2WidgetDistributionDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable PowerpackV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -283,7 +283,7 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable PowerpackV2WidgetDistributionDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable PowerpackV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -316,13 +316,13 @@ public final class PowerpackV2WidgetDistributionDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable PowerpackV2WidgetDistributionDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable PowerpackV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable PowerpackV2WidgetDistributionDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable PowerpackV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

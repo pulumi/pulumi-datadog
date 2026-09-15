@@ -43,6 +43,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardV2WidgetCheckStatusDefinitionArgs>? CheckStatusDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Cohort retention-grid widget.
+        /// </summary>
+        [Input("cohortDefinition")]
+        public Input<Inputs.DashboardV2WidgetCohortDefinitionArgs>? CohortDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Distribution widget.
         /// </summary>
         [Input("distributionDefinition")]
@@ -151,6 +157,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardV2WidgetPowerpackDefinitionArgs>? PowerpackDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Product Analytics user journey funnel widget.
+        /// </summary>
+        [Input("productAnalyticsFunnelDefinition")]
+        public Input<Inputs.DashboardV2WidgetProductAnalyticsFunnelDefinitionArgs>? ProductAnalyticsFunnelDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
         [Input("queryTableDefinition")]
@@ -161,6 +173,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("queryValueDefinition")]
         public Input<Inputs.DashboardV2WidgetQueryValueDefinitionArgs>? QueryValueDefinition { get; set; }
+
+        /// <summary>
+        /// The definition for a Retention Curve widget.
+        /// </summary>
+        [Input("retentionCurveDefinition")]
+        public Input<Inputs.DashboardV2WidgetRetentionCurveDefinitionArgs>? RetentionCurveDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Run Workflow widget.

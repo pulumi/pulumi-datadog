@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Display mode for grouped funnel results. Valid values are `Stacked`, `SideBySide`.
+        /// </summary>
+        [Input("groupedDisplay")]
+        public Input<string>? GroupedDisplay { get; set; }
+
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         [Input("hideIncompleteCostData")]

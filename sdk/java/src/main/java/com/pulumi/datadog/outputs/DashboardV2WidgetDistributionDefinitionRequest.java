@@ -4,16 +4,16 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestApmQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetApmQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestApmStatsQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestHistogramQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestLogQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestRumQuery;
-import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinitionRequestStyle;
+import com.pulumi.datadog.outputs.DashboardV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardV2WidgetSecurityQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -30,7 +30,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetDistributionDefinitionRequestApmQuery apmQuery;
+    private @Nullable DashboardV2WidgetApmQuery apmQuery;
     /**
      * @return The APM stats query to use in the widget.
      * 
@@ -54,7 +54,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetDistributionDefinitionRequestLogQuery logQuery;
+    private @Nullable DashboardV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
@@ -91,7 +91,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetDistributionDefinitionRequestRumQuery rumQuery;
+    private @Nullable DashboardV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -100,7 +100,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable DashboardV2WidgetDistributionDefinitionRequestSecurityQuery securityQuery;
+    private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
     /**
      * @return The style of the widget graph. One nested block is allowed using the structure below.
      * 
@@ -116,7 +116,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetDistributionDefinitionRequestApmQuery> apmQuery() {
+    public Optional<DashboardV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -148,7 +148,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetDistributionDefinitionRequestLogQuery> logQuery() {
+    public Optional<DashboardV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -195,7 +195,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetDistributionDefinitionRequestRumQuery> rumQuery() {
+    public Optional<DashboardV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -206,7 +206,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<DashboardV2WidgetDistributionDefinitionRequestSecurityQuery> securityQuery() {
+    public Optional<DashboardV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
     /**
@@ -226,17 +226,17 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable DashboardV2WidgetDistributionDefinitionRequestApmQuery apmQuery;
+        private @Nullable DashboardV2WidgetApmQuery apmQuery;
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestApmStatsQuery apmStatsQuery;
         private @Nullable List<DashboardV2WidgetDistributionDefinitionRequestFormula> formulas;
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestHistogramQuery histogramQuery;
-        private @Nullable DashboardV2WidgetDistributionDefinitionRequestLogQuery logQuery;
+        private @Nullable DashboardV2WidgetLogQuery logQuery;
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<DashboardV2WidgetDistributionDefinitionRequestQuery> queries;
         private @Nullable String requestType;
-        private @Nullable DashboardV2WidgetDistributionDefinitionRequestRumQuery rumQuery;
-        private @Nullable DashboardV2WidgetDistributionDefinitionRequestSecurityQuery securityQuery;
+        private @Nullable DashboardV2WidgetRumQuery rumQuery;
+        private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
         private @Nullable DashboardV2WidgetDistributionDefinitionRequestStyle style;
         public Builder() {}
         public Builder(DashboardV2WidgetDistributionDefinitionRequest defaults) {
@@ -256,7 +256,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder apmQuery(@Nullable DashboardV2WidgetDistributionDefinitionRequestApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable DashboardV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -283,7 +283,7 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable DashboardV2WidgetDistributionDefinitionRequestLogQuery logQuery) {
+        public Builder logQuery(@Nullable DashboardV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -316,13 +316,13 @@ public final class DashboardV2WidgetDistributionDefinitionRequest {
             return this;
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable DashboardV2WidgetDistributionDefinitionRequestRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable DashboardV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable DashboardV2WidgetDistributionDefinitionRequestSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable DashboardV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;

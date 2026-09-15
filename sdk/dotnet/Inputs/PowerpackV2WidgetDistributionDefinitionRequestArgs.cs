@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
-        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestApmQueryArgs>? ApmQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetApmQueryArgs>? ApmQuery { get; set; }
 
         /// <summary>
         /// The APM stats query to use in the widget.
@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
-        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestLogQueryArgs>? LogQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetLogQueryArgs>? LogQuery { get; set; }
 
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
@@ -82,13 +82,13 @@ namespace Pulumi.Datadog.Inputs
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
-        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestRumQueryArgs>? RumQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetRumQueryArgs>? RumQuery { get; set; }
 
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
-        public Input<Inputs.PowerpackV2WidgetDistributionDefinitionRequestSecurityQueryArgs>? SecurityQuery { get; set; }
+        public Input<Inputs.PowerpackV2WidgetSecurityQueryArgs>? SecurityQuery { get; set; }
 
         /// <summary>
         /// The style of the widget graph. One nested block is allowed using the structure below.

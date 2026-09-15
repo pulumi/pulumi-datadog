@@ -16,15 +16,19 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetHeatmapDefinitionRequestApmQuery? ApmQuery;
+        public readonly Outputs.PowerpackV2WidgetApmQuery? ApmQuery;
         /// <summary>
         /// A list of formulas to use in the widget.
         /// </summary>
         public readonly ImmutableArray<Outputs.PowerpackV2WidgetHeatmapDefinitionRequestFormula> Formulas;
         /// <summary>
+        /// Histogram request for distribution of point values.
+        /// </summary>
+        public readonly Outputs.PowerpackV2WidgetHeatmapDefinitionRequestHistogramRequest? HistogramRequest;
+        /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetHeatmapDefinitionRequestLogQuery? LogQuery;
+        public readonly Outputs.PowerpackV2WidgetLogQuery? LogQuery;
         /// <summary>
         /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
@@ -40,11 +44,11 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetHeatmapDefinitionRequestRumQuery? RumQuery;
+        public readonly Outputs.PowerpackV2WidgetRumQuery? RumQuery;
         /// <summary>
         /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
-        public readonly Outputs.PowerpackV2WidgetHeatmapDefinitionRequestSecurityQuery? SecurityQuery;
+        public readonly Outputs.PowerpackV2WidgetSecurityQuery? SecurityQuery;
         /// <summary>
         /// The style of the widget graph. One nested block is allowed using the structure below.
         /// </summary>
@@ -52,11 +56,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackV2WidgetHeatmapDefinitionRequest(
-            Outputs.PowerpackV2WidgetHeatmapDefinitionRequestApmQuery? apmQuery,
+            Outputs.PowerpackV2WidgetApmQuery? apmQuery,
 
             ImmutableArray<Outputs.PowerpackV2WidgetHeatmapDefinitionRequestFormula> formulas,
 
-            Outputs.PowerpackV2WidgetHeatmapDefinitionRequestLogQuery? logQuery,
+            Outputs.PowerpackV2WidgetHeatmapDefinitionRequestHistogramRequest? histogramRequest,
+
+            Outputs.PowerpackV2WidgetLogQuery? logQuery,
 
             Outputs.PowerpackV2WidgetHeatmapDefinitionRequestProcessQuery? processQuery,
 
@@ -64,14 +70,15 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.PowerpackV2WidgetHeatmapDefinitionRequestQuery> queries,
 
-            Outputs.PowerpackV2WidgetHeatmapDefinitionRequestRumQuery? rumQuery,
+            Outputs.PowerpackV2WidgetRumQuery? rumQuery,
 
-            Outputs.PowerpackV2WidgetHeatmapDefinitionRequestSecurityQuery? securityQuery,
+            Outputs.PowerpackV2WidgetSecurityQuery? securityQuery,
 
             Outputs.PowerpackV2WidgetHeatmapDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
             Formulas = formulas;
+            HistogramRequest = histogramRequest;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;

@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePattern
     {
         /// <summary>
-        /// Pattern detection using a custom regular expression.
+        /// Pattern detection using a custom regular expression. Exactly one of `Custom` or `Library` must be specified.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRulePatternCustom? Custom;
         /// <summary>

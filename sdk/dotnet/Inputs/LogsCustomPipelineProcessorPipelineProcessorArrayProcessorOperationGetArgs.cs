@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationAppendGetArgs>? Append { get; set; }
 
         /// <summary>
+        /// Operation that extracts key-value pairs from a source array and stores the result in the target attribute.
+        /// </summary>
+        [Input("keyValue")]
+        public Input<Inputs.LogsCustomPipelineProcessorPipelineProcessorArrayProcessorOperationKeyValueGetArgs>? KeyValue { get; set; }
+
+        /// <summary>
         /// Operation that computes the length of a source array and stores the result in a target attribute.
         /// </summary>
         [Input("length")]

@@ -4,13 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestXApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetApmQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetLogQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetRumQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestXFormula;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestXLogQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestXProcessQuery;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestXQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestXRumQuery;
-import com.pulumi.datadog.outputs.PowerpackV2WidgetScatterplotDefinitionRequestXSecurityQuery;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetSecurityQuery;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -32,7 +32,7 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestXApmQuery apmQuery;
+    private @Nullable PowerpackV2WidgetApmQuery apmQuery;
     /**
      * @return A list of formulas to use in the widget.
      * 
@@ -46,7 +46,7 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestXLogQuery logQuery;
+    private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
@@ -78,7 +78,7 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestXRumQuery rumQuery;
+    private @Nullable PowerpackV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
@@ -87,7 +87,7 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestXSecurityQuery securityQuery;
+    private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
 
     private PowerpackV2WidgetScatterplotDefinitionRequestX() {}
     /**
@@ -105,7 +105,7 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetScatterplotDefinitionRequestXApmQuery> apmQuery() {
+    public Optional<PowerpackV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
@@ -123,7 +123,7 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetScatterplotDefinitionRequestXLogQuery> logQuery() {
+    public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
@@ -163,7 +163,7 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetScatterplotDefinitionRequestXRumQuery> rumQuery() {
+    public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
@@ -174,7 +174,7 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
      * 
      */
     @Deprecated /* Use queries and formulas instead. */
-    public Optional<PowerpackV2WidgetScatterplotDefinitionRequestXSecurityQuery> securityQuery() {
+    public Optional<PowerpackV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
 
@@ -188,14 +188,14 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregator;
-        private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestXApmQuery apmQuery;
+        private @Nullable PowerpackV2WidgetApmQuery apmQuery;
         private @Nullable List<PowerpackV2WidgetScatterplotDefinitionRequestXFormula> formulas;
-        private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestXLogQuery logQuery;
+        private @Nullable PowerpackV2WidgetLogQuery logQuery;
         private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestXProcessQuery processQuery;
         private @Nullable String q;
         private @Nullable List<PowerpackV2WidgetScatterplotDefinitionRequestXQuery> queries;
-        private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestXRumQuery rumQuery;
-        private @Nullable PowerpackV2WidgetScatterplotDefinitionRequestXSecurityQuery securityQuery;
+        private @Nullable PowerpackV2WidgetRumQuery rumQuery;
+        private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
         public Builder() {}
         public Builder(PowerpackV2WidgetScatterplotDefinitionRequestX defaults) {
     	      Objects.requireNonNull(defaults);
@@ -217,7 +217,7 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
             return this;
         }
         @CustomType.Setter
-        public Builder apmQuery(@Nullable PowerpackV2WidgetScatterplotDefinitionRequestXApmQuery apmQuery) {
+        public Builder apmQuery(@Nullable PowerpackV2WidgetApmQuery apmQuery) {
 
             this.apmQuery = apmQuery;
             return this;
@@ -232,7 +232,7 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
             return formulas(List.of(formulas));
         }
         @CustomType.Setter
-        public Builder logQuery(@Nullable PowerpackV2WidgetScatterplotDefinitionRequestXLogQuery logQuery) {
+        public Builder logQuery(@Nullable PowerpackV2WidgetLogQuery logQuery) {
 
             this.logQuery = logQuery;
             return this;
@@ -259,13 +259,13 @@ public final class PowerpackV2WidgetScatterplotDefinitionRequestX {
             return queries(List.of(queries));
         }
         @CustomType.Setter
-        public Builder rumQuery(@Nullable PowerpackV2WidgetScatterplotDefinitionRequestXRumQuery rumQuery) {
+        public Builder rumQuery(@Nullable PowerpackV2WidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
             return this;
         }
         @CustomType.Setter
-        public Builder securityQuery(@Nullable PowerpackV2WidgetScatterplotDefinitionRequestXSecurityQuery securityQuery) {
+        public Builder securityQuery(@Nullable PowerpackV2WidgetSecurityQuery securityQuery) {
 
             this.securityQuery = securityQuery;
             return this;
