@@ -192,7 +192,7 @@ class AwaitableGetAwsCurConfigResult(GetAwsCurConfigResult):
             updated_at=self.updated_at)
 
 
-def get_aws_cur_config(account_filters: Optional[Union['GetAwsCurConfigAccountFiltersArgs', 'GetAwsCurConfigAccountFiltersArgsDict']] = None,
+def get_aws_cur_config(account_filters: Optional[Union['GetAwsCurConfigAccountFiltersArgs', 'GetAwsCurConfigAccountFiltersArgsDict', 'outputs.GetAwsCurConfigAccountFiltersResult']] = None,
                        cloud_account_id: Optional[_builtins.int] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAwsCurConfigResult:
     """
@@ -221,7 +221,7 @@ def get_aws_cur_config(account_filters: Optional[Union['GetAwsCurConfigAccountFi
         status=pulumi.get(__ret__, 'status'),
         status_updated_at=pulumi.get(__ret__, 'status_updated_at'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_aws_cur_config_output(account_filters: pulumi.Input[Optional[Optional[Union['GetAwsCurConfigAccountFiltersArgs', 'GetAwsCurConfigAccountFiltersArgsDict']]]] = None,
+def get_aws_cur_config_output(account_filters: pulumi.Input[Optional[Optional[Union['GetAwsCurConfigAccountFiltersArgs', 'GetAwsCurConfigAccountFiltersArgsDict', 'outputs.GetAwsCurConfigAccountFiltersResult']]]] = None,
                               cloud_account_id: pulumi.Input[Optional[_builtins.int]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAwsCurConfigResult]:
     """

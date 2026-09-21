@@ -319,8 +319,8 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
                  on_match: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  path_glob: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict']]]]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict']]]]] = None,
+                 rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict', 'outputs.AppsecWafExclusionFilterRulesTarget']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict', 'outputs.AppsecWafExclusionFilterScope']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog AppsecWafExclusionFilter resource. This can be used to create and manage Datadog appsec_waf_exclusion_filter.
@@ -442,8 +442,8 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
                  on_match: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  path_glob: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict']]]]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict']]]]] = None,
+                 rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict', 'outputs.AppsecWafExclusionFilterRulesTarget']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict', 'outputs.AppsecWafExclusionFilterScope']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -483,8 +483,8 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
             on_match: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             path_glob: pulumi.Input[Optional[_builtins.str]] = None,
-            rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict']]]]] = None,
-            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict']]]]] = None) -> 'AppsecWafExclusionFilter':
+            rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict', 'outputs.AppsecWafExclusionFilterRulesTarget']]]]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict', 'outputs.AppsecWafExclusionFilterScope']]]]] = None) -> 'AppsecWafExclusionFilter':
         """
         Get an existing AppsecWafExclusionFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

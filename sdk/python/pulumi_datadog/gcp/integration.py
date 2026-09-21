@@ -477,7 +477,7 @@ class Integration(pulumi.CustomResource):
                  host_filters: pulumi.Input[Optional[_builtins.str]] = None,
                  is_resource_change_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_security_command_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]]] = None,
+                 monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict', 'outputs.IntegrationMonitoredResourceConfig']]]]] = None,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
                  private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -507,7 +507,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict', 'outputs.IntegrationMonitoredResourceConfig']]]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[_builtins.str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[_builtins.str] project_id: Your Google Cloud project ID found in your JSON service account key.
@@ -556,7 +556,7 @@ class Integration(pulumi.CustomResource):
                  host_filters: pulumi.Input[Optional[_builtins.str]] = None,
                  is_resource_change_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_security_command_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]]] = None,
+                 monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict', 'outputs.IntegrationMonitoredResourceConfig']]]]] = None,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
                  private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -613,7 +613,7 @@ class Integration(pulumi.CustomResource):
             host_filters: pulumi.Input[Optional[_builtins.str]] = None,
             is_resource_change_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             is_security_command_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]]] = None,
+            monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict', 'outputs.IntegrationMonitoredResourceConfig']]]]] = None,
             private_key: pulumi.Input[Optional[_builtins.str]] = None,
             private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             project_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -633,7 +633,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] host_filters: List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.bool] is_resource_change_collection_enabled: When enabled, Datadog scans for all resource change data in your Google Cloud environment.
         :param pulumi.Input[_builtins.bool] is_security_command_center_enabled: When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict']]]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict', 'outputs.IntegrationMonitoredResourceConfig']]]] monitored_resource_configs: Configurations for GCP monitored resources. Only monitored resources that apply to specified filters are imported into Datadog.
         :param pulumi.Input[_builtins.str] private_key: Your private key name found in your JSON service account key.
         :param pulumi.Input[_builtins.str] private_key_id: Your private key ID found in your JSON service account key.
         :param pulumi.Input[_builtins.str] project_id: Your Google Cloud project ID found in your JSON service account key.

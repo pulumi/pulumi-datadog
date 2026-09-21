@@ -172,7 +172,7 @@ class OrganizationSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 settings: pulumi.Input[Optional[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict', 'outputs.OrganizationSettingsSettings']]] = None,
                  __props__=None):
         """
         Provides a Datadog Organization resource. This can be used to manage your Datadog organization's settings.
@@ -200,7 +200,7 @@ class OrganizationSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name for Organization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_contacts: List of emails used for security event notifications from the organization.
-        :param pulumi.Input[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']] settings: Organization settings
+        :param pulumi.Input[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict', 'outputs.OrganizationSettingsSettings']] settings: Organization settings
         """
         ...
     @overload
@@ -247,7 +247,7 @@ class OrganizationSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 settings: pulumi.Input[Optional[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict', 'outputs.OrganizationSettingsSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -276,7 +276,7 @@ class OrganizationSettings(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             public_id: pulumi.Input[Optional[_builtins.str]] = None,
             security_contacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            settings: pulumi.Input[Optional[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']]] = None) -> 'OrganizationSettings':
+            settings: pulumi.Input[Optional[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict', 'outputs.OrganizationSettingsSettings']]] = None) -> 'OrganizationSettings':
         """
         Get an existing OrganizationSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -288,7 +288,7 @@ class OrganizationSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name for Organization.
         :param pulumi.Input[_builtins.str] public_id: The `public_id` of the organization you are operating within.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_contacts: List of emails used for security event notifications from the organization.
-        :param pulumi.Input[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict']] settings: Organization settings
+        :param pulumi.Input[Union['OrganizationSettingsSettingsArgs', 'OrganizationSettingsSettingsArgsDict', 'outputs.OrganizationSettingsSettings']] settings: Organization settings
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

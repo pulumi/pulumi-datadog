@@ -137,7 +137,7 @@ class RumRetentionQuota(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom: pulumi.Input[Optional[Union['RumRetentionQuotaCustomArgs', 'RumRetentionQuotaCustomArgsDict']]] = None,
+                 custom: pulumi.Input[Optional[Union['RumRetentionQuotaCustomArgs', 'RumRetentionQuotaCustomArgsDict', 'outputs.RumRetentionQuotaCustom']]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -174,7 +174,7 @@ class RumRetentionQuota(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: RUM application ID.
-        :param pulumi.Input[Union['RumRetentionQuotaCustomArgs', 'RumRetentionQuotaCustomArgsDict']] custom: Custom retention quota configuration. Required when `mode` is `custom`.
+        :param pulumi.Input[Union['RumRetentionQuotaCustomArgs', 'RumRetentionQuotaCustomArgsDict', 'outputs.RumRetentionQuotaCustom']] custom: Custom retention quota configuration. Required when `mode` is `custom`.
         :param pulumi.Input[_builtins.str] mode: The retention quota mode. Valid values are `custom`.
         """
         ...
@@ -230,7 +230,7 @@ class RumRetentionQuota(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom: pulumi.Input[Optional[Union['RumRetentionQuotaCustomArgs', 'RumRetentionQuotaCustomArgsDict']]] = None,
+                 custom: pulumi.Input[Optional[Union['RumRetentionQuotaCustomArgs', 'RumRetentionQuotaCustomArgsDict', 'outputs.RumRetentionQuotaCustom']]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -259,7 +259,7 @@ class RumRetentionQuota(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             application_id: pulumi.Input[Optional[_builtins.str]] = None,
-            custom: pulumi.Input[Optional[Union['RumRetentionQuotaCustomArgs', 'RumRetentionQuotaCustomArgsDict']]] = None,
+            custom: pulumi.Input[Optional[Union['RumRetentionQuotaCustomArgs', 'RumRetentionQuotaCustomArgsDict', 'outputs.RumRetentionQuotaCustom']]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None) -> 'RumRetentionQuota':
         """
         Get an existing RumRetentionQuota resource's state with the given name, id, and optional extra
@@ -269,7 +269,7 @@ class RumRetentionQuota(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: RUM application ID.
-        :param pulumi.Input[Union['RumRetentionQuotaCustomArgs', 'RumRetentionQuotaCustomArgsDict']] custom: Custom retention quota configuration. Required when `mode` is `custom`.
+        :param pulumi.Input[Union['RumRetentionQuotaCustomArgs', 'RumRetentionQuotaCustomArgsDict', 'outputs.RumRetentionQuotaCustom']] custom: Custom retention quota configuration. Required when `mode` is `custom`.
         :param pulumi.Input[_builtins.str] mode: The retention quota mode. Valid values are `custom`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

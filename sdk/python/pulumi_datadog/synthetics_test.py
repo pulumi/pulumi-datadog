@@ -934,27 +934,27 @@ class SyntheticsTest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
-                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
-                 browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
-                 browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+                 api_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict', 'outputs.SyntheticsTestApiStep']]]]] = None,
+                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict', 'outputs.SyntheticsTestAssertion']]]]] = None,
+                 browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict', 'outputs.SyntheticsTestBrowserStep']]]]] = None,
+                 browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict', 'outputs.SyntheticsTestBrowserVariable']]]]] = None,
                  config_initial_application_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 config_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
+                 config_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict', 'outputs.SyntheticsTestConfigVariable']]]]] = None,
                  device_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  force_delete_dependencies: pulumi.Input[Optional[_builtins.bool]] = None,
                  locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
-                 mobile_options_list: pulumi.Input[Optional[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
-                 mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
+                 mobile_options_list: pulumi.Input[Optional[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict', 'outputs.SyntheticsTestMobileOptionsList']]] = None,
+                 mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict', 'outputs.SyntheticsTestMobileStep']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options_list: pulumi.Input[Optional[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
-                 request_basicauth: pulumi.Input[Optional[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
-                 request_client_certificate: pulumi.Input[Optional[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
-                 request_definition: pulumi.Input[Optional[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
-                 request_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
+                 options_list: pulumi.Input[Optional[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict', 'outputs.SyntheticsTestOptionsList']]] = None,
+                 request_basicauth: pulumi.Input[Optional[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict', 'outputs.SyntheticsTestRequestBasicauth']]] = None,
+                 request_client_certificate: pulumi.Input[Optional[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict', 'outputs.SyntheticsTestRequestClientCertificate']]] = None,
+                 request_definition: pulumi.Input[Optional[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict', 'outputs.SyntheticsTestRequestDefinition']]] = None,
+                 request_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict', 'outputs.SyntheticsTestRequestFile']]]]] = None,
                  request_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  request_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_proxy: pulumi.Input[Optional[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
+                 request_proxy: pulumi.Input[Optional[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict', 'outputs.SyntheticsTestRequestProxy']]] = None,
                  request_query: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  set_cookie: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1978,25 +1978,25 @@ class SyntheticsTest(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]] api_steps: Steps for multistep API tests
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]] browser_steps: Steps for browser tests.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict', 'outputs.SyntheticsTestApiStep']]]] api_steps: Steps for multistep API tests
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict', 'outputs.SyntheticsTestAssertion']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict', 'outputs.SyntheticsTestBrowserStep']]]] browser_steps: Steps for browser tests.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict', 'outputs.SyntheticsTestBrowserVariable']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config_initial_application_arguments: Initial application arguments for the mobile test.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict', 'outputs.SyntheticsTestConfigVariable']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
         :param pulumi.Input[_builtins.bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]] mobile_steps: Steps for mobile tests
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict', 'outputs.SyntheticsTestMobileStep']]]] mobile_steps: Steps for mobile tests
         :param pulumi.Input[_builtins.str] name: Name of Datadog synthetics test.
-        :param pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']] request_definition: Required if `type = "api"`. The synthetics test request.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]] request_files: Files to be used as part of the request in the test.
+        :param pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict', 'outputs.SyntheticsTestRequestBasicauth']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict', 'outputs.SyntheticsTestRequestClientCertificate']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict', 'outputs.SyntheticsTestRequestDefinition']] request_definition: Required if `type = "api"`. The synthetics test request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict', 'outputs.SyntheticsTestRequestFile']]]] request_files: Files to be used as part of the request in the test.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_metadata: Metadata to include when performing the gRPC request.
-        :param pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']] request_proxy: The proxy to perform the test.
+        :param pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict', 'outputs.SyntheticsTestRequestProxy']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_query: Query arguments name and value map.
         :param pulumi.Input[_builtins.str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[_builtins.str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.
@@ -3039,27 +3039,27 @@ class SyntheticsTest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
-                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
-                 browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
-                 browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+                 api_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict', 'outputs.SyntheticsTestApiStep']]]]] = None,
+                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict', 'outputs.SyntheticsTestAssertion']]]]] = None,
+                 browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict', 'outputs.SyntheticsTestBrowserStep']]]]] = None,
+                 browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict', 'outputs.SyntheticsTestBrowserVariable']]]]] = None,
                  config_initial_application_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 config_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
+                 config_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict', 'outputs.SyntheticsTestConfigVariable']]]]] = None,
                  device_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  force_delete_dependencies: pulumi.Input[Optional[_builtins.bool]] = None,
                  locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
-                 mobile_options_list: pulumi.Input[Optional[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
-                 mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
+                 mobile_options_list: pulumi.Input[Optional[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict', 'outputs.SyntheticsTestMobileOptionsList']]] = None,
+                 mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict', 'outputs.SyntheticsTestMobileStep']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options_list: pulumi.Input[Optional[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
-                 request_basicauth: pulumi.Input[Optional[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
-                 request_client_certificate: pulumi.Input[Optional[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
-                 request_definition: pulumi.Input[Optional[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
-                 request_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
+                 options_list: pulumi.Input[Optional[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict', 'outputs.SyntheticsTestOptionsList']]] = None,
+                 request_basicauth: pulumi.Input[Optional[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict', 'outputs.SyntheticsTestRequestBasicauth']]] = None,
+                 request_client_certificate: pulumi.Input[Optional[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict', 'outputs.SyntheticsTestRequestClientCertificate']]] = None,
+                 request_definition: pulumi.Input[Optional[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict', 'outputs.SyntheticsTestRequestDefinition']]] = None,
+                 request_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict', 'outputs.SyntheticsTestRequestFile']]]]] = None,
                  request_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  request_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 request_proxy: pulumi.Input[Optional[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
+                 request_proxy: pulumi.Input[Optional[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict', 'outputs.SyntheticsTestRequestProxy']]] = None,
                  request_query: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  set_cookie: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3123,28 +3123,28 @@ class SyntheticsTest(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]]] = None,
-            assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]]] = None,
-            browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]]] = None,
-            browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]]] = None,
+            api_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict', 'outputs.SyntheticsTestApiStep']]]]] = None,
+            assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict', 'outputs.SyntheticsTestAssertion']]]]] = None,
+            browser_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict', 'outputs.SyntheticsTestBrowserStep']]]]] = None,
+            browser_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict', 'outputs.SyntheticsTestBrowserVariable']]]]] = None,
             config_initial_application_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            config_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]]] = None,
+            config_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict', 'outputs.SyntheticsTestConfigVariable']]]]] = None,
             device_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             force_delete_dependencies: pulumi.Input[Optional[_builtins.bool]] = None,
             locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             message: pulumi.Input[Optional[_builtins.str]] = None,
-            mobile_options_list: pulumi.Input[Optional[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict']]] = None,
-            mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]]] = None,
+            mobile_options_list: pulumi.Input[Optional[Union['SyntheticsTestMobileOptionsListArgs', 'SyntheticsTestMobileOptionsListArgsDict', 'outputs.SyntheticsTestMobileOptionsList']]] = None,
+            mobile_steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict', 'outputs.SyntheticsTestMobileStep']]]]] = None,
             monitor_id: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            options_list: pulumi.Input[Optional[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict']]] = None,
-            request_basicauth: pulumi.Input[Optional[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']]] = None,
-            request_client_certificate: pulumi.Input[Optional[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']]] = None,
-            request_definition: pulumi.Input[Optional[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']]] = None,
-            request_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]]] = None,
+            options_list: pulumi.Input[Optional[Union['SyntheticsTestOptionsListArgs', 'SyntheticsTestOptionsListArgsDict', 'outputs.SyntheticsTestOptionsList']]] = None,
+            request_basicauth: pulumi.Input[Optional[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict', 'outputs.SyntheticsTestRequestBasicauth']]] = None,
+            request_client_certificate: pulumi.Input[Optional[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict', 'outputs.SyntheticsTestRequestClientCertificate']]] = None,
+            request_definition: pulumi.Input[Optional[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict', 'outputs.SyntheticsTestRequestDefinition']]] = None,
+            request_files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict', 'outputs.SyntheticsTestRequestFile']]]]] = None,
             request_headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             request_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            request_proxy: pulumi.Input[Optional[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']]] = None,
+            request_proxy: pulumi.Input[Optional[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict', 'outputs.SyntheticsTestRequestProxy']]] = None,
             request_query: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             set_cookie: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3159,26 +3159,26 @@ class SyntheticsTest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict']]]] api_steps: Steps for multistep API tests
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict']]]] browser_steps: Steps for browser tests.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestApiStepArgs', 'SyntheticsTestApiStepArgsDict', 'outputs.SyntheticsTestApiStep']]]] api_steps: Steps for multistep API tests
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestAssertionArgs', 'SyntheticsTestAssertionArgsDict', 'outputs.SyntheticsTestAssertion']]]] assertions: Assertions used for the test. Multiple `assertion` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserStepArgs', 'SyntheticsTestBrowserStepArgsDict', 'outputs.SyntheticsTestBrowserStep']]]] browser_steps: Steps for browser tests.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestBrowserVariableArgs', 'SyntheticsTestBrowserVariableArgsDict', 'outputs.SyntheticsTestBrowserVariable']]]] browser_variables: Variables used for a browser test steps. Multiple `variable` blocks are allowed with the structure below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] config_initial_application_arguments: Initial application arguments for the mobile test.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestConfigVariableArgs', 'SyntheticsTestConfigVariableArgsDict', 'outputs.SyntheticsTestConfigVariable']]]] config_variables: Variables used for the test configuration. Multiple `config_variable` blocks are allowed with the structure below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_ids: Required if `type = "browser"`. Array with the different device IDs used to run the test.
         :param pulumi.Input[_builtins.bool] force_delete_dependencies: A boolean indicating whether this synthetics test can be deleted even if it's referenced by other resources (for example, SLOs and composite monitors).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: Array of locations used to run the test. Refer to the Datadog Synthetics location data source to retrieve the list of locations or find the possible values listed in [this API response](https://app.datadoghq.com/api/v1/synthetics/locations?only_public=true).
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this synthetics test. Email notifications can be sent to specific users by using the same `@username` notation as events. Defaults to `""`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict']]]] mobile_steps: Steps for mobile tests
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestMobileStepArgs', 'SyntheticsTestMobileStepArgsDict', 'outputs.SyntheticsTestMobileStep']]]] mobile_steps: Steps for mobile tests
         :param pulumi.Input[_builtins.int] monitor_id: ID of the monitor associated with the Datadog synthetics test.
         :param pulumi.Input[_builtins.str] name: Name of Datadog synthetics test.
-        :param pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
-        :param pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict']] request_definition: Required if `type = "api"`. The synthetics test request.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict']]]] request_files: Files to be used as part of the request in the test.
+        :param pulumi.Input[Union['SyntheticsTestRequestBasicauthArgs', 'SyntheticsTestRequestBasicauthArgsDict', 'outputs.SyntheticsTestRequestBasicauth']] request_basicauth: The HTTP basic authentication credentials. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[Union['SyntheticsTestRequestClientCertificateArgs', 'SyntheticsTestRequestClientCertificateArgsDict', 'outputs.SyntheticsTestRequestClientCertificate']] request_client_certificate: Client certificate to use when performing the test request. Exactly one nested block is allowed with the structure below.
+        :param pulumi.Input[Union['SyntheticsTestRequestDefinitionArgs', 'SyntheticsTestRequestDefinitionArgsDict', 'outputs.SyntheticsTestRequestDefinition']] request_definition: Required if `type = "api"`. The synthetics test request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsTestRequestFileArgs', 'SyntheticsTestRequestFileArgsDict', 'outputs.SyntheticsTestRequestFile']]]] request_files: Files to be used as part of the request in the test.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_headers: Header name and value map.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_metadata: Metadata to include when performing the gRPC request.
-        :param pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict']] request_proxy: The proxy to perform the test.
+        :param pulumi.Input[Union['SyntheticsTestRequestProxyArgs', 'SyntheticsTestRequestProxyArgsDict', 'outputs.SyntheticsTestRequestProxy']] request_proxy: The proxy to perform the test.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_query: Query arguments name and value map.
         :param pulumi.Input[_builtins.str] set_cookie: Cookies to be used for a browser test request, using the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
         :param pulumi.Input[_builtins.str] status: Define whether you want to start (`live`) or pause (`paused`) a Synthetic test. Valid values are `live`, `paused`.

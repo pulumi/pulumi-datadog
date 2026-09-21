@@ -232,11 +232,11 @@ class StatusPageDegradationTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components_affecteds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict']]]]] = None,
+                 components_affecteds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict', 'outputs.StatusPageDegradationTemplateComponentsAffected']]]]] = None,
                  degradation_title: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  page_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict']]]]] = None,
+                 updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict', 'outputs.StatusPageDegradationTemplateUpdate']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog status page degradation template resource. This can be used to create and manage pre-filled templates for degradations on a status page.
@@ -289,11 +289,11 @@ class StatusPageDegradationTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict']]]] components_affecteds: The components affected by a degradation created from this template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict', 'outputs.StatusPageDegradationTemplateComponentsAffected']]]] components_affecteds: The components affected by a degradation created from this template.
         :param pulumi.Input[_builtins.str] degradation_title: The title used for a degradation created from this template.
         :param pulumi.Input[_builtins.str] name: The name of the degradation template.
         :param pulumi.Input[_builtins.str] page_id: The ID of the status page this degradation template belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict']]]] updates: The pre-filled updates for a degradation created from this template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict', 'outputs.StatusPageDegradationTemplateUpdate']]]] updates: The pre-filled updates for a degradation created from this template.
         """
         ...
     @overload
@@ -365,11 +365,11 @@ class StatusPageDegradationTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components_affecteds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict']]]]] = None,
+                 components_affecteds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict', 'outputs.StatusPageDegradationTemplateComponentsAffected']]]]] = None,
                  degradation_title: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  page_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict']]]]] = None,
+                 updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict', 'outputs.StatusPageDegradationTemplateUpdate']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -400,13 +400,13 @@ class StatusPageDegradationTemplate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            components_affecteds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict']]]]] = None,
+            components_affecteds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict', 'outputs.StatusPageDegradationTemplateComponentsAffected']]]]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             degradation_title: pulumi.Input[Optional[_builtins.str]] = None,
             modified_at: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             page_id: pulumi.Input[Optional[_builtins.str]] = None,
-            updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict']]]]] = None) -> 'StatusPageDegradationTemplate':
+            updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict', 'outputs.StatusPageDegradationTemplateUpdate']]]]] = None) -> 'StatusPageDegradationTemplate':
         """
         Get an existing StatusPageDegradationTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -414,13 +414,13 @@ class StatusPageDegradationTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict']]]] components_affecteds: The components affected by a degradation created from this template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict', 'outputs.StatusPageDegradationTemplateComponentsAffected']]]] components_affecteds: The components affected by a degradation created from this template.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the degradation template was created.
         :param pulumi.Input[_builtins.str] degradation_title: The title used for a degradation created from this template.
         :param pulumi.Input[_builtins.str] modified_at: Timestamp when the degradation template was last modified.
         :param pulumi.Input[_builtins.str] name: The name of the degradation template.
         :param pulumi.Input[_builtins.str] page_id: The ID of the status page this degradation template belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict']]]] updates: The pre-filled updates for a degradation created from this template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict', 'outputs.StatusPageDegradationTemplateUpdate']]]] updates: The pre-filled updates for a degradation created from this template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

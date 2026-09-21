@@ -280,11 +280,11 @@ class ActionExecutionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_pattern: pulumi.Input[Optional[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict']]] = None,
+                 action_pattern: pulumi.Input[Optional[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict', 'outputs.ActionExecutionPolicyActionPattern']]] = None,
                  effect: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict']]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict', 'outputs.ActionExecutionPolicyScope']]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run against your infrastructure, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts or remote shell paths, and optionally scoped to agents matching a set of Fleet Automation tags.
@@ -390,11 +390,11 @@ class ActionExecutionPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict']] action_pattern: The set of actions this policy applies to. Required.
+        :param pulumi.Input[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict', 'outputs.ActionExecutionPolicyActionPattern']] action_pattern: The set of actions this policy applies to. Required.
         :param pulumi.Input[_builtins.str] effect: Whether the policy allows or denies the matched actions. Valid values are `allow`, `deny`.
         :param pulumi.Input[_builtins.str] name: The name of the execution policy.
-        :param pulumi.Input[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict']] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict']]]] targets: A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+        :param pulumi.Input[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict', 'outputs.ActionExecutionPolicyScope']] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]] targets: A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
         """
         ...
     @overload
@@ -519,11 +519,11 @@ class ActionExecutionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_pattern: pulumi.Input[Optional[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict']]] = None,
+                 action_pattern: pulumi.Input[Optional[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict', 'outputs.ActionExecutionPolicyActionPattern']]] = None,
                  effect: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict']]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict', 'outputs.ActionExecutionPolicyScope']]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -557,13 +557,13 @@ class ActionExecutionPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_pattern: pulumi.Input[Optional[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict']]] = None,
+            action_pattern: pulumi.Input[Optional[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict', 'outputs.ActionExecutionPolicyActionPattern']]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
             effect: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            scope: pulumi.Input[Optional[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict']]] = None,
-            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict']]]]] = None,
+            scope: pulumi.Input[Optional[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict', 'outputs.ActionExecutionPolicyScope']]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None,
             updated_by: pulumi.Input[Optional[_builtins.str]] = None,
             version: pulumi.Input[Optional[_builtins.int]] = None) -> 'ActionExecutionPolicy':
@@ -574,13 +574,13 @@ class ActionExecutionPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict']] action_pattern: The set of actions this policy applies to. Required.
+        :param pulumi.Input[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict', 'outputs.ActionExecutionPolicyActionPattern']] action_pattern: The set of actions this policy applies to. Required.
         :param pulumi.Input[_builtins.str] created_at: The date and time the execution policy was created, as an RFC3339 timestamp.
         :param pulumi.Input[_builtins.str] created_by: The ID of the user who created the execution policy.
         :param pulumi.Input[_builtins.str] effect: Whether the policy allows or denies the matched actions. Valid values are `allow`, `deny`.
         :param pulumi.Input[_builtins.str] name: The name of the execution policy.
-        :param pulumi.Input[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict']] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict']]]] targets: A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+        :param pulumi.Input[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict', 'outputs.ActionExecutionPolicyScope']] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]] targets: A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
         :param pulumi.Input[_builtins.str] updated_at: The date and time the execution policy was last updated, as an RFC3339 timestamp.
         :param pulumi.Input[_builtins.str] updated_by: The ID of the user who last updated the execution policy.
         :param pulumi.Input[_builtins.int] version: The version of the execution policy. Incremented by Datadog on every update.

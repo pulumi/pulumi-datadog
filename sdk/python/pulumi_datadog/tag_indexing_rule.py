@@ -316,7 +316,7 @@ class TagIndexingRule(pulumi.CustomResource):
                  ignored_metric_name_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict', 'outputs.TagIndexingRuleOptions']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -382,7 +382,7 @@ class TagIndexingRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignored_metric_name_matches: Metric name prefixes excluded from the rule's scope.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_name_matches: Metric name prefixes (glob patterns) this rule applies to.
         :param pulumi.Input[_builtins.str] name: Human-readable name for the rule.
-        :param pulumi.Input[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict']] options: Versioned configuration options for the rule.
+        :param pulumi.Input[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict', 'outputs.TagIndexingRuleOptions']] options: Versioned configuration options for the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tag keys this rule includes or excludes, depending on exclude*tags*mode.
         """
         ...
@@ -467,7 +467,7 @@ class TagIndexingRule(pulumi.CustomResource):
                  ignored_metric_name_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  metric_name_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict', 'outputs.TagIndexingRuleOptions']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -511,7 +511,7 @@ class TagIndexingRule(pulumi.CustomResource):
             modified_at: pulumi.Input[Optional[_builtins.str]] = None,
             modified_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            options: pulumi.Input[Optional[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict']]] = None,
+            options: pulumi.Input[Optional[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict', 'outputs.TagIndexingRuleOptions']]] = None,
             rule_order: pulumi.Input[Optional[_builtins.int]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'TagIndexingRule':
         """
@@ -529,7 +529,7 @@ class TagIndexingRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] modified_at: Timestamp when the rule was last modified.
         :param pulumi.Input[_builtins.str] modified_by_handle: Handle of the user who last modified the rule.
         :param pulumi.Input[_builtins.str] name: Human-readable name for the rule.
-        :param pulumi.Input[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict']] options: Versioned configuration options for the rule.
+        :param pulumi.Input[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict', 'outputs.TagIndexingRuleOptions']] options: Versioned configuration options for the rule.
         :param pulumi.Input[_builtins.int] rule_order: Evaluation order within the org. Lower values are evaluated first. Server-assigned on create; use `TagIndexingRuleOrder` to control ordering.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tag keys this rule includes or excludes, depending on exclude*tags*mode.
         """

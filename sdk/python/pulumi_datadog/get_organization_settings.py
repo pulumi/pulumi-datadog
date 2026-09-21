@@ -99,13 +99,13 @@ class AwaitableGetOrganizationSettingsResult(GetOrganizationSettingsResult):
             settings=self.settings)
 
 
-def get_organization_settings(settings: Optional[Sequence[Union['GetOrganizationSettingsSettingArgs', 'GetOrganizationSettingsSettingArgsDict']]] = None,
+def get_organization_settings(settings: Optional[Sequence[Union['GetOrganizationSettingsSettingArgs', 'GetOrganizationSettingsSettingArgsDict', 'outputs.GetOrganizationSettingsSettingResult']]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationSettingsResult:
     """
     Use this data source to retrieve information about your Datadog organization.
 
 
-    :param Sequence[Union['GetOrganizationSettingsSettingArgs', 'GetOrganizationSettingsSettingArgsDict']] settings: Organization settings.
+    :param Sequence[Union['GetOrganizationSettingsSettingArgs', 'GetOrganizationSettingsSettingArgsDict', 'outputs.GetOrganizationSettingsSettingResult']] settings: Organization settings.
     """
     __args__ = dict()
     __args__['settings'] = settings
@@ -118,13 +118,13 @@ def get_organization_settings(settings: Optional[Sequence[Union['GetOrganization
         name=pulumi.get(__ret__, 'name'),
         public_id=pulumi.get(__ret__, 'public_id'),
         settings=pulumi.get(__ret__, 'settings'))
-def get_organization_settings_output(settings: pulumi.Input[Optional[Optional[Sequence[Union['GetOrganizationSettingsSettingArgs', 'GetOrganizationSettingsSettingArgsDict']]]]] = None,
+def get_organization_settings_output(settings: pulumi.Input[Optional[Optional[Sequence[Union['GetOrganizationSettingsSettingArgs', 'GetOrganizationSettingsSettingArgsDict', 'outputs.GetOrganizationSettingsSettingResult']]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationSettingsResult]:
     """
     Use this data source to retrieve information about your Datadog organization.
 
 
-    :param Sequence[Union['GetOrganizationSettingsSettingArgs', 'GetOrganizationSettingsSettingArgsDict']] settings: Organization settings.
+    :param Sequence[Union['GetOrganizationSettingsSettingArgs', 'GetOrganizationSettingsSettingArgsDict', 'outputs.GetOrganizationSettingsSettingResult']] settings: Organization settings.
     """
     __args__ = dict()
     __args__['settings'] = settings

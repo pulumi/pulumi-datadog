@@ -230,7 +230,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filter: pulumi.Input[Optional[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict', 'outputs.ApmRetentionFilterFilter']]] = None,
                  filter_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rate: pulumi.Input[Optional[_builtins.str]] = None,
@@ -270,7 +270,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: the status of the retention filter.
-        :param pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']] filter: The spans filter. Spans matching this filter will be indexed and stored.
+        :param pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict', 'outputs.ApmRetentionFilterFilter']] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[_builtins.str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[_builtins.str] name: The name of the retention filter.
         :param pulumi.Input[_builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.
@@ -329,7 +329,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filter: pulumi.Input[Optional[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict', 'outputs.ApmRetentionFilterFilter']]] = None,
                  filter_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rate: pulumi.Input[Optional[_builtins.str]] = None,
@@ -370,7 +370,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            filter: pulumi.Input[Optional[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']]] = None,
+            filter: pulumi.Input[Optional[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict', 'outputs.ApmRetentionFilterFilter']]] = None,
             filter_type: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             rate: pulumi.Input[Optional[_builtins.str]] = None,
@@ -383,7 +383,7 @@ class ApmRetentionFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: the status of the retention filter.
-        :param pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict']] filter: The spans filter. Spans matching this filter will be indexed and stored.
+        :param pulumi.Input[Union['ApmRetentionFilterFilterArgs', 'ApmRetentionFilterFilterArgsDict', 'outputs.ApmRetentionFilterFilter']] filter: The spans filter. Spans matching this filter will be indexed and stored.
         :param pulumi.Input[_builtins.str] filter_type: The type of the retention filter, currently only spans-processing-sampling is available. Valid values are `spans-sampling-processor`.
         :param pulumi.Input[_builtins.str] name: The name of the retention filter.
         :param pulumi.Input[_builtins.str] rate: Sample rate to apply to spans going through this retention filter as a string; a value of 1.0 keeps all spans matching the query. Value must be between 0.00 and 1.00.

@@ -136,16 +136,16 @@ class AwaitableGetCostBudgetResult(GetCostBudgetResult):
             total_amount=self.total_amount)
 
 
-def get_cost_budget(budget_lines: Optional[Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict']]] = None,
-                    entries: Optional[Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']]] = None,
+def get_cost_budget(budget_lines: Optional[Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict', 'outputs.GetCostBudgetBudgetLineResult']]] = None,
+                    entries: Optional[Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict', 'outputs.GetCostBudgetEntryResult']]] = None,
                     id: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCostBudgetResult:
     """
     Use this data source to retrieve information about an existing Datadog cost budget.
 
 
-    :param Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict']] budget_lines: Budget entries grouped by tag combination with amounts map (month > amount).
-    :param Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']] entries: The flat list of budget entries (deprecated - use budget_line instead).
+    :param Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict', 'outputs.GetCostBudgetBudgetLineResult']] budget_lines: Budget entries grouped by tag combination with amounts map (month > amount).
+    :param Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict', 'outputs.GetCostBudgetEntryResult']] entries: The flat list of budget entries (deprecated - use budget_line instead).
     :param _builtins.str id: The ID of the budget.
     """
     __args__ = dict()
@@ -164,16 +164,16 @@ def get_cost_budget(budget_lines: Optional[Sequence[Union['GetCostBudgetBudgetLi
         name=pulumi.get(__ret__, 'name'),
         start_month=pulumi.get(__ret__, 'start_month'),
         total_amount=pulumi.get(__ret__, 'total_amount'))
-def get_cost_budget_output(budget_lines: pulumi.Input[Optional[Optional[Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict']]]]] = None,
-                           entries: pulumi.Input[Optional[Optional[Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']]]]] = None,
+def get_cost_budget_output(budget_lines: pulumi.Input[Optional[Optional[Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict', 'outputs.GetCostBudgetBudgetLineResult']]]]] = None,
+                           entries: pulumi.Input[Optional[Optional[Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict', 'outputs.GetCostBudgetEntryResult']]]]] = None,
                            id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostBudgetResult]:
     """
     Use this data source to retrieve information about an existing Datadog cost budget.
 
 
-    :param Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict']] budget_lines: Budget entries grouped by tag combination with amounts map (month > amount).
-    :param Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict']] entries: The flat list of budget entries (deprecated - use budget_line instead).
+    :param Sequence[Union['GetCostBudgetBudgetLineArgs', 'GetCostBudgetBudgetLineArgsDict', 'outputs.GetCostBudgetBudgetLineResult']] budget_lines: Budget entries grouped by tag combination with amounts map (month > amount).
+    :param Sequence[Union['GetCostBudgetEntryArgs', 'GetCostBudgetEntryArgsDict', 'outputs.GetCostBudgetEntryResult']] entries: The flat list of budget entries (deprecated - use budget_line instead).
     :param _builtins.str id: The ID of the budget.
     """
     __args__ = dict()

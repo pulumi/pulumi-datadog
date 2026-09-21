@@ -235,7 +235,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata: pulumi.Input[Optional[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict', 'outputs.SyntheticsPrivateLocationMetadata']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -272,7 +272,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: API key used to generate the private location configuration.
         :param pulumi.Input[_builtins.str] description: Description of the private location. Defaults to `""`.
-        :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']] metadata: The private location metadata
+        :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict', 'outputs.SyntheticsPrivateLocationMetadata']] metadata: The private location metadata
         :param pulumi.Input[_builtins.str] name: Synthetics private location name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics private location.
         """
@@ -328,7 +328,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata: pulumi.Input[Optional[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']]] = None,
+                 metadata: pulumi.Input[Optional[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict', 'outputs.SyntheticsPrivateLocationMetadata']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -364,7 +364,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
             api_key: pulumi.Input[Optional[_builtins.str]] = None,
             config: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            metadata: pulumi.Input[Optional[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']]] = None,
+            metadata: pulumi.Input[Optional[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict', 'outputs.SyntheticsPrivateLocationMetadata']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             restriction_policy_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'SyntheticsPrivateLocation':
@@ -378,7 +378,7 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_key: API key used to generate the private location configuration.
         :param pulumi.Input[_builtins.str] config: Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
         :param pulumi.Input[_builtins.str] description: Description of the private location. Defaults to `""`.
-        :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict']] metadata: The private location metadata
+        :param pulumi.Input[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict', 'outputs.SyntheticsPrivateLocationMetadata']] metadata: The private location metadata
         :param pulumi.Input[_builtins.str] name: Synthetics private location name.
         :param pulumi.Input[_builtins.str] restriction_policy_resource_id: Resource ID to use when setting restrictions with a `RestrictionPolicy` resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics private location.

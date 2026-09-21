@@ -76,7 +76,7 @@ class AwaitableGetReferenceTableRowsResult(GetReferenceTableRowsResult):
 
 
 def get_reference_table_rows(row_ids: Optional[Sequence[_builtins.str]] = None,
-                             rows: Optional[Sequence[Union['GetReferenceTableRowsRowArgs', 'GetReferenceTableRowsRowArgsDict']]] = None,
+                             rows: Optional[Sequence[Union['GetReferenceTableRowsRowArgs', 'GetReferenceTableRowsRowArgsDict', 'outputs.GetReferenceTableRowsRowResult']]] = None,
                              table_id: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReferenceTableRowsResult:
     """
@@ -84,7 +84,7 @@ def get_reference_table_rows(row_ids: Optional[Sequence[_builtins.str]] = None,
 
 
     :param Sequence[_builtins.str] row_ids: List of primary key values (row IDs) to retrieve. These are the values of the table's primary key field(s). Maximum 250 IDs per request.
-    :param Sequence[Union['GetReferenceTableRowsRowArgs', 'GetReferenceTableRowsRowArgsDict']] rows: List of retrieved rows. Each row contains its ID and field values.
+    :param Sequence[Union['GetReferenceTableRowsRowArgs', 'GetReferenceTableRowsRowArgsDict', 'outputs.GetReferenceTableRowsRowResult']] rows: List of retrieved rows. Each row contains its ID and field values.
     :param _builtins.str table_id: The UUID of the reference table to query rows from.
     """
     __args__ = dict()
@@ -99,7 +99,7 @@ def get_reference_table_rows(row_ids: Optional[Sequence[_builtins.str]] = None,
         rows=pulumi.get(__ret__, 'rows'),
         table_id=pulumi.get(__ret__, 'table_id'))
 def get_reference_table_rows_output(row_ids: pulumi.Input[Optional[Sequence[_builtins.str]]] = None,
-                                    rows: pulumi.Input[Optional[Optional[Sequence[Union['GetReferenceTableRowsRowArgs', 'GetReferenceTableRowsRowArgsDict']]]]] = None,
+                                    rows: pulumi.Input[Optional[Optional[Sequence[Union['GetReferenceTableRowsRowArgs', 'GetReferenceTableRowsRowArgsDict', 'outputs.GetReferenceTableRowsRowResult']]]]] = None,
                                     table_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReferenceTableRowsResult]:
     """
@@ -107,7 +107,7 @@ def get_reference_table_rows_output(row_ids: pulumi.Input[Optional[Sequence[_bui
 
 
     :param Sequence[_builtins.str] row_ids: List of primary key values (row IDs) to retrieve. These are the values of the table's primary key field(s). Maximum 250 IDs per request.
-    :param Sequence[Union['GetReferenceTableRowsRowArgs', 'GetReferenceTableRowsRowArgsDict']] rows: List of retrieved rows. Each row contains its ID and field values.
+    :param Sequence[Union['GetReferenceTableRowsRowArgs', 'GetReferenceTableRowsRowArgsDict', 'outputs.GetReferenceTableRowsRowResult']] rows: List of retrieved rows. Each row contains its ID and field values.
     :param _builtins.str table_id: The UUID of the reference table to query rows from.
     """
     __args__ = dict()

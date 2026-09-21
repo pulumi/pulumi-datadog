@@ -167,7 +167,7 @@ class OnCallSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]]] = None,
+                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict', 'outputs.OnCallScheduleLayer']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -229,7 +229,7 @@ class OnCallSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]] layers: List of layers for the schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict', 'outputs.OnCallScheduleLayer']]]] layers: List of layers for the schedule.
         :param pulumi.Input[_builtins.str] name: A human-readable name for the new schedule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: A list of team ids associated with the schedule.
         :param pulumi.Input[_builtins.str] time_zone: The time zone in which the schedule is defined.
@@ -310,7 +310,7 @@ class OnCallSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]]] = None,
+                 layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict', 'outputs.OnCallScheduleLayer']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -343,7 +343,7 @@ class OnCallSchedule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]]] = None,
+            layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict', 'outputs.OnCallScheduleLayer']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'OnCallSchedule':
@@ -354,7 +354,7 @@ class OnCallSchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict']]]] layers: List of layers for the schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict', 'outputs.OnCallScheduleLayer']]]] layers: List of layers for the schedule.
         :param pulumi.Input[_builtins.str] name: A human-readable name for the new schedule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: A list of team ids associated with the schedule.
         :param pulumi.Input[_builtins.str] time_zone: The time zone in which the schedule is defined.

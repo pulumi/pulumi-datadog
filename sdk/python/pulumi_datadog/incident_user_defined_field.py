@@ -448,7 +448,7 @@ class IncidentUserDefinedField(pulumi.CustomResource):
                  required: pulumi.Input[Optional[_builtins.bool]] = None,
                  tag_key: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 valid_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict']]]]] = None,
+                 valid_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict', 'outputs.IncidentUserDefinedFieldValidValue']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog incident user-defined field resource. This can be used to create and manage custom fields on Datadog incidents. **Note**: This resource targets an endpoint that is in preview and is subject to change.
@@ -503,7 +503,7 @@ class IncidentUserDefinedField(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] required: When true, users must fill out this field on incidents. Defaults to `false`.
         :param pulumi.Input[_builtins.str] tag_key: For metric tag-type fields only, the metric tag key that powers the autocomplete options. Changing the tag key forces a new resource.
         :param pulumi.Input[_builtins.str] type: The data type of the field. Changing the type forces a new resource. Valid values are `dropdown`, `multiselect`, `textbox`, `textarray`, `metrictag`, `autocomplete`, `number`, `datetime`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict']]]] valid_values: A set of allowed values for dropdown, multiselect, and autocomplete fields; specify one block per value. Limited to 1000 values. The API does not preserve ordering, so this is modeled as an unordered set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict', 'outputs.IncidentUserDefinedFieldValidValue']]]] valid_values: A set of allowed values for dropdown, multiselect, and autocomplete fields; specify one block per value. Limited to 1000 values. The API does not preserve ordering, so this is modeled as an unordered set.
         """
         ...
     @overload
@@ -577,7 +577,7 @@ class IncidentUserDefinedField(pulumi.CustomResource):
                  required: pulumi.Input[Optional[_builtins.bool]] = None,
                  tag_key: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 valid_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict']]]]] = None,
+                 valid_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict', 'outputs.IncidentUserDefinedFieldValidValue']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -624,7 +624,7 @@ class IncidentUserDefinedField(pulumi.CustomResource):
             deleted: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             incident_type: pulumi.Input[Optional[_builtins.str]] = None,
-            metadata: pulumi.Input[Optional[Union['IncidentUserDefinedFieldMetadataArgs', 'IncidentUserDefinedFieldMetadataArgsDict']]] = None,
+            metadata: pulumi.Input[Optional[Union['IncidentUserDefinedFieldMetadataArgs', 'IncidentUserDefinedFieldMetadataArgsDict', 'outputs.IncidentUserDefinedFieldMetadata']]] = None,
             modified: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             ordinal: pulumi.Input[Optional[_builtins.str]] = None,
@@ -632,7 +632,7 @@ class IncidentUserDefinedField(pulumi.CustomResource):
             reserved: pulumi.Input[Optional[_builtins.bool]] = None,
             tag_key: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
-            valid_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict']]]]] = None) -> 'IncidentUserDefinedField':
+            valid_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict', 'outputs.IncidentUserDefinedFieldValidValue']]]]] = None) -> 'IncidentUserDefinedField':
         """
         Get an existing IncidentUserDefinedField resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -646,7 +646,7 @@ class IncidentUserDefinedField(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] deleted: Timestamp when the field was soft-deleted, or null if not deleted.
         :param pulumi.Input[_builtins.str] display_name: The human-readable name shown in the UI. Defaults to a formatted version of the name if not provided.
         :param pulumi.Input[_builtins.str] incident_type: The ID of the incident type this field is associated with. Changing the incident type forces a new resource.
-        :param pulumi.Input[Union['IncidentUserDefinedFieldMetadataArgs', 'IncidentUserDefinedFieldMetadataArgsDict']] metadata: Metadata for autocomplete-type fields, describing how to populate autocomplete options. Populated by the server for supported fields.
+        :param pulumi.Input[Union['IncidentUserDefinedFieldMetadataArgs', 'IncidentUserDefinedFieldMetadataArgsDict', 'outputs.IncidentUserDefinedFieldMetadata']] metadata: Metadata for autocomplete-type fields, describing how to populate autocomplete options. Populated by the server for supported fields.
         :param pulumi.Input[_builtins.str] modified: Timestamp when the field was last modified.
         :param pulumi.Input[_builtins.str] name: The unique identifier of the field. Must start with a letter or digit and contain only letters, digits, underscores, or periods. Changing the name forces a new resource.
         :param pulumi.Input[_builtins.str] ordinal: A decimal string representing the field's display order in the UI. Assigned by the server when not provided.
@@ -654,7 +654,7 @@ class IncidentUserDefinedField(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] reserved: When true, this field is reserved for system use and cannot be deleted.
         :param pulumi.Input[_builtins.str] tag_key: For metric tag-type fields only, the metric tag key that powers the autocomplete options. Changing the tag key forces a new resource.
         :param pulumi.Input[_builtins.str] type: The data type of the field. Changing the type forces a new resource. Valid values are `dropdown`, `multiselect`, `textbox`, `textarray`, `metrictag`, `autocomplete`, `number`, `datetime`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict']]]] valid_values: A set of allowed values for dropdown, multiselect, and autocomplete fields; specify one block per value. Limited to 1000 values. The API does not preserve ordering, so this is modeled as an unordered set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict', 'outputs.IncidentUserDefinedFieldValidValue']]]] valid_values: A set of allowed values for dropdown, multiselect, and autocomplete fields; specify one block per value. Limited to 1000 values. The API does not preserve ordering, so this is modeled as an unordered set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

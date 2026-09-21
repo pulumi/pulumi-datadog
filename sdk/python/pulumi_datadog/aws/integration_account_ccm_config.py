@@ -98,7 +98,7 @@ class IntegrationAccountCcmConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_config_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 ccm_config: pulumi.Input[Optional[Union['IntegrationAccountCcmConfigCcmConfigArgs', 'IntegrationAccountCcmConfigCcmConfigArgsDict']]] = None,
+                 ccm_config: pulumi.Input[Optional[Union['IntegrationAccountCcmConfigCcmConfigArgs', 'IntegrationAccountCcmConfigCcmConfigArgsDict', 'outputs.IntegrationAccountCcmConfigCcmConfig']]] = None,
                  __props__=None):
         """
         Provides a Datadog IntegrationAwsAccountCcmConfig resource. This can be used to create and manage Cloud Cost Management configuration for an AWS Account Integration.
@@ -190,7 +190,7 @@ class IntegrationAccountCcmConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_config_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 ccm_config: pulumi.Input[Optional[Union['IntegrationAccountCcmConfigCcmConfigArgs', 'IntegrationAccountCcmConfigCcmConfigArgsDict']]] = None,
+                 ccm_config: pulumi.Input[Optional[Union['IntegrationAccountCcmConfigCcmConfigArgs', 'IntegrationAccountCcmConfigCcmConfigArgsDict', 'outputs.IntegrationAccountCcmConfigCcmConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -215,7 +215,7 @@ class IntegrationAccountCcmConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             aws_account_config_id: pulumi.Input[Optional[_builtins.str]] = None,
-            ccm_config: pulumi.Input[Optional[Union['IntegrationAccountCcmConfigCcmConfigArgs', 'IntegrationAccountCcmConfigCcmConfigArgsDict']]] = None) -> 'IntegrationAccountCcmConfig':
+            ccm_config: pulumi.Input[Optional[Union['IntegrationAccountCcmConfigCcmConfigArgs', 'IntegrationAccountCcmConfigCcmConfigArgsDict', 'outputs.IntegrationAccountCcmConfigCcmConfig']]] = None) -> 'IntegrationAccountCcmConfig':
         """
         Get an existing IntegrationAccountCcmConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

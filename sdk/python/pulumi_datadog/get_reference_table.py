@@ -183,18 +183,18 @@ class AwaitableGetReferenceTableResult(GetReferenceTableResult):
             updated_at=self.updated_at)
 
 
-def get_reference_table(file_metadata: Optional[Union['GetReferenceTableFileMetadataArgs', 'GetReferenceTableFileMetadataArgsDict']] = None,
+def get_reference_table(file_metadata: Optional[Union['GetReferenceTableFileMetadataArgs', 'GetReferenceTableFileMetadataArgsDict', 'outputs.GetReferenceTableFileMetadataResult']] = None,
                         id: Optional[_builtins.str] = None,
-                        schema: Optional[Union['GetReferenceTableSchemaArgs', 'GetReferenceTableSchemaArgsDict']] = None,
+                        schema: Optional[Union['GetReferenceTableSchemaArgs', 'GetReferenceTableSchemaArgsDict', 'outputs.GetReferenceTableSchemaResult']] = None,
                         table_name: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReferenceTableResult:
     """
     Use this data source to retrieve information about an existing Datadog reference table. Query by either table_name or id (mutually exclusive). Supports all source types including cloud storage (S3, GCS, Azure) and external integrations (ServiceNow, Salesforce, Databricks, Snowflake, LOCAL_FILE).
 
 
-    :param Union['GetReferenceTableFileMetadataArgs', 'GetReferenceTableFileMetadataArgsDict'] file_metadata: File metadata for the reference table. Contains sync settings for cloud storage sources.
+    :param Union['GetReferenceTableFileMetadataArgs', 'GetReferenceTableFileMetadataArgsDict', 'outputs.GetReferenceTableFileMetadataResult'] file_metadata: File metadata for the reference table. Contains sync settings for cloud storage sources.
     :param _builtins.str id: The UUID of the reference table. Either id or table_name must be specified, but not both.
-    :param Union['GetReferenceTableSchemaArgs', 'GetReferenceTableSchemaArgsDict'] schema: The schema definition for the reference table.
+    :param Union['GetReferenceTableSchemaArgs', 'GetReferenceTableSchemaArgsDict', 'outputs.GetReferenceTableSchemaResult'] schema: The schema definition for the reference table.
     :param _builtins.str table_name: The name of the reference table. Either id or table_name must be specified, but not both.
     """
     __args__ = dict()
@@ -218,18 +218,18 @@ def get_reference_table(file_metadata: Optional[Union['GetReferenceTableFileMeta
         table_name=pulumi.get(__ret__, 'table_name'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_reference_table_output(file_metadata: pulumi.Input[Optional[Optional[Union['GetReferenceTableFileMetadataArgs', 'GetReferenceTableFileMetadataArgsDict']]]] = None,
+def get_reference_table_output(file_metadata: pulumi.Input[Optional[Optional[Union['GetReferenceTableFileMetadataArgs', 'GetReferenceTableFileMetadataArgsDict', 'outputs.GetReferenceTableFileMetadataResult']]]] = None,
                                id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                               schema: pulumi.Input[Optional[Optional[Union['GetReferenceTableSchemaArgs', 'GetReferenceTableSchemaArgsDict']]]] = None,
+                               schema: pulumi.Input[Optional[Optional[Union['GetReferenceTableSchemaArgs', 'GetReferenceTableSchemaArgsDict', 'outputs.GetReferenceTableSchemaResult']]]] = None,
                                table_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReferenceTableResult]:
     """
     Use this data source to retrieve information about an existing Datadog reference table. Query by either table_name or id (mutually exclusive). Supports all source types including cloud storage (S3, GCS, Azure) and external integrations (ServiceNow, Salesforce, Databricks, Snowflake, LOCAL_FILE).
 
 
-    :param Union['GetReferenceTableFileMetadataArgs', 'GetReferenceTableFileMetadataArgsDict'] file_metadata: File metadata for the reference table. Contains sync settings for cloud storage sources.
+    :param Union['GetReferenceTableFileMetadataArgs', 'GetReferenceTableFileMetadataArgsDict', 'outputs.GetReferenceTableFileMetadataResult'] file_metadata: File metadata for the reference table. Contains sync settings for cloud storage sources.
     :param _builtins.str id: The UUID of the reference table. Either id or table_name must be specified, but not both.
-    :param Union['GetReferenceTableSchemaArgs', 'GetReferenceTableSchemaArgsDict'] schema: The schema definition for the reference table.
+    :param Union['GetReferenceTableSchemaArgs', 'GetReferenceTableSchemaArgsDict', 'outputs.GetReferenceTableSchemaResult'] schema: The schema definition for the reference table.
     :param _builtins.str table_name: The name of the reference table. Either id or table_name must be specified, but not both.
     """
     __args__ = dict()

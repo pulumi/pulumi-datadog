@@ -312,9 +312,9 @@ class IncidentPostmortemTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 confluence_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict']]] = None,
+                 confluence_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateConfluencePostmortemSettings']]] = None,
                  content: pulumi.Input[Optional[_builtins.str]] = None,
-                 google_docs_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict']]] = None,
+                 google_docs_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateGoogleDocsPostmortemSettings']]] = None,
                  incident_type: pulumi.Input[Optional[_builtins.str]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -326,9 +326,9 @@ class IncidentPostmortemTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict']] confluence_postmortem_settings: Settings for a postmortem template stored in Confluence. Required when location is confluence.
+        :param pulumi.Input[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateConfluencePostmortemSettings']] confluence_postmortem_settings: Settings for a postmortem template stored in Confluence. Required when location is confluence.
         :param pulumi.Input[_builtins.str] content: The templated content of the postmortem, supporting Markdown and incident template variables.
-        :param pulumi.Input[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict']] google_docs_postmortem_settings: Settings for a postmortem template stored in Google Docs. Required when location is google*docs.
+        :param pulumi.Input[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateGoogleDocsPostmortemSettings']] google_docs_postmortem_settings: Settings for a postmortem template stored in Google Docs. Required when location is google*docs.
         :param pulumi.Input[_builtins.str] incident_type: The ID of the incident type this template is associated with. Immutable after creation.
         :param pulumi.Input[_builtins.bool] is_default: Whether this template is a default for its incident type. The API stores a timestamp; the effective default for an incident type is the template with the most recent default timestamp.
         :param pulumi.Input[_builtins.str] location: The location where the postmortem is created and stored. Valid values are: datadog*notebooks, confluence, google*docs. Defaults to datadog_notebooks.
@@ -359,9 +359,9 @@ class IncidentPostmortemTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 confluence_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict']]] = None,
+                 confluence_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateConfluencePostmortemSettings']]] = None,
                  content: pulumi.Input[Optional[_builtins.str]] = None,
-                 google_docs_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict']]] = None,
+                 google_docs_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateGoogleDocsPostmortemSettings']]] = None,
                  incident_type: pulumi.Input[Optional[_builtins.str]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -399,10 +399,10 @@ class IncidentPostmortemTemplate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            confluence_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict']]] = None,
+            confluence_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateConfluencePostmortemSettings']]] = None,
             content: pulumi.Input[Optional[_builtins.str]] = None,
             created: pulumi.Input[Optional[_builtins.str]] = None,
-            google_docs_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict']]] = None,
+            google_docs_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateGoogleDocsPostmortemSettings']]] = None,
             incident_type: pulumi.Input[Optional[_builtins.str]] = None,
             is_default: pulumi.Input[Optional[_builtins.bool]] = None,
             last_modified_by_user: pulumi.Input[Optional[_builtins.str]] = None,
@@ -416,10 +416,10 @@ class IncidentPostmortemTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict']] confluence_postmortem_settings: Settings for a postmortem template stored in Confluence. Required when location is confluence.
+        :param pulumi.Input[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateConfluencePostmortemSettings']] confluence_postmortem_settings: Settings for a postmortem template stored in Confluence. Required when location is confluence.
         :param pulumi.Input[_builtins.str] content: The templated content of the postmortem, supporting Markdown and incident template variables.
         :param pulumi.Input[_builtins.str] created: Timestamp when the template was created.
-        :param pulumi.Input[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict']] google_docs_postmortem_settings: Settings for a postmortem template stored in Google Docs. Required when location is google*docs.
+        :param pulumi.Input[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateGoogleDocsPostmortemSettings']] google_docs_postmortem_settings: Settings for a postmortem template stored in Google Docs. Required when location is google*docs.
         :param pulumi.Input[_builtins.str] incident_type: The ID of the incident type this template is associated with. Immutable after creation.
         :param pulumi.Input[_builtins.bool] is_default: Whether this template is a default for its incident type. The API stores a timestamp; the effective default for an incident type is the template with the most recent default timestamp.
         :param pulumi.Input[_builtins.str] last_modified_by_user: The ID of the user who last modified the template.

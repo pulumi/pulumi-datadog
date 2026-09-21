@@ -121,8 +121,8 @@ class OnCallUserNotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email: pulumi.Input[Optional[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict']]] = None,
-                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict']]] = None,
+                 email: pulumi.Input[Optional[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict', 'outputs.OnCallUserNotificationChannelEmail']]] = None,
+                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict', 'outputs.OnCallUserNotificationChannelPhone']]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -158,8 +158,8 @@ class OnCallUserNotificationChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email: pulumi.Input[Optional[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict']]] = None,
-                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict']]] = None,
+                 email: pulumi.Input[Optional[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict', 'outputs.OnCallUserNotificationChannelEmail']]] = None,
+                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict', 'outputs.OnCallUserNotificationChannelPhone']]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -185,8 +185,8 @@ class OnCallUserNotificationChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            email: pulumi.Input[Optional[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict']]] = None,
-            phone: pulumi.Input[Optional[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict']]] = None,
+            email: pulumi.Input[Optional[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict', 'outputs.OnCallUserNotificationChannelEmail']]] = None,
+            phone: pulumi.Input[Optional[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict', 'outputs.OnCallUserNotificationChannelPhone']]] = None,
             user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'OnCallUserNotificationChannel':
         """
         Get an existing OnCallUserNotificationChannel resource's state with the given name, id, and optional extra

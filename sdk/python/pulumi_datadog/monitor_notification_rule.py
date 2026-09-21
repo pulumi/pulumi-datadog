@@ -200,9 +200,9 @@ class MonitorNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bundle_config: pulumi.Input[Optional[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict']]] = None,
-                 conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']]] = None,
-                 filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']]] = None,
+                 bundle_config: pulumi.Input[Optional[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict', 'outputs.MonitorNotificationRuleBundleConfig']]] = None,
+                 conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict', 'outputs.MonitorNotificationRuleConditionalRecipients']]] = None,
+                 filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -258,9 +258,9 @@ class MonitorNotificationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict']] bundle_config: Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
-        :param pulumi.Input[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
-        :param pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']] filter: Specifies the matching criteria for monitor notifications.
+        :param pulumi.Input[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict', 'outputs.MonitorNotificationRuleBundleConfig']] bundle_config: Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+        :param pulumi.Input[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict', 'outputs.MonitorNotificationRuleConditionalRecipients']] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+        :param pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: List of recipients to notify. Cannot be used with `conditional_recipients`.
         """
@@ -335,9 +335,9 @@ class MonitorNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bundle_config: pulumi.Input[Optional[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict']]] = None,
-                 conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']]] = None,
-                 filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']]] = None,
+                 bundle_config: pulumi.Input[Optional[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict', 'outputs.MonitorNotificationRuleBundleConfig']]] = None,
+                 conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict', 'outputs.MonitorNotificationRuleConditionalRecipients']]] = None,
+                 filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -368,9 +368,9 @@ class MonitorNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bundle_config: pulumi.Input[Optional[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict']]] = None,
-            conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']]] = None,
-            filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']]] = None,
+            bundle_config: pulumi.Input[Optional[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict', 'outputs.MonitorNotificationRuleBundleConfig']]] = None,
+            conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict', 'outputs.MonitorNotificationRuleConditionalRecipients']]] = None,
+            filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'MonitorNotificationRule':
         """
@@ -380,9 +380,9 @@ class MonitorNotificationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict']] bundle_config: Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
-        :param pulumi.Input[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict']] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
-        :param pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict']] filter: Specifies the matching criteria for monitor notifications.
+        :param pulumi.Input[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict', 'outputs.MonitorNotificationRuleBundleConfig']] bundle_config: Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
+        :param pulumi.Input[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict', 'outputs.MonitorNotificationRuleConditionalRecipients']] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
+        :param pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: List of recipients to notify. Cannot be used with `conditional_recipients`.
         """

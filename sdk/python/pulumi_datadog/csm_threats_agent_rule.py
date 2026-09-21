@@ -296,7 +296,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict', 'outputs.CsmThreatsAgentRuleAction']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  expression: pulumi.Input[Optional[_builtins.str]] = None,
@@ -351,7 +351,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict']]]] actions: The list of actions the rule can perform
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict', 'outputs.CsmThreatsAgentRuleAction']]]] actions: The list of actions the rule can perform
         :param pulumi.Input[_builtins.str] description: A description for the Agent rule.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the Agent rule is enabled. Must not be used without policy_id.
         :param pulumi.Input[_builtins.str] expression: The SECL expression of the Agent rule
@@ -425,7 +425,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict', 'outputs.CsmThreatsAgentRuleAction']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  expression: pulumi.Input[Optional[_builtins.str]] = None,
@@ -464,7 +464,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict']]]]] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict', 'outputs.CsmThreatsAgentRuleAction']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             expression: pulumi.Input[Optional[_builtins.str]] = None,
@@ -479,7 +479,7 @@ class CsmThreatsAgentRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict']]]] actions: The list of actions the rule can perform
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CsmThreatsAgentRuleActionArgs', 'CsmThreatsAgentRuleActionArgsDict', 'outputs.CsmThreatsAgentRuleAction']]]] actions: The list of actions the rule can perform
         :param pulumi.Input[_builtins.str] description: A description for the Agent rule.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the Agent rule is enabled. Must not be used without policy_id.
         :param pulumi.Input[_builtins.str] expression: The SECL expression of the Agent rule

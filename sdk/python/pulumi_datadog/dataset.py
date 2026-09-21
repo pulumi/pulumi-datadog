@@ -162,7 +162,7 @@ class Dataset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 product_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict']]]]] = None,
+                 product_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict', 'outputs.DatasetProductFilter']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Dataset resource. This can be used to create and manage Datadog datasets, also known as restricted datasets, for Data Access Control.
@@ -248,7 +248,7 @@ class Dataset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 product_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict']]]]] = None,
+                 product_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict', 'outputs.DatasetProductFilter']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -281,7 +281,7 @@ class Dataset(pulumi.CustomResource):
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            product_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict']]]]] = None) -> 'Dataset':
+            product_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict', 'outputs.DatasetProductFilter']]]]] = None) -> 'Dataset':
         """
         Get an existing Dataset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

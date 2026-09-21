@@ -1230,7 +1230,7 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict', 'outputs.MonitorAsset']]]]] = None,
                  draft_status: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_logs_sample: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_samples: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1242,8 +1242,8 @@ class Monitor(pulumi.CustomResource):
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
-                 monitor_thresholds: pulumi.Input[Optional[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
+                 monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict', 'outputs.MonitorMonitorThresholdWindows']]] = None,
+                 monitor_thresholds: pulumi.Input[Optional[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict', 'outputs.MonitorMonitorThresholds']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  new_group_delay: pulumi.Input[Optional[_builtins.int]] = None,
                  new_host_delay: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1260,12 +1260,12 @@ class Monitor(pulumi.CustomResource):
                  renotify_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  require_full_window: pulumi.Input[Optional[_builtins.bool]] = None,
                  restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scheduling_options: pulumi.Input[Optional[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
+                 scheduling_options: pulumi.Input[Optional[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict', 'outputs.MonitorSchedulingOptions']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timeout_h: pulumi.Input[Optional[_builtins.int]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  validate: pulumi.Input[Optional[_builtins.bool]] = None,
-                 variables: pulumi.Input[Optional[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict']]] = None,
+                 variables: pulumi.Input[Optional[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict', 'outputs.MonitorVariables']]] = None,
                  __props__=None):
         """
         Provides a Datadog monitor resource. This can be used to create and manage Datadog monitors.
@@ -1304,7 +1304,7 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]] assets: List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict', 'outputs.MonitorAsset']]]] assets: List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
         :param pulumi.Input[_builtins.str] draft_status: Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
@@ -1318,8 +1318,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
-        :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
-        :param pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']] monitor_thresholds: Alert thresholds of the monitor.
+        :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict', 'outputs.MonitorMonitorThresholdWindows']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+        :param pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict', 'outputs.MonitorMonitorThresholds']] monitor_thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[_builtins.str] name: Name of Datadog monitor.
         :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups.
                
@@ -1342,7 +1342,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-        :param pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']] scheduling_options: Configuration options for scheduling.
+        :param pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict', 'outputs.MonitorSchedulingOptions']] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.
@@ -1404,7 +1404,7 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict', 'outputs.MonitorAsset']]]]] = None,
                  draft_status: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_logs_sample: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_samples: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1416,8 +1416,8 @@ class Monitor(pulumi.CustomResource):
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
-                 monitor_thresholds: pulumi.Input[Optional[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
+                 monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict', 'outputs.MonitorMonitorThresholdWindows']]] = None,
+                 monitor_thresholds: pulumi.Input[Optional[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict', 'outputs.MonitorMonitorThresholds']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  new_group_delay: pulumi.Input[Optional[_builtins.int]] = None,
                  new_host_delay: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1434,12 +1434,12 @@ class Monitor(pulumi.CustomResource):
                  renotify_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  require_full_window: pulumi.Input[Optional[_builtins.bool]] = None,
                  restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scheduling_options: pulumi.Input[Optional[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
+                 scheduling_options: pulumi.Input[Optional[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict', 'outputs.MonitorSchedulingOptions']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timeout_h: pulumi.Input[Optional[_builtins.int]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  validate: pulumi.Input[Optional[_builtins.bool]] = None,
-                 variables: pulumi.Input[Optional[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict']]] = None,
+                 variables: pulumi.Input[Optional[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict', 'outputs.MonitorVariables']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1503,7 +1503,7 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]]] = None,
+            assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict', 'outputs.MonitorAsset']]]]] = None,
             draft_status: pulumi.Input[Optional[_builtins.str]] = None,
             enable_logs_sample: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_samples: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1515,8 +1515,8 @@ class Monitor(pulumi.CustomResource):
             ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
             message: pulumi.Input[Optional[_builtins.str]] = None,
-            monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']]] = None,
-            monitor_thresholds: pulumi.Input[Optional[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']]] = None,
+            monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict', 'outputs.MonitorMonitorThresholdWindows']]] = None,
+            monitor_thresholds: pulumi.Input[Optional[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict', 'outputs.MonitorMonitorThresholds']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             new_group_delay: pulumi.Input[Optional[_builtins.int]] = None,
             new_host_delay: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1533,12 +1533,12 @@ class Monitor(pulumi.CustomResource):
             renotify_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             require_full_window: pulumi.Input[Optional[_builtins.bool]] = None,
             restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            scheduling_options: pulumi.Input[Optional[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']]] = None,
+            scheduling_options: pulumi.Input[Optional[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict', 'outputs.MonitorSchedulingOptions']]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             timeout_h: pulumi.Input[Optional[_builtins.int]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             validate: pulumi.Input[Optional[_builtins.bool]] = None,
-            variables: pulumi.Input[Optional[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict']]] = None) -> 'Monitor':
+            variables: pulumi.Input[Optional[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict', 'outputs.MonitorVariables']]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1546,7 +1546,7 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict']]]] assets: List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict', 'outputs.MonitorAsset']]]] assets: List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
         :param pulumi.Input[_builtins.str] draft_status: Indicates whether the monitor is in a draft or published state. When set to `draft`, the monitor appears as Draft and does not send notifications. When set to `published`, the monitor is active, and it evaluates conditions and sends notifications as configured.
         :param pulumi.Input[_builtins.bool] enable_logs_sample: A boolean indicating whether or not to include a list of log values which triggered the alert. This is only used by log monitors. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_samples: Whether or not a list of samples which triggered the alert is included. This is only used by CI Test and Pipeline monitors.
@@ -1560,8 +1560,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `terraform plan` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[_builtins.bool] include_tags: A boolean indicating whether notifications from this monitor automatically insert its triggering tags into the title.
         :param pulumi.Input[_builtins.str] message: A message to include with notifications for this monitor.
-        :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
-        :param pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict']] monitor_thresholds: Alert thresholds of the monitor.
+        :param pulumi.Input[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict', 'outputs.MonitorMonitorThresholdWindows']] monitor_threshold_windows: A mapping containing `recovery_window` and `trigger_window` values, e.g. `last_15m` . Can only be used for, and are required for, anomaly monitors.
+        :param pulumi.Input[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict', 'outputs.MonitorMonitorThresholds']] monitor_thresholds: Alert thresholds of the monitor.
         :param pulumi.Input[_builtins.str] name: Name of Datadog monitor.
         :param pulumi.Input[_builtins.int] new_group_delay: The time (in seconds) to skip evaluations for new groups.
                
@@ -1584,7 +1584,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] renotify_statuses: The types of statuses for which re-notification messages should be sent.
         :param pulumi.Input[_builtins.bool] require_full_window: A boolean indicating whether this monitor needs a full window of data before it's evaluated. Datadog strongly recommends you set this to `false` for sparse metrics, otherwise some evaluations may be skipped. If there's a custom_schedule set, `require_full_window` must be false and will be ignored.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
-        :param pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict']] scheduling_options: Configuration options for scheduling.
+        :param pulumi.Input[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict', 'outputs.MonitorSchedulingOptions']] scheduling_options: Configuration options for scheduling.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your monitor. This can help you categorize and filter monitors in the manage monitors page of the UI. Note: it's not currently possible to filter by these tags when querying via the API
         :param pulumi.Input[_builtins.int] timeout_h: The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
         :param pulumi.Input[_builtins.str] type: The type of the monitor. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/monitors/#create-a-monitor). Note: The monitor type cannot be changed after a monitor is created.

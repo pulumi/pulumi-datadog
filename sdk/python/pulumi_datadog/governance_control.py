@@ -221,7 +221,7 @@ class GovernanceControl(pulumi.CustomResource):
                  detection_type: pulumi.Input[Optional[_builtins.str]] = None,
                  mitigation_parameters: pulumi.Input[Optional[_builtins.str]] = None,
                  mitigation_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict']]]]] = None,
+                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict', 'outputs.GovernanceControlNotificationSetting']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Governance Control resource. This can be used to configure built-in Governance Console controls, such as their detection, mitigation, and notification settings. Controls are built into Datadog: this resource configures an existing control rather than creating one, and removing it from Terraform only removes it from state.
@@ -264,7 +264,7 @@ class GovernanceControl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] detection_type: The detection type that uniquely identifies the control, for example `unused_api_keys`.
         :param pulumi.Input[_builtins.str] mitigation_parameters: Mitigation parameters for the control, as a JSON-encoded map of parameter names to their configured values.
         :param pulumi.Input[_builtins.str] mitigation_type: The mitigation type configured for the control. Empty when not configured.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict']]]] notification_settings: The notification settings for the control, one entry per event type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict', 'outputs.GovernanceControlNotificationSetting']]]] notification_settings: The notification settings for the control, one entry per event type.
         """
         ...
     @overload
@@ -326,7 +326,7 @@ class GovernanceControl(pulumi.CustomResource):
                  detection_type: pulumi.Input[Optional[_builtins.str]] = None,
                  mitigation_parameters: pulumi.Input[Optional[_builtins.str]] = None,
                  mitigation_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict']]]]] = None,
+                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict', 'outputs.GovernanceControlNotificationSetting']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -359,7 +359,7 @@ class GovernanceControl(pulumi.CustomResource):
             mitigation_parameters: pulumi.Input[Optional[_builtins.str]] = None,
             mitigation_type: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict']]]]] = None) -> 'GovernanceControl':
+            notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict', 'outputs.GovernanceControlNotificationSetting']]]]] = None) -> 'GovernanceControl':
         """
         Get an existing GovernanceControl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -372,7 +372,7 @@ class GovernanceControl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] mitigation_parameters: Mitigation parameters for the control, as a JSON-encoded map of parameter names to their configured values.
         :param pulumi.Input[_builtins.str] mitigation_type: The mitigation type configured for the control. Empty when not configured.
         :param pulumi.Input[_builtins.str] name: Human-readable name of the control.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict']]]] notification_settings: The notification settings for the control, one entry per event type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict', 'outputs.GovernanceControlNotificationSetting']]]] notification_settings: The notification settings for the control, one entry per event type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

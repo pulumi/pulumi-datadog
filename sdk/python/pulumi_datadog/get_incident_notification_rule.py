@@ -171,7 +171,7 @@ class AwaitableGetIncidentNotificationRuleResult(GetIncidentNotificationRuleResu
             visibility=self.visibility)
 
 
-def get_incident_notification_rule(conditions: Optional[Sequence[Union['GetIncidentNotificationRuleConditionArgs', 'GetIncidentNotificationRuleConditionArgsDict']]] = None,
+def get_incident_notification_rule(conditions: Optional[Sequence[Union['GetIncidentNotificationRuleConditionArgs', 'GetIncidentNotificationRuleConditionArgsDict', 'outputs.GetIncidentNotificationRuleConditionResult']]] = None,
                                    id: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentNotificationRuleResult:
     """
@@ -187,7 +187,7 @@ def get_incident_notification_rule(conditions: Optional[Sequence[Union['GetIncid
     ```
 
 
-    :param Sequence[Union['GetIncidentNotificationRuleConditionArgs', 'GetIncidentNotificationRuleConditionArgsDict']] conditions: The conditions that trigger this notification rule.
+    :param Sequence[Union['GetIncidentNotificationRuleConditionArgs', 'GetIncidentNotificationRuleConditionArgsDict', 'outputs.GetIncidentNotificationRuleConditionResult']] conditions: The conditions that trigger this notification rule.
     :param _builtins.str id: The ID of the incident notification rule.
     """
     __args__ = dict()
@@ -208,7 +208,7 @@ def get_incident_notification_rule(conditions: Optional[Sequence[Union['GetIncid
         renotify_ons=pulumi.get(__ret__, 'renotify_ons'),
         trigger=pulumi.get(__ret__, 'trigger'),
         visibility=pulumi.get(__ret__, 'visibility'))
-def get_incident_notification_rule_output(conditions: pulumi.Input[Optional[Optional[Sequence[Union['GetIncidentNotificationRuleConditionArgs', 'GetIncidentNotificationRuleConditionArgsDict']]]]] = None,
+def get_incident_notification_rule_output(conditions: pulumi.Input[Optional[Optional[Sequence[Union['GetIncidentNotificationRuleConditionArgs', 'GetIncidentNotificationRuleConditionArgsDict', 'outputs.GetIncidentNotificationRuleConditionResult']]]]] = None,
                                           id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentNotificationRuleResult]:
     """
@@ -224,7 +224,7 @@ def get_incident_notification_rule_output(conditions: pulumi.Input[Optional[Opti
     ```
 
 
-    :param Sequence[Union['GetIncidentNotificationRuleConditionArgs', 'GetIncidentNotificationRuleConditionArgsDict']] conditions: The conditions that trigger this notification rule.
+    :param Sequence[Union['GetIncidentNotificationRuleConditionArgs', 'GetIncidentNotificationRuleConditionArgsDict', 'outputs.GetIncidentNotificationRuleConditionResult']] conditions: The conditions that trigger this notification rule.
     :param _builtins.str id: The ID of the incident notification rule.
     """
     __args__ = dict()

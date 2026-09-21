@@ -889,32 +889,32 @@ class ActionConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anthropic: pulumi.Input[Optional[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict']]] = None,
-                 asana: pulumi.Input[Optional[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict']]] = None,
-                 aws: pulumi.Input[Optional[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']]] = None,
-                 azure: pulumi.Input[Optional[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict']]] = None,
-                 circle_ci: pulumi.Input[Optional[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict']]] = None,
-                 clickup: pulumi.Input[Optional[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict']]] = None,
-                 cloudflare: pulumi.Input[Optional[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict']]] = None,
-                 config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict']]] = None,
-                 datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict']]] = None,
-                 fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict']]] = None,
-                 freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict']]] = None,
-                 gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict']]] = None,
-                 gemini: pulumi.Input[Optional[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict']]] = None,
-                 gitlab: pulumi.Input[Optional[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict']]] = None,
-                 grey_noise: pulumi.Input[Optional[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict']]] = None,
-                 http: pulumi.Input[Optional[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']]] = None,
-                 launch_darkly: pulumi.Input[Optional[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict']]] = None,
+                 anthropic: pulumi.Input[Optional[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict', 'outputs.ActionConnectionAnthropic']]] = None,
+                 asana: pulumi.Input[Optional[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict', 'outputs.ActionConnectionAsana']]] = None,
+                 aws: pulumi.Input[Optional[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict', 'outputs.ActionConnectionAws']]] = None,
+                 azure: pulumi.Input[Optional[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict', 'outputs.ActionConnectionAzure']]] = None,
+                 circle_ci: pulumi.Input[Optional[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict', 'outputs.ActionConnectionCircleCi']]] = None,
+                 clickup: pulumi.Input[Optional[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict', 'outputs.ActionConnectionClickup']]] = None,
+                 cloudflare: pulumi.Input[Optional[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict', 'outputs.ActionConnectionCloudflare']]] = None,
+                 config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']]] = None,
+                 datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']]] = None,
+                 fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']]] = None,
+                 freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']]] = None,
+                 gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']]] = None,
+                 gemini: pulumi.Input[Optional[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict', 'outputs.ActionConnectionGemini']]] = None,
+                 gitlab: pulumi.Input[Optional[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict', 'outputs.ActionConnectionGitlab']]] = None,
+                 grey_noise: pulumi.Input[Optional[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict', 'outputs.ActionConnectionGreyNoise']]] = None,
+                 http: pulumi.Input[Optional[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict', 'outputs.ActionConnectionHttp']]] = None,
+                 launch_darkly: pulumi.Input[Optional[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict', 'outputs.ActionConnectionLaunchDarkly']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notion: pulumi.Input[Optional[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict']]] = None,
-                 okta: pulumi.Input[Optional[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict']]] = None,
-                 openai: pulumi.Input[Optional[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict']]] = None,
-                 service_now: pulumi.Input[Optional[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict']]] = None,
-                 split: pulumi.Input[Optional[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict']]] = None,
-                 statsig: pulumi.Input[Optional[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict']]] = None,
+                 notion: pulumi.Input[Optional[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict', 'outputs.ActionConnectionNotion']]] = None,
+                 okta: pulumi.Input[Optional[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict', 'outputs.ActionConnectionOkta']]] = None,
+                 openai: pulumi.Input[Optional[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict', 'outputs.ActionConnectionOpenai']]] = None,
+                 service_now: pulumi.Input[Optional[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict', 'outputs.ActionConnectionServiceNow']]] = None,
+                 split: pulumi.Input[Optional[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict', 'outputs.ActionConnectionSplit']]] = None,
+                 statsig: pulumi.Input[Optional[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict', 'outputs.ActionConnectionStatsig']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict']]] = None,
+                 virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict', 'outputs.ActionConnectionVirusTotal']]] = None,
                  __props__=None):
         """
         A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
@@ -1000,32 +1000,32 @@ class ActionConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict']] anthropic: Configuration for an Anthropic connection
-        :param pulumi.Input[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict']] asana: Configuration for an Asana connection
-        :param pulumi.Input[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']] aws: Configuration for an AWS connection
-        :param pulumi.Input[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict']] azure: Configuration for an Azure connection
-        :param pulumi.Input[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict']] circle_ci: Configuration for a CircleCI connection
-        :param pulumi.Input[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict']] clickup: Configuration for a ClickUp connection
-        :param pulumi.Input[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict']] cloudflare: Configuration for a Cloudflare connection
-        :param pulumi.Input[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict']] config_cat: Configuration for a ConfigCat connection
-        :param pulumi.Input[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict']] datadog: Configuration for a Datadog connection
-        :param pulumi.Input[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict']] fastly: Configuration for a Fastly connection
-        :param pulumi.Input[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict']] freshservice: Configuration for a Freshservice connection
-        :param pulumi.Input[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict']] gcp: Configuration for a Google Cloud connection
-        :param pulumi.Input[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict']] gemini: Configuration for a Gemini connection
-        :param pulumi.Input[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict']] gitlab: Configuration for a GitLab connection
-        :param pulumi.Input[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict']] grey_noise: Configuration for a GreyNoise connection
-        :param pulumi.Input[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']] http: Configuration for an HTTP connection
-        :param pulumi.Input[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict']] launch_darkly: Configuration for a LaunchDarkly connection
+        :param pulumi.Input[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict', 'outputs.ActionConnectionAnthropic']] anthropic: Configuration for an Anthropic connection
+        :param pulumi.Input[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict', 'outputs.ActionConnectionAsana']] asana: Configuration for an Asana connection
+        :param pulumi.Input[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict', 'outputs.ActionConnectionAws']] aws: Configuration for an AWS connection
+        :param pulumi.Input[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict', 'outputs.ActionConnectionAzure']] azure: Configuration for an Azure connection
+        :param pulumi.Input[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict', 'outputs.ActionConnectionCircleCi']] circle_ci: Configuration for a CircleCI connection
+        :param pulumi.Input[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict', 'outputs.ActionConnectionClickup']] clickup: Configuration for a ClickUp connection
+        :param pulumi.Input[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict', 'outputs.ActionConnectionCloudflare']] cloudflare: Configuration for a Cloudflare connection
+        :param pulumi.Input[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']] config_cat: Configuration for a ConfigCat connection
+        :param pulumi.Input[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']] datadog: Configuration for a Datadog connection
+        :param pulumi.Input[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']] fastly: Configuration for a Fastly connection
+        :param pulumi.Input[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']] freshservice: Configuration for a Freshservice connection
+        :param pulumi.Input[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']] gcp: Configuration for a Google Cloud connection
+        :param pulumi.Input[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict', 'outputs.ActionConnectionGemini']] gemini: Configuration for a Gemini connection
+        :param pulumi.Input[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict', 'outputs.ActionConnectionGitlab']] gitlab: Configuration for a GitLab connection
+        :param pulumi.Input[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict', 'outputs.ActionConnectionGreyNoise']] grey_noise: Configuration for a GreyNoise connection
+        :param pulumi.Input[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict', 'outputs.ActionConnectionHttp']] http: Configuration for an HTTP connection
+        :param pulumi.Input[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict', 'outputs.ActionConnectionLaunchDarkly']] launch_darkly: Configuration for a LaunchDarkly connection
         :param pulumi.Input[_builtins.str] name: Name of the connection
-        :param pulumi.Input[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict']] notion: Configuration for a Notion connection
-        :param pulumi.Input[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict']] okta: Configuration for an Okta connection
-        :param pulumi.Input[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict']] openai: Configuration for an OpenAI connection
-        :param pulumi.Input[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict']] service_now: Configuration for a ServiceNow connection
-        :param pulumi.Input[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict']] split: Configuration for a Split connection
-        :param pulumi.Input[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict']] statsig: Configuration for a Statsig connection
+        :param pulumi.Input[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict', 'outputs.ActionConnectionNotion']] notion: Configuration for a Notion connection
+        :param pulumi.Input[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict', 'outputs.ActionConnectionOkta']] okta: Configuration for an Okta connection
+        :param pulumi.Input[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict', 'outputs.ActionConnectionOpenai']] openai: Configuration for an OpenAI connection
+        :param pulumi.Input[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict', 'outputs.ActionConnectionServiceNow']] service_now: Configuration for a ServiceNow connection
+        :param pulumi.Input[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict', 'outputs.ActionConnectionSplit']] split: Configuration for a Split connection
+        :param pulumi.Input[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict', 'outputs.ActionConnectionStatsig']] statsig: Configuration for a Statsig connection
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effective_tags`, which includes provider-level `default_tags`.
-        :param pulumi.Input[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict']] virus_total: Configuration for a VirusTotal connection
+        :param pulumi.Input[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict', 'outputs.ActionConnectionVirusTotal']] virus_total: Configuration for a VirusTotal connection
         """
         ...
     @overload
@@ -1130,32 +1130,32 @@ class ActionConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 anthropic: pulumi.Input[Optional[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict']]] = None,
-                 asana: pulumi.Input[Optional[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict']]] = None,
-                 aws: pulumi.Input[Optional[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']]] = None,
-                 azure: pulumi.Input[Optional[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict']]] = None,
-                 circle_ci: pulumi.Input[Optional[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict']]] = None,
-                 clickup: pulumi.Input[Optional[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict']]] = None,
-                 cloudflare: pulumi.Input[Optional[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict']]] = None,
-                 config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict']]] = None,
-                 datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict']]] = None,
-                 fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict']]] = None,
-                 freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict']]] = None,
-                 gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict']]] = None,
-                 gemini: pulumi.Input[Optional[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict']]] = None,
-                 gitlab: pulumi.Input[Optional[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict']]] = None,
-                 grey_noise: pulumi.Input[Optional[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict']]] = None,
-                 http: pulumi.Input[Optional[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']]] = None,
-                 launch_darkly: pulumi.Input[Optional[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict']]] = None,
+                 anthropic: pulumi.Input[Optional[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict', 'outputs.ActionConnectionAnthropic']]] = None,
+                 asana: pulumi.Input[Optional[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict', 'outputs.ActionConnectionAsana']]] = None,
+                 aws: pulumi.Input[Optional[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict', 'outputs.ActionConnectionAws']]] = None,
+                 azure: pulumi.Input[Optional[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict', 'outputs.ActionConnectionAzure']]] = None,
+                 circle_ci: pulumi.Input[Optional[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict', 'outputs.ActionConnectionCircleCi']]] = None,
+                 clickup: pulumi.Input[Optional[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict', 'outputs.ActionConnectionClickup']]] = None,
+                 cloudflare: pulumi.Input[Optional[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict', 'outputs.ActionConnectionCloudflare']]] = None,
+                 config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']]] = None,
+                 datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']]] = None,
+                 fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']]] = None,
+                 freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']]] = None,
+                 gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']]] = None,
+                 gemini: pulumi.Input[Optional[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict', 'outputs.ActionConnectionGemini']]] = None,
+                 gitlab: pulumi.Input[Optional[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict', 'outputs.ActionConnectionGitlab']]] = None,
+                 grey_noise: pulumi.Input[Optional[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict', 'outputs.ActionConnectionGreyNoise']]] = None,
+                 http: pulumi.Input[Optional[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict', 'outputs.ActionConnectionHttp']]] = None,
+                 launch_darkly: pulumi.Input[Optional[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict', 'outputs.ActionConnectionLaunchDarkly']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notion: pulumi.Input[Optional[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict']]] = None,
-                 okta: pulumi.Input[Optional[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict']]] = None,
-                 openai: pulumi.Input[Optional[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict']]] = None,
-                 service_now: pulumi.Input[Optional[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict']]] = None,
-                 split: pulumi.Input[Optional[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict']]] = None,
-                 statsig: pulumi.Input[Optional[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict']]] = None,
+                 notion: pulumi.Input[Optional[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict', 'outputs.ActionConnectionNotion']]] = None,
+                 okta: pulumi.Input[Optional[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict', 'outputs.ActionConnectionOkta']]] = None,
+                 openai: pulumi.Input[Optional[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict', 'outputs.ActionConnectionOpenai']]] = None,
+                 service_now: pulumi.Input[Optional[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict', 'outputs.ActionConnectionServiceNow']]] = None,
+                 split: pulumi.Input[Optional[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict', 'outputs.ActionConnectionSplit']]] = None,
+                 statsig: pulumi.Input[Optional[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict', 'outputs.ActionConnectionStatsig']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict']]] = None,
+                 virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict', 'outputs.ActionConnectionVirusTotal']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1204,33 +1204,33 @@ class ActionConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            anthropic: pulumi.Input[Optional[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict']]] = None,
-            asana: pulumi.Input[Optional[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict']]] = None,
-            aws: pulumi.Input[Optional[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']]] = None,
-            azure: pulumi.Input[Optional[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict']]] = None,
-            circle_ci: pulumi.Input[Optional[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict']]] = None,
-            clickup: pulumi.Input[Optional[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict']]] = None,
-            cloudflare: pulumi.Input[Optional[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict']]] = None,
-            config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict']]] = None,
-            datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict']]] = None,
+            anthropic: pulumi.Input[Optional[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict', 'outputs.ActionConnectionAnthropic']]] = None,
+            asana: pulumi.Input[Optional[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict', 'outputs.ActionConnectionAsana']]] = None,
+            aws: pulumi.Input[Optional[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict', 'outputs.ActionConnectionAws']]] = None,
+            azure: pulumi.Input[Optional[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict', 'outputs.ActionConnectionAzure']]] = None,
+            circle_ci: pulumi.Input[Optional[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict', 'outputs.ActionConnectionCircleCi']]] = None,
+            clickup: pulumi.Input[Optional[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict', 'outputs.ActionConnectionClickup']]] = None,
+            cloudflare: pulumi.Input[Optional[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict', 'outputs.ActionConnectionCloudflare']]] = None,
+            config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']]] = None,
+            datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']]] = None,
             effective_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict']]] = None,
-            freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict']]] = None,
-            gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict']]] = None,
-            gemini: pulumi.Input[Optional[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict']]] = None,
-            gitlab: pulumi.Input[Optional[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict']]] = None,
-            grey_noise: pulumi.Input[Optional[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict']]] = None,
-            http: pulumi.Input[Optional[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']]] = None,
-            launch_darkly: pulumi.Input[Optional[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict']]] = None,
+            fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']]] = None,
+            freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']]] = None,
+            gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']]] = None,
+            gemini: pulumi.Input[Optional[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict', 'outputs.ActionConnectionGemini']]] = None,
+            gitlab: pulumi.Input[Optional[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict', 'outputs.ActionConnectionGitlab']]] = None,
+            grey_noise: pulumi.Input[Optional[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict', 'outputs.ActionConnectionGreyNoise']]] = None,
+            http: pulumi.Input[Optional[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict', 'outputs.ActionConnectionHttp']]] = None,
+            launch_darkly: pulumi.Input[Optional[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict', 'outputs.ActionConnectionLaunchDarkly']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notion: pulumi.Input[Optional[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict']]] = None,
-            okta: pulumi.Input[Optional[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict']]] = None,
-            openai: pulumi.Input[Optional[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict']]] = None,
-            service_now: pulumi.Input[Optional[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict']]] = None,
-            split: pulumi.Input[Optional[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict']]] = None,
-            statsig: pulumi.Input[Optional[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict']]] = None,
+            notion: pulumi.Input[Optional[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict', 'outputs.ActionConnectionNotion']]] = None,
+            okta: pulumi.Input[Optional[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict', 'outputs.ActionConnectionOkta']]] = None,
+            openai: pulumi.Input[Optional[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict', 'outputs.ActionConnectionOpenai']]] = None,
+            service_now: pulumi.Input[Optional[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict', 'outputs.ActionConnectionServiceNow']]] = None,
+            split: pulumi.Input[Optional[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict', 'outputs.ActionConnectionSplit']]] = None,
+            statsig: pulumi.Input[Optional[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict', 'outputs.ActionConnectionStatsig']]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict']]] = None) -> 'ActionConnection':
+            virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict', 'outputs.ActionConnectionVirusTotal']]] = None) -> 'ActionConnection':
         """
         Get an existing ActionConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1238,33 +1238,33 @@ class ActionConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict']] anthropic: Configuration for an Anthropic connection
-        :param pulumi.Input[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict']] asana: Configuration for an Asana connection
-        :param pulumi.Input[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict']] aws: Configuration for an AWS connection
-        :param pulumi.Input[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict']] azure: Configuration for an Azure connection
-        :param pulumi.Input[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict']] circle_ci: Configuration for a CircleCI connection
-        :param pulumi.Input[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict']] clickup: Configuration for a ClickUp connection
-        :param pulumi.Input[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict']] cloudflare: Configuration for a Cloudflare connection
-        :param pulumi.Input[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict']] config_cat: Configuration for a ConfigCat connection
-        :param pulumi.Input[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict']] datadog: Configuration for a Datadog connection
+        :param pulumi.Input[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict', 'outputs.ActionConnectionAnthropic']] anthropic: Configuration for an Anthropic connection
+        :param pulumi.Input[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict', 'outputs.ActionConnectionAsana']] asana: Configuration for an Asana connection
+        :param pulumi.Input[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict', 'outputs.ActionConnectionAws']] aws: Configuration for an AWS connection
+        :param pulumi.Input[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict', 'outputs.ActionConnectionAzure']] azure: Configuration for an Azure connection
+        :param pulumi.Input[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict', 'outputs.ActionConnectionCircleCi']] circle_ci: Configuration for a CircleCI connection
+        :param pulumi.Input[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict', 'outputs.ActionConnectionClickup']] clickup: Configuration for a ClickUp connection
+        :param pulumi.Input[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict', 'outputs.ActionConnectionCloudflare']] cloudflare: Configuration for a Cloudflare connection
+        :param pulumi.Input[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']] config_cat: Configuration for a ConfigCat connection
+        :param pulumi.Input[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']] datadog: Configuration for a Datadog connection
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] effective_tags: Tags associated with the connection, including those inherited from the provider's `default_tags` configuration.
-        :param pulumi.Input[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict']] fastly: Configuration for a Fastly connection
-        :param pulumi.Input[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict']] freshservice: Configuration for a Freshservice connection
-        :param pulumi.Input[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict']] gcp: Configuration for a Google Cloud connection
-        :param pulumi.Input[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict']] gemini: Configuration for a Gemini connection
-        :param pulumi.Input[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict']] gitlab: Configuration for a GitLab connection
-        :param pulumi.Input[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict']] grey_noise: Configuration for a GreyNoise connection
-        :param pulumi.Input[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict']] http: Configuration for an HTTP connection
-        :param pulumi.Input[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict']] launch_darkly: Configuration for a LaunchDarkly connection
+        :param pulumi.Input[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']] fastly: Configuration for a Fastly connection
+        :param pulumi.Input[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']] freshservice: Configuration for a Freshservice connection
+        :param pulumi.Input[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']] gcp: Configuration for a Google Cloud connection
+        :param pulumi.Input[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict', 'outputs.ActionConnectionGemini']] gemini: Configuration for a Gemini connection
+        :param pulumi.Input[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict', 'outputs.ActionConnectionGitlab']] gitlab: Configuration for a GitLab connection
+        :param pulumi.Input[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict', 'outputs.ActionConnectionGreyNoise']] grey_noise: Configuration for a GreyNoise connection
+        :param pulumi.Input[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict', 'outputs.ActionConnectionHttp']] http: Configuration for an HTTP connection
+        :param pulumi.Input[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict', 'outputs.ActionConnectionLaunchDarkly']] launch_darkly: Configuration for a LaunchDarkly connection
         :param pulumi.Input[_builtins.str] name: Name of the connection
-        :param pulumi.Input[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict']] notion: Configuration for a Notion connection
-        :param pulumi.Input[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict']] okta: Configuration for an Okta connection
-        :param pulumi.Input[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict']] openai: Configuration for an OpenAI connection
-        :param pulumi.Input[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict']] service_now: Configuration for a ServiceNow connection
-        :param pulumi.Input[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict']] split: Configuration for a Split connection
-        :param pulumi.Input[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict']] statsig: Configuration for a Statsig connection
+        :param pulumi.Input[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict', 'outputs.ActionConnectionNotion']] notion: Configuration for a Notion connection
+        :param pulumi.Input[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict', 'outputs.ActionConnectionOkta']] okta: Configuration for an Okta connection
+        :param pulumi.Input[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict', 'outputs.ActionConnectionOpenai']] openai: Configuration for an OpenAI connection
+        :param pulumi.Input[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict', 'outputs.ActionConnectionServiceNow']] service_now: Configuration for a ServiceNow connection
+        :param pulumi.Input[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict', 'outputs.ActionConnectionSplit']] split: Configuration for a Split connection
+        :param pulumi.Input[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict', 'outputs.ActionConnectionStatsig']] statsig: Configuration for a Statsig connection
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: User-defined tags associated with the connection. Each tag must follow the `key:value` format. The `default` tag key is reserved. See also `effective_tags`, which includes provider-level `default_tags`.
-        :param pulumi.Input[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict']] virus_total: Configuration for a VirusTotal connection
+        :param pulumi.Input[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict', 'outputs.ActionConnectionVirusTotal']] virus_total: Configuration for a VirusTotal connection
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

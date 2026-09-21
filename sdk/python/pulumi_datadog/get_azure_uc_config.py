@@ -183,16 +183,16 @@ class AwaitableGetAzureUcConfigResult(GetAzureUcConfigResult):
             updated_at=self.updated_at)
 
 
-def get_azure_uc_config(actual_bill_config: Optional[Union['GetAzureUcConfigActualBillConfigArgs', 'GetAzureUcConfigActualBillConfigArgsDict']] = None,
-                        amortized_bill_config: Optional[Union['GetAzureUcConfigAmortizedBillConfigArgs', 'GetAzureUcConfigAmortizedBillConfigArgsDict']] = None,
+def get_azure_uc_config(actual_bill_config: Optional[Union['GetAzureUcConfigActualBillConfigArgs', 'GetAzureUcConfigActualBillConfigArgsDict', 'outputs.GetAzureUcConfigActualBillConfigResult']] = None,
+                        amortized_bill_config: Optional[Union['GetAzureUcConfigAmortizedBillConfigArgs', 'GetAzureUcConfigAmortizedBillConfigArgsDict', 'outputs.GetAzureUcConfigAmortizedBillConfigResult']] = None,
                         cloud_account_id: Optional[_builtins.int] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureUcConfigResult:
     """
     Use this data source to retrieve information about a specific Datadog Azure Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for Azure billing data access.
 
 
-    :param Union['GetAzureUcConfigActualBillConfigArgs', 'GetAzureUcConfigActualBillConfigArgsDict'] actual_bill_config: Configuration for the actual cost export.
-    :param Union['GetAzureUcConfigAmortizedBillConfigArgs', 'GetAzureUcConfigAmortizedBillConfigArgsDict'] amortized_bill_config: Configuration for the amortized cost export.
+    :param Union['GetAzureUcConfigActualBillConfigArgs', 'GetAzureUcConfigActualBillConfigArgsDict', 'outputs.GetAzureUcConfigActualBillConfigResult'] actual_bill_config: Configuration for the actual cost export.
+    :param Union['GetAzureUcConfigAmortizedBillConfigArgs', 'GetAzureUcConfigAmortizedBillConfigArgsDict', 'outputs.GetAzureUcConfigAmortizedBillConfigResult'] amortized_bill_config: Configuration for the amortized cost export.
     :param _builtins.int cloud_account_id: The Datadog cloud account ID for the Azure Usage Cost configuration you want to retrieve information about.
     """
     __args__ = dict()
@@ -215,16 +215,16 @@ def get_azure_uc_config(actual_bill_config: Optional[Union['GetAzureUcConfigActu
         status=pulumi.get(__ret__, 'status'),
         status_updated_at=pulumi.get(__ret__, 'status_updated_at'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_azure_uc_config_output(actual_bill_config: pulumi.Input[Optional[Optional[Union['GetAzureUcConfigActualBillConfigArgs', 'GetAzureUcConfigActualBillConfigArgsDict']]]] = None,
-                               amortized_bill_config: pulumi.Input[Optional[Optional[Union['GetAzureUcConfigAmortizedBillConfigArgs', 'GetAzureUcConfigAmortizedBillConfigArgsDict']]]] = None,
+def get_azure_uc_config_output(actual_bill_config: pulumi.Input[Optional[Optional[Union['GetAzureUcConfigActualBillConfigArgs', 'GetAzureUcConfigActualBillConfigArgsDict', 'outputs.GetAzureUcConfigActualBillConfigResult']]]] = None,
+                               amortized_bill_config: pulumi.Input[Optional[Optional[Union['GetAzureUcConfigAmortizedBillConfigArgs', 'GetAzureUcConfigAmortizedBillConfigArgsDict', 'outputs.GetAzureUcConfigAmortizedBillConfigResult']]]] = None,
                                cloud_account_id: pulumi.Input[Optional[_builtins.int]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureUcConfigResult]:
     """
     Use this data source to retrieve information about a specific Datadog Azure Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for Azure billing data access.
 
 
-    :param Union['GetAzureUcConfigActualBillConfigArgs', 'GetAzureUcConfigActualBillConfigArgsDict'] actual_bill_config: Configuration for the actual cost export.
-    :param Union['GetAzureUcConfigAmortizedBillConfigArgs', 'GetAzureUcConfigAmortizedBillConfigArgsDict'] amortized_bill_config: Configuration for the amortized cost export.
+    :param Union['GetAzureUcConfigActualBillConfigArgs', 'GetAzureUcConfigActualBillConfigArgsDict', 'outputs.GetAzureUcConfigActualBillConfigResult'] actual_bill_config: Configuration for the actual cost export.
+    :param Union['GetAzureUcConfigAmortizedBillConfigArgs', 'GetAzureUcConfigAmortizedBillConfigArgsDict', 'outputs.GetAzureUcConfigAmortizedBillConfigResult'] amortized_bill_config: Configuration for the amortized cost export.
     :param _builtins.int cloud_account_id: The Datadog cloud account ID for the Azure Usage Cost configuration you want to retrieve information about.
     """
     __args__ = dict()

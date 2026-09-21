@@ -203,7 +203,7 @@ class IncidentUserDefinedRole(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  incident_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy: pulumi.Input[Optional[Union['IncidentUserDefinedRolePolicyArgs', 'IncidentUserDefinedRolePolicyArgsDict']]] = None,
+                 policy: pulumi.Input[Optional[Union['IncidentUserDefinedRolePolicyArgs', 'IncidentUserDefinedRolePolicyArgsDict', 'outputs.IncidentUserDefinedRolePolicy']]] = None,
                  __props__=None):
         """
         Provides a Datadog incident user-defined role resource. This can be used to create and manage custom responder roles that are available for a given incident type. **Note**: This resource targets an endpoint that is in preview and is subject to change.
@@ -240,7 +240,7 @@ class IncidentUserDefinedRole(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the user-defined role. At most 1024 characters.
         :param pulumi.Input[_builtins.str] incident_type: The ID of the incident type this user-defined role is associated with.
         :param pulumi.Input[_builtins.str] name: The name of the user-defined role. Cannot be a reserved name ("Incident Commander" or "Responder") and must be at most 255 characters.
-        :param pulumi.Input[Union['IncidentUserDefinedRolePolicyArgs', 'IncidentUserDefinedRolePolicyArgsDict']] policy: Policy configuration for the user-defined role. Defaults to a multi-assignee policy when omitted.
+        :param pulumi.Input[Union['IncidentUserDefinedRolePolicyArgs', 'IncidentUserDefinedRolePolicyArgsDict', 'outputs.IncidentUserDefinedRolePolicy']] policy: Policy configuration for the user-defined role. Defaults to a multi-assignee policy when omitted.
         """
         ...
     @overload
@@ -296,7 +296,7 @@ class IncidentUserDefinedRole(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  incident_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy: pulumi.Input[Optional[Union['IncidentUserDefinedRolePolicyArgs', 'IncidentUserDefinedRolePolicyArgsDict']]] = None,
+                 policy: pulumi.Input[Optional[Union['IncidentUserDefinedRolePolicyArgs', 'IncidentUserDefinedRolePolicyArgsDict', 'outputs.IncidentUserDefinedRolePolicy']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -331,7 +331,7 @@ class IncidentUserDefinedRole(pulumi.CustomResource):
             incident_type: pulumi.Input[Optional[_builtins.str]] = None,
             modified: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            policy: pulumi.Input[Optional[Union['IncidentUserDefinedRolePolicyArgs', 'IncidentUserDefinedRolePolicyArgsDict']]] = None) -> 'IncidentUserDefinedRole':
+            policy: pulumi.Input[Optional[Union['IncidentUserDefinedRolePolicyArgs', 'IncidentUserDefinedRolePolicyArgsDict', 'outputs.IncidentUserDefinedRolePolicy']]] = None) -> 'IncidentUserDefinedRole':
         """
         Get an existing IncidentUserDefinedRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -344,7 +344,7 @@ class IncidentUserDefinedRole(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] incident_type: The ID of the incident type this user-defined role is associated with.
         :param pulumi.Input[_builtins.str] modified: Timestamp when the user-defined role was last modified.
         :param pulumi.Input[_builtins.str] name: The name of the user-defined role. Cannot be a reserved name ("Incident Commander" or "Responder") and must be at most 255 characters.
-        :param pulumi.Input[Union['IncidentUserDefinedRolePolicyArgs', 'IncidentUserDefinedRolePolicyArgsDict']] policy: Policy configuration for the user-defined role. Defaults to a multi-assignee policy when omitted.
+        :param pulumi.Input[Union['IncidentUserDefinedRolePolicyArgs', 'IncidentUserDefinedRolePolicyArgsDict', 'outputs.IncidentUserDefinedRolePolicy']] policy: Policy configuration for the user-defined role. Defaults to a multi-assignee policy when omitted.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

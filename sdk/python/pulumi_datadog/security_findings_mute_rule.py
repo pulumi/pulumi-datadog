@@ -167,10 +167,10 @@ class SecurityFindingsMuteRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleActionArgs', 'SecurityFindingsMuteRuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleActionArgs', 'SecurityFindingsMuteRuleActionArgsDict', 'outputs.SecurityFindingsMuteRuleAction']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleRuleArgs', 'SecurityFindingsMuteRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleRuleArgs', 'SecurityFindingsMuteRuleRuleArgsDict', 'outputs.SecurityFindingsMuteRuleRule']]] = None,
                  __props__=None):
         """
         Provides a Datadog security findings automation mute rule resource. This can be used to create and manage mute rules that automatically suppress matching security findings. Use the `SecurityFindingsMuteRulesOrder` resource to manage the evaluation order of mute rules.
@@ -207,10 +207,10 @@ class SecurityFindingsMuteRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecurityFindingsMuteRuleActionArgs', 'SecurityFindingsMuteRuleActionArgsDict']] action: The action to take when the mute rule matches a finding.
+        :param pulumi.Input[Union['SecurityFindingsMuteRuleActionArgs', 'SecurityFindingsMuteRuleActionArgsDict', 'outputs.SecurityFindingsMuteRuleAction']] action: The action to take when the mute rule matches a finding.
         :param pulumi.Input[_builtins.bool] enabled: Whether the mute rule is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name of the mute rule.
-        :param pulumi.Input[Union['SecurityFindingsMuteRuleRuleArgs', 'SecurityFindingsMuteRuleRuleArgsDict']] rule: Defines the scope of findings to which the automation rule applies.
+        :param pulumi.Input[Union['SecurityFindingsMuteRuleRuleArgs', 'SecurityFindingsMuteRuleRuleArgsDict', 'outputs.SecurityFindingsMuteRuleRule']] rule: Defines the scope of findings to which the automation rule applies.
         """
         ...
     @overload
@@ -266,10 +266,10 @@ class SecurityFindingsMuteRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleActionArgs', 'SecurityFindingsMuteRuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleActionArgs', 'SecurityFindingsMuteRuleActionArgsDict', 'outputs.SecurityFindingsMuteRuleAction']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleRuleArgs', 'SecurityFindingsMuteRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleRuleArgs', 'SecurityFindingsMuteRuleRuleArgsDict', 'outputs.SecurityFindingsMuteRuleRule']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -299,10 +299,10 @@ class SecurityFindingsMuteRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleActionArgs', 'SecurityFindingsMuteRuleActionArgsDict']]] = None,
+            action: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleActionArgs', 'SecurityFindingsMuteRuleActionArgsDict', 'outputs.SecurityFindingsMuteRuleAction']]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleRuleArgs', 'SecurityFindingsMuteRuleRuleArgsDict']]] = None) -> 'SecurityFindingsMuteRule':
+            rule: pulumi.Input[Optional[Union['SecurityFindingsMuteRuleRuleArgs', 'SecurityFindingsMuteRuleRuleArgsDict', 'outputs.SecurityFindingsMuteRuleRule']]] = None) -> 'SecurityFindingsMuteRule':
         """
         Get an existing SecurityFindingsMuteRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -310,10 +310,10 @@ class SecurityFindingsMuteRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecurityFindingsMuteRuleActionArgs', 'SecurityFindingsMuteRuleActionArgsDict']] action: The action to take when the mute rule matches a finding.
+        :param pulumi.Input[Union['SecurityFindingsMuteRuleActionArgs', 'SecurityFindingsMuteRuleActionArgsDict', 'outputs.SecurityFindingsMuteRuleAction']] action: The action to take when the mute rule matches a finding.
         :param pulumi.Input[_builtins.bool] enabled: Whether the mute rule is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name of the mute rule.
-        :param pulumi.Input[Union['SecurityFindingsMuteRuleRuleArgs', 'SecurityFindingsMuteRuleRuleArgsDict']] rule: Defines the scope of findings to which the automation rule applies.
+        :param pulumi.Input[Union['SecurityFindingsMuteRuleRuleArgs', 'SecurityFindingsMuteRuleRuleArgsDict', 'outputs.SecurityFindingsMuteRuleRule']] rule: Defines the scope of findings to which the automation rule applies.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

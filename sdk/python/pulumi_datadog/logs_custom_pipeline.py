@@ -183,10 +183,10 @@ class LogsCustomPipeline(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineFilterArgs', 'LogsCustomPipelineFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineFilterArgs', 'LogsCustomPipelineFilterArgsDict', 'outputs.LogsCustomPipelineFilter']]]]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 processors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict']]]]] = None,
+                 processors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict', 'outputs.LogsCustomPipelineProcessor']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -586,10 +586,10 @@ class LogsCustomPipeline(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineFilterArgs', 'LogsCustomPipelineFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineFilterArgs', 'LogsCustomPipelineFilterArgsDict', 'outputs.LogsCustomPipelineFilter']]]]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 processors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict']]]]] = None,
+                 processors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict', 'outputs.LogsCustomPipelineProcessor']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -621,10 +621,10 @@ class LogsCustomPipeline(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineFilterArgs', 'LogsCustomPipelineFilterArgsDict']]]]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineFilterArgs', 'LogsCustomPipelineFilterArgsDict', 'outputs.LogsCustomPipelineFilter']]]]] = None,
             is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            processors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict']]]]] = None,
+            processors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict', 'outputs.LogsCustomPipelineProcessor']]]]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LogsCustomPipeline':
         """
         Get an existing LogsCustomPipeline resource's state with the given name, id, and optional extra

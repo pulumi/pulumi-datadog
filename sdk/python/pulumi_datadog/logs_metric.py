@@ -167,9 +167,9 @@ class LogsMetric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: pulumi.Input[Optional[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
-                 filter: pulumi.Input[Optional[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
-                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
+                 compute: pulumi.Input[Optional[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict', 'outputs.LogsMetricCompute']]] = None,
+                 filter: pulumi.Input[Optional[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict', 'outputs.LogsMetricFilter']]] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict', 'outputs.LogsMetricGroupBy']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -213,9 +213,9 @@ class LogsMetric(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
-        :param pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]] group_bies: The rules for the group by.
+        :param pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict', 'outputs.LogsMetricCompute']] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
+        :param pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict', 'outputs.LogsMetricFilter']] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict', 'outputs.LogsMetricGroupBy']]]] group_bies: The rules for the group by.
         :param pulumi.Input[_builtins.str] name: The name of the log-based metric. This field can't be updated after creation.
         """
         ...
@@ -278,9 +278,9 @@ class LogsMetric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: pulumi.Input[Optional[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
-                 filter: pulumi.Input[Optional[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
-                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
+                 compute: pulumi.Input[Optional[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict', 'outputs.LogsMetricCompute']]] = None,
+                 filter: pulumi.Input[Optional[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict', 'outputs.LogsMetricFilter']]] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict', 'outputs.LogsMetricGroupBy']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -311,9 +311,9 @@ class LogsMetric(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compute: pulumi.Input[Optional[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']]] = None,
-            filter: pulumi.Input[Optional[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']]] = None,
-            group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]]] = None,
+            compute: pulumi.Input[Optional[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict', 'outputs.LogsMetricCompute']]] = None,
+            filter: pulumi.Input[Optional[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict', 'outputs.LogsMetricFilter']]] = None,
+            group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict', 'outputs.LogsMetricGroupBy']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'LogsMetric':
         """
         Get an existing LogsMetric resource's state with the given name, id, and optional extra
@@ -322,9 +322,9 @@ class LogsMetric(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict']] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
-        :param pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict']] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict']]]] group_bies: The rules for the group by.
+        :param pulumi.Input[Union['LogsMetricComputeArgs', 'LogsMetricComputeArgsDict', 'outputs.LogsMetricCompute']] compute: The compute rule to compute the log-based metric. This field can't be updated after creation.
+        :param pulumi.Input[Union['LogsMetricFilterArgs', 'LogsMetricFilterArgsDict', 'outputs.LogsMetricFilter']] filter: The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogsMetricGroupByArgs', 'LogsMetricGroupByArgsDict', 'outputs.LogsMetricGroupBy']]]] group_bies: The rules for the group by.
         :param pulumi.Input[_builtins.str] name: The name of the log-based metric. This field can't be updated after creation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

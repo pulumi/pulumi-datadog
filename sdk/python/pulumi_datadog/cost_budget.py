@@ -287,9 +287,9 @@ class CostBudget(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  budget_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
+                 budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict', 'outputs.CostBudgetBudgetLine']]]]] = None,
                  end_month: pulumi.Input[Optional[_builtins.int]] = None,
-                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict', 'outputs.CostBudgetEntry']]]]] = None,
                  metrics_query: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  start_month: pulumi.Input[Optional[_builtins.int]] = None,
@@ -435,9 +435,9 @@ class CostBudget(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]] budget_lines: Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict', 'outputs.CostBudgetBudgetLine']]]] budget_lines: Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict', 'outputs.CostBudgetEntry']]]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         :param pulumi.Input[_builtins.str] name: The name of the budget.
         :param pulumi.Input[_builtins.int] start_month: The month when the budget starts (YYYYMM).
@@ -602,9 +602,9 @@ class CostBudget(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  budget_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
+                 budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict', 'outputs.CostBudgetBudgetLine']]]]] = None,
                  end_month: pulumi.Input[Optional[_builtins.int]] = None,
-                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict', 'outputs.CostBudgetEntry']]]]] = None,
                  metrics_query: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  start_month: pulumi.Input[Optional[_builtins.int]] = None,
@@ -644,9 +644,9 @@ class CostBudget(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             budget_id: pulumi.Input[Optional[_builtins.str]] = None,
-            budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]]] = None,
+            budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict', 'outputs.CostBudgetBudgetLine']]]]] = None,
             end_month: pulumi.Input[Optional[_builtins.int]] = None,
-            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]]] = None,
+            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict', 'outputs.CostBudgetEntry']]]]] = None,
             metrics_query: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             start_month: pulumi.Input[Optional[_builtins.int]] = None,
@@ -659,9 +659,9 @@ class CostBudget(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] budget_id: The ID of the budget.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict']]]] budget_lines: Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict', 'outputs.CostBudgetBudgetLine']]]] budget_lines: Budget lines that group monthly amounts by tag combination. Use this instead of `entries` for a more convenient schema. **Note:** The order of budget*line blocks does not matter.
         :param pulumi.Input[_builtins.int] end_month: The month when the budget ends (YYYYMM).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict']]]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict', 'outputs.CostBudgetEntry']]]] entries: The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
         :param pulumi.Input[_builtins.str] metrics_query: The cost query used to track against the budget. **Note:** For hierarchical budgets using `by {tag1,tag2}`, the order of tags determines the UI hierarchy (parent, child).
         :param pulumi.Input[_builtins.str] name: The name of the budget.
         :param pulumi.Input[_builtins.int] start_month: The month when the budget starts (YYYYMM).

@@ -191,7 +191,7 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_permissions_opt_out: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict', 'outputs.RolePermission']]]]] = None,
                  validate: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -233,7 +233,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         :param pulumi.Input[_builtins.str] name: Name of the role.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict', 'outputs.RolePermission']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
         """
         ...
@@ -294,7 +294,7 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_permissions_opt_out: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict', 'outputs.RolePermission']]]]] = None,
                  validate: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -324,7 +324,7 @@ class Role(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             default_permissions_opt_out: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict', 'outputs.RolePermission']]]]] = None,
             user_count: pulumi.Input[Optional[_builtins.int]] = None,
             validate: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Role':
         """
@@ -336,7 +336,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] default_permissions_opt_out: If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `include_restricted` attribute for the `get_permissions` data source must be set to `true` to manage default permissions in Terraform.
         :param pulumi.Input[_builtins.str] name: Name of the role.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict', 'outputs.RolePermission']]]] permissions: Set of objects containing the permission ID and the name of the permissions granted to this role.
         :param pulumi.Input[_builtins.int] user_count: Number of users that have this role. **Deprecated.** This field is no longer set and will be removed in a future release.
         :param pulumi.Input[_builtins.bool] validate: If set to `false`, skip the validation call done during plan.
         """

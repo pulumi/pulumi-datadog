@@ -201,10 +201,10 @@ class TeamNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email: pulumi.Input[Optional[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict']]] = None,
-                 ms_teams: pulumi.Input[Optional[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict']]] = None,
-                 pagerduty: pulumi.Input[Optional[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict']]] = None,
-                 slack: pulumi.Input[Optional[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict']]] = None,
+                 email: pulumi.Input[Optional[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict', 'outputs.TeamNotificationRuleEmail']]] = None,
+                 ms_teams: pulumi.Input[Optional[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict', 'outputs.TeamNotificationRuleMsTeams']]] = None,
+                 pagerduty: pulumi.Input[Optional[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict', 'outputs.TeamNotificationRulePagerduty']]] = None,
+                 slack: pulumi.Input[Optional[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict', 'outputs.TeamNotificationRuleSlack']]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -251,10 +251,10 @@ class TeamNotificationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict']] email: The email notification settings.
-        :param pulumi.Input[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict']] ms_teams: The MS Teams notification settings.
-        :param pulumi.Input[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict']] pagerduty: The PagerDuty notification settings.
-        :param pulumi.Input[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict']] slack: The Slack notification settings.
+        :param pulumi.Input[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict', 'outputs.TeamNotificationRuleEmail']] email: The email notification settings.
+        :param pulumi.Input[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict', 'outputs.TeamNotificationRuleMsTeams']] ms_teams: The MS Teams notification settings.
+        :param pulumi.Input[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict', 'outputs.TeamNotificationRulePagerduty']] pagerduty: The PagerDuty notification settings.
+        :param pulumi.Input[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict', 'outputs.TeamNotificationRuleSlack']] slack: The Slack notification settings.
         :param pulumi.Input[_builtins.str] team_id: The ID of the team that this notification rule belongs to.
         """
         ...
@@ -320,10 +320,10 @@ class TeamNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email: pulumi.Input[Optional[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict']]] = None,
-                 ms_teams: pulumi.Input[Optional[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict']]] = None,
-                 pagerduty: pulumi.Input[Optional[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict']]] = None,
-                 slack: pulumi.Input[Optional[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict']]] = None,
+                 email: pulumi.Input[Optional[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict', 'outputs.TeamNotificationRuleEmail']]] = None,
+                 ms_teams: pulumi.Input[Optional[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict', 'outputs.TeamNotificationRuleMsTeams']]] = None,
+                 pagerduty: pulumi.Input[Optional[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict', 'outputs.TeamNotificationRulePagerduty']]] = None,
+                 slack: pulumi.Input[Optional[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict', 'outputs.TeamNotificationRuleSlack']]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -351,10 +351,10 @@ class TeamNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            email: pulumi.Input[Optional[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict']]] = None,
-            ms_teams: pulumi.Input[Optional[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict']]] = None,
-            pagerduty: pulumi.Input[Optional[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict']]] = None,
-            slack: pulumi.Input[Optional[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict']]] = None,
+            email: pulumi.Input[Optional[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict', 'outputs.TeamNotificationRuleEmail']]] = None,
+            ms_teams: pulumi.Input[Optional[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict', 'outputs.TeamNotificationRuleMsTeams']]] = None,
+            pagerduty: pulumi.Input[Optional[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict', 'outputs.TeamNotificationRulePagerduty']]] = None,
+            slack: pulumi.Input[Optional[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict', 'outputs.TeamNotificationRuleSlack']]] = None,
             team_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamNotificationRule':
         """
         Get an existing TeamNotificationRule resource's state with the given name, id, and optional extra
@@ -363,10 +363,10 @@ class TeamNotificationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict']] email: The email notification settings.
-        :param pulumi.Input[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict']] ms_teams: The MS Teams notification settings.
-        :param pulumi.Input[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict']] pagerduty: The PagerDuty notification settings.
-        :param pulumi.Input[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict']] slack: The Slack notification settings.
+        :param pulumi.Input[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict', 'outputs.TeamNotificationRuleEmail']] email: The email notification settings.
+        :param pulumi.Input[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict', 'outputs.TeamNotificationRuleMsTeams']] ms_teams: The MS Teams notification settings.
+        :param pulumi.Input[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict', 'outputs.TeamNotificationRulePagerduty']] pagerduty: The PagerDuty notification settings.
+        :param pulumi.Input[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict', 'outputs.TeamNotificationRuleSlack']] slack: The Slack notification settings.
         :param pulumi.Input[_builtins.str] team_id: The ID of the team that this notification rule belongs to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

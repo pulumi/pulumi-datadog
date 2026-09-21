@@ -460,16 +460,16 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 included_keyword_configuration: pulumi.Input[Optional[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict']]] = None,
+                 included_keyword_configuration: pulumi.Input[Optional[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict', 'outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration']]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  standard_pattern_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict']]] = None,
+                 suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict']]] = None,
+                 text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']]] = None,
                  __props__=None):
         """
         Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `included_keyword_configuration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
@@ -488,16 +488,16 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the rule. Computed when `standard_pattern_id` is set and this field is omitted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
         :param pulumi.Input[_builtins.str] group_id: Id of the scanning group the rule belongs to.
-        :param pulumi.Input[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict']] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+        :param pulumi.Input[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict', 'outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration']] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether or not the rule is enabled.
         :param pulumi.Input[_builtins.str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
         :param pulumi.Input[_builtins.str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[_builtins.int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[_builtins.str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
-        :param pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict']] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        :param pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags.
-        :param pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
+        :param pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
         ...
     @overload
@@ -535,16 +535,16 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 included_keyword_configuration: pulumi.Input[Optional[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict']]] = None,
+                 included_keyword_configuration: pulumi.Input[Optional[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict', 'outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration']]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  standard_pattern_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict']]] = None,
+                 suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict']]] = None,
+                 text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -582,16 +582,16 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             group_id: pulumi.Input[Optional[_builtins.str]] = None,
-            included_keyword_configuration: pulumi.Input[Optional[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict']]] = None,
+            included_keyword_configuration: pulumi.Input[Optional[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict', 'outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration']]] = None,
             is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             pattern: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             standard_pattern_id: pulumi.Input[Optional[_builtins.str]] = None,
-            suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict']]] = None,
+            suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict']]] = None) -> 'SensitiveDataScannerRule':
+            text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']]] = None) -> 'SensitiveDataScannerRule':
         """
         Get an existing SensitiveDataScannerRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -602,16 +602,16 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the rule. Computed when `standard_pattern_id` is set and this field is omitted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_namespaces: Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
         :param pulumi.Input[_builtins.str] group_id: Id of the scanning group the rule belongs to.
-        :param pulumi.Input[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict']] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
+        :param pulumi.Input[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict', 'outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration']] included_keyword_configuration: Object defining a set of keywords and a number of characters that help reduce noise. You can provide a list of keywords you would like to check within a defined proximity of the matching pattern. If any of the keywords are found within the proximity check then the match is kept. If none are found, the match is discarded. If the rule has the `standard_pattern_id` field, then discarding this field will apply the recommended keywords. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying this field to avoid unexpectedly disabling Sensitive Data Scanner groups.
         :param pulumi.Input[_builtins.bool] is_enabled: Whether or not the rule is enabled.
         :param pulumi.Input[_builtins.str] name: Name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned. If both are missing the whole event is scanned.
         :param pulumi.Input[_builtins.str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[_builtins.int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[_builtins.str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
-        :param pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict']] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        :param pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags.
-        :param pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
+        :param pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

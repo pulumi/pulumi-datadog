@@ -299,13 +299,13 @@ class PowerpackV2(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 layout: pulumi.Input[Optional[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict']]] = None,
+                 layout: pulumi.Input[Optional[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict', 'outputs.PowerpackV2Layout']]] = None,
                  live_span: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  show_title: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict']]]]] = None,
-                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict']]]]] = None,
+                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict', 'outputs.PowerpackV2TemplateVariable']]]]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict', 'outputs.PowerpackV2Widget']]]]] = None,
                  __props__=None):
         """
         [BETA] Provides an updated version of the Datadog powerpack resource which improves compliance with Datadog's powerpack API spec. This version is currently experimental and prone to changes.
@@ -362,13 +362,13 @@ class PowerpackV2(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the powerpack.
-        :param pulumi.Input[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict']] layout: The layout of the powerpack on a free-form dashboard.
+        :param pulumi.Input[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict', 'outputs.PowerpackV2Layout']] layout: The layout of the powerpack on a free-form dashboard.
         :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the powerpack.
         :param pulumi.Input[_builtins.str] name: The name for the powerpack.
         :param pulumi.Input[_builtins.bool] show_title: Whether or not title should be displayed in the powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags to identify this powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict']]]] template_variables: The list of template variables for this powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict']]]] widgets: The list of widgets to display in the powerpack.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict', 'outputs.PowerpackV2TemplateVariable']]]] template_variables: The list of template variables for this powerpack.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict', 'outputs.PowerpackV2Widget']]]] widgets: The list of widgets to display in the powerpack.
         """
         ...
     @overload
@@ -444,13 +444,13 @@ class PowerpackV2(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 layout: pulumi.Input[Optional[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict']]] = None,
+                 layout: pulumi.Input[Optional[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict', 'outputs.PowerpackV2Layout']]] = None,
                  live_span: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  show_title: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict']]]]] = None,
-                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict']]]]] = None,
+                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict', 'outputs.PowerpackV2TemplateVariable']]]]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict', 'outputs.PowerpackV2Widget']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -479,13 +479,13 @@ class PowerpackV2(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            layout: pulumi.Input[Optional[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict']]] = None,
+            layout: pulumi.Input[Optional[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict', 'outputs.PowerpackV2Layout']]] = None,
             live_span: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             show_title: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict']]]]] = None,
-            widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict']]]]] = None) -> 'PowerpackV2':
+            template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict', 'outputs.PowerpackV2TemplateVariable']]]]] = None,
+            widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict', 'outputs.PowerpackV2Widget']]]]] = None) -> 'PowerpackV2':
         """
         Get an existing PowerpackV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -494,13 +494,13 @@ class PowerpackV2(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the powerpack.
-        :param pulumi.Input[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict']] layout: The layout of the powerpack on a free-form dashboard.
+        :param pulumi.Input[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict', 'outputs.PowerpackV2Layout']] layout: The layout of the powerpack on a free-form dashboard.
         :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the powerpack.
         :param pulumi.Input[_builtins.str] name: The name for the powerpack.
         :param pulumi.Input[_builtins.bool] show_title: Whether or not title should be displayed in the powerpack.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags to identify this powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict']]]] template_variables: The list of template variables for this powerpack.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict']]]] widgets: The list of widgets to display in the powerpack.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict', 'outputs.PowerpackV2TemplateVariable']]]] template_variables: The list of template variables for this powerpack.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict', 'outputs.PowerpackV2Widget']]]] widgets: The list of widgets to display in the powerpack.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

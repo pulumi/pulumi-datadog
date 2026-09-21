@@ -473,9 +473,9 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  is_fido: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_totp: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict', 'outputs.SyntheticsGlobalVariableOptions']]] = None,
                  parse_test_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 parse_test_options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']]] = None,
+                 parse_test_options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict', 'outputs.SyntheticsGlobalVariableParseTestOptions']]] = None,
                  restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  secure: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -552,9 +552,9 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: Synthetics global variable name. Must be all uppercase with underscores.
-        :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']] options: Additional options for the variable, such as a MFA token.
+        :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict', 'outputs.SyntheticsGlobalVariableOptions']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[_builtins.str] parse_test_id: Id of the Synthetics test to use for a variable from test.
-        :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
+        :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict', 'outputs.SyntheticsGlobalVariableParseTestOptions']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param pulumi.Input[_builtins.bool] secure: If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics global variable.
@@ -651,9 +651,9 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                  is_fido: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_totp: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict', 'outputs.SyntheticsGlobalVariableOptions']]] = None,
                  parse_test_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 parse_test_options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']]] = None,
+                 parse_test_options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict', 'outputs.SyntheticsGlobalVariableParseTestOptions']]] = None,
                  restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  secure: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -700,9 +700,9 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
             is_fido: pulumi.Input[Optional[_builtins.bool]] = None,
             is_totp: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']]] = None,
+            options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict', 'outputs.SyntheticsGlobalVariableOptions']]] = None,
             parse_test_id: pulumi.Input[Optional[_builtins.str]] = None,
-            parse_test_options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']]] = None,
+            parse_test_options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict', 'outputs.SyntheticsGlobalVariableParseTestOptions']]] = None,
             restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             secure: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -720,9 +720,9 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] is_fido: If set to true, the global variable is a FIDO variable. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] is_totp: If set to true, the global variable is a TOTP variable. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: Synthetics global variable name. Must be all uppercase with underscores.
-        :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict']] options: Additional options for the variable, such as a MFA token.
+        :param pulumi.Input[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict', 'outputs.SyntheticsGlobalVariableOptions']] options: Additional options for the variable, such as a MFA token.
         :param pulumi.Input[_builtins.str] parse_test_id: Id of the Synthetics test to use for a variable from test.
-        :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
+        :param pulumi.Input[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict', 'outputs.SyntheticsGlobalVariableParseTestOptions']] parse_test_options: ID of the Synthetics test to use a source of the global variable value.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: A list of role identifiers to associate with the Synthetics global variable. **Deprecated.** This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
         :param pulumi.Input[_builtins.bool] secure: If set to true, the value of the global variable is hidden. This setting is automatically set to `true` if `is_totp` or `is_fido` is set to `true`. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your synthetics global variable.

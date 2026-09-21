@@ -203,9 +203,9 @@ class SyntheticsSuite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict', 'outputs.SyntheticsSuiteOption']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]]] = None,
+                 tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict', 'outputs.SyntheticsSuiteTest']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Synthetics Suite resource. This can be used to create and manage Synthetics test suites.
@@ -215,9 +215,9 @@ class SyntheticsSuite(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] message: Message of the Synthetics suite.
         :param pulumi.Input[_builtins.str] name: Name of the Synthetics suite.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]] options: Options for the Synthetics suite.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict', 'outputs.SyntheticsSuiteOption']]]] options: Options for the Synthetics suite.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A set of tags to associate with your synthetics suite.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]] tests: List of tests in the Synthetics suite. Can be empty but the field is always sent to the API.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict', 'outputs.SyntheticsSuiteTest']]]] tests: List of tests in the Synthetics suite. Can be empty but the field is always sent to the API.
         """
         ...
     @overload
@@ -246,9 +246,9 @@ class SyntheticsSuite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict', 'outputs.SyntheticsSuiteOption']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]]] = None,
+                 tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict', 'outputs.SyntheticsSuiteTest']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -277,9 +277,9 @@ class SyntheticsSuite(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             message: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]]] = None,
+            options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict', 'outputs.SyntheticsSuiteOption']]]]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]]] = None) -> 'SyntheticsSuite':
+            tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict', 'outputs.SyntheticsSuiteTest']]]]] = None) -> 'SyntheticsSuite':
         """
         Get an existing SyntheticsSuite resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -289,9 +289,9 @@ class SyntheticsSuite(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] message: Message of the Synthetics suite.
         :param pulumi.Input[_builtins.str] name: Name of the Synthetics suite.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict']]]] options: Options for the Synthetics suite.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict', 'outputs.SyntheticsSuiteOption']]]] options: Options for the Synthetics suite.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A set of tags to associate with your synthetics suite.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict']]]] tests: List of tests in the Synthetics suite. Can be empty but the field is always sent to the API.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict', 'outputs.SyntheticsSuiteTest']]]] tests: List of tests in the Synthetics suite. Can be empty but the field is always sent to the API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

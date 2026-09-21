@@ -327,7 +327,7 @@ class IncidentNotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict', 'outputs.IncidentNotificationRuleCondition']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  handles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  incident_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -406,7 +406,7 @@ class IncidentNotificationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]] conditions: The conditions that trigger this notification rule. At least one condition is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict', 'outputs.IncidentNotificationRuleCondition']]]] conditions: The conditions that trigger this notification rule. At least one condition is required.
         :param pulumi.Input[_builtins.bool] enabled: Whether the notification rule is enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] handles: The notification handles (targets) for this rule. Examples: @team-email@company.com, @slack-channel.
         :param pulumi.Input[_builtins.str] incident_type: The ID of the incident type this notification rule is associated with.
@@ -504,7 +504,7 @@ class IncidentNotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict', 'outputs.IncidentNotificationRuleCondition']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  handles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  incident_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -547,7 +547,7 @@ class IncidentNotificationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict', 'outputs.IncidentNotificationRuleCondition']]]]] = None,
             created: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             handles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -564,7 +564,7 @@ class IncidentNotificationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict']]]] conditions: The conditions that trigger this notification rule. At least one condition is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict', 'outputs.IncidentNotificationRuleCondition']]]] conditions: The conditions that trigger this notification rule. At least one condition is required.
         :param pulumi.Input[_builtins.str] created: Timestamp when the notification rule was created.
         :param pulumi.Input[_builtins.bool] enabled: Whether the notification rule is enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] handles: The notification handles (targets) for this rule. Examples: @team-email@company.com, @slack-channel.
