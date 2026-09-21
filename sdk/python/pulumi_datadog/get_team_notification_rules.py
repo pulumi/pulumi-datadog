@@ -75,7 +75,7 @@ class AwaitableGetTeamNotificationRulesResult(GetTeamNotificationRulesResult):
             team_id=self.team_id)
 
 
-def get_team_notification_rules(notification_rules: Optional[Sequence[Union['GetTeamNotificationRulesNotificationRuleArgs', 'GetTeamNotificationRulesNotificationRuleArgsDict']]] = None,
+def get_team_notification_rules(notification_rules: Optional[Sequence[Union['GetTeamNotificationRulesNotificationRuleArgs', 'GetTeamNotificationRulesNotificationRuleArgsDict', 'outputs.GetTeamNotificationRulesNotificationRuleResult']]] = None,
                                 team_id: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamNotificationRulesResult:
     """
@@ -92,7 +92,7 @@ def get_team_notification_rules(notification_rules: Optional[Sequence[Union['Get
     ```
 
 
-    :param Sequence[Union['GetTeamNotificationRulesNotificationRuleArgs', 'GetTeamNotificationRulesNotificationRuleArgsDict']] notification_rules: List of notification rules for the team.
+    :param Sequence[Union['GetTeamNotificationRulesNotificationRuleArgs', 'GetTeamNotificationRulesNotificationRuleArgsDict', 'outputs.GetTeamNotificationRulesNotificationRuleResult']] notification_rules: List of notification rules for the team.
     :param _builtins.str team_id: The team ID to fetch notification rules for.
     """
     __args__ = dict()
@@ -105,7 +105,7 @@ def get_team_notification_rules(notification_rules: Optional[Sequence[Union['Get
         id=pulumi.get(__ret__, 'id'),
         notification_rules=pulumi.get(__ret__, 'notification_rules'),
         team_id=pulumi.get(__ret__, 'team_id'))
-def get_team_notification_rules_output(notification_rules: pulumi.Input[Optional[Optional[Sequence[Union['GetTeamNotificationRulesNotificationRuleArgs', 'GetTeamNotificationRulesNotificationRuleArgsDict']]]]] = None,
+def get_team_notification_rules_output(notification_rules: pulumi.Input[Optional[Optional[Sequence[Union['GetTeamNotificationRulesNotificationRuleArgs', 'GetTeamNotificationRulesNotificationRuleArgsDict', 'outputs.GetTeamNotificationRulesNotificationRuleResult']]]]] = None,
                                        team_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamNotificationRulesResult]:
     """
@@ -122,7 +122,7 @@ def get_team_notification_rules_output(notification_rules: pulumi.Input[Optional
     ```
 
 
-    :param Sequence[Union['GetTeamNotificationRulesNotificationRuleArgs', 'GetTeamNotificationRulesNotificationRuleArgsDict']] notification_rules: List of notification rules for the team.
+    :param Sequence[Union['GetTeamNotificationRulesNotificationRuleArgs', 'GetTeamNotificationRulesNotificationRuleArgsDict', 'outputs.GetTeamNotificationRulesNotificationRuleResult']] notification_rules: List of notification rules for the team.
     :param _builtins.str team_id: The team ID to fetch notification rules for.
     """
     __args__ = dict()

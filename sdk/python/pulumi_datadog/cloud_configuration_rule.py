@@ -389,7 +389,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict', 'outputs.CloudConfigurationRuleFilter']]]]] = None,
                  group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -460,7 +460,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the cloud configuration rule is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict', 'outputs.CloudConfigurationRuleFilter']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use top-level section headers to control where each part appears in the finding: `Description` appears under **What Happened**, and `Remediation` appears in its own **Remediation** section. You can also include a `Rationale` section, which is shown within **What Happened** after the description. All sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
         :param pulumi.Input[_builtins.str] name: The name of the cloud configuration rule.
@@ -550,7 +550,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]]] = None,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict', 'outputs.CloudConfigurationRuleFilter']]]]] = None,
                  group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -603,7 +603,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict', 'outputs.CloudConfigurationRuleFilter']]]]] = None,
             group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             message: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -621,7 +621,7 @@ class CloudConfigurationRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the cloud configuration rule is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict', 'outputs.CloudConfigurationRuleFilter']]]] filters: Additional queries to filter matched events before they are processed. Defaults to empty list
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_bies: Defaults to empty list. This function will be deprecated soon. Use the notification rules function instead. Fields to group by when generating signals, e.g. @resource.
         :param pulumi.Input[_builtins.str] message: The message associated to the rule that will be shown in findings and signals. For cloud configuration rules, the message is rendered in the finding side panel. When the message is written as Markdown, you can use top-level section headers to control where each part appears in the finding: `Description` appears under **What Happened**, and `Remediation` appears in its own **Remediation** section. You can also include a `Rationale` section, which is shown within **What Happened** after the description. All sections are optional and can appear in any order; a typical message uses only `Description` and `Remediation`. Use level-2 (`##`) headers for each section. If none of these headers are present, the entire message is shown as the description.
         :param pulumi.Input[_builtins.str] name: The name of the cloud configuration rule.

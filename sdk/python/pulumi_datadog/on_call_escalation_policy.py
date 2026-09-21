@@ -203,7 +203,7 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resolve_page_on_policy_end: pulumi.Input[Optional[_builtins.bool]] = None,
                  retries: pulumi.Input[Optional[_builtins.int]] = None,
-                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict', 'outputs.OnCallEscalationPolicyStep']]]]] = None,
                  teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -252,7 +252,7 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: A human-readable name for the escalation policy.
         :param pulumi.Input[_builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         :param pulumi.Input[_builtins.int] retries: If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict']]]] steps: List of steps for the escalation policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict', 'outputs.OnCallEscalationPolicyStep']]]] steps: List of steps for the escalation policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: A list of team ids associated with the escalation policy.
         """
         ...
@@ -320,7 +320,7 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resolve_page_on_policy_end: pulumi.Input[Optional[_builtins.bool]] = None,
                  retries: pulumi.Input[Optional[_builtins.int]] = None,
-                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict', 'outputs.OnCallEscalationPolicyStep']]]]] = None,
                  teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -353,7 +353,7 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resolve_page_on_policy_end: pulumi.Input[Optional[_builtins.bool]] = None,
             retries: pulumi.Input[Optional[_builtins.int]] = None,
-            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict']]]]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict', 'outputs.OnCallEscalationPolicyStep']]]]] = None,
             teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'OnCallEscalationPolicy':
         """
         Get an existing OnCallEscalationPolicy resource's state with the given name, id, and optional extra
@@ -365,7 +365,7 @@ class OnCallEscalationPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: A human-readable name for the escalation policy.
         :param pulumi.Input[_builtins.bool] resolve_page_on_policy_end: If true, pages will be automatically resolved if unacknowledged after the final step. Defaults to `false`.
         :param pulumi.Input[_builtins.int] retries: If set, policy will be retried this many times after the final step. Must be in the range 0-10. Value must be between 0 and 10. Defaults to `0`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict']]]] steps: List of steps for the escalation policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OnCallEscalationPolicyStepArgs', 'OnCallEscalationPolicyStepArgsDict', 'outputs.OnCallEscalationPolicyStep']]]] steps: List of steps for the escalation policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] teams: A list of team ids associated with the escalation policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

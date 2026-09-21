@@ -519,13 +519,13 @@ class Dashboard(pulumi.CustomResource):
                  notify_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  reflow_type: pulumi.Input[Optional[_builtins.str]] = None,
                  restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tabs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict']]]]] = None,
+                 tabs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict', 'outputs.DashboardTab']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_variable_presets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict']]]]] = None,
-                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict']]]]] = None,
+                 template_variable_presets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict', 'outputs.DashboardTemplateVariablePreset']]]]] = None,
+                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict', 'outputs.DashboardTemplateVariable']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
-                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict', 'outputs.DashboardWidget']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
@@ -1295,13 +1295,13 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[_builtins.str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict']]]] tabs: The list of tabs for organizing widgets on the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict', 'outputs.DashboardTab']]]] tabs: The list of tabs for organizing widgets on the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict']]]] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict', 'outputs.DashboardTemplateVariablePreset']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict', 'outputs.DashboardTemplateVariable']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[_builtins.str] title: The title of the dashboard.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]] widgets: The list of widgets to display on the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict', 'outputs.DashboardWidget']]]] widgets: The list of widgets to display on the dashboard.
         """
         ...
     @overload
@@ -2090,13 +2090,13 @@ class Dashboard(pulumi.CustomResource):
                  notify_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  reflow_type: pulumi.Input[Optional[_builtins.str]] = None,
                  restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tabs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict']]]]] = None,
+                 tabs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict', 'outputs.DashboardTab']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 template_variable_presets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict']]]]] = None,
-                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict']]]]] = None,
+                 template_variable_presets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict', 'outputs.DashboardTemplateVariablePreset']]]]] = None,
+                 template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict', 'outputs.DashboardTemplateVariable']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
-                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict', 'outputs.DashboardWidget']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2143,13 +2143,13 @@ class Dashboard(pulumi.CustomResource):
             notify_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             reflow_type: pulumi.Input[Optional[_builtins.str]] = None,
             restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            tabs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict']]]]] = None,
+            tabs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict', 'outputs.DashboardTab']]]]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            template_variable_presets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict']]]]] = None,
-            template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict']]]]] = None,
+            template_variable_presets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict', 'outputs.DashboardTemplateVariablePreset']]]]] = None,
+            template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict', 'outputs.DashboardTemplateVariable']]]]] = None,
             title: pulumi.Input[Optional[_builtins.str]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None,
-            widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]]] = None) -> 'Dashboard':
+            widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict', 'outputs.DashboardWidget']]]]] = None) -> 'Dashboard':
         """
         Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -2165,13 +2165,13 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
         :param pulumi.Input[_builtins.str] reflow_type: The reflow type of a new dashboard layout. Set this only when layout type is `ordered`. If set to `fixed`, the dashboard expects all widgets to have a layout, and if it's set to `auto`, widgets should not have layouts. Valid values are `auto`, `fixed`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] restricted_roles: UUIDs of roles whose associated users are authorized to edit the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict']]]] tabs: The list of tabs for organizing widgets on the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict', 'outputs.DashboardTab']]]] tabs: The list of tabs for organizing widgets on the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags assigned to the Dashboard. Only team names of the form `team:<name>` are supported.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict']]]] template_variables: The list of template variables for this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict', 'outputs.DashboardTemplateVariablePreset']]]] template_variable_presets: The list of selectable template variable presets for this dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict', 'outputs.DashboardTemplateVariable']]]] template_variables: The list of template variables for this dashboard.
         :param pulumi.Input[_builtins.str] title: The title of the dashboard.
         :param pulumi.Input[_builtins.str] url: The URL of the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]] widgets: The list of widgets to display on the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict', 'outputs.DashboardWidget']]]] widgets: The list of widgets to display on the dashboard.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

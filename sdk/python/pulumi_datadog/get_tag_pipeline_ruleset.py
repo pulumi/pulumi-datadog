@@ -112,14 +112,14 @@ class AwaitableGetTagPipelineRulesetResult(GetTagPipelineRulesetResult):
 
 
 def get_tag_pipeline_ruleset(id: Optional[_builtins.str] = None,
-                             rules: Optional[Sequence[Union['GetTagPipelineRulesetRuleArgs', 'GetTagPipelineRulesetRuleArgsDict']]] = None,
+                             rules: Optional[Sequence[Union['GetTagPipelineRulesetRuleArgs', 'GetTagPipelineRulesetRuleArgsDict', 'outputs.GetTagPipelineRulesetRuleResult']]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagPipelineRulesetResult:
     """
     Use this data source to retrieve information about an existing Datadog tag pipeline ruleset.
 
 
     :param _builtins.str id: The ID of the ruleset.
-    :param Sequence[Union['GetTagPipelineRulesetRuleArgs', 'GetTagPipelineRulesetRuleArgsDict']] rules: The rules in the ruleset.
+    :param Sequence[Union['GetTagPipelineRulesetRuleArgs', 'GetTagPipelineRulesetRuleArgsDict', 'outputs.GetTagPipelineRulesetRuleResult']] rules: The rules in the ruleset.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -135,14 +135,14 @@ def get_tag_pipeline_ruleset(id: Optional[_builtins.str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         version=pulumi.get(__ret__, 'version'))
 def get_tag_pipeline_ruleset_output(id: pulumi.Input[Optional[_builtins.str]] = None,
-                                    rules: pulumi.Input[Optional[Optional[Sequence[Union['GetTagPipelineRulesetRuleArgs', 'GetTagPipelineRulesetRuleArgsDict']]]]] = None,
+                                    rules: pulumi.Input[Optional[Optional[Sequence[Union['GetTagPipelineRulesetRuleArgs', 'GetTagPipelineRulesetRuleArgsDict', 'outputs.GetTagPipelineRulesetRuleResult']]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagPipelineRulesetResult]:
     """
     Use this data source to retrieve information about an existing Datadog tag pipeline ruleset.
 
 
     :param _builtins.str id: The ID of the ruleset.
-    :param Sequence[Union['GetTagPipelineRulesetRuleArgs', 'GetTagPipelineRulesetRuleArgsDict']] rules: The rules in the ruleset.
+    :param Sequence[Union['GetTagPipelineRulesetRuleArgs', 'GetTagPipelineRulesetRuleArgsDict', 'outputs.GetTagPipelineRulesetRuleResult']] rules: The rules in the ruleset.
     """
     __args__ = dict()
     __args__['id'] = id

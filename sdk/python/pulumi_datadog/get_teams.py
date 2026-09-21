@@ -89,7 +89,7 @@ class AwaitableGetTeamsResult(GetTeamsResult):
 
 def get_teams(filter_keyword: Optional[_builtins.str] = None,
               filter_me: Optional[_builtins.bool] = None,
-              teams: Optional[Sequence[Union['GetTeamsTeamArgs', 'GetTeamsTeamArgsDict']]] = None,
+              teams: Optional[Sequence[Union['GetTeamsTeamArgs', 'GetTeamsTeamArgsDict', 'outputs.GetTeamsTeamResult']]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamsResult:
     """
     Use this data source to retrieve information about existing teams for use in other resources.
@@ -107,7 +107,7 @@ def get_teams(filter_keyword: Optional[_builtins.str] = None,
 
     :param _builtins.str filter_keyword: Search query. Can be team name, team handle, or email of team member.
     :param _builtins.bool filter_me: When true, only returns teams the current user belongs to.
-    :param Sequence[Union['GetTeamsTeamArgs', 'GetTeamsTeamArgsDict']] teams: List of teams
+    :param Sequence[Union['GetTeamsTeamArgs', 'GetTeamsTeamArgsDict', 'outputs.GetTeamsTeamResult']] teams: List of teams
     """
     __args__ = dict()
     __args__['filterKeyword'] = filter_keyword
@@ -123,7 +123,7 @@ def get_teams(filter_keyword: Optional[_builtins.str] = None,
         teams=pulumi.get(__ret__, 'teams'))
 def get_teams_output(filter_keyword: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      filter_me: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                     teams: pulumi.Input[Optional[Optional[Sequence[Union['GetTeamsTeamArgs', 'GetTeamsTeamArgsDict']]]]] = None,
+                     teams: pulumi.Input[Optional[Optional[Sequence[Union['GetTeamsTeamArgs', 'GetTeamsTeamArgsDict', 'outputs.GetTeamsTeamResult']]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamsResult]:
     """
     Use this data source to retrieve information about existing teams for use in other resources.
@@ -141,7 +141,7 @@ def get_teams_output(filter_keyword: pulumi.Input[Optional[Optional[_builtins.st
 
     :param _builtins.str filter_keyword: Search query. Can be team name, team handle, or email of team member.
     :param _builtins.bool filter_me: When true, only returns teams the current user belongs to.
-    :param Sequence[Union['GetTeamsTeamArgs', 'GetTeamsTeamArgsDict']] teams: List of teams
+    :param Sequence[Union['GetTeamsTeamArgs', 'GetTeamsTeamArgsDict', 'outputs.GetTeamsTeamResult']] teams: List of teams
     """
     __args__ = dict()
     __args__['filterKeyword'] = filter_keyword

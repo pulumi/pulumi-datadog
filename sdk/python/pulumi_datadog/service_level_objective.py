@@ -525,11 +525,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
-                 sli_specification: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
+                 query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict', 'outputs.ServiceLevelObjectiveQuery']]] = None,
+                 sli_specification: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict', 'outputs.ServiceLevelObjectiveSliSpecification']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target_threshold: pulumi.Input[Optional[_builtins.float]] = None,
-                 thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
+                 thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict', 'outputs.ServiceLevelObjectiveThreshold']]]]] = None,
                  timeframe: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  validate: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -702,11 +702,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[_builtins.str] name: Name of Datadog service level objective
-        :param pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']] query: The metric query of good / total events. Use this for metric SLOs as an alternative to `sli_specification`.
-        :param pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']] sli_specification: A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
+        :param pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict', 'outputs.ServiceLevelObjectiveQuery']] query: The metric query of good / total events. Use this for metric SLOs as an alternative to `sli_specification`.
+        :param pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict', 'outputs.ServiceLevelObjectiveSliSpecification']] sli_specification: A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         :param pulumi.Input[_builtins.float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict', 'outputs.ServiceLevelObjectiveThreshold']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[_builtins.str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[_builtins.str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `time_slice`.
         :param pulumi.Input[_builtins.bool] validate: Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.
@@ -898,11 +898,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
-                 sli_specification: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
+                 query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict', 'outputs.ServiceLevelObjectiveQuery']]] = None,
+                 sli_specification: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict', 'outputs.ServiceLevelObjectiveSliSpecification']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  target_threshold: pulumi.Input[Optional[_builtins.float]] = None,
-                 thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
+                 thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict', 'outputs.ServiceLevelObjectiveThreshold']]]]] = None,
                  timeframe: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  validate: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -953,11 +953,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
             ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']]] = None,
-            sli_specification: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']]] = None,
+            query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict', 'outputs.ServiceLevelObjectiveQuery']]] = None,
+            sli_specification: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict', 'outputs.ServiceLevelObjectiveSliSpecification']]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             target_threshold: pulumi.Input[Optional[_builtins.float]] = None,
-            thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]]] = None,
+            thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict', 'outputs.ServiceLevelObjectiveThreshold']]]]] = None,
             timeframe: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             validate: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -975,11 +975,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: Tag keys whose drift Terraform should ignore. Use this to keep specific tags managed outside Terraform (for example, by the Datadog UI or a tagging service) without `pulumi preview` reporting drift on every run. Other tags are still managed normally. Any `:value` suffix is ignored. Merged with the provider's `ignore_tag_keys` for this resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] monitor_ids: A static set of monitor IDs to use as part of the SLO
         :param pulumi.Input[_builtins.str] name: Name of Datadog service level objective
-        :param pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict']] query: The metric query of good / total events. Use this for metric SLOs as an alternative to `sli_specification`.
-        :param pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict']] sli_specification: A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
+        :param pulumi.Input[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict', 'outputs.ServiceLevelObjectiveQuery']] query: The metric query of good / total events. Use this for metric SLOs as an alternative to `sli_specification`.
+        :param pulumi.Input[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict', 'outputs.ServiceLevelObjectiveSliSpecification']] sli_specification: A generic SLI specification. This is used for both time-slice SLOs and count-based (metric) SLOs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with your service level objective. This can help you categorize and filter service level objectives in the service level objectives page of the UI. **Note**: it's not currently possible to filter by these tags when querying via the API. If default tags are present at the provider level, they will be added to this resource.
         :param pulumi.Input[_builtins.float] target_threshold: The objective's target in `(0,100)`. This must match the corresponding thresholds of the primary time frame.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict', 'outputs.ServiceLevelObjectiveThreshold']]]] thresholds: A list of thresholds and targets that define the service level objectives from the provided SLIs.
         :param pulumi.Input[_builtins.str] timeframe: The primary time frame for the objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API documentation page. Valid values are `7d`, `30d`, `90d`, `custom`.
         :param pulumi.Input[_builtins.str] type: The type of the service level objective. The mapping from these types to the types found in the Datadog Web UI can be found in the Datadog API [documentation page](https://docs.datadoghq.com/api/v1/service-level-objectives/#create-a-slo-object). Valid values are `metric`, `monitor`, `time_slice`.
         :param pulumi.Input[_builtins.bool] validate: Whether or not to validate the SLO. It checks if monitors added to a monitor SLO already exist.

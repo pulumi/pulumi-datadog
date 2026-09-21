@@ -167,10 +167,10 @@ class SecurityFindingsTicketCreationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleActionArgs', 'SecurityFindingsTicketCreationRuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleActionArgs', 'SecurityFindingsTicketCreationRuleActionArgsDict', 'outputs.SecurityFindingsTicketCreationRuleAction']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleRuleArgs', 'SecurityFindingsTicketCreationRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleRuleArgs', 'SecurityFindingsTicketCreationRuleRuleArgsDict', 'outputs.SecurityFindingsTicketCreationRuleRule']]] = None,
                  __props__=None):
         """
         Provides a Datadog security findings automation ticket creation rule resource. This can be used to create and manage rules that automatically open tickets for matching security findings. Use the `SecurityFindingsTicketCreationRulesOrder` resource to manage the evaluation order of ticket creation rules.
@@ -212,10 +212,10 @@ class SecurityFindingsTicketCreationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecurityFindingsTicketCreationRuleActionArgs', 'SecurityFindingsTicketCreationRuleActionArgsDict']] action: The action to take when the ticket creation rule matches a finding.
+        :param pulumi.Input[Union['SecurityFindingsTicketCreationRuleActionArgs', 'SecurityFindingsTicketCreationRuleActionArgsDict', 'outputs.SecurityFindingsTicketCreationRuleAction']] action: The action to take when the ticket creation rule matches a finding.
         :param pulumi.Input[_builtins.bool] enabled: Whether the ticket creation rule is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name of the ticket creation rule.
-        :param pulumi.Input[Union['SecurityFindingsTicketCreationRuleRuleArgs', 'SecurityFindingsTicketCreationRuleRuleArgsDict']] rule: Defines the scope of findings to which the automation rule applies.
+        :param pulumi.Input[Union['SecurityFindingsTicketCreationRuleRuleArgs', 'SecurityFindingsTicketCreationRuleRuleArgsDict', 'outputs.SecurityFindingsTicketCreationRuleRule']] rule: Defines the scope of findings to which the automation rule applies.
         """
         ...
     @overload
@@ -276,10 +276,10 @@ class SecurityFindingsTicketCreationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleActionArgs', 'SecurityFindingsTicketCreationRuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleActionArgs', 'SecurityFindingsTicketCreationRuleActionArgsDict', 'outputs.SecurityFindingsTicketCreationRuleAction']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleRuleArgs', 'SecurityFindingsTicketCreationRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleRuleArgs', 'SecurityFindingsTicketCreationRuleRuleArgsDict', 'outputs.SecurityFindingsTicketCreationRuleRule']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,10 +309,10 @@ class SecurityFindingsTicketCreationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleActionArgs', 'SecurityFindingsTicketCreationRuleActionArgsDict']]] = None,
+            action: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleActionArgs', 'SecurityFindingsTicketCreationRuleActionArgsDict', 'outputs.SecurityFindingsTicketCreationRuleAction']]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleRuleArgs', 'SecurityFindingsTicketCreationRuleRuleArgsDict']]] = None) -> 'SecurityFindingsTicketCreationRule':
+            rule: pulumi.Input[Optional[Union['SecurityFindingsTicketCreationRuleRuleArgs', 'SecurityFindingsTicketCreationRuleRuleArgsDict', 'outputs.SecurityFindingsTicketCreationRuleRule']]] = None) -> 'SecurityFindingsTicketCreationRule':
         """
         Get an existing SecurityFindingsTicketCreationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -320,10 +320,10 @@ class SecurityFindingsTicketCreationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecurityFindingsTicketCreationRuleActionArgs', 'SecurityFindingsTicketCreationRuleActionArgsDict']] action: The action to take when the ticket creation rule matches a finding.
+        :param pulumi.Input[Union['SecurityFindingsTicketCreationRuleActionArgs', 'SecurityFindingsTicketCreationRuleActionArgsDict', 'outputs.SecurityFindingsTicketCreationRuleAction']] action: The action to take when the ticket creation rule matches a finding.
         :param pulumi.Input[_builtins.bool] enabled: Whether the ticket creation rule is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name of the ticket creation rule.
-        :param pulumi.Input[Union['SecurityFindingsTicketCreationRuleRuleArgs', 'SecurityFindingsTicketCreationRuleRuleArgsDict']] rule: Defines the scope of findings to which the automation rule applies.
+        :param pulumi.Input[Union['SecurityFindingsTicketCreationRuleRuleArgs', 'SecurityFindingsTicketCreationRuleRuleArgsDict', 'outputs.SecurityFindingsTicketCreationRuleRule']] rule: Defines the scope of findings to which the automation rule applies.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

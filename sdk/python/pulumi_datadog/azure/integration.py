@@ -535,7 +535,7 @@ class Integration(pulumi.CustomResource):
                  metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  metrics_enabled_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
+                 resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict', 'outputs.IntegrationResourceProviderConfig']]]]] = None,
                  secretless_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  usage_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -594,7 +594,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] metrics_enabled: Enable Azure metrics for your organization. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] metrics_enabled_default: Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict', 'outputs.IntegrationResourceProviderConfig']]]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
         :param pulumi.Input[_builtins.bool] secretless_auth_enabled: (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `client_secret` should be omitted. Defaults to `false`.
         :param pulumi.Input[_builtins.str] tenant_name: Your Azure Active Directory ID.
         :param pulumi.Input[_builtins.bool] usage_metrics_enabled: Enable azure.usage metrics for your organization. Defaults to `true`.
@@ -671,7 +671,7 @@ class Integration(pulumi.CustomResource):
                  metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  metrics_enabled_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
+                 resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict', 'outputs.IntegrationResourceProviderConfig']]]]] = None,
                  secretless_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  usage_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -726,7 +726,7 @@ class Integration(pulumi.CustomResource):
             metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             metrics_enabled_default: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]]] = None,
+            resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict', 'outputs.IntegrationResourceProviderConfig']]]]] = None,
             secretless_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
             usage_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Integration':
@@ -749,7 +749,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] metrics_enabled: Enable Azure metrics for your organization. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] metrics_enabled_default: Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict']]]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict', 'outputs.IntegrationResourceProviderConfig']]]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
         :param pulumi.Input[_builtins.bool] secretless_auth_enabled: (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `client_secret` should be omitted. Defaults to `false`.
         :param pulumi.Input[_builtins.str] tenant_name: Your Azure Active Directory ID.
         :param pulumi.Input[_builtins.bool] usage_metrics_enabled: Enable azure.usage metrics for your organization. Defaults to `true`.

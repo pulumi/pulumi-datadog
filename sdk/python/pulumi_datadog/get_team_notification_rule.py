@@ -123,11 +123,11 @@ class AwaitableGetTeamNotificationRuleResult(GetTeamNotificationRuleResult):
             team_id=self.team_id)
 
 
-def get_team_notification_rule(email: Optional[Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict']] = None,
-                               ms_teams: Optional[Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict']] = None,
-                               pagerduty: Optional[Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict']] = None,
+def get_team_notification_rule(email: Optional[Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict', 'outputs.GetTeamNotificationRuleEmailResult']] = None,
+                               ms_teams: Optional[Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict', 'outputs.GetTeamNotificationRuleMsTeamsResult']] = None,
+                               pagerduty: Optional[Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict', 'outputs.GetTeamNotificationRulePagerdutyResult']] = None,
                                rule_id: Optional[_builtins.str] = None,
-                               slack: Optional[Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict']] = None,
+                               slack: Optional[Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict', 'outputs.GetTeamNotificationRuleSlackResult']] = None,
                                team_id: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamNotificationRuleResult:
     """
@@ -145,11 +145,11 @@ def get_team_notification_rule(email: Optional[Union['GetTeamNotificationRuleEma
     ```
 
 
-    :param Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict'] email: The email notification settings.
-    :param Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict'] ms_teams: The MS Teams notification settings.
-    :param Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict'] pagerduty: The PagerDuty notification settings.
+    :param Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict', 'outputs.GetTeamNotificationRuleEmailResult'] email: The email notification settings.
+    :param Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict', 'outputs.GetTeamNotificationRuleMsTeamsResult'] ms_teams: The MS Teams notification settings.
+    :param Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict', 'outputs.GetTeamNotificationRulePagerdutyResult'] pagerduty: The PagerDuty notification settings.
     :param _builtins.str rule_id: The notification rule ID to fetch.
-    :param Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict'] slack: The Slack notification settings.
+    :param Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict', 'outputs.GetTeamNotificationRuleSlackResult'] slack: The Slack notification settings.
     :param _builtins.str team_id: The team ID to fetch the notification rule for.
     """
     __args__ = dict()
@@ -170,11 +170,11 @@ def get_team_notification_rule(email: Optional[Union['GetTeamNotificationRuleEma
         rule_id=pulumi.get(__ret__, 'rule_id'),
         slack=pulumi.get(__ret__, 'slack'),
         team_id=pulumi.get(__ret__, 'team_id'))
-def get_team_notification_rule_output(email: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict']]]] = None,
-                                      ms_teams: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict']]]] = None,
-                                      pagerduty: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict']]]] = None,
+def get_team_notification_rule_output(email: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict', 'outputs.GetTeamNotificationRuleEmailResult']]]] = None,
+                                      ms_teams: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict', 'outputs.GetTeamNotificationRuleMsTeamsResult']]]] = None,
+                                      pagerduty: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict', 'outputs.GetTeamNotificationRulePagerdutyResult']]]] = None,
                                       rule_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                      slack: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict']]]] = None,
+                                      slack: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict', 'outputs.GetTeamNotificationRuleSlackResult']]]] = None,
                                       team_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamNotificationRuleResult]:
     """
@@ -192,11 +192,11 @@ def get_team_notification_rule_output(email: pulumi.Input[Optional[Optional[Unio
     ```
 
 
-    :param Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict'] email: The email notification settings.
-    :param Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict'] ms_teams: The MS Teams notification settings.
-    :param Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict'] pagerduty: The PagerDuty notification settings.
+    :param Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict', 'outputs.GetTeamNotificationRuleEmailResult'] email: The email notification settings.
+    :param Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict', 'outputs.GetTeamNotificationRuleMsTeamsResult'] ms_teams: The MS Teams notification settings.
+    :param Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict', 'outputs.GetTeamNotificationRulePagerdutyResult'] pagerduty: The PagerDuty notification settings.
     :param _builtins.str rule_id: The notification rule ID to fetch.
-    :param Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict'] slack: The Slack notification settings.
+    :param Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict', 'outputs.GetTeamNotificationRuleSlackResult'] slack: The Slack notification settings.
     :param _builtins.str team_id: The team ID to fetch the notification rule for.
     """
     __args__ = dict()

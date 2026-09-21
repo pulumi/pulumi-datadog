@@ -106,7 +106,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None,
+                 tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']]] = None,
                  __props__=None):
         """
         Provides a Datadog monitor config policy resource. This can be used to create and manage Datadog monitor config policies.
@@ -133,7 +133,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`.
-        :param pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
+        :param pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
         ...
     @overload
@@ -179,7 +179,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None,
+                 tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -204,7 +204,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-            tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']]] = None) -> 'MonitorConfigPolicy':
+            tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']]] = None) -> 'MonitorConfigPolicy':
         """
         Get an existing MonitorConfigPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -213,7 +213,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`.
-        :param pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict']] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
+        :param pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

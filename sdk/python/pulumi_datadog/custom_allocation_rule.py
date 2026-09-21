@@ -279,11 +279,11 @@ class CustomAllocationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
+                 costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict', 'outputs.CustomAllocationRuleCostsToAllocate']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  providernames: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 strategy: pulumi.Input[Optional[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict']]] = None,
+                 strategy: pulumi.Input[Optional[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict', 'outputs.CustomAllocationRuleStrategy']]] = None,
                  __props__=None):
         """
         Provides a Datadog Custom Allocation Rule resource. Custom allocation rules allow you to allocate cloud costs based on tags and filters.
@@ -454,11 +454,11 @@ class CustomAllocationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
+                 costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict', 'outputs.CustomAllocationRuleCostsToAllocate']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  providernames: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 strategy: pulumi.Input[Optional[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict']]] = None,
+                 strategy: pulumi.Input[Optional[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict', 'outputs.CustomAllocationRuleStrategy']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -495,7 +495,7 @@ class CustomAllocationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict']]]]] = None,
+            costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict', 'outputs.CustomAllocationRuleCostsToAllocate']]]]] = None,
             created: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             last_modified_user_uuid: pulumi.Input[Optional[_builtins.str]] = None,
@@ -503,7 +503,7 @@ class CustomAllocationRule(pulumi.CustomResource):
             providernames: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             rejected: pulumi.Input[Optional[_builtins.bool]] = None,
             rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-            strategy: pulumi.Input[Optional[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict']]] = None,
+            strategy: pulumi.Input[Optional[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict', 'outputs.CustomAllocationRuleStrategy']]] = None,
             updated: pulumi.Input[Optional[_builtins.str]] = None,
             version: pulumi.Input[Optional[_builtins.int]] = None) -> 'CustomAllocationRule':
         """

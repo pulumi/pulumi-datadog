@@ -447,7 +447,7 @@ class Downtime(pulumi.CustomResource):
                  monitor_id: pulumi.Input[Optional[_builtins.int]] = None,
                  monitor_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
-                 recurrence: pulumi.Input[Optional[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict']]] = None,
+                 recurrence: pulumi.Input[Optional[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict', 'outputs.DowntimeRecurrence']]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  start: pulumi.Input[Optional[_builtins.int]] = None,
                  start_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -473,7 +473,7 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] monitor_id: When specified, this downtime will only apply to this monitor
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         :param pulumi.Input[_builtins.bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted Defaults to `false`.
-        :param pulumi.Input[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict']] recurrence: Optional recurring schedule for this downtime
+        :param pulumi.Input[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict', 'outputs.DowntimeRecurrence']] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[_builtins.int] start: Specify when this downtime should start. Accepts a Unix timestamp in UTC.
         :param pulumi.Input[_builtins.str] start_date: String representing date and time to start the downtime in RFC3339 format.
@@ -518,7 +518,7 @@ class Downtime(pulumi.CustomResource):
                  monitor_id: pulumi.Input[Optional[_builtins.int]] = None,
                  monitor_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
-                 recurrence: pulumi.Input[Optional[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict']]] = None,
+                 recurrence: pulumi.Input[Optional[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict', 'outputs.DowntimeRecurrence']]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  start: pulumi.Input[Optional[_builtins.int]] = None,
                  start_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -567,7 +567,7 @@ class Downtime(pulumi.CustomResource):
             monitor_id: pulumi.Input[Optional[_builtins.int]] = None,
             monitor_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
-            recurrence: pulumi.Input[Optional[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict']]] = None,
+            recurrence: pulumi.Input[Optional[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict', 'outputs.DowntimeRecurrence']]] = None,
             scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             start: pulumi.Input[Optional[_builtins.int]] = None,
             start_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -588,7 +588,7 @@ class Downtime(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] monitor_id: When specified, this downtime will only apply to this monitor
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] monitor_tags: A list of monitor tags (up to 32) to base the scheduled downtime on. Only monitors that have all selected tags are silenced
         :param pulumi.Input[_builtins.bool] mute_first_recovery_notification: When true the first recovery notification during the downtime will be muted Defaults to `false`.
-        :param pulumi.Input[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict']] recurrence: Optional recurring schedule for this downtime
+        :param pulumi.Input[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict', 'outputs.DowntimeRecurrence']] recurrence: Optional recurring schedule for this downtime
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: specify the group scope to which this downtime applies. For everything use '*'
         :param pulumi.Input[_builtins.int] start: Specify when this downtime should start. Accepts a Unix timestamp in UTC.
         :param pulumi.Input[_builtins.str] start_date: String representing date and time to start the downtime in RFC3339 format.

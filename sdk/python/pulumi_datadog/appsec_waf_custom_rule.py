@@ -270,13 +270,13 @@ class AppsecWafCustomRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['AppsecWafCustomRuleActionArgs', 'AppsecWafCustomRuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['AppsecWafCustomRuleActionArgs', 'AppsecWafCustomRuleActionArgsDict', 'outputs.AppsecWafCustomRuleAction']]] = None,
                  blocking: pulumi.Input[Optional[_builtins.bool]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleConditionArgs', 'AppsecWafCustomRuleConditionArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleConditionArgs', 'AppsecWafCustomRuleConditionArgsDict', 'outputs.AppsecWafCustomRuleCondition']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path_glob: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleScopeArgs', 'AppsecWafCustomRuleScopeArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleScopeArgs', 'AppsecWafCustomRuleScopeArgsDict', 'outputs.AppsecWafCustomRuleScope']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -448,13 +448,13 @@ class AppsecWafCustomRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['AppsecWafCustomRuleActionArgs', 'AppsecWafCustomRuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['AppsecWafCustomRuleActionArgs', 'AppsecWafCustomRuleActionArgsDict', 'outputs.AppsecWafCustomRuleAction']]] = None,
                  blocking: pulumi.Input[Optional[_builtins.bool]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleConditionArgs', 'AppsecWafCustomRuleConditionArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleConditionArgs', 'AppsecWafCustomRuleConditionArgsDict', 'outputs.AppsecWafCustomRuleCondition']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path_glob: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleScopeArgs', 'AppsecWafCustomRuleScopeArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleScopeArgs', 'AppsecWafCustomRuleScopeArgsDict', 'outputs.AppsecWafCustomRuleScope']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -491,13 +491,13 @@ class AppsecWafCustomRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: pulumi.Input[Optional[Union['AppsecWafCustomRuleActionArgs', 'AppsecWafCustomRuleActionArgsDict']]] = None,
+            action: pulumi.Input[Optional[Union['AppsecWafCustomRuleActionArgs', 'AppsecWafCustomRuleActionArgsDict', 'outputs.AppsecWafCustomRuleAction']]] = None,
             blocking: pulumi.Input[Optional[_builtins.bool]] = None,
-            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleConditionArgs', 'AppsecWafCustomRuleConditionArgsDict']]]]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleConditionArgs', 'AppsecWafCustomRuleConditionArgsDict', 'outputs.AppsecWafCustomRuleCondition']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             path_glob: pulumi.Input[Optional[_builtins.str]] = None,
-            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleScopeArgs', 'AppsecWafCustomRuleScopeArgsDict']]]]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleScopeArgs', 'AppsecWafCustomRuleScopeArgsDict', 'outputs.AppsecWafCustomRuleScope']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AppsecWafCustomRule':
         """
         Get an existing AppsecWafCustomRule resource's state with the given name, id, and optional extra

@@ -201,7 +201,7 @@ class ComplianceCustomFramework(pulumi.CustomResource):
                  handle: pulumi.Input[Optional[_builtins.str]] = None,
                  icon_url: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]]] = None,
+                 requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict', 'outputs.ComplianceCustomFrameworkRequirement']]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -273,7 +273,7 @@ class ComplianceCustomFramework(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] handle: The framework handle. String length must be at least 1. This field is immutable.
         :param pulumi.Input[_builtins.str] icon_url: The URL of the icon representing the framework
         :param pulumi.Input[_builtins.str] name: The framework name. String length must be at least 1.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]] requirements: The requirements of the framework. Length must be at least 1.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict', 'outputs.ComplianceCustomFrameworkRequirement']]]] requirements: The requirements of the framework. Length must be at least 1.
         :param pulumi.Input[_builtins.str] version: The framework version. String length must be at least 1. This field is immutable.
         """
         ...
@@ -364,7 +364,7 @@ class ComplianceCustomFramework(pulumi.CustomResource):
                  handle: pulumi.Input[Optional[_builtins.str]] = None,
                  icon_url: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]]] = None,
+                 requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict', 'outputs.ComplianceCustomFrameworkRequirement']]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -401,7 +401,7 @@ class ComplianceCustomFramework(pulumi.CustomResource):
             handle: pulumi.Input[Optional[_builtins.str]] = None,
             icon_url: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]]] = None,
+            requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict', 'outputs.ComplianceCustomFrameworkRequirement']]]]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None) -> 'ComplianceCustomFramework':
         """
         Get an existing ComplianceCustomFramework resource's state with the given name, id, and optional extra
@@ -413,7 +413,7 @@ class ComplianceCustomFramework(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] handle: The framework handle. String length must be at least 1. This field is immutable.
         :param pulumi.Input[_builtins.str] icon_url: The URL of the icon representing the framework
         :param pulumi.Input[_builtins.str] name: The framework name. String length must be at least 1.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict']]]] requirements: The requirements of the framework. Length must be at least 1.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ComplianceCustomFrameworkRequirementArgs', 'ComplianceCustomFrameworkRequirementArgsDict', 'outputs.ComplianceCustomFrameworkRequirement']]]] requirements: The requirements of the framework. Length must be at least 1.
         :param pulumi.Input[_builtins.str] version: The framework version. String length must be at least 1. This field is immutable.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

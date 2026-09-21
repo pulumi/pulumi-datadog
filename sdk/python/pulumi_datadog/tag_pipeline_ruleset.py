@@ -171,7 +171,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict', 'outputs.TagPipelineRulesetRule']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Tag Pipeline Ruleset resource.
@@ -248,7 +248,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether the ruleset is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the ruleset.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict']]]] rules: The rules in the ruleset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict', 'outputs.TagPipelineRulesetRule']]]] rules: The rules in the ruleset.
         """
         ...
     @overload
@@ -344,7 +344,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict', 'outputs.TagPipelineRulesetRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -374,7 +374,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             position: pulumi.Input[Optional[_builtins.int]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict', 'outputs.TagPipelineRulesetRule']]]]] = None,
             version: pulumi.Input[Optional[_builtins.int]] = None) -> 'TagPipelineRuleset':
         """
         Get an existing TagPipelineRuleset resource's state with the given name, id, and optional extra
@@ -386,7 +386,7 @@ class TagPipelineRuleset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Whether the ruleset is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the ruleset.
         :param pulumi.Input[_builtins.int] position: The position of the ruleset in the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict']]]] rules: The rules in the ruleset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict', 'outputs.TagPipelineRulesetRule']]]] rules: The rules in the ruleset.
         :param pulumi.Input[_builtins.int] version: The version of the ruleset.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

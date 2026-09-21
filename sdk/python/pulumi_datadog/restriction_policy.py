@@ -97,7 +97,7 @@ class RestrictionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bindings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
+                 bindings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict', 'outputs.RestrictionPolicyBinding']]]]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -199,7 +199,7 @@ class RestrictionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bindings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
+                 bindings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict', 'outputs.RestrictionPolicyBinding']]]]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -224,7 +224,7 @@ class RestrictionPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bindings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict']]]]] = None,
+            bindings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict', 'outputs.RestrictionPolicyBinding']]]]] = None,
             resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RestrictionPolicy':
         """
         Get an existing RestrictionPolicy resource's state with the given name, id, and optional extra

@@ -235,7 +235,7 @@ class DeploymentGate(pulumi.CustomResource):
                  dry_run: pulumi.Input[Optional[_builtins.bool]] = None,
                  env: pulumi.Input[Optional[_builtins.str]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict', 'outputs.DeploymentGateRule']]]]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -289,7 +289,7 @@ class DeploymentGate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] dry_run: Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
         :param pulumi.Input[_builtins.str] env: The target environment (example: dev).
         :param pulumi.Input[_builtins.str] identifier: Unique name for multiple gates on the same service/environment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict']]]] rules: Deployment rules for this gate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict', 'outputs.DeploymentGateRule']]]] rules: Deployment rules for this gate.
         :param pulumi.Input[_builtins.str] service: The service name (example: transaction-backend).
         """
         ...
@@ -362,7 +362,7 @@ class DeploymentGate(pulumi.CustomResource):
                  dry_run: pulumi.Input[Optional[_builtins.bool]] = None,
                  env: pulumi.Input[Optional[_builtins.str]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict', 'outputs.DeploymentGateRule']]]]] = None,
                  service: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -398,7 +398,7 @@ class DeploymentGate(pulumi.CustomResource):
             dry_run: pulumi.Input[Optional[_builtins.bool]] = None,
             env: pulumi.Input[Optional[_builtins.str]] = None,
             identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict', 'outputs.DeploymentGateRule']]]]] = None,
             service: pulumi.Input[Optional[_builtins.str]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'DeploymentGate':
         """
@@ -412,7 +412,7 @@ class DeploymentGate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] dry_run: Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
         :param pulumi.Input[_builtins.str] env: The target environment (example: dev).
         :param pulumi.Input[_builtins.str] identifier: Unique name for multiple gates on the same service/environment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict']]]] rules: Deployment rules for this gate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict', 'outputs.DeploymentGateRule']]]] rules: Deployment rules for this gate.
         :param pulumi.Input[_builtins.str] service: The service name (example: transaction-backend).
         :param pulumi.Input[_builtins.str] updated_at: Last update timestamp of the deployment gate.
         """

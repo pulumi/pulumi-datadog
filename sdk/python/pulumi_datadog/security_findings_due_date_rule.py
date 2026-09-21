@@ -167,10 +167,10 @@ class SecurityFindingsDueDateRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleActionArgs', 'SecurityFindingsDueDateRuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleActionArgs', 'SecurityFindingsDueDateRuleActionArgsDict', 'outputs.SecurityFindingsDueDateRuleAction']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleRuleArgs', 'SecurityFindingsDueDateRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleRuleArgs', 'SecurityFindingsDueDateRuleRuleArgsDict', 'outputs.SecurityFindingsDueDateRuleRule']]] = None,
                  __props__=None):
         """
         Provides a Datadog security findings automation due date rule resource. This can be used to create and manage due date rules that automatically assign remediation deadlines to matching security findings. Use the `SecurityFindingsDueDateRulesOrder` resource to manage the evaluation order of due date rules.
@@ -219,10 +219,10 @@ class SecurityFindingsDueDateRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecurityFindingsDueDateRuleActionArgs', 'SecurityFindingsDueDateRuleActionArgsDict']] action: The action to take when the due date rule matches a finding.
+        :param pulumi.Input[Union['SecurityFindingsDueDateRuleActionArgs', 'SecurityFindingsDueDateRuleActionArgsDict', 'outputs.SecurityFindingsDueDateRuleAction']] action: The action to take when the due date rule matches a finding.
         :param pulumi.Input[_builtins.bool] enabled: Whether the due date rule is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name of the due date rule.
-        :param pulumi.Input[Union['SecurityFindingsDueDateRuleRuleArgs', 'SecurityFindingsDueDateRuleRuleArgsDict']] rule: Defines the scope of findings to which the automation rule applies.
+        :param pulumi.Input[Union['SecurityFindingsDueDateRuleRuleArgs', 'SecurityFindingsDueDateRuleRuleArgsDict', 'outputs.SecurityFindingsDueDateRuleRule']] rule: Defines the scope of findings to which the automation rule applies.
         """
         ...
     @overload
@@ -290,10 +290,10 @@ class SecurityFindingsDueDateRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleActionArgs', 'SecurityFindingsDueDateRuleActionArgsDict']]] = None,
+                 action: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleActionArgs', 'SecurityFindingsDueDateRuleActionArgsDict', 'outputs.SecurityFindingsDueDateRuleAction']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleRuleArgs', 'SecurityFindingsDueDateRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleRuleArgs', 'SecurityFindingsDueDateRuleRuleArgsDict', 'outputs.SecurityFindingsDueDateRuleRule']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,10 +323,10 @@ class SecurityFindingsDueDateRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleActionArgs', 'SecurityFindingsDueDateRuleActionArgsDict']]] = None,
+            action: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleActionArgs', 'SecurityFindingsDueDateRuleActionArgsDict', 'outputs.SecurityFindingsDueDateRuleAction']]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleRuleArgs', 'SecurityFindingsDueDateRuleRuleArgsDict']]] = None) -> 'SecurityFindingsDueDateRule':
+            rule: pulumi.Input[Optional[Union['SecurityFindingsDueDateRuleRuleArgs', 'SecurityFindingsDueDateRuleRuleArgsDict', 'outputs.SecurityFindingsDueDateRuleRule']]] = None) -> 'SecurityFindingsDueDateRule':
         """
         Get an existing SecurityFindingsDueDateRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -334,10 +334,10 @@ class SecurityFindingsDueDateRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecurityFindingsDueDateRuleActionArgs', 'SecurityFindingsDueDateRuleActionArgsDict']] action: The action to take when the due date rule matches a finding.
+        :param pulumi.Input[Union['SecurityFindingsDueDateRuleActionArgs', 'SecurityFindingsDueDateRuleActionArgsDict', 'outputs.SecurityFindingsDueDateRuleAction']] action: The action to take when the due date rule matches a finding.
         :param pulumi.Input[_builtins.bool] enabled: Whether the due date rule is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name of the due date rule.
-        :param pulumi.Input[Union['SecurityFindingsDueDateRuleRuleArgs', 'SecurityFindingsDueDateRuleRuleArgsDict']] rule: Defines the scope of findings to which the automation rule applies.
+        :param pulumi.Input[Union['SecurityFindingsDueDateRuleRuleArgs', 'SecurityFindingsDueDateRuleRuleArgsDict', 'outputs.SecurityFindingsDueDateRuleRule']] rule: Defines the scope of findings to which the automation rule applies.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

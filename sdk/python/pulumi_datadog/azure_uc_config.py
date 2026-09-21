@@ -280,8 +280,8 @@ class AzureUcConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 actual_bill_config: pulumi.Input[Optional[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']]] = None,
-                 amortized_bill_config: pulumi.Input[Optional[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']]] = None,
+                 actual_bill_config: pulumi.Input[Optional[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict', 'outputs.AzureUcConfigActualBillConfig']]] = None,
+                 amortized_bill_config: pulumi.Input[Optional[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict', 'outputs.AzureUcConfigAmortizedBillConfig']]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -325,8 +325,8 @@ class AzureUcConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The tenant ID of the Azure account.
-        :param pulumi.Input[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']] actual_bill_config: Configuration for the actual cost export.
-        :param pulumi.Input[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']] amortized_bill_config: Configuration for the amortized cost export.
+        :param pulumi.Input[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict', 'outputs.AzureUcConfigActualBillConfig']] actual_bill_config: Configuration for the actual cost export.
+        :param pulumi.Input[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict', 'outputs.AzureUcConfigAmortizedBillConfig']] amortized_bill_config: Configuration for the amortized cost export.
         :param pulumi.Input[_builtins.str] client_id: The client ID of the Azure account.
         :param pulumi.Input[_builtins.str] scope: The scope of your observed subscription.
         """
@@ -389,8 +389,8 @@ class AzureUcConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 actual_bill_config: pulumi.Input[Optional[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']]] = None,
-                 amortized_bill_config: pulumi.Input[Optional[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']]] = None,
+                 actual_bill_config: pulumi.Input[Optional[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict', 'outputs.AzureUcConfigActualBillConfig']]] = None,
+                 amortized_bill_config: pulumi.Input[Optional[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict', 'outputs.AzureUcConfigAmortizedBillConfig']]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -429,8 +429,8 @@ class AzureUcConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            actual_bill_config: pulumi.Input[Optional[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']]] = None,
-            amortized_bill_config: pulumi.Input[Optional[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']]] = None,
+            actual_bill_config: pulumi.Input[Optional[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict', 'outputs.AzureUcConfigActualBillConfig']]] = None,
+            amortized_bill_config: pulumi.Input[Optional[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict', 'outputs.AzureUcConfigAmortizedBillConfig']]] = None,
             client_id: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             error_messages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -446,8 +446,8 @@ class AzureUcConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The tenant ID of the Azure account.
-        :param pulumi.Input[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict']] actual_bill_config: Configuration for the actual cost export.
-        :param pulumi.Input[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict']] amortized_bill_config: Configuration for the amortized cost export.
+        :param pulumi.Input[Union['AzureUcConfigActualBillConfigArgs', 'AzureUcConfigActualBillConfigArgsDict', 'outputs.AzureUcConfigActualBillConfig']] actual_bill_config: Configuration for the actual cost export.
+        :param pulumi.Input[Union['AzureUcConfigAmortizedBillConfigArgs', 'AzureUcConfigAmortizedBillConfigArgsDict', 'outputs.AzureUcConfigAmortizedBillConfig']] amortized_bill_config: Configuration for the amortized cost export.
         :param pulumi.Input[_builtins.str] client_id: The client ID of the Azure account.
         :param pulumi.Input[_builtins.str] created_at: The timestamp when the Azure Usage Cost configuration was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] error_messages: List of error messages if the Azure Usage Cost configuration encountered any issues during setup or data processing.

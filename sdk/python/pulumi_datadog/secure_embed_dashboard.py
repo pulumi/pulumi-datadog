@@ -347,7 +347,7 @@ class SecureEmbedDashboard(pulumi.CustomResource):
                  dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
                  global_time_live_span: pulumi.Input[Optional[_builtins.str]] = None,
                  global_time_selectable: pulumi.Input[Optional[_builtins.bool]] = None,
-                 selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]]] = None,
+                 selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict', 'outputs.SecureEmbedDashboardSelectableTemplateVar']]]]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  viewing_preferences_high_density: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -362,7 +362,7 @@ class SecureEmbedDashboard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dashboard_id: The ID of the dashboard to create a secure embed for.
         :param pulumi.Input[_builtins.str] global_time_live_span: The live span for the global time, e.g. `1h`, `4h`, `1d`, `2d`, `1w`. Defaults to `"1h"`.
         :param pulumi.Input[_builtins.bool] global_time_selectable: Whether viewers can change the global time range. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]] selectable_template_vars: Template variables that viewers can filter by.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict', 'outputs.SecureEmbedDashboardSelectableTemplateVar']]]] selectable_template_vars: Template variables that viewers can filter by.
         :param pulumi.Input[_builtins.str] status: Status of the secure embed. Valid values are `active` and `paused`. Defaults to `"active"`.
         :param pulumi.Input[_builtins.str] title: Title of the secure embed share.
         :param pulumi.Input[_builtins.bool] viewing_preferences_high_density: Whether to display the dashboard in high density mode. Defaults to `false`.
@@ -396,7 +396,7 @@ class SecureEmbedDashboard(pulumi.CustomResource):
                  dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
                  global_time_live_span: pulumi.Input[Optional[_builtins.str]] = None,
                  global_time_selectable: pulumi.Input[Optional[_builtins.bool]] = None,
-                 selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]]] = None,
+                 selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict', 'outputs.SecureEmbedDashboardSelectableTemplateVar']]]]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  viewing_preferences_high_density: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -441,7 +441,7 @@ class SecureEmbedDashboard(pulumi.CustomResource):
             dashboard_id: pulumi.Input[Optional[_builtins.str]] = None,
             global_time_live_span: pulumi.Input[Optional[_builtins.str]] = None,
             global_time_selectable: pulumi.Input[Optional[_builtins.bool]] = None,
-            selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]]] = None,
+            selectable_template_vars: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict', 'outputs.SecureEmbedDashboardSelectableTemplateVar']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             title: pulumi.Input[Optional[_builtins.str]] = None,
             token: pulumi.Input[Optional[_builtins.str]] = None,
@@ -459,7 +459,7 @@ class SecureEmbedDashboard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dashboard_id: The ID of the dashboard to create a secure embed for.
         :param pulumi.Input[_builtins.str] global_time_live_span: The live span for the global time, e.g. `1h`, `4h`, `1d`, `2d`, `1w`. Defaults to `"1h"`.
         :param pulumi.Input[_builtins.bool] global_time_selectable: Whether viewers can change the global time range. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict']]]] selectable_template_vars: Template variables that viewers can filter by.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecureEmbedDashboardSelectableTemplateVarArgs', 'SecureEmbedDashboardSelectableTemplateVarArgsDict', 'outputs.SecureEmbedDashboardSelectableTemplateVar']]]] selectable_template_vars: Template variables that viewers can filter by.
         :param pulumi.Input[_builtins.str] status: Status of the secure embed. Valid values are `active` and `paused`. Defaults to `"active"`.
         :param pulumi.Input[_builtins.str] title: Title of the secure embed share.
         :param pulumi.Input[_builtins.str] token: The share token for the secure embed.

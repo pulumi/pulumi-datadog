@@ -246,7 +246,7 @@ class StatusPageComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict']]]]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict', 'outputs.StatusPageComponentComponent']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  page_id: pulumi.Input[Optional[_builtins.str]] = None,
                  position: pulumi.Input[Optional[_builtins.int]] = None,
@@ -302,7 +302,7 @@ class StatusPageComponent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict']]]] components: The sub-components of a component of type `group`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict', 'outputs.StatusPageComponentComponent']]]] components: The sub-components of a component of type `group`.
         :param pulumi.Input[_builtins.str] name: The name of the component.
         :param pulumi.Input[_builtins.str] page_id: The ID of the status page this component belongs to.
         :param pulumi.Input[_builtins.int] position: The position of the component on the status page. Must be between `0` and the current number of existing components on the page, inclusive (that is, it can append one past the current highest position, but cannot skip ahead further or be negative). A `position` value that depends on a sibling component being created first requires an explicit `depends_on` on that sibling to guarantee creation order.
@@ -377,7 +377,7 @@ class StatusPageComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict']]]]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict', 'outputs.StatusPageComponentComponent']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  page_id: pulumi.Input[Optional[_builtins.str]] = None,
                  position: pulumi.Input[Optional[_builtins.int]] = None,
@@ -417,7 +417,7 @@ class StatusPageComponent(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict']]]]] = None,
+            components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict', 'outputs.StatusPageComponentComponent']]]]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             modified_at: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -432,7 +432,7 @@ class StatusPageComponent(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict']]]] components: The sub-components of a component of type `group`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict', 'outputs.StatusPageComponentComponent']]]] components: The sub-components of a component of type `group`.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the component was created.
         :param pulumi.Input[_builtins.str] modified_at: Timestamp when the component was last modified.
         :param pulumi.Input[_builtins.str] name: The name of the component.

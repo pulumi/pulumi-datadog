@@ -200,12 +200,12 @@ class RumMetric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: pulumi.Input[Optional[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict']]] = None,
+                 compute: pulumi.Input[Optional[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict', 'outputs.RumMetricCompute']]] = None,
                  event_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict']]] = None,
-                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict']]]]] = None,
+                 filter: pulumi.Input[Optional[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict', 'outputs.RumMetricFilter']]] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict', 'outputs.RumMetricGroupBy']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 uniqueness: pulumi.Input[Optional[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict']]] = None,
+                 uniqueness: pulumi.Input[Optional[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict', 'outputs.RumMetricUniqueness']]] = None,
                  __props__=None):
         """
         Provides a Datadog RumMetric resource. This can be used to create and manage Datadog rum_metric.
@@ -311,12 +311,12 @@ class RumMetric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: pulumi.Input[Optional[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict']]] = None,
+                 compute: pulumi.Input[Optional[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict', 'outputs.RumMetricCompute']]] = None,
                  event_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict']]] = None,
-                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict']]]]] = None,
+                 filter: pulumi.Input[Optional[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict', 'outputs.RumMetricFilter']]] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict', 'outputs.RumMetricGroupBy']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 uniqueness: pulumi.Input[Optional[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict']]] = None,
+                 uniqueness: pulumi.Input[Optional[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict', 'outputs.RumMetricUniqueness']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,12 +346,12 @@ class RumMetric(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compute: pulumi.Input[Optional[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict']]] = None,
+            compute: pulumi.Input[Optional[Union['RumMetricComputeArgs', 'RumMetricComputeArgsDict', 'outputs.RumMetricCompute']]] = None,
             event_type: pulumi.Input[Optional[_builtins.str]] = None,
-            filter: pulumi.Input[Optional[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict']]] = None,
-            group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict']]]]] = None,
+            filter: pulumi.Input[Optional[Union['RumMetricFilterArgs', 'RumMetricFilterArgsDict', 'outputs.RumMetricFilter']]] = None,
+            group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RumMetricGroupByArgs', 'RumMetricGroupByArgsDict', 'outputs.RumMetricGroupBy']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            uniqueness: pulumi.Input[Optional[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict']]] = None) -> 'RumMetric':
+            uniqueness: pulumi.Input[Optional[Union['RumMetricUniquenessArgs', 'RumMetricUniquenessArgsDict', 'outputs.RumMetricUniqueness']]] = None) -> 'RumMetric':
         """
         Get an existing RumMetric resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -170,7 +170,7 @@ class CostCustomForecast(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  budget_uid: pulumi.Input[Optional[_builtins.str]] = None,
-                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict']]]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict', 'outputs.CostCustomForecastEntry']]]]] = None,
                  __props__=None):
         """
         Provides a Datadog Cost Custom Forecast resource. This resource manages the custom forecast override entries for a `CostBudget`. **Note:** each entry's `(month, tag_filters)` combination must correspond to an existing entry on the referenced budget, and the budget must exist before this resource is created.
@@ -233,7 +233,7 @@ class CostCustomForecast(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] budget_uid: The UUID of the budget that this custom forecast belongs to. Changing this value forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict']]]] entries: Monthly custom forecast entries. Each entry overrides the forecast for one `(month, tag_filters)` combination that must already exist as a budget entry. To remove all custom forecast entries, destroy this resource rather than setting an empty `entries` set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict', 'outputs.CostCustomForecastEntry']]]] entries: Monthly custom forecast entries. Each entry overrides the forecast for one `(month, tag_filters)` combination that must already exist as a budget entry. To remove all custom forecast entries, destroy this resource rather than setting an empty `entries` set.
         """
         ...
     @overload
@@ -315,7 +315,7 @@ class CostCustomForecast(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  budget_uid: pulumi.Input[Optional[_builtins.str]] = None,
-                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict']]]]] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict', 'outputs.CostCustomForecastEntry']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,7 +346,7 @@ class CostCustomForecast(pulumi.CustomResource):
             budget_uid: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.int]] = None,
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
-            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict']]]]] = None,
+            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict', 'outputs.CostCustomForecastEntry']]]]] = None,
             updated_at: pulumi.Input[Optional[_builtins.int]] = None,
             updated_by: pulumi.Input[Optional[_builtins.str]] = None) -> 'CostCustomForecast':
         """
@@ -359,7 +359,7 @@ class CostCustomForecast(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] budget_uid: The UUID of the budget that this custom forecast belongs to. Changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.int] created_at: Timestamp the custom forecast was created, in Unix milliseconds.
         :param pulumi.Input[_builtins.str] created_by: The ID of the user that created the custom forecast.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict']]]] entries: Monthly custom forecast entries. Each entry overrides the forecast for one `(month, tag_filters)` combination that must already exist as a budget entry. To remove all custom forecast entries, destroy this resource rather than setting an empty `entries` set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict', 'outputs.CostCustomForecastEntry']]]] entries: Monthly custom forecast entries. Each entry overrides the forecast for one `(month, tag_filters)` combination that must already exist as a budget entry. To remove all custom forecast entries, destroy this resource rather than setting an empty `entries` set.
         :param pulumi.Input[_builtins.int] updated_at: Timestamp the custom forecast was last updated, in Unix milliseconds.
         :param pulumi.Input[_builtins.str] updated_by: The ID of the user that last updated the custom forecast.
         """

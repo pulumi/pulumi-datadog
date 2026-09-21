@@ -201,7 +201,7 @@ class TeamSync(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: pulumi.Input[Optional[_builtins.str]] = None,
-                 selection_states: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict']]]]] = None,
+                 selection_states: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict', 'outputs.TeamSyncSelectionState']]]]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_membership: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -243,7 +243,7 @@ class TeamSync(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] frequency: How often the sync process should run. Valid values are `once`, `continuously`, `paused`. Defaults to `"once"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict']]]] selection_states: Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict', 'outputs.TeamSyncSelectionState']]]] selection_states: Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
         :param pulumi.Input[_builtins.str] source: The external source platform for team synchronization. Valid values are `github`.
         :param pulumi.Input[_builtins.bool] sync_membership: Whether to sync members from the external team to the Datadog team. Defaults to `false`.
         :param pulumi.Input[_builtins.str] type: The type of synchronization operation. `link` connects teams by matching names. `provision` creates new teams when no match is found. Valid values are `link`, `provision`.
@@ -304,7 +304,7 @@ class TeamSync(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: pulumi.Input[Optional[_builtins.str]] = None,
-                 selection_states: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict']]]]] = None,
+                 selection_states: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict', 'outputs.TeamSyncSelectionState']]]]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_membership: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -337,7 +337,7 @@ class TeamSync(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             frequency: pulumi.Input[Optional[_builtins.str]] = None,
-            selection_states: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict']]]]] = None,
+            selection_states: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict', 'outputs.TeamSyncSelectionState']]]]] = None,
             source: pulumi.Input[Optional[_builtins.str]] = None,
             sync_membership: pulumi.Input[Optional[_builtins.bool]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'TeamSync':
@@ -349,7 +349,7 @@ class TeamSync(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] frequency: How often the sync process should run. Valid values are `once`, `continuously`, `paused`. Defaults to `"once"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict']]]] selection_states: Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict', 'outputs.TeamSyncSelectionState']]]] selection_states: Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
         :param pulumi.Input[_builtins.str] source: The external source platform for team synchronization. Valid values are `github`.
         :param pulumi.Input[_builtins.bool] sync_membership: Whether to sync members from the external team to the Datadog team. Defaults to `false`.
         :param pulumi.Input[_builtins.str] type: The type of synchronization operation. `link` connects teams by matching names. `provision` creates new teams when no match is found. Valid values are `link`, `provision`.

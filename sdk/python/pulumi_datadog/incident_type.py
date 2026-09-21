@@ -169,7 +169,7 @@ class IncidentType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict', 'outputs.IncidentTypeConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -216,7 +216,7 @@ class IncidentType(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict']] configuration: The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+        :param pulumi.Input[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict', 'outputs.IncidentTypeConfiguration']] configuration: The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
         :param pulumi.Input[_builtins.str] description: Description of the incident type. The description can have a maximum of 512 characters.
         :param pulumi.Input[_builtins.bool] is_default: Whether this incident type is the default type.
         :param pulumi.Input[_builtins.str] name: Name of the incident type. Must be between 1 and 50 characters.
@@ -282,7 +282,7 @@ class IncidentType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict', 'outputs.IncidentTypeConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -311,7 +311,7 @@ class IncidentType(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: pulumi.Input[Optional[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict', 'outputs.IncidentTypeConfiguration']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             is_default: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'IncidentType':
@@ -322,7 +322,7 @@ class IncidentType(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict']] configuration: The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
+        :param pulumi.Input[Union['IncidentTypeConfigurationArgs', 'IncidentTypeConfigurationArgsDict', 'outputs.IncidentTypeConfiguration']] configuration: The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
         :param pulumi.Input[_builtins.str] description: Description of the incident type. The description can have a maximum of 512 characters.
         :param pulumi.Input[_builtins.bool] is_default: Whether this incident type is the default type.
         :param pulumi.Input[_builtins.str] name: Name of the incident type. Must be between 1 and 50 characters.

@@ -392,9 +392,9 @@ class LogsArchive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_archive: pulumi.Input[Optional[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']]] = None,
+                 azure_archive: pulumi.Input[Optional[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict', 'outputs.LogsArchiveAzureArchive']]] = None,
                  compression_method: pulumi.Input[Optional[_builtins.str]] = None,
-                 gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
+                 gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict', 'outputs.LogsArchiveGcsArchive']]] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  lookup_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -402,7 +402,7 @@ class LogsArchive(pulumi.CustomResource):
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_archive: pulumi.Input[Optional[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']]] = None,
+                 s3_archive: pulumi.Input[Optional[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict', 'outputs.LogsArchiveS3Archive']]] = None,
                  __props__=None):
         """
         Provides a Datadog Logs Archive API resource, which is used to create and manage Datadog logs archives.
@@ -435,9 +435,9 @@ class LogsArchive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']] azure_archive: Definition of an azure archive.
+        :param pulumi.Input[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict', 'outputs.LogsArchiveAzureArchive']] azure_archive: Definition of an azure archive.
         :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
-        :param pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']] gcs_archive: Definition of a GCS archive.
+        :param pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict', 'outputs.LogsArchiveGcsArchive']] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lookup_attributes: An array of attributes to use as lookup keys for the archive.
         :param pulumi.Input[_builtins.str] name: Your archive name.
@@ -445,7 +445,7 @@ class LogsArchive(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[_builtins.int] rehydration_max_scan_size_in_gb: To limit the rehydration scan size for the archive, set a value in GB.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
-        :param pulumi.Input[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']] s3_archive: Definition of an s3 archive.
+        :param pulumi.Input[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict', 'outputs.LogsArchiveS3Archive']] s3_archive: Definition of an s3 archive.
         """
         ...
     @overload
@@ -497,9 +497,9 @@ class LogsArchive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_archive: pulumi.Input[Optional[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']]] = None,
+                 azure_archive: pulumi.Input[Optional[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict', 'outputs.LogsArchiveAzureArchive']]] = None,
                  compression_method: pulumi.Input[Optional[_builtins.str]] = None,
-                 gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
+                 gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict', 'outputs.LogsArchiveGcsArchive']]] = None,
                  include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  lookup_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -507,7 +507,7 @@ class LogsArchive(pulumi.CustomResource):
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_archive: pulumi.Input[Optional[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']]] = None,
+                 s3_archive: pulumi.Input[Optional[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict', 'outputs.LogsArchiveS3Archive']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -542,9 +542,9 @@ class LogsArchive(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure_archive: pulumi.Input[Optional[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']]] = None,
+            azure_archive: pulumi.Input[Optional[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict', 'outputs.LogsArchiveAzureArchive']]] = None,
             compression_method: pulumi.Input[Optional[_builtins.str]] = None,
-            gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']]] = None,
+            gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict', 'outputs.LogsArchiveGcsArchive']]] = None,
             include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
             lookup_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -552,7 +552,7 @@ class LogsArchive(pulumi.CustomResource):
             query: pulumi.Input[Optional[_builtins.str]] = None,
             rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
             rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            s3_archive: pulumi.Input[Optional[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']]] = None) -> 'LogsArchive':
+            s3_archive: pulumi.Input[Optional[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict', 'outputs.LogsArchiveS3Archive']]] = None) -> 'LogsArchive':
         """
         Get an existing LogsArchive resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -560,9 +560,9 @@ class LogsArchive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict']] azure_archive: Definition of an azure archive.
+        :param pulumi.Input[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict', 'outputs.LogsArchiveAzureArchive']] azure_archive: Definition of an azure archive.
         :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
-        :param pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict']] gcs_archive: Definition of a GCS archive.
+        :param pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict', 'outputs.LogsArchiveGcsArchive']] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lookup_attributes: An array of attributes to use as lookup keys for the archive.
         :param pulumi.Input[_builtins.str] name: Your archive name.
@@ -570,7 +570,7 @@ class LogsArchive(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input[_builtins.int] rehydration_max_scan_size_in_gb: To limit the rehydration scan size for the archive, set a value in GB.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] rehydration_tags: An array of tags to add to rehydrated logs from an archive.
-        :param pulumi.Input[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict']] s3_archive: Definition of an s3 archive.
+        :param pulumi.Input[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict', 'outputs.LogsArchiveS3Archive']] s3_archive: Definition of an s3 archive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -306,12 +306,12 @@ class DowntimeSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitor_identifier: pulumi.Input[Optional[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
+                 monitor_identifier: pulumi.Input[Optional[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict', 'outputs.DowntimeScheduleMonitorIdentifier']]] = None,
                  mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
                  notify_end_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  notify_end_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 one_time_schedule: pulumi.Input[Optional[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
-                 recurring_schedule: pulumi.Input[Optional[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
+                 one_time_schedule: pulumi.Input[Optional[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict', 'outputs.DowntimeScheduleOneTimeSchedule']]] = None,
+                 recurring_schedule: pulumi.Input[Optional[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict', 'outputs.DowntimeScheduleRecurringSchedule']]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -442,12 +442,12 @@ class DowntimeSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitor_identifier: pulumi.Input[Optional[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
+                 monitor_identifier: pulumi.Input[Optional[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict', 'outputs.DowntimeScheduleMonitorIdentifier']]] = None,
                  mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
                  notify_end_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  notify_end_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 one_time_schedule: pulumi.Input[Optional[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
-                 recurring_schedule: pulumi.Input[Optional[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
+                 one_time_schedule: pulumi.Input[Optional[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict', 'outputs.DowntimeScheduleOneTimeSchedule']]] = None,
+                 recurring_schedule: pulumi.Input[Optional[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict', 'outputs.DowntimeScheduleRecurringSchedule']]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -483,12 +483,12 @@ class DowntimeSchedule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             display_timezone: pulumi.Input[Optional[_builtins.str]] = None,
             message: pulumi.Input[Optional[_builtins.str]] = None,
-            monitor_identifier: pulumi.Input[Optional[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict']]] = None,
+            monitor_identifier: pulumi.Input[Optional[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict', 'outputs.DowntimeScheduleMonitorIdentifier']]] = None,
             mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
             notify_end_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             notify_end_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            one_time_schedule: pulumi.Input[Optional[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict']]] = None,
-            recurring_schedule: pulumi.Input[Optional[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict']]] = None,
+            one_time_schedule: pulumi.Input[Optional[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict', 'outputs.DowntimeScheduleOneTimeSchedule']]] = None,
+            recurring_schedule: pulumi.Input[Optional[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict', 'outputs.DowntimeScheduleRecurringSchedule']]] = None,
             scope: pulumi.Input[Optional[_builtins.str]] = None) -> 'DowntimeSchedule':
         """
         Get an existing DowntimeSchedule resource's state with the given name, id, and optional extra

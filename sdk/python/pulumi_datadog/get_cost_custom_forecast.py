@@ -124,7 +124,7 @@ class AwaitableGetCostCustomForecastResult(GetCostCustomForecastResult):
 
 
 def get_cost_custom_forecast(budget_uid: Optional[_builtins.str] = None,
-                             entries: Optional[Sequence[Union['GetCostCustomForecastEntryArgs', 'GetCostCustomForecastEntryArgsDict']]] = None,
+                             entries: Optional[Sequence[Union['GetCostCustomForecastEntryArgs', 'GetCostCustomForecastEntryArgsDict', 'outputs.GetCostCustomForecastEntryResult']]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCostCustomForecastResult:
     """
     Use this data source to retrieve the custom forecast for an existing Datadog cost budget.
@@ -140,7 +140,7 @@ def get_cost_custom_forecast(budget_uid: Optional[_builtins.str] = None,
 
 
     :param _builtins.str budget_uid: The UUID of the budget that this custom forecast belongs to.
-    :param Sequence[Union['GetCostCustomForecastEntryArgs', 'GetCostCustomForecastEntryArgsDict']] entries: Monthly custom forecast entries.
+    :param Sequence[Union['GetCostCustomForecastEntryArgs', 'GetCostCustomForecastEntryArgsDict', 'outputs.GetCostCustomForecastEntryResult']] entries: Monthly custom forecast entries.
     """
     __args__ = dict()
     __args__['budgetUid'] = budget_uid
@@ -157,7 +157,7 @@ def get_cost_custom_forecast(budget_uid: Optional[_builtins.str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'),
         updated_by=pulumi.get(__ret__, 'updated_by'))
 def get_cost_custom_forecast_output(budget_uid: pulumi.Input[Optional[_builtins.str]] = None,
-                                    entries: pulumi.Input[Optional[Optional[Sequence[Union['GetCostCustomForecastEntryArgs', 'GetCostCustomForecastEntryArgsDict']]]]] = None,
+                                    entries: pulumi.Input[Optional[Optional[Sequence[Union['GetCostCustomForecastEntryArgs', 'GetCostCustomForecastEntryArgsDict', 'outputs.GetCostCustomForecastEntryResult']]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostCustomForecastResult]:
     """
     Use this data source to retrieve the custom forecast for an existing Datadog cost budget.
@@ -173,7 +173,7 @@ def get_cost_custom_forecast_output(budget_uid: pulumi.Input[Optional[_builtins.
 
 
     :param _builtins.str budget_uid: The UUID of the budget that this custom forecast belongs to.
-    :param Sequence[Union['GetCostCustomForecastEntryArgs', 'GetCostCustomForecastEntryArgsDict']] entries: Monthly custom forecast entries.
+    :param Sequence[Union['GetCostCustomForecastEntryArgs', 'GetCostCustomForecastEntryArgsDict', 'outputs.GetCostCustomForecastEntryResult']] entries: Monthly custom forecast entries.
     """
     __args__ = dict()
     __args__['budgetUid'] = budget_uid

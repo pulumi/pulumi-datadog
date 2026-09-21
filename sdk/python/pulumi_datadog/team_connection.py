@@ -136,9 +136,9 @@ class TeamConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connected_team: pulumi.Input[Optional[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict']]] = None,
+                 connected_team: pulumi.Input[Optional[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict', 'outputs.TeamConnectionConnectedTeam']]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 team: pulumi.Input[Optional[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict']]] = None,
+                 team: pulumi.Input[Optional[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict', 'outputs.TeamConnectionTeam']]] = None,
                  __props__=None):
         """
         Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. GitHub).
@@ -176,9 +176,9 @@ class TeamConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict']] connected_team: The external connected team reference (e.g. a GitHub team).
+        :param pulumi.Input[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict', 'outputs.TeamConnectionConnectedTeam']] connected_team: The external connected team reference (e.g. a GitHub team).
         :param pulumi.Input[_builtins.str] source: The source of the connection (e.g. github).
-        :param pulumi.Input[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict']] team: The Datadog team reference.
+        :param pulumi.Input[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict', 'outputs.TeamConnectionTeam']] team: The Datadog team reference.
         """
         ...
     @overload
@@ -235,9 +235,9 @@ class TeamConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connected_team: pulumi.Input[Optional[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict']]] = None,
+                 connected_team: pulumi.Input[Optional[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict', 'outputs.TeamConnectionConnectedTeam']]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 team: pulumi.Input[Optional[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict']]] = None,
+                 team: pulumi.Input[Optional[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict', 'outputs.TeamConnectionTeam']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -264,9 +264,9 @@ class TeamConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connected_team: pulumi.Input[Optional[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict']]] = None,
+            connected_team: pulumi.Input[Optional[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict', 'outputs.TeamConnectionConnectedTeam']]] = None,
             source: pulumi.Input[Optional[_builtins.str]] = None,
-            team: pulumi.Input[Optional[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict']]] = None) -> 'TeamConnection':
+            team: pulumi.Input[Optional[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict', 'outputs.TeamConnectionTeam']]] = None) -> 'TeamConnection':
         """
         Get an existing TeamConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -274,9 +274,9 @@ class TeamConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict']] connected_team: The external connected team reference (e.g. a GitHub team).
+        :param pulumi.Input[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict', 'outputs.TeamConnectionConnectedTeam']] connected_team: The external connected team reference (e.g. a GitHub team).
         :param pulumi.Input[_builtins.str] source: The source of the connection (e.g. github).
-        :param pulumi.Input[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict']] team: The Datadog team reference.
+        :param pulumi.Input[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict', 'outputs.TeamConnectionTeam']] team: The Datadog team reference.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

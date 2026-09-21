@@ -313,7 +313,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 selectors: pulumi.Input[Optional[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']]] = None,
+                 selectors: pulumi.Input[Optional[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict', 'outputs.SecurityNotificationRuleSelectors']]] = None,
                  targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  time_aggregation: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -368,7 +368,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the rule is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name of the rule (must be unique).
-        :param pulumi.Input[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']] selectors: Defines selectors to filter security issues that generate notifications.
+        :param pulumi.Input[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict', 'outputs.SecurityNotificationRuleSelectors']] selectors: Defines selectors to filter security issues that generate notifications.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] targets: The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         :param pulumi.Input[_builtins.int] time_aggregation: Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
         """
@@ -442,7 +442,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 selectors: pulumi.Input[Optional[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']]] = None,
+                 selectors: pulumi.Input[Optional[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict', 'outputs.SecurityNotificationRuleSelectors']]] = None,
                  targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  time_aggregation: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -490,7 +490,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
             modified_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
             modified_by_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            selectors: pulumi.Input[Optional[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']]] = None,
+            selectors: pulumi.Input[Optional[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict', 'outputs.SecurityNotificationRuleSelectors']]] = None,
             targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             time_aggregation: pulumi.Input[Optional[_builtins.int]] = None,
             version: pulumi.Input[Optional[_builtins.int]] = None) -> 'SecurityNotificationRule':
@@ -509,7 +509,7 @@ class SecurityNotificationRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] modified_by_handle: The handle of the rule last modifier.
         :param pulumi.Input[_builtins.str] modified_by_name: The name of the rule last modifier.
         :param pulumi.Input[_builtins.str] name: The name of the rule (must be unique).
-        :param pulumi.Input[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict']] selectors: Defines selectors to filter security issues that generate notifications.
+        :param pulumi.Input[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict', 'outputs.SecurityNotificationRuleSelectors']] selectors: Defines selectors to filter security issues that generate notifications.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] targets: The list of handle targets for the notifications. A target must be prefixed with an @. It can be an email address (@bob@email.com), or any installed integration. For example, a Slack recipient (@slack-ops), or a Teams recipient (@teams-ops).
         :param pulumi.Input[_builtins.int] time_aggregation: Specifies the time period, in seconds, used to aggregate the notification. Defaults to `0`.
         :param pulumi.Input[_builtins.int] version: The rule version (incremented at each update).

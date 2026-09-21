@@ -143,9 +143,9 @@ class SpansMetric(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: pulumi.Input[Optional[Union['SpansMetricComputeArgs', 'SpansMetricComputeArgsDict']]] = None,
-                 filter: pulumi.Input[Optional[Union['SpansMetricFilterArgs', 'SpansMetricFilterArgsDict']]] = None,
-                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpansMetricGroupByArgs', 'SpansMetricGroupByArgsDict']]]]] = None,
+                 compute: pulumi.Input[Optional[Union['SpansMetricComputeArgs', 'SpansMetricComputeArgsDict', 'outputs.SpansMetricCompute']]] = None,
+                 filter: pulumi.Input[Optional[Union['SpansMetricFilterArgs', 'SpansMetricFilterArgsDict', 'outputs.SpansMetricFilter']]] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpansMetricGroupByArgs', 'SpansMetricGroupByArgsDict', 'outputs.SpansMetricGroupBy']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -243,9 +243,9 @@ class SpansMetric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute: pulumi.Input[Optional[Union['SpansMetricComputeArgs', 'SpansMetricComputeArgsDict']]] = None,
-                 filter: pulumi.Input[Optional[Union['SpansMetricFilterArgs', 'SpansMetricFilterArgsDict']]] = None,
-                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpansMetricGroupByArgs', 'SpansMetricGroupByArgsDict']]]]] = None,
+                 compute: pulumi.Input[Optional[Union['SpansMetricComputeArgs', 'SpansMetricComputeArgsDict', 'outputs.SpansMetricCompute']]] = None,
+                 filter: pulumi.Input[Optional[Union['SpansMetricFilterArgs', 'SpansMetricFilterArgsDict', 'outputs.SpansMetricFilter']]] = None,
+                 group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpansMetricGroupByArgs', 'SpansMetricGroupByArgsDict', 'outputs.SpansMetricGroupBy']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -276,9 +276,9 @@ class SpansMetric(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compute: pulumi.Input[Optional[Union['SpansMetricComputeArgs', 'SpansMetricComputeArgsDict']]] = None,
-            filter: pulumi.Input[Optional[Union['SpansMetricFilterArgs', 'SpansMetricFilterArgsDict']]] = None,
-            group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpansMetricGroupByArgs', 'SpansMetricGroupByArgsDict']]]]] = None,
+            compute: pulumi.Input[Optional[Union['SpansMetricComputeArgs', 'SpansMetricComputeArgsDict', 'outputs.SpansMetricCompute']]] = None,
+            filter: pulumi.Input[Optional[Union['SpansMetricFilterArgs', 'SpansMetricFilterArgsDict', 'outputs.SpansMetricFilter']]] = None,
+            group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpansMetricGroupByArgs', 'SpansMetricGroupByArgsDict', 'outputs.SpansMetricGroupBy']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpansMetric':
         """
         Get an existing SpansMetric resource's state with the given name, id, and optional extra

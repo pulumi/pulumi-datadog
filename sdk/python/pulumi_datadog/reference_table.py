@@ -313,8 +313,8 @@ class ReferenceTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_metadata: pulumi.Input[Optional[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']]] = None,
-                 schema: pulumi.Input[Optional[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']]] = None,
+                 file_metadata: pulumi.Input[Optional[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict', 'outputs.ReferenceTableFileMetadata']]] = None,
+                 schema: pulumi.Input[Optional[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict', 'outputs.ReferenceTableSchema']]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -424,8 +424,8 @@ class ReferenceTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the reference table.
-        :param pulumi.Input[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']] file_metadata: Configuration for cloud storage file access and sync settings.
-        :param pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']] schema: The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
+        :param pulumi.Input[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict', 'outputs.ReferenceTableFileMetadata']] file_metadata: Configuration for cloud storage file access and sync settings.
+        :param pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict', 'outputs.ReferenceTableSchema']] schema: The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         :param pulumi.Input[_builtins.str] source: The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
         :param pulumi.Input[_builtins.str] table_name: The name of the reference table. This must be unique within your organization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to associate with the reference table.
@@ -554,8 +554,8 @@ class ReferenceTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_metadata: pulumi.Input[Optional[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']]] = None,
-                 schema: pulumi.Input[Optional[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']]] = None,
+                 file_metadata: pulumi.Input[Optional[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict', 'outputs.ReferenceTableFileMetadata']]] = None,
+                 schema: pulumi.Input[Optional[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict', 'outputs.ReferenceTableSchema']]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -595,10 +595,10 @@ class ReferenceTable(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            file_metadata: pulumi.Input[Optional[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']]] = None,
+            file_metadata: pulumi.Input[Optional[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict', 'outputs.ReferenceTableFileMetadata']]] = None,
             last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
             row_count: pulumi.Input[Optional[_builtins.int]] = None,
-            schema: pulumi.Input[Optional[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']]] = None,
+            schema: pulumi.Input[Optional[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict', 'outputs.ReferenceTableSchema']]] = None,
             source: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             table_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -613,10 +613,10 @@ class ReferenceTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] created_by: UUID of the user who created the reference table.
         :param pulumi.Input[_builtins.str] description: The description of the reference table.
-        :param pulumi.Input[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict']] file_metadata: Configuration for cloud storage file access and sync settings.
+        :param pulumi.Input[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict', 'outputs.ReferenceTableFileMetadata']] file_metadata: Configuration for cloud storage file access and sync settings.
         :param pulumi.Input[_builtins.str] last_updated_by: UUID of the user who last updated the reference table.
         :param pulumi.Input[_builtins.int] row_count: The number of successfully processed rows in the reference table.
-        :param pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict']] schema: The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
+        :param pulumi.Input[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict', 'outputs.ReferenceTableSchema']] schema: The schema definition for the reference table, including field definitions and primary keys. This block is required. Schema is only set on create; updates are derived from the file asynchronously.
         :param pulumi.Input[_builtins.str] source: The source type for the reference table. Valid values are `S3`, `GCS`, `AZURE`.
         :param pulumi.Input[_builtins.str] status: The status of the reference table (e.g., DONE, PROCESSING, ERROR).
         :param pulumi.Input[_builtins.str] table_name: The name of the reference table. This must be unique within your organization.

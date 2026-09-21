@@ -193,7 +193,7 @@ class OnCallUserNotificationRule(pulumi.CustomResource):
                  category: pulumi.Input[Optional[_builtins.str]] = None,
                  channel_id: pulumi.Input[Optional[_builtins.str]] = None,
                  delay_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict']]] = None,
+                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict', 'outputs.OnCallUserNotificationRulePhone']]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -235,7 +235,7 @@ class OnCallUserNotificationRule(pulumi.CustomResource):
                  category: pulumi.Input[Optional[_builtins.str]] = None,
                  channel_id: pulumi.Input[Optional[_builtins.str]] = None,
                  delay_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict']]] = None,
+                 phone: pulumi.Input[Optional[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict', 'outputs.OnCallUserNotificationRulePhone']]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -272,7 +272,7 @@ class OnCallUserNotificationRule(pulumi.CustomResource):
             category: pulumi.Input[Optional[_builtins.str]] = None,
             channel_id: pulumi.Input[Optional[_builtins.str]] = None,
             delay_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-            phone: pulumi.Input[Optional[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict']]] = None,
+            phone: pulumi.Input[Optional[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict', 'outputs.OnCallUserNotificationRulePhone']]] = None,
             user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'OnCallUserNotificationRule':
         """
         Get an existing OnCallUserNotificationRule resource's state with the given name, id, and optional extra
