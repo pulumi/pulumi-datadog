@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.WorkflowAutomationArgs;
 import com.pulumi.datadog.inputs.WorkflowAutomationState;
+import com.pulumi.datadog.outputs.WorkflowAutomationRunAs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -30,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.WorkflowAutomation;
  * import com.pulumi.datadog.WorkflowAutomationArgs;
+ * import com.pulumi.datadog.inputs.WorkflowAutomationRunAsArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -52,6 +54,9 @@ import javax.annotation.Nullable;
  *                 "source:alert",
  *                 "team:bar")
  *             .published(true)
+ *             .runAs(WorkflowAutomationRunAsArgs.builder()
+ *                 .type("owner")
+ *                 .build())
  *             .specJson(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("triggers", jsonArray(jsonObject(
@@ -148,6 +153,34 @@ public class WorkflowAutomation extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> published() {
         return this.published;
+    }
+    /**
+     * Identity used to run the workflow. When omitted, the server-managed value is preserved.
+     * 
+     */
+    @Export(name="runAs", refs={WorkflowAutomationRunAs.class}, tree="[0]")
+    private Output<WorkflowAutomationRunAs> runAs;
+
+    /**
+     * @return Identity used to run the workflow. When omitted, the server-managed value is preserved.
+     * 
+     */
+    public Output<WorkflowAutomationRunAs> runAs() {
+        return this.runAs;
+    }
+    /**
+     * Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+     * 
+     */
+    @Export(name="sensitivePrivileges", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> sensitivePrivileges;
+
+    /**
+     * @return Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+     * 
+     */
+    public Output<Boolean> sensitivePrivileges() {
+        return this.sensitivePrivileges;
     }
     /**
      * The spec defines what the workflow does.

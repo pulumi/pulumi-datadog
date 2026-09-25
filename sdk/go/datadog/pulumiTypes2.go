@@ -13,6 +13,1262 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery struct {
+	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
+	ClusteringPatternFieldPath *string `pulumi:"clusteringPatternFieldPath"`
+	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+	DataSource string `pulumi:"dataSource"`
+	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
+	EventSize *string `pulumi:"eventSize"`
+	// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
+	GroupBies []DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy `pulumi:"groupBies"`
+	// List of indexes.
+	Indexes []string `pulumi:"indexes"`
+	// Widget query.
+	QueryString *string `pulumi:"queryString"`
+	// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
+	Sort *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort `pulumi:"sort"`
+	// Storage location (private beta).
+	Storage *string `pulumi:"storage"`
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryInput` via:
+//
+//	DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs{...}
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs struct {
+	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
+	ClusteringPatternFieldPath pulumi.StringPtrInput `pulumi:"clusteringPatternFieldPath"`
+	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
+	EventSize pulumi.StringPtrInput `pulumi:"eventSize"`
+	// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
+	GroupBies DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayInput `pulumi:"groupBies"`
+	// List of indexes.
+	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
+	// Widget query.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
+	Sort DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput `pulumi:"sort"`
+	// Storage location (private beta).
+	Storage pulumi.StringPtrInput `pulumi:"storage"`
+}
+
+func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput)
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput).ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(ctx)
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs, DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtr and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput` via:
+//
+//	        DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput
+}
+
+type dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrType DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs
+
+func DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtr(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput {
+	return (*dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrType)(v)
+}
+
+func (*dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery)(nil)).Elem()
+}
+
+func (i *dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrType) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrType) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
+	return o.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery {
+		return &v
+	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput)
+}
+
+// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ClusteringPatternFieldPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
+		return v.ClusteringPatternFieldPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) EventSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string { return v.EventSize }).(pulumi.StringPtrOutput)
+}
+
+// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) GroupBies() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) []DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy {
+		return v.GroupBies
+	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput)
+}
+
+// List of indexes.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) Indexes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
+}
+
+// Widget query.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) Sort() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort {
+		return v.Sort
+	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput)
+}
+
+// Storage location (private beta).
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) Storage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) Elem() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery
+		return ret
+	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput)
+}
+
+// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) ClusteringPatternFieldPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusteringPatternFieldPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) EventSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) GroupBies() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) []DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput)
+}
+
+// List of indexes.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) Indexes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Indexes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Widget query.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) Sort() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort {
+		if v == nil {
+			return nil
+		}
+		return v.Sort
+	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput)
+}
+
+// Storage location (private beta).
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) Storage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Storage
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy struct {
+	// Facet name
+	Facet string `pulumi:"facet"`
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByInput` via:
+//
+//	DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs{...}
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs struct {
+	// Facet name
+	Facet pulumi.StringInput `pulumi:"facet"`
+}
+
+func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput)
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayInput` via:
+//
+//	DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray{ DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs{...} }
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray []DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByInput
+
+func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput {
+	return o
+}
+
+// Facet name
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput) Facet() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy {
+		return vs[0].([]DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy)[vs[1].(int)]
+	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort struct {
+	// The facet path for the column.
+	Column string `pulumi:"column"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortInput` via:
+//
+//	DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs{...}
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs struct {
+	// The facet path for the column.
+	Column pulumi.StringInput `pulumi:"column"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput)
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput).ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(ctx)
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs, DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtr and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput` via:
+//
+//	        DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput
+}
+
+type dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrType DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs
+
+func DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtr(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput {
+	return (*dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrType)(v)
+}
+
+func (*dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort)(nil)).Elem()
+}
+
+func (i *dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrType) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrType) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
+	return o.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort {
+		return &v
+	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput)
+}
+
+// The facet path for the column.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) Column() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) string { return v.Column }).(pulumi.StringOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) Elem() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort
+		return ret
+	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput)
+}
+
+// The facet path for the column.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) Column() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest struct {
+	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	ApmQuery *DashboardV2WidgetApmQuery `pulumi:"apmQuery"`
+	// How the data points are displayed on the graph.
+	DisplayType *string `pulumi:"displayType"`
+	// A list of formulas to use in the widget.
+	Formulas []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula `pulumi:"formulas"`
+	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	LogQuery *DashboardV2WidgetLogQuery `pulumi:"logQuery"`
+	// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	ProcessQuery *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQuery `pulumi:"processQuery"`
+	// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	Q *string `pulumi:"q"`
+	// A list of queries to use in the widget.
+	Queries []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuery `pulumi:"queries"`
+	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	RumQuery *DashboardV2WidgetRumQuery `pulumi:"rumQuery"`
+	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	SecurityQuery *DashboardV2WidgetSecurityQuery `pulumi:"securityQuery"`
+	// The controls for sorting the widget.
+	Sort *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSort `pulumi:"sort"`
+	// Define request for the widget's style.
+	Style *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStyle `pulumi:"style"`
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestInput` via:
+//
+//	DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs{...}
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs struct {
+	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	ApmQuery DashboardV2WidgetApmQueryPtrInput `pulumi:"apmQuery"`
+	// How the data points are displayed on the graph.
+	DisplayType pulumi.StringPtrInput `pulumi:"displayType"`
+	// A list of formulas to use in the widget.
+	Formulas DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayInput `pulumi:"formulas"`
+	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	LogQuery DashboardV2WidgetLogQueryPtrInput `pulumi:"logQuery"`
+	// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	ProcessQuery DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQueryPtrInput `pulumi:"processQuery"`
+	// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	Q pulumi.StringPtrInput `pulumi:"q"`
+	// A list of queries to use in the widget.
+	Queries DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArrayInput `pulumi:"queries"`
+	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	RumQuery DashboardV2WidgetRumQueryPtrInput `pulumi:"rumQuery"`
+	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+	//
+	// Deprecated: Use queries and formulas instead.
+	SecurityQuery DashboardV2WidgetSecurityQueryPtrInput `pulumi:"securityQuery"`
+	// The controls for sorting the widget.
+	Sort DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSortPtrInput `pulumi:"sort"`
+	// Define request for the widget's style.
+	Style DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStylePtrInput `pulumi:"style"`
+}
+
+func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput)
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput).ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(ctx)
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs, DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtr and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrInput` via:
+//
+//	        DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput
+}
+
+type dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrType DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs
+
+func DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtr(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrInput {
+	return (*dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrType)(v)
+}
+
+func (*dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest)(nil)).Elem()
+}
+
+func (i *dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrType) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrType) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
+	return o.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest {
+		return &v
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput)
+}
+
+// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ApmQuery() DashboardV2WidgetApmQueryPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetApmQuery {
+		return v.ApmQuery
+	}).(DashboardV2WidgetApmQueryPtrOutput)
+}
+
+// How the data points are displayed on the graph.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) DisplayType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *string { return v.DisplayType }).(pulumi.StringPtrOutput)
+}
+
+// A list of formulas to use in the widget.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) Formulas() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula {
+		return v.Formulas
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput)
+}
+
+// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) LogQuery() DashboardV2WidgetLogQueryPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetLogQuery {
+		return v.LogQuery
+	}).(DashboardV2WidgetLogQueryPtrOutput)
+}
+
+// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ProcessQuery() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQueryPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQuery {
+		return v.ProcessQuery
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQueryPtrOutput)
+}
+
+// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) Q() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *string { return v.Q }).(pulumi.StringPtrOutput)
+}
+
+// A list of queries to use in the widget.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) Queries() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArrayOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuery {
+		return v.Queries
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArrayOutput)
+}
+
+// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) RumQuery() DashboardV2WidgetRumQueryPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetRumQuery {
+		return v.RumQuery
+	}).(DashboardV2WidgetRumQueryPtrOutput)
+}
+
+// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) SecurityQuery() DashboardV2WidgetSecurityQueryPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetSecurityQuery {
+		return v.SecurityQuery
+	}).(DashboardV2WidgetSecurityQueryPtrOutput)
+}
+
+// The controls for sorting the widget.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) Sort() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSortPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSort {
+		return v.Sort
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSortPtrOutput)
+}
+
+// Define request for the widget's style.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) Style() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStylePtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStyle {
+		return v.Style
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStylePtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Elem() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest
+		return ret
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput)
+}
+
+// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) ApmQuery() DashboardV2WidgetApmQueryPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetApmQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ApmQuery
+	}).(DashboardV2WidgetApmQueryPtrOutput)
+}
+
+// How the data points are displayed on the graph.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) DisplayType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of formulas to use in the widget.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Formulas() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula {
+		if v == nil {
+			return nil
+		}
+		return v.Formulas
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput)
+}
+
+// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) LogQuery() DashboardV2WidgetLogQueryPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetLogQuery {
+		if v == nil {
+			return nil
+		}
+		return v.LogQuery
+	}).(DashboardV2WidgetLogQueryPtrOutput)
+}
+
+// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) ProcessQuery() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQueryPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessQuery
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQueryPtrOutput)
+}
+
+// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Q() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Q
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of queries to use in the widget.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Queries() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArrayOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuery {
+		if v == nil {
+			return nil
+		}
+		return v.Queries
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArrayOutput)
+}
+
+// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) RumQuery() DashboardV2WidgetRumQueryPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetRumQuery {
+		if v == nil {
+			return nil
+		}
+		return v.RumQuery
+	}).(DashboardV2WidgetRumQueryPtrOutput)
+}
+
+// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+//
+// Deprecated: Use queries and formulas instead.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) SecurityQuery() DashboardV2WidgetSecurityQueryPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetSecurityQuery {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityQuery
+	}).(DashboardV2WidgetSecurityQueryPtrOutput)
+}
+
+// The controls for sorting the widget.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Sort() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSortPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSort {
+		if v == nil {
+			return nil
+		}
+		return v.Sort
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSortPtrOutput)
+}
+
+// Define request for the widget's style.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Style() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStylePtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStyle {
+		if v == nil {
+			return nil
+		}
+		return v.Style
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStylePtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula struct {
+	// An expression alias.
+	Alias *string `pulumi:"alias"`
+	// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
+	CellDisplayMode *string `pulumi:"cellDisplayMode"`
+	// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+	CellDisplayModeOptions *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions `pulumi:"cellDisplayModeOptions"`
+	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+	ConditionalFormats []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormat `pulumi:"conditionalFormats"`
+	// A string expression built from queries, formulas, and functions.
+	FormulaExpression string `pulumi:"formulaExpression"`
+	// The options for limiting results returned.
+	Limit *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimit `pulumi:"limit"`
+	// Number formatting options for the formula.
+	NumberFormat *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaNumberFormat `pulumi:"numberFormat"`
+	// Styling options for widget formulas.
+	Style *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaStyle `pulumi:"style"`
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaInput` via:
+//
+//	DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs{...}
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs struct {
+	// An expression alias.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
+	CellDisplayMode pulumi.StringPtrInput `pulumi:"cellDisplayMode"`
+	// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+	CellDisplayModeOptions DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput `pulumi:"cellDisplayModeOptions"`
+	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+	ConditionalFormats DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatArrayInput `pulumi:"conditionalFormats"`
+	// A string expression built from queries, formulas, and functions.
+	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
+	// The options for limiting results returned.
+	Limit DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimitPtrInput `pulumi:"limit"`
+	// Number formatting options for the formula.
+	NumberFormat DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaNumberFormatPtrInput `pulumi:"numberFormat"`
+	// Styling options for widget formulas.
+	Style DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaStylePtrInput `pulumi:"style"`
+}
+
+func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput)
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayInput` via:
+//
+//	DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray{ DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs{...} }
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaInput
+
+func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput {
+	return o
+}
+
+// An expression alias.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) CellDisplayMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *string {
+		return v.CellDisplayMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) CellDisplayModeOptions() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions {
+		return v.CellDisplayModeOptions
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput)
+}
+
+// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) ConditionalFormats() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatArrayOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormat {
+		return v.ConditionalFormats
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatArrayOutput)
+}
+
+// A string expression built from queries, formulas, and functions.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) FormulaExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) string {
+		return v.FormulaExpression
+	}).(pulumi.StringOutput)
+}
+
+// The options for limiting results returned.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) Limit() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimitPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimit {
+		return v.Limit
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimitPtrOutput)
+}
+
+// Number formatting options for the formula.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) NumberFormat() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaNumberFormatPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaNumberFormat {
+		return v.NumberFormat
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaNumberFormatPtrOutput)
+}
+
+// Styling options for widget formulas.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) Style() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaStylePtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaStyle {
+		return v.Style
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaStylePtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula {
+		return vs[0].([]DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula)[vs[1].(int)]
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions struct {
+	// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
+	TrendType *string `pulumi:"trendType"`
+	// The scale of the y-axis. Valid values are `shared` and `independent`.
+	YScale *string `pulumi:"yScale"`
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsInput` via:
+//
+//	DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs{...}
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs struct {
+	// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
+	TrendType pulumi.StringPtrInput `pulumi:"trendType"`
+	// The scale of the y-axis. Valid values are `shared` and `independent`.
+	YScale pulumi.StringPtrInput `pulumi:"yScale"`
+}
+
+func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput)
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput).ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx)
+}
+
+// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs, DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtr and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput` via:
+//
+//	        DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput
+	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput
+}
+
+type dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrType DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs
+
+func DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtr(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput {
+	return (*dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrType)(v)
+}
+
+func (*dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions)(nil)).Elem()
+}
+
+func (i *dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrType) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
+	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrType) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
+	return o.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions {
+		return &v
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput)
+}
+
+// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) TrendType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) *string {
+		return v.TrendType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The scale of the y-axis. Valid values are `shared` and `independent`.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) YScale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) *string {
+		return v.YScale
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) Elem() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions
+		return ret
+	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput)
+}
+
+// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) TrendType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrendType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The scale of the y-axis. Valid values are `shared` and `independent`.
+func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) YScale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.YScale
+	}).(pulumi.StringPtrOutput)
+}
+
 type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormat struct {
 	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
 	Comparator string `pulumi:"comparator"`
@@ -88831,6 +90087,200 @@ func (o DowntimeScheduleRecurringScheduleRecurrenceArrayOutput) Index(i pulumi.I
 	}).(DowntimeScheduleRecurringScheduleRecurrenceOutput)
 }
 
+type FleetScheduleRule struct {
+	// Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Duration of the maintenance window in minutes. Value must be at least 1.
+	MaintenanceWindowDuration int `pulumi:"maintenanceWindowDuration"`
+	// Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+	StartMaintenanceWindow string `pulumi:"startMaintenanceWindow"`
+	// IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+	Timezone string `pulumi:"timezone"`
+}
+
+// FleetScheduleRuleInput is an input type that accepts FleetScheduleRuleArgs and FleetScheduleRuleOutput values.
+// You can construct a concrete instance of `FleetScheduleRuleInput` via:
+//
+//	FleetScheduleRuleArgs{...}
+type FleetScheduleRuleInput interface {
+	pulumi.Input
+
+	ToFleetScheduleRuleOutput() FleetScheduleRuleOutput
+	ToFleetScheduleRuleOutputWithContext(context.Context) FleetScheduleRuleOutput
+}
+
+type FleetScheduleRuleArgs struct {
+	// Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Duration of the maintenance window in minutes. Value must be at least 1.
+	MaintenanceWindowDuration pulumi.IntInput `pulumi:"maintenanceWindowDuration"`
+	// Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+	StartMaintenanceWindow pulumi.StringInput `pulumi:"startMaintenanceWindow"`
+	// IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (FleetScheduleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScheduleRule)(nil)).Elem()
+}
+
+func (i FleetScheduleRuleArgs) ToFleetScheduleRuleOutput() FleetScheduleRuleOutput {
+	return i.ToFleetScheduleRuleOutputWithContext(context.Background())
+}
+
+func (i FleetScheduleRuleArgs) ToFleetScheduleRuleOutputWithContext(ctx context.Context) FleetScheduleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetScheduleRuleOutput)
+}
+
+func (i FleetScheduleRuleArgs) ToFleetScheduleRulePtrOutput() FleetScheduleRulePtrOutput {
+	return i.ToFleetScheduleRulePtrOutputWithContext(context.Background())
+}
+
+func (i FleetScheduleRuleArgs) ToFleetScheduleRulePtrOutputWithContext(ctx context.Context) FleetScheduleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetScheduleRuleOutput).ToFleetScheduleRulePtrOutputWithContext(ctx)
+}
+
+// FleetScheduleRulePtrInput is an input type that accepts FleetScheduleRuleArgs, FleetScheduleRulePtr and FleetScheduleRulePtrOutput values.
+// You can construct a concrete instance of `FleetScheduleRulePtrInput` via:
+//
+//	        FleetScheduleRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetScheduleRulePtrInput interface {
+	pulumi.Input
+
+	ToFleetScheduleRulePtrOutput() FleetScheduleRulePtrOutput
+	ToFleetScheduleRulePtrOutputWithContext(context.Context) FleetScheduleRulePtrOutput
+}
+
+type fleetScheduleRulePtrType FleetScheduleRuleArgs
+
+func FleetScheduleRulePtr(v *FleetScheduleRuleArgs) FleetScheduleRulePtrInput {
+	return (*fleetScheduleRulePtrType)(v)
+}
+
+func (*fleetScheduleRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScheduleRule)(nil)).Elem()
+}
+
+func (i *fleetScheduleRulePtrType) ToFleetScheduleRulePtrOutput() FleetScheduleRulePtrOutput {
+	return i.ToFleetScheduleRulePtrOutputWithContext(context.Background())
+}
+
+func (i *fleetScheduleRulePtrType) ToFleetScheduleRulePtrOutputWithContext(ctx context.Context) FleetScheduleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetScheduleRulePtrOutput)
+}
+
+type FleetScheduleRuleOutput struct{ *pulumi.OutputState }
+
+func (FleetScheduleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScheduleRule)(nil)).Elem()
+}
+
+func (o FleetScheduleRuleOutput) ToFleetScheduleRuleOutput() FleetScheduleRuleOutput {
+	return o
+}
+
+func (o FleetScheduleRuleOutput) ToFleetScheduleRuleOutputWithContext(ctx context.Context) FleetScheduleRuleOutput {
+	return o
+}
+
+func (o FleetScheduleRuleOutput) ToFleetScheduleRulePtrOutput() FleetScheduleRulePtrOutput {
+	return o.ToFleetScheduleRulePtrOutputWithContext(context.Background())
+}
+
+func (o FleetScheduleRuleOutput) ToFleetScheduleRulePtrOutputWithContext(ctx context.Context) FleetScheduleRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetScheduleRule) *FleetScheduleRule {
+		return &v
+	}).(FleetScheduleRulePtrOutput)
+}
+
+// Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+func (o FleetScheduleRuleOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetScheduleRule) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Duration of the maintenance window in minutes. Value must be at least 1.
+func (o FleetScheduleRuleOutput) MaintenanceWindowDuration() pulumi.IntOutput {
+	return o.ApplyT(func(v FleetScheduleRule) int { return v.MaintenanceWindowDuration }).(pulumi.IntOutput)
+}
+
+// Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+func (o FleetScheduleRuleOutput) StartMaintenanceWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetScheduleRule) string { return v.StartMaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+func (o FleetScheduleRuleOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetScheduleRule) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type FleetScheduleRulePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetScheduleRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScheduleRule)(nil)).Elem()
+}
+
+func (o FleetScheduleRulePtrOutput) ToFleetScheduleRulePtrOutput() FleetScheduleRulePtrOutput {
+	return o
+}
+
+func (o FleetScheduleRulePtrOutput) ToFleetScheduleRulePtrOutputWithContext(ctx context.Context) FleetScheduleRulePtrOutput {
+	return o
+}
+
+func (o FleetScheduleRulePtrOutput) Elem() FleetScheduleRuleOutput {
+	return o.ApplyT(func(v *FleetScheduleRule) FleetScheduleRule {
+		if v != nil {
+			return *v
+		}
+		var ret FleetScheduleRule
+		return ret
+	}).(FleetScheduleRuleOutput)
+}
+
+// Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+func (o FleetScheduleRulePtrOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetScheduleRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfWeeks
+	}).(pulumi.StringArrayOutput)
+}
+
+// Duration of the maintenance window in minutes. Value must be at least 1.
+func (o FleetScheduleRulePtrOutput) MaintenanceWindowDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetScheduleRule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaintenanceWindowDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+func (o FleetScheduleRulePtrOutput) StartMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetScheduleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartMaintenanceWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+// IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+func (o FleetScheduleRulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetScheduleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
 type GovernanceControlNotificationSetting struct {
 	// Whether notifications are enabled for this event type.
 	Enabled bool `pulumi:"enabled"`
@@ -92441,1442 +93891,19 @@ func (o LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) Value() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-type LogsCustomPipelineFilter struct {
-	// Filter criteria of the category.
-	Query string `pulumi:"query"`
-}
-
-// LogsCustomPipelineFilterInput is an input type that accepts LogsCustomPipelineFilterArgs and LogsCustomPipelineFilterOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineFilterInput` via:
-//
-//	LogsCustomPipelineFilterArgs{...}
-type LogsCustomPipelineFilterInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineFilterOutput() LogsCustomPipelineFilterOutput
-	ToLogsCustomPipelineFilterOutputWithContext(context.Context) LogsCustomPipelineFilterOutput
-}
-
-type LogsCustomPipelineFilterArgs struct {
-	// Filter criteria of the category.
-	Query pulumi.StringInput `pulumi:"query"`
-}
-
-func (LogsCustomPipelineFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineFilter)(nil)).Elem()
-}
-
-func (i LogsCustomPipelineFilterArgs) ToLogsCustomPipelineFilterOutput() LogsCustomPipelineFilterOutput {
-	return i.ToLogsCustomPipelineFilterOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineFilterArgs) ToLogsCustomPipelineFilterOutputWithContext(ctx context.Context) LogsCustomPipelineFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineFilterOutput)
-}
-
-// LogsCustomPipelineFilterArrayInput is an input type that accepts LogsCustomPipelineFilterArray and LogsCustomPipelineFilterArrayOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineFilterArrayInput` via:
-//
-//	LogsCustomPipelineFilterArray{ LogsCustomPipelineFilterArgs{...} }
-type LogsCustomPipelineFilterArrayInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineFilterArrayOutput() LogsCustomPipelineFilterArrayOutput
-	ToLogsCustomPipelineFilterArrayOutputWithContext(context.Context) LogsCustomPipelineFilterArrayOutput
-}
-
-type LogsCustomPipelineFilterArray []LogsCustomPipelineFilterInput
-
-func (LogsCustomPipelineFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogsCustomPipelineFilter)(nil)).Elem()
-}
-
-func (i LogsCustomPipelineFilterArray) ToLogsCustomPipelineFilterArrayOutput() LogsCustomPipelineFilterArrayOutput {
-	return i.ToLogsCustomPipelineFilterArrayOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineFilterArray) ToLogsCustomPipelineFilterArrayOutputWithContext(ctx context.Context) LogsCustomPipelineFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineFilterArrayOutput)
-}
-
-type LogsCustomPipelineFilterOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineFilter)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineFilterOutput) ToLogsCustomPipelineFilterOutput() LogsCustomPipelineFilterOutput {
-	return o
-}
-
-func (o LogsCustomPipelineFilterOutput) ToLogsCustomPipelineFilterOutputWithContext(ctx context.Context) LogsCustomPipelineFilterOutput {
-	return o
-}
-
-// Filter criteria of the category.
-func (o LogsCustomPipelineFilterOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsCustomPipelineFilter) string { return v.Query }).(pulumi.StringOutput)
-}
-
-type LogsCustomPipelineFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogsCustomPipelineFilter)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineFilterArrayOutput) ToLogsCustomPipelineFilterArrayOutput() LogsCustomPipelineFilterArrayOutput {
-	return o
-}
-
-func (o LogsCustomPipelineFilterArrayOutput) ToLogsCustomPipelineFilterArrayOutputWithContext(ctx context.Context) LogsCustomPipelineFilterArrayOutput {
-	return o
-}
-
-func (o LogsCustomPipelineFilterArrayOutput) Index(i pulumi.IntInput) LogsCustomPipelineFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsCustomPipelineFilter {
-		return vs[0].([]LogsCustomPipelineFilter)[vs[1].(int)]
-	}).(LogsCustomPipelineFilterOutput)
-}
-
-type LogsCustomPipelineProcessor struct {
-	// Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-	ArithmeticProcessor *LogsCustomPipelineProcessorArithmeticProcessor `pulumi:"arithmeticProcessor"`
-	// Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
-	ArrayMapProcessor *LogsCustomPipelineProcessorArrayMapProcessor `pulumi:"arrayMapProcessor"`
-	// Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
-	ArrayProcessor *LogsCustomPipelineProcessorArrayProcessor `pulumi:"arrayProcessor"`
-	// Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-	AttributeRemapper *LogsCustomPipelineProcessorAttributeRemapper `pulumi:"attributeRemapper"`
-	// Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-	CategoryProcessor *LogsCustomPipelineProcessorCategoryProcessor `pulumi:"categoryProcessor"`
-	// Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-	DateRemapper *LogsCustomPipelineProcessorDateRemapper `pulumi:"dateRemapper"`
-	// Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
-	DecoderProcessor *LogsCustomPipelineProcessorDecoderProcessor `pulumi:"decoderProcessor"`
-	// Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
-	ExcludeAttributeProcessor *LogsCustomPipelineProcessorExcludeAttributeProcessor `pulumi:"excludeAttributeProcessor"`
-	// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-	GeoIpParser *LogsCustomPipelineProcessorGeoIpParser `pulumi:"geoIpParser"`
-	// Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-	GrokParser *LogsCustomPipelineProcessorGrokParser `pulumi:"grokParser"`
-	// Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-	LookupProcessor *LogsCustomPipelineProcessorLookupProcessor `pulumi:"lookupProcessor"`
-	// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-	MessageRemapper *LogsCustomPipelineProcessorMessageRemapper `pulumi:"messageRemapper"`
-	Pipeline        *LogsCustomPipelineProcessorPipeline        `pulumi:"pipeline"`
-	// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-	ReferenceTableLookupProcessor *LogsCustomPipelineProcessorReferenceTableLookupProcessor `pulumi:"referenceTableLookupProcessor"`
-	// Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
-	SchemaProcessor *LogsCustomPipelineProcessorSchemaProcessor `pulumi:"schemaProcessor"`
-	// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-	ServiceRemapper *LogsCustomPipelineProcessorServiceRemapper `pulumi:"serviceRemapper"`
-	// Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
-	SpanIdRemapper *LogsCustomPipelineProcessorSpanIdRemapper `pulumi:"spanIdRemapper"`
-	// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-	StatusRemapper *LogsCustomPipelineProcessorStatusRemapper `pulumi:"statusRemapper"`
-	// String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-	StringBuilderProcessor *LogsCustomPipelineProcessorStringBuilderProcessor `pulumi:"stringBuilderProcessor"`
-	// Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-	TraceIdRemapper *LogsCustomPipelineProcessorTraceIdRemapper `pulumi:"traceIdRemapper"`
-	// URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-	UrlParser *LogsCustomPipelineProcessorUrlParser `pulumi:"urlParser"`
-	// User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-	UserAgentParser *LogsCustomPipelineProcessorUserAgentParser `pulumi:"userAgentParser"`
-}
-
-// LogsCustomPipelineProcessorInput is an input type that accepts LogsCustomPipelineProcessorArgs and LogsCustomPipelineProcessorOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorInput` via:
-//
-//	LogsCustomPipelineProcessorArgs{...}
-type LogsCustomPipelineProcessorInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorOutput() LogsCustomPipelineProcessorOutput
-	ToLogsCustomPipelineProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorOutput
-}
-
-type LogsCustomPipelineProcessorArgs struct {
-	// Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-	ArithmeticProcessor LogsCustomPipelineProcessorArithmeticProcessorPtrInput `pulumi:"arithmeticProcessor"`
-	// Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
-	ArrayMapProcessor LogsCustomPipelineProcessorArrayMapProcessorPtrInput `pulumi:"arrayMapProcessor"`
-	// Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
-	ArrayProcessor LogsCustomPipelineProcessorArrayProcessorPtrInput `pulumi:"arrayProcessor"`
-	// Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-	AttributeRemapper LogsCustomPipelineProcessorAttributeRemapperPtrInput `pulumi:"attributeRemapper"`
-	// Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-	CategoryProcessor LogsCustomPipelineProcessorCategoryProcessorPtrInput `pulumi:"categoryProcessor"`
-	// Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-	DateRemapper LogsCustomPipelineProcessorDateRemapperPtrInput `pulumi:"dateRemapper"`
-	// Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
-	DecoderProcessor LogsCustomPipelineProcessorDecoderProcessorPtrInput `pulumi:"decoderProcessor"`
-	// Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
-	ExcludeAttributeProcessor LogsCustomPipelineProcessorExcludeAttributeProcessorPtrInput `pulumi:"excludeAttributeProcessor"`
-	// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-	GeoIpParser LogsCustomPipelineProcessorGeoIpParserPtrInput `pulumi:"geoIpParser"`
-	// Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-	GrokParser LogsCustomPipelineProcessorGrokParserPtrInput `pulumi:"grokParser"`
-	// Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-	LookupProcessor LogsCustomPipelineProcessorLookupProcessorPtrInput `pulumi:"lookupProcessor"`
-	// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-	MessageRemapper LogsCustomPipelineProcessorMessageRemapperPtrInput `pulumi:"messageRemapper"`
-	Pipeline        LogsCustomPipelineProcessorPipelinePtrInput        `pulumi:"pipeline"`
-	// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-	ReferenceTableLookupProcessor LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrInput `pulumi:"referenceTableLookupProcessor"`
-	// Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
-	SchemaProcessor LogsCustomPipelineProcessorSchemaProcessorPtrInput `pulumi:"schemaProcessor"`
-	// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-	ServiceRemapper LogsCustomPipelineProcessorServiceRemapperPtrInput `pulumi:"serviceRemapper"`
-	// Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
-	SpanIdRemapper LogsCustomPipelineProcessorSpanIdRemapperPtrInput `pulumi:"spanIdRemapper"`
-	// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-	StatusRemapper LogsCustomPipelineProcessorStatusRemapperPtrInput `pulumi:"statusRemapper"`
-	// String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-	StringBuilderProcessor LogsCustomPipelineProcessorStringBuilderProcessorPtrInput `pulumi:"stringBuilderProcessor"`
-	// Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-	TraceIdRemapper LogsCustomPipelineProcessorTraceIdRemapperPtrInput `pulumi:"traceIdRemapper"`
-	// URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-	UrlParser LogsCustomPipelineProcessorUrlParserPtrInput `pulumi:"urlParser"`
-	// User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-	UserAgentParser LogsCustomPipelineProcessorUserAgentParserPtrInput `pulumi:"userAgentParser"`
-}
-
-func (LogsCustomPipelineProcessorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessor)(nil)).Elem()
-}
-
-func (i LogsCustomPipelineProcessorArgs) ToLogsCustomPipelineProcessorOutput() LogsCustomPipelineProcessorOutput {
-	return i.ToLogsCustomPipelineProcessorOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArgs) ToLogsCustomPipelineProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorOutput)
-}
-
-// LogsCustomPipelineProcessorArrayInput is an input type that accepts LogsCustomPipelineProcessorArray and LogsCustomPipelineProcessorArrayOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayInput` via:
-//
-//	LogsCustomPipelineProcessorArray{ LogsCustomPipelineProcessorArgs{...} }
-type LogsCustomPipelineProcessorArrayInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArrayOutput() LogsCustomPipelineProcessorArrayOutput
-	ToLogsCustomPipelineProcessorArrayOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayOutput
-}
-
-type LogsCustomPipelineProcessorArray []LogsCustomPipelineProcessorInput
-
-func (LogsCustomPipelineProcessorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogsCustomPipelineProcessor)(nil)).Elem()
-}
-
-func (i LogsCustomPipelineProcessorArray) ToLogsCustomPipelineProcessorArrayOutput() LogsCustomPipelineProcessorArrayOutput {
-	return i.ToLogsCustomPipelineProcessorArrayOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArray) ToLogsCustomPipelineProcessorArrayOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayOutput)
-}
-
-type LogsCustomPipelineProcessorOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessor)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorOutput) ToLogsCustomPipelineProcessorOutput() LogsCustomPipelineProcessorOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorOutput) ToLogsCustomPipelineProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorOutput {
-	return o
-}
-
-// Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
-func (o LogsCustomPipelineProcessorOutput) ArithmeticProcessor() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorArithmeticProcessor {
-		return v.ArithmeticProcessor
-	}).(LogsCustomPipelineProcessorArithmeticProcessorPtrOutput)
-}
-
-// Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
-func (o LogsCustomPipelineProcessorOutput) ArrayMapProcessor() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorArrayMapProcessor {
-		return v.ArrayMapProcessor
-	}).(LogsCustomPipelineProcessorArrayMapProcessorPtrOutput)
-}
-
-// Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
-func (o LogsCustomPipelineProcessorOutput) ArrayProcessor() LogsCustomPipelineProcessorArrayProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorArrayProcessor {
-		return v.ArrayProcessor
-	}).(LogsCustomPipelineProcessorArrayProcessorPtrOutput)
-}
-
-// Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
-func (o LogsCustomPipelineProcessorOutput) AttributeRemapper() LogsCustomPipelineProcessorAttributeRemapperPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorAttributeRemapper {
-		return v.AttributeRemapper
-	}).(LogsCustomPipelineProcessorAttributeRemapperPtrOutput)
-}
-
-// Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
-func (o LogsCustomPipelineProcessorOutput) CategoryProcessor() LogsCustomPipelineProcessorCategoryProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorCategoryProcessor {
-		return v.CategoryProcessor
-	}).(LogsCustomPipelineProcessorCategoryProcessorPtrOutput)
-}
-
-// Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
-func (o LogsCustomPipelineProcessorOutput) DateRemapper() LogsCustomPipelineProcessorDateRemapperPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorDateRemapper { return v.DateRemapper }).(LogsCustomPipelineProcessorDateRemapperPtrOutput)
-}
-
-// Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
-func (o LogsCustomPipelineProcessorOutput) DecoderProcessor() LogsCustomPipelineProcessorDecoderProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorDecoderProcessor {
-		return v.DecoderProcessor
-	}).(LogsCustomPipelineProcessorDecoderProcessorPtrOutput)
-}
-
-// Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
-func (o LogsCustomPipelineProcessorOutput) ExcludeAttributeProcessor() LogsCustomPipelineProcessorExcludeAttributeProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorExcludeAttributeProcessor {
-		return v.ExcludeAttributeProcessor
-	}).(LogsCustomPipelineProcessorExcludeAttributeProcessorPtrOutput)
-}
-
-// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
-func (o LogsCustomPipelineProcessorOutput) GeoIpParser() LogsCustomPipelineProcessorGeoIpParserPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorGeoIpParser { return v.GeoIpParser }).(LogsCustomPipelineProcessorGeoIpParserPtrOutput)
-}
-
-// Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
-func (o LogsCustomPipelineProcessorOutput) GrokParser() LogsCustomPipelineProcessorGrokParserPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorGrokParser { return v.GrokParser }).(LogsCustomPipelineProcessorGrokParserPtrOutput)
-}
-
-// Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-func (o LogsCustomPipelineProcessorOutput) LookupProcessor() LogsCustomPipelineProcessorLookupProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorLookupProcessor {
-		return v.LookupProcessor
-	}).(LogsCustomPipelineProcessorLookupProcessorPtrOutput)
-}
-
-// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
-func (o LogsCustomPipelineProcessorOutput) MessageRemapper() LogsCustomPipelineProcessorMessageRemapperPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorMessageRemapper {
-		return v.MessageRemapper
-	}).(LogsCustomPipelineProcessorMessageRemapperPtrOutput)
-}
-
-func (o LogsCustomPipelineProcessorOutput) Pipeline() LogsCustomPipelineProcessorPipelinePtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorPipeline { return v.Pipeline }).(LogsCustomPipelineProcessorPipelinePtrOutput)
-}
-
-// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
-func (o LogsCustomPipelineProcessorOutput) ReferenceTableLookupProcessor() LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorReferenceTableLookupProcessor {
-		return v.ReferenceTableLookupProcessor
-	}).(LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput)
-}
-
-// Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
-func (o LogsCustomPipelineProcessorOutput) SchemaProcessor() LogsCustomPipelineProcessorSchemaProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorSchemaProcessor {
-		return v.SchemaProcessor
-	}).(LogsCustomPipelineProcessorSchemaProcessorPtrOutput)
-}
-
-// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
-func (o LogsCustomPipelineProcessorOutput) ServiceRemapper() LogsCustomPipelineProcessorServiceRemapperPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorServiceRemapper {
-		return v.ServiceRemapper
-	}).(LogsCustomPipelineProcessorServiceRemapperPtrOutput)
-}
-
-// Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
-func (o LogsCustomPipelineProcessorOutput) SpanIdRemapper() LogsCustomPipelineProcessorSpanIdRemapperPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorSpanIdRemapper {
-		return v.SpanIdRemapper
-	}).(LogsCustomPipelineProcessorSpanIdRemapperPtrOutput)
-}
-
-// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
-func (o LogsCustomPipelineProcessorOutput) StatusRemapper() LogsCustomPipelineProcessorStatusRemapperPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorStatusRemapper {
-		return v.StatusRemapper
-	}).(LogsCustomPipelineProcessorStatusRemapperPtrOutput)
-}
-
-// String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
-func (o LogsCustomPipelineProcessorOutput) StringBuilderProcessor() LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorStringBuilderProcessor {
-		return v.StringBuilderProcessor
-	}).(LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput)
-}
-
-// Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
-func (o LogsCustomPipelineProcessorOutput) TraceIdRemapper() LogsCustomPipelineProcessorTraceIdRemapperPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorTraceIdRemapper {
-		return v.TraceIdRemapper
-	}).(LogsCustomPipelineProcessorTraceIdRemapperPtrOutput)
-}
-
-// URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
-func (o LogsCustomPipelineProcessorOutput) UrlParser() LogsCustomPipelineProcessorUrlParserPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorUrlParser { return v.UrlParser }).(LogsCustomPipelineProcessorUrlParserPtrOutput)
-}
-
-// User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
-func (o LogsCustomPipelineProcessorOutput) UserAgentParser() LogsCustomPipelineProcessorUserAgentParserPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorUserAgentParser {
-		return v.UserAgentParser
-	}).(LogsCustomPipelineProcessorUserAgentParserPtrOutput)
-}
-
-type LogsCustomPipelineProcessorArrayOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogsCustomPipelineProcessor)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArrayOutput) ToLogsCustomPipelineProcessorArrayOutput() LogsCustomPipelineProcessorArrayOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayOutput) ToLogsCustomPipelineProcessorArrayOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayOutput) Index(i pulumi.IntInput) LogsCustomPipelineProcessorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsCustomPipelineProcessor {
-		return vs[0].([]LogsCustomPipelineProcessor)[vs[1].(int)]
-	}).(LogsCustomPipelineProcessorOutput)
-}
-
-type LogsCustomPipelineProcessorArithmeticProcessor struct {
-	// Arithmetic operation between one or more log attributes.
-	Expression string `pulumi:"expression"`
-	// Boolean value to enable your pipeline.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
-	IsReplaceMissing *bool `pulumi:"isReplaceMissing"`
-	// Your pipeline name.
-	Name *string `pulumi:"name"`
-	// Name of the attribute that contains the result of the arithmetic operation.
-	Target string `pulumi:"target"`
-}
-
-// LogsCustomPipelineProcessorArithmeticProcessorInput is an input type that accepts LogsCustomPipelineProcessorArithmeticProcessorArgs and LogsCustomPipelineProcessorArithmeticProcessorOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArithmeticProcessorInput` via:
-//
-//	LogsCustomPipelineProcessorArithmeticProcessorArgs{...}
-type LogsCustomPipelineProcessorArithmeticProcessorInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArithmeticProcessorOutput
-	ToLogsCustomPipelineProcessorArithmeticProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorArithmeticProcessorOutput
-}
-
-type LogsCustomPipelineProcessorArithmeticProcessorArgs struct {
-	// Arithmetic operation between one or more log attributes.
-	Expression pulumi.StringInput `pulumi:"expression"`
-	// Boolean value to enable your pipeline.
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
-	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
-	IsReplaceMissing pulumi.BoolPtrInput `pulumi:"isReplaceMissing"`
-	// Your pipeline name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Name of the attribute that contains the result of the arithmetic operation.
-	Target pulumi.StringInput `pulumi:"target"`
-}
-
-func (LogsCustomPipelineProcessorArithmeticProcessorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessorArithmeticProcessor)(nil)).Elem()
-}
-
-func (i LogsCustomPipelineProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArithmeticProcessorOutput {
-	return i.ToLogsCustomPipelineProcessorArithmeticProcessorOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArithmeticProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArithmeticProcessorOutput)
-}
-
-func (i LogsCustomPipelineProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
-	return i.ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArithmeticProcessorOutput).ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(ctx)
-}
-
-// LogsCustomPipelineProcessorArithmeticProcessorPtrInput is an input type that accepts LogsCustomPipelineProcessorArithmeticProcessorArgs, LogsCustomPipelineProcessorArithmeticProcessorPtr and LogsCustomPipelineProcessorArithmeticProcessorPtrOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArithmeticProcessorPtrInput` via:
-//
-//	        LogsCustomPipelineProcessorArithmeticProcessorArgs{...}
-//
-//	or:
-//
-//	        nil
-type LogsCustomPipelineProcessorArithmeticProcessorPtrInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput
-	ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(context.Context) LogsCustomPipelineProcessorArithmeticProcessorPtrOutput
-}
-
-type logsCustomPipelineProcessorArithmeticProcessorPtrType LogsCustomPipelineProcessorArithmeticProcessorArgs
-
-func LogsCustomPipelineProcessorArithmeticProcessorPtr(v *LogsCustomPipelineProcessorArithmeticProcessorArgs) LogsCustomPipelineProcessorArithmeticProcessorPtrInput {
-	return (*logsCustomPipelineProcessorArithmeticProcessorPtrType)(v)
-}
-
-func (*logsCustomPipelineProcessorArithmeticProcessorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomPipelineProcessorArithmeticProcessor)(nil)).Elem()
-}
-
-func (i *logsCustomPipelineProcessorArithmeticProcessorPtrType) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
-	return i.ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
-}
-
-func (i *logsCustomPipelineProcessorArithmeticProcessorPtrType) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArithmeticProcessorPtrOutput)
-}
-
-type LogsCustomPipelineProcessorArithmeticProcessorOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArithmeticProcessorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessorArithmeticProcessor)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArithmeticProcessorOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArithmeticProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
-	return o.ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
-}
-
-func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipelineProcessorArithmeticProcessor) *LogsCustomPipelineProcessorArithmeticProcessor {
-		return &v
-	}).(LogsCustomPipelineProcessorArithmeticProcessorPtrOutput)
-}
-
-// Arithmetic operation between one or more log attributes.
-func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) Expression() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) string { return v.Expression }).(pulumi.StringOutput)
-}
-
-// Boolean value to enable your pipeline.
-func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
-func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) *bool { return v.IsReplaceMissing }).(pulumi.BoolPtrOutput)
-}
-
-// Your pipeline name.
-func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Name of the attribute that contains the result of the arithmetic operation.
-func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) string { return v.Target }).(pulumi.StringOutput)
-}
-
-type LogsCustomPipelineProcessorArithmeticProcessorPtrOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomPipelineProcessorArithmeticProcessor)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Elem() LogsCustomPipelineProcessorArithmeticProcessorOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) LogsCustomPipelineProcessorArithmeticProcessor {
-		if v != nil {
-			return *v
-		}
-		var ret LogsCustomPipelineProcessorArithmeticProcessor
-		return ret
-	}).(LogsCustomPipelineProcessorArithmeticProcessorOutput)
-}
-
-// Arithmetic operation between one or more log attributes.
-func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Expression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Expression
-	}).(pulumi.StringPtrOutput)
-}
-
-// Boolean value to enable your pipeline.
-func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
-func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsReplaceMissing
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Your pipeline name.
-func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the attribute that contains the result of the arithmetic operation.
-func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Target
-	}).(pulumi.StringPtrOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessor struct {
-	// If the processor is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Name of the processor.
-	Name *string `pulumi:"name"`
-	// Remove or preserve the source array after processing. Defaults to `true`.
-	PreserveSource *bool `pulumi:"preserveSource"`
-	// Sub-processors applied to each element. Allowed types: attribute*remapper, string*builder*processor, arithmetic*processor, category*processor.
-	Processors []LogsCustomPipelineProcessorArrayMapProcessorProcessor `pulumi:"processors"`
-	// Attribute path of the source array.
-	Source string `pulumi:"source"`
-	// Attribute path of the output array.
-	Target string `pulumi:"target"`
-}
-
-// LogsCustomPipelineProcessorArrayMapProcessorInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorArgs and LogsCustomPipelineProcessorArrayMapProcessorOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorInput` via:
-//
-//	LogsCustomPipelineProcessorArrayMapProcessorArgs{...}
-type LogsCustomPipelineProcessorArrayMapProcessorInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArrayMapProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorOutput
-	ToLogsCustomPipelineProcessorArrayMapProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorOutput
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorArgs struct {
-	// If the processor is enabled.
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
-	// Name of the processor.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Remove or preserve the source array after processing. Defaults to `true`.
-	PreserveSource pulumi.BoolPtrInput `pulumi:"preserveSource"`
-	// Sub-processors applied to each element. Allowed types: attribute*remapper, string*builder*processor, arithmetic*processor, category*processor.
-	Processors LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayInput `pulumi:"processors"`
-	// Attribute path of the source array.
-	Source pulumi.StringInput `pulumi:"source"`
-	// Attribute path of the output array.
-	Target pulumi.StringInput `pulumi:"target"`
-}
-
-func (LogsCustomPipelineProcessorArrayMapProcessorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessor)(nil)).Elem()
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorOutput)
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorOutput).ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(ctx)
-}
-
-// LogsCustomPipelineProcessorArrayMapProcessorPtrInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorArgs, LogsCustomPipelineProcessorArrayMapProcessorPtr and LogsCustomPipelineProcessorArrayMapProcessorPtrOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorPtrInput` via:
-//
-//	        LogsCustomPipelineProcessorArrayMapProcessorArgs{...}
-//
-//	or:
-//
-//	        nil
-type LogsCustomPipelineProcessorArrayMapProcessorPtrInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput
-	ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorPtrOutput
-}
-
-type logsCustomPipelineProcessorArrayMapProcessorPtrType LogsCustomPipelineProcessorArrayMapProcessorArgs
-
-func LogsCustomPipelineProcessorArrayMapProcessorPtr(v *LogsCustomPipelineProcessorArrayMapProcessorArgs) LogsCustomPipelineProcessorArrayMapProcessorPtrInput {
-	return (*logsCustomPipelineProcessorArrayMapProcessorPtrType)(v)
-}
-
-func (*logsCustomPipelineProcessorArrayMapProcessorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessor)(nil)).Elem()
-}
-
-func (i *logsCustomPipelineProcessorArrayMapProcessorPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(context.Background())
-}
-
-func (i *logsCustomPipelineProcessorArrayMapProcessorPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorPtrOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArrayMapProcessorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessor)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
-	return o.ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(context.Background())
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipelineProcessorArrayMapProcessor) *LogsCustomPipelineProcessorArrayMapProcessor {
-		return &v
-	}).(LogsCustomPipelineProcessorArrayMapProcessorPtrOutput)
-}
-
-// If the processor is enabled.
-func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Name of the processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Remove or preserve the source array after processing. Defaults to `true`.
-func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) PreserveSource() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) *bool { return v.PreserveSource }).(pulumi.BoolPtrOutput)
-}
-
-// Sub-processors applied to each element. Allowed types: attribute*remapper, string*builder*processor, arithmetic*processor, category*processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) Processors() LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) []LogsCustomPipelineProcessorArrayMapProcessorProcessor {
-		return v.Processors
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput)
-}
-
-// Attribute path of the source array.
-func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) Source() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) string { return v.Source }).(pulumi.StringOutput)
-}
-
-// Attribute path of the output array.
-func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) string { return v.Target }).(pulumi.StringOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorPtrOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessor)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) Elem() LogsCustomPipelineProcessorArrayMapProcessorOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) LogsCustomPipelineProcessorArrayMapProcessor {
-		if v != nil {
-			return *v
-		}
-		var ret LogsCustomPipelineProcessorArrayMapProcessor
-		return ret
-	}).(LogsCustomPipelineProcessorArrayMapProcessorOutput)
-}
-
-// If the processor is enabled.
-func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name of the processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Remove or preserve the source array after processing. Defaults to `true`.
-func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) PreserveSource() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PreserveSource
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Sub-processors applied to each element. Allowed types: attribute*remapper, string*builder*processor, arithmetic*processor, category*processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) Processors() LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) []LogsCustomPipelineProcessorArrayMapProcessorProcessor {
-		if v == nil {
-			return nil
-		}
-		return v.Processors
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput)
-}
-
-// Attribute path of the source array.
-func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Source
-	}).(pulumi.StringPtrOutput)
-}
-
-// Attribute path of the output array.
-func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Target
-	}).(pulumi.StringPtrOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessor struct {
-	// Array-map arithmetic sub-processor.
-	ArithmeticProcessor *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor `pulumi:"arithmeticProcessor"`
-	// Array-map attribute remapper sub-processor.
-	AttributeRemapper *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper `pulumi:"attributeRemapper"`
-	// Array-map category sub-processor.
-	CategoryProcessor *LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessor `pulumi:"categoryProcessor"`
-	// Array-map string builder sub-processor.
-	StringBuilderProcessor *LogsCustomPipelineProcessorArrayMapProcessorProcessorStringBuilderProcessor `pulumi:"stringBuilderProcessor"`
-}
-
-// LogsCustomPipelineProcessorArrayMapProcessorProcessorInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs and LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorInput` via:
-//
-//	LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs{...}
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs struct {
-	// Array-map arithmetic sub-processor.
-	ArithmeticProcessor LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput `pulumi:"arithmeticProcessor"`
-	// Array-map attribute remapper sub-processor.
-	AttributeRemapper LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput `pulumi:"attributeRemapper"`
-	// Array-map category sub-processor.
-	CategoryProcessor LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorPtrInput `pulumi:"categoryProcessor"`
-	// Array-map string builder sub-processor.
-	StringBuilderProcessor LogsCustomPipelineProcessorArrayMapProcessorProcessorStringBuilderProcessorPtrInput `pulumi:"stringBuilderProcessor"`
-}
-
-func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessor)(nil)).Elem()
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput)
-}
-
-// LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorArray and LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayInput` via:
-//
-//	LogsCustomPipelineProcessorArrayMapProcessorProcessorArray{ LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs{...} }
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorArray []LogsCustomPipelineProcessorArrayMapProcessorProcessorInput
-
-func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogsCustomPipelineProcessorArrayMapProcessorProcessor)(nil)).Elem()
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArray) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArray) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessor)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput {
-	return o
-}
-
-// Array-map arithmetic sub-processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) ArithmeticProcessor() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessor) *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor {
-		return v.ArithmeticProcessor
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput)
-}
-
-// Array-map attribute remapper sub-processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) AttributeRemapper() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessor) *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper {
-		return v.AttributeRemapper
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput)
-}
-
-// Array-map category sub-processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) CategoryProcessor() LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessor) *LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessor {
-		return v.CategoryProcessor
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorPtrOutput)
-}
-
-// Array-map string builder sub-processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) StringBuilderProcessor() LogsCustomPipelineProcessorArrayMapProcessorProcessorStringBuilderProcessorPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessor) *LogsCustomPipelineProcessorArrayMapProcessorProcessorStringBuilderProcessor {
-		return v.StringBuilderProcessor
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorStringBuilderProcessorPtrOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogsCustomPipelineProcessorArrayMapProcessorProcessor)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput) Index(i pulumi.IntInput) LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsCustomPipelineProcessorArrayMapProcessorProcessor {
-		return vs[0].([]LogsCustomPipelineProcessorArrayMapProcessorProcessor)[vs[1].(int)]
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor struct {
-	// Arithmetic formula.
-	Expression string `pulumi:"expression"`
-	// Replace missing attributes with `0`.
-	IsReplaceMissing *bool `pulumi:"isReplaceMissing"`
-	// Name of the sub-processor.
-	Name *string `pulumi:"name"`
-	// Target attribute path for the result.
-	Target string `pulumi:"target"`
-}
-
-// LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs and LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorInput` via:
-//
-//	LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs{...}
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs struct {
-	// Arithmetic formula.
-	Expression pulumi.StringInput `pulumi:"expression"`
-	// Replace missing attributes with `0`.
-	IsReplaceMissing pulumi.BoolPtrInput `pulumi:"isReplaceMissing"`
-	// Name of the sub-processor.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Target attribute path for the result.
-	Target pulumi.StringInput `pulumi:"target"`
-}
-
-func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor)(nil)).Elem()
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput)
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput).ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(ctx)
-}
-
-// LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs, LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtr and LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput` via:
-//
-//	        LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs{...}
-//
-//	or:
-//
-//	        nil
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput
-}
-
-type logsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrType LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs
-
-func LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtr(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput {
-	return (*logsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrType)(v)
-}
-
-func (*logsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor)(nil)).Elem()
-}
-
-func (i *logsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
-}
-
-func (i *logsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
-	return o.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor {
-		return &v
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput)
-}
-
-// Arithmetic formula.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) Expression() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) string {
-		return v.Expression
-	}).(pulumi.StringOutput)
-}
-
-// Replace missing attributes with `0`.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *bool {
-		return v.IsReplaceMissing
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name of the sub-processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Target attribute path for the result.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) string {
-		return v.Target
-	}).(pulumi.StringOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) Elem() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor {
-		if v != nil {
-			return *v
-		}
-		var ret LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor
-		return ret
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput)
-}
-
-// Arithmetic formula.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) Expression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Expression
-	}).(pulumi.StringPtrOutput)
-}
-
-// Replace missing attributes with `0`.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsReplaceMissing
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name of the sub-processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Target attribute path for the result.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Target
-	}).(pulumi.StringPtrOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper struct {
-	// Name of the sub-processor.
-	Name *string `pulumi:"name"`
-	// Override the target element if already set.
-	OverrideOnConflict *bool `pulumi:"overrideOnConflict"`
-	// Remove or preserve the remapped source element. Defaults to `false`.
-	PreserveSource *bool `pulumi:"preserveSource"`
-	// List of source attributes.
-	Sources []string `pulumi:"sources"`
-	// Target attribute path.
-	Target string `pulumi:"target"`
-	// If the target type is an attribute, cast the value to a new type (auto, string, integer, double).
-	TargetFormat *string `pulumi:"targetFormat"`
-}
-
-// LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs and LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperInput` via:
-//
-//	LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs{...}
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs struct {
-	// Name of the sub-processor.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Override the target element if already set.
-	OverrideOnConflict pulumi.BoolPtrInput `pulumi:"overrideOnConflict"`
-	// Remove or preserve the remapped source element. Defaults to `false`.
-	PreserveSource pulumi.BoolPtrInput `pulumi:"preserveSource"`
-	// List of source attributes.
-	Sources pulumi.StringArrayInput `pulumi:"sources"`
-	// Target attribute path.
-	Target pulumi.StringInput `pulumi:"target"`
-	// If the target type is an attribute, cast the value to a new type (auto, string, integer, double).
-	TargetFormat pulumi.StringPtrInput `pulumi:"targetFormat"`
-}
-
-func (LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper)(nil)).Elem()
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput)
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(context.Background())
-}
-
-func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput).ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(ctx)
-}
-
-// LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs, LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtr and LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput values.
-// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput` via:
-//
-//	        LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs{...}
-//
-//	or:
-//
-//	        nil
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput interface {
-	pulumi.Input
-
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput
-	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput
-}
-
-type logsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrType LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs
-
-func LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtr(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput {
-	return (*logsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrType)(v)
-}
-
-func (*logsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper)(nil)).Elem()
-}
-
-func (i *logsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
-	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(context.Background())
-}
-
-func (i *logsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
-	return o.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(context.Background())
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper {
-		return &v
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput)
-}
-
-// Name of the sub-processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Override the target element if already set.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) OverrideOnConflict() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *bool {
-		return v.OverrideOnConflict
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Remove or preserve the remapped source element. Defaults to `false`.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) PreserveSource() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *bool {
-		return v.PreserveSource
-	}).(pulumi.BoolPtrOutput)
-}
-
-// List of source attributes.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) Sources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) []string {
-		return v.Sources
-	}).(pulumi.StringArrayOutput)
-}
-
-// Target attribute path.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) string { return v.Target }).(pulumi.StringOutput)
-}
-
-// If the target type is an attribute, cast the value to a new type (auto, string, integer, double).
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) TargetFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *string {
-		return v.TargetFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper)(nil)).Elem()
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
-	return o
-}
-
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) Elem() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper {
-		if v != nil {
-			return *v
-		}
-		var ret LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper
-		return ret
-	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput)
-}
-
-// Name of the sub-processor.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Override the target element if already set.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) OverrideOnConflict() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.OverrideOnConflict
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Remove or preserve the remapped source element. Defaults to `false`.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) PreserveSource() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PreserveSource
-	}).(pulumi.BoolPtrOutput)
-}
-
-// List of source attributes.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Sources
-	}).(pulumi.StringArrayOutput)
-}
-
-// Target attribute path.
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Target
-	}).(pulumi.StringPtrOutput)
-}
-
-// If the target type is an attribute, cast the value to a new type (auto, string, integer, double).
-func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) TargetFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetFormat
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatArrayInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimitInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimitArgs{})
@@ -94819,6 +94846,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleRecurringSchedulePtrInput)(nil)).Elem(), DowntimeScheduleRecurringScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleRecurringScheduleRecurrenceInput)(nil)).Elem(), DowntimeScheduleRecurringScheduleRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleRecurringScheduleRecurrenceArrayInput)(nil)).Elem(), DowntimeScheduleRecurringScheduleRecurrenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScheduleRuleInput)(nil)).Elem(), FleetScheduleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScheduleRulePtrInput)(nil)).Elem(), FleetScheduleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GovernanceControlNotificationSettingInput)(nil)).Elem(), GovernanceControlNotificationSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GovernanceControlNotificationSettingArrayInput)(nil)).Elem(), GovernanceControlNotificationSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GovernanceControlNotificationSettingTargetInput)(nil)).Elem(), GovernanceControlNotificationSettingTargetArgs{})
@@ -94861,20 +94890,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationSplunkDestinationPtrInput)(nil)).Elem(), LogsCustomDestinationSplunkDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationSplunkDestinationSourcetypeInput)(nil)).Elem(), LogsCustomDestinationSplunkDestinationSourcetypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationSplunkDestinationSourcetypePtrInput)(nil)).Elem(), LogsCustomDestinationSplunkDestinationSourcetypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineFilterInput)(nil)).Elem(), LogsCustomPipelineFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineFilterArrayInput)(nil)).Elem(), LogsCustomPipelineFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayInput)(nil)).Elem(), LogsCustomPipelineProcessorArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArithmeticProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArithmeticProcessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArithmeticProcessorPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorArithmeticProcessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatArrayOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimitOutput{})
@@ -95817,6 +95844,8 @@ func init() {
 	pulumi.RegisterOutputType(DowntimeScheduleRecurringSchedulePtrOutput{})
 	pulumi.RegisterOutputType(DowntimeScheduleRecurringScheduleRecurrenceOutput{})
 	pulumi.RegisterOutputType(DowntimeScheduleRecurringScheduleRecurrenceArrayOutput{})
+	pulumi.RegisterOutputType(FleetScheduleRuleOutput{})
+	pulumi.RegisterOutputType(FleetScheduleRulePtrOutput{})
 	pulumi.RegisterOutputType(GovernanceControlNotificationSettingOutput{})
 	pulumi.RegisterOutputType(GovernanceControlNotificationSettingArrayOutput{})
 	pulumi.RegisterOutputType(GovernanceControlNotificationSettingTargetOutput{})
@@ -95859,18 +95888,4 @@ func init() {
 	pulumi.RegisterOutputType(LogsCustomDestinationSplunkDestinationPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomDestinationSplunkDestinationSourcetypeOutput{})
 	pulumi.RegisterOutputType(LogsCustomDestinationSplunkDestinationSourcetypePtrOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineFilterOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineFilterArrayOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArithmeticProcessorOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArithmeticProcessorPtrOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorPtrOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput{})
-	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput{})
 }

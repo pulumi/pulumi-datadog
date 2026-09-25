@@ -52,6 +52,34 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
+    ///     // Create a rule that automatically opens Linear issues for exposed secrets.
+    ///     var exposedSecrets = new Datadog.SecurityFindingsTicketCreationRule("exposed_secrets", new()
+    ///     {
+    ///         Name = "Auto-create Linear issues for exposed secrets",
+    ///         Enabled = true,
+    ///         Rule = new Datadog.Inputs.SecurityFindingsTicketCreationRuleRuleArgs
+    ///         {
+    ///             Finding_types = new[]
+    ///             {
+    ///                 "secret",
+    ///             },
+    ///         },
+    ///         Action = new Datadog.Inputs.SecurityFindingsTicketCreationRuleActionArgs
+    ///         {
+    ///             Project_id = "11111111-1111-1111-1111-111111111111",
+    ///             Target = "linear",
+    ///             Max_tickets_per_day = 25,
+    ///             Fields = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["linear_project_id"] = "33333333-3333-3333-3333-333333333333",
+    ///                 ["linear_label_ids"] = new[]
+    ///                 {
+    ///                     "44444444-4444-4444-4444-444444444444",
+    ///                 },
+    ///             }),
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 

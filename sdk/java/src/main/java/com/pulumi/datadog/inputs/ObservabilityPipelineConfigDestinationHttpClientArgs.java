@@ -20,14 +20,14 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
     public static final ObservabilityPipelineConfigDestinationHttpClientArgs Empty = new ObservabilityPipelineConfigDestinationHttpClientArgs();
 
     /**
-     * HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+     * HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
      * 
      */
     @Import(name="authStrategy")
     private @Nullable Output<String> authStrategy;
 
     /**
-     * @return HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+     * @return HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
      * 
      */
     public Optional<Output<String>> authStrategy() {
@@ -62,6 +62,21 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationHttpClientCompressionArgs>> compression() {
         return Optional.ofNullable(this.compression);
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+     * 
+     */
+    @Import(name="customKey")
+    private @Nullable Output<String> customKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+     * 
+     */
+    public Optional<Output<String>> customKey() {
+        return Optional.ofNullable(this.customKey);
     }
 
     /**
@@ -160,6 +175,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
         this.authStrategy = $.authStrategy;
         this.buffer = $.buffer;
         this.compression = $.compression;
+        this.customKey = $.customKey;
         this.encoding = $.encoding;
         this.passwordKey = $.passwordKey;
         this.tls = $.tls;
@@ -187,7 +203,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
         }
 
         /**
-         * @param authStrategy HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+         * @param authStrategy HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
          * 
          * @return builder
          * 
@@ -198,7 +214,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
         }
 
         /**
-         * @param authStrategy HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+         * @param authStrategy HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
          * 
          * @return builder
          * 
@@ -247,6 +263,27 @@ public final class ObservabilityPipelineConfigDestinationHttpClientArgs extends 
          */
         public Builder compression(ObservabilityPipelineConfigDestinationHttpClientCompressionArgs compression) {
             return compression(Output.of(compression));
+        }
+
+        /**
+         * @param customKey Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customKey(@Nullable Output<String> customKey) {
+            $.customKey = customKey;
+            return this;
+        }
+
+        /**
+         * @param customKey Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customKey(String customKey) {
+            return customKey(Output.of(customKey));
         }
 
         /**

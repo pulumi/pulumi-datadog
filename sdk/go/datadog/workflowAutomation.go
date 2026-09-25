@@ -80,7 +80,10 @@ import (
 //					pulumi.String("team:bar"),
 //				},
 //				Published: pulumi.Bool(true),
-//				SpecJson:  pulumi.String(json0),
+//				RunAs: &datadog.WorkflowAutomationRunAsArgs{
+//					Type: pulumi.String("owner"),
+//				},
+//				SpecJson: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -107,6 +110,10 @@ type WorkflowAutomation struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published pulumi.BoolOutput `pulumi:"published"`
+	// Identity used to run the workflow. When omitted, the server-managed value is preserved.
+	RunAs WorkflowAutomationRunAsOutput `pulumi:"runAs"`
+	// Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+	SensitivePrivileges pulumi.BoolOutput `pulumi:"sensitivePrivileges"`
 	// The spec defines what the workflow does.
 	SpecJson pulumi.StringOutput `pulumi:"specJson"`
 	// Tags of the workflow.
@@ -173,6 +180,10 @@ type workflowAutomationState struct {
 	Name *string `pulumi:"name"`
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published *bool `pulumi:"published"`
+	// Identity used to run the workflow. When omitted, the server-managed value is preserved.
+	RunAs *WorkflowAutomationRunAs `pulumi:"runAs"`
+	// Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+	SensitivePrivileges *bool `pulumi:"sensitivePrivileges"`
 	// The spec defines what the workflow does.
 	SpecJson *string `pulumi:"specJson"`
 	// Tags of the workflow.
@@ -188,6 +199,10 @@ type WorkflowAutomationState struct {
 	Name pulumi.StringPtrInput
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published pulumi.BoolPtrInput
+	// Identity used to run the workflow. When omitted, the server-managed value is preserved.
+	RunAs WorkflowAutomationRunAsPtrInput
+	// Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+	SensitivePrivileges pulumi.BoolPtrInput
 	// The spec defines what the workflow does.
 	SpecJson pulumi.StringPtrInput
 	// Tags of the workflow.
@@ -207,6 +222,10 @@ type workflowAutomationArgs struct {
 	Name string `pulumi:"name"`
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published bool `pulumi:"published"`
+	// Identity used to run the workflow. When omitted, the server-managed value is preserved.
+	RunAs *WorkflowAutomationRunAs `pulumi:"runAs"`
+	// Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+	SensitivePrivileges *bool `pulumi:"sensitivePrivileges"`
 	// The spec defines what the workflow does.
 	SpecJson string `pulumi:"specJson"`
 	// Tags of the workflow.
@@ -223,6 +242,10 @@ type WorkflowAutomationArgs struct {
 	Name pulumi.StringInput
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published pulumi.BoolInput
+	// Identity used to run the workflow. When omitted, the server-managed value is preserved.
+	RunAs WorkflowAutomationRunAsPtrInput
+	// Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+	SensitivePrivileges pulumi.BoolPtrInput
 	// The spec defines what the workflow does.
 	SpecJson pulumi.StringInput
 	// Tags of the workflow.
@@ -331,6 +354,16 @@ func (o WorkflowAutomationOutput) Name() pulumi.StringOutput {
 // Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 func (o WorkflowAutomationOutput) Published() pulumi.BoolOutput {
 	return o.ApplyT(func(v *WorkflowAutomation) pulumi.BoolOutput { return v.Published }).(pulumi.BoolOutput)
+}
+
+// Identity used to run the workflow. When omitted, the server-managed value is preserved.
+func (o WorkflowAutomationOutput) RunAs() WorkflowAutomationRunAsOutput {
+	return o.ApplyT(func(v *WorkflowAutomation) WorkflowAutomationRunAsOutput { return v.RunAs }).(WorkflowAutomationRunAsOutput)
+}
+
+// Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+func (o WorkflowAutomationOutput) SensitivePrivileges() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WorkflowAutomation) pulumi.BoolOutput { return v.SensitivePrivileges }).(pulumi.BoolOutput)
 }
 
 // The spec defines what the workflow does.

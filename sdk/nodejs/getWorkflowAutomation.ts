@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -55,6 +57,14 @@ export interface GetWorkflowAutomationResult {
      * Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
      */
     readonly published: boolean;
+    /**
+     * Identity used to run the workflow.
+     */
+    readonly runAs: outputs.GetWorkflowAutomationRunAs;
+    /**
+     * Whether the workflow requires sensitive privileges to run. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+     */
+    readonly sensitivePrivileges: boolean;
     /**
      * The spec defines what the workflow does.
      */

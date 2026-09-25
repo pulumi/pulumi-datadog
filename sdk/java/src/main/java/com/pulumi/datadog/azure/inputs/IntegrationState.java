@@ -201,14 +201,14 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+     * When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking &#39;Set Up Secretless Auth&#39;. When `true`, `clientSecret` should be omitted. Defaults to `false`.
      * 
      */
     @Import(name="secretlessAuthEnabled")
     private @Nullable Output<Boolean> secretlessAuthEnabled;
 
     /**
-     * @return (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+     * @return When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking &#39;Set Up Secretless Auth&#39;. When `true`, `clientSecret` should be omitted. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> secretlessAuthEnabled() {
@@ -548,7 +548,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretlessAuthEnabled (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+         * @param secretlessAuthEnabled When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking &#39;Set Up Secretless Auth&#39;. When `true`, `clientSecret` should be omitted. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class IntegrationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secretlessAuthEnabled (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+         * @param secretlessAuthEnabled When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking &#39;Set Up Secretless Auth&#39;. When `true`, `clientSecret` should be omitted. Defaults to `false`.
          * 
          * @return builder
          * 

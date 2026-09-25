@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObservabilityPipelineConfigDestinationHttpClient {
     /**
-     * @return HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+     * @return HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
      * 
      */
     private @Nullable String authStrategy;
@@ -30,6 +30,11 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationHttpClientCompression compression;
+    /**
+     * @return Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+     * 
+     */
+    private @Nullable String customKey;
     /**
      * @return Encoding format for events. Valid values are `json`.
      * 
@@ -63,7 +68,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
 
     private ObservabilityPipelineConfigDestinationHttpClient() {}
     /**
-     * @return HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+     * @return HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
      * 
      */
     public Optional<String> authStrategy() {
@@ -82,6 +87,13 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
      */
     public Optional<ObservabilityPipelineConfigDestinationHttpClientCompression> compression() {
         return Optional.ofNullable(this.compression);
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+     * 
+     */
+    public Optional<String> customKey() {
+        return Optional.ofNullable(this.customKey);
     }
     /**
      * @return Encoding format for events. Valid values are `json`.
@@ -138,6 +150,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
         private @Nullable String authStrategy;
         private @Nullable ObservabilityPipelineConfigDestinationHttpClientBuffer buffer;
         private @Nullable ObservabilityPipelineConfigDestinationHttpClientCompression compression;
+        private @Nullable String customKey;
         private String encoding;
         private @Nullable String passwordKey;
         private @Nullable ObservabilityPipelineConfigDestinationHttpClientTls tls;
@@ -150,6 +163,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
     	      this.authStrategy = defaults.authStrategy;
     	      this.buffer = defaults.buffer;
     	      this.compression = defaults.compression;
+    	      this.customKey = defaults.customKey;
     	      this.encoding = defaults.encoding;
     	      this.passwordKey = defaults.passwordKey;
     	      this.tls = defaults.tls;
@@ -174,6 +188,12 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
         public Builder compression(@Nullable ObservabilityPipelineConfigDestinationHttpClientCompression compression) {
 
             this.compression = compression;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customKey(@Nullable String customKey) {
+
+            this.customKey = customKey;
             return this;
         }
         @CustomType.Setter
@@ -219,6 +239,7 @@ public final class ObservabilityPipelineConfigDestinationHttpClient {
             _resultValue.authStrategy = authStrategy;
             _resultValue.buffer = buffer;
             _resultValue.compression = compression;
+            _resultValue.customKey = customKey;
             _resultValue.encoding = encoding;
             _resultValue.passwordKey = passwordKey;
             _resultValue.tls = tls;

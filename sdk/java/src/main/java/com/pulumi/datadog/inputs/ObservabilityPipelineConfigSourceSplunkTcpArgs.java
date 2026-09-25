@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSplunkTcpTlsArgs;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -32,6 +33,21 @@ public final class ObservabilityPipelineConfigSourceSplunkTcpArgs extends com.pu
     }
 
     /**
+     * Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+     * 
+     */
+    @Import(name="maxConnectionDurationSecs")
+    private @Nullable Output<Integer> maxConnectionDurationSecs;
+
+    /**
+     * @return Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+     * 
+     */
+    public Optional<Output<Integer>> maxConnectionDurationSecs() {
+        return Optional.ofNullable(this.maxConnectionDurationSecs);
+    }
+
+    /**
      * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
@@ -50,6 +66,7 @@ public final class ObservabilityPipelineConfigSourceSplunkTcpArgs extends com.pu
 
     private ObservabilityPipelineConfigSourceSplunkTcpArgs(ObservabilityPipelineConfigSourceSplunkTcpArgs $) {
         this.addressKey = $.addressKey;
+        this.maxConnectionDurationSecs = $.maxConnectionDurationSecs;
         this.tls = $.tls;
     }
 
@@ -90,6 +107,27 @@ public final class ObservabilityPipelineConfigSourceSplunkTcpArgs extends com.pu
          */
         public Builder addressKey(String addressKey) {
             return addressKey(Output.of(addressKey));
+        }
+
+        /**
+         * @param maxConnectionDurationSecs Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxConnectionDurationSecs(@Nullable Output<Integer> maxConnectionDurationSecs) {
+            $.maxConnectionDurationSecs = maxConnectionDurationSecs;
+            return this;
+        }
+
+        /**
+         * @param maxConnectionDurationSecs Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxConnectionDurationSecs(Integer maxConnectionDurationSecs) {
+            return maxConnectionDurationSecs(Output.of(maxConnectionDurationSecs));
         }
 
         /**

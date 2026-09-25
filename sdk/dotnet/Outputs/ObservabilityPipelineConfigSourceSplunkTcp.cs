@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? AddressKey;
         /// <summary>
+        /// Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+        /// </summary>
+        public readonly int? MaxConnectionDurationSecs;
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceSplunkTcpTls? Tls;
@@ -26,9 +30,12 @@ namespace Pulumi.Datadog.Outputs
         private ObservabilityPipelineConfigSourceSplunkTcp(
             string? addressKey,
 
+            int? maxConnectionDurationSecs,
+
             Outputs.ObservabilityPipelineConfigSourceSplunkTcpTls? tls)
         {
             AddressKey = addressKey;
+            MaxConnectionDurationSecs = maxConnectionDurationSecs;
             Tls = tls;
         }
     }

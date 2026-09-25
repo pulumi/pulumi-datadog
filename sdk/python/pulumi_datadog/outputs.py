@@ -286,6 +286,12 @@ __all__ = [
     'DashboardV2WidgetDistributionDefinitionTimeLive',
     'DashboardV2WidgetDistributionDefinitionXaxis',
     'DashboardV2WidgetDistributionDefinitionYaxis',
+    'DashboardV2WidgetEmbeddedAppDefinition',
+    'DashboardV2WidgetEmbeddedAppDefinitionCustomLink',
+    'DashboardV2WidgetEmbeddedAppDefinitionInput',
+    'DashboardV2WidgetEmbeddedAppDefinitionTime',
+    'DashboardV2WidgetEmbeddedAppDefinitionTimeFixed',
+    'DashboardV2WidgetEmbeddedAppDefinitionTimeLive',
     'DashboardV2WidgetEventStreamDefinition',
     'DashboardV2WidgetEventStreamDefinitionTime',
     'DashboardV2WidgetEventStreamDefinitionTimeFixed',
@@ -1488,6 +1494,7 @@ __all__ = [
     'DowntimeScheduleOneTimeSchedule',
     'DowntimeScheduleRecurringSchedule',
     'DowntimeScheduleRecurringScheduleRecurrence',
+    'FleetScheduleRule',
     'GovernanceControlNotificationSetting',
     'GovernanceControlNotificationSettingTarget',
     'IncidentNotificationRuleCondition',
@@ -1611,6 +1618,7 @@ __all__ = [
     'LogsMetricGroupBy',
     'MetricTagConfigurationAggregation',
     'MonitorAsset',
+    'MonitorConfigPolicyDowntimePolicy',
     'MonitorConfigPolicyTagPolicy',
     'MonitorMonitorThresholdWindows',
     'MonitorMonitorThresholds',
@@ -1793,6 +1801,11 @@ __all__ = [
     'ObservabilityPipelineConfigDestinationOpentelemetryBufferDisk',
     'ObservabilityPipelineConfigDestinationOpentelemetryBufferMemory',
     'ObservabilityPipelineConfigDestinationOpentelemetryTls',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWrite',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls',
     'ObservabilityPipelineConfigDestinationRsyslog',
     'ObservabilityPipelineConfigDestinationRsyslogBuffer',
     'ObservabilityPipelineConfigDestinationRsyslogBufferDisk',
@@ -1938,6 +1951,10 @@ __all__ = [
     'ObservabilityPipelineConfigSourceLogstashTls',
     'ObservabilityPipelineConfigSourceOpentelemetry',
     'ObservabilityPipelineConfigSourceOpentelemetryTls',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWrite',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken',
     'ObservabilityPipelineConfigSourceRsyslog',
     'ObservabilityPipelineConfigSourceRsyslogTls',
     'ObservabilityPipelineConfigSourceSocket',
@@ -2134,6 +2151,12 @@ __all__ = [
     'PowerpackV2WidgetDistributionDefinitionTimeLive',
     'PowerpackV2WidgetDistributionDefinitionXaxis',
     'PowerpackV2WidgetDistributionDefinitionYaxis',
+    'PowerpackV2WidgetEmbeddedAppDefinition',
+    'PowerpackV2WidgetEmbeddedAppDefinitionCustomLink',
+    'PowerpackV2WidgetEmbeddedAppDefinitionInput',
+    'PowerpackV2WidgetEmbeddedAppDefinitionTime',
+    'PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed',
+    'PowerpackV2WidgetEmbeddedAppDefinitionTimeLive',
     'PowerpackV2WidgetEventStreamDefinition',
     'PowerpackV2WidgetEventStreamDefinitionTime',
     'PowerpackV2WidgetEventStreamDefinitionTimeFixed',
@@ -3540,11 +3563,19 @@ __all__ = [
     'RumMetricUniqueness',
     'RumRetentionQuotaCustom',
     'SecureEmbedDashboardSelectableTemplateVar',
+    'SecurityFindingsDefaultInboxRuleAction',
+    'SecurityFindingsDefaultInboxRuleRule',
     'SecurityFindingsDueDateRuleAction',
     'SecurityFindingsDueDateRuleActionDueDaysPerSeverity',
     'SecurityFindingsDueDateRuleRule',
+    'SecurityFindingsInboxRuleAction',
+    'SecurityFindingsInboxRuleRule',
     'SecurityFindingsMuteRuleAction',
     'SecurityFindingsMuteRuleRule',
+    'SecurityFindingsSeverityModifierRuleAction',
+    'SecurityFindingsSeverityModifierRuleActionSet',
+    'SecurityFindingsSeverityModifierRuleActionShift',
+    'SecurityFindingsSeverityModifierRuleRule',
     'SecurityFindingsTicketCreationRuleAction',
     'SecurityFindingsTicketCreationRuleRule',
     'SecurityMonitoringDefaultRuleCase',
@@ -3681,6 +3712,7 @@ __all__ = [
     'TeamNotificationRuleSlack',
     'TeamSyncSelectionState',
     'TeamSyncSelectionStateExternalId',
+    'WorkflowAutomationRunAs',
     'GetActionConnectionAnthropicResult',
     'GetActionConnectionAnthropicApiKeyResult',
     'GetActionConnectionAsanaResult',
@@ -3759,6 +3791,11 @@ __all__ = [
     'GetCustomAllocationRuleStrategyBasedOnCostResult',
     'GetCustomAllocationRuleStrategyBasedOnTimeseriesResult',
     'GetCustomAllocationRuleStrategyEvaluateGroupedByFilterResult',
+    'GetFleetScheduleNotificationRuleResult',
+    'GetFleetScheduleRuleResult',
+    'GetFleetSchedulesScheduleResult',
+    'GetFleetSchedulesScheduleNotificationRuleResult',
+    'GetFleetSchedulesScheduleRuleResult',
     'GetHostsHostListResult',
     'GetHostsHostListMetaResult',
     'GetHostsHostListMetricsResult',
@@ -3773,6 +3810,7 @@ __all__ = [
     'GetLogsPipelinesLogsPipelineFilterResult',
     'GetMetricActiveTagsAndAggregationsActiveAggregationResult',
     'GetMonitorConfigPoliciesMonitorConfigPolicyResult',
+    'GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicyResult',
     'GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyResult',
     'GetMonitorMonitorThresholdResult',
     'GetMonitorMonitorThresholdWindowResult',
@@ -3870,6 +3908,7 @@ __all__ = [
     'GetTeamNotificationRulesNotificationRuleSlackResult',
     'GetTeamsTeamResult',
     'GetUsersUserResult',
+    'GetWorkflowAutomationRunAsResult',
 ]
 
 @pulumi.output_type
@@ -9322,6 +9361,8 @@ class DashboardV2Widget(dict):
             suggest = "cohort_definition"
         elif key == "distributionDefinition":
             suggest = "distribution_definition"
+        elif key == "embeddedAppDefinition":
+            suggest = "embedded_app_definition"
         elif key == "eventStreamDefinition":
             suggest = "event_stream_definition"
         elif key == "eventTimelineDefinition":
@@ -9412,6 +9453,7 @@ class DashboardV2Widget(dict):
                  check_status_definition: Optional['outputs.DashboardV2WidgetCheckStatusDefinition'] = None,
                  cohort_definition: Optional['outputs.DashboardV2WidgetCohortDefinition'] = None,
                  distribution_definition: Optional['outputs.DashboardV2WidgetDistributionDefinition'] = None,
+                 embedded_app_definition: Optional['outputs.DashboardV2WidgetEmbeddedAppDefinition'] = None,
                  event_stream_definition: Optional['outputs.DashboardV2WidgetEventStreamDefinition'] = None,
                  event_timeline_definition: Optional['outputs.DashboardV2WidgetEventTimelineDefinition'] = None,
                  free_text_definition: Optional['outputs.DashboardV2WidgetFreeTextDefinition'] = None,
@@ -9456,6 +9498,7 @@ class DashboardV2Widget(dict):
         :param 'DashboardV2WidgetCheckStatusDefinitionArgs' check_status_definition: The definition for a Check Status widget.
         :param 'DashboardV2WidgetCohortDefinitionArgs' cohort_definition: The definition for a Cohort retention-grid widget.
         :param 'DashboardV2WidgetDistributionDefinitionArgs' distribution_definition: The definition for a Distribution widget.
+        :param 'DashboardV2WidgetEmbeddedAppDefinitionArgs' embedded_app_definition: The definition for an App Builder embedded app widget.
         :param 'DashboardV2WidgetEventStreamDefinitionArgs' event_stream_definition: The definition for a Event Stream widget.
         :param 'DashboardV2WidgetEventTimelineDefinitionArgs' event_timeline_definition: The definition for a Event Timeline widget.
         :param 'DashboardV2WidgetFreeTextDefinitionArgs' free_text_definition: The definition for a Free Text widget.
@@ -9507,6 +9550,8 @@ class DashboardV2Widget(dict):
             pulumi.set(__self__, "cohort_definition", cohort_definition)
         if distribution_definition is not None:
             pulumi.set(__self__, "distribution_definition", distribution_definition)
+        if embedded_app_definition is not None:
+            pulumi.set(__self__, "embedded_app_definition", embedded_app_definition)
         if event_stream_definition is not None:
             pulumi.set(__self__, "event_stream_definition", event_stream_definition)
         if event_timeline_definition is not None:
@@ -9635,6 +9680,14 @@ class DashboardV2Widget(dict):
         The definition for a Distribution widget.
         """
         return pulumi.get(self, "distribution_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="embeddedAppDefinition")
+    def embedded_app_definition(self) -> Optional['outputs.DashboardV2WidgetEmbeddedAppDefinition']:
+        """
+        The definition for an App Builder embedded app widget.
+        """
+        return pulumi.get(self, "embedded_app_definition")
 
     @_builtins.property
     @pulumi.getter(name="eventStreamDefinition")
@@ -19867,6 +19920,383 @@ class DashboardV2WidgetDistributionDefinitionYaxis(dict):
 
 
 @pulumi.output_type
+class DashboardV2WidgetEmbeddedAppDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "customLinks":
+            suggest = "custom_links"
+        elif key == "hideIncompleteCostData":
+            suggest = "hide_incomplete_cost_data"
+        elif key == "liveSpan":
+            suggest = "live_span"
+        elif key == "templateId":
+            suggest = "template_id"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardV2WidgetEmbeddedAppDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardV2WidgetEmbeddedAppDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardV2WidgetEmbeddedAppDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_id: Optional[_builtins.str] = None,
+                 custom_links: Optional[Sequence['outputs.DashboardV2WidgetEmbeddedAppDefinitionCustomLink']] = None,
+                 description: Optional[_builtins.str] = None,
+                 hide_incomplete_cost_data: Optional[_builtins.bool] = None,
+                 inputs: Optional[Sequence['outputs.DashboardV2WidgetEmbeddedAppDefinitionInput']] = None,
+                 live_span: Optional[_builtins.str] = None,
+                 template_id: Optional[_builtins.str] = None,
+                 time: Optional['outputs.DashboardV2WidgetEmbeddedAppDefinitionTime'] = None,
+                 title: Optional[_builtins.str] = None,
+                 title_align: Optional[_builtins.str] = None,
+                 title_size: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str app_id: UUID of the App Builder app to embed. Exactly one of `app_id` or `template_id` must be provided.
+        :param Sequence['DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs'] custom_links: A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        :param _builtins.str description: The description of the widget.
+        :param _builtins.bool hide_incomplete_cost_data: Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        :param Sequence['DashboardV2WidgetEmbeddedAppDefinitionInputArgs'] inputs: A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+        :param _builtins.str live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        :param _builtins.str template_id: ID of the built-in app template to embed. Exactly one of `app_id` or `template_id` must be provided.
+        :param 'DashboardV2WidgetEmbeddedAppDefinitionTimeArgs' time: A nested block used to specify a time span for the widget. Use this or `live_span`, not both.
+        :param _builtins.str title: The title of the widget.
+        :param _builtins.str title_align: The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        :param _builtins.str title_size: The size of the widget's title (defaults to 16).
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if hide_incomplete_cost_data is not None:
+            pulumi.set(__self__, "hide_incomplete_cost_data", hide_incomplete_cost_data)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if live_span is not None:
+            pulumi.set(__self__, "live_span", live_span)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[_builtins.str]:
+        """
+        UUID of the App Builder app to embed. Exactly one of `app_id` or `template_id` must be provided.
+        """
+        return pulumi.get(self, "app_id")
+
+    @_builtins.property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.DashboardV2WidgetEmbeddedAppDefinitionCustomLink']]:
+        """
+        A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "custom_links")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the widget.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="hideIncompleteCostData")
+    def hide_incomplete_cost_data(self) -> Optional[_builtins.bool]:
+        """
+        Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        """
+        return pulumi.get(self, "hide_incomplete_cost_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def inputs(self) -> Optional[Sequence['outputs.DashboardV2WidgetEmbeddedAppDefinitionInput']]:
+        """
+        A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+        """
+        return pulumi.get(self, "inputs")
+
+    @_builtins.property
+    @pulumi.getter(name="liveSpan")
+    def live_span(self) -> Optional[_builtins.str]:
+        """
+        The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        """
+        return pulumi.get(self, "live_span")
+
+    @_builtins.property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the built-in app template to embed. Exactly one of `app_id` or `template_id` must be provided.
+        """
+        return pulumi.get(self, "template_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> Optional['outputs.DashboardV2WidgetEmbeddedAppDefinitionTime']:
+        """
+        A nested block used to specify a time span for the widget. Use this or `live_span`, not both.
+        """
+        return pulumi.get(self, "time")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[_builtins.str]:
+        """
+        The title of the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[_builtins.str]:
+        """
+        The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        """
+        return pulumi.get(self, "title_align")
+
+    @_builtins.property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[_builtins.str]:
+        """
+        The size of the widget's title (defaults to 16).
+        """
+        return pulumi.get(self, "title_size")
+
+
+@pulumi.output_type
+class DashboardV2WidgetEmbeddedAppDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardV2WidgetEmbeddedAppDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardV2WidgetEmbeddedAppDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardV2WidgetEmbeddedAppDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_hidden: Optional[_builtins.bool] = None,
+                 label: Optional[_builtins.str] = None,
+                 link: Optional[_builtins.str] = None,
+                 override_label: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool is_hidden: The flag for toggling context menu link visibility.
+        :param _builtins.str label: The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+        :param _builtins.str link: The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+        :param _builtins.str override_label: The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+        """
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @_builtins.property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[_builtins.bool]:
+        """
+        The flag for toggling context menu link visibility.
+        """
+        return pulumi.get(self, "is_hidden")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[_builtins.str]:
+        """
+        The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter
+    def link(self) -> Optional[_builtins.str]:
+        """
+        The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+        """
+        return pulumi.get(self, "link")
+
+    @_builtins.property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[_builtins.str]:
+        """
+        The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+        """
+        return pulumi.get(self, "override_label")
+
+
+@pulumi.output_type
+class DashboardV2WidgetEmbeddedAppDefinitionInput(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Name of the app input.
+        :param _builtins.str value: JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the app input.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DashboardV2WidgetEmbeddedAppDefinitionTime(dict):
+    def __init__(__self__, *,
+                 fixed: Optional['outputs.DashboardV2WidgetEmbeddedAppDefinitionTimeFixed'] = None,
+                 live: Optional['outputs.DashboardV2WidgetEmbeddedAppDefinitionTimeLive'] = None):
+        """
+        :param 'DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs' fixed: A fixed time range with explicit start and end times.
+        :param 'DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs' live: An arbitrary live time span, such as 17 minutes or 6 hours.
+        """
+        if fixed is not None:
+            pulumi.set(__self__, "fixed", fixed)
+        if live is not None:
+            pulumi.set(__self__, "live", live)
+
+    @_builtins.property
+    @pulumi.getter
+    def fixed(self) -> Optional['outputs.DashboardV2WidgetEmbeddedAppDefinitionTimeFixed']:
+        """
+        A fixed time range with explicit start and end times.
+        """
+        return pulumi.get(self, "fixed")
+
+    @_builtins.property
+    @pulumi.getter
+    def live(self) -> Optional['outputs.DashboardV2WidgetEmbeddedAppDefinitionTimeLive']:
+        """
+        An arbitrary live time span, such as 17 minutes or 6 hours.
+        """
+        return pulumi.get(self, "live")
+
+
+@pulumi.output_type
+class DashboardV2WidgetEmbeddedAppDefinitionTimeFixed(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardV2WidgetEmbeddedAppDefinitionTimeFixed. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardV2WidgetEmbeddedAppDefinitionTimeFixed.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardV2WidgetEmbeddedAppDefinitionTimeFixed.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: _builtins.int,
+                 to: _builtins.int):
+        """
+        :param _builtins.int from_: Start time in seconds since epoch.
+        :param _builtins.int to: End time in seconds since epoch.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> _builtins.int:
+        """
+        Start time in seconds since epoch.
+        """
+        return pulumi.get(self, "from_")
+
+    @_builtins.property
+    @pulumi.getter
+    def to(self) -> _builtins.int:
+        """
+        End time in seconds since epoch.
+        """
+        return pulumi.get(self, "to")
+
+
+@pulumi.output_type
+class DashboardV2WidgetEmbeddedAppDefinitionTimeLive(dict):
+    def __init__(__self__, *,
+                 unit: _builtins.str,
+                 value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        :param _builtins.int value: Value of the time span.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> _builtins.str:
+        """
+        Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        """
+        return pulumi.get(self, "unit")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.int:
+        """
+        Value of the time span.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DashboardV2WidgetEventStreamDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -23071,6 +23501,8 @@ class DashboardV2WidgetGroupDefinitionWidget(dict):
             suggest = "cohort_definition"
         elif key == "distributionDefinition":
             suggest = "distribution_definition"
+        elif key == "embeddedAppDefinition":
+            suggest = "embedded_app_definition"
         elif key == "eventStreamDefinition":
             suggest = "event_stream_definition"
         elif key == "eventTimelineDefinition":
@@ -23155,6 +23587,7 @@ class DashboardV2WidgetGroupDefinitionWidget(dict):
                  check_status_definition: Optional['outputs.DashboardV2WidgetCheckStatusDefinition'] = None,
                  cohort_definition: Optional['outputs.DashboardV2WidgetCohortDefinition'] = None,
                  distribution_definition: Optional['outputs.DashboardV2WidgetDistributionDefinition'] = None,
+                 embedded_app_definition: Optional['outputs.DashboardV2WidgetEmbeddedAppDefinition'] = None,
                  event_stream_definition: Optional['outputs.DashboardV2WidgetEventStreamDefinition'] = None,
                  event_timeline_definition: Optional['outputs.DashboardV2WidgetEventTimelineDefinition'] = None,
                  free_text_definition: Optional['outputs.DashboardV2WidgetFreeTextDefinition'] = None,
@@ -23196,6 +23629,7 @@ class DashboardV2WidgetGroupDefinitionWidget(dict):
         :param 'DashboardV2WidgetCheckStatusDefinitionArgs' check_status_definition: The definition for a Check Status widget.
         :param 'DashboardV2WidgetCohortDefinitionArgs' cohort_definition: The definition for a Cohort retention-grid widget.
         :param 'DashboardV2WidgetDistributionDefinitionArgs' distribution_definition: The definition for a Distribution widget.
+        :param 'DashboardV2WidgetEmbeddedAppDefinitionArgs' embedded_app_definition: The definition for an App Builder embedded app widget.
         :param 'DashboardV2WidgetEventStreamDefinitionArgs' event_stream_definition: The definition for a Event Stream widget.
         :param 'DashboardV2WidgetEventTimelineDefinitionArgs' event_timeline_definition: The definition for a Event Timeline widget.
         :param 'DashboardV2WidgetFreeTextDefinitionArgs' free_text_definition: The definition for a Free Text widget.
@@ -23244,6 +23678,8 @@ class DashboardV2WidgetGroupDefinitionWidget(dict):
             pulumi.set(__self__, "cohort_definition", cohort_definition)
         if distribution_definition is not None:
             pulumi.set(__self__, "distribution_definition", distribution_definition)
+        if embedded_app_definition is not None:
+            pulumi.set(__self__, "embedded_app_definition", embedded_app_definition)
         if event_stream_definition is not None:
             pulumi.set(__self__, "event_stream_definition", event_stream_definition)
         if event_timeline_definition is not None:
@@ -23366,6 +23802,14 @@ class DashboardV2WidgetGroupDefinitionWidget(dict):
         The definition for a Distribution widget.
         """
         return pulumi.get(self, "distribution_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="embeddedAppDefinition")
+    def embedded_app_definition(self) -> Optional['outputs.DashboardV2WidgetEmbeddedAppDefinition']:
+        """
+        The definition for an App Builder embedded app widget.
+        """
+        return pulumi.get(self, "embedded_app_definition")
 
     @_builtins.property
     @pulumi.getter(name="eventStreamDefinition")
@@ -104008,6 +104452,78 @@ class DowntimeScheduleRecurringScheduleRecurrence(dict):
 
 
 @pulumi.output_type
+class FleetScheduleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysOfWeeks":
+            suggest = "days_of_weeks"
+        elif key == "maintenanceWindowDuration":
+            suggest = "maintenance_window_duration"
+        elif key == "startMaintenanceWindow":
+            suggest = "start_maintenance_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetScheduleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetScheduleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetScheduleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_of_weeks: Sequence[_builtins.str],
+                 maintenance_window_duration: _builtins.int,
+                 start_maintenance_window: _builtins.str,
+                 timezone: _builtins.str):
+        """
+        :param Sequence[_builtins.str] days_of_weeks: Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+        :param _builtins.int maintenance_window_duration: Duration of the maintenance window in minutes. Value must be at least 1.
+        :param _builtins.str start_maintenance_window: Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+        :param _builtins.str timezone: IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+        """
+        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        pulumi.set(__self__, "maintenance_window_duration", maintenance_window_duration)
+        pulumi.set(__self__, "start_maintenance_window", start_maintenance_window)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Sequence[_builtins.str]:
+        """
+        Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindowDuration")
+    def maintenance_window_duration(self) -> _builtins.int:
+        """
+        Duration of the maintenance window in minutes. Value must be at least 1.
+        """
+        return pulumi.get(self, "maintenance_window_duration")
+
+    @_builtins.property
+    @pulumi.getter(name="startMaintenanceWindow")
+    def start_maintenance_window(self) -> _builtins.str:
+        """
+        Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+        """
+        return pulumi.get(self, "start_maintenance_window")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        """
+        IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
 class GovernanceControlNotificationSetting(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -112131,6 +112647,41 @@ class MonitorAsset(dict):
 
 
 @pulumi.output_type
+class MonitorConfigPolicyDowntimePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDurationMs":
+            suggest = "max_duration_ms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorConfigPolicyDowntimePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorConfigPolicyDowntimePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorConfigPolicyDowntimePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_duration_ms: _builtins.int):
+        """
+        :param _builtins.int max_duration_ms: The maximum allowed downtime duration, in milliseconds
+        """
+        pulumi.set(__self__, "max_duration_ms", max_duration_ms)
+
+    @_builtins.property
+    @pulumi.getter(name="maxDurationMs")
+    def max_duration_ms(self) -> _builtins.int:
+        """
+        The maximum allowed downtime duration, in milliseconds
+        """
+        return pulumi.get(self, "max_duration_ms")
+
+
+@pulumi.output_type
 class MonitorConfigPolicyTagPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -116041,6 +116592,8 @@ class ObservabilityPipelineConfigDestination(dict):
             suggest = "microsoft_sentinels"
         elif key == "newRelics":
             suggest = "new_relics"
+        elif key == "prometheusRemoteWrite":
+            suggest = "prometheus_remote_write"
         elif key == "sentinelOnes":
             suggest = "sentinel_ones"
         elif key == "splunkHecMetrics":
@@ -116087,6 +116640,7 @@ class ObservabilityPipelineConfigDestination(dict):
                  new_relics: Optional[Sequence['outputs.ObservabilityPipelineConfigDestinationNewRelic']] = None,
                  opensearches: Optional[Sequence['outputs.ObservabilityPipelineConfigDestinationOpensearch']] = None,
                  opentelemetry: Optional['outputs.ObservabilityPipelineConfigDestinationOpentelemetry'] = None,
+                 prometheus_remote_write: Optional['outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWrite'] = None,
                  rsyslogs: Optional[Sequence['outputs.ObservabilityPipelineConfigDestinationRsyslog']] = None,
                  sentinel_ones: Optional[Sequence['outputs.ObservabilityPipelineConfigDestinationSentinelOne']] = None,
                  sockets: Optional[Sequence['outputs.ObservabilityPipelineConfigDestinationSocket']] = None,
@@ -116118,6 +116672,7 @@ class ObservabilityPipelineConfigDestination(dict):
         :param Sequence['ObservabilityPipelineConfigDestinationNewRelicArgs'] new_relics: The `new_relic` destination sends logs to the New Relic platform.
         :param Sequence['ObservabilityPipelineConfigDestinationOpensearchArgs'] opensearches: The `opensearch` destination writes logs to an OpenSearch cluster.
         :param 'ObservabilityPipelineConfigDestinationOpentelemetryArgs' opentelemetry: The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+        :param 'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs' prometheus_remote_write: The `prometheus_remote_write` destination sends metrics to a Prometheus Remote Write compatible endpoint.
         :param Sequence['ObservabilityPipelineConfigDestinationRsyslogArgs'] rsyslogs: The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
         :param Sequence['ObservabilityPipelineConfigDestinationSentinelOneArgs'] sentinel_ones: The `sentinel_one` destination sends logs to SentinelOne.
         :param Sequence['ObservabilityPipelineConfigDestinationSocketArgs'] sockets: The `socket` destination sends logs over TCP or UDP to a remote server.
@@ -116170,6 +116725,8 @@ class ObservabilityPipelineConfigDestination(dict):
             pulumi.set(__self__, "opensearches", opensearches)
         if opentelemetry is not None:
             pulumi.set(__self__, "opentelemetry", opentelemetry)
+        if prometheus_remote_write is not None:
+            pulumi.set(__self__, "prometheus_remote_write", prometheus_remote_write)
         if rsyslogs is not None:
             pulumi.set(__self__, "rsyslogs", rsyslogs)
         if sentinel_ones is not None:
@@ -116368,6 +116925,14 @@ class ObservabilityPipelineConfigDestination(dict):
         The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
         """
         return pulumi.get(self, "opentelemetry")
+
+    @_builtins.property
+    @pulumi.getter(name="prometheusRemoteWrite")
+    def prometheus_remote_write(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWrite']:
+        """
+        The `prometheus_remote_write` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+        """
+        return pulumi.get(self, "prometheus_remote_write")
 
     @_builtins.property
     @pulumi.getter
@@ -121523,6 +122088,8 @@ class ObservabilityPipelineConfigDestinationHttpClient(dict):
         suggest = None
         if key == "authStrategy":
             suggest = "auth_strategy"
+        elif key == "customKey":
+            suggest = "custom_key"
         elif key == "passwordKey":
             suggest = "password_key"
         elif key == "tokenKey":
@@ -121548,6 +122115,7 @@ class ObservabilityPipelineConfigDestinationHttpClient(dict):
                  auth_strategy: Optional[_builtins.str] = None,
                  buffer: Optional['outputs.ObservabilityPipelineConfigDestinationHttpClientBuffer'] = None,
                  compression: Optional['outputs.ObservabilityPipelineConfigDestinationHttpClientCompression'] = None,
+                 custom_key: Optional[_builtins.str] = None,
                  password_key: Optional[_builtins.str] = None,
                  tls: Optional['outputs.ObservabilityPipelineConfigDestinationHttpClientTls'] = None,
                  token_key: Optional[_builtins.str] = None,
@@ -121555,9 +122123,10 @@ class ObservabilityPipelineConfigDestinationHttpClient(dict):
                  username_key: Optional[_builtins.str] = None):
         """
         :param _builtins.str encoding: Encoding format for events. Valid values are `json`.
-        :param _builtins.str auth_strategy: HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+        :param _builtins.str auth_strategy: HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
         :param 'ObservabilityPipelineConfigDestinationHttpClientBufferArgs' buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
         :param 'ObservabilityPipelineConfigDestinationHttpClientCompressionArgs' compression: Compression configuration for HTTP requests.
+        :param _builtins.str custom_key: Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
         :param _builtins.str password_key: Name of the environment variable or secret that holds the password.
         :param 'ObservabilityPipelineConfigDestinationHttpClientTlsArgs' tls: Configuration for enabling TLS encryption between the pipeline component and external services.
         :param _builtins.str token_key: Name of the environment variable or secret that holds the authentication token.
@@ -121571,6 +122140,8 @@ class ObservabilityPipelineConfigDestinationHttpClient(dict):
             pulumi.set(__self__, "buffer", buffer)
         if compression is not None:
             pulumi.set(__self__, "compression", compression)
+        if custom_key is not None:
+            pulumi.set(__self__, "custom_key", custom_key)
         if password_key is not None:
             pulumi.set(__self__, "password_key", password_key)
         if tls is not None:
@@ -121594,7 +122165,7 @@ class ObservabilityPipelineConfigDestinationHttpClient(dict):
     @pulumi.getter(name="authStrategy")
     def auth_strategy(self) -> Optional[_builtins.str]:
         """
-        HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+        HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
         """
         return pulumi.get(self, "auth_strategy")
 
@@ -121613,6 +122184,14 @@ class ObservabilityPipelineConfigDestinationHttpClient(dict):
         Compression configuration for HTTP requests.
         """
         return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="customKey")
+    def custom_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+        """
+        return pulumi.get(self, "custom_key")
 
     @_builtins.property
     @pulumi.getter(name="passwordKey")
@@ -123517,6 +124096,386 @@ class ObservabilityPipelineConfigDestinationOpentelemetryTls(dict):
         Name of the environment variable or secret that holds the passphrase for the private key file.
         """
         return pulumi.get(self, "key_pass_key")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWrite(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authStrategy":
+            suggest = "auth_strategy"
+        elif key == "defaultNamespace":
+            suggest = "default_namespace"
+        elif key == "endpointUrlKey":
+            suggest = "endpoint_url_key"
+        elif key == "passwordKey":
+            suggest = "password_key"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "tokenKey":
+            suggest = "token_key"
+        elif key == "usernameKey":
+            suggest = "username_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationPrometheusRemoteWrite. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationPrometheusRemoteWrite.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationPrometheusRemoteWrite.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_strategy: Optional[_builtins.str] = None,
+                 buffer: Optional['outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer'] = None,
+                 default_namespace: Optional[_builtins.str] = None,
+                 endpoint_url_key: Optional[_builtins.str] = None,
+                 password_key: Optional[_builtins.str] = None,
+                 tenant_id: Optional[_builtins.str] = None,
+                 tls: Optional['outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls'] = None,
+                 token_key: Optional[_builtins.str] = None,
+                 username_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str auth_strategy: The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+        :param 'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs' buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        :param _builtins.str default_namespace: The default namespace to prefix onto metric names that don't already have one.
+        :param _builtins.str endpoint_url_key: Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+        :param _builtins.str password_key: Name of the environment variable or secret that holds the password. Used when `auth_strategy` is `basic`.
+        :param _builtins.str tenant_id: The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+        :param 'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs' tls: Configuration for enabling TLS encryption between the pipeline component and external services.
+        :param _builtins.str token_key: Name of the environment variable or secret that holds the bearer token. Used when `auth_strategy` is `bearer`.
+        :param _builtins.str username_key: Name of the environment variable or secret that holds the username. Used when `auth_strategy` is `basic`.
+        """
+        if auth_strategy is not None:
+            pulumi.set(__self__, "auth_strategy", auth_strategy)
+        if buffer is not None:
+            pulumi.set(__self__, "buffer", buffer)
+        if default_namespace is not None:
+            pulumi.set(__self__, "default_namespace", default_namespace)
+        if endpoint_url_key is not None:
+            pulumi.set(__self__, "endpoint_url_key", endpoint_url_key)
+        if password_key is not None:
+            pulumi.set(__self__, "password_key", password_key)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+        if token_key is not None:
+            pulumi.set(__self__, "token_key", token_key)
+        if username_key is not None:
+            pulumi.set(__self__, "username_key", username_key)
+
+    @_builtins.property
+    @pulumi.getter(name="authStrategy")
+    def auth_strategy(self) -> Optional[_builtins.str]:
+        """
+        The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+        """
+        return pulumi.get(self, "auth_strategy")
+
+    @_builtins.property
+    @pulumi.getter
+    def buffer(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer']:
+        """
+        Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        """
+        return pulumi.get(self, "buffer")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNamespace")
+    def default_namespace(self) -> Optional[_builtins.str]:
+        """
+        The default namespace to prefix onto metric names that don't already have one.
+        """
+        return pulumi.get(self, "default_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointUrlKey")
+    def endpoint_url_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+        """
+        return pulumi.get(self, "endpoint_url_key")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordKey")
+    def password_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the password. Used when `auth_strategy` is `basic`.
+        """
+        return pulumi.get(self, "password_key")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls']:
+        """
+        Configuration for enabling TLS encryption between the pipeline component and external services.
+        """
+        return pulumi.get(self, "tls")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenKey")
+    def token_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the bearer token. Used when `auth_strategy` is `bearer`.
+        """
+        return pulumi.get(self, "token_key")
+
+    @_builtins.property
+    @pulumi.getter(name="usernameKey")
+    def username_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the username. Used when `auth_strategy` is `basic`.
+        """
+        return pulumi.get(self, "username_key")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer(dict):
+    def __init__(__self__, *,
+                 disk: Optional['outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk'] = None,
+                 memory: Optional['outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory'] = None):
+        """
+        :param 'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs' disk: Options for configuring a disk buffer. Cannot be used with `memory`.
+        :param 'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs' memory: Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        if disk is not None:
+            pulumi.set(__self__, "disk", disk)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @_builtins.property
+    @pulumi.getter
+    def disk(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk']:
+        """
+        Options for configuring a disk buffer. Cannot be used with `memory`.
+        """
+        return pulumi.get(self, "disk")
+
+    @_builtins.property
+    @pulumi.getter
+    def memory(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory']:
+        """
+        Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxSize":
+            suggest = "max_size"
+        elif key == "whenFull":
+            suggest = "when_full"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_size: Optional[_builtins.int] = None,
+                 when_full: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int max_size: Maximum size of the disk buffer (in bytes).
+        :param _builtins.str when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> Optional[_builtins.int]:
+        """
+        Maximum size of the disk buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> Optional[_builtins.str]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxEvents":
+            suggest = "max_events"
+        elif key == "maxSize":
+            suggest = "max_size"
+        elif key == "whenFull":
+            suggest = "when_full"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_events: Optional[_builtins.int] = None,
+                 max_size: Optional[_builtins.int] = None,
+                 when_full: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int max_events: Maximum events for the memory buffer.
+        :param _builtins.int max_size: Maximum size of the memory buffer (in bytes).
+        :param _builtins.str when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_events is not None:
+            pulumi.set(__self__, "max_events", max_events)
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEvents")
+    def max_events(self) -> Optional[_builtins.int]:
+        """
+        Maximum events for the memory buffer.
+        """
+        return pulumi.get(self, "max_events")
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> Optional[_builtins.int]:
+        """
+        Maximum size of the memory buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> Optional[_builtins.str]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crtFile":
+            suggest = "crt_file"
+        elif key == "caFile":
+            suggest = "ca_file"
+        elif key == "keyFile":
+            suggest = "key_file"
+        elif key == "keyPassKey":
+            suggest = "key_pass_key"
+        elif key == "serverName":
+            suggest = "server_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crt_file: _builtins.str,
+                 ca_file: Optional[_builtins.str] = None,
+                 key_file: Optional[_builtins.str] = None,
+                 key_pass_key: Optional[_builtins.str] = None,
+                 server_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str crt_file: Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+        :param _builtins.str ca_file: Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+        :param _builtins.str key_file: Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+        :param _builtins.str key_pass_key: Name of the environment variable or secret that holds the passphrase for the private key file.
+        :param _builtins.str server_name: Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        """
+        pulumi.set(__self__, "crt_file", crt_file)
+        if ca_file is not None:
+            pulumi.set(__self__, "ca_file", ca_file)
+        if key_file is not None:
+            pulumi.set(__self__, "key_file", key_file)
+        if key_pass_key is not None:
+            pulumi.set(__self__, "key_pass_key", key_pass_key)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+
+    @_builtins.property
+    @pulumi.getter(name="crtFile")
+    def crt_file(self) -> _builtins.str:
+        """
+        Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+        """
+        return pulumi.get(self, "crt_file")
+
+    @_builtins.property
+    @pulumi.getter(name="caFile")
+    def ca_file(self) -> Optional[_builtins.str]:
+        """
+        Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+        """
+        return pulumi.get(self, "ca_file")
+
+    @_builtins.property
+    @pulumi.getter(name="keyFile")
+    def key_file(self) -> Optional[_builtins.str]:
+        """
+        Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+        """
+        return pulumi.get(self, "key_file")
+
+    @_builtins.property
+    @pulumi.getter(name="keyPassKey")
+    def key_pass_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the passphrase for the private key file.
+        """
+        return pulumi.get(self, "key_pass_key")
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[_builtins.str]:
+        """
+        Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        """
+        return pulumi.get(self, "server_name")
 
 
 @pulumi.output_type
@@ -125865,7 +126824,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessor(dict):
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableArgs' enrichment_table: The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorFilterArgs' filter: The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs' generate_datadog_metrics: The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
-        :param 'ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs' generate_metrics: The `generate_metrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs' generate_metrics: The `generate_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs' metric_tags: The `metric_tags` processor filters metrics based on their tags using Datadog tag key patterns.
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs' ocsf_mapper: The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs' parse_grok: The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
@@ -126053,6 +127012,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessor(dict):
 
     @_builtins.property
     @pulumi.getter(name="generateDatadogMetrics")
+    @_utilities.deprecated("""This processor is deprecated, use `generate_metrics` instead.""")
     def generate_datadog_metrics(self) -> Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics']:
         """
         The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
@@ -126063,7 +127023,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessor(dict):
     @pulumi.getter(name="generateMetrics")
     def generate_metrics(self) -> Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics']:
         """
-        The `generate_metrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
+        The `generate_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
         """
         return pulumi.get(self, "generate_metrics")
 
@@ -128211,7 +129171,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorQuota(dict):
         :param _builtins.str name: The name of the quota.
         :param _builtins.bool drop_events: Whether to drop events exceeding the limit.
         :param _builtins.bool ignore_when_missing_partitions: Whether to ignore when partition fields are missing.
-        :param _builtins.str overflow_action: The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+        :param _builtins.str overflow_action: The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`. When `overflow_routing` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazon_s3_generic`, `amazon_s3`, `google_cloud_storage`, and `azure_storage`.
         :param Sequence['ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideArgs'] overrides: The overrides for field-specific quotas.
         :param Sequence[_builtins.str] partition_fields: List of partition fields.
         :param _builtins.str too_many_buckets_action: The action to take when the max number of buckets is exceeded: `drop`, `no_action`, or `overflow_routing`.
@@ -128264,7 +129224,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorQuota(dict):
     @pulumi.getter(name="overflowAction")
     def overflow_action(self) -> Optional[_builtins.str]:
         """
-        The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+        The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`. When `overflow_routing` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazon_s3_generic`, `amazon_s3`, `google_cloud_storage`, and `azure_storage`.
         """
         return pulumi.get(self, "overflow_action")
 
@@ -129519,6 +130479,8 @@ class ObservabilityPipelineConfigSource(dict):
             suggest = "http_clients"
         elif key == "httpServers":
             suggest = "http_servers"
+        elif key == "prometheusRemoteWrite":
+            suggest = "prometheus_remote_write"
         elif key == "splunkHecs":
             suggest = "splunk_hecs"
         elif key == "splunkTcps":
@@ -129552,6 +130514,7 @@ class ObservabilityPipelineConfigSource(dict):
                  kafkas: Optional[Sequence['outputs.ObservabilityPipelineConfigSourceKafka']] = None,
                  logstashes: Optional[Sequence['outputs.ObservabilityPipelineConfigSourceLogstash']] = None,
                  opentelemetry: Optional['outputs.ObservabilityPipelineConfigSourceOpentelemetry'] = None,
+                 prometheus_remote_write: Optional['outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWrite'] = None,
                  rsyslogs: Optional[Sequence['outputs.ObservabilityPipelineConfigSourceRsyslog']] = None,
                  sockets: Optional[Sequence['outputs.ObservabilityPipelineConfigSourceSocket']] = None,
                  splunk_hecs: Optional[Sequence['outputs.ObservabilityPipelineConfigSourceSplunkHec']] = None,
@@ -129572,6 +130535,7 @@ class ObservabilityPipelineConfigSource(dict):
         :param Sequence['ObservabilityPipelineConfigSourceKafkaArgs'] kafkas: The `kafka` source ingests data from Apache Kafka topics.
         :param Sequence['ObservabilityPipelineConfigSourceLogstashArgs'] logstashes: The `logstash` source ingests logs from a Logstash forwarder.
         :param 'ObservabilityPipelineConfigSourceOpentelemetryArgs' opentelemetry: The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+        :param 'ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs' prometheus_remote_write: The `prometheus_remote_write` source ingests metrics pushed over the Prometheus Remote Write protocol.
         :param Sequence['ObservabilityPipelineConfigSourceRsyslogArgs'] rsyslogs: The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
         :param Sequence['ObservabilityPipelineConfigSourceSocketArgs'] sockets: The `socket` source ingests logs over TCP or UDP.
         :param Sequence['ObservabilityPipelineConfigSourceSplunkHecArgs'] splunk_hecs: The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
@@ -129603,6 +130567,8 @@ class ObservabilityPipelineConfigSource(dict):
             pulumi.set(__self__, "logstashes", logstashes)
         if opentelemetry is not None:
             pulumi.set(__self__, "opentelemetry", opentelemetry)
+        if prometheus_remote_write is not None:
+            pulumi.set(__self__, "prometheus_remote_write", prometheus_remote_write)
         if rsyslogs is not None:
             pulumi.set(__self__, "rsyslogs", rsyslogs)
         if sockets is not None:
@@ -129713,6 +130679,14 @@ class ObservabilityPipelineConfigSource(dict):
         The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
         """
         return pulumi.get(self, "opentelemetry")
+
+    @_builtins.property
+    @pulumi.getter(name="prometheusRemoteWrite")
+    def prometheus_remote_write(self) -> Optional['outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWrite']:
+        """
+        The `prometheus_remote_write` source ingests metrics pushed over the Prometheus Remote Write protocol.
+        """
+        return pulumi.get(self, "prometheus_remote_write")
 
     @_builtins.property
     @pulumi.getter
@@ -131921,6 +132895,303 @@ class ObservabilityPipelineConfigSourceOpentelemetryTls(dict):
 
 
 @pulumi.output_type
+class ObservabilityPipelineConfigSourcePrometheusRemoteWrite(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authStrategy":
+            suggest = "auth_strategy"
+        elif key == "addressKey":
+            suggest = "address_key"
+        elif key == "passwordKey":
+            suggest = "password_key"
+        elif key == "usernameKey":
+            suggest = "username_key"
+        elif key == "validTokens":
+            suggest = "valid_tokens"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigSourcePrometheusRemoteWrite. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigSourcePrometheusRemoteWrite.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigSourcePrometheusRemoteWrite.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_strategy: _builtins.str,
+                 path: _builtins.str,
+                 address_key: Optional[_builtins.str] = None,
+                 password_key: Optional[_builtins.str] = None,
+                 tls: Optional['outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls'] = None,
+                 username_key: Optional[_builtins.str] = None,
+                 valid_tokens: Optional[Sequence['outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken']] = None):
+        """
+        :param _builtins.str auth_strategy: HTTP authentication method. Valid values are `none`, `plain`.
+        :param _builtins.str path: The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+        :param _builtins.str address_key: Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+        :param _builtins.str password_key: Name of the environment variable or secret that holds the password. Used when `auth_strategy` is `plain`.
+        :param 'ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs' tls: Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+        :param _builtins.str username_key: Name of the environment variable or secret that holds the username. Used when `auth_strategy` is `plain`.
+        :param Sequence['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs'] valid_tokens: A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+        """
+        pulumi.set(__self__, "auth_strategy", auth_strategy)
+        pulumi.set(__self__, "path", path)
+        if address_key is not None:
+            pulumi.set(__self__, "address_key", address_key)
+        if password_key is not None:
+            pulumi.set(__self__, "password_key", password_key)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+        if username_key is not None:
+            pulumi.set(__self__, "username_key", username_key)
+        if valid_tokens is not None:
+            pulumi.set(__self__, "valid_tokens", valid_tokens)
+
+    @_builtins.property
+    @pulumi.getter(name="authStrategy")
+    def auth_strategy(self) -> _builtins.str:
+        """
+        HTTP authentication method. Valid values are `none`, `plain`.
+        """
+        return pulumi.get(self, "auth_strategy")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter(name="addressKey")
+    def address_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+        """
+        return pulumi.get(self, "address_key")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordKey")
+    def password_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the password. Used when `auth_strategy` is `plain`.
+        """
+        return pulumi.get(self, "password_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls']:
+        """
+        Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+        """
+        return pulumi.get(self, "tls")
+
+    @_builtins.property
+    @pulumi.getter(name="usernameKey")
+    def username_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the username. Used when `auth_strategy` is `plain`.
+        """
+        return pulumi.get(self, "username_key")
+
+    @_builtins.property
+    @pulumi.getter(name="validTokens")
+    def valid_tokens(self) -> Optional[Sequence['outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken']]:
+        """
+        A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+        """
+        return pulumi.get(self, "valid_tokens")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crtFile":
+            suggest = "crt_file"
+        elif key == "caFile":
+            suggest = "ca_file"
+        elif key == "keyFile":
+            suggest = "key_file"
+        elif key == "keyPassKey":
+            suggest = "key_pass_key"
+        elif key == "verifyCertificate":
+            suggest = "verify_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crt_file: _builtins.str,
+                 ca_file: Optional[_builtins.str] = None,
+                 key_file: Optional[_builtins.str] = None,
+                 key_pass_key: Optional[_builtins.str] = None,
+                 verify_certificate: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str crt_file: Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+        :param _builtins.str ca_file: Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+        :param _builtins.str key_file: Path to the private key file associated with the TLS server certificate.
+        :param _builtins.str key_pass_key: Name of the environment variable or secret that holds the passphrase for the private key file.
+        :param _builtins.bool verify_certificate: When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+        """
+        pulumi.set(__self__, "crt_file", crt_file)
+        if ca_file is not None:
+            pulumi.set(__self__, "ca_file", ca_file)
+        if key_file is not None:
+            pulumi.set(__self__, "key_file", key_file)
+        if key_pass_key is not None:
+            pulumi.set(__self__, "key_pass_key", key_pass_key)
+        if verify_certificate is not None:
+            pulumi.set(__self__, "verify_certificate", verify_certificate)
+
+    @_builtins.property
+    @pulumi.getter(name="crtFile")
+    def crt_file(self) -> _builtins.str:
+        """
+        Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+        """
+        return pulumi.get(self, "crt_file")
+
+    @_builtins.property
+    @pulumi.getter(name="caFile")
+    def ca_file(self) -> Optional[_builtins.str]:
+        """
+        Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+        """
+        return pulumi.get(self, "ca_file")
+
+    @_builtins.property
+    @pulumi.getter(name="keyFile")
+    def key_file(self) -> Optional[_builtins.str]:
+        """
+        Path to the private key file associated with the TLS server certificate.
+        """
+        return pulumi.get(self, "key_file")
+
+    @_builtins.property
+    @pulumi.getter(name="keyPassKey")
+    def key_pass_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the passphrase for the private key file.
+        """
+        return pulumi.get(self, "key_pass_key")
+
+    @_builtins.property
+    @pulumi.getter(name="verifyCertificate")
+    def verify_certificate(self) -> Optional[_builtins.bool]:
+        """
+        When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+        """
+        return pulumi.get(self, "verify_certificate")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenKey":
+            suggest = "token_key"
+        elif key == "pathToToken":
+            suggest = "path_to_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 token_key: _builtins.str,
+                 enabled: Optional[_builtins.bool] = None,
+                 path_to_token: Optional['outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken'] = None):
+        """
+        :param _builtins.str token_key: Name of the environment variable or secret that holds the expected token value.
+        :param _builtins.bool enabled: Whether this token is currently accepted. Defaults to `true`.
+        :param 'ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs' path_to_token: Specifies where the worker extracts the token from the incoming HTTP request. Set either `location` for a built-in source or `header` to read it from a request header.
+        """
+        pulumi.set(__self__, "token_key", token_key)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if path_to_token is not None:
+            pulumi.set(__self__, "path_to_token", path_to_token)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenKey")
+    def token_key(self) -> _builtins.str:
+        """
+        Name of the environment variable or secret that holds the expected token value.
+        """
+        return pulumi.get(self, "token_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether this token is currently accepted. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="pathToToken")
+    def path_to_token(self) -> Optional['outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken']:
+        """
+        Specifies where the worker extracts the token from the incoming HTTP request. Set either `location` for a built-in source or `header` to read it from a request header.
+        """
+        return pulumi.get(self, "path_to_token")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken(dict):
+    def __init__(__self__, *,
+                 header: Optional[_builtins.str] = None,
+                 location: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str header: The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+        :param _builtins.str location: Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> Optional[_builtins.str]:
+        """
+        The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+        """
+        return pulumi.get(self, "header")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[_builtins.str]:
+        """
+        Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+        """
+        return pulumi.get(self, "location")
+
+
+@pulumi.output_type
 class ObservabilityPipelineConfigSourceRsyslog(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -132561,6 +133832,8 @@ class ObservabilityPipelineConfigSourceSplunkTcp(dict):
         suggest = None
         if key == "addressKey":
             suggest = "address_key"
+        elif key == "maxConnectionDurationSecs":
+            suggest = "max_connection_duration_secs"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigSourceSplunkTcp. Access the value via the '{suggest}' property getter instead.")
@@ -132575,13 +133848,17 @@ class ObservabilityPipelineConfigSourceSplunkTcp(dict):
 
     def __init__(__self__, *,
                  address_key: Optional[_builtins.str] = None,
+                 max_connection_duration_secs: Optional[_builtins.int] = None,
                  tls: Optional['outputs.ObservabilityPipelineConfigSourceSplunkTcpTls'] = None):
         """
         :param _builtins.str address_key: Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
+        :param _builtins.int max_connection_duration_secs: Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
         :param 'ObservabilityPipelineConfigSourceSplunkTcpTlsArgs' tls: Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
         """
         if address_key is not None:
             pulumi.set(__self__, "address_key", address_key)
+        if max_connection_duration_secs is not None:
+            pulumi.set(__self__, "max_connection_duration_secs", max_connection_duration_secs)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
 
@@ -132592,6 +133869,14 @@ class ObservabilityPipelineConfigSourceSplunkTcp(dict):
         Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
         """
         return pulumi.get(self, "address_key")
+
+    @_builtins.property
+    @pulumi.getter(name="maxConnectionDurationSecs")
+    def max_connection_duration_secs(self) -> Optional[_builtins.int]:
+        """
+        Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+        """
+        return pulumi.get(self, "max_connection_duration_secs")
 
     @_builtins.property
     @pulumi.getter
@@ -134538,6 +135823,8 @@ class PowerpackV2Widget(dict):
             suggest = "cohort_definition"
         elif key == "distributionDefinition":
             suggest = "distribution_definition"
+        elif key == "embeddedAppDefinition":
+            suggest = "embedded_app_definition"
         elif key == "eventStreamDefinition":
             suggest = "event_stream_definition"
         elif key == "eventTimelineDefinition":
@@ -134624,6 +135911,7 @@ class PowerpackV2Widget(dict):
                  check_status_definition: Optional['outputs.PowerpackV2WidgetCheckStatusDefinition'] = None,
                  cohort_definition: Optional['outputs.PowerpackV2WidgetCohortDefinition'] = None,
                  distribution_definition: Optional['outputs.PowerpackV2WidgetDistributionDefinition'] = None,
+                 embedded_app_definition: Optional['outputs.PowerpackV2WidgetEmbeddedAppDefinition'] = None,
                  event_stream_definition: Optional['outputs.PowerpackV2WidgetEventStreamDefinition'] = None,
                  event_timeline_definition: Optional['outputs.PowerpackV2WidgetEventTimelineDefinition'] = None,
                  free_text_definition: Optional['outputs.PowerpackV2WidgetFreeTextDefinition'] = None,
@@ -134666,6 +135954,7 @@ class PowerpackV2Widget(dict):
         :param 'PowerpackV2WidgetCheckStatusDefinitionArgs' check_status_definition: The definition for a Check Status widget.
         :param 'PowerpackV2WidgetCohortDefinitionArgs' cohort_definition: The definition for a Cohort retention-grid widget.
         :param 'PowerpackV2WidgetDistributionDefinitionArgs' distribution_definition: The definition for a Distribution widget.
+        :param 'PowerpackV2WidgetEmbeddedAppDefinitionArgs' embedded_app_definition: The definition for an App Builder embedded app widget.
         :param 'PowerpackV2WidgetEventStreamDefinitionArgs' event_stream_definition: The definition for a Event Stream widget.
         :param 'PowerpackV2WidgetEventTimelineDefinitionArgs' event_timeline_definition: The definition for a Event Timeline widget.
         :param 'PowerpackV2WidgetFreeTextDefinitionArgs' free_text_definition: The definition for a Free Text widget.
@@ -134715,6 +136004,8 @@ class PowerpackV2Widget(dict):
             pulumi.set(__self__, "cohort_definition", cohort_definition)
         if distribution_definition is not None:
             pulumi.set(__self__, "distribution_definition", distribution_definition)
+        if embedded_app_definition is not None:
+            pulumi.set(__self__, "embedded_app_definition", embedded_app_definition)
         if event_stream_definition is not None:
             pulumi.set(__self__, "event_stream_definition", event_stream_definition)
         if event_timeline_definition is not None:
@@ -134839,6 +136130,14 @@ class PowerpackV2Widget(dict):
         The definition for a Distribution widget.
         """
         return pulumi.get(self, "distribution_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="embeddedAppDefinition")
+    def embedded_app_definition(self) -> Optional['outputs.PowerpackV2WidgetEmbeddedAppDefinition']:
+        """
+        The definition for an App Builder embedded app widget.
+        """
+        return pulumi.get(self, "embedded_app_definition")
 
     @_builtins.property
     @pulumi.getter(name="eventStreamDefinition")
@@ -145055,6 +146354,383 @@ class PowerpackV2WidgetDistributionDefinitionYaxis(dict):
 
 
 @pulumi.output_type
+class PowerpackV2WidgetEmbeddedAppDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "customLinks":
+            suggest = "custom_links"
+        elif key == "hideIncompleteCostData":
+            suggest = "hide_incomplete_cost_data"
+        elif key == "liveSpan":
+            suggest = "live_span"
+        elif key == "templateId":
+            suggest = "template_id"
+        elif key == "titleAlign":
+            suggest = "title_align"
+        elif key == "titleSize":
+            suggest = "title_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackV2WidgetEmbeddedAppDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackV2WidgetEmbeddedAppDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackV2WidgetEmbeddedAppDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_id: Optional[_builtins.str] = None,
+                 custom_links: Optional[Sequence['outputs.PowerpackV2WidgetEmbeddedAppDefinitionCustomLink']] = None,
+                 description: Optional[_builtins.str] = None,
+                 hide_incomplete_cost_data: Optional[_builtins.bool] = None,
+                 inputs: Optional[Sequence['outputs.PowerpackV2WidgetEmbeddedAppDefinitionInput']] = None,
+                 live_span: Optional[_builtins.str] = None,
+                 template_id: Optional[_builtins.str] = None,
+                 time: Optional['outputs.PowerpackV2WidgetEmbeddedAppDefinitionTime'] = None,
+                 title: Optional[_builtins.str] = None,
+                 title_align: Optional[_builtins.str] = None,
+                 title_size: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str app_id: UUID of the App Builder app to embed. Exactly one of `app_id` or `template_id` must be provided.
+        :param Sequence['PowerpackV2WidgetEmbeddedAppDefinitionCustomLinkArgs'] custom_links: A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        :param _builtins.str description: The description of the widget.
+        :param _builtins.bool hide_incomplete_cost_data: Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        :param Sequence['PowerpackV2WidgetEmbeddedAppDefinitionInputArgs'] inputs: A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+        :param _builtins.str live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        :param _builtins.str template_id: ID of the built-in app template to embed. Exactly one of `app_id` or `template_id` must be provided.
+        :param 'PowerpackV2WidgetEmbeddedAppDefinitionTimeArgs' time: A nested block used to specify a time span for the widget. Use this or `live_span`, not both.
+        :param _builtins.str title: The title of the widget.
+        :param _builtins.str title_align: The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        :param _builtins.str title_size: The size of the widget's title (defaults to 16).
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if hide_incomplete_cost_data is not None:
+            pulumi.set(__self__, "hide_incomplete_cost_data", hide_incomplete_cost_data)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if live_span is not None:
+            pulumi.set(__self__, "live_span", live_span)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[_builtins.str]:
+        """
+        UUID of the App Builder app to embed. Exactly one of `app_id` or `template_id` must be provided.
+        """
+        return pulumi.get(self, "app_id")
+
+    @_builtins.property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> Optional[Sequence['outputs.PowerpackV2WidgetEmbeddedAppDefinitionCustomLink']]:
+        """
+        A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "custom_links")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the widget.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="hideIncompleteCostData")
+    def hide_incomplete_cost_data(self) -> Optional[_builtins.bool]:
+        """
+        Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        """
+        return pulumi.get(self, "hide_incomplete_cost_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def inputs(self) -> Optional[Sequence['outputs.PowerpackV2WidgetEmbeddedAppDefinitionInput']]:
+        """
+        A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+        """
+        return pulumi.get(self, "inputs")
+
+    @_builtins.property
+    @pulumi.getter(name="liveSpan")
+    def live_span(self) -> Optional[_builtins.str]:
+        """
+        The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        """
+        return pulumi.get(self, "live_span")
+
+    @_builtins.property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the built-in app template to embed. Exactly one of `app_id` or `template_id` must be provided.
+        """
+        return pulumi.get(self, "template_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> Optional['outputs.PowerpackV2WidgetEmbeddedAppDefinitionTime']:
+        """
+        A nested block used to specify a time span for the widget. Use this or `live_span`, not both.
+        """
+        return pulumi.get(self, "time")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[_builtins.str]:
+        """
+        The title of the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> Optional[_builtins.str]:
+        """
+        The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        """
+        return pulumi.get(self, "title_align")
+
+    @_builtins.property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> Optional[_builtins.str]:
+        """
+        The size of the widget's title (defaults to 16).
+        """
+        return pulumi.get(self, "title_size")
+
+
+@pulumi.output_type
+class PowerpackV2WidgetEmbeddedAppDefinitionCustomLink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isHidden":
+            suggest = "is_hidden"
+        elif key == "overrideLabel":
+            suggest = "override_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackV2WidgetEmbeddedAppDefinitionCustomLink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackV2WidgetEmbeddedAppDefinitionCustomLink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackV2WidgetEmbeddedAppDefinitionCustomLink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_hidden: Optional[_builtins.bool] = None,
+                 label: Optional[_builtins.str] = None,
+                 link: Optional[_builtins.str] = None,
+                 override_label: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool is_hidden: The flag for toggling context menu link visibility.
+        :param _builtins.str label: The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+        :param _builtins.str link: The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+        :param _builtins.str override_label: The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+        """
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @_builtins.property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> Optional[_builtins.bool]:
+        """
+        The flag for toggling context menu link visibility.
+        """
+        return pulumi.get(self, "is_hidden")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[_builtins.str]:
+        """
+        The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter
+    def link(self) -> Optional[_builtins.str]:
+        """
+        The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+        """
+        return pulumi.get(self, "link")
+
+    @_builtins.property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> Optional[_builtins.str]:
+        """
+        The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+        """
+        return pulumi.get(self, "override_label")
+
+
+@pulumi.output_type
+class PowerpackV2WidgetEmbeddedAppDefinitionInput(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Name of the app input.
+        :param _builtins.str value: JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the app input.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PowerpackV2WidgetEmbeddedAppDefinitionTime(dict):
+    def __init__(__self__, *,
+                 fixed: Optional['outputs.PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed'] = None,
+                 live: Optional['outputs.PowerpackV2WidgetEmbeddedAppDefinitionTimeLive'] = None):
+        """
+        :param 'PowerpackV2WidgetEmbeddedAppDefinitionTimeFixedArgs' fixed: A fixed time range with explicit start and end times.
+        :param 'PowerpackV2WidgetEmbeddedAppDefinitionTimeLiveArgs' live: An arbitrary live time span, such as 17 minutes or 6 hours.
+        """
+        if fixed is not None:
+            pulumi.set(__self__, "fixed", fixed)
+        if live is not None:
+            pulumi.set(__self__, "live", live)
+
+    @_builtins.property
+    @pulumi.getter
+    def fixed(self) -> Optional['outputs.PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed']:
+        """
+        A fixed time range with explicit start and end times.
+        """
+        return pulumi.get(self, "fixed")
+
+    @_builtins.property
+    @pulumi.getter
+    def live(self) -> Optional['outputs.PowerpackV2WidgetEmbeddedAppDefinitionTimeLive']:
+        """
+        An arbitrary live time span, such as 17 minutes or 6 hours.
+        """
+        return pulumi.get(self, "live")
+
+
+@pulumi.output_type
+class PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: _builtins.int,
+                 to: _builtins.int):
+        """
+        :param _builtins.int from_: Start time in seconds since epoch.
+        :param _builtins.int to: End time in seconds since epoch.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> _builtins.int:
+        """
+        Start time in seconds since epoch.
+        """
+        return pulumi.get(self, "from_")
+
+    @_builtins.property
+    @pulumi.getter
+    def to(self) -> _builtins.int:
+        """
+        End time in seconds since epoch.
+        """
+        return pulumi.get(self, "to")
+
+
+@pulumi.output_type
+class PowerpackV2WidgetEmbeddedAppDefinitionTimeLive(dict):
+    def __init__(__self__, *,
+                 unit: _builtins.str,
+                 value: _builtins.int):
+        """
+        :param _builtins.str unit: Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        :param _builtins.int value: Value of the time span.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> _builtins.str:
+        """
+        Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        """
+        return pulumi.get(self, "unit")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.int:
+        """
+        Value of the time span.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class PowerpackV2WidgetEventStreamDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -148259,6 +149935,8 @@ class PowerpackV2WidgetGroupDefinitionWidget(dict):
             suggest = "cohort_definition"
         elif key == "distributionDefinition":
             suggest = "distribution_definition"
+        elif key == "embeddedAppDefinition":
+            suggest = "embedded_app_definition"
         elif key == "eventStreamDefinition":
             suggest = "event_stream_definition"
         elif key == "eventTimelineDefinition":
@@ -148343,6 +150021,7 @@ class PowerpackV2WidgetGroupDefinitionWidget(dict):
                  check_status_definition: Optional['outputs.PowerpackV2WidgetCheckStatusDefinition'] = None,
                  cohort_definition: Optional['outputs.PowerpackV2WidgetCohortDefinition'] = None,
                  distribution_definition: Optional['outputs.PowerpackV2WidgetDistributionDefinition'] = None,
+                 embedded_app_definition: Optional['outputs.PowerpackV2WidgetEmbeddedAppDefinition'] = None,
                  event_stream_definition: Optional['outputs.PowerpackV2WidgetEventStreamDefinition'] = None,
                  event_timeline_definition: Optional['outputs.PowerpackV2WidgetEventTimelineDefinition'] = None,
                  free_text_definition: Optional['outputs.PowerpackV2WidgetFreeTextDefinition'] = None,
@@ -148384,6 +150063,7 @@ class PowerpackV2WidgetGroupDefinitionWidget(dict):
         :param 'PowerpackV2WidgetCheckStatusDefinitionArgs' check_status_definition: The definition for a Check Status widget.
         :param 'PowerpackV2WidgetCohortDefinitionArgs' cohort_definition: The definition for a Cohort retention-grid widget.
         :param 'PowerpackV2WidgetDistributionDefinitionArgs' distribution_definition: The definition for a Distribution widget.
+        :param 'PowerpackV2WidgetEmbeddedAppDefinitionArgs' embedded_app_definition: The definition for an App Builder embedded app widget.
         :param 'PowerpackV2WidgetEventStreamDefinitionArgs' event_stream_definition: The definition for a Event Stream widget.
         :param 'PowerpackV2WidgetEventTimelineDefinitionArgs' event_timeline_definition: The definition for a Event Timeline widget.
         :param 'PowerpackV2WidgetFreeTextDefinitionArgs' free_text_definition: The definition for a Free Text widget.
@@ -148432,6 +150112,8 @@ class PowerpackV2WidgetGroupDefinitionWidget(dict):
             pulumi.set(__self__, "cohort_definition", cohort_definition)
         if distribution_definition is not None:
             pulumi.set(__self__, "distribution_definition", distribution_definition)
+        if embedded_app_definition is not None:
+            pulumi.set(__self__, "embedded_app_definition", embedded_app_definition)
         if event_stream_definition is not None:
             pulumi.set(__self__, "event_stream_definition", event_stream_definition)
         if event_timeline_definition is not None:
@@ -148554,6 +150236,14 @@ class PowerpackV2WidgetGroupDefinitionWidget(dict):
         The definition for a Distribution widget.
         """
         return pulumi.get(self, "distribution_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="embeddedAppDefinition")
+    def embedded_app_definition(self) -> Optional['outputs.PowerpackV2WidgetEmbeddedAppDefinition']:
+        """
+        The definition for an App Builder embedded app widget.
+        """
+        return pulumi.get(self, "embedded_app_definition")
 
     @_builtins.property
     @pulumi.getter(name="eventStreamDefinition")
@@ -239676,6 +241366,73 @@ class SecureEmbedDashboardSelectableTemplateVar(dict):
 
 
 @pulumi.output_type
+class SecurityFindingsDefaultInboxRuleAction(dict):
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str description: An optional description providing more context for the rule.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        An optional description providing more context for the rule.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class SecurityFindingsDefaultInboxRuleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "findingTypes":
+            suggest = "finding_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityFindingsDefaultInboxRuleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityFindingsDefaultInboxRuleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityFindingsDefaultInboxRuleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 finding_types: Optional[Sequence[_builtins.str]] = None,
+                 query: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] finding_types: The list of security finding types that the automation rule applies to.
+        :param _builtins.str query: A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        if finding_types is not None:
+            pulumi.set(__self__, "finding_types", finding_types)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter(name="findingTypes")
+    def finding_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The list of security finding types that the automation rule applies to.
+        """
+        return pulumi.get(self, "finding_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> Optional[_builtins.str]:
+        """
+        A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
 class SecurityFindingsDueDateRuleAction(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -239831,6 +241588,72 @@ class SecurityFindingsDueDateRuleRule(dict):
 
 
 @pulumi.output_type
+class SecurityFindingsInboxRuleAction(dict):
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str description: An optional description providing more context for the rule.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        An optional description providing more context for the rule.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class SecurityFindingsInboxRuleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "findingTypes":
+            suggest = "finding_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityFindingsInboxRuleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityFindingsInboxRuleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityFindingsInboxRuleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 finding_types: Sequence[_builtins.str],
+                 query: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] finding_types: The list of security finding types that the automation rule applies to. Valid values are `api_security`, `attack_path`, `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`, `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`, `static_code_vulnerability`, `workload_activity`.
+        :param _builtins.str query: A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        pulumi.set(__self__, "finding_types", finding_types)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter(name="findingTypes")
+    def finding_types(self) -> Sequence[_builtins.str]:
+        """
+        The list of security finding types that the automation rule applies to. Valid values are `api_security`, `attack_path`, `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`, `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`, `static_code_vulnerability`, `workload_activity`.
+        """
+        return pulumi.get(self, "finding_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> Optional[_builtins.str]:
+        """
+        A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
 class SecurityFindingsMuteRuleAction(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -239939,6 +241762,161 @@ class SecurityFindingsMuteRuleRule(dict):
 
 
 @pulumi.output_type
+class SecurityFindingsSeverityModifierRuleAction(dict):
+    def __init__(__self__, *,
+                 set: Optional['outputs.SecurityFindingsSeverityModifierRuleActionSet'] = None,
+                 shift: Optional['outputs.SecurityFindingsSeverityModifierRuleActionShift'] = None):
+        """
+        :param 'SecurityFindingsSeverityModifierRuleActionSetArgs' set: Sets matched findings to a fixed severity.
+        :param 'SecurityFindingsSeverityModifierRuleActionShiftArgs' shift: Shifts matched findings up or down by one severity rank.
+        """
+        if set is not None:
+            pulumi.set(__self__, "set", set)
+        if shift is not None:
+            pulumi.set(__self__, "shift", shift)
+
+    @_builtins.property
+    @pulumi.getter
+    def set(self) -> Optional['outputs.SecurityFindingsSeverityModifierRuleActionSet']:
+        """
+        Sets matched findings to a fixed severity.
+        """
+        return pulumi.get(self, "set")
+
+    @_builtins.property
+    @pulumi.getter
+    def shift(self) -> Optional['outputs.SecurityFindingsSeverityModifierRuleActionShift']:
+        """
+        Shifts matched findings up or down by one severity rank.
+        """
+        return pulumi.get(self, "shift")
+
+
+@pulumi.output_type
+class SecurityFindingsSeverityModifierRuleActionSet(dict):
+    def __init__(__self__, *,
+                 severity: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str severity: The severity to assign to matched findings. `info_none` is not supported for the `iac_misconfiguration`, `runtime_code_vulnerability`, `secret`, or `static_code_vulnerability` finding types. Valid values are `info_none`, `low`, `medium`, `high`, `critical`.
+        :param _builtins.str description: An optional free-form explanation for the severity change.
+        """
+        pulumi.set(__self__, "severity", severity)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def severity(self) -> _builtins.str:
+        """
+        The severity to assign to matched findings. `info_none` is not supported for the `iac_misconfiguration`, `runtime_code_vulnerability`, `secret`, or `static_code_vulnerability` finding types. Valid values are `info_none`, `low`, `medium`, `high`, `critical`.
+        """
+        return pulumi.get(self, "severity")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        An optional free-form explanation for the severity change.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class SecurityFindingsSeverityModifierRuleActionShift(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "severityDelta":
+            suggest = "severity_delta"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityFindingsSeverityModifierRuleActionShift. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityFindingsSeverityModifierRuleActionShift.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityFindingsSeverityModifierRuleActionShift.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 severity_delta: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str severity_delta: The direction in which to shift the severity of matched findings by one rank. Valid values are `up_one`, `down_one`.
+        :param _builtins.str description: An optional free-form explanation for the severity change.
+        """
+        pulumi.set(__self__, "severity_delta", severity_delta)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="severityDelta")
+    def severity_delta(self) -> _builtins.str:
+        """
+        The direction in which to shift the severity of matched findings by one rank. Valid values are `up_one`, `down_one`.
+        """
+        return pulumi.get(self, "severity_delta")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        An optional free-form explanation for the severity change.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class SecurityFindingsSeverityModifierRuleRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "findingTypes":
+            suggest = "finding_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityFindingsSeverityModifierRuleRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityFindingsSeverityModifierRuleRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityFindingsSeverityModifierRuleRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 finding_types: Sequence[_builtins.str],
+                 query: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] finding_types: The list of security finding types that the automation rule applies to. Valid values are `api_security`, `attack_path`, `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`, `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`, `static_code_vulnerability`, `workload_activity`.
+        :param _builtins.str query: A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        pulumi.set(__self__, "finding_types", finding_types)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter(name="findingTypes")
+    def finding_types(self) -> Sequence[_builtins.str]:
+        """
+        The list of security finding types that the automation rule applies to. Valid values are `api_security`, `attack_path`, `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`, `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`, `static_code_vulnerability`, `workload_activity`.
+        """
+        return pulumi.get(self, "finding_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> Optional[_builtins.str]:
+        """
+        A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        return pulumi.get(self, "query")
+
+
+@pulumi.output_type
 class SecurityFindingsTicketCreationRuleAction(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -239971,12 +241949,12 @@ class SecurityFindingsTicketCreationRuleAction(dict):
                  auto_disabled_reason: Optional[_builtins.str] = None,
                  fields: Optional[_builtins.str] = None):
         """
-        :param _builtins.int max_tickets_per_day: The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
-        :param _builtins.str project_id: The UUID of the Case Management project. Must be a valid UUID.
-        :param _builtins.str target: The ticketing system to create tickets in. Valid values are `jira`, `case_management`.
+        :param _builtins.int max_tickets_per_day: The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
+        :param _builtins.str project_id: The UUID of the case management project. Must be a valid UUID.
+        :param _builtins.str target: The ticketing system to create tickets in. Valid values are `jira`, `case_management`, `linear`.
         :param _builtins.str assignee_id: The UUID of the default assignee for created tickets. Must be a valid UUID.
-        :param _builtins.str auto_disabled_reason: The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
-        :param _builtins.str fields: A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+        :param _builtins.str auto_disabled_reason: The reason the rule was automatically disabled by the system due to a ticketing integration error.
+        :param _builtins.str fields: A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linear_project_id` (string, the identifier of the Linear project the issue is created in) and `linear_label_ids` (array of strings, the identifiers of the Linear labels applied to the issue).
         """
         pulumi.set(__self__, "max_tickets_per_day", max_tickets_per_day)
         pulumi.set(__self__, "project_id", project_id)
@@ -239992,7 +241970,7 @@ class SecurityFindingsTicketCreationRuleAction(dict):
     @pulumi.getter(name="maxTicketsPerDay")
     def max_tickets_per_day(self) -> _builtins.int:
         """
-        The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+        The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
         """
         return pulumi.get(self, "max_tickets_per_day")
 
@@ -240000,7 +241978,7 @@ class SecurityFindingsTicketCreationRuleAction(dict):
     @pulumi.getter(name="projectId")
     def project_id(self) -> _builtins.str:
         """
-        The UUID of the Case Management project. Must be a valid UUID.
+        The UUID of the case management project. Must be a valid UUID.
         """
         return pulumi.get(self, "project_id")
 
@@ -240008,7 +241986,7 @@ class SecurityFindingsTicketCreationRuleAction(dict):
     @pulumi.getter
     def target(self) -> _builtins.str:
         """
-        The ticketing system to create tickets in. Valid values are `jira`, `case_management`.
+        The ticketing system to create tickets in. Valid values are `jira`, `case_management`, `linear`.
         """
         return pulumi.get(self, "target")
 
@@ -240024,7 +242002,7 @@ class SecurityFindingsTicketCreationRuleAction(dict):
     @pulumi.getter(name="autoDisabledReason")
     def auto_disabled_reason(self) -> Optional[_builtins.str]:
         """
-        The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+        The reason the rule was automatically disabled by the system due to a ticketing integration error.
         """
         return pulumi.get(self, "auto_disabled_reason")
 
@@ -240032,7 +242010,7 @@ class SecurityFindingsTicketCreationRuleAction(dict):
     @pulumi.getter
     def fields(self) -> Optional[_builtins.str]:
         """
-        A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+        A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linear_project_id` (string, the identifier of the Linear project the issue is created in) and `linear_label_ids` (array of strings, the identifiers of the Linear labels applied to the issue).
         """
         return pulumi.get(self, "fields")
 
@@ -249741,6 +251719,37 @@ class TeamSyncSelectionStateExternalId(dict):
 
 
 @pulumi.output_type
+class WorkflowAutomationRunAs(dict):
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str id: Service account identifier. Required when `type` is `service_account` and omitted otherwise.
+        :param _builtins.str type: Type of identity used to run the workflow. `owner` uses the workflow owner, `initiator` uses the user who starts the execution, and `service_account` uses the account specified by `id`. Required when `run_as` is configured. Valid values are `owner`, `service_account`, `initiator`.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        Service account identifier. Required when `type` is `service_account` and omitted otherwise.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Type of identity used to run the workflow. `owner` uses the workflow owner, `initiator` uses the user who starts the execution, and `service_account` uses the account specified by `id`. Required when `run_as` is configured. Valid values are `owner`, `service_account`, `initiator`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class GetActionConnectionAnthropicResult(dict):
     def __init__(__self__, *,
                  api_key: Optional['outputs.GetActionConnectionAnthropicApiKeyResult'] = None):
@@ -252013,6 +254022,338 @@ class GetCustomAllocationRuleStrategyEvaluateGroupedByFilterResult(dict):
 
 
 @pulumi.output_type
+class GetFleetScheduleNotificationRuleResult(dict):
+    def __init__(__self__, *,
+                 handles: Sequence[_builtins.str],
+                 tags: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] handles: Notification handles, such as Slack channels or PagerDuty integrations.
+        :param Sequence[_builtins.str] tags: Tags associated with the notification rule.
+        """
+        pulumi.set(__self__, "handles", handles)
+        pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def handles(self) -> Sequence[_builtins.str]:
+        """
+        Notification handles, such as Slack channels or PagerDuty integrations.
+        """
+        return pulumi.get(self, "handles")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Sequence[_builtins.str]:
+        """
+        Tags associated with the notification rule.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetFleetScheduleRuleResult(dict):
+    def __init__(__self__, *,
+                 days_of_weeks: Sequence[_builtins.str],
+                 interval: _builtins.int,
+                 maintenance_window_duration: _builtins.int,
+                 start_maintenance_window: _builtins.str,
+                 timezone: _builtins.str):
+        """
+        :param Sequence[_builtins.str] days_of_weeks: Days when the schedule may run.
+        :param _builtins.int interval: Interval between schedule runs in weeks.
+        :param _builtins.int maintenance_window_duration: Duration of the maintenance window in minutes.
+        :param _builtins.str start_maintenance_window: Start of the maintenance window in canonical 24-hour `HH:MM` format.
+        :param _builtins.str timezone: IANA time zone used to interpret the maintenance window.
+        """
+        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "maintenance_window_duration", maintenance_window_duration)
+        pulumi.set(__self__, "start_maintenance_window", start_maintenance_window)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Sequence[_builtins.str]:
+        """
+        Days when the schedule may run.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @_builtins.property
+    @pulumi.getter
+    def interval(self) -> _builtins.int:
+        """
+        Interval between schedule runs in weeks.
+        """
+        return pulumi.get(self, "interval")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindowDuration")
+    def maintenance_window_duration(self) -> _builtins.int:
+        """
+        Duration of the maintenance window in minutes.
+        """
+        return pulumi.get(self, "maintenance_window_duration")
+
+    @_builtins.property
+    @pulumi.getter(name="startMaintenanceWindow")
+    def start_maintenance_window(self) -> _builtins.str:
+        """
+        Start of the maintenance window in canonical 24-hour `HH:MM` format.
+        """
+        return pulumi.get(self, "start_maintenance_window")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        """
+        IANA time zone used to interpret the maintenance window.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class GetFleetSchedulesScheduleResult(dict):
+    def __init__(__self__, *,
+                 created_at: _builtins.str,
+                 created_by: _builtins.str,
+                 id: _builtins.str,
+                 is_default: _builtins.bool,
+                 name: _builtins.str,
+                 next_run: _builtins.str,
+                 notification_rule: 'outputs.GetFleetSchedulesScheduleNotificationRuleResult',
+                 query: _builtins.str,
+                 rule: 'outputs.GetFleetSchedulesScheduleRuleResult',
+                 status: _builtins.str,
+                 updated_at: _builtins.str,
+                 updated_by: _builtins.str,
+                 version_to_latest: _builtins.int):
+        """
+        :param _builtins.str created_at: RFC 3339 timestamp when the schedule was created.
+        :param _builtins.str created_by: User handle of the person who created the schedule.
+        :param _builtins.str id: Unique identifier of the Fleet Automation schedule.
+        :param _builtins.bool is_default: Whether this is the organization's default schedule.
+        :param _builtins.str name: Human-readable name of the schedule.
+        :param _builtins.str next_run: RFC 3339 timestamp of the next maintenance window, or null when no next run can be computed.
+        :param 'GetFleetSchedulesScheduleNotificationRuleArgs' notification_rule: Notification configuration attached to the schedule, when available.
+        :param _builtins.str query: Datadog host query used to select the Agent upgrade targets.
+        :param 'GetFleetSchedulesScheduleRuleArgs' rule: Recurrence and maintenance-window configuration for the schedule.
+        :param _builtins.str status: Whether the schedule is `active` or `inactive`.
+        :param _builtins.str updated_at: RFC 3339 timestamp when the schedule was last updated.
+        :param _builtins.str updated_by: User handle of the person who last updated the schedule.
+        :param _builtins.int version_to_latest: Number of major Agent versions behind the latest version targeted by the schedule.
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "next_run", next_run)
+        pulumi.set(__self__, "notification_rule", notification_rule)
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "rule", rule)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "updated_at", updated_at)
+        pulumi.set(__self__, "updated_by", updated_by)
+        pulumi.set(__self__, "version_to_latest", version_to_latest)
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        RFC 3339 timestamp when the schedule was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> _builtins.str:
+        """
+        User handle of the person who created the schedule.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Unique identifier of the Fleet Automation schedule.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> _builtins.bool:
+        """
+        Whether this is the organization's default schedule.
+        """
+        return pulumi.get(self, "is_default")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Human-readable name of the schedule.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nextRun")
+    def next_run(self) -> _builtins.str:
+        """
+        RFC 3339 timestamp of the next maintenance window, or null when no next run can be computed.
+        """
+        return pulumi.get(self, "next_run")
+
+    @_builtins.property
+    @pulumi.getter(name="notificationRule")
+    def notification_rule(self) -> 'outputs.GetFleetSchedulesScheduleNotificationRuleResult':
+        """
+        Notification configuration attached to the schedule, when available.
+        """
+        return pulumi.get(self, "notification_rule")
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> _builtins.str:
+        """
+        Datadog host query used to select the Agent upgrade targets.
+        """
+        return pulumi.get(self, "query")
+
+    @_builtins.property
+    @pulumi.getter
+    def rule(self) -> 'outputs.GetFleetSchedulesScheduleRuleResult':
+        """
+        Recurrence and maintenance-window configuration for the schedule.
+        """
+        return pulumi.get(self, "rule")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Whether the schedule is `active` or `inactive`.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> _builtins.str:
+        """
+        RFC 3339 timestamp when the schedule was last updated.
+        """
+        return pulumi.get(self, "updated_at")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedBy")
+    def updated_by(self) -> _builtins.str:
+        """
+        User handle of the person who last updated the schedule.
+        """
+        return pulumi.get(self, "updated_by")
+
+    @_builtins.property
+    @pulumi.getter(name="versionToLatest")
+    def version_to_latest(self) -> _builtins.int:
+        """
+        Number of major Agent versions behind the latest version targeted by the schedule.
+        """
+        return pulumi.get(self, "version_to_latest")
+
+
+@pulumi.output_type
+class GetFleetSchedulesScheduleNotificationRuleResult(dict):
+    def __init__(__self__, *,
+                 handles: Sequence[_builtins.str],
+                 tags: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] handles: Notification handles, such as Slack channels or PagerDuty integrations.
+        :param Sequence[_builtins.str] tags: Tags associated with the notification rule.
+        """
+        pulumi.set(__self__, "handles", handles)
+        pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def handles(self) -> Sequence[_builtins.str]:
+        """
+        Notification handles, such as Slack channels or PagerDuty integrations.
+        """
+        return pulumi.get(self, "handles")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Sequence[_builtins.str]:
+        """
+        Tags associated with the notification rule.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetFleetSchedulesScheduleRuleResult(dict):
+    def __init__(__self__, *,
+                 days_of_weeks: Sequence[_builtins.str],
+                 interval: _builtins.int,
+                 maintenance_window_duration: _builtins.int,
+                 start_maintenance_window: _builtins.str,
+                 timezone: _builtins.str):
+        """
+        :param Sequence[_builtins.str] days_of_weeks: Days when the schedule may run.
+        :param _builtins.int interval: Interval between schedule runs in weeks.
+        :param _builtins.int maintenance_window_duration: Duration of the maintenance window in minutes.
+        :param _builtins.str start_maintenance_window: Start of the maintenance window in canonical 24-hour `HH:MM` format.
+        :param _builtins.str timezone: IANA time zone used to interpret the maintenance window.
+        """
+        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "maintenance_window_duration", maintenance_window_duration)
+        pulumi.set(__self__, "start_maintenance_window", start_maintenance_window)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Sequence[_builtins.str]:
+        """
+        Days when the schedule may run.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @_builtins.property
+    @pulumi.getter
+    def interval(self) -> _builtins.int:
+        """
+        Interval between schedule runs in weeks.
+        """
+        return pulumi.get(self, "interval")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindowDuration")
+    def maintenance_window_duration(self) -> _builtins.int:
+        """
+        Duration of the maintenance window in minutes.
+        """
+        return pulumi.get(self, "maintenance_window_duration")
+
+    @_builtins.property
+    @pulumi.getter(name="startMaintenanceWindow")
+    def start_maintenance_window(self) -> _builtins.str:
+        """
+        Start of the maintenance window in canonical 24-hour `HH:MM` format.
+        """
+        return pulumi.get(self, "start_maintenance_window")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        """
+        IANA time zone used to interpret the maintenance window.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
 class GetHostsHostListResult(dict):
     def __init__(__self__, *,
                  aliases: Sequence[_builtins.str],
@@ -252698,17 +255039,28 @@ class GetMetricActiveTagsAndAggregationsActiveAggregationResult(dict):
 @pulumi.output_type
 class GetMonitorConfigPoliciesMonitorConfigPolicyResult(dict):
     def __init__(__self__, *,
+                 downtime_policy: 'outputs.GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicyResult',
                  id: _builtins.str,
                  policy_type: _builtins.str,
                  tag_policy: 'outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyResult'):
         """
+        :param 'GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicyArgs' downtime_policy: Config for a downtime duration policy. Only set if `policy_type` is `downtime`.
         :param _builtins.str id: ID of the monitor config policy
         :param _builtins.str policy_type: The monitor config policy type
         :param 'GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyArgs' tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
+        pulumi.set(__self__, "downtime_policy", downtime_policy)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "policy_type", policy_type)
         pulumi.set(__self__, "tag_policy", tag_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="downtimePolicy")
+    def downtime_policy(self) -> 'outputs.GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicyResult':
+        """
+        Config for a downtime duration policy. Only set if `policy_type` is `downtime`.
+        """
+        return pulumi.get(self, "downtime_policy")
 
     @_builtins.property
     @pulumi.getter
@@ -252733,6 +255085,24 @@ class GetMonitorConfigPoliciesMonitorConfigPolicyResult(dict):
         Config for a tag policy. Only set if `policy_type` is `tag`.
         """
         return pulumi.get(self, "tag_policy")
+
+
+@pulumi.output_type
+class GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicyResult(dict):
+    def __init__(__self__, *,
+                 max_duration_ms: _builtins.int):
+        """
+        :param _builtins.int max_duration_ms: The maximum allowed downtime duration, in milliseconds
+        """
+        pulumi.set(__self__, "max_duration_ms", max_duration_ms)
+
+    @_builtins.property
+    @pulumi.getter(name="maxDurationMs")
+    def max_duration_ms(self) -> _builtins.int:
+        """
+        The maximum allowed downtime duration, in milliseconds
+        """
+        return pulumi.get(self, "max_duration_ms")
 
 
 @pulumi.output_type
@@ -257430,5 +259800,34 @@ class GetUsersUserResult(dict):
     @pulumi.getter
     def verified(self) -> _builtins.bool:
         return pulumi.get(self, "verified")
+
+
+@pulumi.output_type
+class GetWorkflowAutomationRunAsResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str id: Service account identifier when the workflow runs as a service account.
+        :param _builtins.str type: Type of identity used to run the workflow. `owner` uses the workflow owner, `initiator` uses the user who starts the execution, and `service_account` uses the account specified by `id`.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Service account identifier when the workflow runs as a service account.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of identity used to run the workflow. `owner` uses the workflow owner, `initiator` uses the user who starts the execution, and `service_account` uses the account specified by `id`.
+        """
+        return pulumi.get(self, "type")
 
 

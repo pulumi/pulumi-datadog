@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.WorkflowAutomationRunAsArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -63,6 +64,36 @@ public final class WorkflowAutomationState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Identity used to run the workflow. When omitted, the server-managed value is preserved.
+     * 
+     */
+    @Import(name="runAs")
+    private @Nullable Output<WorkflowAutomationRunAsArgs> runAs;
+
+    /**
+     * @return Identity used to run the workflow. When omitted, the server-managed value is preserved.
+     * 
+     */
+    public Optional<Output<WorkflowAutomationRunAsArgs>> runAs() {
+        return Optional.ofNullable(this.runAs);
+    }
+
+    /**
+     * Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+     * 
+     */
+    @Import(name="sensitivePrivileges")
+    private @Nullable Output<Boolean> sensitivePrivileges;
+
+    /**
+     * @return Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+     * 
+     */
+    public Optional<Output<Boolean>> sensitivePrivileges() {
+        return Optional.ofNullable(this.sensitivePrivileges);
+    }
+
+    /**
      * The spec defines what the workflow does.
      * 
      */
@@ -113,6 +144,8 @@ public final class WorkflowAutomationState extends com.pulumi.resources.Resource
         this.description = $.description;
         this.name = $.name;
         this.published = $.published;
+        this.runAs = $.runAs;
+        this.sensitivePrivileges = $.sensitivePrivileges;
         this.specJson = $.specJson;
         this.tags = $.tags;
         this.webhookSecret = $.webhookSecret;
@@ -197,6 +230,48 @@ public final class WorkflowAutomationState extends com.pulumi.resources.Resource
          */
         public Builder published(Boolean published) {
             return published(Output.of(published));
+        }
+
+        /**
+         * @param runAs Identity used to run the workflow. When omitted, the server-managed value is preserved.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runAs(@Nullable Output<WorkflowAutomationRunAsArgs> runAs) {
+            $.runAs = runAs;
+            return this;
+        }
+
+        /**
+         * @param runAs Identity used to run the workflow. When omitted, the server-managed value is preserved.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runAs(WorkflowAutomationRunAsArgs runAs) {
+            return runAs(Output.of(runAs));
+        }
+
+        /**
+         * @param sensitivePrivileges Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sensitivePrivileges(@Nullable Output<Boolean> sensitivePrivileges) {
+            $.sensitivePrivileges = sensitivePrivileges;
+            return this;
+        }
+
+        /**
+         * @param sensitivePrivileges Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sensitivePrivileges(Boolean sensitivePrivileges) {
+            return sensitivePrivileges(Output.of(sensitivePrivileges));
         }
 
         /**

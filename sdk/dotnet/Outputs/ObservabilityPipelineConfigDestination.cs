@@ -106,6 +106,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationOpentelemetry? Opentelemetry;
         /// <summary>
+        /// The `PrometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWrite? PrometheusRemoteWrite;
+        /// <summary>
         /// The `Rsyslog` destination forwards logs to an external `Rsyslog` server over TCP or UDP using the syslog protocol.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationRsyslog> Rsyslogs;
@@ -182,6 +186,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigDestinationOpentelemetry? opentelemetry,
 
+            Outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWrite? prometheusRemoteWrite,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationRsyslog> rsyslogs,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationSentinelOne> sentinelOnes,
@@ -219,6 +225,7 @@ namespace Pulumi.Datadog.Outputs
             NewRelics = newRelics;
             Opensearches = opensearches;
             Opentelemetry = opentelemetry;
+            PrometheusRemoteWrite = prometheusRemoteWrite;
             Rsyslogs = rsyslogs;
             SentinelOnes = sentinelOnes;
             Sockets = sockets;

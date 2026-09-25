@@ -26,6 +26,12 @@ import * as utilities from "./utilities";
  *         ],
  *     },
  * });
+ * const downtimeExample = new datadog.MonitorConfigPolicy("downtime_example", {
+ *     policyType: "downtime",
+ *     downtimePolicy: {
+ *         maxDurationMs: 3600000,
+ *     },
+ * });
  * ```
  */
 export class MonitorConfigPolicy extends pulumi.CustomResource {
@@ -57,7 +63,11 @@ export class MonitorConfigPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The monitor config policy type Valid values are `tag`.
+     * Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+     */
+    declare public readonly downtimePolicy: pulumi.Output<outputs.MonitorConfigPolicyDowntimePolicy | undefined>;
+    /**
+     * The monitor config policy type Valid values are `tag`, `downtime`.
      */
     declare public readonly policyType: pulumi.Output<string>;
     /**
@@ -78,6 +88,7 @@ export class MonitorConfigPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorConfigPolicyState | undefined;
+            resourceInputs["downtimePolicy"] = state?.downtimePolicy;
             resourceInputs["policyType"] = state?.policyType;
             resourceInputs["tagPolicy"] = state?.tagPolicy;
         } else {
@@ -85,6 +96,7 @@ export class MonitorConfigPolicy extends pulumi.CustomResource {
             if (args?.policyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
+            resourceInputs["downtimePolicy"] = args?.downtimePolicy;
             resourceInputs["policyType"] = args?.policyType;
             resourceInputs["tagPolicy"] = args?.tagPolicy;
         }
@@ -98,7 +110,11 @@ export class MonitorConfigPolicy extends pulumi.CustomResource {
  */
 export interface MonitorConfigPolicyState {
     /**
-     * The monitor config policy type Valid values are `tag`.
+     * Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+     */
+    downtimePolicy?: pulumi.Input<inputs.MonitorConfigPolicyDowntimePolicy | undefined>;
+    /**
+     * The monitor config policy type Valid values are `tag`, `downtime`.
      */
     policyType?: pulumi.Input<string | undefined>;
     /**
@@ -112,7 +128,11 @@ export interface MonitorConfigPolicyState {
  */
 export interface MonitorConfigPolicyArgs {
     /**
-     * The monitor config policy type Valid values are `tag`.
+     * Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+     */
+    downtimePolicy?: pulumi.Input<inputs.MonitorConfigPolicyDowntimePolicy | undefined>;
+    /**
+     * The monitor config policy type Valid values are `tag`, `downtime`.
      */
     policyType: pulumi.Input<string>;
     /**

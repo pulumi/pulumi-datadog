@@ -20,27 +20,28 @@ __all__ = ['SloCorrectionArgs', 'SloCorrection']
 class SloCorrectionArgs:
     def __init__(__self__, *,
                  category: pulumi.Input[_builtins.str],
-                 slo_id: pulumi.Input[_builtins.str],
                  start: pulumi.Input[_builtins.int],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  duration: pulumi.Input[Optional[_builtins.int]] = None,
                  end: pulumi.Input[Optional[_builtins.int]] = None,
                  rrule: pulumi.Input[Optional[_builtins.str]] = None,
+                 slo_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slo_query: pulumi.Input[Optional[_builtins.str]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SloCorrection resource.
 
         :param pulumi.Input[_builtins.str] category: Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
-        :param pulumi.Input[_builtins.str] slo_id: ID of the SLO that this correction will be applied to.
         :param pulumi.Input[_builtins.int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[_builtins.str] description: Description of the correction being made.
         :param pulumi.Input[_builtins.int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         :param pulumi.Input[_builtins.int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         :param pulumi.Input[_builtins.str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+        :param pulumi.Input[_builtins.str] slo_id: ID of the single SLO that this correction will be applied to.
+        :param pulumi.Input[_builtins.str] slo_query: Query that matches the SLOs this correction will be applied to.
         :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
         pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "slo_id", slo_id)
         pulumi.set(__self__, "start", start)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -50,6 +51,10 @@ class SloCorrectionArgs:
             pulumi.set(__self__, "end", end)
         if rrule is not None:
             pulumi.set(__self__, "rrule", rrule)
+        if slo_id is not None:
+            pulumi.set(__self__, "slo_id", slo_id)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -64,18 +69,6 @@ class SloCorrectionArgs:
     @category.setter
     def category(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "category", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sloId")
-    def slo_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the SLO that this correction will be applied to.
-        """
-        return pulumi.get(self, "slo_id")
-
-    @slo_id.setter
-    def slo_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "slo_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -138,6 +131,30 @@ class SloCorrectionArgs:
         pulumi.set(self, "rrule", value)
 
     @_builtins.property
+    @pulumi.getter(name="sloId")
+    def slo_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of the single SLO that this correction will be applied to.
+        """
+        return pulumi.get(self, "slo_id")
+
+    @slo_id.setter
+    def slo_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "slo_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Query that matches the SLOs this correction will be applied to.
+        """
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "slo_query", value)
+
+    @_builtins.property
     @pulumi.getter
     def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -159,6 +176,7 @@ class _SloCorrectionState:
                  end: pulumi.Input[Optional[_builtins.int]] = None,
                  rrule: pulumi.Input[Optional[_builtins.str]] = None,
                  slo_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slo_query: pulumi.Input[Optional[_builtins.str]] = None,
                  start: pulumi.Input[Optional[_builtins.int]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -169,7 +187,8 @@ class _SloCorrectionState:
         :param pulumi.Input[_builtins.int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         :param pulumi.Input[_builtins.int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         :param pulumi.Input[_builtins.str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
-        :param pulumi.Input[_builtins.str] slo_id: ID of the SLO that this correction will be applied to.
+        :param pulumi.Input[_builtins.str] slo_id: ID of the single SLO that this correction will be applied to.
+        :param pulumi.Input[_builtins.str] slo_query: Query that matches the SLOs this correction will be applied to.
         :param pulumi.Input[_builtins.int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
@@ -185,6 +204,8 @@ class _SloCorrectionState:
             pulumi.set(__self__, "rrule", rrule)
         if slo_id is not None:
             pulumi.set(__self__, "slo_id", slo_id)
+        if slo_query is not None:
+            pulumi.set(__self__, "slo_query", slo_query)
         if start is not None:
             pulumi.set(__self__, "start", start)
         if timezone is not None:
@@ -254,13 +275,25 @@ class _SloCorrectionState:
     @pulumi.getter(name="sloId")
     def slo_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID of the SLO that this correction will be applied to.
+        ID of the single SLO that this correction will be applied to.
         """
         return pulumi.get(self, "slo_id")
 
     @slo_id.setter
     def slo_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slo_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Query that matches the SLOs this correction will be applied to.
+        """
+        return pulumi.get(self, "slo_query")
+
+    @slo_query.setter
+    def slo_query(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "slo_query", value)
 
     @_builtins.property
     @pulumi.getter
@@ -299,6 +332,7 @@ class SloCorrection(pulumi.CustomResource):
                  end: pulumi.Input[Optional[_builtins.int]] = None,
                  rrule: pulumi.Input[Optional[_builtins.str]] = None,
                  slo_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slo_query: pulumi.Input[Optional[_builtins.str]] = None,
                  start: pulumi.Input[Optional[_builtins.int]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -341,6 +375,13 @@ class SloCorrection(pulumi.CustomResource):
             duration=3600,
             slo_id=example_slo.id,
             timezone="UTC")
+        example_slo_correction_with_query = datadog.SloCorrection("example_slo_correction_with_query",
+            category="Scheduled Maintenance",
+            description="correction example with query",
+            start=1735707000,
+            end=1735718600,
+            slo_query="env:prod service:checkout",
+            timezone="UTC")
         ```
 
         ## Import
@@ -359,7 +400,8 @@ class SloCorrection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         :param pulumi.Input[_builtins.int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         :param pulumi.Input[_builtins.str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
-        :param pulumi.Input[_builtins.str] slo_id: ID of the SLO that this correction will be applied to.
+        :param pulumi.Input[_builtins.str] slo_id: ID of the single SLO that this correction will be applied to.
+        :param pulumi.Input[_builtins.str] slo_query: Query that matches the SLOs this correction will be applied to.
         :param pulumi.Input[_builtins.int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
@@ -408,6 +450,13 @@ class SloCorrection(pulumi.CustomResource):
             duration=3600,
             slo_id=example_slo.id,
             timezone="UTC")
+        example_slo_correction_with_query = datadog.SloCorrection("example_slo_correction_with_query",
+            category="Scheduled Maintenance",
+            description="correction example with query",
+            start=1735707000,
+            end=1735718600,
+            slo_query="env:prod service:checkout",
+            timezone="UTC")
         ```
 
         ## Import
@@ -440,6 +489,7 @@ class SloCorrection(pulumi.CustomResource):
                  end: pulumi.Input[Optional[_builtins.int]] = None,
                  rrule: pulumi.Input[Optional[_builtins.str]] = None,
                  slo_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 slo_query: pulumi.Input[Optional[_builtins.str]] = None,
                  start: pulumi.Input[Optional[_builtins.int]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -458,9 +508,8 @@ class SloCorrection(pulumi.CustomResource):
             __props__.__dict__["duration"] = duration
             __props__.__dict__["end"] = end
             __props__.__dict__["rrule"] = rrule
-            if slo_id is None and not opts.urn:
-                raise TypeError("Missing required property 'slo_id'")
             __props__.__dict__["slo_id"] = slo_id
+            __props__.__dict__["slo_query"] = slo_query
             if start is None and not opts.urn:
                 raise TypeError("Missing required property 'start'")
             __props__.__dict__["start"] = start
@@ -481,6 +530,7 @@ class SloCorrection(pulumi.CustomResource):
             end: pulumi.Input[Optional[_builtins.int]] = None,
             rrule: pulumi.Input[Optional[_builtins.str]] = None,
             slo_id: pulumi.Input[Optional[_builtins.str]] = None,
+            slo_query: pulumi.Input[Optional[_builtins.str]] = None,
             start: pulumi.Input[Optional[_builtins.int]] = None,
             timezone: pulumi.Input[Optional[_builtins.str]] = None) -> 'SloCorrection':
         """
@@ -495,7 +545,8 @@ class SloCorrection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] duration: Length of time in seconds for a specified `rrule` recurring SLO correction (required if specifying `rrule`)
         :param pulumi.Input[_builtins.int] end: Ending time of the correction in epoch seconds. Required for one time corrections, but optional if `rrule` is specified
         :param pulumi.Input[_builtins.str] rrule: Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
-        :param pulumi.Input[_builtins.str] slo_id: ID of the SLO that this correction will be applied to.
+        :param pulumi.Input[_builtins.str] slo_id: ID of the single SLO that this correction will be applied to.
+        :param pulumi.Input[_builtins.str] slo_query: Query that matches the SLOs this correction will be applied to.
         :param pulumi.Input[_builtins.int] start: Starting time of the correction in epoch seconds.
         :param pulumi.Input[_builtins.str] timezone: The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
         """
@@ -509,6 +560,7 @@ class SloCorrection(pulumi.CustomResource):
         __props__.__dict__["end"] = end
         __props__.__dict__["rrule"] = rrule
         __props__.__dict__["slo_id"] = slo_id
+        __props__.__dict__["slo_query"] = slo_query
         __props__.__dict__["start"] = start
         __props__.__dict__["timezone"] = timezone
         return SloCorrection(resource_name, opts=opts, __props__=__props__)
@@ -555,11 +607,19 @@ class SloCorrection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="sloId")
-    def slo_id(self) -> pulumi.Output[_builtins.str]:
+    def slo_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ID of the SLO that this correction will be applied to.
+        ID of the single SLO that this correction will be applied to.
         """
         return pulumi.get(self, "slo_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sloQuery")
+    def slo_query(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Query that matches the SLOs this correction will be applied to.
+        """
+        return pulumi.get(self, "slo_query")
 
     @_builtins.property
     @pulumi.getter

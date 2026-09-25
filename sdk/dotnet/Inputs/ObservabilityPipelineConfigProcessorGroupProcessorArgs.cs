@@ -88,7 +88,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs>? GenerateDatadogMetrics { get; set; }
 
         /// <summary>
-        /// The `GenerateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+        /// The `GenerateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `Inputs` reference this processor with the `&lt;processor-id&gt;.metrics` suffix to route the generated metrics. All destination types normally supported for `Metrics` pipelines are also supported as metrics destinations in `Logs` pipelines.
         /// </summary>
         [Input("generateMetrics")]
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs>? GenerateMetrics { get; set; }

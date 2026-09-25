@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSplunkTcpTls;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,6 +19,11 @@ public final class ObservabilityPipelineConfigSourceSplunkTcp {
      */
     private @Nullable String addressKey;
     /**
+     * @return Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+     * 
+     */
+    private @Nullable Integer maxConnectionDurationSecs;
+    /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      * 
      */
@@ -30,6 +36,13 @@ public final class ObservabilityPipelineConfigSourceSplunkTcp {
      */
     public Optional<String> addressKey() {
         return Optional.ofNullable(this.addressKey);
+    }
+    /**
+     * @return Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+     * 
+     */
+    public Optional<Integer> maxConnectionDurationSecs() {
+        return Optional.ofNullable(this.maxConnectionDurationSecs);
     }
     /**
      * @return Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
@@ -49,11 +62,13 @@ public final class ObservabilityPipelineConfigSourceSplunkTcp {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String addressKey;
+        private @Nullable Integer maxConnectionDurationSecs;
         private @Nullable ObservabilityPipelineConfigSourceSplunkTcpTls tls;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigSourceSplunkTcp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressKey = defaults.addressKey;
+    	      this.maxConnectionDurationSecs = defaults.maxConnectionDurationSecs;
     	      this.tls = defaults.tls;
         }
 
@@ -61,6 +76,12 @@ public final class ObservabilityPipelineConfigSourceSplunkTcp {
         public Builder addressKey(@Nullable String addressKey) {
 
             this.addressKey = addressKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder maxConnectionDurationSecs(@Nullable Integer maxConnectionDurationSecs) {
+
+            this.maxConnectionDurationSecs = maxConnectionDurationSecs;
             return this;
         }
         @CustomType.Setter
@@ -72,6 +93,7 @@ public final class ObservabilityPipelineConfigSourceSplunkTcp {
         public ObservabilityPipelineConfigSourceSplunkTcp build() {
             final var _resultValue = new ObservabilityPipelineConfigSourceSplunkTcp();
             _resultValue.addressKey = addressKey;
+            _resultValue.maxConnectionDurationSecs = maxConnectionDurationSecs;
             _resultValue.tls = tls;
             return _resultValue;
         }

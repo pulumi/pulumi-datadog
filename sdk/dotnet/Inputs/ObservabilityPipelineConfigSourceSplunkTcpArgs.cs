@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? AddressKey { get; set; }
 
         /// <summary>
+        /// Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+        /// </summary>
+        [Input("maxConnectionDurationSecs")]
+        public Input<int>? MaxConnectionDurationSecs { get; set; }
+
+        /// <summary>
         /// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
         /// </summary>
         [Input("tls")]

@@ -11,6 +11,7 @@ import com.pulumi.datadog.outputs.PowerpackV2WidgetChangeDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetCheckStatusDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetCohortDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetDistributionDefinition;
+import com.pulumi.datadog.outputs.PowerpackV2WidgetEmbeddedAppDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetEventStreamDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetEventTimelineDefinition;
 import com.pulumi.datadog.outputs.PowerpackV2WidgetFreeTextDefinition;
@@ -85,6 +86,11 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      * 
      */
     private @Nullable PowerpackV2WidgetDistributionDefinition distributionDefinition;
+    /**
+     * @return The definition for an App Builder embedded app widget.
+     * 
+     */
+    private @Nullable PowerpackV2WidgetEmbeddedAppDefinition embeddedAppDefinition;
     /**
      * @return The definition for a Event Stream widget.
      * 
@@ -300,6 +306,13 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
      */
     public Optional<PowerpackV2WidgetDistributionDefinition> distributionDefinition() {
         return Optional.ofNullable(this.distributionDefinition);
+    }
+    /**
+     * @return The definition for an App Builder embedded app widget.
+     * 
+     */
+    public Optional<PowerpackV2WidgetEmbeddedAppDefinition> embeddedAppDefinition() {
+        return Optional.ofNullable(this.embeddedAppDefinition);
     }
     /**
      * @return The definition for a Event Stream widget.
@@ -549,6 +562,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
         private @Nullable PowerpackV2WidgetCheckStatusDefinition checkStatusDefinition;
         private @Nullable PowerpackV2WidgetCohortDefinition cohortDefinition;
         private @Nullable PowerpackV2WidgetDistributionDefinition distributionDefinition;
+        private @Nullable PowerpackV2WidgetEmbeddedAppDefinition embeddedAppDefinition;
         private @Nullable PowerpackV2WidgetEventStreamDefinition eventStreamDefinition;
         private @Nullable PowerpackV2WidgetEventTimelineDefinition eventTimelineDefinition;
         private @Nullable PowerpackV2WidgetFreeTextDefinition freeTextDefinition;
@@ -592,6 +606,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
     	      this.checkStatusDefinition = defaults.checkStatusDefinition;
     	      this.cohortDefinition = defaults.cohortDefinition;
     	      this.distributionDefinition = defaults.distributionDefinition;
+    	      this.embeddedAppDefinition = defaults.embeddedAppDefinition;
     	      this.eventStreamDefinition = defaults.eventStreamDefinition;
     	      this.eventTimelineDefinition = defaults.eventTimelineDefinition;
     	      this.freeTextDefinition = defaults.freeTextDefinition;
@@ -667,6 +682,12 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
         public Builder distributionDefinition(@Nullable PowerpackV2WidgetDistributionDefinition distributionDefinition) {
 
             this.distributionDefinition = distributionDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder embeddedAppDefinition(@Nullable PowerpackV2WidgetEmbeddedAppDefinition embeddedAppDefinition) {
+
+            this.embeddedAppDefinition = embeddedAppDefinition;
             return this;
         }
         @CustomType.Setter
@@ -876,6 +897,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidget {
             _resultValue.checkStatusDefinition = checkStatusDefinition;
             _resultValue.cohortDefinition = cohortDefinition;
             _resultValue.distributionDefinition = distributionDefinition;
+            _resultValue.embeddedAppDefinition = embeddedAppDefinition;
             _resultValue.eventStreamDefinition = eventStreamDefinition;
             _resultValue.eventTimelineDefinition = eventTimelineDefinition;
             _resultValue.freeTextDefinition = freeTextDefinition;

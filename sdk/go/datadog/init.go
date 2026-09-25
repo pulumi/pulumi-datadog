@@ -99,6 +99,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Downtime{}
 	case "datadog:index/downtimeSchedule:DowntimeSchedule":
 		r = &DowntimeSchedule{}
+	case "datadog:index/fleetSchedule:FleetSchedule":
+		r = &FleetSchedule{}
 	case "datadog:index/gcpUcConfig:GcpUcConfig":
 		r = &GcpUcConfig{}
 	case "datadog:index/governanceControl:GovernanceControl":
@@ -201,14 +203,24 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SamlIdpMetadata{}
 	case "datadog:index/secureEmbedDashboard:SecureEmbedDashboard":
 		r = &SecureEmbedDashboard{}
+	case "datadog:index/securityFindingsDefaultInboxRule:SecurityFindingsDefaultInboxRule":
+		r = &SecurityFindingsDefaultInboxRule{}
 	case "datadog:index/securityFindingsDueDateRule:SecurityFindingsDueDateRule":
 		r = &SecurityFindingsDueDateRule{}
 	case "datadog:index/securityFindingsDueDateRulesOrder:SecurityFindingsDueDateRulesOrder":
 		r = &SecurityFindingsDueDateRulesOrder{}
+	case "datadog:index/securityFindingsInboxRule:SecurityFindingsInboxRule":
+		r = &SecurityFindingsInboxRule{}
+	case "datadog:index/securityFindingsInboxRulesOrder:SecurityFindingsInboxRulesOrder":
+		r = &SecurityFindingsInboxRulesOrder{}
 	case "datadog:index/securityFindingsMuteRule:SecurityFindingsMuteRule":
 		r = &SecurityFindingsMuteRule{}
 	case "datadog:index/securityFindingsMuteRulesOrder:SecurityFindingsMuteRulesOrder":
 		r = &SecurityFindingsMuteRulesOrder{}
+	case "datadog:index/securityFindingsSeverityModifierRule:SecurityFindingsSeverityModifierRule":
+		r = &SecurityFindingsSeverityModifierRule{}
+	case "datadog:index/securityFindingsSeverityModifierRulesOrder:SecurityFindingsSeverityModifierRulesOrder":
+		r = &SecurityFindingsSeverityModifierRulesOrder{}
 	case "datadog:index/securityFindingsTicketCreationRule:SecurityFindingsTicketCreationRule":
 		r = &SecurityFindingsTicketCreationRule{}
 	case "datadog:index/securityFindingsTicketCreationRulesOrder:SecurityFindingsTicketCreationRulesOrder":
@@ -535,6 +547,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/fleetSchedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/gcpUcConfig",
 		&module{version},
 	)
@@ -790,6 +807,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/securityFindingsDefaultInboxRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/securityFindingsDueDateRule",
 		&module{version},
 	)
@@ -800,12 +822,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/securityFindingsInboxRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityFindingsInboxRulesOrder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/securityFindingsMuteRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/securityFindingsMuteRulesOrder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityFindingsSeverityModifierRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/securityFindingsSeverityModifierRulesOrder",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

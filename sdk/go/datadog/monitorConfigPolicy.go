@@ -42,6 +42,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = datadog.NewMonitorConfigPolicy(ctx, "downtime_example", &datadog.MonitorConfigPolicyArgs{
+//				PolicyType: pulumi.String("downtime"),
+//				DowntimePolicy: &datadog.MonitorConfigPolicyDowntimePolicyArgs{
+//					MaxDurationMs: pulumi.Int(3600000),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -50,7 +59,9 @@ import (
 type MonitorConfigPolicy struct {
 	pulumi.CustomResourceState
 
-	// The monitor config policy type Valid values are `tag`.
+	// Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+	DowntimePolicy MonitorConfigPolicyDowntimePolicyPtrOutput `pulumi:"downtimePolicy"`
+	// The monitor config policy type Valid values are `tag`, `downtime`.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
 	// Config for a tag policy. Only set if `policyType` is `tag`.
 	TagPolicy MonitorConfigPolicyTagPolicyPtrOutput `pulumi:"tagPolicy"`
@@ -89,14 +100,18 @@ func GetMonitorConfigPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MonitorConfigPolicy resources.
 type monitorConfigPolicyState struct {
-	// The monitor config policy type Valid values are `tag`.
+	// Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+	DowntimePolicy *MonitorConfigPolicyDowntimePolicy `pulumi:"downtimePolicy"`
+	// The monitor config policy type Valid values are `tag`, `downtime`.
 	PolicyType *string `pulumi:"policyType"`
 	// Config for a tag policy. Only set if `policyType` is `tag`.
 	TagPolicy *MonitorConfigPolicyTagPolicy `pulumi:"tagPolicy"`
 }
 
 type MonitorConfigPolicyState struct {
-	// The monitor config policy type Valid values are `tag`.
+	// Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+	DowntimePolicy MonitorConfigPolicyDowntimePolicyPtrInput
+	// The monitor config policy type Valid values are `tag`, `downtime`.
 	PolicyType pulumi.StringPtrInput
 	// Config for a tag policy. Only set if `policyType` is `tag`.
 	TagPolicy MonitorConfigPolicyTagPolicyPtrInput
@@ -107,7 +122,9 @@ func (MonitorConfigPolicyState) ElementType() reflect.Type {
 }
 
 type monitorConfigPolicyArgs struct {
-	// The monitor config policy type Valid values are `tag`.
+	// Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+	DowntimePolicy *MonitorConfigPolicyDowntimePolicy `pulumi:"downtimePolicy"`
+	// The monitor config policy type Valid values are `tag`, `downtime`.
 	PolicyType string `pulumi:"policyType"`
 	// Config for a tag policy. Only set if `policyType` is `tag`.
 	TagPolicy *MonitorConfigPolicyTagPolicy `pulumi:"tagPolicy"`
@@ -115,7 +132,9 @@ type monitorConfigPolicyArgs struct {
 
 // The set of arguments for constructing a MonitorConfigPolicy resource.
 type MonitorConfigPolicyArgs struct {
-	// The monitor config policy type Valid values are `tag`.
+	// Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+	DowntimePolicy MonitorConfigPolicyDowntimePolicyPtrInput
+	// The monitor config policy type Valid values are `tag`, `downtime`.
 	PolicyType pulumi.StringInput
 	// Config for a tag policy. Only set if `policyType` is `tag`.
 	TagPolicy MonitorConfigPolicyTagPolicyPtrInput
@@ -208,7 +227,12 @@ func (o MonitorConfigPolicyOutput) ToMonitorConfigPolicyOutputWithContext(ctx co
 	return o
 }
 
-// The monitor config policy type Valid values are `tag`.
+// Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+func (o MonitorConfigPolicyOutput) DowntimePolicy() MonitorConfigPolicyDowntimePolicyPtrOutput {
+	return o.ApplyT(func(v *MonitorConfigPolicy) MonitorConfigPolicyDowntimePolicyPtrOutput { return v.DowntimePolicy }).(MonitorConfigPolicyDowntimePolicyPtrOutput)
+}
+
+// The monitor config policy type Valid values are `tag`, `downtime`.
 func (o MonitorConfigPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorConfigPolicy) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
 }

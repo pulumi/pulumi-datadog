@@ -42,6 +42,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardV2WidgetDistributionDefinition? DistributionDefinition;
         /// <summary>
+        /// The definition for an App Builder embedded app widget.
+        /// </summary>
+        public readonly Outputs.DashboardV2WidgetEmbeddedAppDefinition? EmbeddedAppDefinition;
+        /// <summary>
         /// The definition for a Event Stream widget.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetEventStreamDefinition? EventStreamDefinition;
@@ -190,6 +194,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardV2WidgetDistributionDefinition? distributionDefinition,
 
+            Outputs.DashboardV2WidgetEmbeddedAppDefinition? embeddedAppDefinition,
+
             Outputs.DashboardV2WidgetEventStreamDefinition? eventStreamDefinition,
 
             Outputs.DashboardV2WidgetEventTimelineDefinition? eventTimelineDefinition,
@@ -263,6 +269,7 @@ namespace Pulumi.Datadog.Outputs
             CheckStatusDefinition = checkStatusDefinition;
             CohortDefinition = cohortDefinition;
             DistributionDefinition = distributionDefinition;
+            EmbeddedAppDefinition = embeddedAppDefinition;
             EventStreamDefinition = eventStreamDefinition;
             EventTimelineDefinition = eventTimelineDefinition;
             FreeTextDefinition = freeTextDefinition;

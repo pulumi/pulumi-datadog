@@ -46,6 +46,14 @@ import * as utilities from "./utilities";
  *     sloId: exampleSlo.id,
  *     timezone: "UTC",
  * });
+ * const exampleSloCorrectionWithQuery = new datadog.SloCorrection("example_slo_correction_with_query", {
+ *     category: "Scheduled Maintenance",
+ *     description: "correction example with query",
+ *     start: 1735707000,
+ *     end: 1735718600,
+ *     sloQuery: "env:prod service:checkout",
+ *     timezone: "UTC",
+ * });
  * ```
  *
  * ## Import
@@ -105,9 +113,13 @@ export class SloCorrection extends pulumi.CustomResource {
      */
     declare public readonly rrule: pulumi.Output<string | undefined>;
     /**
-     * ID of the SLO that this correction will be applied to.
+     * ID of the single SLO that this correction will be applied to.
      */
-    declare public readonly sloId: pulumi.Output<string>;
+    declare public readonly sloId: pulumi.Output<string | undefined>;
+    /**
+     * Query that matches the SLOs this correction will be applied to.
+     */
+    declare public readonly sloQuery: pulumi.Output<string | undefined>;
     /**
      * Starting time of the correction in epoch seconds.
      */
@@ -136,15 +148,13 @@ export class SloCorrection extends pulumi.CustomResource {
             resourceInputs["end"] = state?.end;
             resourceInputs["rrule"] = state?.rrule;
             resourceInputs["sloId"] = state?.sloId;
+            resourceInputs["sloQuery"] = state?.sloQuery;
             resourceInputs["start"] = state?.start;
             resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as SloCorrectionArgs | undefined;
             if (args?.category === undefined && !opts.urn) {
                 throw new Error("Missing required property 'category'");
-            }
-            if (args?.sloId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sloId'");
             }
             if (args?.start === undefined && !opts.urn) {
                 throw new Error("Missing required property 'start'");
@@ -155,6 +165,7 @@ export class SloCorrection extends pulumi.CustomResource {
             resourceInputs["end"] = args?.end;
             resourceInputs["rrule"] = args?.rrule;
             resourceInputs["sloId"] = args?.sloId;
+            resourceInputs["sloQuery"] = args?.sloQuery;
             resourceInputs["start"] = args?.start;
             resourceInputs["timezone"] = args?.timezone;
         }
@@ -188,9 +199,13 @@ export interface SloCorrectionState {
      */
     rrule?: pulumi.Input<string | undefined>;
     /**
-     * ID of the SLO that this correction will be applied to.
+     * ID of the single SLO that this correction will be applied to.
      */
     sloId?: pulumi.Input<string | undefined>;
+    /**
+     * Query that matches the SLOs this correction will be applied to.
+     */
+    sloQuery?: pulumi.Input<string | undefined>;
     /**
      * Starting time of the correction in epoch seconds.
      */
@@ -226,9 +241,13 @@ export interface SloCorrectionArgs {
      */
     rrule?: pulumi.Input<string | undefined>;
     /**
-     * ID of the SLO that this correction will be applied to.
+     * ID of the single SLO that this correction will be applied to.
      */
-    sloId: pulumi.Input<string>;
+    sloId?: pulumi.Input<string | undefined>;
+    /**
+     * Query that matches the SLOs this correction will be applied to.
+     */
+    sloQuery?: pulumi.Input<string | undefined>;
     /**
      * Starting time of the correction in epoch seconds.
      */

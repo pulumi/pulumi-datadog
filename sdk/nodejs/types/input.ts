@@ -1397,6 +1397,10 @@ export interface DashboardV2Widget {
      */
     distributionDefinition?: pulumi.Input<inputs.DashboardV2WidgetDistributionDefinition | undefined>;
     /**
+     * The definition for an App Builder embedded app widget.
+     */
+    embeddedAppDefinition?: pulumi.Input<inputs.DashboardV2WidgetEmbeddedAppDefinition | undefined>;
+    /**
      * The definition for a Event Stream widget.
      */
     eventStreamDefinition?: pulumi.Input<inputs.DashboardV2WidgetEventStreamDefinition | undefined>;
@@ -4447,6 +4451,116 @@ export interface DashboardV2WidgetDistributionDefinitionYaxis {
     scale?: pulumi.Input<string | undefined>;
 }
 
+export interface DashboardV2WidgetEmbeddedAppDefinition {
+    /**
+     * UUID of the App Builder app to embed. Exactly one of `appId` or `templateId` must be provided.
+     */
+    appId?: pulumi.Input<string | undefined>;
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.DashboardV2WidgetEmbeddedAppDefinitionCustomLink>[] | undefined>;
+    /**
+     * The description of the widget.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean | undefined>;
+    /**
+     * A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+     */
+    inputs?: pulumi.Input<pulumi.Input<inputs.DashboardV2WidgetEmbeddedAppDefinitionInput>[] | undefined>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string | undefined>;
+    /**
+     * ID of the built-in app template to embed. Exactly one of `appId` or `templateId` must be provided.
+     */
+    templateId?: pulumi.Input<string | undefined>;
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     */
+    time?: pulumi.Input<inputs.DashboardV2WidgetEmbeddedAppDefinitionTime | undefined>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string | undefined>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string | undefined>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string | undefined>;
+}
+
+export interface DashboardV2WidgetEmbeddedAppDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean | undefined>;
+    /**
+     * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+     */
+    label?: pulumi.Input<string | undefined>;
+    /**
+     * The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+     */
+    link?: pulumi.Input<string | undefined>;
+    /**
+     * The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+     */
+    overrideLabel?: pulumi.Input<string | undefined>;
+}
+
+export interface DashboardV2WidgetEmbeddedAppDefinitionInput {
+    /**
+     * Name of the app input.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface DashboardV2WidgetEmbeddedAppDefinitionTime {
+    /**
+     * A fixed time range with explicit start and end times.
+     */
+    fixed?: pulumi.Input<inputs.DashboardV2WidgetEmbeddedAppDefinitionTimeFixed | undefined>;
+    /**
+     * An arbitrary live time span, such as 17 minutes or 6 hours.
+     */
+    live?: pulumi.Input<inputs.DashboardV2WidgetEmbeddedAppDefinitionTimeLive | undefined>;
+}
+
+export interface DashboardV2WidgetEmbeddedAppDefinitionTimeFixed {
+    /**
+     * Start time in seconds since epoch.
+     */
+    from: pulumi.Input<number>;
+    /**
+     * End time in seconds since epoch.
+     */
+    to: pulumi.Input<number>;
+}
+
+export interface DashboardV2WidgetEmbeddedAppDefinitionTimeLive {
+    /**
+     * Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+     */
+    unit: pulumi.Input<string>;
+    /**
+     * Value of the time span.
+     */
+    value: pulumi.Input<number>;
+}
+
 export interface DashboardV2WidgetEventStreamDefinition {
     /**
      * The description of the widget.
@@ -5408,6 +5522,10 @@ export interface DashboardV2WidgetGroupDefinitionWidget {
      * The definition for a Distribution widget.
      */
     distributionDefinition?: pulumi.Input<inputs.DashboardV2WidgetDistributionDefinition | undefined>;
+    /**
+     * The definition for an App Builder embedded app widget.
+     */
+    embeddedAppDefinition?: pulumi.Input<inputs.DashboardV2WidgetEmbeddedAppDefinition | undefined>;
     /**
      * The definition for a Event Stream widget.
      */
@@ -28740,6 +28858,25 @@ export interface DowntimeScheduleRecurringScheduleRecurrence {
     start?: pulumi.Input<string | undefined>;
 }
 
+export interface FleetScheduleRule {
+    /**
+     * Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+     */
+    daysOfWeeks: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Duration of the maintenance window in minutes. Value must be at least 1.
+     */
+    maintenanceWindowDuration: pulumi.Input<number>;
+    /**
+     * Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+     */
+    startMaintenanceWindow: pulumi.Input<string>;
+    /**
+     * IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+     */
+    timezone: pulumi.Input<string>;
+}
+
 export interface GetActionConnectionAnthropic {
     /**
      * Configuration for Anthropic API key authentication
@@ -33323,6 +33460,13 @@ export interface MonitorAsset {
     url: pulumi.Input<string>;
 }
 
+export interface MonitorConfigPolicyDowntimePolicy {
+    /**
+     * The maximum allowed downtime duration, in milliseconds
+     */
+    maxDurationMs: pulumi.Input<number>;
+}
+
 export interface MonitorConfigPolicyTagPolicy {
     /**
      * The key of the tag
@@ -34574,6 +34718,10 @@ export interface ObservabilityPipelineConfigDestination {
      * The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
      */
     opentelemetry?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpentelemetry | undefined>;
+    /**
+     * The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+     */
+    prometheusRemoteWrite?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWrite | undefined>;
     /**
      * The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
      */
@@ -35960,7 +36108,7 @@ export interface ObservabilityPipelineConfigDestinationGoogleSecopBufferMemory {
 
 export interface ObservabilityPipelineConfigDestinationHttpClient {
     /**
-     * HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+     * HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
      */
     authStrategy?: pulumi.Input<string | undefined>;
     /**
@@ -35971,6 +36119,10 @@ export interface ObservabilityPipelineConfigDestinationHttpClient {
      * Compression configuration for HTTP requests.
      */
     compression?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationHttpClientCompression | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+     */
+    customKey?: pulumi.Input<string | undefined>;
     /**
      * Encoding format for events. Valid values are `json`.
      */
@@ -36488,6 +36640,105 @@ export interface ObservabilityPipelineConfigDestinationOpentelemetryTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationPrometheusRemoteWrite {
+    /**
+     * The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+     */
+    authStrategy?: pulumi.Input<string | undefined>;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer | undefined>;
+    /**
+     * The default namespace to prefix onto metric names that don't already have one.
+     */
+    defaultNamespace?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+     */
+    endpointUrlKey?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the password. Used when `authStrategy` is `basic`.
+     */
+    passwordKey?: pulumi.Input<string | undefined>;
+    /**
+     * The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+     */
+    tenantId?: pulumi.Input<string | undefined>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the bearer token. Used when `authStrategy` is `bearer`.
+     */
+    tokenKey?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the username. Used when `authStrategy` is `basic`.
+     */
+    usernameKey?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk | undefined>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number | undefined>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number | undefined>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number | undefined>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: pulumi.Input<string | undefined>;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: pulumi.Input<string | undefined>;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigDestinationRsyslog {
@@ -37130,10 +37381,12 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessor {
     filter?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorFilter | undefined>;
     /**
      * The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+     *
+     * @deprecated This processor is deprecated, use `generateMetrics` instead.
      */
     generateDatadogMetrics?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics | undefined>;
     /**
-     * The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
+     * The `generateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
      */
     generateMetrics?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics | undefined>;
     /**
@@ -37823,7 +38076,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorQuota {
      */
     name: pulumi.Input<string>;
     /**
-     * The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     * The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`. When `overflowRouting` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazonS3Generic`, `amazonS3`, `googleCloudStorage`, and `azureStorage`.
      */
     overflowAction?: pulumi.Input<string | undefined>;
     /**
@@ -38254,6 +38507,10 @@ export interface ObservabilityPipelineConfigSource {
      * The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
      */
     opentelemetry?: pulumi.Input<inputs.ObservabilityPipelineConfigSourceOpentelemetry | undefined>;
+    /**
+     * The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+     */
+    prometheusRemoteWrite?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcePrometheusRemoteWrite | undefined>;
     /**
      * The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
      */
@@ -38842,6 +39099,86 @@ export interface ObservabilityPipelineConfigSourceOpentelemetryTls {
     verifyCertificate?: pulumi.Input<boolean | undefined>;
 }
 
+export interface ObservabilityPipelineConfigSourcePrometheusRemoteWrite {
+    /**
+     * Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+     */
+    addressKey?: pulumi.Input<string | undefined>;
+    /**
+     * HTTP authentication method. Valid values are `none`, `plain`.
+     */
+    authStrategy: pulumi.Input<string>;
+    /**
+     * Name of the environment variable or secret that holds the password. Used when `authStrategy` is `plain`.
+     */
+    passwordKey?: pulumi.Input<string | undefined>;
+    /**
+     * The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+     */
+    tls?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the username. Used when `authStrategy` is `plain`.
+     */
+    usernameKey?: pulumi.Input<string | undefined>;
+    /**
+     * A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+     */
+    validTokens?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken>[] | undefined>;
+}
+
+export interface ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+     */
+    caFile?: pulumi.Input<string | undefined>;
+    /**
+     * Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+     */
+    crtFile: pulumi.Input<string>;
+    /**
+     * Path to the private key file associated with the TLS server certificate.
+     */
+    keyFile?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: pulumi.Input<string | undefined>;
+    /**
+     * When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+     */
+    verifyCertificate?: pulumi.Input<boolean | undefined>;
+}
+
+export interface ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken {
+    /**
+     * Whether this token is currently accepted. Defaults to `true`.
+     */
+    enabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Specifies where the worker extracts the token from the incoming HTTP request. Set either `location` for a built-in source or `header` to read it from a request header.
+     */
+    pathToToken?: pulumi.Input<inputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the expected token value.
+     */
+    tokenKey: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken {
+    /**
+     * The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+     */
+    header?: pulumi.Input<string | undefined>;
+    /**
+     * Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+     */
+    location?: pulumi.Input<string | undefined>;
+}
+
 export interface ObservabilityPipelineConfigSourceRsyslog {
     /**
      * Name of the environment variable or secret that holds the listen address.
@@ -39013,6 +39350,10 @@ export interface ObservabilityPipelineConfigSourceSplunkTcp {
      * Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
      */
     addressKey?: pulumi.Input<string | undefined>;
+    /**
+     * Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+     */
+    maxConnectionDurationSecs?: pulumi.Input<number | undefined>;
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      */
@@ -39584,6 +39925,10 @@ export interface PowerpackV2Widget {
      * The definition for a Distribution widget.
      */
     distributionDefinition?: pulumi.Input<inputs.PowerpackV2WidgetDistributionDefinition | undefined>;
+    /**
+     * The definition for an App Builder embedded app widget.
+     */
+    embeddedAppDefinition?: pulumi.Input<inputs.PowerpackV2WidgetEmbeddedAppDefinition | undefined>;
     /**
      * The definition for a Event Stream widget.
      */
@@ -42627,6 +42972,116 @@ export interface PowerpackV2WidgetDistributionDefinitionYaxis {
     scale?: pulumi.Input<string | undefined>;
 }
 
+export interface PowerpackV2WidgetEmbeddedAppDefinition {
+    /**
+     * UUID of the App Builder app to embed. Exactly one of `appId` or `templateId` must be provided.
+     */
+    appId?: pulumi.Input<string | undefined>;
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: pulumi.Input<pulumi.Input<inputs.PowerpackV2WidgetEmbeddedAppDefinitionCustomLink>[] | undefined>;
+    /**
+     * The description of the widget.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData?: pulumi.Input<boolean | undefined>;
+    /**
+     * A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+     */
+    inputs?: pulumi.Input<pulumi.Input<inputs.PowerpackV2WidgetEmbeddedAppDefinitionInput>[] | undefined>;
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     */
+    liveSpan?: pulumi.Input<string | undefined>;
+    /**
+     * ID of the built-in app template to embed. Exactly one of `appId` or `templateId` must be provided.
+     */
+    templateId?: pulumi.Input<string | undefined>;
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     */
+    time?: pulumi.Input<inputs.PowerpackV2WidgetEmbeddedAppDefinitionTime | undefined>;
+    /**
+     * The title of the widget.
+     */
+    title?: pulumi.Input<string | undefined>;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: pulumi.Input<string | undefined>;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: pulumi.Input<string | undefined>;
+}
+
+export interface PowerpackV2WidgetEmbeddedAppDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: pulumi.Input<boolean | undefined>;
+    /**
+     * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+     */
+    label?: pulumi.Input<string | undefined>;
+    /**
+     * The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+     */
+    link?: pulumi.Input<string | undefined>;
+    /**
+     * The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+     */
+    overrideLabel?: pulumi.Input<string | undefined>;
+}
+
+export interface PowerpackV2WidgetEmbeddedAppDefinitionInput {
+    /**
+     * Name of the app input.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface PowerpackV2WidgetEmbeddedAppDefinitionTime {
+    /**
+     * A fixed time range with explicit start and end times.
+     */
+    fixed?: pulumi.Input<inputs.PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed | undefined>;
+    /**
+     * An arbitrary live time span, such as 17 minutes or 6 hours.
+     */
+    live?: pulumi.Input<inputs.PowerpackV2WidgetEmbeddedAppDefinitionTimeLive | undefined>;
+}
+
+export interface PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed {
+    /**
+     * Start time in seconds since epoch.
+     */
+    from: pulumi.Input<number>;
+    /**
+     * End time in seconds since epoch.
+     */
+    to: pulumi.Input<number>;
+}
+
+export interface PowerpackV2WidgetEmbeddedAppDefinitionTimeLive {
+    /**
+     * Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+     */
+    unit: pulumi.Input<string>;
+    /**
+     * Value of the time span.
+     */
+    value: pulumi.Input<number>;
+}
+
 export interface PowerpackV2WidgetEventStreamDefinition {
     /**
      * The description of the widget.
@@ -43588,6 +44043,10 @@ export interface PowerpackV2WidgetGroupDefinitionWidget {
      * The definition for a Distribution widget.
      */
     distributionDefinition?: pulumi.Input<inputs.PowerpackV2WidgetDistributionDefinition | undefined>;
+    /**
+     * The definition for an App Builder embedded app widget.
+     */
+    embeddedAppDefinition?: pulumi.Input<inputs.PowerpackV2WidgetEmbeddedAppDefinition | undefined>;
     /**
      * The definition for a Event Stream widget.
      */
@@ -70142,6 +70601,24 @@ export interface SecureEmbedDashboardSelectableTemplateVar {
     visibleTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
+export interface SecurityFindingsDefaultInboxRuleAction {
+    /**
+     * An optional description providing more context for the rule.
+     */
+    description?: pulumi.Input<string | undefined>;
+}
+
+export interface SecurityFindingsDefaultInboxRuleRule {
+    /**
+     * The list of security finding types that the automation rule applies to.
+     */
+    findingTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+     */
+    query?: pulumi.Input<string | undefined>;
+}
+
 export interface SecurityFindingsDueDateRuleAction {
     /**
      * A list of severity-to-due-date mappings. Each severity may appear at most once.
@@ -70179,6 +70656,24 @@ export interface SecurityFindingsDueDateRuleRule {
     query?: pulumi.Input<string | undefined>;
 }
 
+export interface SecurityFindingsInboxRuleAction {
+    /**
+     * An optional description providing more context for the rule.
+     */
+    description?: pulumi.Input<string | undefined>;
+}
+
+export interface SecurityFindingsInboxRuleRule {
+    /**
+     * The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+     */
+    findingTypes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+     */
+    query?: pulumi.Input<string | undefined>;
+}
+
 export interface SecurityFindingsMuteRuleAction {
     /**
      * The Unix timestamp in milliseconds at which the mute expires. If omitted, the mute does not expire.
@@ -70205,29 +70700,73 @@ export interface SecurityFindingsMuteRuleRule {
     query?: pulumi.Input<string | undefined>;
 }
 
+export interface SecurityFindingsSeverityModifierRuleAction {
+    /**
+     * Sets matched findings to a fixed severity.
+     */
+    set?: pulumi.Input<inputs.SecurityFindingsSeverityModifierRuleActionSet | undefined>;
+    /**
+     * Shifts matched findings up or down by one severity rank.
+     */
+    shift?: pulumi.Input<inputs.SecurityFindingsSeverityModifierRuleActionShift | undefined>;
+}
+
+export interface SecurityFindingsSeverityModifierRuleActionSet {
+    /**
+     * An optional free-form explanation for the severity change.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * The severity to assign to matched findings. `infoNone` is not supported for the `iacMisconfiguration`, `runtimeCodeVulnerability`, `secret`, or `staticCodeVulnerability` finding types. Valid values are `infoNone`, `low`, `medium`, `high`, `critical`.
+     */
+    severity: pulumi.Input<string>;
+}
+
+export interface SecurityFindingsSeverityModifierRuleActionShift {
+    /**
+     * An optional free-form explanation for the severity change.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * The direction in which to shift the severity of matched findings by one rank. Valid values are `upOne`, `downOne`.
+     */
+    severityDelta: pulumi.Input<string>;
+}
+
+export interface SecurityFindingsSeverityModifierRuleRule {
+    /**
+     * The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+     */
+    findingTypes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+     */
+    query?: pulumi.Input<string | undefined>;
+}
+
 export interface SecurityFindingsTicketCreationRuleAction {
     /**
      * The UUID of the default assignee for created tickets. Must be a valid UUID.
      */
     assigneeId?: pulumi.Input<string | undefined>;
     /**
-     * The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+     * The reason the rule was automatically disabled by the system due to a ticketing integration error.
      */
     autoDisabledReason?: pulumi.Input<string | undefined>;
     /**
-     * A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+     * A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linearProjectId` (string, the identifier of the Linear project the issue is created in) and `linearLabelIds` (array of strings, the identifiers of the Linear labels applied to the issue).
      */
     fields?: pulumi.Input<string | undefined>;
     /**
-     * The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+     * The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
      */
     maxTicketsPerDay: pulumi.Input<number>;
     /**
-     * The UUID of the Case Management project. Must be a valid UUID.
+     * The UUID of the case management project. Must be a valid UUID.
      */
     projectId: pulumi.Input<string>;
     /**
-     * The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`.
+     * The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`, `linear`.
      */
     target: pulumi.Input<string>;
 }
@@ -72988,6 +73527,17 @@ export interface TeamSyncSelectionStateExternalId {
      * The external identifier value from the source platform (e.g. a GitHub organization ID or team ID).
      */
     value: pulumi.Input<string>;
+}
+
+export interface WorkflowAutomationRunAs {
+    /**
+     * Service account identifier. Required when `type` is `serviceAccount` and omitted otherwise.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * Type of identity used to run the workflow. `owner` uses the workflow owner, `initiator` uses the user who starts the execution, and `serviceAccount` uses the account specified by `id`. Required when `runAs` is configured. Valid values are `owner`, `serviceAccount`, `initiator`.
+     */
+    type?: pulumi.Input<string | undefined>;
 }
 export namespace aws {
     export interface IntegrationAccountAuthConfig {

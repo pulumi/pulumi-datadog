@@ -74,6 +74,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = datadog.NewSloCorrection(ctx, "example_slo_correction_with_query", &datadog.SloCorrectionArgs{
+//				Category:    pulumi.String("Scheduled Maintenance"),
+//				Description: pulumi.String("correction example with query"),
+//				Start:       pulumi.Int(1735707000),
+//				End:         pulumi.Int(1735718600),
+//				SloQuery:    pulumi.String("env:prod service:checkout"),
+//				Timezone:    pulumi.String("UTC"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -100,8 +111,10 @@ type SloCorrection struct {
 	End pulumi.IntPtrOutput `pulumi:"end"`
 	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule pulumi.StringPtrOutput `pulumi:"rrule"`
-	// ID of the SLO that this correction will be applied to.
-	SloId pulumi.StringOutput `pulumi:"sloId"`
+	// ID of the single SLO that this correction will be applied to.
+	SloId pulumi.StringPtrOutput `pulumi:"sloId"`
+	// Query that matches the SLOs this correction will be applied to.
+	SloQuery pulumi.StringPtrOutput `pulumi:"sloQuery"`
 	// Starting time of the correction in epoch seconds.
 	Start pulumi.IntOutput `pulumi:"start"`
 	// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
@@ -117,9 +130,6 @@ func NewSloCorrection(ctx *pulumi.Context,
 
 	if args.Category == nil {
 		return nil, errors.New("invalid value for required argument 'Category'")
-	}
-	if args.SloId == nil {
-		return nil, errors.New("invalid value for required argument 'SloId'")
 	}
 	if args.Start == nil {
 		return nil, errors.New("invalid value for required argument 'Start'")
@@ -157,8 +167,10 @@ type sloCorrectionState struct {
 	End *int `pulumi:"end"`
 	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule *string `pulumi:"rrule"`
-	// ID of the SLO that this correction will be applied to.
+	// ID of the single SLO that this correction will be applied to.
 	SloId *string `pulumi:"sloId"`
+	// Query that matches the SLOs this correction will be applied to.
+	SloQuery *string `pulumi:"sloQuery"`
 	// Starting time of the correction in epoch seconds.
 	Start *int `pulumi:"start"`
 	// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
@@ -176,8 +188,10 @@ type SloCorrectionState struct {
 	End pulumi.IntPtrInput
 	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule pulumi.StringPtrInput
-	// ID of the SLO that this correction will be applied to.
+	// ID of the single SLO that this correction will be applied to.
 	SloId pulumi.StringPtrInput
+	// Query that matches the SLOs this correction will be applied to.
+	SloQuery pulumi.StringPtrInput
 	// Starting time of the correction in epoch seconds.
 	Start pulumi.IntPtrInput
 	// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
@@ -199,8 +213,10 @@ type sloCorrectionArgs struct {
 	End *int `pulumi:"end"`
 	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule *string `pulumi:"rrule"`
-	// ID of the SLO that this correction will be applied to.
-	SloId string `pulumi:"sloId"`
+	// ID of the single SLO that this correction will be applied to.
+	SloId *string `pulumi:"sloId"`
+	// Query that matches the SLOs this correction will be applied to.
+	SloQuery *string `pulumi:"sloQuery"`
 	// Starting time of the correction in epoch seconds.
 	Start int `pulumi:"start"`
 	// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
@@ -219,8 +235,10 @@ type SloCorrectionArgs struct {
 	End pulumi.IntPtrInput
 	// Recurrence rules as defined in the iCalendar RFC 5545. Supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
 	Rrule pulumi.StringPtrInput
-	// ID of the SLO that this correction will be applied to.
-	SloId pulumi.StringInput
+	// ID of the single SLO that this correction will be applied to.
+	SloId pulumi.StringPtrInput
+	// Query that matches the SLOs this correction will be applied to.
+	SloQuery pulumi.StringPtrInput
 	// Starting time of the correction in epoch seconds.
 	Start pulumi.IntInput
 	// The timezone to display in the UI for the correction times. Prefers IANA timezone name format (for example, 'America/Los_Angeles', 'Europe/Paris'), but some common standard abbreviations are supported. Defaults to 'UTC'.
@@ -339,9 +357,14 @@ func (o SloCorrectionOutput) Rrule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SloCorrection) pulumi.StringPtrOutput { return v.Rrule }).(pulumi.StringPtrOutput)
 }
 
-// ID of the SLO that this correction will be applied to.
-func (o SloCorrectionOutput) SloId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SloCorrection) pulumi.StringOutput { return v.SloId }).(pulumi.StringOutput)
+// ID of the single SLO that this correction will be applied to.
+func (o SloCorrectionOutput) SloId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SloCorrection) pulumi.StringPtrOutput { return v.SloId }).(pulumi.StringPtrOutput)
+}
+
+// Query that matches the SLOs this correction will be applied to.
+func (o SloCorrectionOutput) SloQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SloCorrection) pulumi.StringPtrOutput { return v.SloQuery }).(pulumi.StringPtrOutput)
 }
 
 // Starting time of the correction in epoch seconds.

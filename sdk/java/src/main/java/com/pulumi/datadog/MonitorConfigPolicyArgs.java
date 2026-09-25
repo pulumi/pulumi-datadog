@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.MonitorConfigPolicyDowntimePolicyArgs;
 import com.pulumi.datadog.inputs.MonitorConfigPolicyTagPolicyArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -18,14 +19,29 @@ public final class MonitorConfigPolicyArgs extends com.pulumi.resources.Resource
     public static final MonitorConfigPolicyArgs Empty = new MonitorConfigPolicyArgs();
 
     /**
-     * The monitor config policy type Valid values are `tag`.
+     * Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+     * 
+     */
+    @Import(name="downtimePolicy")
+    private @Nullable Output<MonitorConfigPolicyDowntimePolicyArgs> downtimePolicy;
+
+    /**
+     * @return Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+     * 
+     */
+    public Optional<Output<MonitorConfigPolicyDowntimePolicyArgs>> downtimePolicy() {
+        return Optional.ofNullable(this.downtimePolicy);
+    }
+
+    /**
+     * The monitor config policy type Valid values are `tag`, `downtime`.
      * 
      */
     @Import(name="policyType", required=true)
     private Output<String> policyType;
 
     /**
-     * @return The monitor config policy type Valid values are `tag`.
+     * @return The monitor config policy type Valid values are `tag`, `downtime`.
      * 
      */
     public Output<String> policyType() {
@@ -50,6 +66,7 @@ public final class MonitorConfigPolicyArgs extends com.pulumi.resources.Resource
     private MonitorConfigPolicyArgs() {}
 
     private MonitorConfigPolicyArgs(MonitorConfigPolicyArgs $) {
+        this.downtimePolicy = $.downtimePolicy;
         this.policyType = $.policyType;
         this.tagPolicy = $.tagPolicy;
     }
@@ -73,7 +90,28 @@ public final class MonitorConfigPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyType The monitor config policy type Valid values are `tag`.
+         * @param downtimePolicy Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder downtimePolicy(@Nullable Output<MonitorConfigPolicyDowntimePolicyArgs> downtimePolicy) {
+            $.downtimePolicy = downtimePolicy;
+            return this;
+        }
+
+        /**
+         * @param downtimePolicy Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder downtimePolicy(MonitorConfigPolicyDowntimePolicyArgs downtimePolicy) {
+            return downtimePolicy(Output.of(downtimePolicy));
+        }
+
+        /**
+         * @param policyType The monitor config policy type Valid values are `tag`, `downtime`.
          * 
          * @return builder
          * 
@@ -84,7 +122,7 @@ public final class MonitorConfigPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyType The monitor config policy type Valid values are `tag`.
+         * @param policyType The monitor config policy type Valid values are `tag`, `downtime`.
          * 
          * @return builder
          * 

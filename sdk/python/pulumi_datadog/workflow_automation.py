@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['WorkflowAutomationArgs', 'WorkflowAutomation']
 
@@ -24,6 +26,8 @@ class WorkflowAutomationArgs:
                  published: pulumi.Input[_builtins.bool],
                  spec_json: pulumi.Input[_builtins.str],
                  tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 run_as: pulumi.Input[Optional['WorkflowAutomationRunAsArgs']] = None,
+                 sensitive_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
                  webhook_secret: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkflowAutomation resource.
@@ -33,6 +37,8 @@ class WorkflowAutomationArgs:
         :param pulumi.Input[_builtins.bool] published: Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
         :param pulumi.Input[_builtins.str] spec_json: The spec defines what the workflow does.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tags of the workflow.
+        :param pulumi.Input['WorkflowAutomationRunAsArgs'] run_as: Identity used to run the workflow. When omitted, the server-managed value is preserved.
+        :param pulumi.Input[_builtins.bool] sensitive_privileges: Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
         :param pulumi.Input[_builtins.str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
         """
         pulumi.set(__self__, "description", description)
@@ -40,6 +46,10 @@ class WorkflowAutomationArgs:
         pulumi.set(__self__, "published", published)
         pulumi.set(__self__, "spec_json", spec_json)
         pulumi.set(__self__, "tags", tags)
+        if run_as is not None:
+            pulumi.set(__self__, "run_as", run_as)
+        if sensitive_privileges is not None:
+            pulumi.set(__self__, "sensitive_privileges", sensitive_privileges)
         if webhook_secret is not None:
             pulumi.set(__self__, "webhook_secret", webhook_secret)
 
@@ -104,6 +114,30 @@ class WorkflowAutomationArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="runAs")
+    def run_as(self) -> pulumi.Input[Optional['WorkflowAutomationRunAsArgs']]:
+        """
+        Identity used to run the workflow. When omitted, the server-managed value is preserved.
+        """
+        return pulumi.get(self, "run_as")
+
+    @run_as.setter
+    def run_as(self, value: pulumi.Input[Optional['WorkflowAutomationRunAsArgs']]):
+        pulumi.set(self, "run_as", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sensitivePrivileges")
+    def sensitive_privileges(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+        """
+        return pulumi.get(self, "sensitive_privileges")
+
+    @sensitive_privileges.setter
+    def sensitive_privileges(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "sensitive_privileges", value)
+
+    @_builtins.property
     @pulumi.getter(name="webhookSecret")
     def webhook_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -122,6 +156,8 @@ class _WorkflowAutomationState:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 run_as: pulumi.Input[Optional['WorkflowAutomationRunAsArgs']] = None,
+                 sensitive_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
                  spec_json: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  webhook_secret: pulumi.Input[Optional[_builtins.str]] = None):
@@ -131,6 +167,8 @@ class _WorkflowAutomationState:
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.str] name: Name of the workflow. String length must be at least 1.
         :param pulumi.Input[_builtins.bool] published: Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
+        :param pulumi.Input['WorkflowAutomationRunAsArgs'] run_as: Identity used to run the workflow. When omitted, the server-managed value is preserved.
+        :param pulumi.Input[_builtins.bool] sensitive_privileges: Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
         :param pulumi.Input[_builtins.str] spec_json: The spec defines what the workflow does.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tags of the workflow.
         :param pulumi.Input[_builtins.str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
@@ -141,6 +179,10 @@ class _WorkflowAutomationState:
             pulumi.set(__self__, "name", name)
         if published is not None:
             pulumi.set(__self__, "published", published)
+        if run_as is not None:
+            pulumi.set(__self__, "run_as", run_as)
+        if sensitive_privileges is not None:
+            pulumi.set(__self__, "sensitive_privileges", sensitive_privileges)
         if spec_json is not None:
             pulumi.set(__self__, "spec_json", spec_json)
         if tags is not None:
@@ -183,6 +225,30 @@ class _WorkflowAutomationState:
     @published.setter
     def published(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "published", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runAs")
+    def run_as(self) -> pulumi.Input[Optional['WorkflowAutomationRunAsArgs']]:
+        """
+        Identity used to run the workflow. When omitted, the server-managed value is preserved.
+        """
+        return pulumi.get(self, "run_as")
+
+    @run_as.setter
+    def run_as(self, value: pulumi.Input[Optional['WorkflowAutomationRunAsArgs']]):
+        pulumi.set(self, "run_as", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sensitivePrivileges")
+    def sensitive_privileges(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+        """
+        return pulumi.get(self, "sensitive_privileges")
+
+    @sensitive_privileges.setter
+    def sensitive_privileges(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "sensitive_privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="specJson")
@@ -230,6 +296,8 @@ class WorkflowAutomation(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 run_as: pulumi.Input[Optional[Union['WorkflowAutomationRunAsArgs', 'WorkflowAutomationRunAsArgsDict', 'outputs.WorkflowAutomationRunAs']]] = None,
+                 sensitive_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
                  spec_json: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  webhook_secret: pulumi.Input[Optional[_builtins.str]] = None,
@@ -253,6 +321,9 @@ class WorkflowAutomation(pulumi.CustomResource):
                 "team:bar",
             ],
             published=True,
+            run_as={
+                "type": "owner",
+            },
             spec_json=json.dumps({
                 "triggers": [{
                     "startStepNames": ["Send_Email"],
@@ -302,6 +373,8 @@ class WorkflowAutomation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.str] name: Name of the workflow. String length must be at least 1.
         :param pulumi.Input[_builtins.bool] published: Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
+        :param pulumi.Input[Union['WorkflowAutomationRunAsArgs', 'WorkflowAutomationRunAsArgsDict', 'outputs.WorkflowAutomationRunAs']] run_as: Identity used to run the workflow. When omitted, the server-managed value is preserved.
+        :param pulumi.Input[_builtins.bool] sensitive_privileges: Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
         :param pulumi.Input[_builtins.str] spec_json: The spec defines what the workflow does.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tags of the workflow.
         :param pulumi.Input[_builtins.str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
@@ -331,6 +404,9 @@ class WorkflowAutomation(pulumi.CustomResource):
                 "team:bar",
             ],
             published=True,
+            run_as={
+                "type": "owner",
+            },
             spec_json=json.dumps({
                 "triggers": [{
                     "startStepNames": ["Send_Email"],
@@ -393,6 +469,8 @@ class WorkflowAutomation(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  published: pulumi.Input[Optional[_builtins.bool]] = None,
+                 run_as: pulumi.Input[Optional[Union['WorkflowAutomationRunAsArgs', 'WorkflowAutomationRunAsArgsDict', 'outputs.WorkflowAutomationRunAs']]] = None,
+                 sensitive_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
                  spec_json: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  webhook_secret: pulumi.Input[Optional[_builtins.str]] = None,
@@ -414,6 +492,8 @@ class WorkflowAutomation(pulumi.CustomResource):
             if published is None and not opts.urn:
                 raise TypeError("Missing required property 'published'")
             __props__.__dict__["published"] = published
+            __props__.__dict__["run_as"] = run_as
+            __props__.__dict__["sensitive_privileges"] = sensitive_privileges
             if spec_json is None and not opts.urn:
                 raise TypeError("Missing required property 'spec_json'")
             __props__.__dict__["spec_json"] = spec_json
@@ -436,6 +516,8 @@ class WorkflowAutomation(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             published: pulumi.Input[Optional[_builtins.bool]] = None,
+            run_as: pulumi.Input[Optional[Union['WorkflowAutomationRunAsArgs', 'WorkflowAutomationRunAsArgsDict', 'outputs.WorkflowAutomationRunAs']]] = None,
+            sensitive_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
             spec_json: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             webhook_secret: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkflowAutomation':
@@ -449,6 +531,8 @@ class WorkflowAutomation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.str] name: Name of the workflow. String length must be at least 1.
         :param pulumi.Input[_builtins.bool] published: Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
+        :param pulumi.Input[Union['WorkflowAutomationRunAsArgs', 'WorkflowAutomationRunAsArgsDict', 'outputs.WorkflowAutomationRunAs']] run_as: Identity used to run the workflow. When omitted, the server-managed value is preserved.
+        :param pulumi.Input[_builtins.bool] sensitive_privileges: Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
         :param pulumi.Input[_builtins.str] spec_json: The spec defines what the workflow does.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Tags of the workflow.
         :param pulumi.Input[_builtins.str] webhook_secret: If a webhook trigger is defined on this workflow, a webhookSecret is required and should be provided here. String length must be at least 16.
@@ -460,6 +544,8 @@ class WorkflowAutomation(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["published"] = published
+        __props__.__dict__["run_as"] = run_as
+        __props__.__dict__["sensitive_privileges"] = sensitive_privileges
         __props__.__dict__["spec_json"] = spec_json
         __props__.__dict__["tags"] = tags
         __props__.__dict__["webhook_secret"] = webhook_secret
@@ -488,6 +574,22 @@ class WorkflowAutomation(pulumi.CustomResource):
         Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
         """
         return pulumi.get(self, "published")
+
+    @_builtins.property
+    @pulumi.getter(name="runAs")
+    def run_as(self) -> pulumi.Output['outputs.WorkflowAutomationRunAs']:
+        """
+        Identity used to run the workflow. When omitted, the server-managed value is preserved.
+        """
+        return pulumi.get(self, "run_as")
+
+    @_builtins.property
+    @pulumi.getter(name="sensitivePrivileges")
+    def sensitive_privileges(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+        """
+        return pulumi.get(self, "sensitive_privileges")
 
     @_builtins.property
     @pulumi.getter(name="specJson")

@@ -34,6 +34,10 @@ namespace Pulumi.Datadog
     ///             "team:bar",
     ///         },
     ///         Published = true,
+    ///         RunAs = new Datadog.Inputs.WorkflowAutomationRunAsArgs
+    ///         {
+    ///             Type = "owner",
+    ///         },
     ///         SpecJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["triggers"] = new[]
@@ -122,6 +126,18 @@ namespace Pulumi.Datadog
         public Output<bool> Published { get; private set; } = null!;
 
         /// <summary>
+        /// Identity used to run the workflow. When omitted, the server-managed value is preserved.
+        /// </summary>
+        [Output("runAs")]
+        public Output<Outputs.WorkflowAutomationRunAs> RunAs { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+        /// </summary>
+        [Output("sensitivePrivileges")]
+        public Output<bool> SensitivePrivileges { get; private set; } = null!;
+
+        /// <summary>
         /// The spec defines what the workflow does.
         /// </summary>
         [Output("specJson")]
@@ -208,6 +224,18 @@ namespace Pulumi.Datadog
         public Input<bool> Published { get; set; } = null!;
 
         /// <summary>
+        /// Identity used to run the workflow. When omitted, the server-managed value is preserved.
+        /// </summary>
+        [Input("runAs")]
+        public Input<Inputs.WorkflowAutomationRunAsArgs>? RunAs { get; set; }
+
+        /// <summary>
+        /// Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+        /// </summary>
+        [Input("sensitivePrivileges")]
+        public Input<bool>? SensitivePrivileges { get; set; }
+
+        /// <summary>
         /// The spec defines what the workflow does.
         /// </summary>
         [Input("specJson", required: true)]
@@ -266,6 +294,18 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("published")]
         public Input<bool>? Published { get; set; }
+
+        /// <summary>
+        /// Identity used to run the workflow. When omitted, the server-managed value is preserved.
+        /// </summary>
+        [Input("runAs")]
+        public Input<Inputs.WorkflowAutomationRunAsGetArgs>? RunAs { get; set; }
+
+        /// <summary>
+        /// Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+        /// </summary>
+        [Input("sensitivePrivileges")]
+        public Input<bool>? SensitivePrivileges { get; set; }
 
         /// <summary>
         /// The spec defines what the workflow does.

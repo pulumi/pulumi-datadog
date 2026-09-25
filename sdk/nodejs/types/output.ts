@@ -1397,6 +1397,10 @@ export interface DashboardV2Widget {
      */
     distributionDefinition?: outputs.DashboardV2WidgetDistributionDefinition;
     /**
+     * The definition for an App Builder embedded app widget.
+     */
+    embeddedAppDefinition?: outputs.DashboardV2WidgetEmbeddedAppDefinition;
+    /**
      * The definition for a Event Stream widget.
      */
     eventStreamDefinition?: outputs.DashboardV2WidgetEventStreamDefinition;
@@ -4447,6 +4451,116 @@ export interface DashboardV2WidgetDistributionDefinitionYaxis {
     scale?: string;
 }
 
+export interface DashboardV2WidgetEmbeddedAppDefinition {
+    /**
+     * UUID of the App Builder app to embed. Exactly one of `appId` or `templateId` must be provided.
+     */
+    appId?: string;
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: outputs.DashboardV2WidgetEmbeddedAppDefinitionCustomLink[];
+    /**
+     * The description of the widget.
+     */
+    description?: string;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData: boolean;
+    /**
+     * A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+     */
+    inputs?: outputs.DashboardV2WidgetEmbeddedAppDefinitionInput[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     */
+    liveSpan?: string;
+    /**
+     * ID of the built-in app template to embed. Exactly one of `appId` or `templateId` must be provided.
+     */
+    templateId?: string;
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     */
+    time?: outputs.DashboardV2WidgetEmbeddedAppDefinitionTime;
+    /**
+     * The title of the widget.
+     */
+    title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: string;
+}
+
+export interface DashboardV2WidgetEmbeddedAppDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: boolean;
+    /**
+     * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+     */
+    label?: string;
+    /**
+     * The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+     */
+    link?: string;
+    /**
+     * The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+     */
+    overrideLabel?: string;
+}
+
+export interface DashboardV2WidgetEmbeddedAppDefinitionInput {
+    /**
+     * Name of the app input.
+     */
+    name: string;
+    /**
+     * JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+     */
+    value: string;
+}
+
+export interface DashboardV2WidgetEmbeddedAppDefinitionTime {
+    /**
+     * A fixed time range with explicit start and end times.
+     */
+    fixed?: outputs.DashboardV2WidgetEmbeddedAppDefinitionTimeFixed;
+    /**
+     * An arbitrary live time span, such as 17 minutes or 6 hours.
+     */
+    live?: outputs.DashboardV2WidgetEmbeddedAppDefinitionTimeLive;
+}
+
+export interface DashboardV2WidgetEmbeddedAppDefinitionTimeFixed {
+    /**
+     * Start time in seconds since epoch.
+     */
+    from: number;
+    /**
+     * End time in seconds since epoch.
+     */
+    to: number;
+}
+
+export interface DashboardV2WidgetEmbeddedAppDefinitionTimeLive {
+    /**
+     * Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+     */
+    unit: string;
+    /**
+     * Value of the time span.
+     */
+    value: number;
+}
+
 export interface DashboardV2WidgetEventStreamDefinition {
     /**
      * The description of the widget.
@@ -5408,6 +5522,10 @@ export interface DashboardV2WidgetGroupDefinitionWidget {
      * The definition for a Distribution widget.
      */
     distributionDefinition?: outputs.DashboardV2WidgetDistributionDefinition;
+    /**
+     * The definition for an App Builder embedded app widget.
+     */
+    embeddedAppDefinition?: outputs.DashboardV2WidgetEmbeddedAppDefinition;
     /**
      * The definition for a Event Stream widget.
      */
@@ -28740,6 +28858,25 @@ export interface DowntimeScheduleRecurringScheduleRecurrence {
     start: string;
 }
 
+export interface FleetScheduleRule {
+    /**
+     * Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+     */
+    daysOfWeeks: string[];
+    /**
+     * Duration of the maintenance window in minutes. Value must be at least 1.
+     */
+    maintenanceWindowDuration: number;
+    /**
+     * Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+     */
+    startMaintenanceWindow: string;
+    /**
+     * IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+     */
+    timezone: string;
+}
+
 export interface GetActionConnectionAnthropic {
     /**
      * Configuration for Anthropic API key authentication
@@ -29524,6 +29661,129 @@ export interface GetCustomAllocationRuleStrategyEvaluateGroupedByFilter {
     values: string[];
 }
 
+export interface GetFleetScheduleNotificationRule {
+    /**
+     * Notification handles, such as Slack channels or PagerDuty integrations.
+     */
+    handles: string[];
+    /**
+     * Tags associated with the notification rule.
+     */
+    tags: string[];
+}
+
+export interface GetFleetScheduleRule {
+    /**
+     * Days when the schedule may run.
+     */
+    daysOfWeeks: string[];
+    /**
+     * Interval between schedule runs in weeks.
+     */
+    interval: number;
+    /**
+     * Duration of the maintenance window in minutes.
+     */
+    maintenanceWindowDuration: number;
+    /**
+     * Start of the maintenance window in canonical 24-hour `HH:MM` format.
+     */
+    startMaintenanceWindow: string;
+    /**
+     * IANA time zone used to interpret the maintenance window.
+     */
+    timezone: string;
+}
+
+export interface GetFleetSchedulesSchedule {
+    /**
+     * RFC 3339 timestamp when the schedule was created.
+     */
+    createdAt: string;
+    /**
+     * User handle of the person who created the schedule.
+     */
+    createdBy: string;
+    /**
+     * Unique identifier of the Fleet Automation schedule.
+     */
+    id: string;
+    /**
+     * Whether this is the organization's default schedule.
+     */
+    isDefault: boolean;
+    /**
+     * Human-readable name of the schedule.
+     */
+    name: string;
+    /**
+     * RFC 3339 timestamp of the next maintenance window, or null when no next run can be computed.
+     */
+    nextRun: string;
+    /**
+     * Notification configuration attached to the schedule, when available.
+     */
+    notificationRule: outputs.GetFleetSchedulesScheduleNotificationRule;
+    /**
+     * Datadog host query used to select the Agent upgrade targets.
+     */
+    query: string;
+    /**
+     * Recurrence and maintenance-window configuration for the schedule.
+     */
+    rule: outputs.GetFleetSchedulesScheduleRule;
+    /**
+     * Whether the schedule is `active` or `inactive`.
+     */
+    status: string;
+    /**
+     * RFC 3339 timestamp when the schedule was last updated.
+     */
+    updatedAt: string;
+    /**
+     * User handle of the person who last updated the schedule.
+     */
+    updatedBy: string;
+    /**
+     * Number of major Agent versions behind the latest version targeted by the schedule.
+     */
+    versionToLatest: number;
+}
+
+export interface GetFleetSchedulesScheduleNotificationRule {
+    /**
+     * Notification handles, such as Slack channels or PagerDuty integrations.
+     */
+    handles: string[];
+    /**
+     * Tags associated with the notification rule.
+     */
+    tags: string[];
+}
+
+export interface GetFleetSchedulesScheduleRule {
+    /**
+     * Days when the schedule may run.
+     */
+    daysOfWeeks: string[];
+    /**
+     * Interval between schedule runs in weeks.
+     */
+    interval: number;
+    /**
+     * Duration of the maintenance window in minutes.
+     */
+    maintenanceWindowDuration: number;
+    /**
+     * Start of the maintenance window in canonical 24-hour `HH:MM` format.
+     */
+    startMaintenanceWindow: string;
+    /**
+     * IANA time zone used to interpret the maintenance window.
+     */
+    timezone: string;
+}
+
 export interface GetHostsHostList {
     aliases: string[];
     apps: string[];
@@ -29738,6 +29998,10 @@ export interface GetMetricActiveTagsAndAggregationsActiveAggregation {
 
 export interface GetMonitorConfigPoliciesMonitorConfigPolicy {
     /**
+     * Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+     */
+    downtimePolicy: outputs.GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicy;
+    /**
      * ID of the monitor config policy
      */
     id: string;
@@ -29749,6 +30013,13 @@ export interface GetMonitorConfigPoliciesMonitorConfigPolicy {
      * Config for a tag policy. Only set if `policyType` is `tag`.
      */
     tagPolicy: outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy;
+}
+
+export interface GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicy {
+    /**
+     * The maximum allowed downtime duration, in milliseconds
+     */
+    maxDurationMs: number;
 }
 
 export interface GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy {
@@ -31344,6 +31615,17 @@ export interface GetUsersUser {
     status: string;
     title: string;
     verified: boolean;
+}
+
+export interface GetWorkflowAutomationRunAs {
+    /**
+     * Service account identifier when the workflow runs as a service account.
+     */
+    id: string;
+    /**
+     * Type of identity used to run the workflow. `owner` uses the workflow owner, `initiator` uses the user who starts the execution, and `serviceAccount` uses the account specified by `id`.
+     */
+    type: string;
 }
 
 export interface GovernanceControlNotificationSetting {
@@ -33577,6 +33859,13 @@ export interface MonitorAsset {
     url: string;
 }
 
+export interface MonitorConfigPolicyDowntimePolicy {
+    /**
+     * The maximum allowed downtime duration, in milliseconds
+     */
+    maxDurationMs: number;
+}
+
 export interface MonitorConfigPolicyTagPolicy {
     /**
      * The key of the tag
@@ -34828,6 +35117,10 @@ export interface ObservabilityPipelineConfigDestination {
      * The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
      */
     opentelemetry?: outputs.ObservabilityPipelineConfigDestinationOpentelemetry;
+    /**
+     * The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+     */
+    prometheusRemoteWrite?: outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWrite;
     /**
      * The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
      */
@@ -36214,7 +36507,7 @@ export interface ObservabilityPipelineConfigDestinationGoogleSecopBufferMemory {
 
 export interface ObservabilityPipelineConfigDestinationHttpClient {
     /**
-     * HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+     * HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
      */
     authStrategy?: string;
     /**
@@ -36225,6 +36518,10 @@ export interface ObservabilityPipelineConfigDestinationHttpClient {
      * Compression configuration for HTTP requests.
      */
     compression?: outputs.ObservabilityPipelineConfigDestinationHttpClientCompression;
+    /**
+     * Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+     */
+    customKey?: string;
     /**
      * Encoding format for events. Valid values are `json`.
      */
@@ -36742,6 +37039,105 @@ export interface ObservabilityPipelineConfigDestinationOpentelemetryTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationPrometheusRemoteWrite {
+    /**
+     * The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+     */
+    authStrategy?: string;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer;
+    /**
+     * The default namespace to prefix onto metric names that don't already have one.
+     */
+    defaultNamespace?: string;
+    /**
+     * Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+     */
+    endpointUrlKey?: string;
+    /**
+     * Name of the environment variable or secret that holds the password. Used when `authStrategy` is `basic`.
+     */
+    passwordKey?: string;
+    /**
+     * The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+     */
+    tenantId?: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external services.
+     */
+    tls?: outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls;
+    /**
+     * Name of the environment variable or secret that holds the bearer token. Used when `authStrategy` is `bearer`.
+     */
+    tokenKey?: string;
+    /**
+     * Name of the environment variable or secret that holds the username. Used when `authStrategy` is `basic`.
+     */
+    usernameKey?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+     */
+    crtFile: string;
+    /**
+     * Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+     */
+    keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
+    /**
+     * Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+     */
+    serverName?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationRsyslog {
@@ -37384,10 +37780,12 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessor {
     filter?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorFilter;
     /**
      * The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+     *
+     * @deprecated This processor is deprecated, use `generateMetrics` instead.
      */
     generateDatadogMetrics?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics;
     /**
-     * The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
+     * The `generateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
      */
     generateMetrics?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics;
     /**
@@ -38077,7 +38475,7 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorQuota {
      */
     name: string;
     /**
-     * The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     * The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`. When `overflowRouting` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazonS3Generic`, `amazonS3`, `googleCloudStorage`, and `azureStorage`.
      */
     overflowAction?: string;
     /**
@@ -38508,6 +38906,10 @@ export interface ObservabilityPipelineConfigSource {
      * The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
      */
     opentelemetry?: outputs.ObservabilityPipelineConfigSourceOpentelemetry;
+    /**
+     * The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+     */
+    prometheusRemoteWrite?: outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWrite;
     /**
      * The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
      */
@@ -39096,6 +39498,86 @@ export interface ObservabilityPipelineConfigSourceOpentelemetryTls {
     verifyCertificate?: boolean;
 }
 
+export interface ObservabilityPipelineConfigSourcePrometheusRemoteWrite {
+    /**
+     * Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+     */
+    addressKey?: string;
+    /**
+     * HTTP authentication method. Valid values are `none`, `plain`.
+     */
+    authStrategy: string;
+    /**
+     * Name of the environment variable or secret that holds the password. Used when `authStrategy` is `plain`.
+     */
+    passwordKey?: string;
+    /**
+     * The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+     */
+    path: string;
+    /**
+     * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+     */
+    tls?: outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls;
+    /**
+     * Name of the environment variable or secret that holds the username. Used when `authStrategy` is `plain`.
+     */
+    usernameKey?: string;
+    /**
+     * A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+     */
+    validTokens?: outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken[];
+}
+
+export interface ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls {
+    /**
+     * Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+     */
+    caFile?: string;
+    /**
+     * Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+     */
+    crtFile: string;
+    /**
+     * Path to the private key file associated with the TLS server certificate.
+     */
+    keyFile?: string;
+    /**
+     * Name of the environment variable or secret that holds the passphrase for the private key file.
+     */
+    keyPassKey?: string;
+    /**
+     * When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+     */
+    verifyCertificate?: boolean;
+}
+
+export interface ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken {
+    /**
+     * Whether this token is currently accepted. Defaults to `true`.
+     */
+    enabled: boolean;
+    /**
+     * Specifies where the worker extracts the token from the incoming HTTP request. Set either `location` for a built-in source or `header` to read it from a request header.
+     */
+    pathToToken?: outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken;
+    /**
+     * Name of the environment variable or secret that holds the expected token value.
+     */
+    tokenKey: string;
+}
+
+export interface ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken {
+    /**
+     * The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+     */
+    header?: string;
+    /**
+     * Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+     */
+    location?: string;
+}
+
 export interface ObservabilityPipelineConfigSourceRsyslog {
     /**
      * Name of the environment variable or secret that holds the listen address.
@@ -39267,6 +39749,10 @@ export interface ObservabilityPipelineConfigSourceSplunkTcp {
      * Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
      */
     addressKey?: string;
+    /**
+     * Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+     */
+    maxConnectionDurationSecs?: number;
     /**
      * Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
      */
@@ -39838,6 +40324,10 @@ export interface PowerpackV2Widget {
      * The definition for a Distribution widget.
      */
     distributionDefinition?: outputs.PowerpackV2WidgetDistributionDefinition;
+    /**
+     * The definition for an App Builder embedded app widget.
+     */
+    embeddedAppDefinition?: outputs.PowerpackV2WidgetEmbeddedAppDefinition;
     /**
      * The definition for a Event Stream widget.
      */
@@ -42881,6 +43371,116 @@ export interface PowerpackV2WidgetDistributionDefinitionYaxis {
     scale?: string;
 }
 
+export interface PowerpackV2WidgetEmbeddedAppDefinition {
+    /**
+     * UUID of the App Builder app to embed. Exactly one of `appId` or `templateId` must be provided.
+     */
+    appId?: string;
+    /**
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+     */
+    customLinks?: outputs.PowerpackV2WidgetEmbeddedAppDefinitionCustomLink[];
+    /**
+     * The description of the widget.
+     */
+    description?: string;
+    /**
+     * Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+     */
+    hideIncompleteCostData: boolean;
+    /**
+     * A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+     */
+    inputs?: outputs.PowerpackV2WidgetEmbeddedAppDefinitionInput[];
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     */
+    liveSpan?: string;
+    /**
+     * ID of the built-in app template to embed. Exactly one of `appId` or `templateId` must be provided.
+     */
+    templateId?: string;
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     */
+    time?: outputs.PowerpackV2WidgetEmbeddedAppDefinitionTime;
+    /**
+     * The title of the widget.
+     */
+    title?: string;
+    /**
+     * The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+     */
+    titleAlign?: string;
+    /**
+     * The size of the widget's title (defaults to 16).
+     */
+    titleSize?: string;
+}
+
+export interface PowerpackV2WidgetEmbeddedAppDefinitionCustomLink {
+    /**
+     * The flag for toggling context menu link visibility.
+     */
+    isHidden?: boolean;
+    /**
+     * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+     */
+    label?: string;
+    /**
+     * The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+     */
+    link?: string;
+    /**
+     * The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+     */
+    overrideLabel?: string;
+}
+
+export interface PowerpackV2WidgetEmbeddedAppDefinitionInput {
+    /**
+     * Name of the app input.
+     */
+    name: string;
+    /**
+     * JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+     */
+    value: string;
+}
+
+export interface PowerpackV2WidgetEmbeddedAppDefinitionTime {
+    /**
+     * A fixed time range with explicit start and end times.
+     */
+    fixed?: outputs.PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed;
+    /**
+     * An arbitrary live time span, such as 17 minutes or 6 hours.
+     */
+    live?: outputs.PowerpackV2WidgetEmbeddedAppDefinitionTimeLive;
+}
+
+export interface PowerpackV2WidgetEmbeddedAppDefinitionTimeFixed {
+    /**
+     * Start time in seconds since epoch.
+     */
+    from: number;
+    /**
+     * End time in seconds since epoch.
+     */
+    to: number;
+}
+
+export interface PowerpackV2WidgetEmbeddedAppDefinitionTimeLive {
+    /**
+     * Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+     */
+    unit: string;
+    /**
+     * Value of the time span.
+     */
+    value: number;
+}
+
 export interface PowerpackV2WidgetEventStreamDefinition {
     /**
      * The description of the widget.
@@ -43842,6 +44442,10 @@ export interface PowerpackV2WidgetGroupDefinitionWidget {
      * The definition for a Distribution widget.
      */
     distributionDefinition?: outputs.PowerpackV2WidgetDistributionDefinition;
+    /**
+     * The definition for an App Builder embedded app widget.
+     */
+    embeddedAppDefinition?: outputs.PowerpackV2WidgetEmbeddedAppDefinition;
     /**
      * The definition for a Event Stream widget.
      */
@@ -70389,6 +70993,24 @@ export interface SecureEmbedDashboardSelectableTemplateVar {
     visibleTags: string[];
 }
 
+export interface SecurityFindingsDefaultInboxRuleAction {
+    /**
+     * An optional description providing more context for the rule.
+     */
+    description: string;
+}
+
+export interface SecurityFindingsDefaultInboxRuleRule {
+    /**
+     * The list of security finding types that the automation rule applies to.
+     */
+    findingTypes: string[];
+    /**
+     * A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+     */
+    query: string;
+}
+
 export interface SecurityFindingsDueDateRuleAction {
     /**
      * A list of severity-to-due-date mappings. Each severity may appear at most once.
@@ -70426,6 +71048,24 @@ export interface SecurityFindingsDueDateRuleRule {
     query?: string;
 }
 
+export interface SecurityFindingsInboxRuleAction {
+    /**
+     * An optional description providing more context for the rule.
+     */
+    description?: string;
+}
+
+export interface SecurityFindingsInboxRuleRule {
+    /**
+     * The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+     */
+    findingTypes: string[];
+    /**
+     * A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+     */
+    query?: string;
+}
+
 export interface SecurityFindingsMuteRuleAction {
     /**
      * The Unix timestamp in milliseconds at which the mute expires. If omitted, the mute does not expire.
@@ -70452,29 +71092,73 @@ export interface SecurityFindingsMuteRuleRule {
     query?: string;
 }
 
+export interface SecurityFindingsSeverityModifierRuleAction {
+    /**
+     * Sets matched findings to a fixed severity.
+     */
+    set?: outputs.SecurityFindingsSeverityModifierRuleActionSet;
+    /**
+     * Shifts matched findings up or down by one severity rank.
+     */
+    shift?: outputs.SecurityFindingsSeverityModifierRuleActionShift;
+}
+
+export interface SecurityFindingsSeverityModifierRuleActionSet {
+    /**
+     * An optional free-form explanation for the severity change.
+     */
+    description?: string;
+    /**
+     * The severity to assign to matched findings. `infoNone` is not supported for the `iacMisconfiguration`, `runtimeCodeVulnerability`, `secret`, or `staticCodeVulnerability` finding types. Valid values are `infoNone`, `low`, `medium`, `high`, `critical`.
+     */
+    severity: string;
+}
+
+export interface SecurityFindingsSeverityModifierRuleActionShift {
+    /**
+     * An optional free-form explanation for the severity change.
+     */
+    description?: string;
+    /**
+     * The direction in which to shift the severity of matched findings by one rank. Valid values are `upOne`, `downOne`.
+     */
+    severityDelta: string;
+}
+
+export interface SecurityFindingsSeverityModifierRuleRule {
+    /**
+     * The list of security finding types that the automation rule applies to. Valid values are `apiSecurity`, `attackPath`, `hostAndContainerVulnerability`, `iacMisconfiguration`, `identityRisk`, `libraryVulnerability`, `misconfiguration`, `runtimeCodeVulnerability`, `secret`, `staticCodeVulnerability`, `workloadActivity`.
+     */
+    findingTypes: string[];
+    /**
+     * A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+     */
+    query?: string;
+}
+
 export interface SecurityFindingsTicketCreationRuleAction {
     /**
      * The UUID of the default assignee for created tickets. Must be a valid UUID.
      */
     assigneeId?: string;
     /**
-     * The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+     * The reason the rule was automatically disabled by the system due to a ticketing integration error.
      */
     autoDisabledReason: string;
     /**
-     * A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+     * A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linearProjectId` (string, the identifier of the Linear project the issue is created in) and `linearLabelIds` (array of strings, the identifiers of the Linear labels applied to the issue).
      */
     fields?: string;
     /**
-     * The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+     * The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
      */
     maxTicketsPerDay: number;
     /**
-     * The UUID of the Case Management project. Must be a valid UUID.
+     * The UUID of the case management project. Must be a valid UUID.
      */
     projectId: string;
     /**
-     * The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`.
+     * The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`, `linear`.
      */
     target: string;
 }
@@ -73235,6 +73919,17 @@ export interface TeamSyncSelectionStateExternalId {
      * The external identifier value from the source platform (e.g. a GitHub organization ID or team ID).
      */
     value: string;
+}
+
+export interface WorkflowAutomationRunAs {
+    /**
+     * Service account identifier. Required when `type` is `serviceAccount` and omitted otherwise.
+     */
+    id: string;
+    /**
+     * Type of identity used to run the workflow. `owner` uses the workflow owner, `initiator` uses the user who starts the execution, and `serviceAccount` uses the account specified by `id`. Required when `runAs` is configured. Valid values are `owner`, `serviceAccount`, `initiator`.
+     */
+    type: string;
 }
 
 export namespace aws {

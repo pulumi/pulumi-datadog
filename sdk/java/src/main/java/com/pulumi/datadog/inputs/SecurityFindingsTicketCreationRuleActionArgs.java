@@ -33,14 +33,14 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
     }
 
     /**
-     * The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+     * The reason the rule was automatically disabled by the system due to a ticketing integration error.
      * 
      */
     @Import(name="autoDisabledReason")
     private @Nullable Output<String> autoDisabledReason;
 
     /**
-     * @return The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+     * @return The reason the rule was automatically disabled by the system due to a ticketing integration error.
      * 
      */
     public Optional<Output<String>> autoDisabledReason() {
@@ -48,14 +48,14 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
     }
 
     /**
-     * A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+     * A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linearProjectId` (string, the identifier of the Linear project the issue is created in) and `linearLabelIds` (array of strings, the identifiers of the Linear labels applied to the issue).
      * 
      */
     @Import(name="fields")
     private @Nullable Output<String> fields;
 
     /**
-     * @return A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+     * @return A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linearProjectId` (string, the identifier of the Linear project the issue is created in) and `linearLabelIds` (array of strings, the identifiers of the Linear labels applied to the issue).
      * 
      */
     public Optional<Output<String>> fields() {
@@ -63,14 +63,14 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
     }
 
     /**
-     * The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+     * The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
      * 
      */
     @Import(name="maxTicketsPerDay", required=true)
     private Output<Integer> maxTicketsPerDay;
 
     /**
-     * @return The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+     * @return The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
      * 
      */
     public Output<Integer> maxTicketsPerDay() {
@@ -78,14 +78,14 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
     }
 
     /**
-     * The UUID of the Case Management project. Must be a valid UUID.
+     * The UUID of the case management project. Must be a valid UUID.
      * 
      */
     @Import(name="projectId", required=true)
     private Output<String> projectId;
 
     /**
-     * @return The UUID of the Case Management project. Must be a valid UUID.
+     * @return The UUID of the case management project. Must be a valid UUID.
      * 
      */
     public Output<String> projectId() {
@@ -93,14 +93,14 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
     }
 
     /**
-     * The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`.
+     * The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`, `linear`.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`.
+     * @return The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`, `linear`.
      * 
      */
     public Output<String> target() {
@@ -158,7 +158,7 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
         }
 
         /**
-         * @param autoDisabledReason The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+         * @param autoDisabledReason The reason the rule was automatically disabled by the system due to a ticketing integration error.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
         }
 
         /**
-         * @param autoDisabledReason The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+         * @param autoDisabledReason The reason the rule was automatically disabled by the system due to a ticketing integration error.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
         }
 
         /**
-         * @param fields A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+         * @param fields A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linearProjectId` (string, the identifier of the Linear project the issue is created in) and `linearLabelIds` (array of strings, the identifiers of the Linear labels applied to the issue).
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
         }
 
         /**
-         * @param fields A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+         * @param fields A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linearProjectId` (string, the identifier of the Linear project the issue is created in) and `linearLabelIds` (array of strings, the identifiers of the Linear labels applied to the issue).
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
         }
 
         /**
-         * @param maxTicketsPerDay The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+         * @param maxTicketsPerDay The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
         }
 
         /**
-         * @param maxTicketsPerDay The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+         * @param maxTicketsPerDay The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
         }
 
         /**
-         * @param projectId The UUID of the Case Management project. Must be a valid UUID.
+         * @param projectId The UUID of the case management project. Must be a valid UUID.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
         }
 
         /**
-         * @param projectId The UUID of the Case Management project. Must be a valid UUID.
+         * @param projectId The UUID of the case management project. Must be a valid UUID.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
         }
 
         /**
-         * @param target The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`.
+         * @param target The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`, `linear`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class SecurityFindingsTicketCreationRuleActionArgs extends com.pulu
         }
 
         /**
-         * @param target The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`.
+         * @param target The ticketing system to create tickets in. Valid values are `jira`, `caseManagement`, `linear`.
          * 
          * @return builder
          * 

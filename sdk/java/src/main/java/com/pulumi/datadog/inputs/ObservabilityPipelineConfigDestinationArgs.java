@@ -26,6 +26,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationMicrosoft
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationNewRelicArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpensearchArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationOpentelemetryArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationRsyslogArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSentinelOneArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationSocketArgs;
@@ -391,6 +392,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
+     * The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+     * 
+     */
+    @Import(name="prometheusRemoteWrite")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs> prometheusRemoteWrite;
+
+    /**
+     * @return The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs>> prometheusRemoteWrite() {
+        return Optional.ofNullable(this.prometheusRemoteWrite);
+    }
+
+    /**
      * The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
      * 
      */
@@ -521,6 +537,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         this.newRelics = $.newRelics;
         this.opensearches = $.opensearches;
         this.opentelemetry = $.opentelemetry;
+        this.prometheusRemoteWrite = $.prometheusRemoteWrite;
         this.rsyslogs = $.rsyslogs;
         this.sentinelOnes = $.sentinelOnes;
         this.sockets = $.sockets;
@@ -1199,6 +1216,27 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
          */
         public Builder opentelemetry(ObservabilityPipelineConfigDestinationOpentelemetryArgs opentelemetry) {
             return opentelemetry(Output.of(opentelemetry));
+        }
+
+        /**
+         * @param prometheusRemoteWrite The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prometheusRemoteWrite(@Nullable Output<ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs> prometheusRemoteWrite) {
+            $.prometheusRemoteWrite = prometheusRemoteWrite;
+            return this;
+        }
+
+        /**
+         * @param prometheusRemoteWrite The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prometheusRemoteWrite(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs prometheusRemoteWrite) {
+            return prometheusRemoteWrite(Output.of(prometheusRemoteWrite));
         }
 
         /**

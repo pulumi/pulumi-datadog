@@ -199,6 +199,22 @@ class SecurityFindingsTicketCreationRule(pulumi.CustomResource):
                     "labels": ["security"],
                 }),
             })
+        # Create a rule that automatically opens Linear issues for exposed secrets.
+        exposed_secrets = datadog.SecurityFindingsTicketCreationRule("exposed_secrets",
+            name="Auto-create Linear issues for exposed secrets",
+            enabled=True,
+            rule={
+                "finding_types": ["secret"],
+            },
+            action={
+                "project_id": "11111111-1111-1111-1111-111111111111",
+                "target": "linear",
+                "max_tickets_per_day": 25,
+                "fields": json.dumps({
+                    "linear_project_id": "33333333-3333-3333-3333-333333333333",
+                    "linear_label_ids": ["44444444-4444-4444-4444-444444444444"],
+                }),
+            })
         ```
 
         ## Import
@@ -248,6 +264,22 @@ class SecurityFindingsTicketCreationRule(pulumi.CustomResource):
                 "max_tickets_per_day": 50,
                 "fields": json.dumps({
                     "labels": ["security"],
+                }),
+            })
+        # Create a rule that automatically opens Linear issues for exposed secrets.
+        exposed_secrets = datadog.SecurityFindingsTicketCreationRule("exposed_secrets",
+            name="Auto-create Linear issues for exposed secrets",
+            enabled=True,
+            rule={
+                "finding_types": ["secret"],
+            },
+            action={
+                "project_id": "11111111-1111-1111-1111-111111111111",
+                "target": "linear",
+                "max_tickets_per_day": 25,
+                "fields": json.dumps({
+                    "linear_project_id": "33333333-3333-3333-3333-333333333333",
+                    "linear_label_ids": ["44444444-4444-4444-4444-444444444444"],
                 }),
             })
         ```

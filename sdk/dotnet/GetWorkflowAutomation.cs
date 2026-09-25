@@ -134,6 +134,14 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly bool Published;
         /// <summary>
+        /// Identity used to run the workflow.
+        /// </summary>
+        public readonly Outputs.GetWorkflowAutomationRunAsResult RunAs;
+        /// <summary>
+        /// Whether the workflow requires sensitive privileges to run. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+        /// </summary>
+        public readonly bool SensitivePrivileges;
+        /// <summary>
         /// The spec defines what the workflow does.
         /// </summary>
         public readonly string SpecJson;
@@ -152,6 +160,10 @@ namespace Pulumi.Datadog
 
             bool published,
 
+            Outputs.GetWorkflowAutomationRunAsResult runAs,
+
+            bool sensitivePrivileges,
+
             string specJson,
 
             ImmutableArray<string> tags)
@@ -160,6 +172,8 @@ namespace Pulumi.Datadog
             Id = id;
             Name = name;
             Published = published;
+            RunAs = runAs;
+            SensitivePrivileges = sensitivePrivileges;
             SpecJson = specJson;
             Tags = tags;
         }

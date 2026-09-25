@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
 
 __all__ = [
     'GetWorkflowAutomationResult',
@@ -26,7 +27,7 @@ class GetWorkflowAutomationResult:
     """
     A collection of values returned by getWorkflowAutomation.
     """
-    def __init__(__self__, description=None, id=None, name=None, published=None, spec_json=None, tags=None):
+    def __init__(__self__, description=None, id=None, name=None, published=None, run_as=None, sensitive_privileges=None, spec_json=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -39,6 +40,12 @@ class GetWorkflowAutomationResult:
         if published and not isinstance(published, bool):
             raise TypeError("Expected argument 'published' to be a bool")
         pulumi.set(__self__, "published", published)
+        if run_as and not isinstance(run_as, dict):
+            raise TypeError("Expected argument 'run_as' to be a dict")
+        pulumi.set(__self__, "run_as", run_as)
+        if sensitive_privileges and not isinstance(sensitive_privileges, bool):
+            raise TypeError("Expected argument 'sensitive_privileges' to be a bool")
+        pulumi.set(__self__, "sensitive_privileges", sensitive_privileges)
         if spec_json and not isinstance(spec_json, str):
             raise TypeError("Expected argument 'spec_json' to be a str")
         pulumi.set(__self__, "spec_json", spec_json)
@@ -79,6 +86,22 @@ class GetWorkflowAutomationResult:
         return pulumi.get(self, "published")
 
     @_builtins.property
+    @pulumi.getter(name="runAs")
+    def run_as(self) -> 'outputs.GetWorkflowAutomationRunAsResult':
+        """
+        Identity used to run the workflow.
+        """
+        return pulumi.get(self, "run_as")
+
+    @_builtins.property
+    @pulumi.getter(name="sensitivePrivileges")
+    def sensitive_privileges(self) -> _builtins.bool:
+        """
+        Whether the workflow requires sensitive privileges to run. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+        """
+        return pulumi.get(self, "sensitive_privileges")
+
+    @_builtins.property
     @pulumi.getter(name="specJson")
     def spec_json(self) -> _builtins.str:
         """
@@ -105,6 +128,8 @@ class AwaitableGetWorkflowAutomationResult(GetWorkflowAutomationResult):
             id=self.id,
             name=self.name,
             published=self.published,
+            run_as=self.run_as,
+            sensitive_privileges=self.sensitive_privileges,
             spec_json=self.spec_json,
             tags=self.tags)
 
@@ -136,6 +161,8 @@ def get_workflow_automation(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         published=pulumi.get(__ret__, 'published'),
+        run_as=pulumi.get(__ret__, 'run_as'),
+        sensitive_privileges=pulumi.get(__ret__, 'sensitive_privileges'),
         spec_json=pulumi.get(__ret__, 'spec_json'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_workflow_automation_output(id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -164,5 +191,7 @@ def get_workflow_automation_output(id: pulumi.Input[Optional[_builtins.str]] = N
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         published=pulumi.get(__response__, 'published'),
+        run_as=pulumi.get(__response__, 'run_as'),
+        sensitive_privileges=pulumi.get(__response__, 'sensitive_privileges'),
         spec_json=pulumi.get(__response__, 'spec_json'),
         tags=pulumi.get(__response__, 'tags')))

@@ -200,6 +200,11 @@ export type DowntimeSchedule = import("./downtimeSchedule").DowntimeSchedule;
 export const DowntimeSchedule: typeof import("./downtimeSchedule").DowntimeSchedule = null as any;
 utilities.lazyLoad(exports, ["DowntimeSchedule"], () => require("./downtimeSchedule"));
 
+export { FleetScheduleArgs, FleetScheduleState } from "./fleetSchedule";
+export type FleetSchedule = import("./fleetSchedule").FleetSchedule;
+export const FleetSchedule: typeof import("./fleetSchedule").FleetSchedule = null as any;
+utilities.lazyLoad(exports, ["FleetSchedule"], () => require("./fleetSchedule"));
+
 export { GcpUcConfigArgs, GcpUcConfigState } from "./gcpUcConfig";
 export type GcpUcConfig = import("./gcpUcConfig").GcpUcConfig;
 export const GcpUcConfig: typeof import("./gcpUcConfig").GcpUcConfig = null as any;
@@ -289,6 +294,16 @@ export { GetDatastoreItemArgs, GetDatastoreItemResult, GetDatastoreItemOutputArg
 export const getDatastoreItem: typeof import("./getDatastoreItem").getDatastoreItem = null as any;
 export const getDatastoreItemOutput: typeof import("./getDatastoreItem").getDatastoreItemOutput = null as any;
 utilities.lazyLoad(exports, ["getDatastoreItem","getDatastoreItemOutput"], () => require("./getDatastoreItem"));
+
+export { GetFleetScheduleArgs, GetFleetScheduleResult, GetFleetScheduleOutputArgs } from "./getFleetSchedule";
+export const getFleetSchedule: typeof import("./getFleetSchedule").getFleetSchedule = null as any;
+export const getFleetScheduleOutput: typeof import("./getFleetSchedule").getFleetScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getFleetSchedule","getFleetScheduleOutput"], () => require("./getFleetSchedule"));
+
+export { GetFleetSchedulesResult } from "./getFleetSchedules";
+export const getFleetSchedules: typeof import("./getFleetSchedules").getFleetSchedules = null as any;
+export const getFleetSchedulesOutput: typeof import("./getFleetSchedules").getFleetSchedulesOutput = null as any;
+utilities.lazyLoad(exports, ["getFleetSchedules","getFleetSchedulesOutput"], () => require("./getFleetSchedules"));
 
 export { GetGcpUcConfigArgs, GetGcpUcConfigResult, GetGcpUcConfigOutputArgs } from "./getGcpUcConfig";
 export const getGcpUcConfig: typeof import("./getGcpUcConfig").getGcpUcConfig = null as any;
@@ -868,6 +883,11 @@ export type SecureEmbedDashboard = import("./secureEmbedDashboard").SecureEmbedD
 export const SecureEmbedDashboard: typeof import("./secureEmbedDashboard").SecureEmbedDashboard = null as any;
 utilities.lazyLoad(exports, ["SecureEmbedDashboard"], () => require("./secureEmbedDashboard"));
 
+export { SecurityFindingsDefaultInboxRuleArgs, SecurityFindingsDefaultInboxRuleState } from "./securityFindingsDefaultInboxRule";
+export type SecurityFindingsDefaultInboxRule = import("./securityFindingsDefaultInboxRule").SecurityFindingsDefaultInboxRule;
+export const SecurityFindingsDefaultInboxRule: typeof import("./securityFindingsDefaultInboxRule").SecurityFindingsDefaultInboxRule = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsDefaultInboxRule"], () => require("./securityFindingsDefaultInboxRule"));
+
 export { SecurityFindingsDueDateRuleArgs, SecurityFindingsDueDateRuleState } from "./securityFindingsDueDateRule";
 export type SecurityFindingsDueDateRule = import("./securityFindingsDueDateRule").SecurityFindingsDueDateRule;
 export const SecurityFindingsDueDateRule: typeof import("./securityFindingsDueDateRule").SecurityFindingsDueDateRule = null as any;
@@ -878,6 +898,16 @@ export type SecurityFindingsDueDateRulesOrder = import("./securityFindingsDueDat
 export const SecurityFindingsDueDateRulesOrder: typeof import("./securityFindingsDueDateRulesOrder").SecurityFindingsDueDateRulesOrder = null as any;
 utilities.lazyLoad(exports, ["SecurityFindingsDueDateRulesOrder"], () => require("./securityFindingsDueDateRulesOrder"));
 
+export { SecurityFindingsInboxRuleArgs, SecurityFindingsInboxRuleState } from "./securityFindingsInboxRule";
+export type SecurityFindingsInboxRule = import("./securityFindingsInboxRule").SecurityFindingsInboxRule;
+export const SecurityFindingsInboxRule: typeof import("./securityFindingsInboxRule").SecurityFindingsInboxRule = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsInboxRule"], () => require("./securityFindingsInboxRule"));
+
+export { SecurityFindingsInboxRulesOrderArgs, SecurityFindingsInboxRulesOrderState } from "./securityFindingsInboxRulesOrder";
+export type SecurityFindingsInboxRulesOrder = import("./securityFindingsInboxRulesOrder").SecurityFindingsInboxRulesOrder;
+export const SecurityFindingsInboxRulesOrder: typeof import("./securityFindingsInboxRulesOrder").SecurityFindingsInboxRulesOrder = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsInboxRulesOrder"], () => require("./securityFindingsInboxRulesOrder"));
+
 export { SecurityFindingsMuteRuleArgs, SecurityFindingsMuteRuleState } from "./securityFindingsMuteRule";
 export type SecurityFindingsMuteRule = import("./securityFindingsMuteRule").SecurityFindingsMuteRule;
 export const SecurityFindingsMuteRule: typeof import("./securityFindingsMuteRule").SecurityFindingsMuteRule = null as any;
@@ -887,6 +917,16 @@ export { SecurityFindingsMuteRulesOrderArgs, SecurityFindingsMuteRulesOrderState
 export type SecurityFindingsMuteRulesOrder = import("./securityFindingsMuteRulesOrder").SecurityFindingsMuteRulesOrder;
 export const SecurityFindingsMuteRulesOrder: typeof import("./securityFindingsMuteRulesOrder").SecurityFindingsMuteRulesOrder = null as any;
 utilities.lazyLoad(exports, ["SecurityFindingsMuteRulesOrder"], () => require("./securityFindingsMuteRulesOrder"));
+
+export { SecurityFindingsSeverityModifierRuleArgs, SecurityFindingsSeverityModifierRuleState } from "./securityFindingsSeverityModifierRule";
+export type SecurityFindingsSeverityModifierRule = import("./securityFindingsSeverityModifierRule").SecurityFindingsSeverityModifierRule;
+export const SecurityFindingsSeverityModifierRule: typeof import("./securityFindingsSeverityModifierRule").SecurityFindingsSeverityModifierRule = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsSeverityModifierRule"], () => require("./securityFindingsSeverityModifierRule"));
+
+export { SecurityFindingsSeverityModifierRulesOrderArgs, SecurityFindingsSeverityModifierRulesOrderState } from "./securityFindingsSeverityModifierRulesOrder";
+export type SecurityFindingsSeverityModifierRulesOrder = import("./securityFindingsSeverityModifierRulesOrder").SecurityFindingsSeverityModifierRulesOrder;
+export const SecurityFindingsSeverityModifierRulesOrder: typeof import("./securityFindingsSeverityModifierRulesOrder").SecurityFindingsSeverityModifierRulesOrder = null as any;
+utilities.lazyLoad(exports, ["SecurityFindingsSeverityModifierRulesOrder"], () => require("./securityFindingsSeverityModifierRulesOrder"));
 
 export { SecurityFindingsTicketCreationRuleArgs, SecurityFindingsTicketCreationRuleState } from "./securityFindingsTicketCreationRule";
 export type SecurityFindingsTicketCreationRule = import("./securityFindingsTicketCreationRule").SecurityFindingsTicketCreationRule;
@@ -1245,6 +1285,8 @@ const _module = {
                 return new Downtime(name, <any>undefined, { urn })
             case "datadog:index/downtimeSchedule:DowntimeSchedule":
                 return new DowntimeSchedule(name, <any>undefined, { urn })
+            case "datadog:index/fleetSchedule:FleetSchedule":
+                return new FleetSchedule(name, <any>undefined, { urn })
             case "datadog:index/gcpUcConfig:GcpUcConfig":
                 return new GcpUcConfig(name, <any>undefined, { urn })
             case "datadog:index/governanceControl:GovernanceControl":
@@ -1347,14 +1389,24 @@ const _module = {
                 return new SamlIdpMetadata(name, <any>undefined, { urn })
             case "datadog:index/secureEmbedDashboard:SecureEmbedDashboard":
                 return new SecureEmbedDashboard(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsDefaultInboxRule:SecurityFindingsDefaultInboxRule":
+                return new SecurityFindingsDefaultInboxRule(name, <any>undefined, { urn })
             case "datadog:index/securityFindingsDueDateRule:SecurityFindingsDueDateRule":
                 return new SecurityFindingsDueDateRule(name, <any>undefined, { urn })
             case "datadog:index/securityFindingsDueDateRulesOrder:SecurityFindingsDueDateRulesOrder":
                 return new SecurityFindingsDueDateRulesOrder(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsInboxRule:SecurityFindingsInboxRule":
+                return new SecurityFindingsInboxRule(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsInboxRulesOrder:SecurityFindingsInboxRulesOrder":
+                return new SecurityFindingsInboxRulesOrder(name, <any>undefined, { urn })
             case "datadog:index/securityFindingsMuteRule:SecurityFindingsMuteRule":
                 return new SecurityFindingsMuteRule(name, <any>undefined, { urn })
             case "datadog:index/securityFindingsMuteRulesOrder:SecurityFindingsMuteRulesOrder":
                 return new SecurityFindingsMuteRulesOrder(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsSeverityModifierRule:SecurityFindingsSeverityModifierRule":
+                return new SecurityFindingsSeverityModifierRule(name, <any>undefined, { urn })
+            case "datadog:index/securityFindingsSeverityModifierRulesOrder:SecurityFindingsSeverityModifierRulesOrder":
+                return new SecurityFindingsSeverityModifierRulesOrder(name, <any>undefined, { urn })
             case "datadog:index/securityFindingsTicketCreationRule:SecurityFindingsTicketCreationRule":
                 return new SecurityFindingsTicketCreationRule(name, <any>undefined, { urn })
             case "datadog:index/securityFindingsTicketCreationRulesOrder:SecurityFindingsTicketCreationRulesOrder":
@@ -1497,6 +1549,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/deploymentGate", _module
 pulumi.runtime.registerResourceModule("datadog", "index/domainAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/fleetSchedule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/gcpUcConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/governanceControl", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationRule", _module)
@@ -1548,10 +1601,15 @@ pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFiltersOrder
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionQuota", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/samlIdpMetadata", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/secureEmbedDashboard", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsDefaultInboxRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsDueDateRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsDueDateRulesOrder", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsInboxRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsInboxRulesOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsMuteRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsMuteRulesOrder", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsSeverityModifierRule", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsSeverityModifierRulesOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsTicketCreationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityFindingsTicketCreationRulesOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/securityMonitoringCriticalAsset", _module)

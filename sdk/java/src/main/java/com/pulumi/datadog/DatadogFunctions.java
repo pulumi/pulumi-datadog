@@ -32,6 +32,8 @@ import com.pulumi.datadog.inputs.GetDatastoreArgs;
 import com.pulumi.datadog.inputs.GetDatastoreItemArgs;
 import com.pulumi.datadog.inputs.GetDatastoreItemPlainArgs;
 import com.pulumi.datadog.inputs.GetDatastorePlainArgs;
+import com.pulumi.datadog.inputs.GetFleetScheduleArgs;
+import com.pulumi.datadog.inputs.GetFleetSchedulePlainArgs;
 import com.pulumi.datadog.inputs.GetGcpUcConfigArgs;
 import com.pulumi.datadog.inputs.GetGcpUcConfigPlainArgs;
 import com.pulumi.datadog.inputs.GetHostsArgs;
@@ -155,6 +157,8 @@ import com.pulumi.datadog.outputs.GetDashboardListResult;
 import com.pulumi.datadog.outputs.GetDashboardResult;
 import com.pulumi.datadog.outputs.GetDatastoreItemResult;
 import com.pulumi.datadog.outputs.GetDatastoreResult;
+import com.pulumi.datadog.outputs.GetFleetScheduleResult;
+import com.pulumi.datadog.outputs.GetFleetSchedulesResult;
 import com.pulumi.datadog.outputs.GetGcpUcConfigResult;
 import com.pulumi.datadog.outputs.GetHostsResult;
 import com.pulumi.datadog.outputs.GetIncidentNotificationRuleResult;
@@ -2962,6 +2966,477 @@ public final class DatadogFunctions {
      */
     public static CompletableFuture<GetDatastoreItemResult> getDatastoreItemPlain(GetDatastoreItemPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("datadog:index/getDatastoreItem:getDatastoreItem", TypeShape.of(GetDatastoreItemResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a Fleet Automation Agent upgrade schedule by ID. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetFleetScheduleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reading Fleet Automation schedules requires the hosts_read permission.
+     *         final var nonproduction = DatadogFunctions.getFleetSchedule(GetFleetScheduleArgs.builder()
+     *             .id("<schedule_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetScheduleResult> getFleetSchedule(GetFleetScheduleArgs args) {
+        return getFleetSchedule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a Fleet Automation Agent upgrade schedule by ID. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetFleetScheduleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reading Fleet Automation schedules requires the hosts_read permission.
+     *         final var nonproduction = DatadogFunctions.getFleetSchedule(GetFleetScheduleArgs.builder()
+     *             .id("<schedule_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFleetScheduleResult> getFleetSchedulePlain(GetFleetSchedulePlainArgs args) {
+        return getFleetSchedulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a Fleet Automation Agent upgrade schedule by ID. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetFleetScheduleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reading Fleet Automation schedules requires the hosts_read permission.
+     *         final var nonproduction = DatadogFunctions.getFleetSchedule(GetFleetScheduleArgs.builder()
+     *             .id("<schedule_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetScheduleResult> getFleetSchedule(GetFleetScheduleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getFleetSchedule:getFleetSchedule", TypeShape.of(GetFleetScheduleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a Fleet Automation Agent upgrade schedule by ID. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetFleetScheduleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reading Fleet Automation schedules requires the hosts_read permission.
+     *         final var nonproduction = DatadogFunctions.getFleetSchedule(GetFleetScheduleArgs.builder()
+     *             .id("<schedule_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetScheduleResult> getFleetSchedule(GetFleetScheduleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getFleetSchedule:getFleetSchedule", TypeShape.of(GetFleetScheduleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a Fleet Automation Agent upgrade schedule by ID. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import com.pulumi.datadog.inputs.GetFleetScheduleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Reading Fleet Automation schedules requires the hosts_read permission.
+     *         final var nonproduction = DatadogFunctions.getFleetSchedule(GetFleetScheduleArgs.builder()
+     *             .id("<schedule_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFleetScheduleResult> getFleetSchedulePlain(GetFleetSchedulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getFleetSchedule:getFleetSchedule", TypeShape.of(GetFleetScheduleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists Fleet Automation Agent upgrade schedules in ID order. An empty result is successful. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Returns an empty list when the organization has no Fleet Automation schedules.
+     *         final var all = DatadogFunctions.getFleetSchedules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetSchedulesResult> getFleetSchedules() {
+        return getFleetSchedules(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists Fleet Automation Agent upgrade schedules in ID order. An empty result is successful. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Returns an empty list when the organization has no Fleet Automation schedules.
+     *         final var all = DatadogFunctions.getFleetSchedules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFleetSchedulesResult> getFleetSchedulesPlain() {
+        return getFleetSchedulesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists Fleet Automation Agent upgrade schedules in ID order. An empty result is successful. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Returns an empty list when the organization has no Fleet Automation schedules.
+     *         final var all = DatadogFunctions.getFleetSchedules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetSchedulesResult> getFleetSchedules(InvokeArgs args) {
+        return getFleetSchedules(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists Fleet Automation Agent upgrade schedules in ID order. An empty result is successful. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Returns an empty list when the organization has no Fleet Automation schedules.
+     *         final var all = DatadogFunctions.getFleetSchedules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFleetSchedulesResult> getFleetSchedulesPlain(InvokeArgs args) {
+        return getFleetSchedulesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists Fleet Automation Agent upgrade schedules in ID order. An empty result is successful. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Returns an empty list when the organization has no Fleet Automation schedules.
+     *         final var all = DatadogFunctions.getFleetSchedules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetSchedulesResult> getFleetSchedules(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getFleetSchedules:getFleetSchedules", TypeShape.of(GetFleetSchedulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists Fleet Automation Agent upgrade schedules in ID order. An empty result is successful. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Returns an empty list when the organization has no Fleet Automation schedules.
+     *         final var all = DatadogFunctions.getFleetSchedules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFleetSchedulesResult> getFleetSchedules(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("datadog:index/getFleetSchedules:getFleetSchedules", TypeShape.of(GetFleetSchedulesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists Fleet Automation Agent upgrade schedules in ID order. An empty result is successful. Reading schedules requires an application key with the `hostsRead` permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.datadog.DatadogFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Returns an empty list when the organization has no Fleet Automation schedules.
+     *         final var all = DatadogFunctions.getFleetSchedules(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFleetSchedulesResult> getFleetSchedulesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("datadog:index/getFleetSchedules:getFleetSchedules", TypeShape.of(GetFleetSchedulesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve information about a specific Datadog GCP Usage Cost configuration. This allows you to fetch details about an existing Cloud Cost Management configuration for GCP billing data access.
