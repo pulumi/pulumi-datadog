@@ -144,6 +144,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("opentelemetry")]
         public Input<Inputs.ObservabilityPipelineConfigSourceOpentelemetryArgs>? Opentelemetry { get; set; }
 
+        /// <summary>
+        /// The `PrometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+        /// </summary>
+        [Input("prometheusRemoteWrite")]
+        public Input<Inputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs>? PrometheusRemoteWrite { get; set; }
+
         [Input("rsyslogs")]
         private InputList<Inputs.ObservabilityPipelineConfigSourceRsyslogArgs>? _rsyslogs;
 

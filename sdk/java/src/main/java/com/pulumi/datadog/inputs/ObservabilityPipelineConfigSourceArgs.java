@@ -16,6 +16,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceHttpServerArgs
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceKafkaArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceLogstashArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceOpentelemetryArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceRsyslogArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSocketArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigSourceSplunkHecArgs;
@@ -216,6 +217,21 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
     }
 
     /**
+     * The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+     * 
+     */
+    @Import(name="prometheusRemoteWrite")
+    private @Nullable Output<ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs> prometheusRemoteWrite;
+
+    /**
+     * @return The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs>> prometheusRemoteWrite() {
+        return Optional.ofNullable(this.prometheusRemoteWrite);
+    }
+
+    /**
      * The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
      * 
      */
@@ -335,6 +351,7 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
         this.kafkas = $.kafkas;
         this.logstashes = $.logstashes;
         this.opentelemetry = $.opentelemetry;
+        this.prometheusRemoteWrite = $.prometheusRemoteWrite;
         this.rsyslogs = $.rsyslogs;
         this.sockets = $.sockets;
         this.splunkHecs = $.splunkHecs;
@@ -712,6 +729,27 @@ public final class ObservabilityPipelineConfigSourceArgs extends com.pulumi.reso
          */
         public Builder opentelemetry(ObservabilityPipelineConfigSourceOpentelemetryArgs opentelemetry) {
             return opentelemetry(Output.of(opentelemetry));
+        }
+
+        /**
+         * @param prometheusRemoteWrite The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prometheusRemoteWrite(@Nullable Output<ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs> prometheusRemoteWrite) {
+            $.prometheusRemoteWrite = prometheusRemoteWrite;
+            return this;
+        }
+
+        /**
+         * @param prometheusRemoteWrite The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prometheusRemoteWrite(ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs prometheusRemoteWrite) {
+            return prometheusRemoteWrite(Output.of(prometheusRemoteWrite));
         }
 
         /**

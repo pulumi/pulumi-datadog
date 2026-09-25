@@ -555,6 +555,18 @@ __all__ = [
     'DashboardV2WidgetDistributionDefinitionXaxisArgsDict',
     'DashboardV2WidgetDistributionDefinitionYaxisArgs',
     'DashboardV2WidgetDistributionDefinitionYaxisArgsDict',
+    'DashboardV2WidgetEmbeddedAppDefinitionArgs',
+    'DashboardV2WidgetEmbeddedAppDefinitionArgsDict',
+    'DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs',
+    'DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgsDict',
+    'DashboardV2WidgetEmbeddedAppDefinitionInputArgs',
+    'DashboardV2WidgetEmbeddedAppDefinitionInputArgsDict',
+    'DashboardV2WidgetEmbeddedAppDefinitionTimeArgs',
+    'DashboardV2WidgetEmbeddedAppDefinitionTimeArgsDict',
+    'DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs',
+    'DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgsDict',
+    'DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs',
+    'DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgsDict',
     'DashboardV2WidgetEventStreamDefinitionArgs',
     'DashboardV2WidgetEventStreamDefinitionArgsDict',
     'DashboardV2WidgetEventStreamDefinitionTimeArgs',
@@ -2959,6 +2971,8 @@ __all__ = [
     'DowntimeScheduleRecurringScheduleArgsDict',
     'DowntimeScheduleRecurringScheduleRecurrenceArgs',
     'DowntimeScheduleRecurringScheduleRecurrenceArgsDict',
+    'FleetScheduleRuleArgs',
+    'FleetScheduleRuleArgsDict',
     'GovernanceControlNotificationSettingArgs',
     'GovernanceControlNotificationSettingArgsDict',
     'GovernanceControlNotificationSettingTargetArgs',
@@ -3205,6 +3219,8 @@ __all__ = [
     'MetricTagConfigurationAggregationArgsDict',
     'MonitorAssetArgs',
     'MonitorAssetArgsDict',
+    'MonitorConfigPolicyDowntimePolicyArgs',
+    'MonitorConfigPolicyDowntimePolicyArgsDict',
     'MonitorConfigPolicyTagPolicyArgs',
     'MonitorConfigPolicyTagPolicyArgsDict',
     'MonitorMonitorThresholdWindowsArgs',
@@ -3569,6 +3585,16 @@ __all__ = [
     'ObservabilityPipelineConfigDestinationOpentelemetryBufferMemoryArgsDict',
     'ObservabilityPipelineConfigDestinationOpentelemetryTlsArgs',
     'ObservabilityPipelineConfigDestinationOpentelemetryTlsArgsDict',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgsDict',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgsDict',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgsDict',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgsDict',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs',
+    'ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgsDict',
     'ObservabilityPipelineConfigDestinationRsyslogArgs',
     'ObservabilityPipelineConfigDestinationRsyslogArgsDict',
     'ObservabilityPipelineConfigDestinationRsyslogBufferArgs',
@@ -3859,6 +3885,14 @@ __all__ = [
     'ObservabilityPipelineConfigSourceOpentelemetryArgsDict',
     'ObservabilityPipelineConfigSourceOpentelemetryTlsArgs',
     'ObservabilityPipelineConfigSourceOpentelemetryTlsArgsDict',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgsDict',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgsDict',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgsDict',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs',
+    'ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgsDict',
     'ObservabilityPipelineConfigSourceRsyslogArgs',
     'ObservabilityPipelineConfigSourceRsyslogArgsDict',
     'ObservabilityPipelineConfigSourceRsyslogTlsArgs',
@@ -4251,6 +4285,18 @@ __all__ = [
     'PowerpackV2WidgetDistributionDefinitionXaxisArgsDict',
     'PowerpackV2WidgetDistributionDefinitionYaxisArgs',
     'PowerpackV2WidgetDistributionDefinitionYaxisArgsDict',
+    'PowerpackV2WidgetEmbeddedAppDefinitionArgs',
+    'PowerpackV2WidgetEmbeddedAppDefinitionArgsDict',
+    'PowerpackV2WidgetEmbeddedAppDefinitionCustomLinkArgs',
+    'PowerpackV2WidgetEmbeddedAppDefinitionCustomLinkArgsDict',
+    'PowerpackV2WidgetEmbeddedAppDefinitionInputArgs',
+    'PowerpackV2WidgetEmbeddedAppDefinitionInputArgsDict',
+    'PowerpackV2WidgetEmbeddedAppDefinitionTimeArgs',
+    'PowerpackV2WidgetEmbeddedAppDefinitionTimeArgsDict',
+    'PowerpackV2WidgetEmbeddedAppDefinitionTimeFixedArgs',
+    'PowerpackV2WidgetEmbeddedAppDefinitionTimeFixedArgsDict',
+    'PowerpackV2WidgetEmbeddedAppDefinitionTimeLiveArgs',
+    'PowerpackV2WidgetEmbeddedAppDefinitionTimeLiveArgsDict',
     'PowerpackV2WidgetEventStreamDefinitionArgs',
     'PowerpackV2WidgetEventStreamDefinitionArgsDict',
     'PowerpackV2WidgetEventStreamDefinitionTimeArgs',
@@ -7065,16 +7111,32 @@ __all__ = [
     'RumRetentionQuotaCustomArgsDict',
     'SecureEmbedDashboardSelectableTemplateVarArgs',
     'SecureEmbedDashboardSelectableTemplateVarArgsDict',
+    'SecurityFindingsDefaultInboxRuleActionArgs',
+    'SecurityFindingsDefaultInboxRuleActionArgsDict',
+    'SecurityFindingsDefaultInboxRuleRuleArgs',
+    'SecurityFindingsDefaultInboxRuleRuleArgsDict',
     'SecurityFindingsDueDateRuleActionArgs',
     'SecurityFindingsDueDateRuleActionArgsDict',
     'SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgs',
     'SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgsDict',
     'SecurityFindingsDueDateRuleRuleArgs',
     'SecurityFindingsDueDateRuleRuleArgsDict',
+    'SecurityFindingsInboxRuleActionArgs',
+    'SecurityFindingsInboxRuleActionArgsDict',
+    'SecurityFindingsInboxRuleRuleArgs',
+    'SecurityFindingsInboxRuleRuleArgsDict',
     'SecurityFindingsMuteRuleActionArgs',
     'SecurityFindingsMuteRuleActionArgsDict',
     'SecurityFindingsMuteRuleRuleArgs',
     'SecurityFindingsMuteRuleRuleArgsDict',
+    'SecurityFindingsSeverityModifierRuleActionArgs',
+    'SecurityFindingsSeverityModifierRuleActionArgsDict',
+    'SecurityFindingsSeverityModifierRuleActionSetArgs',
+    'SecurityFindingsSeverityModifierRuleActionSetArgsDict',
+    'SecurityFindingsSeverityModifierRuleActionShiftArgs',
+    'SecurityFindingsSeverityModifierRuleActionShiftArgsDict',
+    'SecurityFindingsSeverityModifierRuleRuleArgs',
+    'SecurityFindingsSeverityModifierRuleRuleArgsDict',
     'SecurityFindingsTicketCreationRuleActionArgs',
     'SecurityFindingsTicketCreationRuleActionArgsDict',
     'SecurityFindingsTicketCreationRuleRuleArgs',
@@ -7347,6 +7409,8 @@ __all__ = [
     'TeamSyncSelectionStateArgsDict',
     'TeamSyncSelectionStateExternalIdArgs',
     'TeamSyncSelectionStateExternalIdArgsDict',
+    'WorkflowAutomationRunAsArgs',
+    'WorkflowAutomationRunAsArgsDict',
     'GetActionConnectionAnthropicArgs',
     'GetActionConnectionAnthropicArgsDict',
     'GetActionConnectionAnthropicApiKeyArgs',
@@ -13772,6 +13836,10 @@ class DashboardV2WidgetArgsDict(TypedDict):
     """
     The definition for a Distribution widget.
     """
+    embedded_app_definition: NotRequired[pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionArgsDict']]]
+    """
+    The definition for an App Builder embedded app widget.
+    """
     event_stream_definition: NotRequired[pulumi.Input[Optional['DashboardV2WidgetEventStreamDefinitionArgsDict']]]
     """
     The definition for a Event Stream widget.
@@ -13927,6 +13995,7 @@ class DashboardV2WidgetArgs:
                  check_status_definition: pulumi.Input[Optional['DashboardV2WidgetCheckStatusDefinitionArgs']] = None,
                  cohort_definition: pulumi.Input[Optional['DashboardV2WidgetCohortDefinitionArgs']] = None,
                  distribution_definition: pulumi.Input[Optional['DashboardV2WidgetDistributionDefinitionArgs']] = None,
+                 embedded_app_definition: pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionArgs']] = None,
                  event_stream_definition: pulumi.Input[Optional['DashboardV2WidgetEventStreamDefinitionArgs']] = None,
                  event_timeline_definition: pulumi.Input[Optional['DashboardV2WidgetEventTimelineDefinitionArgs']] = None,
                  free_text_definition: pulumi.Input[Optional['DashboardV2WidgetFreeTextDefinitionArgs']] = None,
@@ -13971,6 +14040,7 @@ class DashboardV2WidgetArgs:
         :param pulumi.Input['DashboardV2WidgetCheckStatusDefinitionArgs'] check_status_definition: The definition for a Check Status widget.
         :param pulumi.Input['DashboardV2WidgetCohortDefinitionArgs'] cohort_definition: The definition for a Cohort retention-grid widget.
         :param pulumi.Input['DashboardV2WidgetDistributionDefinitionArgs'] distribution_definition: The definition for a Distribution widget.
+        :param pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionArgs'] embedded_app_definition: The definition for an App Builder embedded app widget.
         :param pulumi.Input['DashboardV2WidgetEventStreamDefinitionArgs'] event_stream_definition: The definition for a Event Stream widget.
         :param pulumi.Input['DashboardV2WidgetEventTimelineDefinitionArgs'] event_timeline_definition: The definition for a Event Timeline widget.
         :param pulumi.Input['DashboardV2WidgetFreeTextDefinitionArgs'] free_text_definition: The definition for a Free Text widget.
@@ -14022,6 +14092,8 @@ class DashboardV2WidgetArgs:
             pulumi.set(__self__, "cohort_definition", cohort_definition)
         if distribution_definition is not None:
             pulumi.set(__self__, "distribution_definition", distribution_definition)
+        if embedded_app_definition is not None:
+            pulumi.set(__self__, "embedded_app_definition", embedded_app_definition)
         if event_stream_definition is not None:
             pulumi.set(__self__, "event_stream_definition", event_stream_definition)
         if event_timeline_definition is not None:
@@ -14178,6 +14250,18 @@ class DashboardV2WidgetArgs:
     @distribution_definition.setter
     def distribution_definition(self, value: pulumi.Input[Optional['DashboardV2WidgetDistributionDefinitionArgs']]):
         pulumi.set(self, "distribution_definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddedAppDefinition")
+    def embedded_app_definition(self) -> pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionArgs']]:
+        """
+        The definition for an App Builder embedded app widget.
+        """
+        return pulumi.get(self, "embedded_app_definition")
+
+    @embedded_app_definition.setter
+    def embedded_app_definition(self, value: pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionArgs']]):
+        pulumi.set(self, "embedded_app_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="eventStreamDefinition")
@@ -27956,6 +28040,514 @@ class DashboardV2WidgetDistributionDefinitionYaxisArgs:
         pulumi.set(self, "scale", value)
 
 
+class DashboardV2WidgetEmbeddedAppDefinitionArgsDict(TypedDict):
+    app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    UUID of the App Builder app to embed. Exactly one of `app_id` or `template_id` must be provided.
+    """
+    custom_links: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgsDict']]]]]
+    """
+    A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The description of the widget.
+    """
+    hide_incomplete_cost_data: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+    """
+    inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionInputArgsDict']]]]]
+    """
+    A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+    """
+    live_span: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+    """
+    template_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ID of the built-in app template to embed. Exactly one of `app_id` or `template_id` must be provided.
+    """
+    time: NotRequired[pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeArgsDict']]]
+    """
+    A nested block used to specify a time span for the widget. Use this or `live_span`, not both.
+    """
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The title of the widget.
+    """
+    title_align: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+    """
+    title_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The size of the widget's title (defaults to 16).
+    """
+
+@pulumi.input_type
+class DashboardV2WidgetEmbeddedAppDefinitionArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_links: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_incomplete_cost_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inputs: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionInputArgs']]]] = None,
+                 live_span: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time: pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeArgs']] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 title_align: pulumi.Input[Optional[_builtins.str]] = None,
+                 title_size: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] app_id: UUID of the App Builder app to embed. Exactly one of `app_id` or `template_id` must be provided.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs']]] custom_links: A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        :param pulumi.Input[_builtins.str] description: The description of the widget.
+        :param pulumi.Input[_builtins.bool] hide_incomplete_cost_data: Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionInputArgs']]] inputs: A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+        :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        :param pulumi.Input[_builtins.str] template_id: ID of the built-in app template to embed. Exactly one of `app_id` or `template_id` must be provided.
+        :param pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionTimeArgs'] time: A nested block used to specify a time span for the widget. Use this or `live_span`, not both.
+        :param pulumi.Input[_builtins.str] title: The title of the widget.
+        :param pulumi.Input[_builtins.str] title_align: The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        :param pulumi.Input[_builtins.str] title_size: The size of the widget's title (defaults to 16).
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if hide_incomplete_cost_data is not None:
+            pulumi.set(__self__, "hide_incomplete_cost_data", hide_incomplete_cost_data)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if live_span is not None:
+            pulumi.set(__self__, "live_span", live_span)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        UUID of the App Builder app to embed. Exactly one of `app_id` or `template_id` must be provided.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "app_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs']]]]:
+        """
+        A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The description of the widget.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hideIncompleteCostData")
+    def hide_incomplete_cost_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        """
+        return pulumi.get(self, "hide_incomplete_cost_data")
+
+    @hide_incomplete_cost_data.setter
+    def hide_incomplete_cost_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hide_incomplete_cost_data", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def inputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionInputArgs']]]]:
+        """
+        A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionInputArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="liveSpan")
+    def live_span(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        """
+        return pulumi.get(self, "live_span")
+
+    @live_span.setter
+    def live_span(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "live_span", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of the built-in app template to embed. Exactly one of `app_id` or `template_id` must be provided.
+        """
+        return pulumi.get(self, "template_id")
+
+    @template_id.setter
+    def template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "template_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeArgs']]:
+        """
+        A nested block used to specify a time span for the widget. Use this or `live_span`, not both.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeArgs']]):
+        pulumi.set(self, "time", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The title of the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        """
+        return pulumi.get(self, "title_align")
+
+    @title_align.setter
+    def title_align(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title_align", value)
+
+    @_builtins.property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The size of the widget's title (defaults to 16).
+        """
+        return pulumi.get(self, "title_size")
+
+    @title_size.setter
+    def title_size(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title_size", value)
+
+
+class DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgsDict(TypedDict):
+    is_hidden: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    The flag for toggling context menu link visibility.
+    """
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+    """
+    link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+    """
+    override_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+    """
+
+@pulumi.input_type
+class DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 is_hidden: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_label: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] is_hidden: The flag for toggling context menu link visibility.
+        :param pulumi.Input[_builtins.str] label: The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+        :param pulumi.Input[_builtins.str] link: The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+        :param pulumi.Input[_builtins.str] override_label: The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+        """
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @_builtins.property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        The flag for toggling context menu link visibility.
+        """
+        return pulumi.get(self, "is_hidden")
+
+    @is_hidden.setter
+    def is_hidden(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_hidden", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+        """
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+        """
+        return pulumi.get(self, "override_label")
+
+    @override_label.setter
+    def override_label(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "override_label", value)
+
+
+class DashboardV2WidgetEmbeddedAppDefinitionInputArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the app input.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+    """
+
+@pulumi.input_type
+class DashboardV2WidgetEmbeddedAppDefinitionInputArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the app input.
+        :param pulumi.Input[_builtins.str] value: JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the app input.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class DashboardV2WidgetEmbeddedAppDefinitionTimeArgsDict(TypedDict):
+    fixed: NotRequired[pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgsDict']]]
+    """
+    A fixed time range with explicit start and end times.
+    """
+    live: NotRequired[pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgsDict']]]
+    """
+    An arbitrary live time span, such as 17 minutes or 6 hours.
+    """
+
+@pulumi.input_type
+class DashboardV2WidgetEmbeddedAppDefinitionTimeArgs:
+    def __init__(__self__, *,
+                 fixed: pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs']] = None,
+                 live: pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs']] = None):
+        """
+        :param pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs'] fixed: A fixed time range with explicit start and end times.
+        :param pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs'] live: An arbitrary live time span, such as 17 minutes or 6 hours.
+        """
+        if fixed is not None:
+            pulumi.set(__self__, "fixed", fixed)
+        if live is not None:
+            pulumi.set(__self__, "live", live)
+
+    @_builtins.property
+    @pulumi.getter
+    def fixed(self) -> pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs']]:
+        """
+        A fixed time range with explicit start and end times.
+        """
+        return pulumi.get(self, "fixed")
+
+    @fixed.setter
+    def fixed(self, value: pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs']]):
+        pulumi.set(self, "fixed", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def live(self) -> pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs']]:
+        """
+        An arbitrary live time span, such as 17 minutes or 6 hours.
+        """
+        return pulumi.get(self, "live")
+
+    @live.setter
+    def live(self, value: pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs']]):
+        pulumi.set(self, "live", value)
+
+
+class DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgsDict(TypedDict):
+    from_: pulumi.Input[_builtins.int]
+    """
+    Start time in seconds since epoch.
+    """
+    to: pulumi.Input[_builtins.int]
+    """
+    End time in seconds since epoch.
+    """
+
+@pulumi.input_type
+class DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[_builtins.int],
+                 to: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] from_: Start time in seconds since epoch.
+        :param pulumi.Input[_builtins.int] to: End time in seconds since epoch.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[_builtins.int]:
+        """
+        Start time in seconds since epoch.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "from_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[_builtins.int]:
+        """
+        End time in seconds since epoch.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "to", value)
+
+
+class DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Value of the time span.
+    """
+
+@pulumi.input_type
+class DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] unit: Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        :param pulumi.Input[_builtins.int] value: Value of the time span.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "unit", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.int]:
+        """
+        Value of the time span.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "value", value)
+
+
 class DashboardV2WidgetEventStreamDefinitionArgsDict(TypedDict):
     query: pulumi.Input[_builtins.str]
     """
@@ -32272,6 +32864,10 @@ class DashboardV2WidgetGroupDefinitionWidgetArgsDict(TypedDict):
     """
     The definition for a Distribution widget.
     """
+    embedded_app_definition: NotRequired[pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionArgsDict']]]
+    """
+    The definition for an App Builder embedded app widget.
+    """
     event_stream_definition: NotRequired[pulumi.Input[Optional['DashboardV2WidgetEventStreamDefinitionArgsDict']]]
     """
     The definition for a Event Stream widget.
@@ -32415,6 +33011,7 @@ class DashboardV2WidgetGroupDefinitionWidgetArgs:
                  check_status_definition: pulumi.Input[Optional['DashboardV2WidgetCheckStatusDefinitionArgs']] = None,
                  cohort_definition: pulumi.Input[Optional['DashboardV2WidgetCohortDefinitionArgs']] = None,
                  distribution_definition: pulumi.Input[Optional['DashboardV2WidgetDistributionDefinitionArgs']] = None,
+                 embedded_app_definition: pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionArgs']] = None,
                  event_stream_definition: pulumi.Input[Optional['DashboardV2WidgetEventStreamDefinitionArgs']] = None,
                  event_timeline_definition: pulumi.Input[Optional['DashboardV2WidgetEventTimelineDefinitionArgs']] = None,
                  free_text_definition: pulumi.Input[Optional['DashboardV2WidgetFreeTextDefinitionArgs']] = None,
@@ -32456,6 +33053,7 @@ class DashboardV2WidgetGroupDefinitionWidgetArgs:
         :param pulumi.Input['DashboardV2WidgetCheckStatusDefinitionArgs'] check_status_definition: The definition for a Check Status widget.
         :param pulumi.Input['DashboardV2WidgetCohortDefinitionArgs'] cohort_definition: The definition for a Cohort retention-grid widget.
         :param pulumi.Input['DashboardV2WidgetDistributionDefinitionArgs'] distribution_definition: The definition for a Distribution widget.
+        :param pulumi.Input['DashboardV2WidgetEmbeddedAppDefinitionArgs'] embedded_app_definition: The definition for an App Builder embedded app widget.
         :param pulumi.Input['DashboardV2WidgetEventStreamDefinitionArgs'] event_stream_definition: The definition for a Event Stream widget.
         :param pulumi.Input['DashboardV2WidgetEventTimelineDefinitionArgs'] event_timeline_definition: The definition for a Event Timeline widget.
         :param pulumi.Input['DashboardV2WidgetFreeTextDefinitionArgs'] free_text_definition: The definition for a Free Text widget.
@@ -32504,6 +33102,8 @@ class DashboardV2WidgetGroupDefinitionWidgetArgs:
             pulumi.set(__self__, "cohort_definition", cohort_definition)
         if distribution_definition is not None:
             pulumi.set(__self__, "distribution_definition", distribution_definition)
+        if embedded_app_definition is not None:
+            pulumi.set(__self__, "embedded_app_definition", embedded_app_definition)
         if event_stream_definition is not None:
             pulumi.set(__self__, "event_stream_definition", event_stream_definition)
         if event_timeline_definition is not None:
@@ -32654,6 +33254,18 @@ class DashboardV2WidgetGroupDefinitionWidgetArgs:
     @distribution_definition.setter
     def distribution_definition(self, value: pulumi.Input[Optional['DashboardV2WidgetDistributionDefinitionArgs']]):
         pulumi.set(self, "distribution_definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddedAppDefinition")
+    def embedded_app_definition(self) -> pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionArgs']]:
+        """
+        The definition for an App Builder embedded app widget.
+        """
+        return pulumi.get(self, "embedded_app_definition")
+
+    @embedded_app_definition.setter
+    def embedded_app_definition(self, value: pulumi.Input[Optional['DashboardV2WidgetEmbeddedAppDefinitionArgs']]):
+        pulumi.set(self, "embedded_app_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="eventStreamDefinition")
@@ -140657,6 +141269,91 @@ class DowntimeScheduleRecurringScheduleRecurrenceArgs:
         pulumi.set(self, "start", value)
 
 
+class FleetScheduleRuleArgsDict(TypedDict):
+    days_of_weeks: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+    """
+    maintenance_window_duration: pulumi.Input[_builtins.int]
+    """
+    Duration of the maintenance window in minutes. Value must be at least 1.
+    """
+    start_maintenance_window: pulumi.Input[_builtins.str]
+    """
+    Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+    """
+    timezone: pulumi.Input[_builtins.str]
+    """
+    IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+    """
+
+@pulumi.input_type
+class FleetScheduleRuleArgs:
+    def __init__(__self__, *,
+                 days_of_weeks: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 maintenance_window_duration: pulumi.Input[_builtins.int],
+                 start_maintenance_window: pulumi.Input[_builtins.str],
+                 timezone: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] days_of_weeks: Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+        :param pulumi.Input[_builtins.int] maintenance_window_duration: Duration of the maintenance window in minutes. Value must be at least 1.
+        :param pulumi.Input[_builtins.str] start_maintenance_window: Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+        :param pulumi.Input[_builtins.str] timezone: IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+        """
+        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        pulumi.set(__self__, "maintenance_window_duration", maintenance_window_duration)
+        pulumi.set(__self__, "start_maintenance_window", start_maintenance_window)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Days when the schedule may run. Valid values are `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, and `Sun`.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @days_of_weeks.setter
+    def days_of_weeks(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "days_of_weeks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindowDuration")
+    def maintenance_window_duration(self) -> pulumi.Input[_builtins.int]:
+        """
+        Duration of the maintenance window in minutes. Value must be at least 1.
+        """
+        return pulumi.get(self, "maintenance_window_duration")
+
+    @maintenance_window_duration.setter
+    def maintenance_window_duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "maintenance_window_duration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startMaintenanceWindow")
+    def start_maintenance_window(self) -> pulumi.Input[_builtins.str]:
+        """
+        Start of the maintenance window in 24-hour `HH:MM` format. Must use HH:MM format.
+        """
+        return pulumi.get(self, "start_maintenance_window")
+
+    @start_maintenance_window.setter
+    def start_maintenance_window(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "start_maintenance_window", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Input[_builtins.str]:
+        """
+        IANA time zone used to interpret the maintenance window, for example `America/New_York` or `UTC`.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "timezone", value)
+
+
 class GovernanceControlNotificationSettingArgsDict(TypedDict):
     enabled: pulumi.Input[_builtins.bool]
     """
@@ -150983,6 +151680,34 @@ class MonitorAssetArgs:
         pulumi.set(self, "resource_type", value)
 
 
+class MonitorConfigPolicyDowntimePolicyArgsDict(TypedDict):
+    max_duration_ms: pulumi.Input[_builtins.int]
+    """
+    The maximum allowed downtime duration, in milliseconds
+    """
+
+@pulumi.input_type
+class MonitorConfigPolicyDowntimePolicyArgs:
+    def __init__(__self__, *,
+                 max_duration_ms: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] max_duration_ms: The maximum allowed downtime duration, in milliseconds
+        """
+        pulumi.set(__self__, "max_duration_ms", max_duration_ms)
+
+    @_builtins.property
+    @pulumi.getter(name="maxDurationMs")
+    def max_duration_ms(self) -> pulumi.Input[_builtins.int]:
+        """
+        The maximum allowed downtime duration, in milliseconds
+        """
+        return pulumi.get(self, "max_duration_ms")
+
+    @max_duration_ms.setter
+    def max_duration_ms(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_duration_ms", value)
+
+
 class MonitorConfigPolicyTagPolicyArgsDict(TypedDict):
     tag_key: pulumi.Input[_builtins.str]
     """
@@ -156399,6 +157124,10 @@ class ObservabilityPipelineConfigDestinationArgsDict(TypedDict):
     """
     The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
     """
+    prometheus_remote_write: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgsDict']]]
+    """
+    The `prometheus_remote_write` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+    """
     rsyslogs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationRsyslogArgsDict']]]]]
     """
     The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
@@ -156454,6 +157183,7 @@ class ObservabilityPipelineConfigDestinationArgs:
                  new_relics: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationNewRelicArgs']]]] = None,
                  opensearches: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationOpensearchArgs']]]] = None,
                  opentelemetry: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationOpentelemetryArgs']] = None,
+                 prometheus_remote_write: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs']] = None,
                  rsyslogs: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationRsyslogArgs']]]] = None,
                  sentinel_ones: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationSentinelOneArgs']]]] = None,
                  sockets: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationSocketArgs']]]] = None,
@@ -156485,6 +157215,7 @@ class ObservabilityPipelineConfigDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationNewRelicArgs']]] new_relics: The `new_relic` destination sends logs to the New Relic platform.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationOpensearchArgs']]] opensearches: The `opensearch` destination writes logs to an OpenSearch cluster.
         :param pulumi.Input['ObservabilityPipelineConfigDestinationOpentelemetryArgs'] opentelemetry: The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs'] prometheus_remote_write: The `prometheus_remote_write` destination sends metrics to a Prometheus Remote Write compatible endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationRsyslogArgs']]] rsyslogs: The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationSentinelOneArgs']]] sentinel_ones: The `sentinel_one` destination sends logs to SentinelOne.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationSocketArgs']]] sockets: The `socket` destination sends logs over TCP or UDP to a remote server.
@@ -156537,6 +157268,8 @@ class ObservabilityPipelineConfigDestinationArgs:
             pulumi.set(__self__, "opensearches", opensearches)
         if opentelemetry is not None:
             pulumi.set(__self__, "opentelemetry", opentelemetry)
+        if prometheus_remote_write is not None:
+            pulumi.set(__self__, "prometheus_remote_write", prometheus_remote_write)
         if rsyslogs is not None:
             pulumi.set(__self__, "rsyslogs", rsyslogs)
         if sentinel_ones is not None:
@@ -156827,6 +157560,18 @@ class ObservabilityPipelineConfigDestinationArgs:
     @opentelemetry.setter
     def opentelemetry(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationOpentelemetryArgs']]):
         pulumi.set(self, "opentelemetry", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prometheusRemoteWrite")
+    def prometheus_remote_write(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs']]:
+        """
+        The `prometheus_remote_write` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+        """
+        return pulumi.get(self, "prometheus_remote_write")
+
+    @prometheus_remote_write.setter
+    def prometheus_remote_write(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs']]):
+        pulumi.set(self, "prometheus_remote_write", value)
 
     @_builtins.property
     @pulumi.getter
@@ -163120,7 +163865,7 @@ class ObservabilityPipelineConfigDestinationHttpClientArgsDict(TypedDict):
     """
     auth_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+    HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
     """
     buffer: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationHttpClientBufferArgsDict']]]
     """
@@ -163129,6 +163874,10 @@ class ObservabilityPipelineConfigDestinationHttpClientArgsDict(TypedDict):
     compression: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationHttpClientCompressionArgsDict']]]
     """
     Compression configuration for HTTP requests.
+    """
+    custom_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
     """
     password_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -163158,6 +163907,7 @@ class ObservabilityPipelineConfigDestinationHttpClientArgs:
                  auth_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  buffer: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationHttpClientBufferArgs']] = None,
                  compression: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationHttpClientCompressionArgs']] = None,
+                 custom_key: pulumi.Input[Optional[_builtins.str]] = None,
                  password_key: pulumi.Input[Optional[_builtins.str]] = None,
                  tls: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationHttpClientTlsArgs']] = None,
                  token_key: pulumi.Input[Optional[_builtins.str]] = None,
@@ -163165,9 +163915,10 @@ class ObservabilityPipelineConfigDestinationHttpClientArgs:
                  username_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encoding: Encoding format for events. Valid values are `json`.
-        :param pulumi.Input[_builtins.str] auth_strategy: HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+        :param pulumi.Input[_builtins.str] auth_strategy: HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
         :param pulumi.Input['ObservabilityPipelineConfigDestinationHttpClientBufferArgs'] buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
         :param pulumi.Input['ObservabilityPipelineConfigDestinationHttpClientCompressionArgs'] compression: Compression configuration for HTTP requests.
+        :param pulumi.Input[_builtins.str] custom_key: Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
         :param pulumi.Input[_builtins.str] password_key: Name of the environment variable or secret that holds the password.
         :param pulumi.Input['ObservabilityPipelineConfigDestinationHttpClientTlsArgs'] tls: Configuration for enabling TLS encryption between the pipeline component and external services.
         :param pulumi.Input[_builtins.str] token_key: Name of the environment variable or secret that holds the authentication token.
@@ -163181,6 +163932,8 @@ class ObservabilityPipelineConfigDestinationHttpClientArgs:
             pulumi.set(__self__, "buffer", buffer)
         if compression is not None:
             pulumi.set(__self__, "compression", compression)
+        if custom_key is not None:
+            pulumi.set(__self__, "custom_key", custom_key)
         if password_key is not None:
             pulumi.set(__self__, "password_key", password_key)
         if tls is not None:
@@ -163208,7 +163961,7 @@ class ObservabilityPipelineConfigDestinationHttpClientArgs:
     @pulumi.getter(name="authStrategy")
     def auth_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+        HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
         """
         return pulumi.get(self, "auth_strategy")
 
@@ -163239,6 +163992,18 @@ class ObservabilityPipelineConfigDestinationHttpClientArgs:
     @compression.setter
     def compression(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationHttpClientCompressionArgs']]):
         pulumi.set(self, "compression", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customKey")
+    def custom_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+        """
+        return pulumi.get(self, "custom_key")
+
+    @custom_key.setter
+    def custom_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_key", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordKey")
@@ -165563,6 +166328,470 @@ class ObservabilityPipelineConfigDestinationOpentelemetryTlsArgs:
     @key_pass_key.setter
     def key_pass_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_pass_key", value)
+
+
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgsDict(TypedDict):
+    auth_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+    """
+    buffer: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgsDict']]]
+    """
+    Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+    """
+    default_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The default namespace to prefix onto metric names that don't already have one.
+    """
+    endpoint_url_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+    """
+    password_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the password. Used when `auth_strategy` is `basic`.
+    """
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+    """
+    tls: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgsDict']]]
+    """
+    Configuration for enabling TLS encryption between the pipeline component and external services.
+    """
+    token_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the bearer token. Used when `auth_strategy` is `bearer`.
+    """
+    username_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the username. Used when `auth_strategy` is `basic`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs:
+    def __init__(__self__, *,
+                 auth_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 buffer: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs']] = None,
+                 default_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_url_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs']] = None,
+                 token_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_key: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] auth_strategy: The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs'] buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        :param pulumi.Input[_builtins.str] default_namespace: The default namespace to prefix onto metric names that don't already have one.
+        :param pulumi.Input[_builtins.str] endpoint_url_key: Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+        :param pulumi.Input[_builtins.str] password_key: Name of the environment variable or secret that holds the password. Used when `auth_strategy` is `basic`.
+        :param pulumi.Input[_builtins.str] tenant_id: The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs'] tls: Configuration for enabling TLS encryption between the pipeline component and external services.
+        :param pulumi.Input[_builtins.str] token_key: Name of the environment variable or secret that holds the bearer token. Used when `auth_strategy` is `bearer`.
+        :param pulumi.Input[_builtins.str] username_key: Name of the environment variable or secret that holds the username. Used when `auth_strategy` is `basic`.
+        """
+        if auth_strategy is not None:
+            pulumi.set(__self__, "auth_strategy", auth_strategy)
+        if buffer is not None:
+            pulumi.set(__self__, "buffer", buffer)
+        if default_namespace is not None:
+            pulumi.set(__self__, "default_namespace", default_namespace)
+        if endpoint_url_key is not None:
+            pulumi.set(__self__, "endpoint_url_key", endpoint_url_key)
+        if password_key is not None:
+            pulumi.set(__self__, "password_key", password_key)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+        if token_key is not None:
+            pulumi.set(__self__, "token_key", token_key)
+        if username_key is not None:
+            pulumi.set(__self__, "username_key", username_key)
+
+    @_builtins.property
+    @pulumi.getter(name="authStrategy")
+    def auth_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+        """
+        return pulumi.get(self, "auth_strategy")
+
+    @auth_strategy.setter
+    def auth_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def buffer(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs']]:
+        """
+        Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        """
+        return pulumi.get(self, "buffer")
+
+    @buffer.setter
+    def buffer(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs']]):
+        pulumi.set(self, "buffer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNamespace")
+    def default_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The default namespace to prefix onto metric names that don't already have one.
+        """
+        return pulumi.get(self, "default_namespace")
+
+    @default_namespace.setter
+    def default_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointUrlKey")
+    def endpoint_url_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+        """
+        return pulumi.get(self, "endpoint_url_key")
+
+    @endpoint_url_key.setter
+    def endpoint_url_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "endpoint_url_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="passwordKey")
+    def password_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the password. Used when `auth_strategy` is `basic`.
+        """
+        return pulumi.get(self, "password_key")
+
+    @password_key.setter
+    def password_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tls(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs']]:
+        """
+        Configuration for enabling TLS encryption between the pipeline component and external services.
+        """
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs']]):
+        pulumi.set(self, "tls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenKey")
+    def token_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the bearer token. Used when `auth_strategy` is `bearer`.
+        """
+        return pulumi.get(self, "token_key")
+
+    @token_key.setter
+    def token_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "token_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usernameKey")
+    def username_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the username. Used when `auth_strategy` is `basic`.
+        """
+        return pulumi.get(self, "username_key")
+
+    @username_key.setter
+    def username_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username_key", value)
+
+
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgsDict(TypedDict):
+    disk: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgsDict']]]
+    """
+    Options for configuring a disk buffer. Cannot be used with `memory`.
+    """
+    memory: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgsDict']]]
+    """
+    Options for configuring a memory buffer. Cannot be used with `disk`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs:
+    def __init__(__self__, *,
+                 disk: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs']] = None,
+                 memory: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs']] = None):
+        """
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs'] disk: Options for configuring a disk buffer. Cannot be used with `memory`.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs'] memory: Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        if disk is not None:
+            pulumi.set(__self__, "disk", disk)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @_builtins.property
+    @pulumi.getter
+    def disk(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs']]:
+        """
+        Options for configuring a disk buffer. Cannot be used with `memory`.
+        """
+        return pulumi.get(self, "disk")
+
+    @disk.setter
+    def disk(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs']]):
+        pulumi.set(self, "disk", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def memory(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs']]:
+        """
+        Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs']]):
+        pulumi.set(self, "memory", value)
+
+
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgsDict(TypedDict):
+    max_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum size of the disk buffer (in bytes).
+    """
+    when_full: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs:
+    def __init__(__self__, *,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 when_full: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_size: Maximum size of the disk buffer (in bytes).
+        :param pulumi.Input[_builtins.str] when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum size of the disk buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+    @when_full.setter
+    def when_full(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "when_full", value)
+
+
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgsDict(TypedDict):
+    max_events: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum events for the memory buffer.
+    """
+    max_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum size of the memory buffer (in bytes).
+    """
+    when_full: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs:
+    def __init__(__self__, *,
+                 max_events: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 when_full: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_events: Maximum events for the memory buffer.
+        :param pulumi.Input[_builtins.int] max_size: Maximum size of the memory buffer (in bytes).
+        :param pulumi.Input[_builtins.str] when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_events is not None:
+            pulumi.set(__self__, "max_events", max_events)
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEvents")
+    def max_events(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum events for the memory buffer.
+        """
+        return pulumi.get(self, "max_events")
+
+    @max_events.setter
+    def max_events(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_events", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum size of the memory buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+    @when_full.setter
+    def when_full(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "when_full", value)
+
+
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgsDict(TypedDict):
+    crt_file: pulumi.Input[_builtins.str]
+    """
+    Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+    """
+    ca_file: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+    """
+    key_file: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+    """
+    key_pass_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the passphrase for the private key file.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs:
+    def __init__(__self__, *,
+                 crt_file: pulumi.Input[_builtins.str],
+                 ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_pass_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] crt_file: Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+        :param pulumi.Input[_builtins.str] ca_file: Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+        :param pulumi.Input[_builtins.str] key_file: Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+        :param pulumi.Input[_builtins.str] key_pass_key: Name of the environment variable or secret that holds the passphrase for the private key file.
+        :param pulumi.Input[_builtins.str] server_name: Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        """
+        pulumi.set(__self__, "crt_file", crt_file)
+        if ca_file is not None:
+            pulumi.set(__self__, "ca_file", ca_file)
+        if key_file is not None:
+            pulumi.set(__self__, "key_file", key_file)
+        if key_pass_key is not None:
+            pulumi.set(__self__, "key_pass_key", key_pass_key)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+
+    @_builtins.property
+    @pulumi.getter(name="crtFile")
+    def crt_file(self) -> pulumi.Input[_builtins.str]:
+        """
+        Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+        """
+        return pulumi.get(self, "crt_file")
+
+    @crt_file.setter
+    def crt_file(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "crt_file", value)
+
+    @_builtins.property
+    @pulumi.getter(name="caFile")
+    def ca_file(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+        """
+        return pulumi.get(self, "ca_file")
+
+    @ca_file.setter
+    def ca_file(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ca_file", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyFile")
+    def key_file(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+        """
+        return pulumi.get(self, "key_file")
+
+    @key_file.setter
+    def key_file(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_file", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyPassKey")
+    def key_pass_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the passphrase for the private key file.
+        """
+        return pulumi.get(self, "key_pass_key")
+
+    @key_pass_key.setter
+    def key_pass_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_pass_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
 
 
 class ObservabilityPipelineConfigDestinationRsyslogArgsDict(TypedDict):
@@ -168354,7 +169583,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorArgsDict(TypedDict):
     """
     generate_metrics: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgsDict']]]
     """
-    The `generate_metrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
+    The `generate_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
     """
     metric_tags: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgsDict']]]
     """
@@ -168466,7 +169695,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorArgs:
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorEnrichmentTableArgs'] enrichment_table: The `enrichment_table` processor enriches logs using a static CSV file or GeoIP database.
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorFilterArgs'] filter: The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs'] generate_datadog_metrics: The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
-        :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs'] generate_metrics: The `generate_metrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
+        :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs'] generate_metrics: The `generate_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs'] metric_tags: The `metric_tags` processor filters metrics based on their tags using Datadog tag key patterns.
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs'] ocsf_mapper: The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs'] parse_grok: The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
@@ -168508,6 +169737,9 @@ class ObservabilityPipelineConfigProcessorGroupProcessorArgs:
             pulumi.set(__self__, "enrichment_table", enrichment_table)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
+        if generate_datadog_metrics is not None:
+            warnings.warn("""This processor is deprecated, use `generate_metrics` instead.""", DeprecationWarning)
+            pulumi.log.warn("""generate_datadog_metrics is deprecated: This processor is deprecated, use `generate_metrics` instead.""")
         if generate_datadog_metrics is not None:
             pulumi.set(__self__, "generate_datadog_metrics", generate_datadog_metrics)
         if generate_metrics is not None:
@@ -168710,6 +169942,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorArgs:
 
     @_builtins.property
     @pulumi.getter(name="generateDatadogMetrics")
+    @_utilities.deprecated("""This processor is deprecated, use `generate_metrics` instead.""")
     def generate_datadog_metrics(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs']]:
         """
         The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
@@ -168724,7 +169957,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorArgs:
     @pulumi.getter(name="generateMetrics")
     def generate_metrics(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs']]:
         """
-        The `generate_metrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
+        The `generate_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
         """
         return pulumi.get(self, "generate_metrics")
 
@@ -171629,7 +172862,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgsDict(TypedDict)
     """
     overflow_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+    The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`. When `overflow_routing` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazon_s3_generic`, `amazon_s3`, `google_cloud_storage`, and `azure_storage`.
     """
     overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideArgsDict']]]]]
     """
@@ -171659,7 +172892,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs:
         :param pulumi.Input[_builtins.str] name: The name of the quota.
         :param pulumi.Input[_builtins.bool] drop_events: Whether to drop events exceeding the limit.
         :param pulumi.Input[_builtins.bool] ignore_when_missing_partitions: Whether to ignore when partition fields are missing.
-        :param pulumi.Input[_builtins.str] overflow_action: The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+        :param pulumi.Input[_builtins.str] overflow_action: The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`. When `overflow_routing` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazon_s3_generic`, `amazon_s3`, `google_cloud_storage`, and `azure_storage`.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideArgs']]] overrides: The overrides for field-specific quotas.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_fields: List of partition fields.
         :param pulumi.Input[_builtins.str] too_many_buckets_action: The action to take when the max number of buckets is exceeded: `drop`, `no_action`, or `overflow_routing`.
@@ -171728,7 +172961,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs:
     @pulumi.getter(name="overflowAction")
     def overflow_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`.
+        The action to take when the quota is exceeded: `drop`, `no_action`, or `overflow_routing`. When `overflow_routing` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazon_s3_generic`, `amazon_s3`, `google_cloud_storage`, and `azure_storage`.
         """
         return pulumi.get(self, "overflow_action")
 
@@ -173426,6 +174659,10 @@ class ObservabilityPipelineConfigSourceArgsDict(TypedDict):
     """
     The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
     """
+    prometheus_remote_write: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgsDict']]]
+    """
+    The `prometheus_remote_write` source ingests metrics pushed over the Prometheus Remote Write protocol.
+    """
     rsyslogs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceRsyslogArgsDict']]]]]
     """
     The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
@@ -173470,6 +174707,7 @@ class ObservabilityPipelineConfigSourceArgs:
                  kafkas: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceKafkaArgs']]]] = None,
                  logstashes: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceLogstashArgs']]]] = None,
                  opentelemetry: pulumi.Input[Optional['ObservabilityPipelineConfigSourceOpentelemetryArgs']] = None,
+                 prometheus_remote_write: pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs']] = None,
                  rsyslogs: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceRsyslogArgs']]]] = None,
                  sockets: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceSocketArgs']]]] = None,
                  splunk_hecs: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceSplunkHecArgs']]]] = None,
@@ -173490,6 +174728,7 @@ class ObservabilityPipelineConfigSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceKafkaArgs']]] kafkas: The `kafka` source ingests data from Apache Kafka topics.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceLogstashArgs']]] logstashes: The `logstash` source ingests logs from a Logstash forwarder.
         :param pulumi.Input['ObservabilityPipelineConfigSourceOpentelemetryArgs'] opentelemetry: The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+        :param pulumi.Input['ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs'] prometheus_remote_write: The `prometheus_remote_write` source ingests metrics pushed over the Prometheus Remote Write protocol.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceRsyslogArgs']]] rsyslogs: The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceSocketArgs']]] sockets: The `socket` source ingests logs over TCP or UDP.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceSplunkHecArgs']]] splunk_hecs: The `splunk_hec` source implements the Splunk HTTP Event Collector (HEC) API.
@@ -173521,6 +174760,8 @@ class ObservabilityPipelineConfigSourceArgs:
             pulumi.set(__self__, "logstashes", logstashes)
         if opentelemetry is not None:
             pulumi.set(__self__, "opentelemetry", opentelemetry)
+        if prometheus_remote_write is not None:
+            pulumi.set(__self__, "prometheus_remote_write", prometheus_remote_write)
         if rsyslogs is not None:
             pulumi.set(__self__, "rsyslogs", rsyslogs)
         if sockets is not None:
@@ -173679,6 +174920,18 @@ class ObservabilityPipelineConfigSourceArgs:
     @opentelemetry.setter
     def opentelemetry(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigSourceOpentelemetryArgs']]):
         pulumi.set(self, "opentelemetry", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prometheusRemoteWrite")
+    def prometheus_remote_write(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs']]:
+        """
+        The `prometheus_remote_write` source ingests metrics pushed over the Prometheus Remote Write protocol.
+        """
+        return pulumi.get(self, "prometheus_remote_write")
+
+    @prometheus_remote_write.setter
+    def prometheus_remote_write(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs']]):
+        pulumi.set(self, "prometheus_remote_write", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176348,6 +177601,378 @@ class ObservabilityPipelineConfigSourceOpentelemetryTlsArgs:
         pulumi.set(self, "verify_certificate", value)
 
 
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgsDict(TypedDict):
+    auth_strategy: pulumi.Input[_builtins.str]
+    """
+    HTTP authentication method. Valid values are `none`, `plain`.
+    """
+    path: pulumi.Input[_builtins.str]
+    """
+    The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+    """
+    address_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+    """
+    password_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the password. Used when `auth_strategy` is `plain`.
+    """
+    tls: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgsDict']]]
+    """
+    Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+    """
+    username_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the username. Used when `auth_strategy` is `plain`.
+    """
+    valid_tokens: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgsDict']]]]]
+    """
+    A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs:
+    def __init__(__self__, *,
+                 auth_strategy: pulumi.Input[_builtins.str],
+                 path: pulumi.Input[_builtins.str],
+                 address_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tls: pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs']] = None,
+                 username_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 valid_tokens: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] auth_strategy: HTTP authentication method. Valid values are `none`, `plain`.
+        :param pulumi.Input[_builtins.str] path: The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+        :param pulumi.Input[_builtins.str] address_key: Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+        :param pulumi.Input[_builtins.str] password_key: Name of the environment variable or secret that holds the password. Used when `auth_strategy` is `plain`.
+        :param pulumi.Input['ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs'] tls: Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+        :param pulumi.Input[_builtins.str] username_key: Name of the environment variable or secret that holds the username. Used when `auth_strategy` is `plain`.
+        :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs']]] valid_tokens: A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+        """
+        pulumi.set(__self__, "auth_strategy", auth_strategy)
+        pulumi.set(__self__, "path", path)
+        if address_key is not None:
+            pulumi.set(__self__, "address_key", address_key)
+        if password_key is not None:
+            pulumi.set(__self__, "password_key", password_key)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+        if username_key is not None:
+            pulumi.set(__self__, "username_key", username_key)
+        if valid_tokens is not None:
+            pulumi.set(__self__, "valid_tokens", valid_tokens)
+
+    @_builtins.property
+    @pulumi.getter(name="authStrategy")
+    def auth_strategy(self) -> pulumi.Input[_builtins.str]:
+        """
+        HTTP authentication method. Valid values are `none`, `plain`.
+        """
+        return pulumi.get(self, "auth_strategy")
+
+    @auth_strategy.setter
+    def auth_strategy(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "auth_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        """
+        The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressKey")
+    def address_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+        """
+        return pulumi.get(self, "address_key")
+
+    @address_key.setter
+    def address_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "address_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="passwordKey")
+    def password_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the password. Used when `auth_strategy` is `plain`.
+        """
+        return pulumi.get(self, "password_key")
+
+    @password_key.setter
+    def password_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password_key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tls(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs']]:
+        """
+        Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+        """
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs']]):
+        pulumi.set(self, "tls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usernameKey")
+    def username_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the username. Used when `auth_strategy` is `plain`.
+        """
+        return pulumi.get(self, "username_key")
+
+    @username_key.setter
+    def username_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validTokens")
+    def valid_tokens(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs']]]]:
+        """
+        A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+        """
+        return pulumi.get(self, "valid_tokens")
+
+    @valid_tokens.setter
+    def valid_tokens(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs']]]]):
+        pulumi.set(self, "valid_tokens", value)
+
+
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgsDict(TypedDict):
+    crt_file: pulumi.Input[_builtins.str]
+    """
+    Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+    """
+    ca_file: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+    """
+    key_file: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Path to the private key file associated with the TLS server certificate.
+    """
+    key_pass_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the passphrase for the private key file.
+    """
+    verify_certificate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs:
+    def __init__(__self__, *,
+                 crt_file: pulumi.Input[_builtins.str],
+                 ca_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_pass_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 verify_certificate: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] crt_file: Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+        :param pulumi.Input[_builtins.str] ca_file: Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+        :param pulumi.Input[_builtins.str] key_file: Path to the private key file associated with the TLS server certificate.
+        :param pulumi.Input[_builtins.str] key_pass_key: Name of the environment variable or secret that holds the passphrase for the private key file.
+        :param pulumi.Input[_builtins.bool] verify_certificate: When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+        """
+        pulumi.set(__self__, "crt_file", crt_file)
+        if ca_file is not None:
+            pulumi.set(__self__, "ca_file", ca_file)
+        if key_file is not None:
+            pulumi.set(__self__, "key_file", key_file)
+        if key_pass_key is not None:
+            pulumi.set(__self__, "key_pass_key", key_pass_key)
+        if verify_certificate is not None:
+            pulumi.set(__self__, "verify_certificate", verify_certificate)
+
+    @_builtins.property
+    @pulumi.getter(name="crtFile")
+    def crt_file(self) -> pulumi.Input[_builtins.str]:
+        """
+        Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+        """
+        return pulumi.get(self, "crt_file")
+
+    @crt_file.setter
+    def crt_file(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "crt_file", value)
+
+    @_builtins.property
+    @pulumi.getter(name="caFile")
+    def ca_file(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+        """
+        return pulumi.get(self, "ca_file")
+
+    @ca_file.setter
+    def ca_file(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ca_file", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyFile")
+    def key_file(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Path to the private key file associated with the TLS server certificate.
+        """
+        return pulumi.get(self, "key_file")
+
+    @key_file.setter
+    def key_file(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_file", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyPassKey")
+    def key_pass_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the passphrase for the private key file.
+        """
+        return pulumi.get(self, "key_pass_key")
+
+    @key_pass_key.setter
+    def key_pass_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_pass_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="verifyCertificate")
+    def verify_certificate(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+        """
+        return pulumi.get(self, "verify_certificate")
+
+    @verify_certificate.setter
+    def verify_certificate(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "verify_certificate", value)
+
+
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgsDict(TypedDict):
+    token_key: pulumi.Input[_builtins.str]
+    """
+    Name of the environment variable or secret that holds the expected token value.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether this token is currently accepted. Defaults to `true`.
+    """
+    path_to_token: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgsDict']]]
+    """
+    Specifies where the worker extracts the token from the incoming HTTP request. Set either `location` for a built-in source or `header` to read it from a request header.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs:
+    def __init__(__self__, *,
+                 token_key: pulumi.Input[_builtins.str],
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 path_to_token: pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] token_key: Name of the environment variable or secret that holds the expected token value.
+        :param pulumi.Input[_builtins.bool] enabled: Whether this token is currently accepted. Defaults to `true`.
+        :param pulumi.Input['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs'] path_to_token: Specifies where the worker extracts the token from the incoming HTTP request. Set either `location` for a built-in source or `header` to read it from a request header.
+        """
+        pulumi.set(__self__, "token_key", token_key)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if path_to_token is not None:
+            pulumi.set(__self__, "path_to_token", path_to_token)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenKey")
+    def token_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the expected token value.
+        """
+        return pulumi.get(self, "token_key")
+
+    @token_key.setter
+    def token_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "token_key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this token is currently accepted. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pathToToken")
+    def path_to_token(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs']]:
+        """
+        Specifies where the worker extracts the token from the incoming HTTP request. Set either `location` for a built-in source or `header` to read it from a request header.
+        """
+        return pulumi.get(self, "path_to_token")
+
+    @path_to_token.setter
+    def path_to_token(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs']]):
+        pulumi.set(self, "path_to_token", value)
+
+
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgsDict(TypedDict):
+    header: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+    """
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs:
+    def __init__(__self__, *,
+                 header: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] header: The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+        :param pulumi.Input[_builtins.str] location: Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "header", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+
 class ObservabilityPipelineConfigSourceRsyslogArgsDict(TypedDict):
     address_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -177113,6 +178738,10 @@ class ObservabilityPipelineConfigSourceSplunkTcpArgsDict(TypedDict):
     """
     Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
     """
+    max_connection_duration_secs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+    """
     tls: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigSourceSplunkTcpTlsArgsDict']]]
     """
     Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
@@ -177122,13 +178751,17 @@ class ObservabilityPipelineConfigSourceSplunkTcpArgsDict(TypedDict):
 class ObservabilityPipelineConfigSourceSplunkTcpArgs:
     def __init__(__self__, *,
                  address_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_connection_duration_secs: pulumi.Input[Optional[_builtins.int]] = None,
                  tls: pulumi.Input[Optional['ObservabilityPipelineConfigSourceSplunkTcpTlsArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] address_key: Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
+        :param pulumi.Input[_builtins.int] max_connection_duration_secs: Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
         :param pulumi.Input['ObservabilityPipelineConfigSourceSplunkTcpTlsArgs'] tls: Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
         """
         if address_key is not None:
             pulumi.set(__self__, "address_key", address_key)
+        if max_connection_duration_secs is not None:
+            pulumi.set(__self__, "max_connection_duration_secs", max_connection_duration_secs)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
 
@@ -177143,6 +178776,18 @@ class ObservabilityPipelineConfigSourceSplunkTcpArgs:
     @address_key.setter
     def address_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxConnectionDurationSecs")
+    def max_connection_duration_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+        """
+        return pulumi.get(self, "max_connection_duration_secs")
+
+    @max_connection_duration_secs.setter
+    def max_connection_duration_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_connection_duration_secs", value)
 
     @_builtins.property
     @pulumi.getter
@@ -179685,6 +181330,10 @@ class PowerpackV2WidgetArgsDict(TypedDict):
     """
     The definition for a Distribution widget.
     """
+    embedded_app_definition: NotRequired[pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionArgsDict']]]
+    """
+    The definition for an App Builder embedded app widget.
+    """
     event_stream_definition: NotRequired[pulumi.Input[Optional['PowerpackV2WidgetEventStreamDefinitionArgsDict']]]
     """
     The definition for a Event Stream widget.
@@ -179832,6 +181481,7 @@ class PowerpackV2WidgetArgs:
                  check_status_definition: pulumi.Input[Optional['PowerpackV2WidgetCheckStatusDefinitionArgs']] = None,
                  cohort_definition: pulumi.Input[Optional['PowerpackV2WidgetCohortDefinitionArgs']] = None,
                  distribution_definition: pulumi.Input[Optional['PowerpackV2WidgetDistributionDefinitionArgs']] = None,
+                 embedded_app_definition: pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionArgs']] = None,
                  event_stream_definition: pulumi.Input[Optional['PowerpackV2WidgetEventStreamDefinitionArgs']] = None,
                  event_timeline_definition: pulumi.Input[Optional['PowerpackV2WidgetEventTimelineDefinitionArgs']] = None,
                  free_text_definition: pulumi.Input[Optional['PowerpackV2WidgetFreeTextDefinitionArgs']] = None,
@@ -179874,6 +181524,7 @@ class PowerpackV2WidgetArgs:
         :param pulumi.Input['PowerpackV2WidgetCheckStatusDefinitionArgs'] check_status_definition: The definition for a Check Status widget.
         :param pulumi.Input['PowerpackV2WidgetCohortDefinitionArgs'] cohort_definition: The definition for a Cohort retention-grid widget.
         :param pulumi.Input['PowerpackV2WidgetDistributionDefinitionArgs'] distribution_definition: The definition for a Distribution widget.
+        :param pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionArgs'] embedded_app_definition: The definition for an App Builder embedded app widget.
         :param pulumi.Input['PowerpackV2WidgetEventStreamDefinitionArgs'] event_stream_definition: The definition for a Event Stream widget.
         :param pulumi.Input['PowerpackV2WidgetEventTimelineDefinitionArgs'] event_timeline_definition: The definition for a Event Timeline widget.
         :param pulumi.Input['PowerpackV2WidgetFreeTextDefinitionArgs'] free_text_definition: The definition for a Free Text widget.
@@ -179923,6 +181574,8 @@ class PowerpackV2WidgetArgs:
             pulumi.set(__self__, "cohort_definition", cohort_definition)
         if distribution_definition is not None:
             pulumi.set(__self__, "distribution_definition", distribution_definition)
+        if embedded_app_definition is not None:
+            pulumi.set(__self__, "embedded_app_definition", embedded_app_definition)
         if event_stream_definition is not None:
             pulumi.set(__self__, "event_stream_definition", event_stream_definition)
         if event_timeline_definition is not None:
@@ -180075,6 +181728,18 @@ class PowerpackV2WidgetArgs:
     @distribution_definition.setter
     def distribution_definition(self, value: pulumi.Input[Optional['PowerpackV2WidgetDistributionDefinitionArgs']]):
         pulumi.set(self, "distribution_definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddedAppDefinition")
+    def embedded_app_definition(self) -> pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionArgs']]:
+        """
+        The definition for an App Builder embedded app widget.
+        """
+        return pulumi.get(self, "embedded_app_definition")
+
+    @embedded_app_definition.setter
+    def embedded_app_definition(self, value: pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionArgs']]):
+        pulumi.set(self, "embedded_app_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="eventStreamDefinition")
@@ -193829,6 +195494,514 @@ class PowerpackV2WidgetDistributionDefinitionYaxisArgs:
         pulumi.set(self, "scale", value)
 
 
+class PowerpackV2WidgetEmbeddedAppDefinitionArgsDict(TypedDict):
+    app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    UUID of the App Builder app to embed. Exactly one of `app_id` or `template_id` must be provided.
+    """
+    custom_links: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionCustomLinkArgsDict']]]]]
+    """
+    A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The description of the widget.
+    """
+    hide_incomplete_cost_data: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+    """
+    inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionInputArgsDict']]]]]
+    """
+    A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+    """
+    live_span: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+    """
+    template_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ID of the built-in app template to embed. Exactly one of `app_id` or `template_id` must be provided.
+    """
+    time: NotRequired[pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeArgsDict']]]
+    """
+    A nested block used to specify a time span for the widget. Use this or `live_span`, not both.
+    """
+    title: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The title of the widget.
+    """
+    title_align: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+    """
+    title_size: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The size of the widget's title (defaults to 16).
+    """
+
+@pulumi.input_type
+class PowerpackV2WidgetEmbeddedAppDefinitionArgs:
+    def __init__(__self__, *,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_links: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionCustomLinkArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_incomplete_cost_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inputs: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionInputArgs']]]] = None,
+                 live_span: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 time: pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeArgs']] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 title_align: pulumi.Input[Optional[_builtins.str]] = None,
+                 title_size: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] app_id: UUID of the App Builder app to embed. Exactly one of `app_id` or `template_id` must be provided.
+        :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionCustomLinkArgs']]] custom_links: A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        :param pulumi.Input[_builtins.str] description: The description of the widget.
+        :param pulumi.Input[_builtins.bool] hide_incomplete_cost_data: Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionInputArgs']]] inputs: A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+        :param pulumi.Input[_builtins.str] live_span: The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        :param pulumi.Input[_builtins.str] template_id: ID of the built-in app template to embed. Exactly one of `app_id` or `template_id` must be provided.
+        :param pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionTimeArgs'] time: A nested block used to specify a time span for the widget. Use this or `live_span`, not both.
+        :param pulumi.Input[_builtins.str] title: The title of the widget.
+        :param pulumi.Input[_builtins.str] title_align: The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        :param pulumi.Input[_builtins.str] title_size: The size of the widget's title (defaults to 16).
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if custom_links is not None:
+            pulumi.set(__self__, "custom_links", custom_links)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if hide_incomplete_cost_data is not None:
+            pulumi.set(__self__, "hide_incomplete_cost_data", hide_incomplete_cost_data)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if live_span is not None:
+            pulumi.set(__self__, "live_span", live_span)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if title_align is not None:
+            pulumi.set(__self__, "title_align", title_align)
+        if title_size is not None:
+            pulumi.set(__self__, "title_size", title_size)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        UUID of the App Builder app to embed. Exactly one of `app_id` or `template_id` must be provided.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "app_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customLinks")
+    def custom_links(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionCustomLinkArgs']]]]:
+        """
+        A nested block describing a custom link. Multiple `custom_link` blocks are allowed using the structure below.
+        """
+        return pulumi.get(self, "custom_links")
+
+    @custom_links.setter
+    def custom_links(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionCustomLinkArgs']]]]):
+        pulumi.set(self, "custom_links", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The description of the widget.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hideIncompleteCostData")
+    def hide_incomplete_cost_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        """
+        return pulumi.get(self, "hide_incomplete_cost_data")
+
+    @hide_incomplete_cost_data.setter
+    def hide_incomplete_cost_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hide_incomplete_cost_data", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def inputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionInputArgs']]]]:
+        """
+        A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionInputArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="liveSpan")
+    def live_span(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `week_to_date`, `month_to_date`, `1y`, `alert`.
+        """
+        return pulumi.get(self, "live_span")
+
+    @live_span.setter
+    def live_span(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "live_span", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of the built-in app template to embed. Exactly one of `app_id` or `template_id` must be provided.
+        """
+        return pulumi.get(self, "template_id")
+
+    @template_id.setter
+    def template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "template_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeArgs']]:
+        """
+        A nested block used to specify a time span for the widget. Use this or `live_span`, not both.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeArgs']]):
+        pulumi.set(self, "time", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The title of the widget.
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="titleAlign")
+    def title_align(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+        """
+        return pulumi.get(self, "title_align")
+
+    @title_align.setter
+    def title_align(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title_align", value)
+
+    @_builtins.property
+    @pulumi.getter(name="titleSize")
+    def title_size(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The size of the widget's title (defaults to 16).
+        """
+        return pulumi.get(self, "title_size")
+
+    @title_size.setter
+    def title_size(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "title_size", value)
+
+
+class PowerpackV2WidgetEmbeddedAppDefinitionCustomLinkArgsDict(TypedDict):
+    is_hidden: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    The flag for toggling context menu link visibility.
+    """
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+    """
+    link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+    """
+    override_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+    """
+
+@pulumi.input_type
+class PowerpackV2WidgetEmbeddedAppDefinitionCustomLinkArgs:
+    def __init__(__self__, *,
+                 is_hidden: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 override_label: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] is_hidden: The flag for toggling context menu link visibility.
+        :param pulumi.Input[_builtins.str] label: The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+        :param pulumi.Input[_builtins.str] link: The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+        :param pulumi.Input[_builtins.str] override_label: The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+        """
+        if is_hidden is not None:
+            pulumi.set(__self__, "is_hidden", is_hidden)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if override_label is not None:
+            pulumi.set(__self__, "override_label", override_label)
+
+    @_builtins.property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        The flag for toggling context menu link visibility.
+        """
+        return pulumi.get(self, "is_hidden")
+
+    @is_hidden.setter
+    def is_hidden(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_hidden", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+        """
+        return pulumi.get(self, "link")
+
+    @link.setter
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overrideLabel")
+    def override_label(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+        """
+        return pulumi.get(self, "override_label")
+
+    @override_label.setter
+    def override_label(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "override_label", value)
+
+
+class PowerpackV2WidgetEmbeddedAppDefinitionInputArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the app input.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+    """
+
+@pulumi.input_type
+class PowerpackV2WidgetEmbeddedAppDefinitionInputArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the app input.
+        :param pulumi.Input[_builtins.str] value: JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the app input.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class PowerpackV2WidgetEmbeddedAppDefinitionTimeArgsDict(TypedDict):
+    fixed: NotRequired[pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeFixedArgsDict']]]
+    """
+    A fixed time range with explicit start and end times.
+    """
+    live: NotRequired[pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeLiveArgsDict']]]
+    """
+    An arbitrary live time span, such as 17 minutes or 6 hours.
+    """
+
+@pulumi.input_type
+class PowerpackV2WidgetEmbeddedAppDefinitionTimeArgs:
+    def __init__(__self__, *,
+                 fixed: pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeFixedArgs']] = None,
+                 live: pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeLiveArgs']] = None):
+        """
+        :param pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionTimeFixedArgs'] fixed: A fixed time range with explicit start and end times.
+        :param pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionTimeLiveArgs'] live: An arbitrary live time span, such as 17 minutes or 6 hours.
+        """
+        if fixed is not None:
+            pulumi.set(__self__, "fixed", fixed)
+        if live is not None:
+            pulumi.set(__self__, "live", live)
+
+    @_builtins.property
+    @pulumi.getter
+    def fixed(self) -> pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeFixedArgs']]:
+        """
+        A fixed time range with explicit start and end times.
+        """
+        return pulumi.get(self, "fixed")
+
+    @fixed.setter
+    def fixed(self, value: pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeFixedArgs']]):
+        pulumi.set(self, "fixed", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def live(self) -> pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeLiveArgs']]:
+        """
+        An arbitrary live time span, such as 17 minutes or 6 hours.
+        """
+        return pulumi.get(self, "live")
+
+    @live.setter
+    def live(self, value: pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionTimeLiveArgs']]):
+        pulumi.set(self, "live", value)
+
+
+class PowerpackV2WidgetEmbeddedAppDefinitionTimeFixedArgsDict(TypedDict):
+    from_: pulumi.Input[_builtins.int]
+    """
+    Start time in seconds since epoch.
+    """
+    to: pulumi.Input[_builtins.int]
+    """
+    End time in seconds since epoch.
+    """
+
+@pulumi.input_type
+class PowerpackV2WidgetEmbeddedAppDefinitionTimeFixedArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[_builtins.int],
+                 to: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] from_: Start time in seconds since epoch.
+        :param pulumi.Input[_builtins.int] to: End time in seconds since epoch.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[_builtins.int]:
+        """
+        Start time in seconds since epoch.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "from_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[_builtins.int]:
+        """
+        End time in seconds since epoch.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "to", value)
+
+
+class PowerpackV2WidgetEmbeddedAppDefinitionTimeLiveArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Value of the time span.
+    """
+
+@pulumi.input_type
+class PowerpackV2WidgetEmbeddedAppDefinitionTimeLiveArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] unit: Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        :param pulumi.Input[_builtins.int] value: Value of the time span.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "unit", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.int]:
+        """
+        Value of the time span.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "value", value)
+
+
 class PowerpackV2WidgetEventStreamDefinitionArgsDict(TypedDict):
     query: pulumi.Input[_builtins.str]
     """
@@ -198145,6 +200318,10 @@ class PowerpackV2WidgetGroupDefinitionWidgetArgsDict(TypedDict):
     """
     The definition for a Distribution widget.
     """
+    embedded_app_definition: NotRequired[pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionArgsDict']]]
+    """
+    The definition for an App Builder embedded app widget.
+    """
     event_stream_definition: NotRequired[pulumi.Input[Optional['PowerpackV2WidgetEventStreamDefinitionArgsDict']]]
     """
     The definition for a Event Stream widget.
@@ -198288,6 +200465,7 @@ class PowerpackV2WidgetGroupDefinitionWidgetArgs:
                  check_status_definition: pulumi.Input[Optional['PowerpackV2WidgetCheckStatusDefinitionArgs']] = None,
                  cohort_definition: pulumi.Input[Optional['PowerpackV2WidgetCohortDefinitionArgs']] = None,
                  distribution_definition: pulumi.Input[Optional['PowerpackV2WidgetDistributionDefinitionArgs']] = None,
+                 embedded_app_definition: pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionArgs']] = None,
                  event_stream_definition: pulumi.Input[Optional['PowerpackV2WidgetEventStreamDefinitionArgs']] = None,
                  event_timeline_definition: pulumi.Input[Optional['PowerpackV2WidgetEventTimelineDefinitionArgs']] = None,
                  free_text_definition: pulumi.Input[Optional['PowerpackV2WidgetFreeTextDefinitionArgs']] = None,
@@ -198329,6 +200507,7 @@ class PowerpackV2WidgetGroupDefinitionWidgetArgs:
         :param pulumi.Input['PowerpackV2WidgetCheckStatusDefinitionArgs'] check_status_definition: The definition for a Check Status widget.
         :param pulumi.Input['PowerpackV2WidgetCohortDefinitionArgs'] cohort_definition: The definition for a Cohort retention-grid widget.
         :param pulumi.Input['PowerpackV2WidgetDistributionDefinitionArgs'] distribution_definition: The definition for a Distribution widget.
+        :param pulumi.Input['PowerpackV2WidgetEmbeddedAppDefinitionArgs'] embedded_app_definition: The definition for an App Builder embedded app widget.
         :param pulumi.Input['PowerpackV2WidgetEventStreamDefinitionArgs'] event_stream_definition: The definition for a Event Stream widget.
         :param pulumi.Input['PowerpackV2WidgetEventTimelineDefinitionArgs'] event_timeline_definition: The definition for a Event Timeline widget.
         :param pulumi.Input['PowerpackV2WidgetFreeTextDefinitionArgs'] free_text_definition: The definition for a Free Text widget.
@@ -198377,6 +200556,8 @@ class PowerpackV2WidgetGroupDefinitionWidgetArgs:
             pulumi.set(__self__, "cohort_definition", cohort_definition)
         if distribution_definition is not None:
             pulumi.set(__self__, "distribution_definition", distribution_definition)
+        if embedded_app_definition is not None:
+            pulumi.set(__self__, "embedded_app_definition", embedded_app_definition)
         if event_stream_definition is not None:
             pulumi.set(__self__, "event_stream_definition", event_stream_definition)
         if event_timeline_definition is not None:
@@ -198527,6 +200708,18 @@ class PowerpackV2WidgetGroupDefinitionWidgetArgs:
     @distribution_definition.setter
     def distribution_definition(self, value: pulumi.Input[Optional['PowerpackV2WidgetDistributionDefinitionArgs']]):
         pulumi.set(self, "distribution_definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddedAppDefinition")
+    def embedded_app_definition(self) -> pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionArgs']]:
+        """
+        The definition for an App Builder embedded app widget.
+        """
+        return pulumi.get(self, "embedded_app_definition")
+
+    @embedded_app_definition.setter
+    def embedded_app_definition(self, value: pulumi.Input[Optional['PowerpackV2WidgetEmbeddedAppDefinitionArgs']]):
+        pulumi.set(self, "embedded_app_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="eventStreamDefinition")
@@ -321181,6 +323374,84 @@ class SecureEmbedDashboardSelectableTemplateVarArgs:
         pulumi.set(self, "visible_tags", value)
 
 
+class SecurityFindingsDefaultInboxRuleActionArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An optional description providing more context for the rule.
+    """
+
+@pulumi.input_type
+class SecurityFindingsDefaultInboxRuleActionArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] description: An optional description providing more context for the rule.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An optional description providing more context for the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class SecurityFindingsDefaultInboxRuleRuleArgsDict(TypedDict):
+    finding_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of security finding types that the automation rule applies to.
+    """
+    query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+    """
+
+@pulumi.input_type
+class SecurityFindingsDefaultInboxRuleRuleArgs:
+    def __init__(__self__, *,
+                 finding_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] finding_types: The list of security finding types that the automation rule applies to.
+        :param pulumi.Input[_builtins.str] query: A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        if finding_types is not None:
+            pulumi.set(__self__, "finding_types", finding_types)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter(name="findingTypes")
+    def finding_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of security finding types that the automation rule applies to.
+        """
+        return pulumi.get(self, "finding_types")
+
+    @finding_types.setter
+    def finding_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "finding_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "query", value)
+
+
 class SecurityFindingsDueDateRuleActionArgsDict(TypedDict):
     due_days_per_severities: pulumi.Input[Sequence[pulumi.Input['SecurityFindingsDueDateRuleActionDueDaysPerSeverityArgsDict']]]
     """
@@ -321343,6 +323614,83 @@ class SecurityFindingsDueDateRuleRuleArgs:
         pulumi.set(self, "query", value)
 
 
+class SecurityFindingsInboxRuleActionArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An optional description providing more context for the rule.
+    """
+
+@pulumi.input_type
+class SecurityFindingsInboxRuleActionArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] description: An optional description providing more context for the rule.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An optional description providing more context for the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class SecurityFindingsInboxRuleRuleArgsDict(TypedDict):
+    finding_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of security finding types that the automation rule applies to. Valid values are `api_security`, `attack_path`, `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`, `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`, `static_code_vulnerability`, `workload_activity`.
+    """
+    query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+    """
+
+@pulumi.input_type
+class SecurityFindingsInboxRuleRuleArgs:
+    def __init__(__self__, *,
+                 finding_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 query: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] finding_types: The list of security finding types that the automation rule applies to. Valid values are `api_security`, `attack_path`, `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`, `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`, `static_code_vulnerability`, `workload_activity`.
+        :param pulumi.Input[_builtins.str] query: A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        pulumi.set(__self__, "finding_types", finding_types)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter(name="findingTypes")
+    def finding_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of security finding types that the automation rule applies to. Valid values are `api_security`, `attack_path`, `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`, `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`, `static_code_vulnerability`, `workload_activity`.
+        """
+        return pulumi.get(self, "finding_types")
+
+    @finding_types.setter
+    def finding_types(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "finding_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "query", value)
+
+
 class SecurityFindingsMuteRuleActionArgsDict(TypedDict):
     reason: pulumi.Input[_builtins.str]
     """
@@ -321459,18 +323807,211 @@ class SecurityFindingsMuteRuleRuleArgs:
         pulumi.set(self, "query", value)
 
 
+class SecurityFindingsSeverityModifierRuleActionArgsDict(TypedDict):
+    set: NotRequired[pulumi.Input[Optional['SecurityFindingsSeverityModifierRuleActionSetArgsDict']]]
+    """
+    Sets matched findings to a fixed severity.
+    """
+    shift: NotRequired[pulumi.Input[Optional['SecurityFindingsSeverityModifierRuleActionShiftArgsDict']]]
+    """
+    Shifts matched findings up or down by one severity rank.
+    """
+
+@pulumi.input_type
+class SecurityFindingsSeverityModifierRuleActionArgs:
+    def __init__(__self__, *,
+                 set: pulumi.Input[Optional['SecurityFindingsSeverityModifierRuleActionSetArgs']] = None,
+                 shift: pulumi.Input[Optional['SecurityFindingsSeverityModifierRuleActionShiftArgs']] = None):
+        """
+        :param pulumi.Input['SecurityFindingsSeverityModifierRuleActionSetArgs'] set: Sets matched findings to a fixed severity.
+        :param pulumi.Input['SecurityFindingsSeverityModifierRuleActionShiftArgs'] shift: Shifts matched findings up or down by one severity rank.
+        """
+        if set is not None:
+            pulumi.set(__self__, "set", set)
+        if shift is not None:
+            pulumi.set(__self__, "shift", shift)
+
+    @_builtins.property
+    @pulumi.getter
+    def set(self) -> pulumi.Input[Optional['SecurityFindingsSeverityModifierRuleActionSetArgs']]:
+        """
+        Sets matched findings to a fixed severity.
+        """
+        return pulumi.get(self, "set")
+
+    @set.setter
+    def set(self, value: pulumi.Input[Optional['SecurityFindingsSeverityModifierRuleActionSetArgs']]):
+        pulumi.set(self, "set", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def shift(self) -> pulumi.Input[Optional['SecurityFindingsSeverityModifierRuleActionShiftArgs']]:
+        """
+        Shifts matched findings up or down by one severity rank.
+        """
+        return pulumi.get(self, "shift")
+
+    @shift.setter
+    def shift(self, value: pulumi.Input[Optional['SecurityFindingsSeverityModifierRuleActionShiftArgs']]):
+        pulumi.set(self, "shift", value)
+
+
+class SecurityFindingsSeverityModifierRuleActionSetArgsDict(TypedDict):
+    severity: pulumi.Input[_builtins.str]
+    """
+    The severity to assign to matched findings. `info_none` is not supported for the `iac_misconfiguration`, `runtime_code_vulnerability`, `secret`, or `static_code_vulnerability` finding types. Valid values are `info_none`, `low`, `medium`, `high`, `critical`.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An optional free-form explanation for the severity change.
+    """
+
+@pulumi.input_type
+class SecurityFindingsSeverityModifierRuleActionSetArgs:
+    def __init__(__self__, *,
+                 severity: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] severity: The severity to assign to matched findings. `info_none` is not supported for the `iac_misconfiguration`, `runtime_code_vulnerability`, `secret`, or `static_code_vulnerability` finding types. Valid values are `info_none`, `low`, `medium`, `high`, `critical`.
+        :param pulumi.Input[_builtins.str] description: An optional free-form explanation for the severity change.
+        """
+        pulumi.set(__self__, "severity", severity)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def severity(self) -> pulumi.Input[_builtins.str]:
+        """
+        The severity to assign to matched findings. `info_none` is not supported for the `iac_misconfiguration`, `runtime_code_vulnerability`, `secret`, or `static_code_vulnerability` finding types. Valid values are `info_none`, `low`, `medium`, `high`, `critical`.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "severity", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An optional free-form explanation for the severity change.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class SecurityFindingsSeverityModifierRuleActionShiftArgsDict(TypedDict):
+    severity_delta: pulumi.Input[_builtins.str]
+    """
+    The direction in which to shift the severity of matched findings by one rank. Valid values are `up_one`, `down_one`.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An optional free-form explanation for the severity change.
+    """
+
+@pulumi.input_type
+class SecurityFindingsSeverityModifierRuleActionShiftArgs:
+    def __init__(__self__, *,
+                 severity_delta: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] severity_delta: The direction in which to shift the severity of matched findings by one rank. Valid values are `up_one`, `down_one`.
+        :param pulumi.Input[_builtins.str] description: An optional free-form explanation for the severity change.
+        """
+        pulumi.set(__self__, "severity_delta", severity_delta)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="severityDelta")
+    def severity_delta(self) -> pulumi.Input[_builtins.str]:
+        """
+        The direction in which to shift the severity of matched findings by one rank. Valid values are `up_one`, `down_one`.
+        """
+        return pulumi.get(self, "severity_delta")
+
+    @severity_delta.setter
+    def severity_delta(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "severity_delta", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An optional free-form explanation for the severity change.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class SecurityFindingsSeverityModifierRuleRuleArgsDict(TypedDict):
+    finding_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of security finding types that the automation rule applies to. Valid values are `api_security`, `attack_path`, `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`, `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`, `static_code_vulnerability`, `workload_activity`.
+    """
+    query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+    """
+
+@pulumi.input_type
+class SecurityFindingsSeverityModifierRuleRuleArgs:
+    def __init__(__self__, *,
+                 finding_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 query: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] finding_types: The list of security finding types that the automation rule applies to. Valid values are `api_security`, `attack_path`, `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`, `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`, `static_code_vulnerability`, `workload_activity`.
+        :param pulumi.Input[_builtins.str] query: A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        pulumi.set(__self__, "finding_types", finding_types)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter(name="findingTypes")
+    def finding_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of security finding types that the automation rule applies to. Valid values are `api_security`, `attack_path`, `host_and_container_vulnerability`, `iac_misconfiguration`, `identity_risk`, `library_vulnerability`, `misconfiguration`, `runtime_code_vulnerability`, `secret`, `static_code_vulnerability`, `workload_activity`.
+        """
+        return pulumi.get(self, "finding_types")
+
+    @finding_types.setter
+    def finding_types(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "finding_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A search query to further filter the findings matched by this rule. The `@workflow.*` namespace and `@status` fields are not permitted. For a reference of available fields, see the [Security Findings schema documentation](https://docs.datadoghq.com/security/guide/findings-schema/).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "query", value)
+
+
 class SecurityFindingsTicketCreationRuleActionArgsDict(TypedDict):
     max_tickets_per_day: pulumi.Input[_builtins.int]
     """
-    The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+    The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
     """
     project_id: pulumi.Input[_builtins.str]
     """
-    The UUID of the Case Management project. Must be a valid UUID.
+    The UUID of the case management project. Must be a valid UUID.
     """
     target: pulumi.Input[_builtins.str]
     """
-    The ticketing system to create tickets in. Valid values are `jira`, `case_management`.
+    The ticketing system to create tickets in. Valid values are `jira`, `case_management`, `linear`.
     """
     assignee_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -321478,11 +324019,11 @@ class SecurityFindingsTicketCreationRuleActionArgsDict(TypedDict):
     """
     auto_disabled_reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+    The reason the rule was automatically disabled by the system due to a ticketing integration error.
     """
     fields: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+    A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linear_project_id` (string, the identifier of the Linear project the issue is created in) and `linear_label_ids` (array of strings, the identifiers of the Linear labels applied to the issue).
     """
 
 @pulumi.input_type
@@ -321495,12 +324036,12 @@ class SecurityFindingsTicketCreationRuleActionArgs:
                  auto_disabled_reason: pulumi.Input[Optional[_builtins.str]] = None,
                  fields: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.int] max_tickets_per_day: The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
-        :param pulumi.Input[_builtins.str] project_id: The UUID of the Case Management project. Must be a valid UUID.
-        :param pulumi.Input[_builtins.str] target: The ticketing system to create tickets in. Valid values are `jira`, `case_management`.
+        :param pulumi.Input[_builtins.int] max_tickets_per_day: The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
+        :param pulumi.Input[_builtins.str] project_id: The UUID of the case management project. Must be a valid UUID.
+        :param pulumi.Input[_builtins.str] target: The ticketing system to create tickets in. Valid values are `jira`, `case_management`, `linear`.
         :param pulumi.Input[_builtins.str] assignee_id: The UUID of the default assignee for created tickets. Must be a valid UUID.
-        :param pulumi.Input[_builtins.str] auto_disabled_reason: The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
-        :param pulumi.Input[_builtins.str] fields: A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+        :param pulumi.Input[_builtins.str] auto_disabled_reason: The reason the rule was automatically disabled by the system due to a ticketing integration error.
+        :param pulumi.Input[_builtins.str] fields: A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linear_project_id` (string, the identifier of the Linear project the issue is created in) and `linear_label_ids` (array of strings, the identifiers of the Linear labels applied to the issue).
         """
         pulumi.set(__self__, "max_tickets_per_day", max_tickets_per_day)
         pulumi.set(__self__, "project_id", project_id)
@@ -321516,7 +324057,7 @@ class SecurityFindingsTicketCreationRuleActionArgs:
     @pulumi.getter(name="maxTicketsPerDay")
     def max_tickets_per_day(self) -> pulumi.Input[_builtins.int]:
         """
-        The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+        The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
         """
         return pulumi.get(self, "max_tickets_per_day")
 
@@ -321528,7 +324069,7 @@ class SecurityFindingsTicketCreationRuleActionArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The UUID of the Case Management project. Must be a valid UUID.
+        The UUID of the case management project. Must be a valid UUID.
         """
         return pulumi.get(self, "project_id")
 
@@ -321540,7 +324081,7 @@ class SecurityFindingsTicketCreationRuleActionArgs:
     @pulumi.getter
     def target(self) -> pulumi.Input[_builtins.str]:
         """
-        The ticketing system to create tickets in. Valid values are `jira`, `case_management`.
+        The ticketing system to create tickets in. Valid values are `jira`, `case_management`, `linear`.
         """
         return pulumi.get(self, "target")
 
@@ -321564,7 +324105,7 @@ class SecurityFindingsTicketCreationRuleActionArgs:
     @pulumi.getter(name="autoDisabledReason")
     def auto_disabled_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+        The reason the rule was automatically disabled by the system due to a ticketing integration error.
         """
         return pulumi.get(self, "auto_disabled_reason")
 
@@ -321576,7 +324117,7 @@ class SecurityFindingsTicketCreationRuleActionArgs:
     @pulumi.getter
     def fields(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+        A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `linear_project_id` (string, the identifier of the Linear project the issue is created in) and `linear_label_ids` (array of strings, the identifiers of the Linear labels applied to the issue).
         """
         return pulumi.get(self, "fields")
 
@@ -334673,6 +337214,55 @@ class TeamSyncSelectionStateExternalIdArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+class WorkflowAutomationRunAsArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Service account identifier. Required when `type` is `service_account` and omitted otherwise.
+    """
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Type of identity used to run the workflow. `owner` uses the workflow owner, `initiator` uses the user who starts the execution, and `service_account` uses the account specified by `id`. Required when `run_as` is configured. Valid values are `owner`, `service_account`, `initiator`.
+    """
+
+@pulumi.input_type
+class WorkflowAutomationRunAsArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: Service account identifier. Required when `type` is `service_account` and omitted otherwise.
+        :param pulumi.Input[_builtins.str] type: Type of identity used to run the workflow. `owner` uses the workflow owner, `initiator` uses the user who starts the execution, and `service_account` uses the account specified by `id`. Required when `run_as` is configured. Valid values are `owner`, `service_account`, `initiator`.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Service account identifier. Required when `type` is `service_account` and omitted otherwise.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of identity used to run the workflow. `owner` uses the workflow owner, `initiator` uses the user who starts the execution, and `service_account` uses the account specified by `id`. Required when `run_as` is configured. Valid values are `owner`, `service_account`, `initiator`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
 
 
 class GetActionConnectionAnthropicArgsDict(TypedDict):

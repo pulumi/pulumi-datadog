@@ -33,7 +33,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
      */
     private String name;
     /**
-     * @return The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     * @return The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`. When `overflowRouting` is used, there must be a destination whose `inputs` reference this processor with the `&lt;processor-id&gt;.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazonS3Generic`, `amazonS3`, `googleCloudStorage`, and `azureStorage`.
      * 
      */
     private @Nullable String overflowAction;
@@ -79,7 +79,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorQuota {
         return this.name;
     }
     /**
-     * @return The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
+     * @return The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`. When `overflowRouting` is used, there must be a destination whose `inputs` reference this processor with the `&lt;processor-id&gt;.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazonS3Generic`, `amazonS3`, `googleCloudStorage`, and `azureStorage`.
      * 
      */
     public Optional<String> overflowAction() {

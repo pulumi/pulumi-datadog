@@ -13,6 +13,716 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardV2WidgetPointPlotDefinitionRequest struct {
+	// Maximum number of data points to return.
+	Limit *int `pulumi:"limit"`
+	// Projection configuration for the point plot request.
+	Projection DashboardV2WidgetPointPlotDefinitionRequestProjection `pulumi:"projection"`
+	// Query configuration for the point plot request.
+	Query DashboardV2WidgetPointPlotDefinitionRequestQuery `pulumi:"query"`
+	// The type of data request. Must be `dataProjection`. Valid values are `dataProjection`.
+	RequestType string `pulumi:"requestType"`
+}
+
+// DashboardV2WidgetPointPlotDefinitionRequestInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestArgs and DashboardV2WidgetPointPlotDefinitionRequestOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestInput` via:
+//
+//	DashboardV2WidgetPointPlotDefinitionRequestArgs{...}
+type DashboardV2WidgetPointPlotDefinitionRequestInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetPointPlotDefinitionRequestOutput() DashboardV2WidgetPointPlotDefinitionRequestOutput
+	ToDashboardV2WidgetPointPlotDefinitionRequestOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestOutput
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestArgs struct {
+	// Maximum number of data points to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// Projection configuration for the point plot request.
+	Projection DashboardV2WidgetPointPlotDefinitionRequestProjectionInput `pulumi:"projection"`
+	// Query configuration for the point plot request.
+	Query DashboardV2WidgetPointPlotDefinitionRequestQueryInput `pulumi:"query"`
+	// The type of data request. Must be `dataProjection`. Valid values are `dataProjection`.
+	RequestType pulumi.StringInput `pulumi:"requestType"`
+}
+
+func (DashboardV2WidgetPointPlotDefinitionRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequest)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestArgs) ToDashboardV2WidgetPointPlotDefinitionRequestOutput() DashboardV2WidgetPointPlotDefinitionRequestOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionRequestOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestArgs) ToDashboardV2WidgetPointPlotDefinitionRequestOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestOutput)
+}
+
+// DashboardV2WidgetPointPlotDefinitionRequestArrayInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestArray and DashboardV2WidgetPointPlotDefinitionRequestArrayOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestArrayInput` via:
+//
+//	DashboardV2WidgetPointPlotDefinitionRequestArray{ DashboardV2WidgetPointPlotDefinitionRequestArgs{...} }
+type DashboardV2WidgetPointPlotDefinitionRequestArrayInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestArrayOutput
+	ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestArrayOutput
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestArray []DashboardV2WidgetPointPlotDefinitionRequestInput
+
+func (DashboardV2WidgetPointPlotDefinitionRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionRequest)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestArray) ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestArrayOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestArray) ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestArrayOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetPointPlotDefinitionRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequest)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) ToDashboardV2WidgetPointPlotDefinitionRequestOutput() DashboardV2WidgetPointPlotDefinitionRequestOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) ToDashboardV2WidgetPointPlotDefinitionRequestOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestOutput {
+	return o
+}
+
+// Maximum number of data points to return.
+func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequest) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// Projection configuration for the point plot request.
+func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) Projection() DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequest) DashboardV2WidgetPointPlotDefinitionRequestProjection {
+		return v.Projection
+	}).(DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput)
+}
+
+// Query configuration for the point plot request.
+func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) Query() DashboardV2WidgetPointPlotDefinitionRequestQueryOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequest) DashboardV2WidgetPointPlotDefinitionRequestQuery {
+		return v.Query
+	}).(DashboardV2WidgetPointPlotDefinitionRequestQueryOutput)
+}
+
+// The type of data request. Must be `dataProjection`. Valid values are `dataProjection`.
+func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) RequestType() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequest) string { return v.RequestType }).(pulumi.StringOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetPointPlotDefinitionRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionRequest)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestArrayOutput) ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestArrayOutput) ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetPointPlotDefinitionRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetPointPlotDefinitionRequest {
+		return vs[0].([]DashboardV2WidgetPointPlotDefinitionRequest)[vs[1].(int)]
+	}).(DashboardV2WidgetPointPlotDefinitionRequestOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestProjection struct {
+	// List of dimension mappings for the projection.
+	Dimensions []DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension `pulumi:"dimensions"`
+	// Additional columns to include in the projection.
+	ExtraColumns []string `pulumi:"extraColumns"`
+	// Type of the projection. Must be `pointPlot`. Valid values are `pointPlot`.
+	Type string `pulumi:"type"`
+}
+
+// DashboardV2WidgetPointPlotDefinitionRequestProjectionInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs and DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestProjectionInput` via:
+//
+//	DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs{...}
+type DashboardV2WidgetPointPlotDefinitionRequestProjectionInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput
+	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs struct {
+	// List of dimension mappings for the projection.
+	Dimensions DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayInput `pulumi:"dimensions"`
+	// Additional columns to include in the projection.
+	ExtraColumns pulumi.StringArrayInput `pulumi:"extraColumns"`
+	// Type of the projection. Must be `pointPlot`. Valid values are `pointPlot`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjection)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjection)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput {
+	return o
+}
+
+// List of dimension mappings for the projection.
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) Dimensions() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjection) []DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension {
+		return v.Dimensions
+	}).(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput)
+}
+
+// Additional columns to include in the projection.
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) ExtraColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjection) []string { return v.ExtraColumns }).(pulumi.StringArrayOutput)
+}
+
+// Type of the projection. Must be `pointPlot`. Valid values are `pointPlot`.
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjection) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension struct {
+	// Alias for the column.
+	Alias *string `pulumi:"alias"`
+	// Source column name from the dataset.
+	Column string `pulumi:"column"`
+	// Dimension of the point plot. Valid values are `group`, `time`, `y`, `radius`.
+	Dimension string `pulumi:"dimension"`
+}
+
+// DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs and DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionInput` via:
+//
+//	DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs{...}
+type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput
+	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs struct {
+	// Alias for the column.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// Source column name from the dataset.
+	Column pulumi.StringInput `pulumi:"column"`
+	// Dimension of the point plot. Valid values are `group`, `time`, `y`, `radius`.
+	Dimension pulumi.StringInput `pulumi:"dimension"`
+}
+
+func (DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput)
+}
+
+// DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray and DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayInput` via:
+//
+//	DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray{ DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs{...} }
+type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput
+	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray []DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionInput
+
+func (DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput {
+	return o
+}
+
+// Alias for the column.
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// Source column name from the dataset.
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) Column() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension) string { return v.Column }).(pulumi.StringOutput)
+}
+
+// Dimension of the point plot. Valid values are `group`, `time`, `y`, `radius`.
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) Dimension() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension) string { return v.Dimension }).(pulumi.StringOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension {
+		return vs[0].([]DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension)[vs[1].(int)]
+	}).(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestQuery struct {
+	// Data source for the query (for example, `logs`).
+	DataSource string `pulumi:"dataSource"`
+	// List of indexes to query.
+	Indexes []string `pulumi:"indexes"`
+	// The query string to filter events.
+	QueryString string `pulumi:"queryString"`
+	// Storage location for the query.
+	Storage *string `pulumi:"storage"`
+}
+
+// DashboardV2WidgetPointPlotDefinitionRequestQueryInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestQueryArgs and DashboardV2WidgetPointPlotDefinitionRequestQueryOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestQueryInput` via:
+//
+//	DashboardV2WidgetPointPlotDefinitionRequestQueryArgs{...}
+type DashboardV2WidgetPointPlotDefinitionRequestQueryInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutput() DashboardV2WidgetPointPlotDefinitionRequestQueryOutput
+	ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestQueryOutput
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestQueryArgs struct {
+	// Data source for the query (for example, `logs`).
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// List of indexes to query.
+	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
+	// The query string to filter events.
+	QueryString pulumi.StringInput `pulumi:"queryString"`
+	// Storage location for the query.
+	Storage pulumi.StringPtrInput `pulumi:"storage"`
+}
+
+func (DashboardV2WidgetPointPlotDefinitionRequestQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestQuery)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestQueryArgs) ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutput() DashboardV2WidgetPointPlotDefinitionRequestQueryOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionRequestQueryArgs) ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestQueryOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionRequestQueryOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestQuery)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutput() DashboardV2WidgetPointPlotDefinitionRequestQueryOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestQueryOutput {
+	return o
+}
+
+// Data source for the query (for example, `logs`).
+func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// List of indexes to query.
+func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) Indexes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
+}
+
+// The query string to filter events.
+func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) QueryString() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestQuery) string { return v.QueryString }).(pulumi.StringOutput)
+}
+
+// Storage location for the query.
+func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) Storage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionTime struct {
+	// A fixed time range with explicit start and end times.
+	Fixed *DashboardV2WidgetPointPlotDefinitionTimeFixed `pulumi:"fixed"`
+	// An arbitrary live time span, such as 17 minutes or 6 hours.
+	Live *DashboardV2WidgetPointPlotDefinitionTimeLive `pulumi:"live"`
+}
+
+// DashboardV2WidgetPointPlotDefinitionTimeInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionTimeArgs and DashboardV2WidgetPointPlotDefinitionTimeOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionTimeInput` via:
+//
+//	DashboardV2WidgetPointPlotDefinitionTimeArgs{...}
+type DashboardV2WidgetPointPlotDefinitionTimeInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetPointPlotDefinitionTimeOutput() DashboardV2WidgetPointPlotDefinitionTimeOutput
+	ToDashboardV2WidgetPointPlotDefinitionTimeOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionTimeOutput
+}
+
+type DashboardV2WidgetPointPlotDefinitionTimeArgs struct {
+	// A fixed time range with explicit start and end times.
+	Fixed DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput `pulumi:"fixed"`
+	// An arbitrary live time span, such as 17 minutes or 6 hours.
+	Live DashboardV2WidgetPointPlotDefinitionTimeLivePtrInput `pulumi:"live"`
+}
+
+func (DashboardV2WidgetPointPlotDefinitionTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTime)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionTimeArgs) ToDashboardV2WidgetPointPlotDefinitionTimeOutput() DashboardV2WidgetPointPlotDefinitionTimeOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionTimeOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionTimeArgs) ToDashboardV2WidgetPointPlotDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimeOutput)
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionTimeArgs) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutput() DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionTimeArgs) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimeOutput).ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(ctx)
+}
+
+// DashboardV2WidgetPointPlotDefinitionTimePtrInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionTimeArgs, DashboardV2WidgetPointPlotDefinitionTimePtr and DashboardV2WidgetPointPlotDefinitionTimePtrOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionTimePtrInput` via:
+//
+//	        DashboardV2WidgetPointPlotDefinitionTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2WidgetPointPlotDefinitionTimePtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetPointPlotDefinitionTimePtrOutput() DashboardV2WidgetPointPlotDefinitionTimePtrOutput
+	ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionTimePtrOutput
+}
+
+type dashboardV2WidgetPointPlotDefinitionTimePtrType DashboardV2WidgetPointPlotDefinitionTimeArgs
+
+func DashboardV2WidgetPointPlotDefinitionTimePtr(v *DashboardV2WidgetPointPlotDefinitionTimeArgs) DashboardV2WidgetPointPlotDefinitionTimePtrInput {
+	return (*dashboardV2WidgetPointPlotDefinitionTimePtrType)(v)
+}
+
+func (*dashboardV2WidgetPointPlotDefinitionTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinitionTime)(nil)).Elem()
+}
+
+func (i *dashboardV2WidgetPointPlotDefinitionTimePtrType) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutput() DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2WidgetPointPlotDefinitionTimePtrType) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimePtrOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionTimeOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetPointPlotDefinitionTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTime)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) ToDashboardV2WidgetPointPlotDefinitionTimeOutput() DashboardV2WidgetPointPlotDefinitionTimeOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) ToDashboardV2WidgetPointPlotDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutput() DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
+	return o.ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetPointPlotDefinitionTime) *DashboardV2WidgetPointPlotDefinitionTime {
+		return &v
+	}).(DashboardV2WidgetPointPlotDefinitionTimePtrOutput)
+}
+
+// A fixed time range with explicit start and end times.
+func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) Fixed() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionTime) *DashboardV2WidgetPointPlotDefinitionTimeFixed {
+		return v.Fixed
+	}).(DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput)
+}
+
+// An arbitrary live time span, such as 17 minutes or 6 hours.
+func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) Live() DashboardV2WidgetPointPlotDefinitionTimeLivePtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionTime) *DashboardV2WidgetPointPlotDefinitionTimeLive {
+		return v.Live
+	}).(DashboardV2WidgetPointPlotDefinitionTimeLivePtrOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionTimePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetPointPlotDefinitionTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinitionTime)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimePtrOutput) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutput() DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimePtrOutput) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimePtrOutput) Elem() DashboardV2WidgetPointPlotDefinitionTimeOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTime) DashboardV2WidgetPointPlotDefinitionTime {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2WidgetPointPlotDefinitionTime
+		return ret
+	}).(DashboardV2WidgetPointPlotDefinitionTimeOutput)
+}
+
+// A fixed time range with explicit start and end times.
+func (o DashboardV2WidgetPointPlotDefinitionTimePtrOutput) Fixed() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTime) *DashboardV2WidgetPointPlotDefinitionTimeFixed {
+		if v == nil {
+			return nil
+		}
+		return v.Fixed
+	}).(DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput)
+}
+
+// An arbitrary live time span, such as 17 minutes or 6 hours.
+func (o DashboardV2WidgetPointPlotDefinitionTimePtrOutput) Live() DashboardV2WidgetPointPlotDefinitionTimeLivePtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTime) *DashboardV2WidgetPointPlotDefinitionTimeLive {
+		if v == nil {
+			return nil
+		}
+		return v.Live
+	}).(DashboardV2WidgetPointPlotDefinitionTimeLivePtrOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionTimeFixed struct {
+	// Start time in seconds since epoch.
+	From int `pulumi:"from"`
+	// End time in seconds since epoch.
+	To int `pulumi:"to"`
+}
+
+// DashboardV2WidgetPointPlotDefinitionTimeFixedInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionTimeFixedArgs and DashboardV2WidgetPointPlotDefinitionTimeFixedOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionTimeFixedInput` via:
+//
+//	DashboardV2WidgetPointPlotDefinitionTimeFixedArgs{...}
+type DashboardV2WidgetPointPlotDefinitionTimeFixedInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedOutput
+	ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedOutput
+}
+
+type DashboardV2WidgetPointPlotDefinitionTimeFixedArgs struct {
+	// Start time in seconds since epoch.
+	From pulumi.IntInput `pulumi:"from"`
+	// End time in seconds since epoch.
+	To pulumi.IntInput `pulumi:"to"`
+}
+
+func (DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimeFixedOutput)
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimeFixedOutput).ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(ctx)
+}
+
+// DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionTimeFixedArgs, DashboardV2WidgetPointPlotDefinitionTimeFixedPtr and DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput` via:
+//
+//	        DashboardV2WidgetPointPlotDefinitionTimeFixedArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput
+	ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput
+}
+
+type dashboardV2WidgetPointPlotDefinitionTimeFixedPtrType DashboardV2WidgetPointPlotDefinitionTimeFixedArgs
+
+func DashboardV2WidgetPointPlotDefinitionTimeFixedPtr(v *DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput {
+	return (*dashboardV2WidgetPointPlotDefinitionTimeFixedPtrType)(v)
+}
+
+func (*dashboardV2WidgetPointPlotDefinitionTimeFixedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (i *dashboardV2WidgetPointPlotDefinitionTimeFixedPtrType) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
+	return i.ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2WidgetPointPlotDefinitionTimeFixedPtrType) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
+	return o.ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetPointPlotDefinitionTimeFixed) *DashboardV2WidgetPointPlotDefinitionTimeFixed {
+		return &v
+	}).(DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput)
+}
+
+// Start time in seconds since epoch.
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) From() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
+}
+
+// End time in seconds since epoch.
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) To() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
+}
+
+type DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) Elem() DashboardV2WidgetPointPlotDefinitionTimeFixedOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTimeFixed) DashboardV2WidgetPointPlotDefinitionTimeFixed {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2WidgetPointPlotDefinitionTimeFixed
+		return ret
+	}).(DashboardV2WidgetPointPlotDefinitionTimeFixedOutput)
+}
+
+// Start time in seconds since epoch.
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTimeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// End time in seconds since epoch.
+func (o DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTimeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.To
+	}).(pulumi.IntPtrOutput)
+}
+
 type DashboardV2WidgetPointPlotDefinitionTimeLive struct {
 	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
 	Unit string `pulumi:"unit"`
@@ -84108,1263 +84818,17 @@ func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestColumnArrayOu
 	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestColumnOutput)
 }
 
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery struct {
-	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
-	ClusteringPatternFieldPath *string `pulumi:"clusteringPatternFieldPath"`
-	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
-	DataSource string `pulumi:"dataSource"`
-	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
-	EventSize *string `pulumi:"eventSize"`
-	// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
-	GroupBies []DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy `pulumi:"groupBies"`
-	// List of indexes.
-	Indexes []string `pulumi:"indexes"`
-	// Widget query.
-	QueryString *string `pulumi:"queryString"`
-	// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-	Sort *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort `pulumi:"sort"`
-	// Storage location (private beta).
-	Storage *string `pulumi:"storage"`
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryInput` via:
-//
-//	DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs{...}
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs struct {
-	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
-	ClusteringPatternFieldPath pulumi.StringPtrInput `pulumi:"clusteringPatternFieldPath"`
-	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
-	EventSize pulumi.StringPtrInput `pulumi:"eventSize"`
-	// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
-	GroupBies DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayInput `pulumi:"groupBies"`
-	// List of indexes.
-	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
-	// Widget query.
-	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
-	// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-	Sort DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput `pulumi:"sort"`
-	// Storage location (private beta).
-	Storage pulumi.StringPtrInput `pulumi:"storage"`
-}
-
-func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput)
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput).ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs, DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtr and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput` via:
-//
-//	        DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput
-}
-
-type dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrType DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs
-
-func DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtr(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput {
-	return (*dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrType)(v)
-}
-
-func (*dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrType) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrType) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
-	return o.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery {
-		return &v
-	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput)
-}
-
-// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) ClusteringPatternFieldPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
-		return v.ClusteringPatternFieldPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) EventSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string { return v.EventSize }).(pulumi.StringPtrOutput)
-}
-
-// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) GroupBies() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) []DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy {
-		return v.GroupBies
-	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput)
-}
-
-// List of indexes.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
-}
-
-// Widget query.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) QueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string { return v.QueryString }).(pulumi.StringPtrOutput)
-}
-
-// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) Sort() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort {
-		return v.Sort
-	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput)
-}
-
-// Storage location (private beta).
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) Storage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) Elem() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery
-		return ret
-	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput)
-}
-
-// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) ClusteringPatternFieldPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClusteringPatternFieldPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) EventSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EventSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) GroupBies() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) []DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput)
-}
-
-// List of indexes.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Indexes
-	}).(pulumi.StringArrayOutput)
-}
-
-// Widget query.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) QueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.QueryString
-	}).(pulumi.StringPtrOutput)
-}
-
-// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) Sort() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort {
-		if v == nil {
-			return nil
-		}
-		return v.Sort
-	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput)
-}
-
-// Storage location (private beta).
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) Storage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Storage
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy struct {
-	// Facet name
-	Facet string `pulumi:"facet"`
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByInput` via:
-//
-//	DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs{...}
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs struct {
-	// Facet name
-	Facet pulumi.StringInput `pulumi:"facet"`
-}
-
-func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput)
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayInput` via:
-//
-//	DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray{ DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs{...} }
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray []DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByInput
-
-func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput {
-	return o
-}
-
-// Facet name
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput) Facet() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy {
-		return vs[0].([]DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupBy)[vs[1].(int)]
-	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort struct {
-	// The facet path for the column.
-	Column string `pulumi:"column"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order string `pulumi:"order"`
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortInput` via:
-//
-//	DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs{...}
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs struct {
-	// The facet path for the column.
-	Column pulumi.StringInput `pulumi:"column"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order pulumi.StringInput `pulumi:"order"`
-}
-
-func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput)
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput).ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs, DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtr and DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput` via:
-//
-//	        DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput
-}
-
-type dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrType DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs
-
-func DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtr(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput {
-	return (*dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrType)(v)
-}
-
-func (*dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrType) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrType) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
-	return o.ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort {
-		return &v
-	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput)
-}
-
-// The facet path for the column.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) Column() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) string { return v.Column }).(pulumi.StringOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput) Order() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) string { return v.Order }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) Elem() DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort
-		return ret
-	}).(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput)
-}
-
-// The facet path for the column.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) Column() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Column
-	}).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest struct {
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ApmQuery *DashboardV2WidgetApmQuery `pulumi:"apmQuery"`
-	// How the data points are displayed on the graph.
-	DisplayType *string `pulumi:"displayType"`
-	// A list of formulas to use in the widget.
-	Formulas []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula `pulumi:"formulas"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	LogQuery *DashboardV2WidgetLogQuery `pulumi:"logQuery"`
-	// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ProcessQuery *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQuery `pulumi:"processQuery"`
-	// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	Q *string `pulumi:"q"`
-	// A list of queries to use in the widget.
-	Queries []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuery `pulumi:"queries"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	RumQuery *DashboardV2WidgetRumQuery `pulumi:"rumQuery"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	SecurityQuery *DashboardV2WidgetSecurityQuery `pulumi:"securityQuery"`
-	// The controls for sorting the widget.
-	Sort *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSort `pulumi:"sort"`
-	// Define request for the widget's style.
-	Style *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStyle `pulumi:"style"`
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestInput` via:
-//
-//	DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs{...}
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs struct {
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ApmQuery DashboardV2WidgetApmQueryPtrInput `pulumi:"apmQuery"`
-	// How the data points are displayed on the graph.
-	DisplayType pulumi.StringPtrInput `pulumi:"displayType"`
-	// A list of formulas to use in the widget.
-	Formulas DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayInput `pulumi:"formulas"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	LogQuery DashboardV2WidgetLogQueryPtrInput `pulumi:"logQuery"`
-	// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ProcessQuery DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQueryPtrInput `pulumi:"processQuery"`
-	// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	Q pulumi.StringPtrInput `pulumi:"q"`
-	// A list of queries to use in the widget.
-	Queries DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArrayInput `pulumi:"queries"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	RumQuery DashboardV2WidgetRumQueryPtrInput `pulumi:"rumQuery"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	SecurityQuery DashboardV2WidgetSecurityQueryPtrInput `pulumi:"securityQuery"`
-	// The controls for sorting the widget.
-	Sort DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSortPtrInput `pulumi:"sort"`
-	// Define request for the widget's style.
-	Style DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStylePtrInput `pulumi:"style"`
-}
-
-func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput)
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput).ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs, DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtr and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrInput` via:
-//
-//	        DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput
-}
-
-type dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrType DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs
-
-func DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtr(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrInput {
-	return (*dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrType)(v)
-}
-
-func (*dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrType) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrType) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
-	return o.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest {
-		return &v
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ApmQuery() DashboardV2WidgetApmQueryPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetApmQuery {
-		return v.ApmQuery
-	}).(DashboardV2WidgetApmQueryPtrOutput)
-}
-
-// How the data points are displayed on the graph.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) DisplayType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *string { return v.DisplayType }).(pulumi.StringPtrOutput)
-}
-
-// A list of formulas to use in the widget.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) Formulas() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula {
-		return v.Formulas
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) LogQuery() DashboardV2WidgetLogQueryPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetLogQuery {
-		return v.LogQuery
-	}).(DashboardV2WidgetLogQueryPtrOutput)
-}
-
-// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) ProcessQuery() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQueryPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQuery {
-		return v.ProcessQuery
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQueryPtrOutput)
-}
-
-// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) Q() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *string { return v.Q }).(pulumi.StringPtrOutput)
-}
-
-// A list of queries to use in the widget.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) Queries() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuery {
-		return v.Queries
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArrayOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) RumQuery() DashboardV2WidgetRumQueryPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetRumQuery {
-		return v.RumQuery
-	}).(DashboardV2WidgetRumQueryPtrOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) SecurityQuery() DashboardV2WidgetSecurityQueryPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetSecurityQuery {
-		return v.SecurityQuery
-	}).(DashboardV2WidgetSecurityQueryPtrOutput)
-}
-
-// The controls for sorting the widget.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) Sort() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSortPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSort {
-		return v.Sort
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSortPtrOutput)
-}
-
-// Define request for the widget's style.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput) Style() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStylePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStyle {
-		return v.Style
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStylePtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Elem() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest
-		return ret
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) ApmQuery() DashboardV2WidgetApmQueryPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetApmQuery {
-		if v == nil {
-			return nil
-		}
-		return v.ApmQuery
-	}).(DashboardV2WidgetApmQueryPtrOutput)
-}
-
-// How the data points are displayed on the graph.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) DisplayType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayType
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of formulas to use in the widget.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Formulas() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula {
-		if v == nil {
-			return nil
-		}
-		return v.Formulas
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) LogQuery() DashboardV2WidgetLogQueryPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetLogQuery {
-		if v == nil {
-			return nil
-		}
-		return v.LogQuery
-	}).(DashboardV2WidgetLogQueryPtrOutput)
-}
-
-// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) ProcessQuery() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQueryPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQuery {
-		if v == nil {
-			return nil
-		}
-		return v.ProcessQuery
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestProcessQueryPtrOutput)
-}
-
-// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Q() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Q
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of queries to use in the widget.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Queries() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuery {
-		if v == nil {
-			return nil
-		}
-		return v.Queries
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryArrayOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) RumQuery() DashboardV2WidgetRumQueryPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetRumQuery {
-		if v == nil {
-			return nil
-		}
-		return v.RumQuery
-	}).(DashboardV2WidgetRumQueryPtrOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) SecurityQuery() DashboardV2WidgetSecurityQueryPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetSecurityQuery {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityQuery
-	}).(DashboardV2WidgetSecurityQueryPtrOutput)
-}
-
-// The controls for sorting the widget.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Sort() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSortPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSort {
-		if v == nil {
-			return nil
-		}
-		return v.Sort
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestSortPtrOutput)
-}
-
-// Define request for the widget's style.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput) Style() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStylePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequest) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStyle {
-		if v == nil {
-			return nil
-		}
-		return v.Style
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestStylePtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula struct {
-	// An expression alias.
-	Alias *string `pulumi:"alias"`
-	// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
-	CellDisplayMode *string `pulumi:"cellDisplayMode"`
-	// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
-	CellDisplayModeOptions *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions `pulumi:"cellDisplayModeOptions"`
-	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-	ConditionalFormats []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormat `pulumi:"conditionalFormats"`
-	// A string expression built from queries, formulas, and functions.
-	FormulaExpression string `pulumi:"formulaExpression"`
-	// The options for limiting results returned.
-	Limit *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimit `pulumi:"limit"`
-	// Number formatting options for the formula.
-	NumberFormat *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaNumberFormat `pulumi:"numberFormat"`
-	// Styling options for widget formulas.
-	Style *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaStyle `pulumi:"style"`
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaInput` via:
-//
-//	DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs{...}
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs struct {
-	// An expression alias.
-	Alias pulumi.StringPtrInput `pulumi:"alias"`
-	// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
-	CellDisplayMode pulumi.StringPtrInput `pulumi:"cellDisplayMode"`
-	// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
-	CellDisplayModeOptions DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput `pulumi:"cellDisplayModeOptions"`
-	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-	ConditionalFormats DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatArrayInput `pulumi:"conditionalFormats"`
-	// A string expression built from queries, formulas, and functions.
-	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
-	// The options for limiting results returned.
-	Limit DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimitPtrInput `pulumi:"limit"`
-	// Number formatting options for the formula.
-	NumberFormat DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaNumberFormatPtrInput `pulumi:"numberFormat"`
-	// Styling options for widget formulas.
-	Style DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaStylePtrInput `pulumi:"style"`
-}
-
-func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput)
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayInput` via:
-//
-//	DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray{ DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs{...} }
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaInput
-
-func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput {
-	return o
-}
-
-// An expression alias.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) Alias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *string { return v.Alias }).(pulumi.StringPtrOutput)
-}
-
-// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) CellDisplayMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *string {
-		return v.CellDisplayMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) CellDisplayModeOptions() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions {
-		return v.CellDisplayModeOptions
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput)
-}
-
-// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) ConditionalFormats() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormat {
-		return v.ConditionalFormats
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaConditionalFormatArrayOutput)
-}
-
-// A string expression built from queries, formulas, and functions.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) FormulaExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) string {
-		return v.FormulaExpression
-	}).(pulumi.StringOutput)
-}
-
-// The options for limiting results returned.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) Limit() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimitPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimit {
-		return v.Limit
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaLimitPtrOutput)
-}
-
-// Number formatting options for the formula.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) NumberFormat() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaNumberFormatPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaNumberFormat {
-		return v.NumberFormat
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaNumberFormatPtrOutput)
-}
-
-// Styling options for widget formulas.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput) Style() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaStylePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaStyle {
-		return v.Style
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaStylePtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula {
-		return vs[0].([]DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormula)[vs[1].(int)]
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions struct {
-	// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-	TrendType *string `pulumi:"trendType"`
-	// The scale of the y-axis. Valid values are `shared` and `independent`.
-	YScale *string `pulumi:"yScale"`
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsInput` via:
-//
-//	DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs{...}
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs struct {
-	// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-	TrendType pulumi.StringPtrInput `pulumi:"trendType"`
-	// The scale of the y-axis. Valid values are `shared` and `independent`.
-	YScale pulumi.StringPtrInput `pulumi:"yScale"`
-}
-
-func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput)
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput).ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput is an input type that accepts DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs, DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtr and DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput` via:
-//
-//	        DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput
-	ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput
-}
-
-type dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrType DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs
-
-func DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtr(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput {
-	return (*dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrType)(v)
-}
-
-func (*dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrType) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return i.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrType) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o.ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions {
-		return &v
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput)
-}
-
-// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) TrendType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) *string {
-		return v.TrendType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The scale of the y-axis. Valid values are `shared` and `independent`.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput) YScale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) *string {
-		return v.YScale
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) ToDashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) Elem() DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions
-		return ret
-	}).(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput)
-}
-
-// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) TrendType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrendType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The scale of the y-axis. Valid values are `shared` and `independent`.
-func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput) YScale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.YScale
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestArrayInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjectionInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestQueryInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionTimeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionTimeFixedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeLiveInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionTimeLiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeLivePtrInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionTimeLiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionYaxisInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionYaxisArgs{})
@@ -86341,18 +85805,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestPtrInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestColumnInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestColumnArrayInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestColumnArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsArgs{})
+	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestArrayOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestQueryOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionTimeOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionTimePtrOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionTimeFixedOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionTimeLiveOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionTimeLivePtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionYaxisOutput{})
@@ -87329,16 +86791,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestPtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestColumnOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestColumnArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySortPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestFormulaCellDisplayModeOptionsPtrOutput{})
 }

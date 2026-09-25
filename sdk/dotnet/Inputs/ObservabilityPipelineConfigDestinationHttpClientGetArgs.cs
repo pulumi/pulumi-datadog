@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigDestinationHttpClientGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// HTTP authentication strategy. Valid values are `None`, `Basic`, `Bearer`.
+        /// HTTP authentication strategy. Valid values are `None`, `Basic`, `Bearer`, `Custom`.
         /// </summary>
         [Input("authStrategy")]
         public Input<string>? AuthStrategy { get; set; }
@@ -29,6 +29,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("compression")]
         public Input<Inputs.ObservabilityPipelineConfigDestinationHttpClientCompressionGetArgs>? Compression { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the custom authentication header value. Used with the `Custom` auth strategy.
+        /// </summary>
+        [Input("customKey")]
+        public Input<string>? CustomKey { get; set; }
 
         /// <summary>
         /// Encoding format for events. Valid values are `Json`.

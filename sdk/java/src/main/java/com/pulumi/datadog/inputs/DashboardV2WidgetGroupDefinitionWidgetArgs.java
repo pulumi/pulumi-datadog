@@ -12,6 +12,7 @@ import com.pulumi.datadog.inputs.DashboardV2WidgetChangeDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetCheckStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetCohortDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetDistributionDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardV2WidgetEmbeddedAppDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetEventStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetEventTimelineDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardV2WidgetFreeTextDefinitionArgs;
@@ -157,6 +158,21 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      */
     public Optional<Output<DashboardV2WidgetDistributionDefinitionArgs>> distributionDefinition() {
         return Optional.ofNullable(this.distributionDefinition);
+    }
+
+    /**
+     * The definition for an App Builder embedded app widget.
+     * 
+     */
+    @Import(name="embeddedAppDefinition")
+    private @Nullable Output<DashboardV2WidgetEmbeddedAppDefinitionArgs> embeddedAppDefinition;
+
+    /**
+     * @return The definition for an App Builder embedded app widget.
+     * 
+     */
+    public Optional<Output<DashboardV2WidgetEmbeddedAppDefinitionArgs>> embeddedAppDefinition() {
+        return Optional.ofNullable(this.embeddedAppDefinition);
     }
 
     /**
@@ -664,6 +680,7 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
         this.checkStatusDefinition = $.checkStatusDefinition;
         this.cohortDefinition = $.cohortDefinition;
         this.distributionDefinition = $.distributionDefinition;
+        this.embeddedAppDefinition = $.embeddedAppDefinition;
         this.eventStreamDefinition = $.eventStreamDefinition;
         this.eventTimelineDefinition = $.eventTimelineDefinition;
         this.freeTextDefinition = $.freeTextDefinition;
@@ -862,6 +879,27 @@ public final class DashboardV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          */
         public Builder distributionDefinition(DashboardV2WidgetDistributionDefinitionArgs distributionDefinition) {
             return distributionDefinition(Output.of(distributionDefinition));
+        }
+
+        /**
+         * @param embeddedAppDefinition The definition for an App Builder embedded app widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder embeddedAppDefinition(@Nullable Output<DashboardV2WidgetEmbeddedAppDefinitionArgs> embeddedAppDefinition) {
+            $.embeddedAppDefinition = embeddedAppDefinition;
+            return this;
+        }
+
+        /**
+         * @param embeddedAppDefinition The definition for an App Builder embedded app widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder embeddedAppDefinition(DashboardV2WidgetEmbeddedAppDefinitionArgs embeddedAppDefinition) {
+            return embeddedAppDefinition(Output.of(embeddedAppDefinition));
         }
 
         /**

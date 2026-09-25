@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetWorkflowAutomationRunAs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -32,6 +33,16 @@ public final class GetWorkflowAutomationResult {
      * 
      */
     private Boolean published;
+    /**
+     * @return Identity used to run the workflow.
+     * 
+     */
+    private GetWorkflowAutomationRunAs runAs;
+    /**
+     * @return Whether the workflow requires sensitive privileges to run. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+     * 
+     */
+    private Boolean sensitivePrivileges;
     /**
      * @return The spec defines what the workflow does.
      * 
@@ -73,6 +84,20 @@ public final class GetWorkflowAutomationResult {
         return this.published;
     }
     /**
+     * @return Identity used to run the workflow.
+     * 
+     */
+    public GetWorkflowAutomationRunAs runAs() {
+        return this.runAs;
+    }
+    /**
+     * @return Whether the workflow requires sensitive privileges to run. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+     * 
+     */
+    public Boolean sensitivePrivileges() {
+        return this.sensitivePrivileges;
+    }
+    /**
      * @return The spec defines what the workflow does.
      * 
      */
@@ -100,6 +125,8 @@ public final class GetWorkflowAutomationResult {
         private String id;
         private String name;
         private Boolean published;
+        private GetWorkflowAutomationRunAs runAs;
+        private Boolean sensitivePrivileges;
         private String specJson;
         private List<String> tags;
         public Builder() {}
@@ -109,6 +136,8 @@ public final class GetWorkflowAutomationResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.published = defaults.published;
+    	      this.runAs = defaults.runAs;
+    	      this.sensitivePrivileges = defaults.sensitivePrivileges;
     	      this.specJson = defaults.specJson;
     	      this.tags = defaults.tags;
         }
@@ -146,6 +175,22 @@ public final class GetWorkflowAutomationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder runAs(GetWorkflowAutomationRunAs runAs) {
+            if (runAs == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowAutomationResult", "runAs");
+            }
+            this.runAs = runAs;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sensitivePrivileges(Boolean sensitivePrivileges) {
+            if (sensitivePrivileges == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowAutomationResult", "sensitivePrivileges");
+            }
+            this.sensitivePrivileges = sensitivePrivileges;
+            return this;
+        }
+        @CustomType.Setter
         public Builder specJson(String specJson) {
             if (specJson == null) {
               throw new MissingRequiredPropertyException("GetWorkflowAutomationResult", "specJson");
@@ -170,6 +215,8 @@ public final class GetWorkflowAutomationResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.published = published;
+            _resultValue.runAs = runAs;
+            _resultValue.sensitivePrivileges = sensitivePrivileges;
             _resultValue.specJson = specJson;
             _resultValue.tags = tags;
             return _resultValue;

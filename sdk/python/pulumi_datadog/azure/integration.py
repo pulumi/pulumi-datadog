@@ -53,7 +53,7 @@ class IntegrationArgs:
         :param pulumi.Input[_builtins.bool] metrics_enabled_default: Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
-        :param pulumi.Input[_builtins.bool] secretless_auth_enabled: (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `client_secret` should be omitted. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] secretless_auth_enabled: When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking 'Set Up Secretless Auth'. When `true`, `client_secret` should be omitted. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] usage_metrics_enabled: Enable azure.usage metrics for your organization. Defaults to `true`.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -246,7 +246,7 @@ class IntegrationArgs:
     @pulumi.getter(name="secretlessAuthEnabled")
     def secretless_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `client_secret` should be omitted. Defaults to `false`.
+        When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking 'Set Up Secretless Auth'. When `true`, `client_secret` should be omitted. Defaults to `false`.
         """
         return pulumi.get(self, "secretless_auth_enabled")
 
@@ -301,7 +301,7 @@ class _IntegrationState:
         :param pulumi.Input[_builtins.bool] metrics_enabled_default: Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationResourceProviderConfigArgs']]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
-        :param pulumi.Input[_builtins.bool] secretless_auth_enabled: (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `client_secret` should be omitted. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] secretless_auth_enabled: When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking 'Set Up Secretless Auth'. When `true`, `client_secret` should be omitted. Defaults to `false`.
         :param pulumi.Input[_builtins.str] tenant_name: Your Azure Active Directory ID.
         :param pulumi.Input[_builtins.bool] usage_metrics_enabled: Enable azure.usage metrics for your organization. Defaults to `true`.
         """
@@ -485,7 +485,7 @@ class _IntegrationState:
     @pulumi.getter(name="secretlessAuthEnabled")
     def secretless_auth_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `client_secret` should be omitted. Defaults to `false`.
+        When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking 'Set Up Secretless Auth'. When `true`, `client_secret` should be omitted. Defaults to `false`.
         """
         return pulumi.get(self, "secretless_auth_enabled")
 
@@ -561,7 +561,6 @@ class Integration(pulumi.CustomResource):
             cspm_enabled=True,
             custom_metrics_enabled=False)
         # Or, using secretless (federated workload identity) authentication.
-        # Note: secretless authentication is currently in Preview.
         sandbox_secretless = datadog.azure.Integration("sandbox_secretless",
             tenant_name="<azure_tenant_name>",
             client_id="<azure_client_id>",
@@ -595,7 +594,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] metrics_enabled_default: Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict', 'outputs.IntegrationResourceProviderConfig']]]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
-        :param pulumi.Input[_builtins.bool] secretless_auth_enabled: (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `client_secret` should be omitted. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] secretless_auth_enabled: When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking 'Set Up Secretless Auth'. When `true`, `client_secret` should be omitted. Defaults to `false`.
         :param pulumi.Input[_builtins.str] tenant_name: Your Azure Active Directory ID.
         :param pulumi.Input[_builtins.bool] usage_metrics_enabled: Enable azure.usage metrics for your organization. Defaults to `true`.
         """
@@ -626,7 +625,6 @@ class Integration(pulumi.CustomResource):
             cspm_enabled=True,
             custom_metrics_enabled=False)
         # Or, using secretless (federated workload identity) authentication.
-        # Note: secretless authentication is currently in Preview.
         sandbox_secretless = datadog.azure.Integration("sandbox_secretless",
             tenant_name="<azure_tenant_name>",
             client_id="<azure_client_id>",
@@ -750,7 +748,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] metrics_enabled_default: Enable Azure metrics for your organization for resource providers where no resource provider config is specified. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] resource_collection_enabled: When enabled, Datadog collects metadata and configuration info from cloud resources (such as compute instances, databases, and load balancers) monitored by this app registration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict', 'outputs.IntegrationResourceProviderConfig']]]] resource_provider_configs: Configuration settings applied to resources from the specified Azure resource providers.
-        :param pulumi.Input[_builtins.bool] secretless_auth_enabled: (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `client_secret` should be omitted. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] secretless_auth_enabled: When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking 'Set Up Secretless Auth'. When `true`, `client_secret` should be omitted. Defaults to `false`.
         :param pulumi.Input[_builtins.str] tenant_name: Your Azure Active Directory ID.
         :param pulumi.Input[_builtins.bool] usage_metrics_enabled: Enable azure.usage metrics for your organization. Defaults to `true`.
         """
@@ -876,7 +874,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="secretlessAuthEnabled")
     def secretless_auth_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
-        (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `client_secret` should be omitted. Defaults to `false`.
+        When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking 'Set Up Secretless Auth'. When `true`, `client_secret` should be omitted. Defaults to `false`.
         """
         return pulumi.get(self, "secretless_auth_enabled")
 

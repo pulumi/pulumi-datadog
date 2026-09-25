@@ -13,6 +13,1441 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type LogsCustomPipelineFilter struct {
+	// Filter criteria of the category.
+	Query string `pulumi:"query"`
+}
+
+// LogsCustomPipelineFilterInput is an input type that accepts LogsCustomPipelineFilterArgs and LogsCustomPipelineFilterOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineFilterInput` via:
+//
+//	LogsCustomPipelineFilterArgs{...}
+type LogsCustomPipelineFilterInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineFilterOutput() LogsCustomPipelineFilterOutput
+	ToLogsCustomPipelineFilterOutputWithContext(context.Context) LogsCustomPipelineFilterOutput
+}
+
+type LogsCustomPipelineFilterArgs struct {
+	// Filter criteria of the category.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (LogsCustomPipelineFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineFilter)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineFilterArgs) ToLogsCustomPipelineFilterOutput() LogsCustomPipelineFilterOutput {
+	return i.ToLogsCustomPipelineFilterOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineFilterArgs) ToLogsCustomPipelineFilterOutputWithContext(ctx context.Context) LogsCustomPipelineFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineFilterOutput)
+}
+
+// LogsCustomPipelineFilterArrayInput is an input type that accepts LogsCustomPipelineFilterArray and LogsCustomPipelineFilterArrayOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineFilterArrayInput` via:
+//
+//	LogsCustomPipelineFilterArray{ LogsCustomPipelineFilterArgs{...} }
+type LogsCustomPipelineFilterArrayInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineFilterArrayOutput() LogsCustomPipelineFilterArrayOutput
+	ToLogsCustomPipelineFilterArrayOutputWithContext(context.Context) LogsCustomPipelineFilterArrayOutput
+}
+
+type LogsCustomPipelineFilterArray []LogsCustomPipelineFilterInput
+
+func (LogsCustomPipelineFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsCustomPipelineFilter)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineFilterArray) ToLogsCustomPipelineFilterArrayOutput() LogsCustomPipelineFilterArrayOutput {
+	return i.ToLogsCustomPipelineFilterArrayOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineFilterArray) ToLogsCustomPipelineFilterArrayOutputWithContext(ctx context.Context) LogsCustomPipelineFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineFilterArrayOutput)
+}
+
+type LogsCustomPipelineFilterOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineFilter)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineFilterOutput) ToLogsCustomPipelineFilterOutput() LogsCustomPipelineFilterOutput {
+	return o
+}
+
+func (o LogsCustomPipelineFilterOutput) ToLogsCustomPipelineFilterOutputWithContext(ctx context.Context) LogsCustomPipelineFilterOutput {
+	return o
+}
+
+// Filter criteria of the category.
+func (o LogsCustomPipelineFilterOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineFilter) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type LogsCustomPipelineFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsCustomPipelineFilter)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineFilterArrayOutput) ToLogsCustomPipelineFilterArrayOutput() LogsCustomPipelineFilterArrayOutput {
+	return o
+}
+
+func (o LogsCustomPipelineFilterArrayOutput) ToLogsCustomPipelineFilterArrayOutputWithContext(ctx context.Context) LogsCustomPipelineFilterArrayOutput {
+	return o
+}
+
+func (o LogsCustomPipelineFilterArrayOutput) Index(i pulumi.IntInput) LogsCustomPipelineFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsCustomPipelineFilter {
+		return vs[0].([]LogsCustomPipelineFilter)[vs[1].(int)]
+	}).(LogsCustomPipelineFilterOutput)
+}
+
+type LogsCustomPipelineProcessor struct {
+	// Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+	ArithmeticProcessor *LogsCustomPipelineProcessorArithmeticProcessor `pulumi:"arithmeticProcessor"`
+	// Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+	ArrayMapProcessor *LogsCustomPipelineProcessorArrayMapProcessor `pulumi:"arrayMapProcessor"`
+	// Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+	ArrayProcessor *LogsCustomPipelineProcessorArrayProcessor `pulumi:"arrayProcessor"`
+	// Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
+	AttributeRemapper *LogsCustomPipelineProcessorAttributeRemapper `pulumi:"attributeRemapper"`
+	// Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
+	CategoryProcessor *LogsCustomPipelineProcessorCategoryProcessor `pulumi:"categoryProcessor"`
+	// Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+	DateRemapper *LogsCustomPipelineProcessorDateRemapper `pulumi:"dateRemapper"`
+	// Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+	DecoderProcessor *LogsCustomPipelineProcessorDecoderProcessor `pulumi:"decoderProcessor"`
+	// Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+	ExcludeAttributeProcessor *LogsCustomPipelineProcessorExcludeAttributeProcessor `pulumi:"excludeAttributeProcessor"`
+	// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
+	GeoIpParser *LogsCustomPipelineProcessorGeoIpParser `pulumi:"geoIpParser"`
+	// Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
+	GrokParser *LogsCustomPipelineProcessorGrokParser `pulumi:"grokParser"`
+	// Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+	LookupProcessor *LogsCustomPipelineProcessorLookupProcessor `pulumi:"lookupProcessor"`
+	// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+	MessageRemapper *LogsCustomPipelineProcessorMessageRemapper `pulumi:"messageRemapper"`
+	Pipeline        *LogsCustomPipelineProcessorPipeline        `pulumi:"pipeline"`
+	// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+	ReferenceTableLookupProcessor *LogsCustomPipelineProcessorReferenceTableLookupProcessor `pulumi:"referenceTableLookupProcessor"`
+	// Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+	SchemaProcessor *LogsCustomPipelineProcessorSchemaProcessor `pulumi:"schemaProcessor"`
+	// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+	ServiceRemapper *LogsCustomPipelineProcessorServiceRemapper `pulumi:"serviceRemapper"`
+	// Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+	SpanIdRemapper *LogsCustomPipelineProcessorSpanIdRemapper `pulumi:"spanIdRemapper"`
+	// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
+	StatusRemapper *LogsCustomPipelineProcessorStatusRemapper `pulumi:"statusRemapper"`
+	// String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
+	StringBuilderProcessor *LogsCustomPipelineProcessorStringBuilderProcessor `pulumi:"stringBuilderProcessor"`
+	// Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
+	TraceIdRemapper *LogsCustomPipelineProcessorTraceIdRemapper `pulumi:"traceIdRemapper"`
+	// URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
+	UrlParser *LogsCustomPipelineProcessorUrlParser `pulumi:"urlParser"`
+	// User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
+	UserAgentParser *LogsCustomPipelineProcessorUserAgentParser `pulumi:"userAgentParser"`
+}
+
+// LogsCustomPipelineProcessorInput is an input type that accepts LogsCustomPipelineProcessorArgs and LogsCustomPipelineProcessorOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorInput` via:
+//
+//	LogsCustomPipelineProcessorArgs{...}
+type LogsCustomPipelineProcessorInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorOutput() LogsCustomPipelineProcessorOutput
+	ToLogsCustomPipelineProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorOutput
+}
+
+type LogsCustomPipelineProcessorArgs struct {
+	// Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+	ArithmeticProcessor LogsCustomPipelineProcessorArithmeticProcessorPtrInput `pulumi:"arithmeticProcessor"`
+	// Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+	ArrayMapProcessor LogsCustomPipelineProcessorArrayMapProcessorPtrInput `pulumi:"arrayMapProcessor"`
+	// Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+	ArrayProcessor LogsCustomPipelineProcessorArrayProcessorPtrInput `pulumi:"arrayProcessor"`
+	// Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
+	AttributeRemapper LogsCustomPipelineProcessorAttributeRemapperPtrInput `pulumi:"attributeRemapper"`
+	// Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
+	CategoryProcessor LogsCustomPipelineProcessorCategoryProcessorPtrInput `pulumi:"categoryProcessor"`
+	// Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+	DateRemapper LogsCustomPipelineProcessorDateRemapperPtrInput `pulumi:"dateRemapper"`
+	// Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+	DecoderProcessor LogsCustomPipelineProcessorDecoderProcessorPtrInput `pulumi:"decoderProcessor"`
+	// Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+	ExcludeAttributeProcessor LogsCustomPipelineProcessorExcludeAttributeProcessorPtrInput `pulumi:"excludeAttributeProcessor"`
+	// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
+	GeoIpParser LogsCustomPipelineProcessorGeoIpParserPtrInput `pulumi:"geoIpParser"`
+	// Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
+	GrokParser LogsCustomPipelineProcessorGrokParserPtrInput `pulumi:"grokParser"`
+	// Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+	LookupProcessor LogsCustomPipelineProcessorLookupProcessorPtrInput `pulumi:"lookupProcessor"`
+	// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+	MessageRemapper LogsCustomPipelineProcessorMessageRemapperPtrInput `pulumi:"messageRemapper"`
+	Pipeline        LogsCustomPipelineProcessorPipelinePtrInput        `pulumi:"pipeline"`
+	// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+	ReferenceTableLookupProcessor LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrInput `pulumi:"referenceTableLookupProcessor"`
+	// Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+	SchemaProcessor LogsCustomPipelineProcessorSchemaProcessorPtrInput `pulumi:"schemaProcessor"`
+	// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+	ServiceRemapper LogsCustomPipelineProcessorServiceRemapperPtrInput `pulumi:"serviceRemapper"`
+	// Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+	SpanIdRemapper LogsCustomPipelineProcessorSpanIdRemapperPtrInput `pulumi:"spanIdRemapper"`
+	// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
+	StatusRemapper LogsCustomPipelineProcessorStatusRemapperPtrInput `pulumi:"statusRemapper"`
+	// String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
+	StringBuilderProcessor LogsCustomPipelineProcessorStringBuilderProcessorPtrInput `pulumi:"stringBuilderProcessor"`
+	// Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
+	TraceIdRemapper LogsCustomPipelineProcessorTraceIdRemapperPtrInput `pulumi:"traceIdRemapper"`
+	// URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
+	UrlParser LogsCustomPipelineProcessorUrlParserPtrInput `pulumi:"urlParser"`
+	// User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
+	UserAgentParser LogsCustomPipelineProcessorUserAgentParserPtrInput `pulumi:"userAgentParser"`
+}
+
+func (LogsCustomPipelineProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessor)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineProcessorArgs) ToLogsCustomPipelineProcessorOutput() LogsCustomPipelineProcessorOutput {
+	return i.ToLogsCustomPipelineProcessorOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArgs) ToLogsCustomPipelineProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorOutput)
+}
+
+// LogsCustomPipelineProcessorArrayInput is an input type that accepts LogsCustomPipelineProcessorArray and LogsCustomPipelineProcessorArrayOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayInput` via:
+//
+//	LogsCustomPipelineProcessorArray{ LogsCustomPipelineProcessorArgs{...} }
+type LogsCustomPipelineProcessorArrayInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArrayOutput() LogsCustomPipelineProcessorArrayOutput
+	ToLogsCustomPipelineProcessorArrayOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayOutput
+}
+
+type LogsCustomPipelineProcessorArray []LogsCustomPipelineProcessorInput
+
+func (LogsCustomPipelineProcessorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsCustomPipelineProcessor)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineProcessorArray) ToLogsCustomPipelineProcessorArrayOutput() LogsCustomPipelineProcessorArrayOutput {
+	return i.ToLogsCustomPipelineProcessorArrayOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArray) ToLogsCustomPipelineProcessorArrayOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayOutput)
+}
+
+type LogsCustomPipelineProcessorOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorOutput) ToLogsCustomPipelineProcessorOutput() LogsCustomPipelineProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorOutput) ToLogsCustomPipelineProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorOutput {
+	return o
+}
+
+// Arithmetic Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#arithmetic-processor)
+func (o LogsCustomPipelineProcessorOutput) ArithmeticProcessor() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorArithmeticProcessor {
+		return v.ArithmeticProcessor
+	}).(LogsCustomPipelineProcessorArithmeticProcessorPtrOutput)
+}
+
+// Array-Map Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#array-map-processor)
+func (o LogsCustomPipelineProcessorOutput) ArrayMapProcessor() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorArrayMapProcessor {
+		return v.ArrayMapProcessor
+	}).(LogsCustomPipelineProcessorArrayMapProcessorPtrOutput)
+}
+
+// Array Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#array-processor)
+func (o LogsCustomPipelineProcessorOutput) ArrayProcessor() LogsCustomPipelineProcessorArrayProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorArrayProcessor {
+		return v.ArrayProcessor
+	}).(LogsCustomPipelineProcessorArrayProcessorPtrOutput)
+}
+
+// Attribute Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#remapper)
+func (o LogsCustomPipelineProcessorOutput) AttributeRemapper() LogsCustomPipelineProcessorAttributeRemapperPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorAttributeRemapper {
+		return v.AttributeRemapper
+	}).(LogsCustomPipelineProcessorAttributeRemapperPtrOutput)
+}
+
+// Category Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#category-processor)
+func (o LogsCustomPipelineProcessorOutput) CategoryProcessor() LogsCustomPipelineProcessorCategoryProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorCategoryProcessor {
+		return v.CategoryProcessor
+	}).(LogsCustomPipelineProcessorCategoryProcessorPtrOutput)
+}
+
+// Date Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-date-remapper)
+func (o LogsCustomPipelineProcessorOutput) DateRemapper() LogsCustomPipelineProcessorDateRemapperPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorDateRemapper { return v.DateRemapper }).(LogsCustomPipelineProcessorDateRemapperPtrOutput)
+}
+
+// Decoder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#decoder-processor)
+func (o LogsCustomPipelineProcessorOutput) DecoderProcessor() LogsCustomPipelineProcessorDecoderProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorDecoderProcessor {
+		return v.DecoderProcessor
+	}).(LogsCustomPipelineProcessorDecoderProcessorPtrOutput)
+}
+
+// Exclude Attribute Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#exclude-attribute-processor)
+func (o LogsCustomPipelineProcessorOutput) ExcludeAttributeProcessor() LogsCustomPipelineProcessorExcludeAttributeProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorExcludeAttributeProcessor {
+		return v.ExcludeAttributeProcessor
+	}).(LogsCustomPipelineProcessorExcludeAttributeProcessorPtrOutput)
+}
+
+// Date GeoIP Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#geoip-parser)
+func (o LogsCustomPipelineProcessorOutput) GeoIpParser() LogsCustomPipelineProcessorGeoIpParserPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorGeoIpParser { return v.GeoIpParser }).(LogsCustomPipelineProcessorGeoIpParserPtrOutput)
+}
+
+// Grok Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#grok-parser)
+func (o LogsCustomPipelineProcessorOutput) GrokParser() LogsCustomPipelineProcessorGrokParserPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorGrokParser { return v.GrokParser }).(LogsCustomPipelineProcessorGrokParserPtrOutput)
+}
+
+// Lookup Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+func (o LogsCustomPipelineProcessorOutput) LookupProcessor() LogsCustomPipelineProcessorLookupProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorLookupProcessor {
+		return v.LookupProcessor
+	}).(LogsCustomPipelineProcessorLookupProcessorPtrOutput)
+}
+
+// Message Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-message-remapper)
+func (o LogsCustomPipelineProcessorOutput) MessageRemapper() LogsCustomPipelineProcessorMessageRemapperPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorMessageRemapper {
+		return v.MessageRemapper
+	}).(LogsCustomPipelineProcessorMessageRemapperPtrOutput)
+}
+
+func (o LogsCustomPipelineProcessorOutput) Pipeline() LogsCustomPipelineProcessorPipelinePtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorPipeline { return v.Pipeline }).(LogsCustomPipelineProcessorPipelinePtrOutput)
+}
+
+// Reference Table Lookup Processor. Reference Tables are in public beta. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#lookup-processor)
+func (o LogsCustomPipelineProcessorOutput) ReferenceTableLookupProcessor() LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorReferenceTableLookupProcessor {
+		return v.ReferenceTableLookupProcessor
+	}).(LogsCustomPipelineProcessorReferenceTableLookupProcessorPtrOutput)
+}
+
+// Schema Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#schema-processor)
+func (o LogsCustomPipelineProcessorOutput) SchemaProcessor() LogsCustomPipelineProcessorSchemaProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorSchemaProcessor {
+		return v.SchemaProcessor
+	}).(LogsCustomPipelineProcessorSchemaProcessorPtrOutput)
+}
+
+// Service Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#service-remapper)
+func (o LogsCustomPipelineProcessorOutput) ServiceRemapper() LogsCustomPipelineProcessorServiceRemapperPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorServiceRemapper {
+		return v.ServiceRemapper
+	}).(LogsCustomPipelineProcessorServiceRemapperPtrOutput)
+}
+
+// Span ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/log_configuration/processors/?tab=ui#span-remapper)
+func (o LogsCustomPipelineProcessorOutput) SpanIdRemapper() LogsCustomPipelineProcessorSpanIdRemapperPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorSpanIdRemapper {
+		return v.SpanIdRemapper
+	}).(LogsCustomPipelineProcessorSpanIdRemapperPtrOutput)
+}
+
+// Status Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#log-status-remapper)
+func (o LogsCustomPipelineProcessorOutput) StatusRemapper() LogsCustomPipelineProcessorStatusRemapperPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorStatusRemapper {
+		return v.StatusRemapper
+	}).(LogsCustomPipelineProcessorStatusRemapperPtrOutput)
+}
+
+// String Builder Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#string-builder-processor)
+func (o LogsCustomPipelineProcessorOutput) StringBuilderProcessor() LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorStringBuilderProcessor {
+		return v.StringBuilderProcessor
+	}).(LogsCustomPipelineProcessorStringBuilderProcessorPtrOutput)
+}
+
+// Trace ID Remapper Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#trace-remapper)
+func (o LogsCustomPipelineProcessorOutput) TraceIdRemapper() LogsCustomPipelineProcessorTraceIdRemapperPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorTraceIdRemapper {
+		return v.TraceIdRemapper
+	}).(LogsCustomPipelineProcessorTraceIdRemapperPtrOutput)
+}
+
+// URL Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#url-parser)
+func (o LogsCustomPipelineProcessorOutput) UrlParser() LogsCustomPipelineProcessorUrlParserPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorUrlParser { return v.UrlParser }).(LogsCustomPipelineProcessorUrlParserPtrOutput)
+}
+
+// User-Agent Parser Processor. More information can be found in the [official docs](https://docs.datadoghq.com/logs/processing/processors/?tab=ui#user-agent-parser)
+func (o LogsCustomPipelineProcessorOutput) UserAgentParser() LogsCustomPipelineProcessorUserAgentParserPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessor) *LogsCustomPipelineProcessorUserAgentParser {
+		return v.UserAgentParser
+	}).(LogsCustomPipelineProcessorUserAgentParserPtrOutput)
+}
+
+type LogsCustomPipelineProcessorArrayOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsCustomPipelineProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArrayOutput) ToLogsCustomPipelineProcessorArrayOutput() LogsCustomPipelineProcessorArrayOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayOutput) ToLogsCustomPipelineProcessorArrayOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayOutput) Index(i pulumi.IntInput) LogsCustomPipelineProcessorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsCustomPipelineProcessor {
+		return vs[0].([]LogsCustomPipelineProcessor)[vs[1].(int)]
+	}).(LogsCustomPipelineProcessorOutput)
+}
+
+type LogsCustomPipelineProcessorArithmeticProcessor struct {
+	// Arithmetic operation between one or more log attributes.
+	Expression string `pulumi:"expression"`
+	// Boolean value to enable your pipeline.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+	IsReplaceMissing *bool `pulumi:"isReplaceMissing"`
+	// Your pipeline name.
+	Name *string `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target string `pulumi:"target"`
+}
+
+// LogsCustomPipelineProcessorArithmeticProcessorInput is an input type that accepts LogsCustomPipelineProcessorArithmeticProcessorArgs and LogsCustomPipelineProcessorArithmeticProcessorOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArithmeticProcessorInput` via:
+//
+//	LogsCustomPipelineProcessorArithmeticProcessorArgs{...}
+type LogsCustomPipelineProcessorArithmeticProcessorInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArithmeticProcessorOutput
+	ToLogsCustomPipelineProcessorArithmeticProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorArithmeticProcessorOutput
+}
+
+type LogsCustomPipelineProcessorArithmeticProcessorArgs struct {
+	// Arithmetic operation between one or more log attributes.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Boolean value to enable your pipeline.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+	IsReplaceMissing pulumi.BoolPtrInput `pulumi:"isReplaceMissing"`
+	// Your pipeline name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Name of the attribute that contains the result of the arithmetic operation.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (LogsCustomPipelineProcessorArithmeticProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorArithmeticProcessor)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArithmeticProcessorOutput {
+	return i.ToLogsCustomPipelineProcessorArithmeticProcessorOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArithmeticProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArithmeticProcessorOutput)
+}
+
+func (i LogsCustomPipelineProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
+	return i.ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArithmeticProcessorOutput).ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(ctx)
+}
+
+// LogsCustomPipelineProcessorArithmeticProcessorPtrInput is an input type that accepts LogsCustomPipelineProcessorArithmeticProcessorArgs, LogsCustomPipelineProcessorArithmeticProcessorPtr and LogsCustomPipelineProcessorArithmeticProcessorPtrOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArithmeticProcessorPtrInput` via:
+//
+//	        LogsCustomPipelineProcessorArithmeticProcessorArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsCustomPipelineProcessorArithmeticProcessorPtrInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput
+	ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(context.Context) LogsCustomPipelineProcessorArithmeticProcessorPtrOutput
+}
+
+type logsCustomPipelineProcessorArithmeticProcessorPtrType LogsCustomPipelineProcessorArithmeticProcessorArgs
+
+func LogsCustomPipelineProcessorArithmeticProcessorPtr(v *LogsCustomPipelineProcessorArithmeticProcessorArgs) LogsCustomPipelineProcessorArithmeticProcessorPtrInput {
+	return (*logsCustomPipelineProcessorArithmeticProcessorPtrType)(v)
+}
+
+func (*logsCustomPipelineProcessorArithmeticProcessorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorArithmeticProcessor)(nil)).Elem()
+}
+
+func (i *logsCustomPipelineProcessorArithmeticProcessorPtrType) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
+	return i.ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
+}
+
+func (i *logsCustomPipelineProcessorArithmeticProcessorPtrType) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArithmeticProcessorPtrOutput)
+}
+
+type LogsCustomPipelineProcessorArithmeticProcessorOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArithmeticProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorArithmeticProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArithmeticProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArithmeticProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
+	return o.ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
+}
+
+func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipelineProcessorArithmeticProcessor) *LogsCustomPipelineProcessorArithmeticProcessor {
+		return &v
+	}).(LogsCustomPipelineProcessorArithmeticProcessorPtrOutput)
+}
+
+// Arithmetic operation between one or more log attributes.
+func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// Boolean value to enable your pipeline.
+func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) *bool { return v.IsReplaceMissing }).(pulumi.BoolPtrOutput)
+}
+
+// Your pipeline name.
+func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Name of the attribute that contains the result of the arithmetic operation.
+func (o LogsCustomPipelineProcessorArithmeticProcessorOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArithmeticProcessor) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type LogsCustomPipelineProcessorArithmeticProcessorPtrOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorArithmeticProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) ToLogsCustomPipelineProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArithmeticProcessorPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Elem() LogsCustomPipelineProcessorArithmeticProcessorOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) LogsCustomPipelineProcessorArithmeticProcessor {
+		if v != nil {
+			return *v
+		}
+		var ret LogsCustomPipelineProcessorArithmeticProcessor
+		return ret
+	}).(LogsCustomPipelineProcessorArithmeticProcessorOutput)
+}
+
+// Arithmetic operation between one or more log attributes.
+func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Boolean value to enable your pipeline.
+func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If true, it replaces all missing attributes of expression by 0, false skips the operation if an attribute is missing.
+func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsReplaceMissing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Your pipeline name.
+func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the attribute that contains the result of the arithmetic operation.
+func (o LogsCustomPipelineProcessorArithmeticProcessorPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArithmeticProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessor struct {
+	// If the processor is enabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Name of the processor.
+	Name *string `pulumi:"name"`
+	// Remove or preserve the source array after processing. Defaults to `true`.
+	PreserveSource *bool `pulumi:"preserveSource"`
+	// Sub-processors applied to each element. Allowed types: attribute*remapper, string*builder*processor, arithmetic*processor, category*processor.
+	Processors []LogsCustomPipelineProcessorArrayMapProcessorProcessor `pulumi:"processors"`
+	// Attribute path of the source array.
+	Source string `pulumi:"source"`
+	// Attribute path of the output array.
+	Target string `pulumi:"target"`
+}
+
+// LogsCustomPipelineProcessorArrayMapProcessorInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorArgs and LogsCustomPipelineProcessorArrayMapProcessorOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorInput` via:
+//
+//	LogsCustomPipelineProcessorArrayMapProcessorArgs{...}
+type LogsCustomPipelineProcessorArrayMapProcessorInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArrayMapProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorOutput
+	ToLogsCustomPipelineProcessorArrayMapProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorOutput
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorArgs struct {
+	// If the processor is enabled.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Name of the processor.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Remove or preserve the source array after processing. Defaults to `true`.
+	PreserveSource pulumi.BoolPtrInput `pulumi:"preserveSource"`
+	// Sub-processors applied to each element. Allowed types: attribute*remapper, string*builder*processor, arithmetic*processor, category*processor.
+	Processors LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayInput `pulumi:"processors"`
+	// Attribute path of the source array.
+	Source pulumi.StringInput `pulumi:"source"`
+	// Attribute path of the output array.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (LogsCustomPipelineProcessorArrayMapProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessor)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorOutput)
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorOutput).ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(ctx)
+}
+
+// LogsCustomPipelineProcessorArrayMapProcessorPtrInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorArgs, LogsCustomPipelineProcessorArrayMapProcessorPtr and LogsCustomPipelineProcessorArrayMapProcessorPtrOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorPtrInput` via:
+//
+//	        LogsCustomPipelineProcessorArrayMapProcessorArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsCustomPipelineProcessorArrayMapProcessorPtrInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput
+	ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorPtrOutput
+}
+
+type logsCustomPipelineProcessorArrayMapProcessorPtrType LogsCustomPipelineProcessorArrayMapProcessorArgs
+
+func LogsCustomPipelineProcessorArrayMapProcessorPtr(v *LogsCustomPipelineProcessorArrayMapProcessorArgs) LogsCustomPipelineProcessorArrayMapProcessorPtrInput {
+	return (*logsCustomPipelineProcessorArrayMapProcessorPtrType)(v)
+}
+
+func (*logsCustomPipelineProcessorArrayMapProcessorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessor)(nil)).Elem()
+}
+
+func (i *logsCustomPipelineProcessorArrayMapProcessorPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(context.Background())
+}
+
+func (i *logsCustomPipelineProcessorArrayMapProcessorPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorPtrOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArrayMapProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
+	return o.ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(context.Background())
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipelineProcessorArrayMapProcessor) *LogsCustomPipelineProcessorArrayMapProcessor {
+		return &v
+	}).(LogsCustomPipelineProcessorArrayMapProcessorPtrOutput)
+}
+
+// If the processor is enabled.
+func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Remove or preserve the source array after processing. Defaults to `true`.
+func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) PreserveSource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) *bool { return v.PreserveSource }).(pulumi.BoolPtrOutput)
+}
+
+// Sub-processors applied to each element. Allowed types: attribute*remapper, string*builder*processor, arithmetic*processor, category*processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) Processors() LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) []LogsCustomPipelineProcessorArrayMapProcessorProcessor {
+		return v.Processors
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput)
+}
+
+// Attribute path of the source array.
+func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// Attribute path of the output array.
+func (o LogsCustomPipelineProcessorArrayMapProcessorOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessor) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorPtrOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) Elem() LogsCustomPipelineProcessorArrayMapProcessorOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) LogsCustomPipelineProcessorArrayMapProcessor {
+		if v != nil {
+			return *v
+		}
+		var ret LogsCustomPipelineProcessorArrayMapProcessor
+		return ret
+	}).(LogsCustomPipelineProcessorArrayMapProcessorOutput)
+}
+
+// If the processor is enabled.
+func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of the processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Remove or preserve the source array after processing. Defaults to `true`.
+func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) PreserveSource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveSource
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Sub-processors applied to each element. Allowed types: attribute*remapper, string*builder*processor, arithmetic*processor, category*processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) Processors() LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) []LogsCustomPipelineProcessorArrayMapProcessorProcessor {
+		if v == nil {
+			return nil
+		}
+		return v.Processors
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput)
+}
+
+// Attribute path of the source array.
+func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attribute path of the output array.
+func (o LogsCustomPipelineProcessorArrayMapProcessorPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessor struct {
+	// Array-map arithmetic sub-processor.
+	ArithmeticProcessor *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor `pulumi:"arithmeticProcessor"`
+	// Array-map attribute remapper sub-processor.
+	AttributeRemapper *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper `pulumi:"attributeRemapper"`
+	// Array-map category sub-processor.
+	CategoryProcessor *LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessor `pulumi:"categoryProcessor"`
+	// Array-map string builder sub-processor.
+	StringBuilderProcessor *LogsCustomPipelineProcessorArrayMapProcessorProcessorStringBuilderProcessor `pulumi:"stringBuilderProcessor"`
+}
+
+// LogsCustomPipelineProcessorArrayMapProcessorProcessorInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs and LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorInput` via:
+//
+//	LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs{...}
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs struct {
+	// Array-map arithmetic sub-processor.
+	ArithmeticProcessor LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput `pulumi:"arithmeticProcessor"`
+	// Array-map attribute remapper sub-processor.
+	AttributeRemapper LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput `pulumi:"attributeRemapper"`
+	// Array-map category sub-processor.
+	CategoryProcessor LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorPtrInput `pulumi:"categoryProcessor"`
+	// Array-map string builder sub-processor.
+	StringBuilderProcessor LogsCustomPipelineProcessorArrayMapProcessorProcessorStringBuilderProcessorPtrInput `pulumi:"stringBuilderProcessor"`
+}
+
+func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessor)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput)
+}
+
+// LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorArray and LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayInput` via:
+//
+//	LogsCustomPipelineProcessorArrayMapProcessorProcessorArray{ LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs{...} }
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorArray []LogsCustomPipelineProcessorArrayMapProcessorProcessorInput
+
+func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsCustomPipelineProcessorArrayMapProcessorProcessor)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArray) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArray) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput {
+	return o
+}
+
+// Array-map arithmetic sub-processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) ArithmeticProcessor() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessor) *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor {
+		return v.ArithmeticProcessor
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput)
+}
+
+// Array-map attribute remapper sub-processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) AttributeRemapper() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessor) *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper {
+		return v.AttributeRemapper
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput)
+}
+
+// Array-map category sub-processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) CategoryProcessor() LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessor) *LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessor {
+		return v.CategoryProcessor
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorPtrOutput)
+}
+
+// Array-map string builder sub-processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput) StringBuilderProcessor() LogsCustomPipelineProcessorArrayMapProcessorProcessorStringBuilderProcessorPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessor) *LogsCustomPipelineProcessorArrayMapProcessorProcessorStringBuilderProcessor {
+		return v.StringBuilderProcessor
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorStringBuilderProcessorPtrOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogsCustomPipelineProcessorArrayMapProcessorProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput) Index(i pulumi.IntInput) LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogsCustomPipelineProcessorArrayMapProcessorProcessor {
+		return vs[0].([]LogsCustomPipelineProcessorArrayMapProcessorProcessor)[vs[1].(int)]
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor struct {
+	// Arithmetic formula.
+	Expression string `pulumi:"expression"`
+	// Replace missing attributes with `0`.
+	IsReplaceMissing *bool `pulumi:"isReplaceMissing"`
+	// Name of the sub-processor.
+	Name *string `pulumi:"name"`
+	// Target attribute path for the result.
+	Target string `pulumi:"target"`
+}
+
+// LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs and LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorInput` via:
+//
+//	LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs{...}
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs struct {
+	// Arithmetic formula.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Replace missing attributes with `0`.
+	IsReplaceMissing pulumi.BoolPtrInput `pulumi:"isReplaceMissing"`
+	// Name of the sub-processor.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Target attribute path for the result.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput)
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput).ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(ctx)
+}
+
+// LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs, LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtr and LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput` via:
+//
+//	        LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput
+}
+
+type logsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrType LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs
+
+func LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtr(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput {
+	return (*logsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrType)(v)
+}
+
+func (*logsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor)(nil)).Elem()
+}
+
+func (i *logsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
+}
+
+func (i *logsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
+	return o.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(context.Background())
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor {
+		return &v
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput)
+}
+
+// Arithmetic formula.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) string {
+		return v.Expression
+	}).(pulumi.StringOutput)
+}
+
+// Replace missing attributes with `0`.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *bool {
+		return v.IsReplaceMissing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of the sub-processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target attribute path for the result.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) string {
+		return v.Target
+	}).(pulumi.StringOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) Elem() LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor {
+		if v != nil {
+			return *v
+		}
+		var ret LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor
+		return ret
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput)
+}
+
+// Arithmetic formula.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Replace missing attributes with `0`.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) IsReplaceMissing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsReplaceMissing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of the sub-processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target attribute path for the result.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper struct {
+	// Name of the sub-processor.
+	Name *string `pulumi:"name"`
+	// Override the target element if already set.
+	OverrideOnConflict *bool `pulumi:"overrideOnConflict"`
+	// Remove or preserve the remapped source element. Defaults to `false`.
+	PreserveSource *bool `pulumi:"preserveSource"`
+	// List of source attributes.
+	Sources []string `pulumi:"sources"`
+	// Target attribute path.
+	Target string `pulumi:"target"`
+	// If the target type is an attribute, cast the value to a new type (auto, string, integer, double).
+	TargetFormat *string `pulumi:"targetFormat"`
+}
+
+// LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs and LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperInput` via:
+//
+//	LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs{...}
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs struct {
+	// Name of the sub-processor.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Override the target element if already set.
+	OverrideOnConflict pulumi.BoolPtrInput `pulumi:"overrideOnConflict"`
+	// Remove or preserve the remapped source element. Defaults to `false`.
+	PreserveSource pulumi.BoolPtrInput `pulumi:"preserveSource"`
+	// List of source attributes.
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+	// Target attribute path.
+	Target pulumi.StringInput `pulumi:"target"`
+	// If the target type is an attribute, cast the value to a new type (auto, string, integer, double).
+	TargetFormat pulumi.StringPtrInput `pulumi:"targetFormat"`
+}
+
+func (LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper)(nil)).Elem()
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput)
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(context.Background())
+}
+
+func (i LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput).ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(ctx)
+}
+
+// LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput is an input type that accepts LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs, LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtr and LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput values.
+// You can construct a concrete instance of `LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput` via:
+//
+//	        LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput interface {
+	pulumi.Input
+
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput
+	ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput
+}
+
+type logsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrType LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs
+
+func LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtr(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput {
+	return (*logsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrType)(v)
+}
+
+func (*logsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper)(nil)).Elem()
+}
+
+func (i *logsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
+	return i.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(context.Background())
+}
+
+func (i *logsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrType) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
+	return o.ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(context.Background())
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper {
+		return &v
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput)
+}
+
+// Name of the sub-processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Override the target element if already set.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) OverrideOnConflict() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *bool {
+		return v.OverrideOnConflict
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Remove or preserve the remapped source element. Defaults to `false`.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) PreserveSource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *bool {
+		return v.PreserveSource
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of source attributes.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) Sources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) []string {
+		return v.Sources
+	}).(pulumi.StringArrayOutput)
+}
+
+// Target attribute path.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) string { return v.Target }).(pulumi.StringOutput)
+}
+
+// If the target type is an attribute, cast the value to a new type (auto, string, integer, double).
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput) TargetFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *string {
+		return v.TargetFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper)(nil)).Elem()
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) ToLogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutputWithContext(ctx context.Context) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput {
+	return o
+}
+
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) Elem() LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper {
+		if v != nil {
+			return *v
+		}
+		var ret LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper
+		return ret
+	}).(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput)
+}
+
+// Name of the sub-processor.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Override the target element if already set.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) OverrideOnConflict() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OverrideOnConflict
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Remove or preserve the remapped source element. Defaults to `false`.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) PreserveSource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveSource
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of source attributes.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) Sources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Sources
+	}).(pulumi.StringArrayOutput)
+}
+
+// Target attribute path.
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+// If the target type is an attribute, cast the value to a new type (auto, string, integer, double).
+func (o LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput) TargetFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapper) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetFormat
+	}).(pulumi.StringPtrOutput)
+}
+
 type LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessor struct {
 	// List of filters to match or exclude a log.
 	Categories []LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorCategory `pulumi:"categories"`
@@ -16091,6 +17526,143 @@ func (o MonitorAssetArrayOutput) Index(i pulumi.IntInput) MonitorAssetOutput {
 	}).(MonitorAssetOutput)
 }
 
+type MonitorConfigPolicyDowntimePolicy struct {
+	// The maximum allowed downtime duration, in milliseconds
+	MaxDurationMs int `pulumi:"maxDurationMs"`
+}
+
+// MonitorConfigPolicyDowntimePolicyInput is an input type that accepts MonitorConfigPolicyDowntimePolicyArgs and MonitorConfigPolicyDowntimePolicyOutput values.
+// You can construct a concrete instance of `MonitorConfigPolicyDowntimePolicyInput` via:
+//
+//	MonitorConfigPolicyDowntimePolicyArgs{...}
+type MonitorConfigPolicyDowntimePolicyInput interface {
+	pulumi.Input
+
+	ToMonitorConfigPolicyDowntimePolicyOutput() MonitorConfigPolicyDowntimePolicyOutput
+	ToMonitorConfigPolicyDowntimePolicyOutputWithContext(context.Context) MonitorConfigPolicyDowntimePolicyOutput
+}
+
+type MonitorConfigPolicyDowntimePolicyArgs struct {
+	// The maximum allowed downtime duration, in milliseconds
+	MaxDurationMs pulumi.IntInput `pulumi:"maxDurationMs"`
+}
+
+func (MonitorConfigPolicyDowntimePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigPolicyDowntimePolicy)(nil)).Elem()
+}
+
+func (i MonitorConfigPolicyDowntimePolicyArgs) ToMonitorConfigPolicyDowntimePolicyOutput() MonitorConfigPolicyDowntimePolicyOutput {
+	return i.ToMonitorConfigPolicyDowntimePolicyOutputWithContext(context.Background())
+}
+
+func (i MonitorConfigPolicyDowntimePolicyArgs) ToMonitorConfigPolicyDowntimePolicyOutputWithContext(ctx context.Context) MonitorConfigPolicyDowntimePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigPolicyDowntimePolicyOutput)
+}
+
+func (i MonitorConfigPolicyDowntimePolicyArgs) ToMonitorConfigPolicyDowntimePolicyPtrOutput() MonitorConfigPolicyDowntimePolicyPtrOutput {
+	return i.ToMonitorConfigPolicyDowntimePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i MonitorConfigPolicyDowntimePolicyArgs) ToMonitorConfigPolicyDowntimePolicyPtrOutputWithContext(ctx context.Context) MonitorConfigPolicyDowntimePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigPolicyDowntimePolicyOutput).ToMonitorConfigPolicyDowntimePolicyPtrOutputWithContext(ctx)
+}
+
+// MonitorConfigPolicyDowntimePolicyPtrInput is an input type that accepts MonitorConfigPolicyDowntimePolicyArgs, MonitorConfigPolicyDowntimePolicyPtr and MonitorConfigPolicyDowntimePolicyPtrOutput values.
+// You can construct a concrete instance of `MonitorConfigPolicyDowntimePolicyPtrInput` via:
+//
+//	        MonitorConfigPolicyDowntimePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitorConfigPolicyDowntimePolicyPtrInput interface {
+	pulumi.Input
+
+	ToMonitorConfigPolicyDowntimePolicyPtrOutput() MonitorConfigPolicyDowntimePolicyPtrOutput
+	ToMonitorConfigPolicyDowntimePolicyPtrOutputWithContext(context.Context) MonitorConfigPolicyDowntimePolicyPtrOutput
+}
+
+type monitorConfigPolicyDowntimePolicyPtrType MonitorConfigPolicyDowntimePolicyArgs
+
+func MonitorConfigPolicyDowntimePolicyPtr(v *MonitorConfigPolicyDowntimePolicyArgs) MonitorConfigPolicyDowntimePolicyPtrInput {
+	return (*monitorConfigPolicyDowntimePolicyPtrType)(v)
+}
+
+func (*monitorConfigPolicyDowntimePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorConfigPolicyDowntimePolicy)(nil)).Elem()
+}
+
+func (i *monitorConfigPolicyDowntimePolicyPtrType) ToMonitorConfigPolicyDowntimePolicyPtrOutput() MonitorConfigPolicyDowntimePolicyPtrOutput {
+	return i.ToMonitorConfigPolicyDowntimePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *monitorConfigPolicyDowntimePolicyPtrType) ToMonitorConfigPolicyDowntimePolicyPtrOutputWithContext(ctx context.Context) MonitorConfigPolicyDowntimePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigPolicyDowntimePolicyPtrOutput)
+}
+
+type MonitorConfigPolicyDowntimePolicyOutput struct{ *pulumi.OutputState }
+
+func (MonitorConfigPolicyDowntimePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigPolicyDowntimePolicy)(nil)).Elem()
+}
+
+func (o MonitorConfigPolicyDowntimePolicyOutput) ToMonitorConfigPolicyDowntimePolicyOutput() MonitorConfigPolicyDowntimePolicyOutput {
+	return o
+}
+
+func (o MonitorConfigPolicyDowntimePolicyOutput) ToMonitorConfigPolicyDowntimePolicyOutputWithContext(ctx context.Context) MonitorConfigPolicyDowntimePolicyOutput {
+	return o
+}
+
+func (o MonitorConfigPolicyDowntimePolicyOutput) ToMonitorConfigPolicyDowntimePolicyPtrOutput() MonitorConfigPolicyDowntimePolicyPtrOutput {
+	return o.ToMonitorConfigPolicyDowntimePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorConfigPolicyDowntimePolicyOutput) ToMonitorConfigPolicyDowntimePolicyPtrOutputWithContext(ctx context.Context) MonitorConfigPolicyDowntimePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorConfigPolicyDowntimePolicy) *MonitorConfigPolicyDowntimePolicy {
+		return &v
+	}).(MonitorConfigPolicyDowntimePolicyPtrOutput)
+}
+
+// The maximum allowed downtime duration, in milliseconds
+func (o MonitorConfigPolicyDowntimePolicyOutput) MaxDurationMs() pulumi.IntOutput {
+	return o.ApplyT(func(v MonitorConfigPolicyDowntimePolicy) int { return v.MaxDurationMs }).(pulumi.IntOutput)
+}
+
+type MonitorConfigPolicyDowntimePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorConfigPolicyDowntimePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorConfigPolicyDowntimePolicy)(nil)).Elem()
+}
+
+func (o MonitorConfigPolicyDowntimePolicyPtrOutput) ToMonitorConfigPolicyDowntimePolicyPtrOutput() MonitorConfigPolicyDowntimePolicyPtrOutput {
+	return o
+}
+
+func (o MonitorConfigPolicyDowntimePolicyPtrOutput) ToMonitorConfigPolicyDowntimePolicyPtrOutputWithContext(ctx context.Context) MonitorConfigPolicyDowntimePolicyPtrOutput {
+	return o
+}
+
+func (o MonitorConfigPolicyDowntimePolicyPtrOutput) Elem() MonitorConfigPolicyDowntimePolicyOutput {
+	return o.ApplyT(func(v *MonitorConfigPolicyDowntimePolicy) MonitorConfigPolicyDowntimePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorConfigPolicyDowntimePolicy
+		return ret
+	}).(MonitorConfigPolicyDowntimePolicyOutput)
+}
+
+// The maximum allowed downtime duration, in milliseconds
+func (o MonitorConfigPolicyDowntimePolicyPtrOutput) MaxDurationMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonitorConfigPolicyDowntimePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxDurationMs
+	}).(pulumi.IntPtrOutput)
+}
+
 type MonitorConfigPolicyTagPolicy struct {
 	// The key of the tag
 	TagKey string `pulumi:"tagKey"`
@@ -26227,6 +27799,8 @@ type ObservabilityPipelineConfigDestination struct {
 	Opensearches []ObservabilityPipelineConfigDestinationOpensearch `pulumi:"opensearches"`
 	// The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
 	Opentelemetry *ObservabilityPipelineConfigDestinationOpentelemetry `pulumi:"opentelemetry"`
+	// The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+	PrometheusRemoteWrite *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite `pulumi:"prometheusRemoteWrite"`
 	// The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
 	Rsyslogs []ObservabilityPipelineConfigDestinationRsyslog `pulumi:"rsyslogs"`
 	// The `sentinelOne` destination sends logs to SentinelOne.
@@ -26301,6 +27875,8 @@ type ObservabilityPipelineConfigDestinationArgs struct {
 	Opensearches ObservabilityPipelineConfigDestinationOpensearchArrayInput `pulumi:"opensearches"`
 	// The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
 	Opentelemetry ObservabilityPipelineConfigDestinationOpentelemetryPtrInput `pulumi:"opentelemetry"`
+	// The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+	PrometheusRemoteWrite ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrInput `pulumi:"prometheusRemoteWrite"`
 	// The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
 	Rsyslogs ObservabilityPipelineConfigDestinationRsyslogArrayInput `pulumi:"rsyslogs"`
 	// The `sentinelOne` destination sends logs to SentinelOne.
@@ -26523,6 +28099,13 @@ func (o ObservabilityPipelineConfigDestinationOutput) Opentelemetry() Observabil
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestination) *ObservabilityPipelineConfigDestinationOpentelemetry {
 		return v.Opentelemetry
 	}).(ObservabilityPipelineConfigDestinationOpentelemetryPtrOutput)
+}
+
+// The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+func (o ObservabilityPipelineConfigDestinationOutput) PrometheusRemoteWrite() ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestination) *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite {
+		return v.PrometheusRemoteWrite
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput)
 }
 
 // The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
@@ -40891,12 +42474,14 @@ func (o ObservabilityPipelineConfigDestinationGoogleSecopBufferMemoryPtrOutput) 
 }
 
 type ObservabilityPipelineConfigDestinationHttpClient struct {
-	// HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+	// HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
 	AuthStrategy *string `pulumi:"authStrategy"`
 	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
 	Buffer *ObservabilityPipelineConfigDestinationHttpClientBuffer `pulumi:"buffer"`
 	// Compression configuration for HTTP requests.
 	Compression *ObservabilityPipelineConfigDestinationHttpClientCompression `pulumi:"compression"`
+	// Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+	CustomKey *string `pulumi:"customKey"`
 	// Encoding format for events. Valid values are `json`.
 	Encoding string `pulumi:"encoding"`
 	// Name of the environment variable or secret that holds the password.
@@ -40923,12 +42508,14 @@ type ObservabilityPipelineConfigDestinationHttpClientInput interface {
 }
 
 type ObservabilityPipelineConfigDestinationHttpClientArgs struct {
-	// HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+	// HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
 	AuthStrategy pulumi.StringPtrInput `pulumi:"authStrategy"`
 	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
 	Buffer ObservabilityPipelineConfigDestinationHttpClientBufferPtrInput `pulumi:"buffer"`
 	// Compression configuration for HTTP requests.
 	Compression ObservabilityPipelineConfigDestinationHttpClientCompressionPtrInput `pulumi:"compression"`
+	// Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+	CustomKey pulumi.StringPtrInput `pulumi:"customKey"`
 	// Encoding format for events. Valid values are `json`.
 	Encoding pulumi.StringInput `pulumi:"encoding"`
 	// Name of the environment variable or secret that holds the password.
@@ -40994,7 +42581,7 @@ func (o ObservabilityPipelineConfigDestinationHttpClientOutput) ToObservabilityP
 	return o
 }
 
-// HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`.
+// HTTP authentication strategy. Valid values are `none`, `basic`, `bearer`, `custom`.
 func (o ObservabilityPipelineConfigDestinationHttpClientOutput) AuthStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationHttpClient) *string { return v.AuthStrategy }).(pulumi.StringPtrOutput)
 }
@@ -41011,6 +42598,11 @@ func (o ObservabilityPipelineConfigDestinationHttpClientOutput) Compression() Ob
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationHttpClient) *ObservabilityPipelineConfigDestinationHttpClientCompression {
 		return v.Compression
 	}).(ObservabilityPipelineConfigDestinationHttpClientCompressionPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the custom authentication header value. Used with the `custom` auth strategy.
+func (o ObservabilityPipelineConfigDestinationHttpClientOutput) CustomKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationHttpClient) *string { return v.CustomKey }).(pulumi.StringPtrOutput)
 }
 
 // Encoding format for events. Valid values are `json`.
@@ -46366,6 +47958,1009 @@ func (o ObservabilityPipelineConfigDestinationOpentelemetryTlsPtrOutput) KeyPass
 			return nil
 		}
 		return v.KeyPassKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWrite struct {
+	// The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+	AuthStrategy *string `pulumi:"authStrategy"`
+	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+	Buffer *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer `pulumi:"buffer"`
+	// The default namespace to prefix onto metric names that don't already have one.
+	DefaultNamespace *string `pulumi:"defaultNamespace"`
+	// Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+	EndpointUrlKey *string `pulumi:"endpointUrlKey"`
+	// Name of the environment variable or secret that holds the password. Used when `authStrategy` is `basic`.
+	PasswordKey *string `pulumi:"passwordKey"`
+	// The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+	TenantId *string `pulumi:"tenantId"`
+	// Configuration for enabling TLS encryption between the pipeline component and external services.
+	Tls *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls `pulumi:"tls"`
+	// Name of the environment variable or secret that holds the bearer token. Used when `authStrategy` is `bearer`.
+	TokenKey *string `pulumi:"tokenKey"`
+	// Name of the environment variable or secret that holds the username. Used when `authStrategy` is `basic`.
+	UsernameKey *string `pulumi:"usernameKey"`
+}
+
+// ObservabilityPipelineConfigDestinationPrometheusRemoteWriteInput is an input type that accepts ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs and ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationPrometheusRemoteWriteInput` via:
+//
+//	ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs{...}
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs struct {
+	// The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+	AuthStrategy pulumi.StringPtrInput `pulumi:"authStrategy"`
+	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+	Buffer ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrInput `pulumi:"buffer"`
+	// The default namespace to prefix onto metric names that don't already have one.
+	DefaultNamespace pulumi.StringPtrInput `pulumi:"defaultNamespace"`
+	// Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+	EndpointUrlKey pulumi.StringPtrInput `pulumi:"endpointUrlKey"`
+	// Name of the environment variable or secret that holds the password. Used when `authStrategy` is `basic`.
+	PasswordKey pulumi.StringPtrInput `pulumi:"passwordKey"`
+	// The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Configuration for enabling TLS encryption between the pipeline component and external services.
+	Tls ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrInput `pulumi:"tls"`
+	// Name of the environment variable or secret that holds the bearer token. Used when `authStrategy` is `bearer`.
+	TokenKey pulumi.StringPtrInput `pulumi:"tokenKey"`
+	// Name of the environment variable or secret that holds the username. Used when `authStrategy` is `basic`.
+	UsernameKey pulumi.StringPtrInput `pulumi:"usernameKey"`
+}
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWrite)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput).ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrInput is an input type that accepts ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs, ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtr and ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput
+}
+
+type observabilityPipelineConfigDestinationPrometheusRemoteWritePtrType ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs
+
+func ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtr(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs) ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrInput {
+	return (*observabilityPipelineConfigDestinationPrometheusRemoteWritePtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationPrometheusRemoteWritePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationPrometheusRemoteWrite)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationPrometheusRemoteWritePtrType) ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationPrometheusRemoteWritePtrType) ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWrite)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput)
+}
+
+// The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) AuthStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string { return v.AuthStrategy }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) Buffer() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer {
+		return v.Buffer
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput)
+}
+
+// The default namespace to prefix onto metric names that don't already have one.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) DefaultNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string { return v.DefaultNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) EndpointUrlKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string { return v.EndpointUrlKey }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the password. Used when `authStrategy` is `basic`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) PasswordKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string { return v.PasswordKey }).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for enabling TLS encryption between the pipeline component and external services.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) Tls() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls {
+		return v.Tls
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the bearer token. Used when `authStrategy` is `bearer`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) TokenKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string { return v.TokenKey }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the username. Used when `authStrategy` is `basic`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput) UsernameKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string { return v.UsernameKey }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationPrometheusRemoteWrite)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) Elem() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) ObservabilityPipelineConfigDestinationPrometheusRemoteWrite {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationPrometheusRemoteWrite
+		return ret
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput)
+}
+
+// The authentication strategy to use for outgoing Prometheus Remote Write requests. Valid values are `none`, `basic`, `bearer`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) AuthStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) Buffer() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer {
+		if v == nil {
+			return nil
+		}
+		return v.Buffer
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput)
+}
+
+// The default namespace to prefix onto metric names that don't already have one.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) DefaultNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the Prometheus Remote Write endpoint URL.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) EndpointUrlKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointUrlKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the password. Used when `authStrategy` is `basic`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) PasswordKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID to include with outgoing requests. Used by multi-tenant Prometheus Remote Write receivers.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for enabling TLS encryption between the pipeline component and external services.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) Tls() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls {
+		if v == nil {
+			return nil
+		}
+		return v.Tls
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the bearer token. Used when `authStrategy` is `bearer`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) TokenKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the username. Used when `authStrategy` is `basic`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput) UsernameKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer struct {
+	// Options for configuring a disk buffer. Cannot be used with `memory`.
+	Disk *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk `pulumi:"disk"`
+	// Options for configuring a memory buffer. Cannot be used with `disk`.
+	Memory *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory `pulumi:"memory"`
+}
+
+// ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferInput is an input type that accepts ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs and ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferInput` via:
+//
+//	ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs{...}
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs struct {
+	// Options for configuring a disk buffer. Cannot be used with `memory`.
+	Disk ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrInput `pulumi:"disk"`
+	// Options for configuring a memory buffer. Cannot be used with `disk`.
+	Memory ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrInput `pulumi:"memory"`
+}
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput).ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs, ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtr and ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput
+}
+
+type observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrType ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs
+
+func ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtr(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrInput {
+	return (*observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrType) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrType) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput)
+}
+
+// Options for configuring a disk buffer. Cannot be used with `memory`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput) Disk() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk {
+		return v.Disk
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput)
+}
+
+// Options for configuring a memory buffer. Cannot be used with `disk`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput) Memory() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory {
+		return v.Memory
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput) Elem() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer
+		return ret
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput)
+}
+
+// Options for configuring a disk buffer. Cannot be used with `memory`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput) Disk() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk {
+		if v == nil {
+			return nil
+		}
+		return v.Disk
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput)
+}
+
+// Options for configuring a memory buffer. Cannot be used with `disk`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput) Memory() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBuffer) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk struct {
+	// Maximum size of the disk buffer (in bytes).
+	MaxSize *int `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull *string `pulumi:"whenFull"`
+}
+
+// ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskInput is an input type that accepts ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs and ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskInput` via:
+//
+//	ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs{...}
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs struct {
+	// Maximum size of the disk buffer (in bytes).
+	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull pulumi.StringPtrInput `pulumi:"whenFull"`
+}
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput).ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs, ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtr and ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput
+}
+
+type observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrType ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs
+
+func ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtr(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrInput {
+	return (*observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrType) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrType) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput)
+}
+
+// Maximum size of the disk buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk) *string {
+		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput) Elem() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk
+		return ret
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput)
+}
+
+// Maximum size of the disk buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory struct {
+	// Maximum events for the memory buffer.
+	MaxEvents *int `pulumi:"maxEvents"`
+	// Maximum size of the memory buffer (in bytes).
+	MaxSize *int `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull *string `pulumi:"whenFull"`
+}
+
+// ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryInput is an input type that accepts ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs and ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryInput` via:
+//
+//	ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs{...}
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs struct {
+	// Maximum events for the memory buffer.
+	MaxEvents pulumi.IntPtrInput `pulumi:"maxEvents"`
+	// Maximum size of the memory buffer (in bytes).
+	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull pulumi.StringPtrInput `pulumi:"whenFull"`
+}
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput).ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs, ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtr and ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput
+}
+
+type observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrType ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs
+
+func ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtr(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrInput {
+	return (*observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrType) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrType) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput)
+}
+
+// Maximum events for the memory buffer.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput) MaxEvents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory) *int {
+		return v.MaxEvents
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum size of the memory buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory) *string {
+		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput) Elem() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory
+		return ret
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput)
+}
+
+// Maximum events for the memory buffer.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput) MaxEvents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEvents
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum size of the memory buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls struct {
+	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+	CaFile *string `pulumi:"caFile"`
+	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+	CrtFile string `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+	KeyFile *string `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey *string `pulumi:"keyPassKey"`
+	// Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+	ServerName *string `pulumi:"serverName"`
+}
+
+// ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsInput is an input type that accepts ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs and ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsInput` via:
+//
+//	ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs{...}
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs struct {
+	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
+	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+	CrtFile pulumi.StringInput `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
+	// Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+}
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput).ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs, ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtr and ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput
+	ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput
+}
+
+type observabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrType ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs
+
+func ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtr(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrInput {
+	return (*observabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrType) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrType) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput) CrtFile() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) string { return v.CrtFile }).(pulumi.StringOutput)
+}
+
+// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
+}
+
+// Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput) ToObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput) Elem() ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls
+		return ret
+	}).(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CrtFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPassKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Server name to use for Server Name Indication (SNI) and to verify against the certificate presented by the remote host. Use this when the address you connect to doesn't match the certificate's Common Name or Subject Alternative Name.
+func (o ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -52246,8 +54841,10 @@ type ObservabilityPipelineConfigProcessorGroupProcessor struct {
 	// The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
 	Filter *ObservabilityPipelineConfigProcessorGroupProcessorFilter `pulumi:"filter"`
 	// The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+	//
+	// Deprecated: This processor is deprecated, use `generateMetrics` instead.
 	GenerateDatadogMetrics *ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics `pulumi:"generateDatadogMetrics"`
-	// The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
+	// The `generateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
 	GenerateMetrics *ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics `pulumi:"generateMetrics"`
 	// The unique identifier for this processor.
 	Id string `pulumi:"id"`
@@ -52321,8 +54918,10 @@ type ObservabilityPipelineConfigProcessorGroupProcessorArgs struct {
 	// The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
 	Filter ObservabilityPipelineConfigProcessorGroupProcessorFilterPtrInput `pulumi:"filter"`
 	// The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+	//
+	// Deprecated: This processor is deprecated, use `generateMetrics` instead.
 	GenerateDatadogMetrics ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsPtrInput `pulumi:"generateDatadogMetrics"`
-	// The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
+	// The `generateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
 	GenerateMetrics ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsPtrInput `pulumi:"generateMetrics"`
 	// The unique identifier for this processor.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -52491,13 +55090,15 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorOutput) Filter() Obser
 }
 
 // The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
+//
+// Deprecated: This processor is deprecated, use `generateMetrics` instead.
 func (o ObservabilityPipelineConfigProcessorGroupProcessorOutput) GenerateDatadogMetrics() ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsPtrOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessor) *ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics {
 		return v.GenerateDatadogMetrics
 	}).(ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsPtrOutput)
 }
 
-// The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `<processor-id>.metrics`.
+// The `generateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
 func (o ObservabilityPipelineConfigProcessorGroupProcessorOutput) GenerateMetrics() ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsPtrOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessor) *ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics {
 		return v.GenerateMetrics
@@ -58982,7 +61583,7 @@ type ObservabilityPipelineConfigProcessorGroupProcessorQuota struct {
 	Limit                       ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimit `pulumi:"limit"`
 	// The name of the quota.
 	Name string `pulumi:"name"`
-	// The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
+	// The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`. When `overflowRouting` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazonS3Generic`, `amazonS3`, `googleCloudStorage`, and `azureStorage`.
 	OverflowAction *string `pulumi:"overflowAction"`
 	// The overrides for field-specific quotas.
 	Overrides []ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverride `pulumi:"overrides"`
@@ -59011,7 +61612,7 @@ type ObservabilityPipelineConfigProcessorGroupProcessorQuotaArgs struct {
 	Limit                       ObservabilityPipelineConfigProcessorGroupProcessorQuotaLimitInput `pulumi:"limit"`
 	// The name of the quota.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
+	// The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`. When `overflowRouting` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazonS3Generic`, `amazonS3`, `googleCloudStorage`, and `azureStorage`.
 	OverflowAction pulumi.StringPtrInput `pulumi:"overflowAction"`
 	// The overrides for field-specific quotas.
 	Overrides ObservabilityPipelineConfigProcessorGroupProcessorQuotaOverrideArrayInput `pulumi:"overrides"`
@@ -59121,7 +61722,7 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorQuotaOutput) Name() pu
 	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorQuota) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
+// The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`. When `overflowRouting` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazonS3Generic`, `amazonS3`, `googleCloudStorage`, and `azureStorage`.
 func (o ObservabilityPipelineConfigProcessorGroupProcessorQuotaOutput) OverflowAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorQuota) *string { return v.OverflowAction }).(pulumi.StringPtrOutput)
 }
@@ -59206,7 +61807,7 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorQuotaPtrOutput) Name()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`.
+// The action to take when the quota is exceeded: `drop`, `noAction`, or `overflowRouting`. When `overflowRouting` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `amazonS3Generic`, `amazonS3`, `googleCloudStorage`, and `azureStorage`.
 func (o ObservabilityPipelineConfigProcessorGroupProcessorQuotaPtrOutput) OverflowAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorQuota) *string {
 		if v == nil {
@@ -63494,6 +66095,8 @@ type ObservabilityPipelineConfigSource struct {
 	Logstashes []ObservabilityPipelineConfigSourceLogstash `pulumi:"logstashes"`
 	// The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
 	Opentelemetry *ObservabilityPipelineConfigSourceOpentelemetry `pulumi:"opentelemetry"`
+	// The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+	PrometheusRemoteWrite *ObservabilityPipelineConfigSourcePrometheusRemoteWrite `pulumi:"prometheusRemoteWrite"`
 	// The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
 	Rsyslogs []ObservabilityPipelineConfigSourceRsyslog `pulumi:"rsyslogs"`
 	// The `socket` source ingests logs over TCP or UDP.
@@ -63546,6 +66149,8 @@ type ObservabilityPipelineConfigSourceArgs struct {
 	Logstashes ObservabilityPipelineConfigSourceLogstashArrayInput `pulumi:"logstashes"`
 	// The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
 	Opentelemetry ObservabilityPipelineConfigSourceOpentelemetryPtrInput `pulumi:"opentelemetry"`
+	// The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+	PrometheusRemoteWrite ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrInput `pulumi:"prometheusRemoteWrite"`
 	// The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
 	Rsyslogs ObservabilityPipelineConfigSourceRsyslogArrayInput `pulumi:"rsyslogs"`
 	// The `socket` source ingests logs over TCP or UDP.
@@ -63691,6 +66296,13 @@ func (o ObservabilityPipelineConfigSourceOutput) Opentelemetry() ObservabilityPi
 	return o.ApplyT(func(v ObservabilityPipelineConfigSource) *ObservabilityPipelineConfigSourceOpentelemetry {
 		return v.Opentelemetry
 	}).(ObservabilityPipelineConfigSourceOpentelemetryPtrOutput)
+}
+
+// The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+func (o ObservabilityPipelineConfigSourceOutput) PrometheusRemoteWrite() ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) *ObservabilityPipelineConfigSourcePrometheusRemoteWrite {
+		return v.PrometheusRemoteWrite
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput)
 }
 
 // The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
@@ -68701,6 +71313,751 @@ func (o ObservabilityPipelineConfigSourceOpentelemetryTlsPtrOutput) VerifyCertif
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ObservabilityPipelineConfigSourcePrometheusRemoteWrite struct {
+	// Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+	AddressKey *string `pulumi:"addressKey"`
+	// HTTP authentication method. Valid values are `none`, `plain`.
+	AuthStrategy string `pulumi:"authStrategy"`
+	// Name of the environment variable or secret that holds the password. Used when `authStrategy` is `plain`.
+	PasswordKey *string `pulumi:"passwordKey"`
+	// The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+	Path string `pulumi:"path"`
+	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+	Tls *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls `pulumi:"tls"`
+	// Name of the environment variable or secret that holds the username. Used when `authStrategy` is `plain`.
+	UsernameKey *string `pulumi:"usernameKey"`
+	// A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+	ValidTokens []ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken `pulumi:"validTokens"`
+}
+
+// ObservabilityPipelineConfigSourcePrometheusRemoteWriteInput is an input type that accepts ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs and ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourcePrometheusRemoteWriteInput` via:
+//
+//	ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs{...}
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteOutputWithContext(context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs struct {
+	// Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+	AddressKey pulumi.StringPtrInput `pulumi:"addressKey"`
+	// HTTP authentication method. Valid values are `none`, `plain`.
+	AuthStrategy pulumi.StringInput `pulumi:"authStrategy"`
+	// Name of the environment variable or secret that holds the password. Used when `authStrategy` is `plain`.
+	PasswordKey pulumi.StringPtrInput `pulumi:"passwordKey"`
+	// The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+	Tls ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrInput `pulumi:"tls"`
+	// Name of the environment variable or secret that holds the username. Used when `authStrategy` is `plain`.
+	UsernameKey pulumi.StringPtrInput `pulumi:"usernameKey"`
+	// A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+	ValidTokens ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayInput `pulumi:"validTokens"`
+}
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWrite)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput)
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput).ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrInput is an input type that accepts ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs, ObservabilityPipelineConfigSourcePrometheusRemoteWritePtr and ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrInput` via:
+//
+//	        ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput
+}
+
+type observabilityPipelineConfigSourcePrometheusRemoteWritePtrType ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs
+
+func ObservabilityPipelineConfigSourcePrometheusRemoteWritePtr(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs) ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrInput {
+	return (*observabilityPipelineConfigSourcePrometheusRemoteWritePtrType)(v)
+}
+
+func (*observabilityPipelineConfigSourcePrometheusRemoteWritePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourcePrometheusRemoteWrite)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigSourcePrometheusRemoteWritePtrType) ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigSourcePrometheusRemoteWritePtrType) ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWrite)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
+	return o.ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *ObservabilityPipelineConfigSourcePrometheusRemoteWrite {
+		return &v
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput)
+}
+
+// Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) AddressKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *string { return v.AddressKey }).(pulumi.StringPtrOutput)
+}
+
+// HTTP authentication method. Valid values are `none`, `plain`.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) AuthStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWrite) string { return v.AuthStrategy }).(pulumi.StringOutput)
+}
+
+// Name of the environment variable or secret that holds the password. Used when `authStrategy` is `plain`.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) PasswordKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *string { return v.PasswordKey }).(pulumi.StringPtrOutput)
+}
+
+// The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWrite) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) Tls() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls {
+		return v.Tls
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the username. Used when `authStrategy` is `plain`.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) UsernameKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *string { return v.UsernameKey }).(pulumi.StringPtrOutput)
+}
+
+// A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput) ValidTokens() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWrite) []ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken {
+		return v.ValidTokens
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourcePrometheusRemoteWrite)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) Elem() ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWrite) ObservabilityPipelineConfigSourcePrometheusRemoteWrite {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigSourcePrometheusRemoteWrite
+		return ret
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput)
+}
+
+// Name of the environment variable or secret that holds the listen address for the Prometheus Remote Write endpoint.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) AddressKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// HTTP authentication method. Valid values are `none`, `plain`.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) AuthStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the password. Used when `authStrategy` is `plain`.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) PasswordKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTP path on which the source listens for incoming Prometheus Remote Write requests.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) Tls() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls {
+		if v == nil {
+			return nil
+		}
+		return v.Tls
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the username. Used when `authStrategy` is `plain`.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) UsernameKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWrite) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// A token accepted for authenticating incoming Prometheus Remote Write requests. When set, the source rejects any request whose token does not match an enabled entry in this list.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput) ValidTokens() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWrite) []ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken {
+		if v == nil {
+			return nil
+		}
+		return v.ValidTokens
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls struct {
+	// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+	CaFile *string `pulumi:"caFile"`
+	// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+	CrtFile string `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS server certificate.
+	KeyFile *string `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey *string `pulumi:"keyPassKey"`
+	// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+	VerifyCertificate *bool `pulumi:"verifyCertificate"`
+}
+
+// ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsInput is an input type that accepts ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs and ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsInput` via:
+//
+//	ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs{...}
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs struct {
+	// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
+	// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+	CrtFile pulumi.StringInput `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS server certificate.
+	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
+	// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+	VerifyCertificate pulumi.BoolPtrInput `pulumi:"verifyCertificate"`
+}
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput)
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput).ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs, ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtr and ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrInput` via:
+//
+//	        ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput
+}
+
+type observabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrType ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs
+
+func ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtr(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs) ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrInput {
+	return (*observabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrType)(v)
+}
+
+func (*observabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrType) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrType) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput {
+	return o.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls {
+		return &v
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput) CrtFile() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) string { return v.CrtFile }).(pulumi.StringOutput)
+}
+
+// Path to the private key file associated with the TLS server certificate.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
+}
+
+// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput) VerifyCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) *bool { return v.VerifyCertificate }).(pulumi.BoolPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput) Elem() ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls
+		return ret
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CrtFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the private key file associated with the TLS server certificate.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPassKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput) VerifyCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteTls) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VerifyCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken struct {
+	// Whether this token is currently accepted. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies where the worker extracts the token from the incoming HTTP request. Set either `location` for a built-in source or `header` to read it from a request header.
+	PathToToken *ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken `pulumi:"pathToToken"`
+	// Name of the environment variable or secret that holds the expected token value.
+	TokenKey string `pulumi:"tokenKey"`
+}
+
+// ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenInput is an input type that accepts ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs and ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenInput` via:
+//
+//	ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs{...}
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutputWithContext(context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs struct {
+	// Whether this token is currently accepted. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Specifies where the worker extracts the token from the incoming HTTP request. Set either `location` for a built-in source or `header` to read it from a request header.
+	PathToToken ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrInput `pulumi:"pathToToken"`
+	// Name of the environment variable or secret that holds the expected token value.
+	TokenKey pulumi.StringInput `pulumi:"tokenKey"`
+}
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput)
+}
+
+// ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayInput is an input type that accepts ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArray and ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayInput` via:
+//
+//	ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArray{ ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs{...} }
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArray []ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenInput
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArray) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArray) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput {
+	return o
+}
+
+// Whether this token is currently accepted. Defaults to `true`.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies where the worker extracts the token from the incoming HTTP request. Set either `location` for a built-in source or `header` to read it from a request header.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput) PathToToken() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken) *ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken {
+		return v.PathToToken
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the expected token value.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput) TokenKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken) string { return v.TokenKey }).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken {
+		return vs[0].([]ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidToken)[vs[1].(int)]
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken struct {
+	// The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+	Header *string `pulumi:"header"`
+	// Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+	Location *string `pulumi:"location"`
+}
+
+// ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenInput is an input type that accepts ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs and ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenInput` via:
+//
+//	ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs{...}
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutputWithContext(context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs struct {
+	// The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+	Header pulumi.StringPtrInput `pulumi:"header"`
+	// Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+}
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput)
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput).ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrInput is an input type that accepts ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs, ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtr and ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrInput` via:
+//
+//	        ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput
+	ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput
+}
+
+type observabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrType ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs
+
+func ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtr(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrInput {
+	return (*observabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrType)(v)
+}
+
+func (*observabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrType) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput {
+	return i.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrType) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput {
+	return o.ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken) *ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken {
+		return &v
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput)
+}
+
+// The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput) Header() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken) *string {
+		return v.Header
+	}).(pulumi.StringPtrOutput)
+}
+
+// Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken) *string {
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput) ToObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput) Elem() ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken) ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken
+		return ret
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput)
+}
+
+// The name of the HTTP header that carries the token. Exactly one of `location` or `header` must be set.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput) Header() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.StringPtrOutput)
+}
+
+// Built-in token location on the incoming HTTP request. One of `path`, `address`. Exactly one of `location` or `header` must be set. Valid values are `path`, `address`.
+func (o ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
 type ObservabilityPipelineConfigSourceRsyslog struct {
 	// Name of the environment variable or secret that holds the listen address.
 	AddressKey *string `pulumi:"addressKey"`
@@ -70189,6 +73546,8 @@ func (o ObservabilityPipelineConfigSourceSplunkHecValidTokenFieldToAddPtrOutput)
 type ObservabilityPipelineConfigSourceSplunkTcp struct {
 	// Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
 	AddressKey *string `pulumi:"addressKey"`
+	// Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+	MaxConnectionDurationSecs *int `pulumi:"maxConnectionDurationSecs"`
 	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
 	Tls *ObservabilityPipelineConfigSourceSplunkTcpTls `pulumi:"tls"`
 }
@@ -70207,6 +73566,8 @@ type ObservabilityPipelineConfigSourceSplunkTcpInput interface {
 type ObservabilityPipelineConfigSourceSplunkTcpArgs struct {
 	// Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
 	AddressKey pulumi.StringPtrInput `pulumi:"addressKey"`
+	// Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+	MaxConnectionDurationSecs pulumi.IntPtrInput `pulumi:"maxConnectionDurationSecs"`
 	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
 	Tls ObservabilityPipelineConfigSourceSplunkTcpTlsPtrInput `pulumi:"tls"`
 }
@@ -70265,6 +73626,11 @@ func (o ObservabilityPipelineConfigSourceSplunkTcpOutput) ToObservabilityPipelin
 // Name of the environment variable or secret that holds the listen address for the Splunk TCP receiver.
 func (o ObservabilityPipelineConfigSourceSplunkTcpOutput) AddressKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigSourceSplunkTcp) *string { return v.AddressKey }).(pulumi.StringPtrOutput)
+}
+
+// Maximum duration, in seconds, that a connection can remain open before it is closed. When unset, connections can remain open indefinitely.
+func (o ObservabilityPipelineConfigSourceSplunkTcpOutput) MaxConnectionDurationSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceSplunkTcp) *int { return v.MaxConnectionDurationSecs }).(pulumi.IntPtrOutput)
 }
 
 // Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
@@ -75538,6 +78904,8 @@ type PowerpackV2Widget struct {
 	CohortDefinition *PowerpackV2WidgetCohortDefinition `pulumi:"cohortDefinition"`
 	// The definition for a Distribution widget.
 	DistributionDefinition *PowerpackV2WidgetDistributionDefinition `pulumi:"distributionDefinition"`
+	// The definition for an App Builder embedded app widget.
+	EmbeddedAppDefinition *PowerpackV2WidgetEmbeddedAppDefinition `pulumi:"embeddedAppDefinition"`
 	// The definition for a Event Stream widget.
 	EventStreamDefinition *PowerpackV2WidgetEventStreamDefinition `pulumi:"eventStreamDefinition"`
 	// The definition for a Event Timeline widget.
@@ -75634,6 +79002,8 @@ type PowerpackV2WidgetArgs struct {
 	CohortDefinition PowerpackV2WidgetCohortDefinitionPtrInput `pulumi:"cohortDefinition"`
 	// The definition for a Distribution widget.
 	DistributionDefinition PowerpackV2WidgetDistributionDefinitionPtrInput `pulumi:"distributionDefinition"`
+	// The definition for an App Builder embedded app widget.
+	EmbeddedAppDefinition PowerpackV2WidgetEmbeddedAppDefinitionPtrInput `pulumi:"embeddedAppDefinition"`
 	// The definition for a Event Stream widget.
 	EventStreamDefinition PowerpackV2WidgetEventStreamDefinitionPtrInput `pulumi:"eventStreamDefinition"`
 	// The definition for a Event Timeline widget.
@@ -75788,6 +79158,11 @@ func (o PowerpackV2WidgetOutput) CohortDefinition() PowerpackV2WidgetCohortDefin
 // The definition for a Distribution widget.
 func (o PowerpackV2WidgetOutput) DistributionDefinition() PowerpackV2WidgetDistributionDefinitionPtrOutput {
 	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetDistributionDefinition { return v.DistributionDefinition }).(PowerpackV2WidgetDistributionDefinitionPtrOutput)
+}
+
+// The definition for an App Builder embedded app widget.
+func (o PowerpackV2WidgetOutput) EmbeddedAppDefinition() PowerpackV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetEmbeddedAppDefinition { return v.EmbeddedAppDefinition }).(PowerpackV2WidgetEmbeddedAppDefinitionPtrOutput)
 }
 
 // The definition for a Event Stream widget.
@@ -79345,3270 +82720,21 @@ func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Stat() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-type PowerpackV2WidgetBarChartDefinition struct {
-	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-	CustomLinks []PowerpackV2WidgetBarChartDefinitionCustomLink `pulumi:"customLinks"`
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// A nested block describing the request to use when displaying the widget.
-	Request *PowerpackV2WidgetBarChartDefinitionRequest `pulumi:"request"`
-	// Style customization for the bar chart widget.
-	Style *PowerpackV2WidgetBarChartDefinitionStyle `pulumi:"style"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *PowerpackV2WidgetBarChartDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionArgs and PowerpackV2WidgetBarChartDefinitionOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionArgs{...}
-type PowerpackV2WidgetBarChartDefinitionInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionOutput() PowerpackV2WidgetBarChartDefinitionOutput
-	ToPowerpackV2WidgetBarChartDefinitionOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionArgs struct {
-	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-	CustomLinks PowerpackV2WidgetBarChartDefinitionCustomLinkArrayInput `pulumi:"customLinks"`
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// A nested block describing the request to use when displaying the widget.
-	Request PowerpackV2WidgetBarChartDefinitionRequestPtrInput `pulumi:"request"`
-	// Style customization for the bar chart widget.
-	Style PowerpackV2WidgetBarChartDefinitionStylePtrInput `pulumi:"style"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time PowerpackV2WidgetBarChartDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinition)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionArgs) ToPowerpackV2WidgetBarChartDefinitionOutput() PowerpackV2WidgetBarChartDefinitionOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionArgs) ToPowerpackV2WidgetBarChartDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionArgs) ToPowerpackV2WidgetBarChartDefinitionPtrOutput() PowerpackV2WidgetBarChartDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionArgs) ToPowerpackV2WidgetBarChartDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionOutput).ToPowerpackV2WidgetBarChartDefinitionPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionPtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionArgs, PowerpackV2WidgetBarChartDefinitionPtr and PowerpackV2WidgetBarChartDefinitionPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionPtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionPtrOutput() PowerpackV2WidgetBarChartDefinitionPtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionPtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionPtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionPtrType PowerpackV2WidgetBarChartDefinitionArgs
-
-func PowerpackV2WidgetBarChartDefinitionPtr(v *PowerpackV2WidgetBarChartDefinitionArgs) PowerpackV2WidgetBarChartDefinitionPtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionPtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinition)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionPtrType) ToPowerpackV2WidgetBarChartDefinitionPtrOutput() PowerpackV2WidgetBarChartDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionPtrType) ToPowerpackV2WidgetBarChartDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionOutput) ToPowerpackV2WidgetBarChartDefinitionOutput() PowerpackV2WidgetBarChartDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionOutput) ToPowerpackV2WidgetBarChartDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionOutput) ToPowerpackV2WidgetBarChartDefinitionPtrOutput() PowerpackV2WidgetBarChartDefinitionPtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionOutput) ToPowerpackV2WidgetBarChartDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinition) *PowerpackV2WidgetBarChartDefinition {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionPtrOutput)
-}
-
-// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetBarChartDefinitionOutput) CustomLinks() PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinition) []PowerpackV2WidgetBarChartDefinitionCustomLink {
-		return v.CustomLinks
-	}).(PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetBarChartDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetBarChartDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetBarChartDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing the request to use when displaying the widget.
-func (o PowerpackV2WidgetBarChartDefinitionOutput) Request() PowerpackV2WidgetBarChartDefinitionRequestPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinition) *PowerpackV2WidgetBarChartDefinitionRequest {
-		return v.Request
-	}).(PowerpackV2WidgetBarChartDefinitionRequestPtrOutput)
-}
-
-// Style customization for the bar chart widget.
-func (o PowerpackV2WidgetBarChartDefinitionOutput) Style() PowerpackV2WidgetBarChartDefinitionStylePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinition) *PowerpackV2WidgetBarChartDefinitionStyle { return v.Style }).(PowerpackV2WidgetBarChartDefinitionStylePtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetBarChartDefinitionOutput) Time() PowerpackV2WidgetBarChartDefinitionTimePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinition) *PowerpackV2WidgetBarChartDefinitionTime { return v.Time }).(PowerpackV2WidgetBarChartDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetBarChartDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetBarChartDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetBarChartDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) ToPowerpackV2WidgetBarChartDefinitionPtrOutput() PowerpackV2WidgetBarChartDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) ToPowerpackV2WidgetBarChartDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) PowerpackV2WidgetBarChartDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinition
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionOutput)
-}
-
-// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) CustomLinks() PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) []PowerpackV2WidgetBarChartDefinitionCustomLink {
-		if v == nil {
-			return nil
-		}
-		return v.CustomLinks
-	}).(PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing the request to use when displaying the widget.
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) Request() PowerpackV2WidgetBarChartDefinitionRequestPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) *PowerpackV2WidgetBarChartDefinitionRequest {
-		if v == nil {
-			return nil
-		}
-		return v.Request
-	}).(PowerpackV2WidgetBarChartDefinitionRequestPtrOutput)
-}
-
-// Style customization for the bar chart widget.
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) Style() PowerpackV2WidgetBarChartDefinitionStylePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) *PowerpackV2WidgetBarChartDefinitionStyle {
-		if v == nil {
-			return nil
-		}
-		return v.Style
-	}).(PowerpackV2WidgetBarChartDefinitionStylePtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) Time() PowerpackV2WidgetBarChartDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) *PowerpackV2WidgetBarChartDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(PowerpackV2WidgetBarChartDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetBarChartDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionCustomLink struct {
-	// The flag for toggling context menu link visibility.
-	IsHidden *bool `pulumi:"isHidden"`
-	// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-	Label *string `pulumi:"label"`
-	// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-	Link *string `pulumi:"link"`
-	// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-	OverrideLabel *string `pulumi:"overrideLabel"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionCustomLinkInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionCustomLinkArgs and PowerpackV2WidgetBarChartDefinitionCustomLinkOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionCustomLinkInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionCustomLinkArgs{...}
-type PowerpackV2WidgetBarChartDefinitionCustomLinkInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionCustomLinkOutput() PowerpackV2WidgetBarChartDefinitionCustomLinkOutput
-	ToPowerpackV2WidgetBarChartDefinitionCustomLinkOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionCustomLinkOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionCustomLinkArgs struct {
-	// The flag for toggling context menu link visibility.
-	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
-	// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-	OverrideLabel pulumi.StringPtrInput `pulumi:"overrideLabel"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionCustomLinkArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionCustomLink)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionCustomLinkArgs) ToPowerpackV2WidgetBarChartDefinitionCustomLinkOutput() PowerpackV2WidgetBarChartDefinitionCustomLinkOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionCustomLinkOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionCustomLinkArgs) ToPowerpackV2WidgetBarChartDefinitionCustomLinkOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionCustomLinkOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionCustomLinkOutput)
-}
-
-// PowerpackV2WidgetBarChartDefinitionCustomLinkArrayInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionCustomLinkArray and PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionCustomLinkArrayInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionCustomLinkArray{ PowerpackV2WidgetBarChartDefinitionCustomLinkArgs{...} }
-type PowerpackV2WidgetBarChartDefinitionCustomLinkArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput() PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput
-	ToPowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionCustomLinkArray []PowerpackV2WidgetBarChartDefinitionCustomLinkInput
-
-func (PowerpackV2WidgetBarChartDefinitionCustomLinkArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetBarChartDefinitionCustomLink)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionCustomLinkArray) ToPowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput() PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionCustomLinkArray) ToPowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionCustomLinkOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionCustomLinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionCustomLink)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionCustomLinkOutput) ToPowerpackV2WidgetBarChartDefinitionCustomLinkOutput() PowerpackV2WidgetBarChartDefinitionCustomLinkOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionCustomLinkOutput) ToPowerpackV2WidgetBarChartDefinitionCustomLinkOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionCustomLinkOutput {
-	return o
-}
-
-// The flag for toggling context menu link visibility.
-func (o PowerpackV2WidgetBarChartDefinitionCustomLinkOutput) IsHidden() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionCustomLink) *bool { return v.IsHidden }).(pulumi.BoolPtrOutput)
-}
-
-// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-func (o PowerpackV2WidgetBarChartDefinitionCustomLinkOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionCustomLink) *string { return v.Label }).(pulumi.StringPtrOutput)
-}
-
-// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-func (o PowerpackV2WidgetBarChartDefinitionCustomLinkOutput) Link() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionCustomLink) *string { return v.Link }).(pulumi.StringPtrOutput)
-}
-
-// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-func (o PowerpackV2WidgetBarChartDefinitionCustomLinkOutput) OverrideLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionCustomLink) *string { return v.OverrideLabel }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetBarChartDefinitionCustomLink)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput) ToPowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput() PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput) ToPowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetBarChartDefinitionCustomLinkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetBarChartDefinitionCustomLink {
-		return vs[0].([]PowerpackV2WidgetBarChartDefinitionCustomLink)[vs[1].(int)]
-	}).(PowerpackV2WidgetBarChartDefinitionCustomLinkOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequest struct {
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ApmQuery *PowerpackV2WidgetApmQuery `pulumi:"apmQuery"`
-	// Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data.
-	ConditionalFormats []PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat `pulumi:"conditionalFormats"`
-	// A list of formulas to use in the widget.
-	Formulas []PowerpackV2WidgetBarChartDefinitionRequestFormula `pulumi:"formulas"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	LogQuery *PowerpackV2WidgetLogQuery `pulumi:"logQuery"`
-	// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ProcessQuery *PowerpackV2WidgetBarChartDefinitionRequestProcessQuery `pulumi:"processQuery"`
-	// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	Q *string `pulumi:"q"`
-	// A list of queries to use in the widget.
-	Queries []PowerpackV2WidgetBarChartDefinitionRequestQuery `pulumi:"queries"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	RumQuery *PowerpackV2WidgetRumQuery `pulumi:"rumQuery"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	SecurityQuery *PowerpackV2WidgetSecurityQuery `pulumi:"securityQuery"`
-	// The controls for sorting the widget. Only applicable for formula-style requests.
-	Sort *PowerpackV2WidgetBarChartDefinitionRequestSort `pulumi:"sort"`
-	// Define request for the widget's style.
-	Style *PowerpackV2WidgetBarChartDefinitionRequestStyle `pulumi:"style"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestArgs and PowerpackV2WidgetBarChartDefinitionRequestOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestOutput() PowerpackV2WidgetBarChartDefinitionRequestOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestArgs struct {
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ApmQuery PowerpackV2WidgetApmQueryPtrInput `pulumi:"apmQuery"`
-	// Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data.
-	ConditionalFormats PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayInput `pulumi:"conditionalFormats"`
-	// A list of formulas to use in the widget.
-	Formulas PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayInput `pulumi:"formulas"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	LogQuery PowerpackV2WidgetLogQueryPtrInput `pulumi:"logQuery"`
-	// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ProcessQuery PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrInput `pulumi:"processQuery"`
-	// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	Q pulumi.StringPtrInput `pulumi:"q"`
-	// A list of queries to use in the widget.
-	Queries PowerpackV2WidgetBarChartDefinitionRequestQueryArrayInput `pulumi:"queries"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	RumQuery PowerpackV2WidgetRumQueryPtrInput `pulumi:"rumQuery"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	SecurityQuery PowerpackV2WidgetSecurityQueryPtrInput `pulumi:"securityQuery"`
-	// The controls for sorting the widget. Only applicable for formula-style requests.
-	Sort PowerpackV2WidgetBarChartDefinitionRequestSortPtrInput `pulumi:"sort"`
-	// Define request for the widget's style.
-	Style PowerpackV2WidgetBarChartDefinitionRequestStylePtrInput `pulumi:"style"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequest)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestArgs) ToPowerpackV2WidgetBarChartDefinitionRequestOutput() PowerpackV2WidgetBarChartDefinitionRequestOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestArgs) ToPowerpackV2WidgetBarChartDefinitionRequestOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestArgs) ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestArgs) ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestOutput).ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestPtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestArgs, PowerpackV2WidgetBarChartDefinitionRequestPtr and PowerpackV2WidgetBarChartDefinitionRequestPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestPtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestPtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestPtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestPtrType PowerpackV2WidgetBarChartDefinitionRequestArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestPtr(v *PowerpackV2WidgetBarChartDefinitionRequestArgs) PowerpackV2WidgetBarChartDefinitionRequestPtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestPtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequest)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequest)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) ToPowerpackV2WidgetBarChartDefinitionRequestOutput() PowerpackV2WidgetBarChartDefinitionRequestOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) ToPowerpackV2WidgetBarChartDefinitionRequestOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestPtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetBarChartDefinitionRequest {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestPtrOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) ApmQuery() PowerpackV2WidgetApmQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetApmQuery { return v.ApmQuery }).(PowerpackV2WidgetApmQueryPtrOutput)
-}
-
-// Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) ConditionalFormats() PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) []PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat {
-		return v.ConditionalFormats
-	}).(PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput)
-}
-
-// A list of formulas to use in the widget.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) Formulas() PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) []PowerpackV2WidgetBarChartDefinitionRequestFormula {
-		return v.Formulas
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) LogQuery() PowerpackV2WidgetLogQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetLogQuery { return v.LogQuery }).(PowerpackV2WidgetLogQueryPtrOutput)
-}
-
-// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) ProcessQuery() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetBarChartDefinitionRequestProcessQuery {
-		return v.ProcessQuery
-	}).(PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput)
-}
-
-// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) Q() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) *string { return v.Q }).(pulumi.StringPtrOutput)
-}
-
-// A list of queries to use in the widget.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) Queries() PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) []PowerpackV2WidgetBarChartDefinitionRequestQuery {
-		return v.Queries
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) RumQuery() PowerpackV2WidgetRumQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetRumQuery { return v.RumQuery }).(PowerpackV2WidgetRumQueryPtrOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) SecurityQuery() PowerpackV2WidgetSecurityQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetSecurityQuery {
-		return v.SecurityQuery
-	}).(PowerpackV2WidgetSecurityQueryPtrOutput)
-}
-
-// The controls for sorting the widget. Only applicable for formula-style requests.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) Sort() PowerpackV2WidgetBarChartDefinitionRequestSortPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetBarChartDefinitionRequestSort {
-		return v.Sort
-	}).(PowerpackV2WidgetBarChartDefinitionRequestSortPtrOutput)
-}
-
-// Define request for the widget's style.
-func (o PowerpackV2WidgetBarChartDefinitionRequestOutput) Style() PowerpackV2WidgetBarChartDefinitionRequestStylePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetBarChartDefinitionRequestStyle {
-		return v.Style
-	}).(PowerpackV2WidgetBarChartDefinitionRequestStylePtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequest)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) PowerpackV2WidgetBarChartDefinitionRequest {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequest
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) ApmQuery() PowerpackV2WidgetApmQueryPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetApmQuery {
-		if v == nil {
-			return nil
-		}
-		return v.ApmQuery
-	}).(PowerpackV2WidgetApmQueryPtrOutput)
-}
-
-// Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) ConditionalFormats() PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) []PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat {
-		if v == nil {
-			return nil
-		}
-		return v.ConditionalFormats
-	}).(PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput)
-}
-
-// A list of formulas to use in the widget.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) Formulas() PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) []PowerpackV2WidgetBarChartDefinitionRequestFormula {
-		if v == nil {
-			return nil
-		}
-		return v.Formulas
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) LogQuery() PowerpackV2WidgetLogQueryPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetLogQuery {
-		if v == nil {
-			return nil
-		}
-		return v.LogQuery
-	}).(PowerpackV2WidgetLogQueryPtrOutput)
-}
-
-// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) ProcessQuery() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetBarChartDefinitionRequestProcessQuery {
-		if v == nil {
-			return nil
-		}
-		return v.ProcessQuery
-	}).(PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput)
-}
-
-// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) Q() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Q
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of queries to use in the widget.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) Queries() PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) []PowerpackV2WidgetBarChartDefinitionRequestQuery {
-		if v == nil {
-			return nil
-		}
-		return v.Queries
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) RumQuery() PowerpackV2WidgetRumQueryPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetRumQuery {
-		if v == nil {
-			return nil
-		}
-		return v.RumQuery
-	}).(PowerpackV2WidgetRumQueryPtrOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) SecurityQuery() PowerpackV2WidgetSecurityQueryPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetSecurityQuery {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityQuery
-	}).(PowerpackV2WidgetSecurityQueryPtrOutput)
-}
-
-// The controls for sorting the widget. Only applicable for formula-style requests.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) Sort() PowerpackV2WidgetBarChartDefinitionRequestSortPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetBarChartDefinitionRequestSort {
-		if v == nil {
-			return nil
-		}
-		return v.Sort
-	}).(PowerpackV2WidgetBarChartDefinitionRequestSortPtrOutput)
-}
-
-// Define request for the widget's style.
-func (o PowerpackV2WidgetBarChartDefinitionRequestPtrOutput) Style() PowerpackV2WidgetBarChartDefinitionRequestStylePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequest) *PowerpackV2WidgetBarChartDefinitionRequestStyle {
-		if v == nil {
-			return nil
-		}
-		return v.Style
-	}).(PowerpackV2WidgetBarChartDefinitionRequestStylePtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat struct {
-	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-	Comparator string `pulumi:"comparator"`
-	// The color palette to apply to the background, same values available as palette.
-	CustomBgColor *string `pulumi:"customBgColor"`
-	// The color palette to apply to the foreground, same values available as palette.
-	CustomFgColor *string `pulumi:"customFgColor"`
-	// Setting this to True hides values.
-	HideValue *bool `pulumi:"hideValue"`
-	// Displays an image as the background.
-	ImageUrl *string `pulumi:"imageUrl"`
-	// The metric from the request to correlate with this conditional format.
-	Metric *string `pulumi:"metric"`
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-	Palette string `pulumi:"palette"`
-	// Defines the displayed timeframe.
-	Timeframe *string `pulumi:"timeframe"`
-	// A value for the comparator.
-	Value float64 `pulumi:"value"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArgs and PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput() PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArgs struct {
-	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-	Comparator pulumi.StringInput `pulumi:"comparator"`
-	// The color palette to apply to the background, same values available as palette.
-	CustomBgColor pulumi.StringPtrInput `pulumi:"customBgColor"`
-	// The color palette to apply to the foreground, same values available as palette.
-	CustomFgColor pulumi.StringPtrInput `pulumi:"customFgColor"`
-	// Setting this to True hides values.
-	HideValue pulumi.BoolPtrInput `pulumi:"hideValue"`
-	// Displays an image as the background.
-	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
-	// The metric from the request to correlate with this conditional format.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-	Palette pulumi.StringInput `pulumi:"palette"`
-	// Defines the displayed timeframe.
-	Timeframe pulumi.StringPtrInput `pulumi:"timeframe"`
-	// A value for the comparator.
-	Value pulumi.Float64Input `pulumi:"value"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArgs) ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput() PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArgs) ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArray and PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArray{ PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArgs{...} }
-type PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArray []PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatInput
-
-func (PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArray) ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArray) ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput() PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput {
-	return o
-}
-
-// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) Comparator() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat) string { return v.Comparator }).(pulumi.StringOutput)
-}
-
-// The color palette to apply to the background, same values available as palette.
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) CustomBgColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat) *string { return v.CustomBgColor }).(pulumi.StringPtrOutput)
-}
-
-// The color palette to apply to the foreground, same values available as palette.
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) CustomFgColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat) *string { return v.CustomFgColor }).(pulumi.StringPtrOutput)
-}
-
-// Setting this to True hides values.
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) HideValue() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat) *bool { return v.HideValue }).(pulumi.BoolPtrOutput)
-}
-
-// Displays an image as the background.
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) ImageUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
-}
-
-// The metric from the request to correlate with this conditional format.
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat) *string { return v.Metric }).(pulumi.StringPtrOutput)
-}
-
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) Palette() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat) string { return v.Palette }).(pulumi.StringOutput)
-}
-
-// Defines the displayed timeframe.
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat) *string { return v.Timeframe }).(pulumi.StringPtrOutput)
-}
-
-// A value for the comparator.
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput) Value() pulumi.Float64Output {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat) float64 { return v.Value }).(pulumi.Float64Output)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput) ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput) ToPowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat {
-		return vs[0].([]PowerpackV2WidgetBarChartDefinitionRequestConditionalFormat)[vs[1].(int)]
-	}).(PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormula struct {
-	// An expression alias.
-	Alias *string `pulumi:"alias"`
-	// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
-	CellDisplayMode *string `pulumi:"cellDisplayMode"`
-	// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
-	CellDisplayModeOptions *PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions `pulumi:"cellDisplayModeOptions"`
-	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-	ConditionalFormats []PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat `pulumi:"conditionalFormats"`
-	// A string expression built from queries, formulas, and functions.
-	FormulaExpression string `pulumi:"formulaExpression"`
-	// The options for limiting results returned.
-	Limit *PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit `pulumi:"limit"`
-	// Number formatting options for the formula.
-	NumberFormat *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat `pulumi:"numberFormat"`
-	// Styling options for widget formulas.
-	Style *PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle `pulumi:"style"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaArgs and PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaArgs struct {
-	// An expression alias.
-	Alias pulumi.StringPtrInput `pulumi:"alias"`
-	// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
-	CellDisplayMode pulumi.StringPtrInput `pulumi:"cellDisplayMode"`
-	// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
-	CellDisplayModeOptions PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrInput `pulumi:"cellDisplayModeOptions"`
-	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-	ConditionalFormats PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayInput `pulumi:"conditionalFormats"`
-	// A string expression built from queries, formulas, and functions.
-	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
-	// The options for limiting results returned.
-	Limit PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrInput `pulumi:"limit"`
-	// Number formatting options for the formula.
-	NumberFormat PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrInput `pulumi:"numberFormat"`
-	// Styling options for widget formulas.
-	Style PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrInput `pulumi:"style"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormula)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaArray and PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaArray{ PowerpackV2WidgetBarChartDefinitionRequestFormulaArgs{...} }
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaArray []PowerpackV2WidgetBarChartDefinitionRequestFormulaInput
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetBarChartDefinitionRequestFormula)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaArray) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaArray) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormula)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput {
-	return o
-}
-
-// An expression alias.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) Alias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormula) *string { return v.Alias }).(pulumi.StringPtrOutput)
-}
-
-// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) CellDisplayMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormula) *string { return v.CellDisplayMode }).(pulumi.StringPtrOutput)
-}
-
-// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) CellDisplayModeOptions() PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormula) *PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions {
-		return v.CellDisplayModeOptions
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput)
-}
-
-// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) ConditionalFormats() PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormula) []PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat {
-		return v.ConditionalFormats
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput)
-}
-
-// A string expression built from queries, formulas, and functions.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) FormulaExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormula) string { return v.FormulaExpression }).(pulumi.StringOutput)
-}
-
-// The options for limiting results returned.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) Limit() PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormula) *PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit {
-		return v.Limit
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput)
-}
-
-// Number formatting options for the formula.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) NumberFormat() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormula) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat {
-		return v.NumberFormat
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput)
-}
-
-// Styling options for widget formulas.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput) Style() PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormula) *PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle {
-		return v.Style
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetBarChartDefinitionRequestFormula)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetBarChartDefinitionRequestFormula {
-		return vs[0].([]PowerpackV2WidgetBarChartDefinitionRequestFormula)[vs[1].(int)]
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions struct {
-	// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-	TrendType *string `pulumi:"trendType"`
-	// The scale of the y-axis. Valid values are `shared` and `independent`.
-	YScale *string `pulumi:"yScale"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs and PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs struct {
-	// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-	TrendType pulumi.StringPtrInput `pulumi:"trendType"`
-	// The scale of the y-axis. Valid values are `shared` and `independent`.
-	YScale pulumi.StringPtrInput `pulumi:"yScale"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput).ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs, PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtr and PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrType PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtr(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs) PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions) *PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput)
-}
-
-// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput) TrendType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions) *string {
-		return v.TrendType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The scale of the y-axis. Valid values are `shared` and `independent`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput) YScale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions) *string {
-		return v.YScale
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions) PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput)
-}
-
-// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) TrendType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrendType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The scale of the y-axis. Valid values are `shared` and `independent`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) YScale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.YScale
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat struct {
-	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-	Comparator string `pulumi:"comparator"`
-	// The color palette to apply to the background, same values available as palette.
-	CustomBgColor *string `pulumi:"customBgColor"`
-	// The color palette to apply to the foreground, same values available as palette.
-	CustomFgColor *string `pulumi:"customFgColor"`
-	// Setting this to True hides values.
-	HideValue *bool `pulumi:"hideValue"`
-	// Displays an image as the background.
-	ImageUrl *string `pulumi:"imageUrl"`
-	// The metric from the request to correlate with this conditional format.
-	Metric *string `pulumi:"metric"`
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-	Palette string `pulumi:"palette"`
-	// Defines the displayed timeframe.
-	Timeframe *string `pulumi:"timeframe"`
-	// A value for the comparator.
-	Value float64 `pulumi:"value"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArgs and PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArgs struct {
-	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-	Comparator pulumi.StringInput `pulumi:"comparator"`
-	// The color palette to apply to the background, same values available as palette.
-	CustomBgColor pulumi.StringPtrInput `pulumi:"customBgColor"`
-	// The color palette to apply to the foreground, same values available as palette.
-	CustomFgColor pulumi.StringPtrInput `pulumi:"customFgColor"`
-	// Setting this to True hides values.
-	HideValue pulumi.BoolPtrInput `pulumi:"hideValue"`
-	// Displays an image as the background.
-	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
-	// The metric from the request to correlate with this conditional format.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-	Palette pulumi.StringInput `pulumi:"palette"`
-	// Defines the displayed timeframe.
-	Timeframe pulumi.StringPtrInput `pulumi:"timeframe"`
-	// A value for the comparator.
-	Value pulumi.Float64Input `pulumi:"value"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArray and PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArray{ PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArgs{...} }
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArray []PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatInput
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArray) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArray) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput {
-	return o
-}
-
-// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) Comparator() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat) string { return v.Comparator }).(pulumi.StringOutput)
-}
-
-// The color palette to apply to the background, same values available as palette.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) CustomBgColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat) *string {
-		return v.CustomBgColor
-	}).(pulumi.StringPtrOutput)
-}
-
-// The color palette to apply to the foreground, same values available as palette.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) CustomFgColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat) *string {
-		return v.CustomFgColor
-	}).(pulumi.StringPtrOutput)
-}
-
-// Setting this to True hides values.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) HideValue() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat) *bool { return v.HideValue }).(pulumi.BoolPtrOutput)
-}
-
-// Displays an image as the background.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) ImageUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
-}
-
-// The metric from the request to correlate with this conditional format.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat) *string { return v.Metric }).(pulumi.StringPtrOutput)
-}
-
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) Palette() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat) string { return v.Palette }).(pulumi.StringOutput)
-}
-
-// Defines the displayed timeframe.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat) *string { return v.Timeframe }).(pulumi.StringPtrOutput)
-}
-
-// A value for the comparator.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput) Value() pulumi.Float64Output {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat) float64 { return v.Value }).(pulumi.Float64Output)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat {
-		return vs[0].([]PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormat)[vs[1].(int)]
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit struct {
-	// The number of results to return.
-	Count *int `pulumi:"count"`
-	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-	Order *string `pulumi:"order"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs and PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs struct {
-	// The number of results to return.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-	Order pulumi.StringPtrInput `pulumi:"order"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput).ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs, PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtr and PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrType PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtr(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs) PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit) *PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput)
-}
-
-// The number of results to return.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit) PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput)
-}
-
-// The number of results to return.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Count
-	}).(pulumi.IntPtrOutput)
-}
-
-// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaLimit) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat struct {
-	// Unit of the number format.
-	Unit PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit `pulumi:"unit"`
-	// The definition of `NumberFormatUnitScale` object.
-	UnitScale *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale `pulumi:"unitScale"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs and PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs struct {
-	// Unit of the number format.
-	Unit PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitInput `pulumi:"unit"`
-	// The definition of `NumberFormatUnitScale` object.
-	UnitScale PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrInput `pulumi:"unitScale"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput).ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs, PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtr and PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrType PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtr(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput)
-}
-
-// Unit of the number format.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput) Unit() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit {
-		return v.Unit
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput)
-}
-
-// The definition of `NumberFormatUnitScale` object.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput) UnitScale() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale {
-		return v.UnitScale
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput)
-}
-
-// Unit of the number format.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput) Unit() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput)
-}
-
-// The definition of `NumberFormatUnitScale` object.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput) UnitScale() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormat) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale {
-		if v == nil {
-			return nil
-		}
-		return v.UnitScale
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit struct {
-	// Canonical Units
-	Canonical *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical `pulumi:"canonical"`
-	// Use custom (non canonical metrics)
-	Custom *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom `pulumi:"custom"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs and PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs struct {
-	// Canonical Units
-	Canonical PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput `pulumi:"canonical"`
-	// Use custom (non canonical metrics)
-	Custom PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrInput `pulumi:"custom"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput).ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs, PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtr and PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrType PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtr(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput)
-}
-
-// Canonical Units
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput) Canonical() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical {
-		return v.Canonical
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
-}
-
-// Use custom (non canonical metrics)
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput) Custom() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom {
-		return v.Custom
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput)
-}
-
-// Canonical Units
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput) Canonical() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical {
-		if v == nil {
-			return nil
-		}
-		return v.Canonical
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
-}
-
-// Use custom (non canonical metrics)
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput) Custom() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnit) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom {
-		if v == nil {
-			return nil
-		}
-		return v.Custom
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical struct {
-	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-	PerUnitName *string `pulumi:"perUnitName"`
-	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-	UnitName *string `pulumi:"unitName"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs and PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs struct {
-	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-	PerUnitName pulumi.StringPtrInput `pulumi:"perUnitName"`
-	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-	UnitName pulumi.StringPtrInput `pulumi:"unitName"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput).ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs, PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtr and PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtr(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
-}
-
-// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) PerUnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
-		return v.PerUnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) UnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
-		return v.UnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
-}
-
-// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) PerUnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PerUnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) UnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom struct {
-	// Unit label
-	Label string `pulumi:"label"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs and PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs struct {
-	// Unit label
-	Label pulumi.StringInput `pulumi:"label"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput).ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs, PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtr and PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrType PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtr(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-// Unit label
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput) Label() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom) string { return v.Label }).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput)
-}
-
-// Unit label
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustom) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Label
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale struct {
-	// The name of the unit.
-	UnitName string `pulumi:"unitName"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs and PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs struct {
-	// The name of the unit.
-	UnitName pulumi.StringInput `pulumi:"unitName"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput).ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs, PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtr and PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrType PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtr(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale) *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-// The name of the unit.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput) UnitName() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale) string {
-		return v.UnitName
-	}).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale) PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput)
-}
-
-// The name of the unit.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) UnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScale) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle struct {
-	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-	Palette *string `pulumi:"palette"`
-	// Index specifying which color to use within the palette.
-	PaletteIndex *int `pulumi:"paletteIndex"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs and PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs struct {
-	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-	Palette pulumi.StringPtrInput `pulumi:"palette"`
-	// Index specifying which color to use within the palette.
-	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput).ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs, PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtr and PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrType PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtr(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs) PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrType) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle) *PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput)
-}
-
-// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
-}
-
-// Index specifying which color to use within the palette.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput) PaletteIndex() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle) *int { return v.PaletteIndex }).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput() PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle) PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput)
-}
-
-// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Palette
-	}).(pulumi.StringPtrOutput)
-}
-
-// Index specifying which color to use within the palette.
-func (o PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput) PaletteIndex() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestFormulaStyle) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PaletteIndex
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestProcessQuery struct {
-	// A list of processes.
-	FilterBies []string `pulumi:"filterBies"`
-	// The max number of items in the filter list.
-	Limit *int `pulumi:"limit"`
-	// Your chosen metric.
-	Metric string `pulumi:"metric"`
-	// Your chosen search term.
-	SearchBy *string `pulumi:"searchBy"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestProcessQueryInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs and PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestProcessQueryInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestProcessQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs struct {
-	// A list of processes.
-	FilterBies pulumi.StringArrayInput `pulumi:"filterBies"`
-	// The max number of items in the filter list.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// Your chosen metric.
-	Metric pulumi.StringInput `pulumi:"metric"`
-	// Your chosen search term.
-	SearchBy pulumi.StringPtrInput `pulumi:"searchBy"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput).ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs, PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtr and PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrType PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtr(v *PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs) PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequestProcessQuery) *PowerpackV2WidgetBarChartDefinitionRequestProcessQuery {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput)
-}
-
-// A list of processes.
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput) FilterBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestProcessQuery) []string { return v.FilterBies }).(pulumi.StringArrayOutput)
-}
-
-// The max number of items in the filter list.
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// Your chosen metric.
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput) Metric() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
-}
-
-// Your chosen search term.
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput) SearchBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestProcessQuery) *string { return v.SearchBy }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestProcessQuery) PowerpackV2WidgetBarChartDefinitionRequestProcessQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequestProcessQuery
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput)
-}
-
-// A list of processes.
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput) FilterBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestProcessQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.FilterBies
-	}).(pulumi.StringArrayOutput)
-}
-
-// The max number of items in the filter list.
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestProcessQuery) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Limit
-	}).(pulumi.IntPtrOutput)
-}
-
-// Your chosen metric.
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Your chosen search term.
-func (o PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput) SearchBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SearchBy
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestQuery struct {
-	// The APM Dependency Stats query using formulas and functions.
-	ApmDependencyStatsQuery *PowerpackV2WidgetApmDependencyStatsQuery `pulumi:"apmDependencyStatsQuery"`
-	// The APM metrics query using formulas and functions.
-	ApmMetricsQuery *PowerpackV2WidgetApmMetricsQuery `pulumi:"apmMetricsQuery"`
-	// The APM Resource Stats query using formulas and functions.
-	ApmResourceStatsQuery *PowerpackV2WidgetApmResourceStatsQuery `pulumi:"apmResourceStatsQuery"`
-	// The Cloud Cost query using formulas and functions.
-	CloudCostQuery *PowerpackV2WidgetCloudCostQuery `pulumi:"cloudCostQuery"`
-	// A timeseries formula and functions events query.
-	EventQuery *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery `pulumi:"eventQuery"`
-	// A timeseries formula and functions metrics query.
-	MetricQuery *PowerpackV2WidgetMetricQuery `pulumi:"metricQuery"`
-	// The process query using formulas and functions.
-	ProcessQuery *PowerpackV2WidgetBarChartDefinitionRequestQueryProcessQuery `pulumi:"processQuery"`
-	// The Product Analytics Extended query using formulas and functions.
-	ProductAnalyticsExtendedQuery *PowerpackV2WidgetProductAnalyticsExtendedQuery `pulumi:"productAnalyticsExtendedQuery"`
-	// The retention query using formulas and functions.
-	RetentionQuery *PowerpackV2WidgetRetentionQuery `pulumi:"retentionQuery"`
-	// The SLO query using formulas and functions.
-	SloQuery *PowerpackV2WidgetSloQuery `pulumi:"sloQuery"`
-	// The User Journey query using formulas and functions.
-	UserJourneyQuery *PowerpackV2WidgetUserJourneyQuery `pulumi:"userJourneyQuery"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestQueryInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestQueryArgs and PowerpackV2WidgetBarChartDefinitionRequestQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestQueryInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestQueryArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestQueryOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestQueryOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestQueryArgs struct {
-	// The APM Dependency Stats query using formulas and functions.
-	ApmDependencyStatsQuery PowerpackV2WidgetApmDependencyStatsQueryPtrInput `pulumi:"apmDependencyStatsQuery"`
-	// The APM metrics query using formulas and functions.
-	ApmMetricsQuery PowerpackV2WidgetApmMetricsQueryPtrInput `pulumi:"apmMetricsQuery"`
-	// The APM Resource Stats query using formulas and functions.
-	ApmResourceStatsQuery PowerpackV2WidgetApmResourceStatsQueryPtrInput `pulumi:"apmResourceStatsQuery"`
-	// The Cloud Cost query using formulas and functions.
-	CloudCostQuery PowerpackV2WidgetCloudCostQueryPtrInput `pulumi:"cloudCostQuery"`
-	// A timeseries formula and functions events query.
-	EventQuery PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrInput `pulumi:"eventQuery"`
-	// A timeseries formula and functions metrics query.
-	MetricQuery PowerpackV2WidgetMetricQueryPtrInput `pulumi:"metricQuery"`
-	// The process query using formulas and functions.
-	ProcessQuery PowerpackV2WidgetBarChartDefinitionRequestQueryProcessQueryPtrInput `pulumi:"processQuery"`
-	// The Product Analytics Extended query using formulas and functions.
-	ProductAnalyticsExtendedQuery PowerpackV2WidgetProductAnalyticsExtendedQueryPtrInput `pulumi:"productAnalyticsExtendedQuery"`
-	// The retention query using formulas and functions.
-	RetentionQuery PowerpackV2WidgetRetentionQueryPtrInput `pulumi:"retentionQuery"`
-	// The SLO query using formulas and functions.
-	SloQuery PowerpackV2WidgetSloQueryPtrInput `pulumi:"sloQuery"`
-	// The User Journey query using formulas and functions.
-	UserJourneyQuery PowerpackV2WidgetUserJourneyQueryPtrInput `pulumi:"userJourneyQuery"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestQueryArgs) ToPowerpackV2WidgetBarChartDefinitionRequestQueryOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestQueryArgs) ToPowerpackV2WidgetBarChartDefinitionRequestQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestQueryOutput)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestQueryArrayInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestQueryArray and PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestQueryArrayInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestQueryArray{ PowerpackV2WidgetBarChartDefinitionRequestQueryArgs{...} }
-type PowerpackV2WidgetBarChartDefinitionRequestQueryArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestQueryArray []PowerpackV2WidgetBarChartDefinitionRequestQueryInput
-
-func (PowerpackV2WidgetBarChartDefinitionRequestQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetBarChartDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestQueryArray) ToPowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestQueryArray) ToPowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) ToPowerpackV2WidgetBarChartDefinitionRequestQueryOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) ToPowerpackV2WidgetBarChartDefinitionRequestQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryOutput {
-	return o
-}
-
-// The APM Dependency Stats query using formulas and functions.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) ApmDependencyStatsQuery() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetApmDependencyStatsQuery {
-		return v.ApmDependencyStatsQuery
-	}).(PowerpackV2WidgetApmDependencyStatsQueryPtrOutput)
-}
-
-// The APM metrics query using formulas and functions.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) ApmMetricsQuery() PowerpackV2WidgetApmMetricsQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetApmMetricsQuery {
-		return v.ApmMetricsQuery
-	}).(PowerpackV2WidgetApmMetricsQueryPtrOutput)
-}
-
-// The APM Resource Stats query using formulas and functions.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) ApmResourceStatsQuery() PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetApmResourceStatsQuery {
-		return v.ApmResourceStatsQuery
-	}).(PowerpackV2WidgetApmResourceStatsQueryPtrOutput)
-}
-
-// The Cloud Cost query using formulas and functions.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) CloudCostQuery() PowerpackV2WidgetCloudCostQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetCloudCostQuery {
-		return v.CloudCostQuery
-	}).(PowerpackV2WidgetCloudCostQueryPtrOutput)
-}
-
-// A timeseries formula and functions events query.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) EventQuery() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery {
-		return v.EventQuery
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput)
-}
-
-// A timeseries formula and functions metrics query.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) MetricQuery() PowerpackV2WidgetMetricQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetMetricQuery {
-		return v.MetricQuery
-	}).(PowerpackV2WidgetMetricQueryPtrOutput)
-}
-
-// The process query using formulas and functions.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) ProcessQuery() PowerpackV2WidgetBarChartDefinitionRequestQueryProcessQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetBarChartDefinitionRequestQueryProcessQuery {
-		return v.ProcessQuery
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryProcessQueryPtrOutput)
-}
-
-// The Product Analytics Extended query using formulas and functions.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) ProductAnalyticsExtendedQuery() PowerpackV2WidgetProductAnalyticsExtendedQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetProductAnalyticsExtendedQuery {
-		return v.ProductAnalyticsExtendedQuery
-	}).(PowerpackV2WidgetProductAnalyticsExtendedQueryPtrOutput)
-}
-
-// The retention query using formulas and functions.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) RetentionQuery() PowerpackV2WidgetRetentionQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetRetentionQuery {
-		return v.RetentionQuery
-	}).(PowerpackV2WidgetRetentionQueryPtrOutput)
-}
-
-// The SLO query using formulas and functions.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) SloQuery() PowerpackV2WidgetSloQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetSloQuery { return v.SloQuery }).(PowerpackV2WidgetSloQueryPtrOutput)
-}
-
-// The User Journey query using formulas and functions.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryOutput) UserJourneyQuery() PowerpackV2WidgetUserJourneyQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQuery) *PowerpackV2WidgetUserJourneyQuery {
-		return v.UserJourneyQuery
-	}).(PowerpackV2WidgetUserJourneyQueryPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetBarChartDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput) ToPowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput) ToPowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetBarChartDefinitionRequestQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetBarChartDefinitionRequestQuery {
-		return vs[0].([]PowerpackV2WidgetBarChartDefinitionRequestQuery)[vs[1].(int)]
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery struct {
-	// The compute options.
-	Computes []PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-	DataSource string `pulumi:"dataSource"`
-	// Group by options.
-	GroupBies []PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
-	// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-	GroupByFields *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByFields `pulumi:"groupByFields"`
-	// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-	Indexes []string `pulumi:"indexes"`
-	// The name of query for use in formulas.
-	Name string `pulumi:"name"`
-	// The search options.
-	Search *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuerySearch `pulumi:"search"`
-	// Option for storage location. Feature in Private Beta.
-	Storage *string `pulumi:"storage"`
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs and PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryInput` via:
-//
-//	PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs{...}
-type PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs struct {
-	// The compute options.
-	Computes PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Group by options.
-	GroupBies PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
-	// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-	GroupByFields PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByFieldsPtrInput `pulumi:"groupByFields"`
-	// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
-	// The name of query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The search options.
-	Search PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuerySearchPtrInput `pulumi:"search"`
-	// Option for storage location. Feature in Private Beta.
-	Storage pulumi.StringPtrInput `pulumi:"storage"`
-}
-
-func (PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput)
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput).ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrInput is an input type that accepts PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs, PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtr and PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput
-	ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput
-}
-
-type powerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrType PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs
-
-func PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtr(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs) PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrInput {
-	return (*powerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput {
-	return i.ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrType) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput {
-	return o.ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery {
-		return &v
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput)
-}
-
-// The compute options.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) Computes() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) []PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryCompute {
-		return v.Computes
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryComputeArrayOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
-}
-
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// Group by options.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) GroupBies() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) []PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupBy {
-		return v.GroupBies
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByArrayOutput)
-}
-
-// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) GroupByFields() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByFields {
-		return v.GroupByFields
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
-}
-
-// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The search options.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) Search() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuerySearchPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuerySearch {
-		return v.Search
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuerySearchPtrOutput)
-}
-
-// Option for storage location. Feature in Private Beta.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) Storage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) ToPowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) Elem() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery
-		return ret
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput)
-}
-
-// The compute options.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) Computes() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) []PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryCompute {
-		if v == nil {
-			return nil
-		}
-		return v.Computes
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryComputeArrayOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Group by options.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) GroupBies() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) []PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupBy {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByArrayOutput)
-}
-
-// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) GroupByFields() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByFields {
-		if v == nil {
-			return nil
-		}
-		return v.GroupByFields
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
-}
-
-// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Indexes
-	}).(pulumi.StringArrayOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The search options.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) Search() PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuerySearchPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuerySearch {
-		if v == nil {
-			return nil
-		}
-		return v.Search
-	}).(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuerySearchPtrOutput)
-}
-
-// Option for storage location. Feature in Private Beta.
-func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) Storage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Storage
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineFilterInput)(nil)).Elem(), LogsCustomPipelineFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineFilterArrayInput)(nil)).Elem(), LogsCustomPipelineFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayInput)(nil)).Elem(), LogsCustomPipelineProcessorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArithmeticProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArithmeticProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArithmeticProcessorPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorArithmeticProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorPtrInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorCategoryInput)(nil)).Elem(), LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorCategoryArgs{})
@@ -82791,6 +82917,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricTagConfigurationAggregationArrayInput)(nil)).Elem(), MetricTagConfigurationAggregationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorAssetInput)(nil)).Elem(), MonitorAssetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorAssetArrayInput)(nil)).Elem(), MonitorAssetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigPolicyDowntimePolicyInput)(nil)).Elem(), MonitorConfigPolicyDowntimePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigPolicyDowntimePolicyPtrInput)(nil)).Elem(), MonitorConfigPolicyDowntimePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigPolicyTagPolicyInput)(nil)).Elem(), MonitorConfigPolicyTagPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorConfigPolicyTagPolicyPtrInput)(nil)).Elem(), MonitorConfigPolicyTagPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorMonitorThresholdWindowsInput)(nil)).Elem(), MonitorMonitorThresholdWindowsArgs{})
@@ -83152,6 +83280,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationOpentelemetryBufferMemoryPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationOpentelemetryBufferMemoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationOpentelemetryTlsInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationOpentelemetryTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationOpentelemetryTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationOpentelemetryTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationRsyslogInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationRsyslogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationRsyslogArrayInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationRsyslogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationRsyslogBufferInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationRsyslogBufferArgs{})
@@ -83435,6 +83573,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceOpentelemetryPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceOpentelemetryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceOpentelemetryTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceOpentelemetryTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceOpentelemetryTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceOpentelemetryTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteInput)(nil)).Elem(), ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourcePrometheusRemoteWriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenInput)(nil)).Elem(), ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenInput)(nil)).Elem(), ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceRsyslogInput)(nil)).Elem(), ObservabilityPipelineConfigSourceRsyslogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceRsyslogArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceRsyslogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceRsyslogTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceRsyslogTlsArgs{})
@@ -83556,40 +83702,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackV2WidgetApmQueryMultiComputeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmResourceStatsQueryInput)(nil)).Elem(), PowerpackV2WidgetApmResourceStatsQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmResourceStatsQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmResourceStatsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionCustomLinkInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionCustomLinkArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionCustomLinkArrayInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionCustomLinkArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestProcessQueryInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestProcessQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestQueryInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestQueryArrayInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestQueryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs{})
+	pulumi.RegisterOutputType(LogsCustomPipelineFilterOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineFilterArrayOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArithmeticProcessorOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArithmeticProcessorPtrOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorPtrOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorArrayOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorArithmeticProcessorPtrOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperOutput{})
+	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorAttributeRemapperPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorArrayMapProcessorProcessorCategoryProcessorCategoryOutput{})
@@ -83772,6 +83898,8 @@ func init() {
 	pulumi.RegisterOutputType(MetricTagConfigurationAggregationArrayOutput{})
 	pulumi.RegisterOutputType(MonitorAssetOutput{})
 	pulumi.RegisterOutputType(MonitorAssetArrayOutput{})
+	pulumi.RegisterOutputType(MonitorConfigPolicyDowntimePolicyOutput{})
+	pulumi.RegisterOutputType(MonitorConfigPolicyDowntimePolicyPtrOutput{})
 	pulumi.RegisterOutputType(MonitorConfigPolicyTagPolicyOutput{})
 	pulumi.RegisterOutputType(MonitorConfigPolicyTagPolicyPtrOutput{})
 	pulumi.RegisterOutputType(MonitorMonitorThresholdWindowsOutput{})
@@ -84133,6 +84261,16 @@ func init() {
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationOpentelemetryBufferMemoryPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationOpentelemetryTlsOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationOpentelemetryTlsPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferDiskPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteBufferMemoryPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationPrometheusRemoteWriteTlsPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationRsyslogOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationRsyslogArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationRsyslogBufferOutput{})
@@ -84416,6 +84554,14 @@ func init() {
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceOpentelemetryPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceOpentelemetryTlsOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceOpentelemetryTlsPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourcePrometheusRemoteWriteOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourcePrometheusRemoteWriteTlsPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenArrayOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourcePrometheusRemoteWriteValidTokenPathToTokenPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceRsyslogOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceRsyslogArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceRsyslogTlsOutput{})
@@ -84537,38 +84683,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryMultiComputeArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetApmResourceStatsQueryOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetApmResourceStatsQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionCustomLinkOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionCustomLinkArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestConditionalFormatArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaConditionalFormatArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaLimitPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScaleOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaNumberFormatUnitScalePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaStyleOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestFormulaStylePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestProcessQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestProcessQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestQueryArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput{})
 }

@@ -19,31 +19,31 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? AssigneeId { get; set; }
 
         /// <summary>
-        /// The reason the rule was automatically disabled by the system due to a ticketing integration error. This field is read-only.
+        /// The reason the rule was automatically disabled by the system due to a ticketing integration error.
         /// </summary>
         [Input("autoDisabledReason")]
         public Input<string>? AutoDisabledReason { get; set; }
 
         /// <summary>
-        /// A JSON-encoded object of custom fields of the Jira issue to create. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get).
+        /// A JSON-encoded object of target-specific fields for the ticket to create. For `target: jira`, the custom fields of the Jira issue. For the list of available fields, see the [Jira documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-createmeta-projectidorkey-issuetypes-issuetypeid-get). For `target: linear`, the optional keys `LinearProjectId` (string, the identifier of the Linear project the issue is created in) and `LinearLabelIds` (array of strings, the identifiers of the Linear labels applied to the issue).
         /// </summary>
         [Input("fields")]
         public Input<string>? Fields { get; set; }
 
         /// <summary>
-        /// The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and linking back to the responsible rule. Value must be between 1 and 500.
+        /// The maximum number of tickets the rule may create per day. If exceeded, one final ticket will be created, explaining the limit was hit and link back to the responsible rule. Value must be between 1 and 500.
         /// </summary>
         [Input("maxTicketsPerDay", required: true)]
         public Input<int> MaxTicketsPerDay { get; set; } = null!;
 
         /// <summary>
-        /// The UUID of the Case Management project. Must be a valid UUID.
+        /// The UUID of the case management project. Must be a valid UUID.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// The ticketing system to create tickets in. Valid values are `Jira`, `CaseManagement`.
+        /// The ticketing system to create tickets in. Valid values are `Jira`, `CaseManagement`, `Linear`.
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;

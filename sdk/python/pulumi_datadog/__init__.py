@@ -45,6 +45,7 @@ from .deployment_gate import *
 from .domain_allowlist import *
 from .downtime import *
 from .downtime_schedule import *
+from .fleet_schedule import *
 from .gcp_uc_config import *
 from .get_action_connection import *
 from .get_api_key import *
@@ -63,6 +64,8 @@ from .get_dashboard import *
 from .get_dashboard_list import *
 from .get_datastore import *
 from .get_datastore_item import *
+from .get_fleet_schedule import *
+from .get_fleet_schedules import *
 from .get_gcp_uc_config import *
 from .get_hosts import *
 from .get_incident_notification_rule import *
@@ -179,10 +182,15 @@ from .rum_retention_filters_order import *
 from .rum_retention_quota import *
 from .saml_idp_metadata import *
 from .secure_embed_dashboard import *
+from .security_findings_default_inbox_rule import *
 from .security_findings_due_date_rule import *
 from .security_findings_due_date_rules_order import *
+from .security_findings_inbox_rule import *
+from .security_findings_inbox_rules_order import *
 from .security_findings_mute_rule import *
 from .security_findings_mute_rules_order import *
+from .security_findings_severity_modifier_rule import *
+from .security_findings_severity_modifier_rules_order import *
 from .security_findings_ticket_creation_rule import *
 from .security_findings_ticket_creation_rules_order import *
 from .security_monitoring_critical_asset import *
@@ -685,6 +693,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/fleetSchedule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/fleetSchedule:FleetSchedule": "FleetSchedule"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/gcpUcConfig",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -1093,6 +1109,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/securityFindingsDefaultInboxRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsDefaultInboxRule:SecurityFindingsDefaultInboxRule": "SecurityFindingsDefaultInboxRule"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/securityFindingsDueDateRule",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -1109,6 +1133,22 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/securityFindingsInboxRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsInboxRule:SecurityFindingsInboxRule": "SecurityFindingsInboxRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityFindingsInboxRulesOrder",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsInboxRulesOrder:SecurityFindingsInboxRulesOrder": "SecurityFindingsInboxRulesOrder"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/securityFindingsMuteRule",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -1121,6 +1161,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/securityFindingsMuteRulesOrder:SecurityFindingsMuteRulesOrder": "SecurityFindingsMuteRulesOrder"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityFindingsSeverityModifierRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsSeverityModifierRule:SecurityFindingsSeverityModifierRule": "SecurityFindingsSeverityModifierRule"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/securityFindingsSeverityModifierRulesOrder",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/securityFindingsSeverityModifierRulesOrder:SecurityFindingsSeverityModifierRulesOrder": "SecurityFindingsSeverityModifierRulesOrder"
   }
  },
  {

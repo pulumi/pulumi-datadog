@@ -69,6 +69,16 @@ namespace Pulumi.Datadog
     ///         Timezone = "UTC",
     ///     });
     /// 
+    ///     var exampleSloCorrectionWithQuery = new Datadog.SloCorrection("example_slo_correction_with_query", new()
+    ///     {
+    ///         Category = "Scheduled Maintenance",
+    ///         Description = "correction example with query",
+    ///         Start = 1735707000,
+    ///         End = 1735718600,
+    ///         SloQuery = "env:prod service:checkout",
+    ///         Timezone = "UTC",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -114,10 +124,16 @@ namespace Pulumi.Datadog
         public Output<string?> Rrule { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the SLO that this correction will be applied to.
+        /// ID of the single SLO that this correction will be applied to.
         /// </summary>
         [Output("sloId")]
-        public Output<string> SloId { get; private set; } = null!;
+        public Output<string?> SloId { get; private set; } = null!;
+
+        /// <summary>
+        /// Query that matches the SLOs this correction will be applied to.
+        /// </summary>
+        [Output("sloQuery")]
+        public Output<string?> SloQuery { get; private set; } = null!;
 
         /// <summary>
         /// Starting time of the correction in epoch seconds.
@@ -208,10 +224,16 @@ namespace Pulumi.Datadog
         public Input<string>? Rrule { get; set; }
 
         /// <summary>
-        /// ID of the SLO that this correction will be applied to.
+        /// ID of the single SLO that this correction will be applied to.
         /// </summary>
-        [Input("sloId", required: true)]
-        public Input<string> SloId { get; set; } = null!;
+        [Input("sloId")]
+        public Input<string>? SloId { get; set; }
+
+        /// <summary>
+        /// Query that matches the SLOs this correction will be applied to.
+        /// </summary>
+        [Input("sloQuery")]
+        public Input<string>? SloQuery { get; set; }
 
         /// <summary>
         /// Starting time of the correction in epoch seconds.
@@ -264,10 +286,16 @@ namespace Pulumi.Datadog
         public Input<string>? Rrule { get; set; }
 
         /// <summary>
-        /// ID of the SLO that this correction will be applied to.
+        /// ID of the single SLO that this correction will be applied to.
         /// </summary>
         [Input("sloId")]
         public Input<string>? SloId { get; set; }
+
+        /// <summary>
+        /// Query that matches the SLOs this correction will be applied to.
+        /// </summary>
+        [Input("sloQuery")]
+        public Input<string>? SloQuery { get; set; }
 
         /// <summary>
         /// Starting time of the correction in epoch seconds.

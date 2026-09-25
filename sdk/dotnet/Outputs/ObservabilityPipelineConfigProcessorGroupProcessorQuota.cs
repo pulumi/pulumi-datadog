@@ -27,7 +27,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The action to take when the quota is exceeded: `Drop`, `NoAction`, or `OverflowRouting`.
+        /// The action to take when the quota is exceeded: `Drop`, `NoAction`, or `OverflowRouting`. When `OverflowRouting` is used, there must be a destination whose `Inputs` reference this processor with the `&lt;processor-id&gt;.overflow_events` suffix to route the overflowing events. Only the following destination types support overflow inputs: `AmazonS3Generic`, `AmazonS3`, `GoogleCloudStorage`, and `AzureStorage`.
         /// </summary>
         public readonly string? OverflowAction;
         /// <summary>

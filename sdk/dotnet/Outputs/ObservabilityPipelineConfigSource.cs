@@ -62,6 +62,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigSourceOpentelemetry? Opentelemetry;
         /// <summary>
+        /// The `PrometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWrite? PrometheusRemoteWrite;
+        /// <summary>
         /// The `Rsyslog` source listens for logs over TCP or UDP from an `Rsyslog` server using the syslog protocol.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigSourceRsyslog> Rsyslogs;
@@ -116,6 +120,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigSourceOpentelemetry? opentelemetry,
 
+            Outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWrite? prometheusRemoteWrite,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigSourceRsyslog> rsyslogs,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigSourceSocket> sockets,
@@ -142,6 +148,7 @@ namespace Pulumi.Datadog.Outputs
             Kafkas = kafkas;
             Logstashes = logstashes;
             Opentelemetry = opentelemetry;
+            PrometheusRemoteWrite = prometheusRemoteWrite;
             Rsyslogs = rsyslogs;
             Sockets = sockets;
             SplunkHecs = splunkHecs;

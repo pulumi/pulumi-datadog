@@ -60,6 +60,35 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"linear_project_id": "33333333-3333-3333-3333-333333333333",
+//				"linear_label_ids": []string{
+//					"44444444-4444-4444-4444-444444444444",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			// Create a rule that automatically opens Linear issues for exposed secrets.
+//			_, err = datadog.NewSecurityFindingsTicketCreationRule(ctx, "exposed_secrets", &datadog.SecurityFindingsTicketCreationRuleArgs{
+//				Name:    pulumi.String("Auto-create Linear issues for exposed secrets"),
+//				Enabled: pulumi.Bool(true),
+//				Rule: &datadog.SecurityFindingsTicketCreationRuleRuleArgs{
+//					Finding_types: []string{
+//						"secret",
+//					},
+//				},
+//				Action: &datadog.SecurityFindingsTicketCreationRuleActionArgs{
+//					Project_id:          "11111111-1111-1111-1111-111111111111",
+//					Target:              pulumi.String("linear"),
+//					Max_tickets_per_day: 25,
+//					Fields:              pulumi.String(json1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}

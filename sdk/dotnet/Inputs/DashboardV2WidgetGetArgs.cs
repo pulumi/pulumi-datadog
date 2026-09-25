@@ -55,6 +55,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardV2WidgetDistributionDefinitionGetArgs>? DistributionDefinition { get; set; }
 
         /// <summary>
+        /// The definition for an App Builder embedded app widget.
+        /// </summary>
+        [Input("embeddedAppDefinition")]
+        public Input<Inputs.DashboardV2WidgetEmbeddedAppDefinitionGetArgs>? EmbeddedAppDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Event Stream widget.
         /// </summary>
         [Input("eventStreamDefinition")]

@@ -25,6 +25,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationMicrosof
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationNewRelic;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationOpensearch;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationOpentelemetry;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationPrometheusRemoteWrite;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationRsyslog;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSentinelOne;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationSocket;
@@ -156,6 +157,11 @@ public final class ObservabilityPipelineConfigDestination {
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationOpentelemetry opentelemetry;
+    /**
+     * @return The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationPrometheusRemoteWrite prometheusRemoteWrite;
     /**
      * @return The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
      * 
@@ -355,6 +361,13 @@ public final class ObservabilityPipelineConfigDestination {
         return Optional.ofNullable(this.opentelemetry);
     }
     /**
+     * @return The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationPrometheusRemoteWrite> prometheusRemoteWrite() {
+        return Optional.ofNullable(this.prometheusRemoteWrite);
+    }
+    /**
      * @return The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
      * 
      */
@@ -436,6 +449,7 @@ public final class ObservabilityPipelineConfigDestination {
         private @Nullable List<ObservabilityPipelineConfigDestinationNewRelic> newRelics;
         private @Nullable List<ObservabilityPipelineConfigDestinationOpensearch> opensearches;
         private @Nullable ObservabilityPipelineConfigDestinationOpentelemetry opentelemetry;
+        private @Nullable ObservabilityPipelineConfigDestinationPrometheusRemoteWrite prometheusRemoteWrite;
         private @Nullable List<ObservabilityPipelineConfigDestinationRsyslog> rsyslogs;
         private @Nullable List<ObservabilityPipelineConfigDestinationSentinelOne> sentinelOnes;
         private @Nullable List<ObservabilityPipelineConfigDestinationSocket> sockets;
@@ -469,6 +483,7 @@ public final class ObservabilityPipelineConfigDestination {
     	      this.newRelics = defaults.newRelics;
     	      this.opensearches = defaults.opensearches;
     	      this.opentelemetry = defaults.opentelemetry;
+    	      this.prometheusRemoteWrite = defaults.prometheusRemoteWrite;
     	      this.rsyslogs = defaults.rsyslogs;
     	      this.sentinelOnes = defaults.sentinelOnes;
     	      this.sockets = defaults.sockets;
@@ -672,6 +687,12 @@ public final class ObservabilityPipelineConfigDestination {
             return this;
         }
         @CustomType.Setter
+        public Builder prometheusRemoteWrite(@Nullable ObservabilityPipelineConfigDestinationPrometheusRemoteWrite prometheusRemoteWrite) {
+
+            this.prometheusRemoteWrite = prometheusRemoteWrite;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rsyslogs(@Nullable List<ObservabilityPipelineConfigDestinationRsyslog> rsyslogs) {
 
             this.rsyslogs = rsyslogs;
@@ -756,6 +777,7 @@ public final class ObservabilityPipelineConfigDestination {
             _resultValue.newRelics = newRelics;
             _resultValue.opensearches = opensearches;
             _resultValue.opentelemetry = opentelemetry;
+            _resultValue.prometheusRemoteWrite = prometheusRemoteWrite;
             _resultValue.rsyslogs = rsyslogs;
             _resultValue.sentinelOnes = sentinelOnes;
             _resultValue.sockets = sockets;

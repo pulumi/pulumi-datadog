@@ -12,6 +12,7 @@ import com.pulumi.datadog.inputs.PowerpackV2WidgetChangeDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetCheckStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetCohortDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetDistributionDefinitionArgs;
+import com.pulumi.datadog.inputs.PowerpackV2WidgetEmbeddedAppDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetEventStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetEventTimelineDefinitionArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetFreeTextDefinitionArgs;
@@ -157,6 +158,21 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
      */
     public Optional<Output<PowerpackV2WidgetDistributionDefinitionArgs>> distributionDefinition() {
         return Optional.ofNullable(this.distributionDefinition);
+    }
+
+    /**
+     * The definition for an App Builder embedded app widget.
+     * 
+     */
+    @Import(name="embeddedAppDefinition")
+    private @Nullable Output<PowerpackV2WidgetEmbeddedAppDefinitionArgs> embeddedAppDefinition;
+
+    /**
+     * @return The definition for an App Builder embedded app widget.
+     * 
+     */
+    public Optional<Output<PowerpackV2WidgetEmbeddedAppDefinitionArgs>> embeddedAppDefinition() {
+        return Optional.ofNullable(this.embeddedAppDefinition);
     }
 
     /**
@@ -664,6 +680,7 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
         this.checkStatusDefinition = $.checkStatusDefinition;
         this.cohortDefinition = $.cohortDefinition;
         this.distributionDefinition = $.distributionDefinition;
+        this.embeddedAppDefinition = $.embeddedAppDefinition;
         this.eventStreamDefinition = $.eventStreamDefinition;
         this.eventTimelineDefinition = $.eventTimelineDefinition;
         this.freeTextDefinition = $.freeTextDefinition;
@@ -862,6 +879,27 @@ public final class PowerpackV2WidgetGroupDefinitionWidgetArgs extends com.pulumi
          */
         public Builder distributionDefinition(PowerpackV2WidgetDistributionDefinitionArgs distributionDefinition) {
             return distributionDefinition(Output.of(distributionDefinition));
+        }
+
+        /**
+         * @param embeddedAppDefinition The definition for an App Builder embedded app widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder embeddedAppDefinition(@Nullable Output<PowerpackV2WidgetEmbeddedAppDefinitionArgs> embeddedAppDefinition) {
+            $.embeddedAppDefinition = embeddedAppDefinition;
+            return this;
+        }
+
+        /**
+         * @param embeddedAppDefinition The definition for an App Builder embedded app widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder embeddedAppDefinition(PowerpackV2WidgetEmbeddedAppDefinitionArgs embeddedAppDefinition) {
+            return embeddedAppDefinition(Output.of(embeddedAppDefinition));
         }
 
         /**

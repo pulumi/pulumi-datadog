@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class GetMonitorConfigPoliciesMonitorConfigPolicyResult
     {
         /// <summary>
+        /// Config for a downtime duration policy. Only set if `PolicyType` is `Downtime`.
+        /// </summary>
+        public readonly Outputs.GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicyResult DowntimePolicy;
+        /// <summary>
         /// ID of the monitor config policy
         /// </summary>
         public readonly string Id;
@@ -28,12 +32,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private GetMonitorConfigPoliciesMonitorConfigPolicyResult(
+            Outputs.GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicyResult downtimePolicy,
+
             string id,
 
             string policyType,
 
             Outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicyResult tagPolicy)
         {
+            DowntimePolicy = downtimePolicy;
             Id = id;
             PolicyType = policyType;
             TagPolicy = tagPolicy;

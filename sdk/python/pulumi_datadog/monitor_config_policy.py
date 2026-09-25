@@ -22,14 +22,18 @@ __all__ = ['MonitorConfigPolicyArgs', 'MonitorConfigPolicy']
 class MonitorConfigPolicyArgs:
     def __init__(__self__, *,
                  policy_type: pulumi.Input[_builtins.str],
+                 downtime_policy: pulumi.Input[Optional['MonitorConfigPolicyDowntimePolicyArgs']] = None,
                  tag_policy: pulumi.Input[Optional['MonitorConfigPolicyTagPolicyArgs']] = None):
         """
         The set of arguments for constructing a MonitorConfigPolicy resource.
 
-        :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`.
+        :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`, `downtime`.
+        :param pulumi.Input['MonitorConfigPolicyDowntimePolicyArgs'] downtime_policy: Config for a downtime duration policy. Only set if `policy_type` is `downtime`.
         :param pulumi.Input['MonitorConfigPolicyTagPolicyArgs'] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
         pulumi.set(__self__, "policy_type", policy_type)
+        if downtime_policy is not None:
+            pulumi.set(__self__, "downtime_policy", downtime_policy)
         if tag_policy is not None:
             pulumi.set(__self__, "tag_policy", tag_policy)
 
@@ -37,13 +41,25 @@ class MonitorConfigPolicyArgs:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The monitor config policy type Valid values are `tag`.
+        The monitor config policy type Valid values are `tag`, `downtime`.
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
     def policy_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "policy_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="downtimePolicy")
+    def downtime_policy(self) -> pulumi.Input[Optional['MonitorConfigPolicyDowntimePolicyArgs']]:
+        """
+        Config for a downtime duration policy. Only set if `policy_type` is `downtime`.
+        """
+        return pulumi.get(self, "downtime_policy")
+
+    @downtime_policy.setter
+    def downtime_policy(self, value: pulumi.Input[Optional['MonitorConfigPolicyDowntimePolicyArgs']]):
+        pulumi.set(self, "downtime_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="tagPolicy")
@@ -61,24 +77,40 @@ class MonitorConfigPolicyArgs:
 @pulumi.input_type
 class _MonitorConfigPolicyState:
     def __init__(__self__, *,
+                 downtime_policy: pulumi.Input[Optional['MonitorConfigPolicyDowntimePolicyArgs']] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tag_policy: pulumi.Input[Optional['MonitorConfigPolicyTagPolicyArgs']] = None):
         """
         Input properties used for looking up and filtering MonitorConfigPolicy resources.
 
-        :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`.
+        :param pulumi.Input['MonitorConfigPolicyDowntimePolicyArgs'] downtime_policy: Config for a downtime duration policy. Only set if `policy_type` is `downtime`.
+        :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`, `downtime`.
         :param pulumi.Input['MonitorConfigPolicyTagPolicyArgs'] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
+        if downtime_policy is not None:
+            pulumi.set(__self__, "downtime_policy", downtime_policy)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
         if tag_policy is not None:
             pulumi.set(__self__, "tag_policy", tag_policy)
 
     @_builtins.property
+    @pulumi.getter(name="downtimePolicy")
+    def downtime_policy(self) -> pulumi.Input[Optional['MonitorConfigPolicyDowntimePolicyArgs']]:
+        """
+        Config for a downtime duration policy. Only set if `policy_type` is `downtime`.
+        """
+        return pulumi.get(self, "downtime_policy")
+
+    @downtime_policy.setter
+    def downtime_policy(self, value: pulumi.Input[Optional['MonitorConfigPolicyDowntimePolicyArgs']]):
+        pulumi.set(self, "downtime_policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The monitor config policy type Valid values are `tag`.
+        The monitor config policy type Valid values are `tag`, `downtime`.
         """
         return pulumi.get(self, "policy_type")
 
@@ -105,6 +137,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 downtime_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyDowntimePolicyArgs', 'MonitorConfigPolicyDowntimePolicyArgsDict', 'outputs.MonitorConfigPolicyDowntimePolicy']]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']]] = None,
                  __props__=None):
@@ -127,12 +160,18 @@ class MonitorConfigPolicy(pulumi.CustomResource):
                     "prod",
                 ],
             })
+        downtime_example = datadog.MonitorConfigPolicy("downtime_example",
+            policy_type="downtime",
+            downtime_policy={
+                "max_duration_ms": 3600000,
+            })
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`.
+        :param pulumi.Input[Union['MonitorConfigPolicyDowntimePolicyArgs', 'MonitorConfigPolicyDowntimePolicyArgsDict', 'outputs.MonitorConfigPolicyDowntimePolicy']] downtime_policy: Config for a downtime duration policy. Only set if `policy_type` is `downtime`.
+        :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`, `downtime`.
         :param pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
         ...
@@ -160,6 +199,11 @@ class MonitorConfigPolicy(pulumi.CustomResource):
                     "prod",
                 ],
             })
+        downtime_example = datadog.MonitorConfigPolicy("downtime_example",
+            policy_type="downtime",
+            downtime_policy={
+                "max_duration_ms": 3600000,
+            })
         ```
 
 
@@ -178,6 +222,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 downtime_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyDowntimePolicyArgs', 'MonitorConfigPolicyDowntimePolicyArgsDict', 'outputs.MonitorConfigPolicyDowntimePolicy']]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']]] = None,
                  __props__=None):
@@ -189,6 +234,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitorConfigPolicyArgs.__new__(MonitorConfigPolicyArgs)
 
+            __props__.__dict__["downtime_policy"] = downtime_policy
             if policy_type is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type'")
             __props__.__dict__["policy_type"] = policy_type
@@ -203,6 +249,7 @@ class MonitorConfigPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            downtime_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyDowntimePolicyArgs', 'MonitorConfigPolicyDowntimePolicyArgsDict', 'outputs.MonitorConfigPolicyDowntimePolicy']]] = None,
             policy_type: pulumi.Input[Optional[_builtins.str]] = None,
             tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']]] = None) -> 'MonitorConfigPolicy':
         """
@@ -212,22 +259,32 @@ class MonitorConfigPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`.
+        :param pulumi.Input[Union['MonitorConfigPolicyDowntimePolicyArgs', 'MonitorConfigPolicyDowntimePolicyArgsDict', 'outputs.MonitorConfigPolicyDowntimePolicy']] downtime_policy: Config for a downtime duration policy. Only set if `policy_type` is `downtime`.
+        :param pulumi.Input[_builtins.str] policy_type: The monitor config policy type Valid values are `tag`, `downtime`.
         :param pulumi.Input[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']] tag_policy: Config for a tag policy. Only set if `policy_type` is `tag`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _MonitorConfigPolicyState.__new__(_MonitorConfigPolicyState)
 
+        __props__.__dict__["downtime_policy"] = downtime_policy
         __props__.__dict__["policy_type"] = policy_type
         __props__.__dict__["tag_policy"] = tag_policy
         return MonitorConfigPolicy(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
+    @pulumi.getter(name="downtimePolicy")
+    def downtime_policy(self) -> pulumi.Output[Optional['outputs.MonitorConfigPolicyDowntimePolicy']]:
+        """
+        Config for a downtime duration policy. Only set if `policy_type` is `downtime`.
+        """
+        return pulumi.get(self, "downtime_policy")
+
+    @_builtins.property
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The monitor config policy type Valid values are `tag`.
+        The monitor config policy type Valid values are `tag`, `downtime`.
         """
         return pulumi.get(self, "policy_type")
 

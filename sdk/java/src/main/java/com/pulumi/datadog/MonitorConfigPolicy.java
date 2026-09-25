@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.MonitorConfigPolicyArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.MonitorConfigPolicyState;
+import com.pulumi.datadog.outputs.MonitorConfigPolicyDowntimePolicy;
 import com.pulumi.datadog.outputs.MonitorConfigPolicyTagPolicy;
 import java.lang.String;
 import java.util.Optional;
@@ -30,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.MonitorConfigPolicy;
  * import com.pulumi.datadog.MonitorConfigPolicyArgs;
  * import com.pulumi.datadog.inputs.MonitorConfigPolicyTagPolicyArgs;
+ * import com.pulumi.datadog.inputs.MonitorConfigPolicyDowntimePolicyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,6 +56,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var downtimeExample = new MonitorConfigPolicy("downtimeExample", MonitorConfigPolicyArgs.builder()
+ *             .policyType("downtime")
+ *             .downtimePolicy(MonitorConfigPolicyDowntimePolicyArgs.builder()
+ *                 .maxDurationMs(3600000)
+ *                 .build())
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -63,14 +72,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/monitorConfigPolicy:MonitorConfigPolicy")
 public class MonitorConfigPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The monitor config policy type Valid values are `tag`.
+     * Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+     * 
+     */
+    @Export(name="downtimePolicy", refs={MonitorConfigPolicyDowntimePolicy.class}, tree="[0]")
+    private Output</* @Nullable */ MonitorConfigPolicyDowntimePolicy> downtimePolicy;
+
+    /**
+     * @return Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+     * 
+     */
+    public Output<Optional<MonitorConfigPolicyDowntimePolicy>> downtimePolicy() {
+        return Codegen.optional(this.downtimePolicy);
+    }
+    /**
+     * The monitor config policy type Valid values are `tag`, `downtime`.
      * 
      */
     @Export(name="policyType", refs={String.class}, tree="[0]")
     private Output<String> policyType;
 
     /**
-     * @return The monitor config policy type Valid values are `tag`.
+     * @return The monitor config policy type Valid values are `tag`, `downtime`.
      * 
      */
     public Output<String> policyType() {

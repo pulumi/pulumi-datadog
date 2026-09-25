@@ -92,18 +92,33 @@ public final class SloCorrectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * ID of the SLO that this correction will be applied to.
+     * ID of the single SLO that this correction will be applied to.
      * 
      */
     @Import(name="sloId")
     private @Nullable Output<String> sloId;
 
     /**
-     * @return ID of the SLO that this correction will be applied to.
+     * @return ID of the single SLO that this correction will be applied to.
      * 
      */
     public Optional<Output<String>> sloId() {
         return Optional.ofNullable(this.sloId);
+    }
+
+    /**
+     * Query that matches the SLOs this correction will be applied to.
+     * 
+     */
+    @Import(name="sloQuery")
+    private @Nullable Output<String> sloQuery;
+
+    /**
+     * @return Query that matches the SLOs this correction will be applied to.
+     * 
+     */
+    public Optional<Output<String>> sloQuery() {
+        return Optional.ofNullable(this.sloQuery);
     }
 
     /**
@@ -145,6 +160,7 @@ public final class SloCorrectionState extends com.pulumi.resources.ResourceArgs 
         this.end = $.end;
         this.rrule = $.rrule;
         this.sloId = $.sloId;
+        this.sloQuery = $.sloQuery;
         this.start = $.start;
         this.timezone = $.timezone;
     }
@@ -273,7 +289,7 @@ public final class SloCorrectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sloId ID of the SLO that this correction will be applied to.
+         * @param sloId ID of the single SLO that this correction will be applied to.
          * 
          * @return builder
          * 
@@ -284,13 +300,34 @@ public final class SloCorrectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sloId ID of the SLO that this correction will be applied to.
+         * @param sloId ID of the single SLO that this correction will be applied to.
          * 
          * @return builder
          * 
          */
         public Builder sloId(String sloId) {
             return sloId(Output.of(sloId));
+        }
+
+        /**
+         * @param sloQuery Query that matches the SLOs this correction will be applied to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sloQuery(@Nullable Output<String> sloQuery) {
+            $.sloQuery = sloQuery;
+            return this;
+        }
+
+        /**
+         * @param sloQuery Query that matches the SLOs this correction will be applied to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sloQuery(String sloQuery) {
+            return sloQuery(Output.of(sloQuery));
         }
 
         /**

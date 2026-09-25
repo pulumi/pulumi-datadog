@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -22,6 +24,9 @@ import * as utilities from "./utilities";
  *         "team:bar",
  *     ],
  *     published: true,
+ *     runAs: {
+ *         type: "owner",
+ *     },
  *     specJson: JSON.stringify({
  *         triggers: [{
  *             startStepNames: ["Send_Email"],
@@ -107,6 +112,14 @@ export class WorkflowAutomation extends pulumi.CustomResource {
      */
     declare public readonly published: pulumi.Output<boolean>;
     /**
+     * Identity used to run the workflow. When omitted, the server-managed value is preserved.
+     */
+    declare public readonly runAs: pulumi.Output<outputs.WorkflowAutomationRunAs>;
+    /**
+     * Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+     */
+    declare public readonly sensitivePrivileges: pulumi.Output<boolean>;
+    /**
      * The spec defines what the workflow does.
      */
     declare public readonly specJson: pulumi.Output<string>;
@@ -135,6 +148,8 @@ export class WorkflowAutomation extends pulumi.CustomResource {
             resourceInputs["description"] = state?.description;
             resourceInputs["name"] = state?.name;
             resourceInputs["published"] = state?.published;
+            resourceInputs["runAs"] = state?.runAs;
+            resourceInputs["sensitivePrivileges"] = state?.sensitivePrivileges;
             resourceInputs["specJson"] = state?.specJson;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["webhookSecret"] = state?.webhookSecret;
@@ -158,6 +173,8 @@ export class WorkflowAutomation extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["name"] = args?.name;
             resourceInputs["published"] = args?.published;
+            resourceInputs["runAs"] = args?.runAs;
+            resourceInputs["sensitivePrivileges"] = args?.sensitivePrivileges;
             resourceInputs["specJson"] = args?.specJson;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["webhookSecret"] = args?.webhookSecret ? pulumi.secret(args.webhookSecret) : undefined;
@@ -185,6 +202,14 @@ export interface WorkflowAutomationState {
      * Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
      */
     published?: pulumi.Input<boolean | undefined>;
+    /**
+     * Identity used to run the workflow. When omitted, the server-managed value is preserved.
+     */
+    runAs?: pulumi.Input<inputs.WorkflowAutomationRunAs | undefined>;
+    /**
+     * Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+     */
+    sensitivePrivileges?: pulumi.Input<boolean | undefined>;
     /**
      * The spec defines what the workflow does.
      */
@@ -215,6 +240,14 @@ export interface WorkflowAutomationArgs {
      * Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
      */
     published: pulumi.Input<boolean>;
+    /**
+     * Identity used to run the workflow. When omitted, the server-managed value is preserved.
+     */
+    runAs?: pulumi.Input<inputs.WorkflowAutomationRunAs | undefined>;
+    /**
+     * Whether the workflow requires sensitive privileges to run. When omitted, the server-managed value is preserved. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+     */
+    sensitivePrivileges?: pulumi.Input<boolean | undefined>;
     /**
      * The spec defines what the workflow does.
      */

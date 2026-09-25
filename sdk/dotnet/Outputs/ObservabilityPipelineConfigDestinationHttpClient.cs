@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigDestinationHttpClient
     {
         /// <summary>
-        /// HTTP authentication strategy. Valid values are `None`, `Basic`, `Bearer`.
+        /// HTTP authentication strategy. Valid values are `None`, `Basic`, `Bearer`, `Custom`.
         /// </summary>
         public readonly string? AuthStrategy;
         /// <summary>
@@ -25,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// Compression configuration for HTTP requests.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationHttpClientCompression? Compression;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the custom authentication header value. Used with the `Custom` auth strategy.
+        /// </summary>
+        public readonly string? CustomKey;
         /// <summary>
         /// Encoding format for events. Valid values are `Json`.
         /// </summary>
@@ -58,6 +62,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigDestinationHttpClientCompression? compression,
 
+            string? customKey,
+
             string encoding,
 
             string? passwordKey,
@@ -73,6 +79,7 @@ namespace Pulumi.Datadog.Outputs
             AuthStrategy = authStrategy;
             Buffer = buffer;
             Compression = compression;
+            CustomKey = customKey;
             Encoding = encoding;
             PasswordKey = passwordKey;
             Tls = tls;

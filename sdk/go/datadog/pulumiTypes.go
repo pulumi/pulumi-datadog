@@ -16333,6 +16333,8 @@ type DashboardV2Widget struct {
 	CohortDefinition *DashboardV2WidgetCohortDefinition `pulumi:"cohortDefinition"`
 	// The definition for a Distribution widget.
 	DistributionDefinition *DashboardV2WidgetDistributionDefinition `pulumi:"distributionDefinition"`
+	// The definition for an App Builder embedded app widget.
+	EmbeddedAppDefinition *DashboardV2WidgetEmbeddedAppDefinition `pulumi:"embeddedAppDefinition"`
 	// The definition for a Event Stream widget.
 	EventStreamDefinition *DashboardV2WidgetEventStreamDefinition `pulumi:"eventStreamDefinition"`
 	// The definition for a Event Timeline widget.
@@ -16433,6 +16435,8 @@ type DashboardV2WidgetArgs struct {
 	CohortDefinition DashboardV2WidgetCohortDefinitionPtrInput `pulumi:"cohortDefinition"`
 	// The definition for a Distribution widget.
 	DistributionDefinition DashboardV2WidgetDistributionDefinitionPtrInput `pulumi:"distributionDefinition"`
+	// The definition for an App Builder embedded app widget.
+	EmbeddedAppDefinition DashboardV2WidgetEmbeddedAppDefinitionPtrInput `pulumi:"embeddedAppDefinition"`
 	// The definition for a Event Stream widget.
 	EventStreamDefinition DashboardV2WidgetEventStreamDefinitionPtrInput `pulumi:"eventStreamDefinition"`
 	// The definition for a Event Timeline widget.
@@ -16591,6 +16595,11 @@ func (o DashboardV2WidgetOutput) CohortDefinition() DashboardV2WidgetCohortDefin
 // The definition for a Distribution widget.
 func (o DashboardV2WidgetOutput) DistributionDefinition() DashboardV2WidgetDistributionDefinitionPtrOutput {
 	return o.ApplyT(func(v DashboardV2Widget) *DashboardV2WidgetDistributionDefinition { return v.DistributionDefinition }).(DashboardV2WidgetDistributionDefinitionPtrOutput)
+}
+
+// The definition for an App Builder embedded app widget.
+func (o DashboardV2WidgetOutput) EmbeddedAppDefinition() DashboardV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return o.ApplyT(func(v DashboardV2Widget) *DashboardV2WidgetEmbeddedAppDefinition { return v.EmbeddedAppDefinition }).(DashboardV2WidgetEmbeddedAppDefinitionPtrOutput)
 }
 
 // The definition for a Event Stream widget.
@@ -42959,6 +42968,1041 @@ func (o DashboardV2WidgetDistributionDefinitionYaxisPtrOutput) Scale() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type DashboardV2WidgetEmbeddedAppDefinition struct {
+	// UUID of the App Builder app to embed. Exactly one of `appId` or `templateId` must be provided.
+	AppId *string `pulumi:"appId"`
+	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+	CustomLinks []DashboardV2WidgetEmbeddedAppDefinitionCustomLink `pulumi:"customLinks"`
+	// The description of the widget.
+	Description *string `pulumi:"description"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
+	// A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+	Inputs []DashboardV2WidgetEmbeddedAppDefinitionInputType `pulumi:"inputs"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan *string `pulumi:"liveSpan"`
+	// ID of the built-in app template to embed. Exactly one of `appId` or `templateId` must be provided.
+	TemplateId *string `pulumi:"templateId"`
+	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+	Time *DashboardV2WidgetEmbeddedAppDefinitionTime `pulumi:"time"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign *string `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize *string `pulumi:"titleSize"`
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionArgs and DashboardV2WidgetEmbeddedAppDefinitionOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionInput` via:
+//
+//	DashboardV2WidgetEmbeddedAppDefinitionArgs{...}
+type DashboardV2WidgetEmbeddedAppDefinitionInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionOutput() DashboardV2WidgetEmbeddedAppDefinitionOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionOutput
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionArgs struct {
+	// UUID of the App Builder app to embed. Exactly one of `appId` or `templateId` must be provided.
+	AppId pulumi.StringPtrInput `pulumi:"appId"`
+	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+	CustomLinks DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayInput `pulumi:"customLinks"`
+	// The description of the widget.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
+	// A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+	Inputs DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayInput `pulumi:"inputs"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
+	// ID of the built-in app template to embed. Exactly one of `appId` or `templateId` must be provided.
+	TemplateId pulumi.StringPtrInput `pulumi:"templateId"`
+	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+	Time DashboardV2WidgetEmbeddedAppDefinitionTimePtrInput `pulumi:"time"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
+}
+
+func (DashboardV2WidgetEmbeddedAppDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinition)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionArgs) ToDashboardV2WidgetEmbeddedAppDefinitionOutput() DashboardV2WidgetEmbeddedAppDefinitionOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionArgs) ToDashboardV2WidgetEmbeddedAppDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionOutput)
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionArgs) ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutput() DashboardV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionArgs) ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionOutput).ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutputWithContext(ctx)
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionPtrInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionArgs, DashboardV2WidgetEmbeddedAppDefinitionPtr and DashboardV2WidgetEmbeddedAppDefinitionPtrOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionPtrInput` via:
+//
+//	        DashboardV2WidgetEmbeddedAppDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2WidgetEmbeddedAppDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutput() DashboardV2WidgetEmbeddedAppDefinitionPtrOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionPtrOutput
+}
+
+type dashboardV2WidgetEmbeddedAppDefinitionPtrType DashboardV2WidgetEmbeddedAppDefinitionArgs
+
+func DashboardV2WidgetEmbeddedAppDefinitionPtr(v *DashboardV2WidgetEmbeddedAppDefinitionArgs) DashboardV2WidgetEmbeddedAppDefinitionPtrInput {
+	return (*dashboardV2WidgetEmbeddedAppDefinitionPtrType)(v)
+}
+
+func (*dashboardV2WidgetEmbeddedAppDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetEmbeddedAppDefinition)(nil)).Elem()
+}
+
+func (i *dashboardV2WidgetEmbeddedAppDefinitionPtrType) ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutput() DashboardV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2WidgetEmbeddedAppDefinitionPtrType) ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionPtrOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinition)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) ToDashboardV2WidgetEmbeddedAppDefinitionOutput() DashboardV2WidgetEmbeddedAppDefinitionOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) ToDashboardV2WidgetEmbeddedAppDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutput() DashboardV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return o.ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetEmbeddedAppDefinition) *DashboardV2WidgetEmbeddedAppDefinition {
+		return &v
+	}).(DashboardV2WidgetEmbeddedAppDefinitionPtrOutput)
+}
+
+// UUID of the App Builder app to embed. Exactly one of `appId` or `templateId` must be provided.
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) *string { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) CustomLinks() DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) []DashboardV2WidgetEmbeddedAppDefinitionCustomLink {
+		return v.CustomLinks
+	}).(DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput)
+}
+
+// The description of the widget.
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
+}
+
+// A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) Inputs() DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) []DashboardV2WidgetEmbeddedAppDefinitionInputType {
+		return v.Inputs
+	}).(DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
+}
+
+// ID of the built-in app template to embed. Exactly one of `appId` or `templateId` must be provided.
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) TemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) *string { return v.TemplateId }).(pulumi.StringPtrOutput)
+}
+
+// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) Time() DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) *DashboardV2WidgetEmbeddedAppDefinitionTime {
+		return v.Time
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput)
+}
+
+// The title of the widget.
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o DashboardV2WidgetEmbeddedAppDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetEmbeddedAppDefinition)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutput() DashboardV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) ToDashboardV2WidgetEmbeddedAppDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) Elem() DashboardV2WidgetEmbeddedAppDefinitionOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) DashboardV2WidgetEmbeddedAppDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2WidgetEmbeddedAppDefinition
+		return ret
+	}).(DashboardV2WidgetEmbeddedAppDefinitionOutput)
+}
+
+// UUID of the App Builder app to embed. Exactly one of `appId` or `templateId` must be provided.
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) CustomLinks() DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) []DashboardV2WidgetEmbeddedAppDefinitionCustomLink {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLinks
+	}).(DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput)
+}
+
+// The description of the widget.
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HideIncompleteCostData
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A nested block describing an input passed to the embedded app. Multiple `input` blocks are allowed.
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) Inputs() DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) []DashboardV2WidgetEmbeddedAppDefinitionInputType {
+		if v == nil {
+			return nil
+		}
+		return v.Inputs
+	}).(DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LiveSpan
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the built-in app template to embed. Exactly one of `appId` or `templateId` must be provided.
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) TemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) Time() DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) *DashboardV2WidgetEmbeddedAppDefinitionTime {
+		if v == nil {
+			return nil
+		}
+		return v.Time
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput)
+}
+
+// The title of the widget.
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleAlign
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o DashboardV2WidgetEmbeddedAppDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleSize
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionCustomLink struct {
+	// The flag for toggling context menu link visibility.
+	IsHidden *bool `pulumi:"isHidden"`
+	// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+	Label *string `pulumi:"label"`
+	// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+	Link *string `pulumi:"link"`
+	// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+	OverrideLabel *string `pulumi:"overrideLabel"`
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionCustomLinkInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs and DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionCustomLinkInput` via:
+//
+//	DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs{...}
+type DashboardV2WidgetEmbeddedAppDefinitionCustomLinkInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput() DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs struct {
+	// The flag for toggling context menu link visibility.
+	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
+	// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+	Link pulumi.StringPtrInput `pulumi:"link"`
+	// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+	OverrideLabel pulumi.StringPtrInput `pulumi:"overrideLabel"`
+}
+
+func (DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionCustomLink)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs) ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput() DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs) ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput)
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArray and DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayInput` via:
+//
+//	DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArray{ DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs{...} }
+type DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput() DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArray []DashboardV2WidgetEmbeddedAppDefinitionCustomLinkInput
+
+func (DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetEmbeddedAppDefinitionCustomLink)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArray) ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput() DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArray) ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionCustomLink)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput) ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput() DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput) ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput {
+	return o
+}
+
+// The flag for toggling context menu link visibility.
+func (o DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput) IsHidden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionCustomLink) *bool { return v.IsHidden }).(pulumi.BoolPtrOutput)
+}
+
+// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
+func (o DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionCustomLink) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
+func (o DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput) Link() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionCustomLink) *string { return v.Link }).(pulumi.StringPtrOutput)
+}
+
+// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
+func (o DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput) OverrideLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionCustomLink) *string { return v.OverrideLabel }).(pulumi.StringPtrOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetEmbeddedAppDefinitionCustomLink)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput) ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput() DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput) ToDashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetEmbeddedAppDefinitionCustomLink {
+		return vs[0].([]DashboardV2WidgetEmbeddedAppDefinitionCustomLink)[vs[1].(int)]
+	}).(DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionInputType struct {
+	// Name of the app input.
+	Name string `pulumi:"name"`
+	// JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+	Value string `pulumi:"value"`
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionInputTypeInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionInputTypeArgs and DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionInputTypeInput` via:
+//
+//	DashboardV2WidgetEmbeddedAppDefinitionInputTypeArgs{...}
+type DashboardV2WidgetEmbeddedAppDefinitionInputTypeInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput() DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionInputTypeArgs struct {
+	// Name of the app input.
+	Name pulumi.StringInput `pulumi:"name"`
+	// JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DashboardV2WidgetEmbeddedAppDefinitionInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionInputType)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionInputTypeArgs) ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput() DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionInputTypeArgs) ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput)
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionInputTypeArray and DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayInput` via:
+//
+//	DashboardV2WidgetEmbeddedAppDefinitionInputTypeArray{ DashboardV2WidgetEmbeddedAppDefinitionInputTypeArgs{...} }
+type DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput() DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionInputTypeArray []DashboardV2WidgetEmbeddedAppDefinitionInputTypeInput
+
+func (DashboardV2WidgetEmbeddedAppDefinitionInputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetEmbeddedAppDefinitionInputType)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionInputTypeArray) ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput() DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionInputTypeArray) ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionInputType)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput) ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput() DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput) ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput {
+	return o
+}
+
+// Name of the app input.
+func (o DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionInputType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// JSON-encoded value of the app input. Use `jsonencode()` for strings, numbers, booleans, objects, and arrays.
+func (o DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionInputType) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardV2WidgetEmbeddedAppDefinitionInputType)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput) ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput() DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput) ToDashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetEmbeddedAppDefinitionInputType {
+		return vs[0].([]DashboardV2WidgetEmbeddedAppDefinitionInputType)[vs[1].(int)]
+	}).(DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTime struct {
+	// A fixed time range with explicit start and end times.
+	Fixed *DashboardV2WidgetEmbeddedAppDefinitionTimeFixed `pulumi:"fixed"`
+	// An arbitrary live time span, such as 17 minutes or 6 hours.
+	Live *DashboardV2WidgetEmbeddedAppDefinitionTimeLive `pulumi:"live"`
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionTimeInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionTimeArgs and DashboardV2WidgetEmbeddedAppDefinitionTimeOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionTimeInput` via:
+//
+//	DashboardV2WidgetEmbeddedAppDefinitionTimeArgs{...}
+type DashboardV2WidgetEmbeddedAppDefinitionTimeInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimeOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimeOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeOutput
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimeArgs struct {
+	// A fixed time range with explicit start and end times.
+	Fixed DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrInput `pulumi:"fixed"`
+	// An arbitrary live time span, such as 17 minutes or 6 hours.
+	Live DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrInput `pulumi:"live"`
+}
+
+func (DashboardV2WidgetEmbeddedAppDefinitionTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTime)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimeOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionTimeOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionTimeOutput)
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionTimeOutput).ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutputWithContext(ctx)
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionTimePtrInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionTimeArgs, DashboardV2WidgetEmbeddedAppDefinitionTimePtr and DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionTimePtrInput` via:
+//
+//	        DashboardV2WidgetEmbeddedAppDefinitionTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2WidgetEmbeddedAppDefinitionTimePtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput
+}
+
+type dashboardV2WidgetEmbeddedAppDefinitionTimePtrType DashboardV2WidgetEmbeddedAppDefinitionTimeArgs
+
+func DashboardV2WidgetEmbeddedAppDefinitionTimePtr(v *DashboardV2WidgetEmbeddedAppDefinitionTimeArgs) DashboardV2WidgetEmbeddedAppDefinitionTimePtrInput {
+	return (*dashboardV2WidgetEmbeddedAppDefinitionTimePtrType)(v)
+}
+
+func (*dashboardV2WidgetEmbeddedAppDefinitionTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetEmbeddedAppDefinitionTime)(nil)).Elem()
+}
+
+func (i *dashboardV2WidgetEmbeddedAppDefinitionTimePtrType) ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2WidgetEmbeddedAppDefinitionTimePtrType) ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimeOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTime)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput {
+	return o.ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetEmbeddedAppDefinitionTime) *DashboardV2WidgetEmbeddedAppDefinitionTime {
+		return &v
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput)
+}
+
+// A fixed time range with explicit start and end times.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeOutput) Fixed() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionTime) *DashboardV2WidgetEmbeddedAppDefinitionTimeFixed {
+		return v.Fixed
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput)
+}
+
+// An arbitrary live time span, such as 17 minutes or 6 hours.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeOutput) Live() DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionTime) *DashboardV2WidgetEmbeddedAppDefinitionTimeLive {
+		return v.Live
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetEmbeddedAppDefinitionTime)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput) Elem() DashboardV2WidgetEmbeddedAppDefinitionTimeOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinitionTime) DashboardV2WidgetEmbeddedAppDefinitionTime {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2WidgetEmbeddedAppDefinitionTime
+		return ret
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimeOutput)
+}
+
+// A fixed time range with explicit start and end times.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput) Fixed() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinitionTime) *DashboardV2WidgetEmbeddedAppDefinitionTimeFixed {
+		if v == nil {
+			return nil
+		}
+		return v.Fixed
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput)
+}
+
+// An arbitrary live time span, such as 17 minutes or 6 hours.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput) Live() DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinitionTime) *DashboardV2WidgetEmbeddedAppDefinitionTimeLive {
+		if v == nil {
+			return nil
+		}
+		return v.Live
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimeFixed struct {
+	// Start time in seconds since epoch.
+	From int `pulumi:"from"`
+	// End time in seconds since epoch.
+	To int `pulumi:"to"`
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionTimeFixedInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs and DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionTimeFixedInput` via:
+//
+//	DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs{...}
+type DashboardV2WidgetEmbeddedAppDefinitionTimeFixedInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs struct {
+	// Start time in seconds since epoch.
+	From pulumi.IntInput `pulumi:"from"`
+	// End time in seconds since epoch.
+	To pulumi.IntInput `pulumi:"to"`
+}
+
+func (DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput)
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput).ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutputWithContext(ctx)
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs, DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtr and DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrInput` via:
+//
+//	        DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput
+}
+
+type dashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrType DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs
+
+func DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtr(v *DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs) DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrInput {
+	return (*dashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrType)(v)
+}
+
+func (*dashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetEmbeddedAppDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (i *dashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrType) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrType) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput {
+	return o.ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetEmbeddedAppDefinitionTimeFixed) *DashboardV2WidgetEmbeddedAppDefinitionTimeFixed {
+		return &v
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput)
+}
+
+// Start time in seconds since epoch.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput) From() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
+}
+
+// End time in seconds since epoch.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput) To() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetEmbeddedAppDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput) Elem() DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinitionTimeFixed) DashboardV2WidgetEmbeddedAppDefinitionTimeFixed {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2WidgetEmbeddedAppDefinitionTimeFixed
+		return ret
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput)
+}
+
+// Start time in seconds since epoch.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinitionTimeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// End time in seconds since epoch.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinitionTimeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.To
+	}).(pulumi.IntPtrOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimeLive struct {
+	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit string `pulumi:"unit"`
+	// Value of the time span.
+	Value int `pulumi:"value"`
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionTimeLiveInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs and DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionTimeLiveInput` via:
+//
+//	DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs{...}
+type DashboardV2WidgetEmbeddedAppDefinitionTimeLiveInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs struct {
+	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value of the time span.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTimeLive)(nil)).Elem()
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput)
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput).ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutputWithContext(ctx)
+}
+
+// DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrInput is an input type that accepts DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs, DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtr and DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput values.
+// You can construct a concrete instance of `DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrInput` via:
+//
+//	        DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput
+	ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutputWithContext(context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput
+}
+
+type dashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrType DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs
+
+func DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtr(v *DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs) DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrInput {
+	return (*dashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrType)(v)
+}
+
+func (*dashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetEmbeddedAppDefinitionTimeLive)(nil)).Elem()
+}
+
+func (i *dashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrType) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput {
+	return i.ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrType) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTimeLive)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput {
+	return o.ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetEmbeddedAppDefinitionTimeLive) *DashboardV2WidgetEmbeddedAppDefinitionTimeLive {
+		return &v
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput)
+}
+
+// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Value of the time span.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardV2WidgetEmbeddedAppDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2WidgetEmbeddedAppDefinitionTimeLive)(nil)).Elem()
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput() DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput) ToDashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput {
+	return o
+}
+
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput) Elem() DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinitionTimeLive) DashboardV2WidgetEmbeddedAppDefinitionTimeLive {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2WidgetEmbeddedAppDefinitionTimeLive
+		return ret
+	}).(DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput)
+}
+
+// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinitionTimeLive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the time span.
+func (o DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetEmbeddedAppDefinitionTimeLive) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type DashboardV2WidgetEventStreamDefinition struct {
 	// The description of the widget.
 	Description *string `pulumi:"description"`
@@ -51994,6 +53038,8 @@ type DashboardV2WidgetGroupDefinitionWidget struct {
 	CohortDefinition *DashboardV2WidgetCohortDefinition `pulumi:"cohortDefinition"`
 	// The definition for a Distribution widget.
 	DistributionDefinition *DashboardV2WidgetDistributionDefinition `pulumi:"distributionDefinition"`
+	// The definition for an App Builder embedded app widget.
+	EmbeddedAppDefinition *DashboardV2WidgetEmbeddedAppDefinition `pulumi:"embeddedAppDefinition"`
 	// The definition for a Event Stream widget.
 	EventStreamDefinition *DashboardV2WidgetEventStreamDefinition `pulumi:"eventStreamDefinition"`
 	// The definition for a Event Timeline widget.
@@ -52088,6 +53134,8 @@ type DashboardV2WidgetGroupDefinitionWidgetArgs struct {
 	CohortDefinition DashboardV2WidgetCohortDefinitionPtrInput `pulumi:"cohortDefinition"`
 	// The definition for a Distribution widget.
 	DistributionDefinition DashboardV2WidgetDistributionDefinitionPtrInput `pulumi:"distributionDefinition"`
+	// The definition for an App Builder embedded app widget.
+	EmbeddedAppDefinition DashboardV2WidgetEmbeddedAppDefinitionPtrInput `pulumi:"embeddedAppDefinition"`
 	// The definition for a Event Stream widget.
 	EventStreamDefinition DashboardV2WidgetEventStreamDefinitionPtrInput `pulumi:"eventStreamDefinition"`
 	// The definition for a Event Timeline widget.
@@ -52254,6 +53302,13 @@ func (o DashboardV2WidgetGroupDefinitionWidgetOutput) DistributionDefinition() D
 	return o.ApplyT(func(v DashboardV2WidgetGroupDefinitionWidget) *DashboardV2WidgetDistributionDefinition {
 		return v.DistributionDefinition
 	}).(DashboardV2WidgetDistributionDefinitionPtrOutput)
+}
+
+// The definition for an App Builder embedded app widget.
+func (o DashboardV2WidgetGroupDefinitionWidgetOutput) EmbeddedAppDefinition() DashboardV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetGroupDefinitionWidget) *DashboardV2WidgetEmbeddedAppDefinition {
+		return v.EmbeddedAppDefinition
+	}).(DashboardV2WidgetEmbeddedAppDefinitionPtrOutput)
 }
 
 // The definition for a Event Stream widget.
@@ -83739,716 +84794,6 @@ func (o DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput) Index(i pulumi.In
 	}).(DashboardV2WidgetPointPlotDefinitionMarkerOutput)
 }
 
-type DashboardV2WidgetPointPlotDefinitionRequest struct {
-	// Maximum number of data points to return.
-	Limit *int `pulumi:"limit"`
-	// Projection configuration for the point plot request.
-	Projection DashboardV2WidgetPointPlotDefinitionRequestProjection `pulumi:"projection"`
-	// Query configuration for the point plot request.
-	Query DashboardV2WidgetPointPlotDefinitionRequestQuery `pulumi:"query"`
-	// The type of data request. Must be `dataProjection`. Valid values are `dataProjection`.
-	RequestType string `pulumi:"requestType"`
-}
-
-// DashboardV2WidgetPointPlotDefinitionRequestInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestArgs and DashboardV2WidgetPointPlotDefinitionRequestOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionRequestArgs{...}
-type DashboardV2WidgetPointPlotDefinitionRequestInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionRequestOutput() DashboardV2WidgetPointPlotDefinitionRequestOutput
-	ToDashboardV2WidgetPointPlotDefinitionRequestOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestArgs struct {
-	// Maximum number of data points to return.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// Projection configuration for the point plot request.
-	Projection DashboardV2WidgetPointPlotDefinitionRequestProjectionInput `pulumi:"projection"`
-	// Query configuration for the point plot request.
-	Query DashboardV2WidgetPointPlotDefinitionRequestQueryInput `pulumi:"query"`
-	// The type of data request. Must be `dataProjection`. Valid values are `dataProjection`.
-	RequestType pulumi.StringInput `pulumi:"requestType"`
-}
-
-func (DashboardV2WidgetPointPlotDefinitionRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequest)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestArgs) ToDashboardV2WidgetPointPlotDefinitionRequestOutput() DashboardV2WidgetPointPlotDefinitionRequestOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionRequestOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestArgs) ToDashboardV2WidgetPointPlotDefinitionRequestOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestOutput)
-}
-
-// DashboardV2WidgetPointPlotDefinitionRequestArrayInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestArray and DashboardV2WidgetPointPlotDefinitionRequestArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestArrayInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionRequestArray{ DashboardV2WidgetPointPlotDefinitionRequestArgs{...} }
-type DashboardV2WidgetPointPlotDefinitionRequestArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestArrayOutput
-	ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestArrayOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestArray []DashboardV2WidgetPointPlotDefinitionRequestInput
-
-func (DashboardV2WidgetPointPlotDefinitionRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionRequest)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestArray) ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestArrayOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestArray) ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestArrayOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequest)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) ToDashboardV2WidgetPointPlotDefinitionRequestOutput() DashboardV2WidgetPointPlotDefinitionRequestOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) ToDashboardV2WidgetPointPlotDefinitionRequestOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestOutput {
-	return o
-}
-
-// Maximum number of data points to return.
-func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequest) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// Projection configuration for the point plot request.
-func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) Projection() DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequest) DashboardV2WidgetPointPlotDefinitionRequestProjection {
-		return v.Projection
-	}).(DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput)
-}
-
-// Query configuration for the point plot request.
-func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) Query() DashboardV2WidgetPointPlotDefinitionRequestQueryOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequest) DashboardV2WidgetPointPlotDefinitionRequestQuery {
-		return v.Query
-	}).(DashboardV2WidgetPointPlotDefinitionRequestQueryOutput)
-}
-
-// The type of data request. Must be `dataProjection`. Valid values are `dataProjection`.
-func (o DashboardV2WidgetPointPlotDefinitionRequestOutput) RequestType() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequest) string { return v.RequestType }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionRequest)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestArrayOutput) ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestArrayOutput) ToDashboardV2WidgetPointPlotDefinitionRequestArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetPointPlotDefinitionRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetPointPlotDefinitionRequest {
-		return vs[0].([]DashboardV2WidgetPointPlotDefinitionRequest)[vs[1].(int)]
-	}).(DashboardV2WidgetPointPlotDefinitionRequestOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestProjection struct {
-	// List of dimension mappings for the projection.
-	Dimensions []DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension `pulumi:"dimensions"`
-	// Additional columns to include in the projection.
-	ExtraColumns []string `pulumi:"extraColumns"`
-	// Type of the projection. Must be `pointPlot`. Valid values are `pointPlot`.
-	Type string `pulumi:"type"`
-}
-
-// DashboardV2WidgetPointPlotDefinitionRequestProjectionInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs and DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestProjectionInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs{...}
-type DashboardV2WidgetPointPlotDefinitionRequestProjectionInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput
-	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs struct {
-	// List of dimension mappings for the projection.
-	Dimensions DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayInput `pulumi:"dimensions"`
-	// Additional columns to include in the projection.
-	ExtraColumns pulumi.StringArrayInput `pulumi:"extraColumns"`
-	// Type of the projection. Must be `pointPlot`. Valid values are `pointPlot`.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjection)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjection)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput {
-	return o
-}
-
-// List of dimension mappings for the projection.
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) Dimensions() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjection) []DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension {
-		return v.Dimensions
-	}).(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput)
-}
-
-// Additional columns to include in the projection.
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) ExtraColumns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjection) []string { return v.ExtraColumns }).(pulumi.StringArrayOutput)
-}
-
-// Type of the projection. Must be `pointPlot`. Valid values are `pointPlot`.
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjection) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension struct {
-	// Alias for the column.
-	Alias *string `pulumi:"alias"`
-	// Source column name from the dataset.
-	Column string `pulumi:"column"`
-	// Dimension of the point plot. Valid values are `group`, `time`, `y`, `radius`.
-	Dimension string `pulumi:"dimension"`
-}
-
-// DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs and DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs{...}
-type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput
-	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs struct {
-	// Alias for the column.
-	Alias pulumi.StringPtrInput `pulumi:"alias"`
-	// Source column name from the dataset.
-	Column pulumi.StringInput `pulumi:"column"`
-	// Dimension of the point plot. Valid values are `group`, `time`, `y`, `radius`.
-	Dimension pulumi.StringInput `pulumi:"dimension"`
-}
-
-func (DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput)
-}
-
-// DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray and DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray{ DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs{...} }
-type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput
-	ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray []DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionInput
-
-func (DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput {
-	return o
-}
-
-// Alias for the column.
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) Alias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension) *string { return v.Alias }).(pulumi.StringPtrOutput)
-}
-
-// Source column name from the dataset.
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) Column() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension) string { return v.Column }).(pulumi.StringOutput)
-}
-
-// Dimension of the point plot. Valid values are `group`, `time`, `y`, `radius`.
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput) Dimension() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension) string { return v.Dimension }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput() DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput) ToDashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension {
-		return vs[0].([]DashboardV2WidgetPointPlotDefinitionRequestProjectionDimension)[vs[1].(int)]
-	}).(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestQuery struct {
-	// Data source for the query (for example, `logs`).
-	DataSource string `pulumi:"dataSource"`
-	// List of indexes to query.
-	Indexes []string `pulumi:"indexes"`
-	// The query string to filter events.
-	QueryString string `pulumi:"queryString"`
-	// Storage location for the query.
-	Storage *string `pulumi:"storage"`
-}
-
-// DashboardV2WidgetPointPlotDefinitionRequestQueryInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionRequestQueryArgs and DashboardV2WidgetPointPlotDefinitionRequestQueryOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionRequestQueryInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionRequestQueryArgs{...}
-type DashboardV2WidgetPointPlotDefinitionRequestQueryInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutput() DashboardV2WidgetPointPlotDefinitionRequestQueryOutput
-	ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionRequestQueryOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestQueryArgs struct {
-	// Data source for the query (for example, `logs`).
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// List of indexes to query.
-	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
-	// The query string to filter events.
-	QueryString pulumi.StringInput `pulumi:"queryString"`
-	// Storage location for the query.
-	Storage pulumi.StringPtrInput `pulumi:"storage"`
-}
-
-func (DashboardV2WidgetPointPlotDefinitionRequestQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestQueryArgs) ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutput() DashboardV2WidgetPointPlotDefinitionRequestQueryOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionRequestQueryArgs) ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionRequestQueryOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionRequestQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutput() DashboardV2WidgetPointPlotDefinitionRequestQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) ToDashboardV2WidgetPointPlotDefinitionRequestQueryOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionRequestQueryOutput {
-	return o
-}
-
-// Data source for the query (for example, `logs`).
-func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// List of indexes to query.
-func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
-}
-
-// The query string to filter events.
-func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) QueryString() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestQuery) string { return v.QueryString }).(pulumi.StringOutput)
-}
-
-// Storage location for the query.
-func (o DashboardV2WidgetPointPlotDefinitionRequestQueryOutput) Storage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionRequestQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *DashboardV2WidgetPointPlotDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *DashboardV2WidgetPointPlotDefinitionTimeLive `pulumi:"live"`
-}
-
-// DashboardV2WidgetPointPlotDefinitionTimeInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionTimeArgs and DashboardV2WidgetPointPlotDefinitionTimeOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionTimeInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionTimeArgs{...}
-type DashboardV2WidgetPointPlotDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionTimeOutput() DashboardV2WidgetPointPlotDefinitionTimeOutput
-	ToDashboardV2WidgetPointPlotDefinitionTimeOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionTimeOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live DashboardV2WidgetPointPlotDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (DashboardV2WidgetPointPlotDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTime)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionTimeArgs) ToDashboardV2WidgetPointPlotDefinitionTimeOutput() DashboardV2WidgetPointPlotDefinitionTimeOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionTimeArgs) ToDashboardV2WidgetPointPlotDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimeOutput)
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionTimeArgs) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutput() DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionTimeArgs) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimeOutput).ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetPointPlotDefinitionTimePtrInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionTimeArgs, DashboardV2WidgetPointPlotDefinitionTimePtr and DashboardV2WidgetPointPlotDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionTimePtrInput` via:
-//
-//	        DashboardV2WidgetPointPlotDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetPointPlotDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionTimePtrOutput() DashboardV2WidgetPointPlotDefinitionTimePtrOutput
-	ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionTimePtrOutput
-}
-
-type dashboardV2WidgetPointPlotDefinitionTimePtrType DashboardV2WidgetPointPlotDefinitionTimeArgs
-
-func DashboardV2WidgetPointPlotDefinitionTimePtr(v *DashboardV2WidgetPointPlotDefinitionTimeArgs) DashboardV2WidgetPointPlotDefinitionTimePtrInput {
-	return (*dashboardV2WidgetPointPlotDefinitionTimePtrType)(v)
-}
-
-func (*dashboardV2WidgetPointPlotDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinitionTime)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetPointPlotDefinitionTimePtrType) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutput() DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetPointPlotDefinitionTimePtrType) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimePtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) ToDashboardV2WidgetPointPlotDefinitionTimeOutput() DashboardV2WidgetPointPlotDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) ToDashboardV2WidgetPointPlotDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutput() DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
-	return o.ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetPointPlotDefinitionTime) *DashboardV2WidgetPointPlotDefinitionTime {
-		return &v
-	}).(DashboardV2WidgetPointPlotDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) Fixed() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionTime) *DashboardV2WidgetPointPlotDefinitionTimeFixed {
-		return v.Fixed
-	}).(DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetPointPlotDefinitionTimeOutput) Live() DashboardV2WidgetPointPlotDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionTime) *DashboardV2WidgetPointPlotDefinitionTimeLive {
-		return v.Live
-	}).(DashboardV2WidgetPointPlotDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimePtrOutput) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutput() DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimePtrOutput) ToDashboardV2WidgetPointPlotDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimePtrOutput) Elem() DashboardV2WidgetPointPlotDefinitionTimeOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTime) DashboardV2WidgetPointPlotDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetPointPlotDefinitionTime
-		return ret
-	}).(DashboardV2WidgetPointPlotDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetPointPlotDefinitionTimePtrOutput) Fixed() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTime) *DashboardV2WidgetPointPlotDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetPointPlotDefinitionTimePtrOutput) Live() DashboardV2WidgetPointPlotDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTime) *DashboardV2WidgetPointPlotDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(DashboardV2WidgetPointPlotDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// DashboardV2WidgetPointPlotDefinitionTimeFixedInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionTimeFixedArgs and DashboardV2WidgetPointPlotDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionTimeFixedInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionTimeFixedArgs{...}
-type DashboardV2WidgetPointPlotDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedOutput
-	ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimeFixedOutput)
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimeFixedOutput).ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionTimeFixedArgs, DashboardV2WidgetPointPlotDefinitionTimeFixedPtr and DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput` via:
-//
-//	        DashboardV2WidgetPointPlotDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput
-	ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput
-}
-
-type dashboardV2WidgetPointPlotDefinitionTimeFixedPtrType DashboardV2WidgetPointPlotDefinitionTimeFixedArgs
-
-func DashboardV2WidgetPointPlotDefinitionTimeFixedPtr(v *DashboardV2WidgetPointPlotDefinitionTimeFixedArgs) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput {
-	return (*dashboardV2WidgetPointPlotDefinitionTimeFixedPtrType)(v)
-}
-
-func (*dashboardV2WidgetPointPlotDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetPointPlotDefinitionTimeFixedPtrType) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetPointPlotDefinitionTimeFixedPtrType) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
-	return o.ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetPointPlotDefinitionTimeFixed) *DashboardV2WidgetPointPlotDefinitionTimeFixed {
-		return &v
-	}).(DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput() DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) Elem() DashboardV2WidgetPointPlotDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTimeFixed) DashboardV2WidgetPointPlotDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetPointPlotDefinitionTimeFixed
-		return ret
-	}).(DashboardV2WidgetPointPlotDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAnthropicInput)(nil)).Elem(), ActionConnectionAnthropicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAnthropicPtrInput)(nil)).Elem(), ActionConnectionAnthropicArgs{})
@@ -84982,6 +85327,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetDistributionDefinitionXaxisPtrInput)(nil)).Elem(), DashboardV2WidgetDistributionDefinitionXaxisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetDistributionDefinitionYaxisInput)(nil)).Elem(), DashboardV2WidgetDistributionDefinitionYaxisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetDistributionDefinitionYaxisPtrInput)(nil)).Elem(), DashboardV2WidgetDistributionDefinitionYaxisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionPtrInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionCustomLinkInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionInputTypeInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionInputTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionTimeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTimeLiveInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrInput)(nil)).Elem(), DashboardV2WidgetEmbeddedAppDefinitionTimeLiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEventStreamDefinitionInput)(nil)).Elem(), DashboardV2WidgetEventStreamDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEventStreamDefinitionPtrInput)(nil)).Elem(), DashboardV2WidgetEventStreamDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetEventStreamDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetEventStreamDefinitionTimeArgs{})
@@ -85429,16 +85786,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionLegendPtrInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionLegendArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionMarkerInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionMarkerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionMarkerArrayInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionMarkerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestArrayInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjectionInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestProjectionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionRequestQueryInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionRequestQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionTimeFixedArgs{})
 	pulumi.RegisterOutputType(ActionConnectionAnthropicOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAnthropicPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAnthropicApiKeyOutput{})
@@ -85971,6 +86318,18 @@ func init() {
 	pulumi.RegisterOutputType(DashboardV2WidgetDistributionDefinitionXaxisPtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetDistributionDefinitionYaxisOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetDistributionDefinitionYaxisPtrOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionCustomLinkOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionCustomLinkArrayOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionInputTypeOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionInputTypeArrayOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionTimeOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionTimePtrOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionTimeFixedOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionTimeFixedPtrOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionTimeLiveOutput{})
+	pulumi.RegisterOutputType(DashboardV2WidgetEmbeddedAppDefinitionTimeLivePtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetEventStreamDefinitionOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetEventStreamDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetEventStreamDefinitionTimeOutput{})
@@ -86418,14 +86777,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionLegendPtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionMarkerOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestProjectionOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestProjectionDimensionArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionRequestQueryOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionTimeFixedPtrOutput{})
 }

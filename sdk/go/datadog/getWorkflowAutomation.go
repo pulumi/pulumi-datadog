@@ -64,6 +64,10 @@ type LookupWorkflowAutomationResult struct {
 	Name string `pulumi:"name"`
 	// Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 	Published bool `pulumi:"published"`
+	// Identity used to run the workflow.
+	RunAs GetWorkflowAutomationRunAs `pulumi:"runAs"`
+	// Whether the workflow requires sensitive privileges to run. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+	SensitivePrivileges bool `pulumi:"sensitivePrivileges"`
 	// The spec defines what the workflow does.
 	SpecJson string `pulumi:"specJson"`
 	// Tags of the workflow.
@@ -118,6 +122,16 @@ func (o LookupWorkflowAutomationResultOutput) Name() pulumi.StringOutput {
 // Set the workflow to published or unpublished. Workflows in an unpublished state are only executable through manual runs. Automatic triggers such as Schedule do not execute the workflow until it is published.
 func (o LookupWorkflowAutomationResultOutput) Published() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWorkflowAutomationResult) bool { return v.Published }).(pulumi.BoolOutput)
+}
+
+// Identity used to run the workflow.
+func (o LookupWorkflowAutomationResultOutput) RunAs() GetWorkflowAutomationRunAsOutput {
+	return o.ApplyT(func(v LookupWorkflowAutomationResult) GetWorkflowAutomationRunAs { return v.RunAs }).(GetWorkflowAutomationRunAsOutput)
+}
+
+// Whether the workflow requires sensitive privileges to run. Only the workflow owner can update this field. This allows it to run actions that use [Execution Policies](https://docs.datadoghq.com/actions/private_actions/execution_policies/).
+func (o LookupWorkflowAutomationResultOutput) SensitivePrivileges() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupWorkflowAutomationResult) bool { return v.SensitivePrivileges }).(pulumi.BoolOutput)
 }
 
 // The spec defines what the workflow does.

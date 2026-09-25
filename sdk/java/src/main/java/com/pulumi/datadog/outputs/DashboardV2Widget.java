@@ -11,6 +11,7 @@ import com.pulumi.datadog.outputs.DashboardV2WidgetChangeDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetCheckStatusDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetCohortDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetDistributionDefinition;
+import com.pulumi.datadog.outputs.DashboardV2WidgetEmbeddedAppDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetEventStreamDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetEventTimelineDefinition;
 import com.pulumi.datadog.outputs.DashboardV2WidgetFreeTextDefinition;
@@ -88,6 +89,11 @@ public final class DashboardV2Widget {
      * 
      */
     private @Nullable DashboardV2WidgetDistributionDefinition distributionDefinition;
+    /**
+     * @return The definition for an App Builder embedded app widget.
+     * 
+     */
+    private @Nullable DashboardV2WidgetEmbeddedAppDefinition embeddedAppDefinition;
     /**
      * @return The definition for a Event Stream widget.
      * 
@@ -318,6 +324,13 @@ public final class DashboardV2Widget {
      */
     public Optional<DashboardV2WidgetDistributionDefinition> distributionDefinition() {
         return Optional.ofNullable(this.distributionDefinition);
+    }
+    /**
+     * @return The definition for an App Builder embedded app widget.
+     * 
+     */
+    public Optional<DashboardV2WidgetEmbeddedAppDefinition> embeddedAppDefinition() {
+        return Optional.ofNullable(this.embeddedAppDefinition);
     }
     /**
      * @return The definition for a Event Stream widget.
@@ -588,6 +601,7 @@ public final class DashboardV2Widget {
         private @Nullable DashboardV2WidgetCheckStatusDefinition checkStatusDefinition;
         private @Nullable DashboardV2WidgetCohortDefinition cohortDefinition;
         private @Nullable DashboardV2WidgetDistributionDefinition distributionDefinition;
+        private @Nullable DashboardV2WidgetEmbeddedAppDefinition embeddedAppDefinition;
         private @Nullable DashboardV2WidgetEventStreamDefinition eventStreamDefinition;
         private @Nullable DashboardV2WidgetEventTimelineDefinition eventTimelineDefinition;
         private @Nullable DashboardV2WidgetFreeTextDefinition freeTextDefinition;
@@ -634,6 +648,7 @@ public final class DashboardV2Widget {
     	      this.checkStatusDefinition = defaults.checkStatusDefinition;
     	      this.cohortDefinition = defaults.cohortDefinition;
     	      this.distributionDefinition = defaults.distributionDefinition;
+    	      this.embeddedAppDefinition = defaults.embeddedAppDefinition;
     	      this.eventStreamDefinition = defaults.eventStreamDefinition;
     	      this.eventTimelineDefinition = defaults.eventTimelineDefinition;
     	      this.freeTextDefinition = defaults.freeTextDefinition;
@@ -712,6 +727,12 @@ public final class DashboardV2Widget {
         public Builder distributionDefinition(@Nullable DashboardV2WidgetDistributionDefinition distributionDefinition) {
 
             this.distributionDefinition = distributionDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder embeddedAppDefinition(@Nullable DashboardV2WidgetEmbeddedAppDefinition embeddedAppDefinition) {
+
+            this.embeddedAppDefinition = embeddedAppDefinition;
             return this;
         }
         @CustomType.Setter
@@ -939,6 +960,7 @@ public final class DashboardV2Widget {
             _resultValue.checkStatusDefinition = checkStatusDefinition;
             _resultValue.cohortDefinition = cohortDefinition;
             _resultValue.distributionDefinition = distributionDefinition;
+            _resultValue.embeddedAppDefinition = embeddedAppDefinition;
             _resultValue.eventStreamDefinition = eventStreamDefinition;
             _resultValue.eventTimelineDefinition = eventTimelineDefinition;
             _resultValue.freeTextDefinition = freeTextDefinition;

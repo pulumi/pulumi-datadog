@@ -219,27 +219,35 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
     /**
      * The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
      * 
+     * @deprecated
+     * This processor is deprecated, use `generateMetrics` instead.
+     * 
      */
+    @Deprecated /* This processor is deprecated, use `generateMetrics` instead. */
     @Import(name="generateDatadogMetrics")
     private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs> generateDatadogMetrics;
 
     /**
      * @return The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
      * 
+     * @deprecated
+     * This processor is deprecated, use `generateMetrics` instead.
+     * 
      */
+    @Deprecated /* This processor is deprecated, use `generateMetrics` instead. */
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs>> generateDatadogMetrics() {
         return Optional.ofNullable(this.generateDatadogMetrics);
     }
 
     /**
-     * The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+     * The `generateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `&lt;processor-id&gt;.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
      * 
      */
     @Import(name="generateMetrics")
     private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs> generateMetrics;
 
     /**
-     * @return The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+     * @return The `generateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `&lt;processor-id&gt;.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs>> generateMetrics() {
@@ -800,7 +808,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
          * 
          * @return builder
          * 
+         * @deprecated
+         * This processor is deprecated, use `generateMetrics` instead.
+         * 
          */
+        @Deprecated /* This processor is deprecated, use `generateMetrics` instead. */
         public Builder generateDatadogMetrics(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs> generateDatadogMetrics) {
             $.generateDatadogMetrics = generateDatadogMetrics;
             return this;
@@ -811,13 +823,17 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
          * 
          * @return builder
          * 
+         * @deprecated
+         * This processor is deprecated, use `generateMetrics` instead.
+         * 
          */
+        @Deprecated /* This processor is deprecated, use `generateMetrics` instead. */
         public Builder generateDatadogMetrics(ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs generateDatadogMetrics) {
             return generateDatadogMetrics(Output.of(generateDatadogMetrics));
         }
 
         /**
-         * @param generateMetrics The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+         * @param generateMetrics The `generateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `&lt;processor-id&gt;.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
          * 
          * @return builder
          * 
@@ -828,7 +844,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
         }
 
         /**
-         * @param generateMetrics The `generateMetrics` processor creates custom metrics from logs. The generated metrics must be routed to a metrics destination using the input `&lt;processor-id&gt;.metrics`.
+         * @param generateMetrics The `generateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `&lt;processor-id&gt;.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
          * 
          * @return builder
          * 

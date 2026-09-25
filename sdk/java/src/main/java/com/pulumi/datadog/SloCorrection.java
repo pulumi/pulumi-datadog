@@ -82,6 +82,15 @@ import javax.annotation.Nullable;
  *             .timezone("UTC")
  *             .build());
  * 
+ *         var exampleSloCorrectionWithQuery = new SloCorrection("exampleSloCorrectionWithQuery", SloCorrectionArgs.builder()
+ *             .category("Scheduled Maintenance")
+ *             .description("correction example with query")
+ *             .start(1735707000)
+ *             .end(1735718600)
+ *             .sloQuery("env:prod service:checkout")
+ *             .timezone("UTC")
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -169,18 +178,32 @@ public class SloCorrection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rrule);
     }
     /**
-     * ID of the SLO that this correction will be applied to.
+     * ID of the single SLO that this correction will be applied to.
      * 
      */
     @Export(name="sloId", refs={String.class}, tree="[0]")
-    private Output<String> sloId;
+    private Output</* @Nullable */ String> sloId;
 
     /**
-     * @return ID of the SLO that this correction will be applied to.
+     * @return ID of the single SLO that this correction will be applied to.
      * 
      */
-    public Output<String> sloId() {
-        return this.sloId;
+    public Output<Optional<String>> sloId() {
+        return Codegen.optional(this.sloId);
+    }
+    /**
+     * Query that matches the SLOs this correction will be applied to.
+     * 
+     */
+    @Export(name="sloQuery", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sloQuery;
+
+    /**
+     * @return Query that matches the SLOs this correction will be applied to.
+     * 
+     */
+    public Output<Optional<String>> sloQuery() {
+        return Codegen.optional(this.sloQuery);
     }
     /**
      * Starting time of the correction in epoch seconds.

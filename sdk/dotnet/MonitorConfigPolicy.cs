@@ -37,6 +37,15 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
+    ///     var downtimeExample = new Datadog.MonitorConfigPolicy("downtime_example", new()
+    ///     {
+    ///         PolicyType = "downtime",
+    ///         DowntimePolicy = new Datadog.Inputs.MonitorConfigPolicyDowntimePolicyArgs
+    ///         {
+    ///             MaxDurationMs = 3600000,
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// </summary>
@@ -44,7 +53,13 @@ namespace Pulumi.Datadog
     public partial class MonitorConfigPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The monitor config policy type Valid values are `Tag`.
+        /// Config for a downtime duration policy. Only set if `PolicyType` is `Downtime`.
+        /// </summary>
+        [Output("downtimePolicy")]
+        public Output<Outputs.MonitorConfigPolicyDowntimePolicy?> DowntimePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The monitor config policy type Valid values are `Tag`, `Downtime`.
         /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
@@ -102,7 +117,13 @@ namespace Pulumi.Datadog
     public sealed class MonitorConfigPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The monitor config policy type Valid values are `Tag`.
+        /// Config for a downtime duration policy. Only set if `PolicyType` is `Downtime`.
+        /// </summary>
+        [Input("downtimePolicy")]
+        public Input<Inputs.MonitorConfigPolicyDowntimePolicyArgs>? DowntimePolicy { get; set; }
+
+        /// <summary>
+        /// The monitor config policy type Valid values are `Tag`, `Downtime`.
         /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
@@ -122,7 +143,13 @@ namespace Pulumi.Datadog
     public sealed class MonitorConfigPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The monitor config policy type Valid values are `Tag`.
+        /// Config for a downtime duration policy. Only set if `PolicyType` is `Downtime`.
+        /// </summary>
+        [Input("downtimePolicy")]
+        public Input<Inputs.MonitorConfigPolicyDowntimePolicyGetArgs>? DowntimePolicy { get; set; }
+
+        /// <summary>
+        /// The monitor config policy type Valid values are `Tag`, `Downtime`.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }

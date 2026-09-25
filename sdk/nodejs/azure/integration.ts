@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  *     customMetricsEnabled: false,
  * });
  * // Or, using secretless (federated workload identity) authentication.
- * // Note: secretless authentication is currently in Preview.
  * const sandboxSecretless = new datadog.azure.Integration("sandbox_secretless", {
  *     tenantName: "<azure_tenant_name>",
  *     clientId: "<azure_client_id>",
@@ -125,7 +124,7 @@ export class Integration extends pulumi.CustomResource {
      */
     declare public readonly resourceProviderConfigs: pulumi.Output<outputs.azure.IntegrationResourceProviderConfig[]>;
     /**
-     * (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+     * When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking 'Set Up Secretless Auth'. When `true`, `clientSecret` should be omitted. Defaults to `false`.
      */
     declare public readonly secretlessAuthEnabled: pulumi.Output<boolean>;
     /**
@@ -250,7 +249,7 @@ export interface IntegrationState {
      */
     resourceProviderConfigs?: pulumi.Input<pulumi.Input<inputs.azure.IntegrationResourceProviderConfig>[] | undefined>;
     /**
-     * (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+     * When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking 'Set Up Secretless Auth'. When `true`, `clientSecret` should be omitted. Defaults to `false`.
      */
     secretlessAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -317,7 +316,7 @@ export interface IntegrationArgs {
      */
     resourceProviderConfigs?: pulumi.Input<pulumi.Input<inputs.azure.IntegrationResourceProviderConfig>[] | undefined>;
     /**
-     * (Preview) When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. The app registration must have a Datadog federated credential for this to work. When `true`, `clientSecret` should be omitted. Defaults to `false`.
+     * When enabled, Datadog authenticates to this app registration using federated workload identity credentials instead of a client secret. You also need to set up a federated credential in your Azure App Registration with the proper External ID. Follow Terraform instructions in the Datadog UI to [onboard](https://app.datadoghq.com/integrations/azure/add) or [migrate](https://app.datadoghq.com/integrations/azure). Migration instructions can be found in the general tab by clicking 'Set Up Secretless Auth'. When `true`, `clientSecret` should be omitted. Defaults to `false`.
      */
     secretlessAuthEnabled?: pulumi.Input<boolean | undefined>;
     /**

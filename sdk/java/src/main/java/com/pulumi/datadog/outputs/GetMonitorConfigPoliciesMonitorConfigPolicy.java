@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicy;
 import com.pulumi.datadog.outputs.GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -11,6 +12,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMonitorConfigPoliciesMonitorConfigPolicy {
+    /**
+     * @return Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+     * 
+     */
+    private GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicy downtimePolicy;
     /**
      * @return ID of the monitor config policy
      * 
@@ -28,6 +34,13 @@ public final class GetMonitorConfigPoliciesMonitorConfigPolicy {
     private GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy tagPolicy;
 
     private GetMonitorConfigPoliciesMonitorConfigPolicy() {}
+    /**
+     * @return Config for a downtime duration policy. Only set if `policyType` is `downtime`.
+     * 
+     */
+    public GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicy downtimePolicy() {
+        return this.downtimePolicy;
+    }
     /**
      * @return ID of the monitor config policy
      * 
@@ -59,17 +72,27 @@ public final class GetMonitorConfigPoliciesMonitorConfigPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
+        private GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicy downtimePolicy;
         private String id;
         private String policyType;
         private GetMonitorConfigPoliciesMonitorConfigPolicyTagPolicy tagPolicy;
         public Builder() {}
         public Builder(GetMonitorConfigPoliciesMonitorConfigPolicy defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.downtimePolicy = defaults.downtimePolicy;
     	      this.id = defaults.id;
     	      this.policyType = defaults.policyType;
     	      this.tagPolicy = defaults.tagPolicy;
         }
 
+        @CustomType.Setter
+        public Builder downtimePolicy(GetMonitorConfigPoliciesMonitorConfigPolicyDowntimePolicy downtimePolicy) {
+            if (downtimePolicy == null) {
+              throw new MissingRequiredPropertyException("GetMonitorConfigPoliciesMonitorConfigPolicy", "downtimePolicy");
+            }
+            this.downtimePolicy = downtimePolicy;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -96,6 +119,7 @@ public final class GetMonitorConfigPoliciesMonitorConfigPolicy {
         }
         public GetMonitorConfigPoliciesMonitorConfigPolicy build() {
             final var _resultValue = new GetMonitorConfigPoliciesMonitorConfigPolicy();
+            _resultValue.downtimePolicy = downtimePolicy;
             _resultValue.id = id;
             _resultValue.policyType = policyType;
             _resultValue.tagPolicy = tagPolicy;

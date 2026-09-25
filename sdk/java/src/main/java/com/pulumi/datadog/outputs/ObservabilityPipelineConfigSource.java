@@ -15,6 +15,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceHttpServer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceKafka;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceLogstash;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceOpentelemetry;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourcePrometheusRemoteWrite;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceRsyslog;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSocket;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigSourceSplunkHec;
@@ -91,6 +92,11 @@ public final class ObservabilityPipelineConfigSource {
      * 
      */
     private @Nullable ObservabilityPipelineConfigSourceOpentelemetry opentelemetry;
+    /**
+     * @return The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigSourcePrometheusRemoteWrite prometheusRemoteWrite;
     /**
      * @return The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
      * 
@@ -213,6 +219,13 @@ public final class ObservabilityPipelineConfigSource {
         return Optional.ofNullable(this.opentelemetry);
     }
     /**
+     * @return The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigSourcePrometheusRemoteWrite> prometheusRemoteWrite() {
+        return Optional.ofNullable(this.prometheusRemoteWrite);
+    }
+    /**
      * @return The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
      * 
      */
@@ -283,6 +296,7 @@ public final class ObservabilityPipelineConfigSource {
         private @Nullable List<ObservabilityPipelineConfigSourceKafka> kafkas;
         private @Nullable List<ObservabilityPipelineConfigSourceLogstash> logstashes;
         private @Nullable ObservabilityPipelineConfigSourceOpentelemetry opentelemetry;
+        private @Nullable ObservabilityPipelineConfigSourcePrometheusRemoteWrite prometheusRemoteWrite;
         private @Nullable List<ObservabilityPipelineConfigSourceRsyslog> rsyslogs;
         private @Nullable List<ObservabilityPipelineConfigSourceSocket> sockets;
         private @Nullable List<ObservabilityPipelineConfigSourceSplunkHec> splunkHecs;
@@ -305,6 +319,7 @@ public final class ObservabilityPipelineConfigSource {
     	      this.kafkas = defaults.kafkas;
     	      this.logstashes = defaults.logstashes;
     	      this.opentelemetry = defaults.opentelemetry;
+    	      this.prometheusRemoteWrite = defaults.prometheusRemoteWrite;
     	      this.rsyslogs = defaults.rsyslogs;
     	      this.sockets = defaults.sockets;
     	      this.splunkHecs = defaults.splunkHecs;
@@ -419,6 +434,12 @@ public final class ObservabilityPipelineConfigSource {
             return this;
         }
         @CustomType.Setter
+        public Builder prometheusRemoteWrite(@Nullable ObservabilityPipelineConfigSourcePrometheusRemoteWrite prometheusRemoteWrite) {
+
+            this.prometheusRemoteWrite = prometheusRemoteWrite;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rsyslogs(@Nullable List<ObservabilityPipelineConfigSourceRsyslog> rsyslogs) {
 
             this.rsyslogs = rsyslogs;
@@ -492,6 +513,7 @@ public final class ObservabilityPipelineConfigSource {
             _resultValue.kafkas = kafkas;
             _resultValue.logstashes = logstashes;
             _resultValue.opentelemetry = opentelemetry;
+            _resultValue.prometheusRemoteWrite = prometheusRemoteWrite;
             _resultValue.rsyslogs = rsyslogs;
             _resultValue.sockets = sockets;
             _resultValue.splunkHecs = splunkHecs;
