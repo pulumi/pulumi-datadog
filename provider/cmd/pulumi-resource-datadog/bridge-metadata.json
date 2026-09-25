@@ -15021,6 +15021,32 @@
                                         }
                                     }
                                 },
+                                "embedded_app_definition": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "custom_link": {
+                                                "maxItemsOne": false
+                                            },
+                                            "input": {
+                                                "maxItemsOne": false
+                                            },
+                                            "time": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "fixed": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "live": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
                                 "event_stream_definition": {
                                     "maxItemsOne": true,
                                     "elem": {
@@ -17588,6 +17614,32 @@
                                                                     },
                                                                     "yaxis": {
                                                                         "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "embedded_app_definition": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "custom_link": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "input": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "time": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "fixed": {
+                                                                                    "maxItemsOne": true
+                                                                                },
+                                                                                "live": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -43187,6 +43239,19 @@
                     }
                 }
             },
+            "datadog_fleet_schedule": {
+                "current": "datadog:index/fleetSchedule:FleetSchedule",
+                "majorVersion": 5,
+                "fields": {
+                    "rule": {
+                        "fields": {
+                            "days_of_week": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_gcp_uc_config": {
                 "current": "datadog:index/gcpUcConfig:GcpUcConfig",
                 "majorVersion": 5,
@@ -44620,6 +44685,9 @@
                 "current": "datadog:index/monitorConfigPolicy:MonitorConfigPolicy",
                 "majorVersion": 5,
                 "fields": {
+                    "downtime_policy": {
+                        "maxItemsOne": true
+                    },
                     "tag_policy": {
                         "maxItemsOne": true,
                         "elem": {
@@ -45183,6 +45251,29 @@
                                                 }
                                             },
                                             "opentelemetry": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "tls": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "prometheus_remote_write": {
                                                 "maxItemsOne": true,
                                                 "elem": {
                                                     "fields": {
@@ -45992,6 +46083,26 @@
                                                     "fields": {
                                                         "tls": {
                                                             "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "prometheus_remote_write": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "tls": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "valid_token": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "path_to_token": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -51748,6 +51859,32 @@
                                         }
                                     }
                                 },
+                                "embedded_app_definition": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "custom_link": {
+                                                "maxItemsOne": false
+                                            },
+                                            "input": {
+                                                "maxItemsOne": false
+                                            },
+                                            "time": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "fixed": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "live": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
                                 "event_stream_definition": {
                                     "maxItemsOne": true,
                                     "elem": {
@@ -54315,6 +54452,32 @@
                                                                     },
                                                                     "yaxis": {
                                                                         "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "embedded_app_definition": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "custom_link": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "input": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "time": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "fixed": {
+                                                                                    "maxItemsOne": true
+                                                                                },
+                                                                                "live": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }
@@ -73854,6 +74017,19 @@
                     }
                 }
             },
+            "datadog_security_findings_default_inbox_rule": {
+                "current": "datadog:index/securityFindingsDefaultInboxRule:SecurityFindingsDefaultInboxRule",
+                "majorVersion": 5,
+                "fields": {
+                    "rule": {
+                        "fields": {
+                            "finding_types": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_security_findings_due_date_rule": {
                 "current": "datadog:index/securityFindingsDueDateRule:SecurityFindingsDueDateRule",
                 "majorVersion": 5,
@@ -73883,6 +74059,28 @@
                     }
                 }
             },
+            "datadog_security_findings_inbox_rule": {
+                "current": "datadog:index/securityFindingsInboxRule:SecurityFindingsInboxRule",
+                "majorVersion": 5,
+                "fields": {
+                    "rule": {
+                        "fields": {
+                            "finding_types": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
+            "datadog_security_findings_inbox_rules_order": {
+                "current": "datadog:index/securityFindingsInboxRulesOrder:SecurityFindingsInboxRulesOrder",
+                "majorVersion": 5,
+                "fields": {
+                    "rule_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "datadog_security_findings_mute_rule": {
                 "current": "datadog:index/securityFindingsMuteRule:SecurityFindingsMuteRule",
                 "majorVersion": 5,
@@ -73898,6 +74096,28 @@
             },
             "datadog_security_findings_mute_rules_order": {
                 "current": "datadog:index/securityFindingsMuteRulesOrder:SecurityFindingsMuteRulesOrder",
+                "majorVersion": 5,
+                "fields": {
+                    "rule_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_security_findings_severity_modifier_rule": {
+                "current": "datadog:index/securityFindingsSeverityModifierRule:SecurityFindingsSeverityModifierRule",
+                "majorVersion": 5,
+                "fields": {
+                    "rule": {
+                        "fields": {
+                            "finding_types": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
+            "datadog_security_findings_severity_modifier_rules_order": {
+                "current": "datadog:index/securityFindingsSeverityModifierRulesOrder:SecurityFindingsSeverityModifierRulesOrder",
                 "majorVersion": 5,
                 "fields": {
                     "rule_ids": {
@@ -75187,6 +75407,59 @@
                 "current": "datadog:index/getDatastoreItem:getDatastoreItem",
                 "majorVersion": 5
             },
+            "datadog_fleet_schedule": {
+                "current": "datadog:index/getFleetSchedule:getFleetSchedule",
+                "majorVersion": 5,
+                "fields": {
+                    "notification_rule": {
+                        "fields": {
+                            "handles": {
+                                "maxItemsOne": false
+                            },
+                            "tags": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "rule": {
+                        "fields": {
+                            "days_of_week": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
+            "datadog_fleet_schedules": {
+                "current": "datadog:index/getFleetSchedules:getFleetSchedules",
+                "majorVersion": 5,
+                "fields": {
+                    "schedules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "notification_rule": {
+                                    "fields": {
+                                        "handles": {
+                                            "maxItemsOne": false
+                                        },
+                                        "tags": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "rule": {
+                                    "fields": {
+                                        "days_of_week": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_gcp_uc_config": {
                 "current": "datadog:index/getGcpUcConfig:getGcpUcConfig",
                 "majorVersion": 5,
@@ -75554,6 +75827,9 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "downtime_policy": {
+                                    "maxItemsOne": true
+                                },
                                 "tag_policy": {
                                     "maxItemsOne": true,
                                     "elem": {
@@ -76341,6 +76617,7 @@
             "datadog_deployment_gate": {},
             "datadog_domain_allowlist": {},
             "datadog_downtime_schedule": {},
+            "datadog_fleet_schedule": {},
             "datadog_gcp_uc_config": {},
             "datadog_governance_control": {},
             "datadog_incident_notification_rule": {},
@@ -76395,10 +76672,15 @@
             "datadog_rum_retention_quota": {},
             "datadog_saml_idp_metadata": {},
             "datadog_secure_embed_dashboard": {},
+            "datadog_security_findings_default_inbox_rule": {},
             "datadog_security_findings_due_date_rule": {},
             "datadog_security_findings_due_date_rules_order": {},
+            "datadog_security_findings_inbox_rule": {},
+            "datadog_security_findings_inbox_rules_order": {},
             "datadog_security_findings_mute_rule": {},
             "datadog_security_findings_mute_rules_order": {},
+            "datadog_security_findings_severity_modifier_rule": {},
+            "datadog_security_findings_severity_modifier_rules_order": {},
             "datadog_security_findings_ticket_creation_rule": {},
             "datadog_security_findings_ticket_creation_rules_order": {},
             "datadog_security_monitoring_critical_asset": {},
@@ -76496,6 +76778,7 @@
             "datadog:index/domainAllowlist:DomainAllowlist": 1,
             "datadog:index/downtime:Downtime": 0,
             "datadog:index/downtimeSchedule:DowntimeSchedule": 1,
+            "datadog:index/fleetSchedule:FleetSchedule": 1,
             "datadog:index/gcpUcConfig:GcpUcConfig": 1,
             "datadog:index/governanceControl:GovernanceControl": 1,
             "datadog:index/incidentNotificationRule:IncidentNotificationRule": 1,
@@ -76547,10 +76830,15 @@
             "datadog:index/rumRetentionQuota:RumRetentionQuota": 1,
             "datadog:index/samlIdpMetadata:SamlIdpMetadata": 1,
             "datadog:index/secureEmbedDashboard:SecureEmbedDashboard": 1,
+            "datadog:index/securityFindingsDefaultInboxRule:SecurityFindingsDefaultInboxRule": 1,
             "datadog:index/securityFindingsDueDateRule:SecurityFindingsDueDateRule": 1,
             "datadog:index/securityFindingsDueDateRulesOrder:SecurityFindingsDueDateRulesOrder": 1,
+            "datadog:index/securityFindingsInboxRule:SecurityFindingsInboxRule": 1,
+            "datadog:index/securityFindingsInboxRulesOrder:SecurityFindingsInboxRulesOrder": 1,
             "datadog:index/securityFindingsMuteRule:SecurityFindingsMuteRule": 1,
             "datadog:index/securityFindingsMuteRulesOrder:SecurityFindingsMuteRulesOrder": 1,
+            "datadog:index/securityFindingsSeverityModifierRule:SecurityFindingsSeverityModifierRule": 1,
+            "datadog:index/securityFindingsSeverityModifierRulesOrder:SecurityFindingsSeverityModifierRulesOrder": 1,
             "datadog:index/securityFindingsTicketCreationRule:SecurityFindingsTicketCreationRule": 1,
             "datadog:index/securityFindingsTicketCreationRulesOrder:SecurityFindingsTicketCreationRulesOrder": 1,
             "datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset": 1,
@@ -76634,6 +76922,8 @@
             "datadog:index/getDashboardList:getDashboardList": 1,
             "datadog:index/getDatastore:getDatastore": 1,
             "datadog:index/getDatastoreItem:getDatastoreItem": 1,
+            "datadog:index/getFleetSchedule:getFleetSchedule": 1,
+            "datadog:index/getFleetSchedules:getFleetSchedules": 1,
             "datadog:index/getGcpUcConfig:getGcpUcConfig": 1,
             "datadog:index/getHosts:getHosts": 1,
             "datadog:index/getIncidentNotificationRule:getIncidentNotificationRule": 1,
