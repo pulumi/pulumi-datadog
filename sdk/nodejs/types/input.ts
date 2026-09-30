@@ -73756,6 +73756,485 @@ export namespace azure {
 export namespace config {
 }
 
+export namespace databricks {
+    export interface IntegrationAccountAuthentication {
+        /**
+         * The bearer token authentication method configured on the account.
+         */
+        databricksIntegrationAccountBearerTokenAuth?: pulumi.Input<inputs.databricks.IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth | undefined>;
+        /**
+         * The Databricks OAuth authentication method and service principal configured on the account.
+         */
+        databricksIntegrationAccountOAuthAuth?: pulumi.Input<inputs.databricks.IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth | undefined>;
+        /**
+         * The Private Action Runner authentication method configured on the account.
+         */
+        databricksIntegrationAccountPrivateActionRunnerAuth?: pulumi.Input<inputs.databricks.IntegrationAccountAuthenticationDatabricksIntegrationAccountPrivateActionRunnerAuth | undefined>;
+    }
+
+    export interface IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth {
+        /**
+         * The authentication method type. Valid values are `bearerToken`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+         */
+        tokenWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for tokenWo rotation. String length must be at least 1.
+         */
+        tokenWoVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth {
+        /**
+         * The authentication method type. Valid values are `databricksOauth`. Defaults to `"databricksOauth"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * Microsoft Entra ID tenant of the service principal, for Azure Databricks workspaces.
+         */
+        azureTenantId?: pulumi.Input<string | undefined>;
+        /**
+         * Client ID of the Databricks service principal.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state.
+         */
+        clientSecretWo: pulumi.Input<string>;
+        /**
+         * Version trigger for client*secret*wo rotation. String length must be at least 1.
+         */
+        clientSecretWoVersion: pulumi.Input<string>;
+    }
+
+    export interface IntegrationAccountAuthenticationDatabricksIntegrationAccountPrivateActionRunnerAuth {
+        /**
+         * The authentication method type. Valid values are `privateActionRunner`. Defaults to `"privateActionRunner"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * Unique identifier of the Private Action Runner connection holding the credentials.
+         */
+        connectionId: pulumi.Input<string>;
+        /**
+         * Path of the credential inside the secret backend configured on the runner.
+         */
+        secretPath?: pulumi.Input<string | undefined>;
+        /**
+         * Unique identifier of the user the Private Action Runner connection belongs to.
+         */
+        userUuid: pulumi.Input<string>;
+    }
+
+    export interface IntegrationAccountDataflows {
+        /**
+         * Cost data collected from your Databricks system tables. Requires [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/) to be set up for your organization.
+         */
+        databricksCloudCostMetrics?: pulumi.Input<inputs.databricks.IntegrationAccountDataflowsDatabricksCloudCostMetrics | undefined>;
+        /**
+         * Data Jobs Monitoring, which collects performance, reliability, and cost data for your Databricks jobs.
+         */
+        databricksDataObservabilityJobsMonitoring?: pulumi.Input<inputs.databricks.IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoring | undefined>;
+        /**
+         * Data Observability, which collects lineage and data quality information from your Databricks catalogs so you can explore how data flows and detect, resolve, and prevent quality issues.
+         */
+        databricksDataObservabilityQualityMonitoring?: pulumi.Input<inputs.databricks.IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoring | undefined>;
+        /**
+         * Health and usage metrics for your Databricks model serving endpoints. Not supported on accounts that authenticate with `privateActionRunner`; on those accounts this dataflow collects no data.
+         */
+        databricksModelServingMetrics?: pulumi.Input<inputs.databricks.IntegrationAccountDataflowsDatabricksModelServingMetrics | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsDatabricksCloudCostMetrics {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the Cloud Cost Management dataflow.
+         */
+        settings?: pulumi.Input<inputs.databricks.IntegrationAccountDataflowsDatabricksCloudCostMetricsSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsDatabricksCloudCostMetricsSettings {
+        /**
+         * Whether cost data is collected for every workspace in the Databricks account rather than this workspace only. This takes effect across the Databricks account: if any one workspace enables it, Datadog collects cost data for all of them regardless of their individual settings, and every covered workspace incurs Cloud Cost Management charges.
+         */
+        ccmCollectAllWorkspaces?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoring {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the Data Jobs Monitoring dataflow.
+         */
+        settings?: pulumi.Input<inputs.databricks.IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings {
+        /**
+         * ID of the Datadog API key the global init script uses to submit data.
+         */
+        ddApiKeyId?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+         */
+        ddApiKeySecretWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for dd*api*key*secret*wo rotation. String length must be at least 1.
+         */
+        ddApiKeySecretWoVersion?: pulumi.Input<string | undefined>;
+        /**
+         * Whether Datadog installs and manages the Agent on your Databricks clusters through a global init script. The script does not apply to clusters in Standard access mode. When `false`, the Agent is installed manually.
+         */
+        djmGlobalInitScriptEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Whether GPU metrics are collected from your Databricks clusters. The Agent installed by the global init script performs the collection, so this requires the dataflow to be enabled with `djmGlobalInitScriptEnabled` set to `true`.
+         */
+        scriptGpumEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Whether driver and worker logs are collected from your Databricks clusters. The Agent installed by the global init script performs the collection, so this requires the dataflow to be enabled with `djmGlobalInitScriptEnabled` set to `true`.
+         */
+        scriptLogsEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Whether health and cost data is collected for jobs running on Serverless or SQL Warehouse compute. This compute has no clusters for the global init script to target, so collection reads the Databricks system tables and requires `systemTablesSqlWarehouseId`.
+         */
+        serverlessJobsEnabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoring {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the Data Observability dataflow.
+         */
+        settings?: pulumi.Input<inputs.databricks.IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoringSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoringSettings {
+        /**
+         * Cron expression setting how often Datadog connects to your Databricks warehouse to collect metadata. Currently, only hourly (`0 * * * *`) and daily (`0 0 * * *`) are supported.
+         */
+        doCrawlersCron?: pulumi.Input<string | undefined>;
+        /**
+         * Whether metadata from the Databricks `system` catalog is included in Data Observability alongside your data catalogs.
+         */
+        syncSystemCatalog?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsDatabricksModelServingMetrics {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationAccountSettings {
+        /**
+         * ID of the SQL warehouse used to query the Databricks system tables.
+         */
+        systemTablesSqlWarehouseId?: pulumi.Input<string | undefined>;
+        /**
+         * URL of the Databricks workspace.
+         */
+        workspaceUrl: pulumi.Input<string>;
+    }
+}
+
+export namespace elastic {
+    export interface IntegrationCloudAccountAuthentication {
+        /**
+         * The basic authentication method and username configured on the account.
+         */
+        elasticCloudIntegrationAccountBasicAuth?: pulumi.Input<inputs.elastic.IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth | undefined>;
+    }
+
+    export interface IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth {
+        /**
+         * The authentication method type. Valid values are `basic`. Defaults to `"basic"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret password or private key. This write-only value is not stored in Terraform state.
+         */
+        passwordWo: pulumi.Input<string>;
+        /**
+         * Version trigger for passwordWo rotation. String length must be at least 1.
+         */
+        passwordWoVersion: pulumi.Input<string>;
+        /**
+         * Non-secret username or public identifier for the credential pair.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface IntegrationCloudAccountDataflows {
+        /**
+         * Primary shard metrics broken down per index, rather than aggregated across the cluster.
+         */
+        elasticCloudDetailedIndexStats?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStats | undefined>;
+        /**
+         * Metrics for individual indices. Only the indices granted to the role of the user in `authentication` are collected.
+         */
+        elasticCloudIndexStats?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudIndexStats | undefined>;
+        /**
+         * Node-level statistics for the clusters in your deployment, such as the number of nodes and the number of documents on each node. This is the integration's baseline collection: it is always on and cannot be turned off, which is why it appears in responses only.
+         */
+        elasticCloudMetrics?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudMetrics | undefined>;
+        /**
+         * Metrics for cluster-level changes that have been submitted but not yet executed.
+         */
+        elasticCloudPendingTaskStats?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudPendingTaskStats | undefined>;
+        /**
+         * Tolerance for slow primary shard requests, keeping the rest of the collection running when a primary shard request times out instead of failing the run. Only has an effect alongside `elastic-cloud-primary-shard-stats`.
+         */
+        elasticCloudPrimaryShardGracefulTimeout?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeout | undefined>;
+        /**
+         * Metrics covering only the cluster's primary shards.
+         */
+        elasticCloudPrimaryShardStats?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStats | undefined>;
+        /**
+         * Metrics for how many shards are allocated to each data node, and the disk space they use.
+         */
+        elasticCloudShardAllocationStats?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudShardAllocationStats | undefined>;
+        /**
+         * Metrics about the actions taken by snapshot lifecycle management. Requires the `readSlm` Elasticsearch cluster privilege on the role of the user in `authentication`; without it this dataflow collects no data.
+         */
+        elasticCloudSlmStats?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudSlmStats | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStats {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStatsStatus | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStatsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudIndexStats {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudIndexStatsStatus | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudIndexStatsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudMetrics {
+        /**
+         * Whether Datadog collects this data. Always `true`, because this collection cannot be turned off.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudMetricsStatus | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudMetricsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudPendingTaskStats {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudPendingTaskStatsStatus | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudPendingTaskStatsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeout {
+        /**
+         * Whether this tolerance is applied.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeoutStatus | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeoutStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStats {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStatsStatus | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStatsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudShardAllocationStats {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudShardAllocationStatsStatus | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudShardAllocationStatsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudSlmStats {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.elastic.IntegrationCloudAccountDataflowsElasticCloudSlmStatsStatus | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsElasticCloudSlmStatsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountSettings {
+        /**
+         * Comma-separated list of custom tags for this Elastic Cloud deployment.
+         */
+        tags?: pulumi.Input<string | undefined>;
+        /**
+         * Elastic Cloud deployment URL.
+         */
+        url: pulumi.Input<string>;
+    }
+}
+
 export namespace gcp {
     export interface IntegrationMonitoredResourceConfig {
         filters: pulumi.Input<pulumi.Input<string>[]>;
@@ -73796,5 +74275,450 @@ export namespace slack {
          * Show the scopes on which the monitor alerted. Defaults to `true`.
          */
         tags?: pulumi.Input<boolean | undefined>;
+    }
+}
+
+export namespace snowflake {
+    export interface IntegrationAccountAuthentication {
+        /**
+         * The RSA key pair authentication method configured on the account.
+         */
+        snowflakeIntegrationAccountPrivateKeyAuth?: pulumi.Input<inputs.snowflake.IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth | undefined>;
+    }
+
+    export interface IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth {
+        /**
+         * The authentication method type. Valid values are `snowflakePrivateKey`. Defaults to `"snowflakePrivateKey"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * Name that distinguishes this private key from other keys in Datadog.
+         */
+        privateKeyName: pulumi.Input<string>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+         */
+        privateKeyPassphraseWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for private*key*passphrase_wo rotation. String length must be at least 1.
+         */
+        privateKeyPassphraseWoVersion?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * The private key, in PEM format. This write-only value is not stored in Terraform state.
+         */
+        privateKeyWo: pulumi.Input<string>;
+        /**
+         * Version trigger for private*key*wo rotation. String length must be at least 1.
+         */
+        privateKeyWoVersion: pulumi.Input<string>;
+    }
+
+    export interface IntegrationAccountDataflows {
+        /**
+         * Account-level usage metrics read from the Snowflake `ACCOUNT_USAGE` schema, covering storage usage, credit consumption, and query activity.
+         */
+        snowflakeAccountUsageMetrics?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeAccountUsageMetrics | undefined>;
+        /**
+         * Cost data aggregated from the Snowflake `ORGANIZATION_USAGE` schema. Requires [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/) to be set up for your organization, and the ORGANIZATION*BILLING*VIEWER database role on the Snowflake role; without both this dataflow collects no data.
+         */
+        snowflakeCloudCostMetrics?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeCloudCostMetrics | undefined>;
+        /**
+         * Data Observability, which collects lineage and data quality information from your Snowflake databases so you can explore how data flows and detect and resolve quality issues.
+         */
+        snowflakeDataObservabilityQualityMonitoring?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoring | undefined>;
+        /**
+         * Records from your Snowflake event tables, used to monitor application behavior and identify issues. `enabled` turns the dataflow on and off as a whole, and the per-record-type toggles in `settings` select which kinds of record it collects while it is on. The Snowflake role needs usage granted on the database, the schema, and the event table itself; without those grants this dataflow collects no data.
+         */
+        snowflakeEventTableLogs?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeEventTableLogs | undefined>;
+        /**
+         * Organization-level usage metrics read from the Snowflake `ORGANIZATION_USAGE` schema, covering the credit consumption of every account in the organization and the history of data transferred out of Snowflake. Reading that schema requires the ORGADMIN role; without it this dataflow collects no data.
+         */
+        snowflakeOrganizationUsageMetrics?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeOrganizationUsageMetrics | undefined>;
+        /**
+         * Per-query logs that let you identify long-running, poorly performing, and expensive queries.
+         */
+        snowflakeQueryHistoryLogs?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeQueryHistoryLogs | undefined>;
+        /**
+         * Security logs from the Snowflake `ACCOUNT_USAGE` schema, for analyzing the security of your Snowflake account and running threat detection with [Cloud SIEM](https://docs.datadoghq.com/security/cloud_siem/).
+         */
+        snowflakeSecurityLogs?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeSecurityLogs | undefined>;
+        /**
+         * Execution logs for your scheduled Snowflake tasks, covering start time, end time, status, and any error message.
+         */
+        snowflakeTaskHistoryLogs?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeTaskHistoryLogs | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeAccountUsageMetrics {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the account usage metrics dataflow.
+         */
+        settings?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeAccountUsageMetricsSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeAccountUsageMetricsSettings {
+        /**
+         * The period each metric aggregates over. When `true`, metrics aggregate the past 24 hours on a rolling basis; when `false`, they aggregate the current day so far.
+         */
+        accountUsageMetricsAggregateLast24h?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeCloudCostMetrics {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the Cloud Cost Management dataflow.
+         */
+        settings?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeCloudCostMetricsSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeCloudCostMetricsSettings {
+        /**
+         * Snowflake query tags ingested as a comma-separated list of tag names, so that cost data can be broken down by them in Cloud Cost Management.
+         */
+        queryTags?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoring {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the Data Observability dataflow.
+         */
+        settings?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoringSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoringSettings {
+        /**
+         * Cron expression setting how often Datadog crawls your Snowflake table metadata.
+         */
+        doTableCrawlerCron?: pulumi.Input<string | undefined>;
+        /**
+         * Whether metadata from the Snowflake `SNOWFLAKE` system database is included in Data Observability alongside your own databases.
+         */
+        syncSnowflakeSystemDatabase?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeEventTableLogs {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the event table dataflow. Each record type is collected independently so that you can control ingestion costs, and every record type is ingested into Datadog as logs tagged with its `recordType`.
+         */
+        settings?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeEventTableLogsSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeEventTableLogsSettings {
+        /**
+         * Whether records with a `recordType` of `event` are collected.
+         */
+        eventTableEventsEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Whether records with a `recordType` of `log` are collected.
+         */
+        eventTableLogsEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * How often event table records are collected, in minutes.
+         */
+        eventTableLogsIntervalMin?: pulumi.Input<number | undefined>;
+        /**
+         * Whether records with a `recordType` of `spanEvent` are collected.
+         */
+        eventTableSpanEventsEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Whether records with a `recordType` of `span` are collected.
+         */
+        eventTableSpansEnabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeOrganizationUsageMetrics {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the organization usage metrics dataflow.
+         */
+        settings?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeOrganizationUsageMetricsSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeOrganizationUsageMetricsSettings {
+        /**
+         * The period each metric aggregates over. When `true`, metrics aggregate the past 24 hours on a rolling basis; when `false`, they aggregate the current day so far.
+         */
+        organizationUsageMetricsAggregateLast24h?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeQueryHistoryLogs {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the query history logs dataflow.
+         */
+        settings?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeQueryHistoryLogsSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeQueryHistoryLogsSettings {
+        /**
+         * Whether query logs are joined with Snowflake access history, which adds the objects each query read and wrote so you can follow how data is used and where it came from.
+         */
+        joinQueryHistoryWithAccessHistoryEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * How often query history logs are collected, in minutes.
+         */
+        queryHistoryLogsIntervalMin?: pulumi.Input<number | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeSecurityLogs {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the security logs dataflow.
+         */
+        settings?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeSecurityLogsSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeSecurityLogsSettings {
+        /**
+         * How often security logs are collected, in minutes.
+         */
+        securityLogsIntervalMin?: pulumi.Input<number | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeTaskHistoryLogs {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the task history logs dataflow.
+         */
+        settings?: pulumi.Input<inputs.snowflake.IntegrationAccountDataflowsSnowflakeTaskHistoryLogsSettings | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsSnowflakeTaskHistoryLogsSettings {
+        /**
+         * How often task history logs are collected, in minutes.
+         */
+        taskHistoryLogsIntervalMin?: pulumi.Input<number | undefined>;
+    }
+
+    export interface IntegrationAccountSettings {
+        /**
+         * Identifier of the Snowflake account being monitored.
+         */
+        snowflakeAccountIdentifier: pulumi.Input<string>;
+        /**
+         * Snowflake user Datadog authenticates as.
+         */
+        username: pulumi.Input<string>;
+    }
+}
+
+export namespace twilio {
+    export interface IntegrationAccountAuthentication {
+        /**
+         * The basic authentication method and username configured on the account.
+         */
+        twilioIntegrationAccountBasicAuth?: pulumi.Input<inputs.twilio.IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth | undefined>;
+    }
+
+    export interface IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth {
+        /**
+         * The authentication method type. Valid values are `basic`. Defaults to `"basic"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret password or private key. This write-only value is not stored in Terraform state.
+         */
+        passwordWo: pulumi.Input<string>;
+        /**
+         * Version trigger for passwordWo rotation. String length must be at least 1.
+         */
+        passwordWoVersion: pulumi.Input<string>;
+        /**
+         * Non-secret username or public identifier for the credential pair.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface IntegrationAccountDataflows {
+        /**
+         * Twilio Alert resource logs, which detail the errors and warnings raised when Twilio makes a webhook request to your server or when your application calls the Twilio REST API.
+         */
+        twilioAlertsLogs?: pulumi.Input<inputs.twilio.IntegrationAccountDataflowsTwilioAlertsLogs | undefined>;
+        /**
+         * Twilio Call Summary resource logs, covering the metadata and performance of the calls made from your Twilio account. Requires Voice Insights Advanced Features to be enabled on the Twilio account; without it this dataflow collects no data.
+         */
+        twilioCallSummariesLogs?: pulumi.Input<inputs.twilio.IntegrationAccountDataflowsTwilioCallSummariesLogs | undefined>;
+        /**
+         * Your Twilio cost data, so that Twilio spend can be broken down and attributed in [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/).
+         */
+        twilioCloudCostMetrics?: pulumi.Input<inputs.twilio.IntegrationAccountDataflowsTwilioCloudCostMetrics | undefined>;
+        /**
+         * Twilio Event resource logs, which record virtually every action taken in your Twilio account, such as provisioning a phone number, changing account security settings, or deleting a recording. Actions are recorded whether they came from the REST API, a user in the Twilio Console, or Twilio itself. [Cloud SIEM](https://docs.datadoghq.com/security/cloud_siem/) analyzes and correlates these logs to detect threats in real time.
+         */
+        twilioEventsLogs?: pulumi.Input<inputs.twilio.IntegrationAccountDataflowsTwilioEventsLogs | undefined>;
+        /**
+         * Twilio Message resource logs for inbound and outbound messages, used to track delivery and troubleshoot message errors. A log is produced when you send a message through the REST API, when Twilio executes a TwiML instruction, and when someone messages one of your Twilio numbers or channel addresses. Message bodies are never collected.
+         */
+        twilioMessagesLogs?: pulumi.Input<inputs.twilio.IntegrationAccountDataflowsTwilioMessagesLogs | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsTwilioAlertsLogs {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.twilio.IntegrationAccountDataflowsTwilioAlertsLogsStatus | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsTwilioAlertsLogsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsTwilioCallSummariesLogs {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.twilio.IntegrationAccountDataflowsTwilioCallSummariesLogsStatus | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsTwilioCallSummariesLogsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsTwilioCloudCostMetrics {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.twilio.IntegrationAccountDataflowsTwilioCloudCostMetricsStatus | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsTwilioCloudCostMetricsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsTwilioEventsLogs {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.twilio.IntegrationAccountDataflowsTwilioEventsLogsStatus | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsTwilioEventsLogsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsTwilioMessagesLogs {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.twilio.IntegrationAccountDataflowsTwilioMessagesLogsStatus | undefined>;
+    }
+
+    export interface IntegrationAccountDataflowsTwilioMessagesLogsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationAccountSettings {
+        /**
+         * Twilio Account SID that uniquely identifies your Twilio account.
+         */
+        accountSid: pulumi.Input<string>;
+        /**
+         * When enabled, Twilio phone numbers in the `to` field and SMS message bodies are censored for privacy.
+         */
+        censorLogs?: pulumi.Input<boolean | undefined>;
     }
 }

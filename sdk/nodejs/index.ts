@@ -1180,12 +1180,16 @@ import * as azure from "./azure";
 import * as cloudflare from "./cloudflare";
 import * as config from "./config";
 import * as confluent from "./confluent";
+import * as databricks from "./databricks";
+import * as elastic from "./elastic";
 import * as fastly from "./fastly";
 import * as gcp from "./gcp";
 import * as ms from "./ms";
 import * as opsgenie from "./opsgenie";
 import * as pagerduty from "./pagerduty";
 import * as slack from "./slack";
+import * as snowflake from "./snowflake";
+import * as twilio from "./twilio";
 import * as types from "./types";
 
 export {
@@ -1194,12 +1198,16 @@ export {
     cloudflare,
     config,
     confluent,
+    databricks,
+    elastic,
     fastly,
     gcp,
     ms,
     opsgenie,
     pagerduty,
     slack,
+    snowflake,
+    twilio,
     types,
 };
 
