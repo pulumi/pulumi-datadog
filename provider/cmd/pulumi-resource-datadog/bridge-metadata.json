@@ -43473,6 +43473,14 @@
                     }
                 }
             },
+            "datadog_integration_databricks_account": {
+                "current": "datadog:databricks/integrationAccount:IntegrationAccount",
+                "majorVersion": 5
+            },
+            "datadog_integration_elastic_cloud_account": {
+                "current": "datadog:elastic/integrationCloudAccount:IntegrationCloudAccount",
+                "majorVersion": 5
+            },
             "datadog_integration_fastly_account": {
                 "current": "datadog:fastly/integrationAccount:IntegrationAccount",
                 "majorVersion": 5
@@ -43576,6 +43584,14 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "datadog_integration_snowflake_account": {
+                "current": "datadog:snowflake/integrationAccount:IntegrationAccount",
+                "majorVersion": 5
+            },
+            "datadog_integration_twilio_account": {
+                "current": "datadog:twilio/integrationAccount:IntegrationAccount",
+                "majorVersion": 5
             },
             "datadog_ip_allowlist": {
                 "current": "datadog:index/ipAllowlist:IpAllowlist",
@@ -76634,12 +76650,16 @@
             "datadog_integration_cloudflare_account": {},
             "datadog_integration_confluent_account": {},
             "datadog_integration_confluent_resource": {},
+            "datadog_integration_databricks_account": {},
+            "datadog_integration_elastic_cloud_account": {},
             "datadog_integration_fastly_account": {},
             "datadog_integration_fastly_service": {},
             "datadog_integration_gcp": {},
             "datadog_integration_gcp_sts": {},
             "datadog_integration_ms_teams_tenant_based_handle": {},
             "datadog_integration_ms_teams_workflows_webhook_handle": {},
+            "datadog_integration_snowflake_account": {},
+            "datadog_integration_twilio_account": {},
             "datadog_ip_allowlist": {},
             "datadog_logs_custom_destination": {},
             "datadog_logs_restriction_query": {},
@@ -76735,6 +76755,8 @@
             "datadog:cloudflare/integrationAccount:IntegrationAccount": 1,
             "datadog:confluent/integrationAccount:IntegrationAccount": 1,
             "datadog:confluent/integrationResource:IntegrationResource": 1,
+            "datadog:databricks/integrationAccount:IntegrationAccount": 1,
+            "datadog:elastic/integrationCloudAccount:IntegrationCloudAccount": 1,
             "datadog:fastly/integrationAccount:IntegrationAccount": 1,
             "datadog:fastly/integrationService:IntegrationService": 1,
             "datadog:gcp/integration:Integration": 1,
@@ -76893,7 +76915,9 @@
             "datadog:opsgenie/serviceObject:ServiceObject": 0,
             "datadog:pagerduty/integration:Integration": 0,
             "datadog:pagerduty/serviceObject:ServiceObject": 0,
-            "datadog:slack/channel:Channel": 0
+            "datadog:slack/channel:Channel": 0,
+            "datadog:snowflake/integrationAccount:IntegrationAccount": 1,
+            "datadog:twilio/integrationAccount:IntegrationAccount": 1
         },
         "functions": {
             "datadog:aws/getIntegrationAccount:getIntegrationAccount": 1,

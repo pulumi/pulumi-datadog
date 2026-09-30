@@ -255,6 +255,10 @@ if typing.TYPE_CHECKING:
     config = __config
     import pulumi_datadog.confluent as __confluent
     confluent = __confluent
+    import pulumi_datadog.databricks as __databricks
+    databricks = __databricks
+    import pulumi_datadog.elastic as __elastic
+    elastic = __elastic
     import pulumi_datadog.fastly as __fastly
     fastly = __fastly
     import pulumi_datadog.gcp as __gcp
@@ -267,18 +271,26 @@ if typing.TYPE_CHECKING:
     pagerduty = __pagerduty
     import pulumi_datadog.slack as __slack
     slack = __slack
+    import pulumi_datadog.snowflake as __snowflake
+    snowflake = __snowflake
+    import pulumi_datadog.twilio as __twilio
+    twilio = __twilio
 else:
     aws = _utilities.lazy_import('pulumi_datadog.aws')
     azure = _utilities.lazy_import('pulumi_datadog.azure')
     cloudflare = _utilities.lazy_import('pulumi_datadog.cloudflare')
     config = _utilities.lazy_import('pulumi_datadog.config')
     confluent = _utilities.lazy_import('pulumi_datadog.confluent')
+    databricks = _utilities.lazy_import('pulumi_datadog.databricks')
+    elastic = _utilities.lazy_import('pulumi_datadog.elastic')
     fastly = _utilities.lazy_import('pulumi_datadog.fastly')
     gcp = _utilities.lazy_import('pulumi_datadog.gcp')
     ms = _utilities.lazy_import('pulumi_datadog.ms')
     opsgenie = _utilities.lazy_import('pulumi_datadog.opsgenie')
     pagerduty = _utilities.lazy_import('pulumi_datadog.pagerduty')
     slack = _utilities.lazy_import('pulumi_datadog.slack')
+    snowflake = _utilities.lazy_import('pulumi_datadog.snowflake')
+    twilio = _utilities.lazy_import('pulumi_datadog.twilio')
 
 _utilities.register(
     resource_modules="""
@@ -345,6 +357,22 @@ _utilities.register(
   "fqn": "pulumi_datadog.confluent",
   "classes": {
    "datadog:confluent/integrationResource:IntegrationResource": "IntegrationResource"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "databricks/integrationAccount",
+  "fqn": "pulumi_datadog.databricks",
+  "classes": {
+   "datadog:databricks/integrationAccount:IntegrationAccount": "IntegrationAccount"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "elastic/integrationCloudAccount",
+  "fqn": "pulumi_datadog.elastic",
+  "classes": {
+   "datadog:elastic/integrationCloudAccount:IntegrationCloudAccount": "IntegrationCloudAccount"
   }
  },
  {
@@ -1617,6 +1645,22 @@ _utilities.register(
   "fqn": "pulumi_datadog.slack",
   "classes": {
    "datadog:slack/channel:Channel": "Channel"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "snowflake/integrationAccount",
+  "fqn": "pulumi_datadog.snowflake",
+  "classes": {
+   "datadog:snowflake/integrationAccount:IntegrationAccount": "IntegrationAccount"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "twilio/integrationAccount",
+  "fqn": "pulumi_datadog.twilio",
+  "classes": {
+   "datadog:twilio/integrationAccount:IntegrationAccount": "IntegrationAccount"
   }
  }
 ]
