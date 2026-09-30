@@ -1,4 +1,0 @@
-[submodule "upstream"]
-	path = upstream
-	url = https://github.com/DataDog/terraform-provider-datadog.git
-        ignore = dirty
