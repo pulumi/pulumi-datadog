@@ -552,6 +552,843 @@
             },
             "type": "object"
         },
+        "datadog:databricks/IntegrationAccountAuthentication:IntegrationAccountAuthentication": {
+            "properties": {
+                "databricksIntegrationAccountBearerTokenAuth": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth:IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth",
+                    "description": "The bearer token authentication method configured on the account.\n"
+                },
+                "databricksIntegrationAccountOAuthAuth": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth:IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth",
+                    "description": "The Databricks OAuth authentication method and service principal configured on the account.\n"
+                },
+                "databricksIntegrationAccountPrivateActionRunnerAuth": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountAuthenticationDatabricksIntegrationAccountPrivateActionRunnerAuth:IntegrationAccountAuthenticationDatabricksIntegrationAccountPrivateActionRunnerAuth",
+                    "description": "The Private Action Runner authentication method configured on the account.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "databricksIntegrationAccountPrivateActionRunnerAuth"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth:IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth": {
+            "properties": {
+                "authType": {
+                    "type": "string",
+                    "description": "The authentication method type. Valid values are \u003cspan pulumi-lang-nodejs=\"`bearerToken`\" pulumi-lang-dotnet=\"`BearerToken`\" pulumi-lang-go=\"`bearerToken`\" pulumi-lang-python=\"`bearer_token`\" pulumi-lang-yaml=\"`bearerToken`\" pulumi-lang-java=\"`bearerToken`\" pulumi-lang-hcl=\"`bearer_token`\"\u003e`bearerToken`\u003c/span\u003e.\n"
+                },
+                "tokenWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nSecret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.\n",
+                    "secret": true
+                },
+                "tokenWoVersion": {
+                    "type": "string",
+                    "description": "Version trigger for\u003cspan pulumi-lang-nodejs=\" tokenWo \" pulumi-lang-dotnet=\" TokenWo \" pulumi-lang-go=\" tokenWo \" pulumi-lang-python=\" token_wo \" pulumi-lang-yaml=\" tokenWo \" pulumi-lang-java=\" tokenWo \" pulumi-lang-hcl=\" token_wo \"\u003e tokenWo \u003c/span\u003erotation. String length must be at least 1.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "authType"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth:IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth": {
+            "properties": {
+                "authType": {
+                    "type": "string",
+                    "description": "The authentication method type. Valid values are \u003cspan pulumi-lang-nodejs=\"`databricksOauth`\" pulumi-lang-dotnet=\"`DatabricksOauth`\" pulumi-lang-go=\"`databricksOauth`\" pulumi-lang-python=\"`databricks_oauth`\" pulumi-lang-yaml=\"`databricksOauth`\" pulumi-lang-java=\"`databricksOauth`\" pulumi-lang-hcl=\"`databricks_oauth`\"\u003e`databricksOauth`\u003c/span\u003e. Defaults to `\u003cspan pulumi-lang-nodejs=\"\"databricksOauth\"\" pulumi-lang-dotnet=\"\"DatabricksOauth\"\" pulumi-lang-go=\"\"databricksOauth\"\" pulumi-lang-python=\"\"databricks_oauth\"\" pulumi-lang-yaml=\"\"databricksOauth\"\" pulumi-lang-java=\"\"databricksOauth\"\" pulumi-lang-hcl=\"\"databricks_oauth\"\"\u003e\"databricksOauth\"\u003c/span\u003e`.\n"
+                },
+                "azureTenantId": {
+                    "type": "string",
+                    "description": "Microsoft Entra ID tenant of the service principal, for Azure Databricks workspaces.\n"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "Client ID of the Databricks service principal.\n"
+                },
+                "clientSecretWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nSecret of the Databricks service principal. Generate it under User management \u003e Service principals \u003e Credentials \u0026 secrets in Databricks. This write-only value is not stored in Terraform state.\n",
+                    "secret": true
+                },
+                "clientSecretWoVersion": {
+                    "type": "string",
+                    "description": "Version trigger for client*secret*wo rotation. String length must be at least 1.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "clientId",
+                "clientSecretWo",
+                "clientSecretWoVersion"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "authType",
+                        "azureTenantId",
+                        "clientId",
+                        "clientSecretWo",
+                        "clientSecretWoVersion"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountAuthenticationDatabricksIntegrationAccountPrivateActionRunnerAuth:IntegrationAccountAuthenticationDatabricksIntegrationAccountPrivateActionRunnerAuth": {
+            "properties": {
+                "authType": {
+                    "type": "string",
+                    "description": "The authentication method type. Valid values are \u003cspan pulumi-lang-nodejs=\"`privateActionRunner`\" pulumi-lang-dotnet=\"`PrivateActionRunner`\" pulumi-lang-go=\"`privateActionRunner`\" pulumi-lang-python=\"`private_action_runner`\" pulumi-lang-yaml=\"`privateActionRunner`\" pulumi-lang-java=\"`privateActionRunner`\" pulumi-lang-hcl=\"`private_action_runner`\"\u003e`privateActionRunner`\u003c/span\u003e. Defaults to `\u003cspan pulumi-lang-nodejs=\"\"privateActionRunner\"\" pulumi-lang-dotnet=\"\"PrivateActionRunner\"\" pulumi-lang-go=\"\"privateActionRunner\"\" pulumi-lang-python=\"\"private_action_runner\"\" pulumi-lang-yaml=\"\"privateActionRunner\"\" pulumi-lang-java=\"\"privateActionRunner\"\" pulumi-lang-hcl=\"\"private_action_runner\"\"\u003e\"privateActionRunner\"\u003c/span\u003e`.\n"
+                },
+                "connectionId": {
+                    "type": "string",
+                    "description": "Unique identifier of the Private Action Runner connection holding the credentials.\n"
+                },
+                "secretPath": {
+                    "type": "string",
+                    "description": "Path of the credential inside the secret backend configured on the runner.\n"
+                },
+                "userUuid": {
+                    "type": "string",
+                    "description": "Unique identifier of the user the Private Action Runner connection belongs to.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "connectionId",
+                "userUuid"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "authType",
+                        "connectionId",
+                        "secretPath",
+                        "userUuid"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountDataflows:IntegrationAccountDataflows": {
+            "properties": {
+                "databricksCloudCostMetrics": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountDataflowsDatabricksCloudCostMetrics:IntegrationAccountDataflowsDatabricksCloudCostMetrics",
+                    "description": "Cost data collected from your Databricks system tables. Requires [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/) to be set up for your organization.\n"
+                },
+                "databricksDataObservabilityJobsMonitoring": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoring:IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoring",
+                    "description": "Data Jobs Monitoring, which collects performance, reliability, and cost data for your Databricks jobs.\n"
+                },
+                "databricksDataObservabilityQualityMonitoring": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoring:IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoring",
+                    "description": "Data Observability, which collects lineage and data quality information from your Databricks catalogs so you can explore how data flows and detect, resolve, and prevent quality issues.\n"
+                },
+                "databricksModelServingMetrics": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountDataflowsDatabricksModelServingMetrics:IntegrationAccountDataflowsDatabricksModelServingMetrics",
+                    "description": "Health and usage metrics for your Databricks model serving endpoints. Not supported on accounts that authenticate with \u003cspan pulumi-lang-nodejs=\"`privateActionRunner`\" pulumi-lang-dotnet=\"`PrivateActionRunner`\" pulumi-lang-go=\"`privateActionRunner`\" pulumi-lang-python=\"`private_action_runner`\" pulumi-lang-yaml=\"`privateActionRunner`\" pulumi-lang-java=\"`privateActionRunner`\" pulumi-lang-hcl=\"`private_action_runner`\"\u003e`privateActionRunner`\u003c/span\u003e; on those accounts this dataflow collects no data.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "databricksCloudCostMetrics",
+                        "databricksDataObservabilityQualityMonitoring",
+                        "databricksModelServingMetrics"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountDataflowsDatabricksCloudCostMetrics:IntegrationAccountDataflowsDatabricksCloudCostMetrics": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountDataflowsDatabricksCloudCostMetricsSettings:IntegrationAccountDataflowsDatabricksCloudCostMetricsSettings",
+                    "description": "Settings of the Cloud Cost Management dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "settings"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountDataflowsDatabricksCloudCostMetricsSettings:IntegrationAccountDataflowsDatabricksCloudCostMetricsSettings": {
+            "properties": {
+                "ccmCollectAllWorkspaces": {
+                    "type": "boolean",
+                    "description": "Whether cost data is collected for every workspace in the Databricks account rather than this workspace only. This takes effect across the Databricks account: if any one workspace enables it, Datadog collects cost data for all of them regardless of their individual settings, and every covered workspace incurs Cloud Cost Management charges.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ccmCollectAllWorkspaces"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoring:IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoring": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings:IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings",
+                    "description": "Settings of the Data Jobs Monitoring dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings:IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings": {
+            "properties": {
+                "ddApiKeyId": {
+                    "type": "string",
+                    "description": "ID of the Datadog API key the global init script uses to submit data.\n"
+                },
+                "ddApiKeySecretWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nSecret value of the Datadog API key identified by \u003cspan pulumi-lang-nodejs=\"`ddApiKeyId`\" pulumi-lang-dotnet=\"`DdApiKeyId`\" pulumi-lang-go=\"`ddApiKeyId`\" pulumi-lang-python=\"`dd_api_key_id`\" pulumi-lang-yaml=\"`ddApiKeyId`\" pulumi-lang-java=\"`ddApiKeyId`\" pulumi-lang-hcl=\"`dd_api_key_id`\"\u003e`ddApiKeyId`\u003c/span\u003e. This write-only value is not stored in Terraform state.\n",
+                    "secret": true
+                },
+                "ddApiKeySecretWoVersion": {
+                    "type": "string",
+                    "description": "Version trigger for dd*api*key*secret*wo rotation. String length must be at least 1.\n"
+                },
+                "djmGlobalInitScriptEnabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog installs and manages the Agent on your Databricks clusters through a global init script. The script does not apply to clusters in Standard access mode. When \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e, the Agent is installed manually.\n"
+                },
+                "scriptGpumEnabled": {
+                    "type": "boolean",
+                    "description": "Whether GPU metrics are collected from your Databricks clusters. The Agent installed by the global init script performs the collection, so this requires the dataflow to be enabled with \u003cspan pulumi-lang-nodejs=\"`djmGlobalInitScriptEnabled`\" pulumi-lang-dotnet=\"`DjmGlobalInitScriptEnabled`\" pulumi-lang-go=\"`djmGlobalInitScriptEnabled`\" pulumi-lang-python=\"`djm_global_init_script_enabled`\" pulumi-lang-yaml=\"`djmGlobalInitScriptEnabled`\" pulumi-lang-java=\"`djmGlobalInitScriptEnabled`\" pulumi-lang-hcl=\"`djm_global_init_script_enabled`\"\u003e`djmGlobalInitScriptEnabled`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                },
+                "scriptLogsEnabled": {
+                    "type": "boolean",
+                    "description": "Whether driver and worker logs are collected from your Databricks clusters. The Agent installed by the global init script performs the collection, so this requires the dataflow to be enabled with \u003cspan pulumi-lang-nodejs=\"`djmGlobalInitScriptEnabled`\" pulumi-lang-dotnet=\"`DjmGlobalInitScriptEnabled`\" pulumi-lang-go=\"`djmGlobalInitScriptEnabled`\" pulumi-lang-python=\"`djm_global_init_script_enabled`\" pulumi-lang-yaml=\"`djmGlobalInitScriptEnabled`\" pulumi-lang-java=\"`djmGlobalInitScriptEnabled`\" pulumi-lang-hcl=\"`djm_global_init_script_enabled`\"\u003e`djmGlobalInitScriptEnabled`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                },
+                "serverlessJobsEnabled": {
+                    "type": "boolean",
+                    "description": "Whether health and cost data is collected for jobs running on Serverless or SQL Warehouse compute. This compute has no clusters for the global init script to target, so collection reads the Databricks system tables and requires \u003cspan pulumi-lang-nodejs=\"`systemTablesSqlWarehouseId`\" pulumi-lang-dotnet=\"`SystemTablesSqlWarehouseId`\" pulumi-lang-go=\"`systemTablesSqlWarehouseId`\" pulumi-lang-python=\"`system_tables_sql_warehouse_id`\" pulumi-lang-yaml=\"`systemTablesSqlWarehouseId`\" pulumi-lang-java=\"`systemTablesSqlWarehouseId`\" pulumi-lang-hcl=\"`system_tables_sql_warehouse_id`\"\u003e`systemTablesSqlWarehouseId`\u003c/span\u003e.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ddApiKeyId",
+                        "djmGlobalInitScriptEnabled",
+                        "scriptGpumEnabled",
+                        "scriptLogsEnabled",
+                        "serverlessJobsEnabled"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoring:IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoring": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoringSettings:IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoringSettings",
+                    "description": "Settings of the Data Observability dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "settings"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoringSettings:IntegrationAccountDataflowsDatabricksDataObservabilityQualityMonitoringSettings": {
+            "properties": {
+                "doCrawlersCron": {
+                    "type": "string",
+                    "description": "Cron expression setting how often Datadog connects to your Databricks warehouse to collect metadata. Currently, only hourly (`0 * * * *`) and daily (`0 0 * * *`) are supported.\n"
+                },
+                "syncSystemCatalog": {
+                    "type": "boolean",
+                    "description": "Whether metadata from the Databricks \u003cspan pulumi-lang-nodejs=\"`system`\" pulumi-lang-dotnet=\"`System`\" pulumi-lang-go=\"`system`\" pulumi-lang-python=\"`system`\" pulumi-lang-yaml=\"`system`\" pulumi-lang-java=\"`system`\" pulumi-lang-hcl=\"`system`\"\u003e`system`\u003c/span\u003e catalog is included in Data Observability alongside your data catalogs.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "doCrawlersCron",
+                        "syncSystemCatalog"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountDataflowsDatabricksModelServingMetrics:IntegrationAccountDataflowsDatabricksModelServingMetrics": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled"
+                    ]
+                }
+            }
+        },
+        "datadog:databricks/IntegrationAccountSettings:IntegrationAccountSettings": {
+            "properties": {
+                "systemTablesSqlWarehouseId": {
+                    "type": "string",
+                    "description": "ID of the SQL warehouse used to query the Databricks system tables.\n"
+                },
+                "workspaceUrl": {
+                    "type": "string",
+                    "description": "URL of the Databricks workspace.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "workspaceUrl"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "systemTablesSqlWarehouseId",
+                        "workspaceUrl"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountAuthentication:IntegrationCloudAccountAuthentication": {
+            "properties": {
+                "elasticCloudIntegrationAccountBasicAuth": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth:IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth",
+                    "description": "The basic authentication method and username configured on the account.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:elastic/IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth:IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth": {
+            "properties": {
+                "authType": {
+                    "type": "string",
+                    "description": "The authentication method type. Valid values are \u003cspan pulumi-lang-nodejs=\"`basic`\" pulumi-lang-dotnet=\"`Basic`\" pulumi-lang-go=\"`basic`\" pulumi-lang-python=\"`basic`\" pulumi-lang-yaml=\"`basic`\" pulumi-lang-java=\"`basic`\" pulumi-lang-hcl=\"`basic`\"\u003e`basic`\u003c/span\u003e. Defaults to `\"basic\"`.\n"
+                },
+                "passwordWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nSecret password or private key. This write-only value is not stored in Terraform state.\n",
+                    "secret": true
+                },
+                "passwordWoVersion": {
+                    "type": "string",
+                    "description": "Version trigger for\u003cspan pulumi-lang-nodejs=\" passwordWo \" pulumi-lang-dotnet=\" PasswordWo \" pulumi-lang-go=\" passwordWo \" pulumi-lang-python=\" password_wo \" pulumi-lang-yaml=\" passwordWo \" pulumi-lang-java=\" passwordWo \" pulumi-lang-hcl=\" password_wo \"\u003e passwordWo \u003c/span\u003erotation. String length must be at least 1.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Non-secret username or public identifier for the credential pair.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "passwordWo",
+                "passwordWoVersion",
+                "username"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "authType",
+                        "passwordWo",
+                        "passwordWoVersion",
+                        "username"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflows:IntegrationCloudAccountDataflows": {
+            "properties": {
+                "elasticCloudDetailedIndexStats": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStats:IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStats",
+                    "description": "Primary shard metrics broken down per index, rather than aggregated across the cluster.\n"
+                },
+                "elasticCloudIndexStats": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudIndexStats:IntegrationCloudAccountDataflowsElasticCloudIndexStats",
+                    "description": "Metrics for individual indices. Only the indices granted to the role of the user in \u003cspan pulumi-lang-nodejs=\"`authentication`\" pulumi-lang-dotnet=\"`Authentication`\" pulumi-lang-go=\"`authentication`\" pulumi-lang-python=\"`authentication`\" pulumi-lang-yaml=\"`authentication`\" pulumi-lang-java=\"`authentication`\" pulumi-lang-hcl=\"`authentication`\"\u003e`authentication`\u003c/span\u003e are collected.\n"
+                },
+                "elasticCloudMetrics": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudMetrics:IntegrationCloudAccountDataflowsElasticCloudMetrics",
+                    "description": "Node-level statistics for the clusters in your deployment, such as the number of nodes and the number of documents on each node. This is the integration's baseline collection: it is always on and cannot be turned off, which is why it appears in responses only.\n"
+                },
+                "elasticCloudPendingTaskStats": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPendingTaskStats:IntegrationCloudAccountDataflowsElasticCloudPendingTaskStats",
+                    "description": "Metrics for cluster-level changes that have been submitted but not yet executed.\n"
+                },
+                "elasticCloudPrimaryShardGracefulTimeout": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeout:IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeout",
+                    "description": "Tolerance for slow primary shard requests, keeping the rest of the collection running when a primary shard request times out instead of failing the run. Only has an effect alongside `elastic-cloud-primary-shard-stats`.\n"
+                },
+                "elasticCloudPrimaryShardStats": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStats:IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStats",
+                    "description": "Metrics covering only the cluster's primary shards.\n"
+                },
+                "elasticCloudShardAllocationStats": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudShardAllocationStats:IntegrationCloudAccountDataflowsElasticCloudShardAllocationStats",
+                    "description": "Metrics for how many shards are allocated to each data node, and the disk space they use.\n"
+                },
+                "elasticCloudSlmStats": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudSlmStats:IntegrationCloudAccountDataflowsElasticCloudSlmStats",
+                    "description": "Metrics about the actions taken by snapshot lifecycle management. Requires the \u003cspan pulumi-lang-nodejs=\"`readSlm`\" pulumi-lang-dotnet=\"`ReadSlm`\" pulumi-lang-go=\"`readSlm`\" pulumi-lang-python=\"`read_slm`\" pulumi-lang-yaml=\"`readSlm`\" pulumi-lang-java=\"`readSlm`\" pulumi-lang-hcl=\"`read_slm`\"\u003e`readSlm`\u003c/span\u003e Elasticsearch cluster privilege on the role of the user in \u003cspan pulumi-lang-nodejs=\"`authentication`\" pulumi-lang-dotnet=\"`Authentication`\" pulumi-lang-go=\"`authentication`\" pulumi-lang-python=\"`authentication`\" pulumi-lang-yaml=\"`authentication`\" pulumi-lang-java=\"`authentication`\" pulumi-lang-hcl=\"`authentication`\"\u003e`authentication`\u003c/span\u003e; without it this dataflow collects no data.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "elasticCloudDetailedIndexStats",
+                        "elasticCloudIndexStats",
+                        "elasticCloudMetrics",
+                        "elasticCloudPendingTaskStats",
+                        "elasticCloudPrimaryShardGracefulTimeout",
+                        "elasticCloudPrimaryShardStats",
+                        "elasticCloudShardAllocationStats",
+                        "elasticCloudSlmStats"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStats:IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStats": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStatsStatus:IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStatsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStatsStatus:IntegrationCloudAccountDataflowsElasticCloudDetailedIndexStatsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudIndexStats:IntegrationCloudAccountDataflowsElasticCloudIndexStats": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudIndexStatsStatus:IntegrationCloudAccountDataflowsElasticCloudIndexStatsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudIndexStatsStatus:IntegrationCloudAccountDataflowsElasticCloudIndexStatsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudMetrics:IntegrationCloudAccountDataflowsElasticCloudMetrics": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data. Always \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, because this collection cannot be turned off.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudMetricsStatus:IntegrationCloudAccountDataflowsElasticCloudMetricsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudMetricsStatus:IntegrationCloudAccountDataflowsElasticCloudMetricsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPendingTaskStats:IntegrationCloudAccountDataflowsElasticCloudPendingTaskStats": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPendingTaskStatsStatus:IntegrationCloudAccountDataflowsElasticCloudPendingTaskStatsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPendingTaskStatsStatus:IntegrationCloudAccountDataflowsElasticCloudPendingTaskStatsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeout:IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeout": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether this tolerance is applied.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeoutStatus:IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeoutStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeoutStatus:IntegrationCloudAccountDataflowsElasticCloudPrimaryShardGracefulTimeoutStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStats:IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStats": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStatsStatus:IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStatsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStatsStatus:IntegrationCloudAccountDataflowsElasticCloudPrimaryShardStatsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudShardAllocationStats:IntegrationCloudAccountDataflowsElasticCloudShardAllocationStats": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudShardAllocationStatsStatus:IntegrationCloudAccountDataflowsElasticCloudShardAllocationStatsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudShardAllocationStatsStatus:IntegrationCloudAccountDataflowsElasticCloudShardAllocationStatsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudSlmStats:IntegrationCloudAccountDataflowsElasticCloudSlmStats": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudSlmStatsStatus:IntegrationCloudAccountDataflowsElasticCloudSlmStatsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountDataflowsElasticCloudSlmStatsStatus:IntegrationCloudAccountDataflowsElasticCloudSlmStatsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:elastic/IntegrationCloudAccountSettings:IntegrationCloudAccountSettings": {
+            "properties": {
+                "tags": {
+                    "type": "string",
+                    "description": "Comma-separated list of custom tags for this Elastic Cloud deployment.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Elastic Cloud deployment URL.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "url"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "tags",
+                        "url"
+                    ]
+                }
+            }
+        },
         "datadog:gcp/IntegrationMonitoredResourceConfig:IntegrationMonitoredResourceConfig": {
             "properties": {
                 "filters": {
@@ -100328,6 +101165,796 @@
                 }
             },
             "type": "object"
+        },
+        "datadog:snowflake/IntegrationAccountAuthentication:IntegrationAccountAuthentication": {
+            "properties": {
+                "snowflakeIntegrationAccountPrivateKeyAuth": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth:IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth",
+                    "description": "The RSA key pair authentication method configured on the account.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:snowflake/IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth:IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth": {
+            "properties": {
+                "authType": {
+                    "type": "string",
+                    "description": "The authentication method type. Valid values are \u003cspan pulumi-lang-nodejs=\"`snowflakePrivateKey`\" pulumi-lang-dotnet=\"`SnowflakePrivateKey`\" pulumi-lang-go=\"`snowflakePrivateKey`\" pulumi-lang-python=\"`snowflake_private_key`\" pulumi-lang-yaml=\"`snowflakePrivateKey`\" pulumi-lang-java=\"`snowflakePrivateKey`\" pulumi-lang-hcl=\"`snowflake_private_key`\"\u003e`snowflakePrivateKey`\u003c/span\u003e. Defaults to `\u003cspan pulumi-lang-nodejs=\"\"snowflakePrivateKey\"\" pulumi-lang-dotnet=\"\"SnowflakePrivateKey\"\" pulumi-lang-go=\"\"snowflakePrivateKey\"\" pulumi-lang-python=\"\"snowflake_private_key\"\" pulumi-lang-yaml=\"\"snowflakePrivateKey\"\" pulumi-lang-java=\"\"snowflakePrivateKey\"\" pulumi-lang-hcl=\"\"snowflake_private_key\"\"\u003e\"snowflakePrivateKey\"\u003c/span\u003e`.\n"
+                },
+                "privateKeyName": {
+                    "type": "string",
+                    "description": "Name that distinguishes this private key from other keys in Datadog.\n"
+                },
+                "privateKeyPassphraseWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nPassphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.\n",
+                    "secret": true
+                },
+                "privateKeyPassphraseWoVersion": {
+                    "type": "string",
+                    "description": "Version trigger for private*key*passphrase_wo rotation. String length must be at least 1.\n"
+                },
+                "privateKeyWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nThe private key, in PEM format. This write-only value is not stored in Terraform state.\n",
+                    "secret": true
+                },
+                "privateKeyWoVersion": {
+                    "type": "string",
+                    "description": "Version trigger for private*key*wo rotation. String length must be at least 1.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "privateKeyName",
+                "privateKeyWo",
+                "privateKeyWoVersion"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "authType",
+                        "privateKeyName",
+                        "privateKeyWo",
+                        "privateKeyWoVersion"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflows:IntegrationAccountDataflows": {
+            "properties": {
+                "snowflakeAccountUsageMetrics": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeAccountUsageMetrics:IntegrationAccountDataflowsSnowflakeAccountUsageMetrics",
+                    "description": "Account-level usage metrics read from the Snowflake `ACCOUNT_USAGE` schema, covering storage usage, credit consumption, and query activity.\n"
+                },
+                "snowflakeCloudCostMetrics": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeCloudCostMetrics:IntegrationAccountDataflowsSnowflakeCloudCostMetrics",
+                    "description": "Cost data aggregated from the Snowflake `ORGANIZATION_USAGE` schema. Requires [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/) to be set up for your organization, and the ORGANIZATION*BILLING*VIEWER database role on the Snowflake role; without both this dataflow collects no data.\n"
+                },
+                "snowflakeDataObservabilityQualityMonitoring": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoring:IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoring",
+                    "description": "Data Observability, which collects lineage and data quality information from your Snowflake databases so you can explore how data flows and detect and resolve quality issues.\n"
+                },
+                "snowflakeEventTableLogs": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeEventTableLogs:IntegrationAccountDataflowsSnowflakeEventTableLogs",
+                    "description": "Records from your Snowflake event tables, used to monitor application behavior and identify issues. \u003cspan pulumi-lang-nodejs=\"`enabled`\" pulumi-lang-dotnet=\"`Enabled`\" pulumi-lang-go=\"`enabled`\" pulumi-lang-python=\"`enabled`\" pulumi-lang-yaml=\"`enabled`\" pulumi-lang-java=\"`enabled`\" pulumi-lang-hcl=\"`enabled`\"\u003e`enabled`\u003c/span\u003e turns the dataflow on and off as a whole, and the per-record-type toggles in \u003cspan pulumi-lang-nodejs=\"`settings`\" pulumi-lang-dotnet=\"`Settings`\" pulumi-lang-go=\"`settings`\" pulumi-lang-python=\"`settings`\" pulumi-lang-yaml=\"`settings`\" pulumi-lang-java=\"`settings`\" pulumi-lang-hcl=\"`settings`\"\u003e`settings`\u003c/span\u003e select which kinds of record it collects while it is on. The Snowflake role needs usage granted on the database, the schema, and the event table itself; without those grants this dataflow collects no data.\n"
+                },
+                "snowflakeOrganizationUsageMetrics": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeOrganizationUsageMetrics:IntegrationAccountDataflowsSnowflakeOrganizationUsageMetrics",
+                    "description": "Organization-level usage metrics read from the Snowflake `ORGANIZATION_USAGE` schema, covering the credit consumption of every account in the organization and the history of data transferred out of Snowflake. Reading that schema requires the ORGADMIN role; without it this dataflow collects no data.\n"
+                },
+                "snowflakeQueryHistoryLogs": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeQueryHistoryLogs:IntegrationAccountDataflowsSnowflakeQueryHistoryLogs",
+                    "description": "Per-query logs that let you identify long-running, poorly performing, and expensive queries.\n"
+                },
+                "snowflakeSecurityLogs": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeSecurityLogs:IntegrationAccountDataflowsSnowflakeSecurityLogs",
+                    "description": "Security logs from the Snowflake `ACCOUNT_USAGE` schema, for analyzing the security of your Snowflake account and running threat detection with [Cloud SIEM](https://docs.datadoghq.com/security/cloud_siem/).\n"
+                },
+                "snowflakeTaskHistoryLogs": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeTaskHistoryLogs:IntegrationAccountDataflowsSnowflakeTaskHistoryLogs",
+                    "description": "Execution logs for your scheduled Snowflake tasks, covering start time, end time, status, and any error message.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "snowflakeAccountUsageMetrics",
+                        "snowflakeCloudCostMetrics",
+                        "snowflakeDataObservabilityQualityMonitoring",
+                        "snowflakeEventTableLogs",
+                        "snowflakeOrganizationUsageMetrics",
+                        "snowflakeQueryHistoryLogs",
+                        "snowflakeSecurityLogs",
+                        "snowflakeTaskHistoryLogs"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeAccountUsageMetrics:IntegrationAccountDataflowsSnowflakeAccountUsageMetrics": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeAccountUsageMetricsSettings:IntegrationAccountDataflowsSnowflakeAccountUsageMetricsSettings",
+                    "description": "Settings of the account usage metrics dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "settings"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeAccountUsageMetricsSettings:IntegrationAccountDataflowsSnowflakeAccountUsageMetricsSettings": {
+            "properties": {
+                "accountUsageMetricsAggregateLast24h": {
+                    "type": "boolean",
+                    "description": "The period each metric aggregates over. When \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, metrics aggregate the past 24 hours on a rolling basis; when \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e, they aggregate the current day so far.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accountUsageMetricsAggregateLast24h"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeCloudCostMetrics:IntegrationAccountDataflowsSnowflakeCloudCostMetrics": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeCloudCostMetricsSettings:IntegrationAccountDataflowsSnowflakeCloudCostMetricsSettings",
+                    "description": "Settings of the Cloud Cost Management dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "settings"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeCloudCostMetricsSettings:IntegrationAccountDataflowsSnowflakeCloudCostMetricsSettings": {
+            "properties": {
+                "queryTags": {
+                    "type": "string",
+                    "description": "Snowflake query tags ingested as a comma-separated list of tag names, so that cost data can be broken down by them in Cloud Cost Management.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "queryTags"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoring:IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoring": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoringSettings:IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoringSettings",
+                    "description": "Settings of the Data Observability dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "settings"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoringSettings:IntegrationAccountDataflowsSnowflakeDataObservabilityQualityMonitoringSettings": {
+            "properties": {
+                "doTableCrawlerCron": {
+                    "type": "string",
+                    "description": "Cron expression setting how often Datadog crawls your Snowflake table metadata.\n"
+                },
+                "syncSnowflakeSystemDatabase": {
+                    "type": "boolean",
+                    "description": "Whether metadata from the Snowflake `SNOWFLAKE` system database is included in Data Observability alongside your own databases.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "doTableCrawlerCron",
+                        "syncSnowflakeSystemDatabase"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeEventTableLogs:IntegrationAccountDataflowsSnowflakeEventTableLogs": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeEventTableLogsSettings:IntegrationAccountDataflowsSnowflakeEventTableLogsSettings",
+                    "description": "Settings of the event table dataflow. Each record type is collected independently so that you can control ingestion costs, and every record type is ingested into Datadog as logs tagged with its \u003cspan pulumi-lang-nodejs=\"`recordType`\" pulumi-lang-dotnet=\"`RecordType`\" pulumi-lang-go=\"`recordType`\" pulumi-lang-python=\"`record_type`\" pulumi-lang-yaml=\"`recordType`\" pulumi-lang-java=\"`recordType`\" pulumi-lang-hcl=\"`record_type`\"\u003e`recordType`\u003c/span\u003e.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "settings"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeEventTableLogsSettings:IntegrationAccountDataflowsSnowflakeEventTableLogsSettings": {
+            "properties": {
+                "eventTableEventsEnabled": {
+                    "type": "boolean",
+                    "description": "Whether records with a \u003cspan pulumi-lang-nodejs=\"`recordType`\" pulumi-lang-dotnet=\"`RecordType`\" pulumi-lang-go=\"`recordType`\" pulumi-lang-python=\"`record_type`\" pulumi-lang-yaml=\"`recordType`\" pulumi-lang-java=\"`recordType`\" pulumi-lang-hcl=\"`record_type`\"\u003e`recordType`\u003c/span\u003e of \u003cspan pulumi-lang-nodejs=\"`event`\" pulumi-lang-dotnet=\"`Event`\" pulumi-lang-go=\"`event`\" pulumi-lang-python=\"`event`\" pulumi-lang-yaml=\"`event`\" pulumi-lang-java=\"`event`\" pulumi-lang-hcl=\"`event`\"\u003e`event`\u003c/span\u003e are collected.\n"
+                },
+                "eventTableLogsEnabled": {
+                    "type": "boolean",
+                    "description": "Whether records with a \u003cspan pulumi-lang-nodejs=\"`recordType`\" pulumi-lang-dotnet=\"`RecordType`\" pulumi-lang-go=\"`recordType`\" pulumi-lang-python=\"`record_type`\" pulumi-lang-yaml=\"`recordType`\" pulumi-lang-java=\"`recordType`\" pulumi-lang-hcl=\"`record_type`\"\u003e`recordType`\u003c/span\u003e of \u003cspan pulumi-lang-nodejs=\"`log`\" pulumi-lang-dotnet=\"`Log`\" pulumi-lang-go=\"`log`\" pulumi-lang-python=\"`log`\" pulumi-lang-yaml=\"`log`\" pulumi-lang-java=\"`log`\" pulumi-lang-hcl=\"`log`\"\u003e`log`\u003c/span\u003e are collected.\n"
+                },
+                "eventTableLogsIntervalMin": {
+                    "type": "integer",
+                    "description": "How often event table records are collected, in minutes.\n"
+                },
+                "eventTableSpanEventsEnabled": {
+                    "type": "boolean",
+                    "description": "Whether records with a \u003cspan pulumi-lang-nodejs=\"`recordType`\" pulumi-lang-dotnet=\"`RecordType`\" pulumi-lang-go=\"`recordType`\" pulumi-lang-python=\"`record_type`\" pulumi-lang-yaml=\"`recordType`\" pulumi-lang-java=\"`recordType`\" pulumi-lang-hcl=\"`record_type`\"\u003e`recordType`\u003c/span\u003e of \u003cspan pulumi-lang-nodejs=\"`spanEvent`\" pulumi-lang-dotnet=\"`SpanEvent`\" pulumi-lang-go=\"`spanEvent`\" pulumi-lang-python=\"`span_event`\" pulumi-lang-yaml=\"`spanEvent`\" pulumi-lang-java=\"`spanEvent`\" pulumi-lang-hcl=\"`span_event`\"\u003e`spanEvent`\u003c/span\u003e are collected.\n"
+                },
+                "eventTableSpansEnabled": {
+                    "type": "boolean",
+                    "description": "Whether records with a \u003cspan pulumi-lang-nodejs=\"`recordType`\" pulumi-lang-dotnet=\"`RecordType`\" pulumi-lang-go=\"`recordType`\" pulumi-lang-python=\"`record_type`\" pulumi-lang-yaml=\"`recordType`\" pulumi-lang-java=\"`recordType`\" pulumi-lang-hcl=\"`record_type`\"\u003e`recordType`\u003c/span\u003e of \u003cspan pulumi-lang-nodejs=\"`span`\" pulumi-lang-dotnet=\"`Span`\" pulumi-lang-go=\"`span`\" pulumi-lang-python=\"`span`\" pulumi-lang-yaml=\"`span`\" pulumi-lang-java=\"`span`\" pulumi-lang-hcl=\"`span`\"\u003e`span`\u003c/span\u003e are collected.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "eventTableEventsEnabled",
+                        "eventTableLogsEnabled",
+                        "eventTableLogsIntervalMin",
+                        "eventTableSpanEventsEnabled",
+                        "eventTableSpansEnabled"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeOrganizationUsageMetrics:IntegrationAccountDataflowsSnowflakeOrganizationUsageMetrics": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeOrganizationUsageMetricsSettings:IntegrationAccountDataflowsSnowflakeOrganizationUsageMetricsSettings",
+                    "description": "Settings of the organization usage metrics dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "settings"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeOrganizationUsageMetricsSettings:IntegrationAccountDataflowsSnowflakeOrganizationUsageMetricsSettings": {
+            "properties": {
+                "organizationUsageMetricsAggregateLast24h": {
+                    "type": "boolean",
+                    "description": "The period each metric aggregates over. When \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e, metrics aggregate the past 24 hours on a rolling basis; when \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e, they aggregate the current day so far.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "organizationUsageMetricsAggregateLast24h"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeQueryHistoryLogs:IntegrationAccountDataflowsSnowflakeQueryHistoryLogs": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeQueryHistoryLogsSettings:IntegrationAccountDataflowsSnowflakeQueryHistoryLogsSettings",
+                    "description": "Settings of the query history logs dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "settings"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeQueryHistoryLogsSettings:IntegrationAccountDataflowsSnowflakeQueryHistoryLogsSettings": {
+            "properties": {
+                "joinQueryHistoryWithAccessHistoryEnabled": {
+                    "type": "boolean",
+                    "description": "Whether query logs are joined with Snowflake access history, which adds the objects each query read and wrote so you can follow how data is used and where it came from.\n"
+                },
+                "queryHistoryLogsIntervalMin": {
+                    "type": "integer",
+                    "description": "How often query history logs are collected, in minutes.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "joinQueryHistoryWithAccessHistoryEnabled",
+                        "queryHistoryLogsIntervalMin"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeSecurityLogs:IntegrationAccountDataflowsSnowflakeSecurityLogs": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeSecurityLogsSettings:IntegrationAccountDataflowsSnowflakeSecurityLogsSettings",
+                    "description": "Settings of the security logs dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "settings"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeSecurityLogsSettings:IntegrationAccountDataflowsSnowflakeSecurityLogsSettings": {
+            "properties": {
+                "securityLogsIntervalMin": {
+                    "type": "integer",
+                    "description": "How often security logs are collected, in minutes.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "securityLogsIntervalMin"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeTaskHistoryLogs:IntegrationAccountDataflowsSnowflakeTaskHistoryLogs": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflowsSnowflakeTaskHistoryLogsSettings:IntegrationAccountDataflowsSnowflakeTaskHistoryLogsSettings",
+                    "description": "Settings of the task history logs dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "settings"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountDataflowsSnowflakeTaskHistoryLogsSettings:IntegrationAccountDataflowsSnowflakeTaskHistoryLogsSettings": {
+            "properties": {
+                "taskHistoryLogsIntervalMin": {
+                    "type": "integer",
+                    "description": "How often task history logs are collected, in minutes.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "taskHistoryLogsIntervalMin"
+                    ]
+                }
+            }
+        },
+        "datadog:snowflake/IntegrationAccountSettings:IntegrationAccountSettings": {
+            "properties": {
+                "snowflakeAccountIdentifier": {
+                    "type": "string",
+                    "description": "Identifier of the Snowflake account being monitored.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Snowflake user Datadog authenticates as.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "snowflakeAccountIdentifier",
+                "username"
+            ]
+        },
+        "datadog:twilio/IntegrationAccountAuthentication:IntegrationAccountAuthentication": {
+            "properties": {
+                "twilioIntegrationAccountBasicAuth": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth:IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth",
+                    "description": "The basic authentication method and username configured on the account.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:twilio/IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth:IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth": {
+            "properties": {
+                "authType": {
+                    "type": "string",
+                    "description": "The authentication method type. Valid values are \u003cspan pulumi-lang-nodejs=\"`basic`\" pulumi-lang-dotnet=\"`Basic`\" pulumi-lang-go=\"`basic`\" pulumi-lang-python=\"`basic`\" pulumi-lang-yaml=\"`basic`\" pulumi-lang-java=\"`basic`\" pulumi-lang-hcl=\"`basic`\"\u003e`basic`\u003c/span\u003e. Defaults to `\"basic\"`.\n"
+                },
+                "passwordWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nSecret password or private key. This write-only value is not stored in Terraform state.\n",
+                    "secret": true
+                },
+                "passwordWoVersion": {
+                    "type": "string",
+                    "description": "Version trigger for\u003cspan pulumi-lang-nodejs=\" passwordWo \" pulumi-lang-dotnet=\" PasswordWo \" pulumi-lang-go=\" passwordWo \" pulumi-lang-python=\" password_wo \" pulumi-lang-yaml=\" passwordWo \" pulumi-lang-java=\" passwordWo \" pulumi-lang-hcl=\" password_wo \"\u003e passwordWo \u003c/span\u003erotation. String length must be at least 1.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Non-secret username or public identifier for the credential pair.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "passwordWo",
+                "passwordWoVersion",
+                "username"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "authType",
+                        "passwordWo",
+                        "passwordWoVersion",
+                        "username"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflows:IntegrationAccountDataflows": {
+            "properties": {
+                "twilioAlertsLogs": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflowsTwilioAlertsLogs:IntegrationAccountDataflowsTwilioAlertsLogs",
+                    "description": "Twilio Alert resource logs, which detail the errors and warnings raised when Twilio makes a webhook request to your server or when your application calls the Twilio REST API.\n"
+                },
+                "twilioCallSummariesLogs": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflowsTwilioCallSummariesLogs:IntegrationAccountDataflowsTwilioCallSummariesLogs",
+                    "description": "Twilio Call Summary resource logs, covering the metadata and performance of the calls made from your Twilio account. Requires Voice Insights Advanced Features to be enabled on the Twilio account; without it this dataflow collects no data.\n"
+                },
+                "twilioCloudCostMetrics": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflowsTwilioCloudCostMetrics:IntegrationAccountDataflowsTwilioCloudCostMetrics",
+                    "description": "Your Twilio cost data, so that Twilio spend can be broken down and attributed in [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/).\n"
+                },
+                "twilioEventsLogs": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflowsTwilioEventsLogs:IntegrationAccountDataflowsTwilioEventsLogs",
+                    "description": "Twilio Event resource logs, which record virtually every action taken in your Twilio account, such as provisioning a phone number, changing account security settings, or deleting a recording. Actions are recorded whether they came from the REST API, a user in the Twilio Console, or Twilio itself. [Cloud SIEM](https://docs.datadoghq.com/security/cloud_siem/) analyzes and correlates these logs to detect threats in real time.\n"
+                },
+                "twilioMessagesLogs": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflowsTwilioMessagesLogs:IntegrationAccountDataflowsTwilioMessagesLogs",
+                    "description": "Twilio Message resource logs for inbound and outbound messages, used to track delivery and troubleshoot message errors. A log is produced when you send a message through the REST API, when Twilio executes a TwiML instruction, and when someone messages one of your Twilio numbers or channel addresses. Message bodies are never collected.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "twilioAlertsLogs",
+                        "twilioCallSummariesLogs",
+                        "twilioCloudCostMetrics",
+                        "twilioEventsLogs",
+                        "twilioMessagesLogs"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflowsTwilioAlertsLogs:IntegrationAccountDataflowsTwilioAlertsLogs": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflowsTwilioAlertsLogsStatus:IntegrationAccountDataflowsTwilioAlertsLogsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflowsTwilioAlertsLogsStatus:IntegrationAccountDataflowsTwilioAlertsLogsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflowsTwilioCallSummariesLogs:IntegrationAccountDataflowsTwilioCallSummariesLogs": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflowsTwilioCallSummariesLogsStatus:IntegrationAccountDataflowsTwilioCallSummariesLogsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflowsTwilioCallSummariesLogsStatus:IntegrationAccountDataflowsTwilioCallSummariesLogsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflowsTwilioCloudCostMetrics:IntegrationAccountDataflowsTwilioCloudCostMetrics": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflowsTwilioCloudCostMetricsStatus:IntegrationAccountDataflowsTwilioCloudCostMetricsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflowsTwilioCloudCostMetricsStatus:IntegrationAccountDataflowsTwilioCloudCostMetricsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflowsTwilioEventsLogs:IntegrationAccountDataflowsTwilioEventsLogs": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflowsTwilioEventsLogsStatus:IntegrationAccountDataflowsTwilioEventsLogsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflowsTwilioEventsLogsStatus:IntegrationAccountDataflowsTwilioEventsLogsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflowsTwilioMessagesLogs:IntegrationAccountDataflowsTwilioMessagesLogs": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether Datadog collects this data.\n"
+                },
+                "status": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflowsTwilioMessagesLogsStatus:IntegrationAccountDataflowsTwilioMessagesLogsStatus",
+                    "description": "Read-only collection status of a dataflow.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "enabled",
+                        "status"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountDataflowsTwilioMessagesLogsStatus:IntegrationAccountDataflowsTwilioMessagesLogsStatus": {
+            "properties": {
+                "health": {
+                    "type": "string",
+                    "description": "Collection health of a single dataflow.\n"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Human-readable detail, populated when the dataflow is not healthy.\n"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "description": "Time the status was last computed.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "health",
+                        "message",
+                        "updatedAt"
+                    ]
+                }
+            }
+        },
+        "datadog:twilio/IntegrationAccountSettings:IntegrationAccountSettings": {
+            "properties": {
+                "accountSid": {
+                    "type": "string",
+                    "description": "Twilio Account SID that uniquely identifies your Twilio account.\n"
+                },
+                "censorLogs": {
+                    "type": "boolean",
+                    "description": "When enabled, Twilio phone numbers in the \u003cspan pulumi-lang-nodejs=\"`to`\" pulumi-lang-dotnet=\"`To`\" pulumi-lang-go=\"`to`\" pulumi-lang-python=\"`to`\" pulumi-lang-yaml=\"`to`\" pulumi-lang-java=\"`to`\" pulumi-lang-hcl=\"`to`\"\u003e`to`\u003c/span\u003e field and SMS message bodies are censored for privacy.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountSid"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "accountSid",
+                        "censorLogs"
+                    ]
+                }
+            }
         }
     },
     "provider": {
@@ -101231,6 +102858,149 @@
                             "type": "string"
                         },
                         "description": "A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:databricks/integrationAccount:IntegrationAccount": {
+            "description": "Provides a Datadog Databricks integration account resource.\n",
+            "properties": {
+                "authentication": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountAuthentication:IntegrationAccountAuthentication",
+                    "description": "Authentication configured on the Databricks integration account. A \u003cspan pulumi-lang-nodejs=\"`bearerToken`\" pulumi-lang-dotnet=\"`BearerToken`\" pulumi-lang-go=\"`bearerToken`\" pulumi-lang-python=\"`bearer_token`\" pulumi-lang-yaml=\"`bearerToken`\" pulumi-lang-java=\"`bearerToken`\" pulumi-lang-hcl=\"`bearer_token`\"\u003e`bearerToken`\u003c/span\u003e method indicates an account still on token authentication, which Databricks accepts only on accounts that already use it.\n"
+                },
+                "dataflows": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountDataflows:IntegrationAccountDataflows",
+                    "description": "Data Datadog collects from Databricks, keyed by dataflow id.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable name of the Databricks integration account.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountSettings:IntegrationAccountSettings",
+                    "description": "Settings configured on the Databricks integration account.\n"
+                }
+            },
+            "required": [
+                "authentication",
+                "name",
+                "settings"
+            ],
+            "inputProperties": {
+                "authentication": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountAuthentication:IntegrationAccountAuthentication",
+                    "description": "Authentication configured on the Databricks integration account. A \u003cspan pulumi-lang-nodejs=\"`bearerToken`\" pulumi-lang-dotnet=\"`BearerToken`\" pulumi-lang-go=\"`bearerToken`\" pulumi-lang-python=\"`bearer_token`\" pulumi-lang-yaml=\"`bearerToken`\" pulumi-lang-java=\"`bearerToken`\" pulumi-lang-hcl=\"`bearer_token`\"\u003e`bearerToken`\u003c/span\u003e method indicates an account still on token authentication, which Databricks accepts only on accounts that already use it.\n"
+                },
+                "dataflows": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountDataflows:IntegrationAccountDataflows",
+                    "description": "Data Datadog collects from Databricks, keyed by dataflow id.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable name of the Databricks integration account.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:databricks/IntegrationAccountSettings:IntegrationAccountSettings",
+                    "description": "Settings configured on the Databricks integration account.\n"
+                }
+            },
+            "requiredInputs": [
+                "authentication",
+                "name",
+                "settings"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IntegrationAccount resources.\n",
+                "properties": {
+                    "authentication": {
+                        "$ref": "#/types/datadog:databricks/IntegrationAccountAuthentication:IntegrationAccountAuthentication",
+                        "description": "Authentication configured on the Databricks integration account. A \u003cspan pulumi-lang-nodejs=\"`bearerToken`\" pulumi-lang-dotnet=\"`BearerToken`\" pulumi-lang-go=\"`bearerToken`\" pulumi-lang-python=\"`bearer_token`\" pulumi-lang-yaml=\"`bearerToken`\" pulumi-lang-java=\"`bearerToken`\" pulumi-lang-hcl=\"`bearer_token`\"\u003e`bearerToken`\u003c/span\u003e method indicates an account still on token authentication, which Databricks accepts only on accounts that already use it.\n"
+                    },
+                    "dataflows": {
+                        "$ref": "#/types/datadog:databricks/IntegrationAccountDataflows:IntegrationAccountDataflows",
+                        "description": "Data Datadog collects from Databricks, keyed by dataflow id.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Human-readable name of the Databricks integration account.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/datadog:databricks/IntegrationAccountSettings:IntegrationAccountSettings",
+                        "description": "Settings configured on the Databricks integration account.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:elastic/integrationCloudAccount:IntegrationCloudAccount": {
+            "description": "Provides a Datadog Elastic Cloud integration account resource.\n",
+            "properties": {
+                "authentication": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountAuthentication:IntegrationCloudAccountAuthentication",
+                    "description": "Authentication configured on the Elastic Cloud integration account.\n"
+                },
+                "dataflows": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflows:IntegrationCloudAccountDataflows",
+                    "description": "Data Datadog collects from Elastic Cloud, keyed by dataflow id.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable name of the Elastic Cloud integration account.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountSettings:IntegrationCloudAccountSettings",
+                    "description": "Settings configured on the Elastic Cloud integration account.\n"
+                }
+            },
+            "required": [
+                "authentication",
+                "dataflows",
+                "name",
+                "settings"
+            ],
+            "inputProperties": {
+                "authentication": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountAuthentication:IntegrationCloudAccountAuthentication",
+                    "description": "Authentication configured on the Elastic Cloud integration account.\n"
+                },
+                "dataflows": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflows:IntegrationCloudAccountDataflows",
+                    "description": "Data Datadog collects from Elastic Cloud, keyed by dataflow id.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable name of the Elastic Cloud integration account.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:elastic/IntegrationCloudAccountSettings:IntegrationCloudAccountSettings",
+                    "description": "Settings configured on the Elastic Cloud integration account.\n"
+                }
+            },
+            "requiredInputs": [
+                "authentication",
+                "name",
+                "settings"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IntegrationCloudAccount resources.\n",
+                "properties": {
+                    "authentication": {
+                        "$ref": "#/types/datadog:elastic/IntegrationCloudAccountAuthentication:IntegrationCloudAccountAuthentication",
+                        "description": "Authentication configured on the Elastic Cloud integration account.\n"
+                    },
+                    "dataflows": {
+                        "$ref": "#/types/datadog:elastic/IntegrationCloudAccountDataflows:IntegrationCloudAccountDataflows",
+                        "description": "Data Datadog collects from Elastic Cloud, keyed by dataflow id.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Human-readable name of the Elastic Cloud integration account.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/datadog:elastic/IntegrationCloudAccountSettings:IntegrationCloudAccountSettings",
+                        "description": "Settings configured on the Elastic Cloud integration account.\n"
                     }
                 },
                 "type": "object"
@@ -118195,6 +119965,150 @@
                     "display": {
                         "$ref": "#/types/datadog:slack/ChannelDisplay:ChannelDisplay",
                         "description": "Configuration options for what is shown in an alert event message.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:snowflake/integrationAccount:IntegrationAccount": {
+            "description": "Provides a Datadog Snowflake integration account resource.\n",
+            "properties": {
+                "authentication": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountAuthentication:IntegrationAccountAuthentication",
+                    "description": "Authentication configured on the Snowflake integration account.\n"
+                },
+                "dataflows": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflows:IntegrationAccountDataflows",
+                    "description": "Data Datadog collects from Snowflake, keyed by dataflow id.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable name of the Snowflake integration account.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountSettings:IntegrationAccountSettings",
+                    "description": "Settings configured on the Snowflake integration account.\n"
+                }
+            },
+            "required": [
+                "authentication",
+                "dataflows",
+                "name",
+                "settings"
+            ],
+            "inputProperties": {
+                "authentication": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountAuthentication:IntegrationAccountAuthentication",
+                    "description": "Authentication configured on the Snowflake integration account.\n"
+                },
+                "dataflows": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflows:IntegrationAccountDataflows",
+                    "description": "Data Datadog collects from Snowflake, keyed by dataflow id.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable name of the Snowflake integration account.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:snowflake/IntegrationAccountSettings:IntegrationAccountSettings",
+                    "description": "Settings configured on the Snowflake integration account.\n"
+                }
+            },
+            "requiredInputs": [
+                "authentication",
+                "name",
+                "settings"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IntegrationAccount resources.\n",
+                "properties": {
+                    "authentication": {
+                        "$ref": "#/types/datadog:snowflake/IntegrationAccountAuthentication:IntegrationAccountAuthentication",
+                        "description": "Authentication configured on the Snowflake integration account.\n"
+                    },
+                    "dataflows": {
+                        "$ref": "#/types/datadog:snowflake/IntegrationAccountDataflows:IntegrationAccountDataflows",
+                        "description": "Data Datadog collects from Snowflake, keyed by dataflow id.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Human-readable name of the Snowflake integration account.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/datadog:snowflake/IntegrationAccountSettings:IntegrationAccountSettings",
+                        "description": "Settings configured on the Snowflake integration account.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:twilio/integrationAccount:IntegrationAccount": {
+            "description": "Provides a Datadog Twilio integration account resource.\n",
+            "properties": {
+                "authentication": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountAuthentication:IntegrationAccountAuthentication",
+                    "description": "Authentication configured on the Twilio integration account.\n"
+                },
+                "dataflows": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflows:IntegrationAccountDataflows",
+                    "description": "Data Datadog collects from Twilio, keyed by dataflow id.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable name of the Twilio integration account.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountSettings:IntegrationAccountSettings",
+                    "description": "Settings configured on the Twilio integration account.\n"
+                }
+            },
+            "required": [
+                "authentication",
+                "dataflows",
+                "name",
+                "settings"
+            ],
+            "inputProperties": {
+                "authentication": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountAuthentication:IntegrationAccountAuthentication",
+                    "description": "Authentication configured on the Twilio integration account.\n"
+                },
+                "dataflows": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountDataflows:IntegrationAccountDataflows",
+                    "description": "Data Datadog collects from Twilio, keyed by dataflow id.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Human-readable name of the Twilio integration account.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/datadog:twilio/IntegrationAccountSettings:IntegrationAccountSettings",
+                    "description": "Settings configured on the Twilio integration account.\n"
+                }
+            },
+            "requiredInputs": [
+                "authentication",
+                "name",
+                "settings"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IntegrationAccount resources.\n",
+                "properties": {
+                    "authentication": {
+                        "$ref": "#/types/datadog:twilio/IntegrationAccountAuthentication:IntegrationAccountAuthentication",
+                        "description": "Authentication configured on the Twilio integration account.\n"
+                    },
+                    "dataflows": {
+                        "$ref": "#/types/datadog:twilio/IntegrationAccountDataflows:IntegrationAccountDataflows",
+                        "description": "Data Datadog collects from Twilio, keyed by dataflow id.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Human-readable name of the Twilio integration account.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/datadog:twilio/IntegrationAccountSettings:IntegrationAccountSettings",
+                        "description": "Settings configured on the Twilio integration account.\n"
                     }
                 },
                 "type": "object"
