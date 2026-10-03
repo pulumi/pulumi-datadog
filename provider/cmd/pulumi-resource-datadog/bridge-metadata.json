@@ -45643,6 +45643,53 @@
                                                                 }
                                                             }
                                                         },
+                                                        "metric_enrichment_table": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "file": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "encoding": {
+                                                                                    "maxItemsOne": true
+                                                                                },
+                                                                                "key": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "source": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "reference_table": {
+                                                                        "maxItemsOne": true,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "columns": {
+                                                                                    "maxItemsOne": false
+                                                                                },
+                                                                                "key": {
+                                                                                    "maxItemsOne": true,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "source": {
+                                                                                                "maxItemsOne": true
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
                                                         "metric_tags": {
                                                             "maxItemsOne": true,
                                                             "elem": {
