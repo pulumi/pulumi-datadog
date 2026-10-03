@@ -82,6 +82,10 @@ export class IntegrationSts extends pulumi.CustomResource {
      */
     declare public readonly isGlobalLocationEnabled: pulumi.Output<boolean>;
     /**
+     * When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+     */
+    declare public readonly isOrgFolderResourceCollectionEnabled: pulumi.Output<boolean>;
+    /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      */
     declare public readonly isPerProjectQuotaEnabled: pulumi.Output<boolean>;
@@ -106,7 +110,7 @@ export class IntegrationSts extends pulumi.CustomResource {
      */
     declare public readonly regionFilterConfigs: pulumi.Output<string[] | undefined>;
     /**
-     * When enabled, Datadog scans for all resources in your GCP environment.
+     * When enabled, Datadog scans for all project-level resources in your GCP environment.
      */
     declare public readonly resourceCollectionEnabled: pulumi.Output<boolean>;
 
@@ -131,6 +135,7 @@ export class IntegrationSts extends pulumi.CustomResource {
             resourceInputs["hostFilters"] = state?.hostFilters;
             resourceInputs["isCspmEnabled"] = state?.isCspmEnabled;
             resourceInputs["isGlobalLocationEnabled"] = state?.isGlobalLocationEnabled;
+            resourceInputs["isOrgFolderResourceCollectionEnabled"] = state?.isOrgFolderResourceCollectionEnabled;
             resourceInputs["isPerProjectQuotaEnabled"] = state?.isPerProjectQuotaEnabled;
             resourceInputs["isResourceChangeCollectionEnabled"] = state?.isResourceChangeCollectionEnabled;
             resourceInputs["isSecurityCommandCenterEnabled"] = state?.isSecurityCommandCenterEnabled;
@@ -150,6 +155,7 @@ export class IntegrationSts extends pulumi.CustomResource {
             resourceInputs["hostFilters"] = args?.hostFilters;
             resourceInputs["isCspmEnabled"] = args?.isCspmEnabled;
             resourceInputs["isGlobalLocationEnabled"] = args?.isGlobalLocationEnabled;
+            resourceInputs["isOrgFolderResourceCollectionEnabled"] = args?.isOrgFolderResourceCollectionEnabled;
             resourceInputs["isPerProjectQuotaEnabled"] = args?.isPerProjectQuotaEnabled;
             resourceInputs["isResourceChangeCollectionEnabled"] = args?.isResourceChangeCollectionEnabled;
             resourceInputs["isSecurityCommandCenterEnabled"] = args?.isSecurityCommandCenterEnabled;
@@ -205,6 +211,10 @@ export interface IntegrationStsState {
      */
     isGlobalLocationEnabled?: pulumi.Input<boolean | undefined>;
     /**
+     * When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+     */
+    isOrgFolderResourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      */
     isPerProjectQuotaEnabled?: pulumi.Input<boolean | undefined>;
@@ -229,7 +239,7 @@ export interface IntegrationStsState {
      */
     regionFilterConfigs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * When enabled, Datadog scans for all resources in your GCP environment.
+     * When enabled, Datadog scans for all project-level resources in your GCP environment.
      */
     resourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
 }
@@ -271,6 +281,10 @@ export interface IntegrationStsArgs {
      */
     isGlobalLocationEnabled?: pulumi.Input<boolean | undefined>;
     /**
+     * When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+     */
+    isOrgFolderResourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      */
     isPerProjectQuotaEnabled?: pulumi.Input<boolean | undefined>;
@@ -295,7 +309,7 @@ export interface IntegrationStsArgs {
      */
     regionFilterConfigs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * When enabled, Datadog scans for all resources in your GCP environment.
+     * When enabled, Datadog scans for all project-level resources in your GCP environment.
      */
     resourceCollectionEnabled?: pulumi.Input<boolean | undefined>;
 }

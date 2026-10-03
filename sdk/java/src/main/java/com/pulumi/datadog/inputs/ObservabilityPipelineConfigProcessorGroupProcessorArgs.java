@@ -17,6 +17,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProces
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorFilterArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs;
@@ -285,6 +286,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
     }
 
     /**
+     * Configures the `enrichmentTable` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `referenceTable` must be configured.
+     * 
+     */
+    @Import(name="metricEnrichmentTable")
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs> metricEnrichmentTable;
+
+    /**
+     * @return Configures the `enrichmentTable` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `referenceTable` must be configured.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs>> metricEnrichmentTable() {
+        return Optional.ofNullable(this.metricEnrichmentTable);
+    }
+
+    /**
      * The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
      * 
      */
@@ -528,6 +544,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
         this.generateMetrics = $.generateMetrics;
         this.id = $.id;
         this.include = $.include;
+        this.metricEnrichmentTable = $.metricEnrichmentTable;
         this.metricTags = $.metricTags;
         this.ocsfMapper = $.ocsfMapper;
         this.parseGrok = $.parseGrok;
@@ -893,6 +910,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
          */
         public Builder include(String include) {
             return include(Output.of(include));
+        }
+
+        /**
+         * @param metricEnrichmentTable Configures the `enrichmentTable` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `referenceTable` must be configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricEnrichmentTable(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs> metricEnrichmentTable) {
+            $.metricEnrichmentTable = metricEnrichmentTable;
+            return this;
+        }
+
+        /**
+         * @param metricEnrichmentTable Configures the `enrichmentTable` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `referenceTable` must be configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricEnrichmentTable(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs metricEnrichmentTable) {
+            return metricEnrichmentTable(Output.of(metricEnrichmentTable));
         }
 
         /**

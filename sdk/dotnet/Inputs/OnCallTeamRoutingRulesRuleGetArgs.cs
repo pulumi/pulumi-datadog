@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `EscalationPolicy` action.
+        /// ID of the policy to be applied when this routing rule matches.
         /// </summary>
         [Input("escalationPolicy")]
         public Input<string>? EscalationPolicy { get; set; }

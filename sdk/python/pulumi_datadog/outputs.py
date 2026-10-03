@@ -1869,6 +1869,14 @@ __all__ = [
     'ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics',
     'ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric',
     'ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricValue',
+    'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable',
+    'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile',
+    'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding',
+    'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey',
+    'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource',
+    'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable',
+    'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey',
+    'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource',
     'ObservabilityPipelineConfigProcessorGroupProcessorMetricTags',
     'ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRule',
     'ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper',
@@ -33970,7 +33978,7 @@ class DashboardV2WidgetListStreamDefinitionRequestQuery(dict):
                  sort: Optional['outputs.DashboardV2WidgetListStreamDefinitionRequestQuerySort'] = None,
                  storage: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        :param _builtins.str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         :param _builtins.str clustering_pattern_field_path: Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
         :param _builtins.str event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         :param Sequence['DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArgs'] group_bies: Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
@@ -33999,7 +34007,7 @@ class DashboardV2WidgetListStreamDefinitionRequestQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         """
         return pulumi.get(self, "data_source")
 
@@ -67305,7 +67313,7 @@ class DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery(dict):
                  sort: Optional['outputs.DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort'] = None,
                  storage: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        :param _builtins.str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         :param _builtins.str clustering_pattern_field_path: Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
         :param _builtins.str event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         :param Sequence['DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs'] group_bies: Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
@@ -67334,7 +67342,7 @@ class DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         """
         return pulumi.get(self, "data_source")
 
@@ -126743,6 +126751,8 @@ class ObservabilityPipelineConfigProcessorGroupProcessor(dict):
             suggest = "generate_datadog_metrics"
         elif key == "generateMetrics":
             suggest = "generate_metrics"
+        elif key == "metricEnrichmentTable":
+            suggest = "metric_enrichment_table"
         elif key == "metricTags":
             suggest = "metric_tags"
         elif key == "ocsfMapper":
@@ -126794,6 +126804,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessor(dict):
                  filter: Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorFilter'] = None,
                  generate_datadog_metrics: Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics'] = None,
                  generate_metrics: Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics'] = None,
+                 metric_enrichment_table: Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable'] = None,
                  metric_tags: Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags'] = None,
                  ocsf_mapper: Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper'] = None,
                  parse_grok: Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrok'] = None,
@@ -126825,6 +126836,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessor(dict):
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorFilterArgs' filter: The `filter` processor allows conditional processing of logs based on a Datadog search query. Logs that match the `include` query are passed through; others are discarded.
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs' generate_datadog_metrics: The `generate_datadog_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs' generate_metrics: The `generate_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs' metric_enrichment_table: Configures the `enrichment_table` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `reference_table` must be configured.
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs' metric_tags: The `metric_tags` processor filters metrics based on their tags using Datadog tag key patterns.
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapperArgs' ocsf_mapper: The `ocsf_mapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
         :param 'ObservabilityPipelineConfigProcessorGroupProcessorParseGrokArgs' parse_grok: The `parse_grok` processor extracts structured fields from unstructured log messages using Grok patterns.
@@ -126870,6 +126882,8 @@ class ObservabilityPipelineConfigProcessorGroupProcessor(dict):
             pulumi.set(__self__, "generate_datadog_metrics", generate_datadog_metrics)
         if generate_metrics is not None:
             pulumi.set(__self__, "generate_metrics", generate_metrics)
+        if metric_enrichment_table is not None:
+            pulumi.set(__self__, "metric_enrichment_table", metric_enrichment_table)
         if metric_tags is not None:
             pulumi.set(__self__, "metric_tags", metric_tags)
         if ocsf_mapper is not None:
@@ -127026,6 +127040,14 @@ class ObservabilityPipelineConfigProcessorGroupProcessor(dict):
         The `generate_metrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `<processor-id>.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
         """
         return pulumi.get(self, "generate_metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="metricEnrichmentTable")
+    def metric_enrichment_table(self) -> Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable']:
+        """
+        Configures the `enrichment_table` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `reference_table` must be configured.
+        """
+        return pulumi.get(self, "metric_enrichment_table")
 
     @_builtins.property
     @pulumi.getter(name="metricTags")
@@ -128186,6 +128208,330 @@ class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricVal
         Name of the log field containing the numeric value to increment the metric by (used only for `increment_by_field`).
         """
         return pulumi.get(self, "field")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referenceTable":
+            suggest = "reference_table"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile'] = None,
+                 reference_table: Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable'] = None):
+        """
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs' file: Defines a static enrichment table loaded from a CSV file for metric enrichment.
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs' reference_table: Uses a Datadog reference table to enrich metrics.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if reference_table is not None:
+            pulumi.set(__self__, "reference_table", reference_table)
+
+    @_builtins.property
+    @pulumi.getter
+    def file(self) -> Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile']:
+        """
+        Defines a static enrichment table loaded from a CSV file for metric enrichment.
+        """
+        return pulumi.get(self, "file")
+
+    @_builtins.property
+    @pulumi.getter(name="referenceTable")
+    def reference_table(self) -> Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable']:
+        """
+        Uses a Datadog reference table to enrich metrics.
+        """
+        return pulumi.get(self, "reference_table")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile(dict):
+    def __init__(__self__, *,
+                 encoding: 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding',
+                 key: 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey',
+                 path: _builtins.str):
+        """
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs' encoding: File encoding format.
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs' key: Defines how to map a metric lookup value to a CSV column during enrichment table lookups.
+        :param _builtins.str path: Path to the CSV file.
+        """
+        pulumi.set(__self__, "encoding", encoding)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding':
+        """
+        File encoding format.
+        """
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey':
+        """
+        Defines how to map a metric lookup value to a CSV column during enrichment table lookups.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        Path to the CSV file.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includesHeaders":
+            suggest = "includes_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delimiter: _builtins.str,
+                 includes_headers: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.str delimiter: The single character that separates columns in the file.
+        :param _builtins.bool includes_headers: Whether the first row of the file contains column headers.
+        :param _builtins.str type: The encoding format of the file. The value should always be `csv`.
+        """
+        pulumi.set(__self__, "delimiter", delimiter)
+        pulumi.set(__self__, "includes_headers", includes_headers)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def delimiter(self) -> _builtins.str:
+        """
+        The single character that separates columns in the file.
+        """
+        return pulumi.get(self, "delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="includesHeaders")
+    def includes_headers(self) -> _builtins.bool:
+        """
+        Whether the first row of the file contains column headers.
+        """
+        return pulumi.get(self, "includes_headers")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The encoding format of the file. The value should always be `csv`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey(dict):
+    def __init__(__self__, *,
+                 column: _builtins.str,
+                 source: 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource'):
+        """
+        :param _builtins.str column: The CSV column name or index to match against the lookup value.
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs' source: Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def column(self) -> _builtins.str:
+        """
+        The CSV column name or index to match against the lookup value.
+        """
+        return pulumi.get(self, "column")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource':
+        """
+        Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str type: The lookup source type. Use `metric_name` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metric_name`, `tag`.
+        :param _builtins.str name: The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+        """
+        pulumi.set(__self__, "type", type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The lookup source type. Use `metric_name` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metric_name`, `tag`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableId":
+            suggest = "table_id"
+        elif key == "appKeyKey":
+            suggest = "app_key_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey',
+                 table_id: _builtins.str,
+                 app_key_key: Optional[_builtins.str] = None,
+                 columns: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs' key: Defines the metric lookup value used as the reference-table row ID.
+        :param _builtins.str table_id: The unique identifier of the reference table.
+        :param _builtins.str app_key_key: The name of the environment variable or secret that holds the Datadog application key used to access the reference table.
+        :param Sequence[_builtins.str] columns: A list of column names to include from the reference table. If not provided, all columns are included.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "table_id", table_id)
+        if app_key_key is not None:
+            pulumi.set(__self__, "app_key_key", app_key_key)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey':
+        """
+        Defines the metric lookup value used as the reference-table row ID.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter(name="tableId")
+    def table_id(self) -> _builtins.str:
+        """
+        The unique identifier of the reference table.
+        """
+        return pulumi.get(self, "table_id")
+
+    @_builtins.property
+    @pulumi.getter(name="appKeyKey")
+    def app_key_key(self) -> Optional[_builtins.str]:
+        """
+        The name of the environment variable or secret that holds the Datadog application key used to access the reference table.
+        """
+        return pulumi.get(self, "app_key_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of column names to include from the reference table. If not provided, all columns are included.
+        """
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey(dict):
+    def __init__(__self__, *,
+                 source: 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource'):
+        """
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs' source: Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+        """
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource':
+        """
+        Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str type: The lookup source type. Use `metric_name` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metric_name`, `tag`.
+        :param _builtins.str name: The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+        """
+        pulumi.set(__self__, "type", type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The lookup source type. Use `metric_name` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metric_name`, `tag`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -134776,7 +135122,7 @@ class OnCallTeamRoutingRulesRule(dict):
                  urgency: Optional[_builtins.str] = None):
         """
         :param Sequence['OnCallTeamRoutingRulesRuleActionArgs'] actions: Specifies the list of actions to perform when the routing rule is matched.
-        :param _builtins.str escalation_policy: ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalation_policy` action.
+        :param _builtins.str escalation_policy: ID of the policy to be applied when this routing rule matches.
         :param _builtins.str id: The ID of this rule.
         :param _builtins.str query: Defines the query or condition that triggers this routing rule. Must not be set on the last rule, which acts as a catch-all rule. Defaults to `""`.
         :param 'OnCallTeamRoutingRulesRuleTimeRestrictionsArgs' time_restrictions: Holds time zone information and a list of time restrictions for a routing rule. Must not be set on the last rule, which acts as a catch-all rule.
@@ -134807,7 +135153,7 @@ class OnCallTeamRoutingRulesRule(dict):
     @pulumi.getter(name="escalationPolicy")
     def escalation_policy(self) -> Optional[_builtins.str]:
         """
-        ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalation_policy` action.
+        ID of the policy to be applied when this routing rule matches.
         """
         return pulumi.get(self, "escalation_policy")
 
@@ -160404,7 +160750,7 @@ class PowerpackV2WidgetListStreamDefinitionRequestQuery(dict):
                  sort: Optional['outputs.PowerpackV2WidgetListStreamDefinitionRequestQuerySort'] = None,
                  storage: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        :param _builtins.str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         :param _builtins.str clustering_pattern_field_path: Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
         :param _builtins.str event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         :param Sequence['PowerpackV2WidgetListStreamDefinitionRequestQueryGroupByArgs'] group_bies: Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
@@ -160433,7 +160779,7 @@ class PowerpackV2WidgetListStreamDefinitionRequestQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         """
         return pulumi.get(self, "data_source")
 
@@ -192658,7 +193004,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQuery(dict):
                  sort: Optional['outputs.PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort'] = None,
                  storage: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        :param _builtins.str data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         :param _builtins.str clustering_pattern_field_path: Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
         :param _builtins.str event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         :param Sequence['PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByArgs'] group_bies: Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
@@ -192687,7 +193033,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         """
         return pulumi.get(self, "data_source")
 

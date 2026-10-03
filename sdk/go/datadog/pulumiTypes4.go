@@ -13,6 +13,1801 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackV2WidgetApmDependencyStatsQuery struct {
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource string `pulumi:"dataSource"`
+	// APM environment.
+	Env string `pulumi:"env"`
+	// Determines whether stats for upstream or downstream dependencies should be queried.
+	IsUpstream *bool `pulumi:"isUpstream"`
+	// The name of query for use in formulas.
+	Name string `pulumi:"name"`
+	// Name of operation on service.
+	OperationName string `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName *string `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue *string `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName string `pulumi:"resourceName"`
+	// APM service.
+	Service string `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat string `pulumi:"stat"`
+}
+
+// PowerpackV2WidgetApmDependencyStatsQueryInput is an input type that accepts PowerpackV2WidgetApmDependencyStatsQueryArgs and PowerpackV2WidgetApmDependencyStatsQueryOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmDependencyStatsQueryInput` via:
+//
+//	PowerpackV2WidgetApmDependencyStatsQueryArgs{...}
+type PowerpackV2WidgetApmDependencyStatsQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmDependencyStatsQueryOutput() PowerpackV2WidgetApmDependencyStatsQueryOutput
+	ToPowerpackV2WidgetApmDependencyStatsQueryOutputWithContext(context.Context) PowerpackV2WidgetApmDependencyStatsQueryOutput
+}
+
+type PowerpackV2WidgetApmDependencyStatsQueryArgs struct {
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// APM environment.
+	Env pulumi.StringInput `pulumi:"env"`
+	// Determines whether stats for upstream or downstream dependencies should be queried.
+	IsUpstream pulumi.BoolPtrInput `pulumi:"isUpstream"`
+	// The name of query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of operation on service.
+	OperationName pulumi.StringInput `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
+	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+	Stat pulumi.StringInput `pulumi:"stat"`
+}
+
+func (PowerpackV2WidgetApmDependencyStatsQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmDependencyStatsQuery)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetApmDependencyStatsQueryArgs) ToPowerpackV2WidgetApmDependencyStatsQueryOutput() PowerpackV2WidgetApmDependencyStatsQueryOutput {
+	return i.ToPowerpackV2WidgetApmDependencyStatsQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmDependencyStatsQueryArgs) ToPowerpackV2WidgetApmDependencyStatsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmDependencyStatsQueryOutput)
+}
+
+func (i PowerpackV2WidgetApmDependencyStatsQueryArgs) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutput() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmDependencyStatsQueryArgs) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmDependencyStatsQueryOutput).ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetApmDependencyStatsQueryPtrInput is an input type that accepts PowerpackV2WidgetApmDependencyStatsQueryArgs, PowerpackV2WidgetApmDependencyStatsQueryPtr and PowerpackV2WidgetApmDependencyStatsQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmDependencyStatsQueryPtrInput` via:
+//
+//	        PowerpackV2WidgetApmDependencyStatsQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetApmDependencyStatsQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutput() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput
+	ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmDependencyStatsQueryPtrOutput
+}
+
+type powerpackV2WidgetApmDependencyStatsQueryPtrType PowerpackV2WidgetApmDependencyStatsQueryArgs
+
+func PowerpackV2WidgetApmDependencyStatsQueryPtr(v *PowerpackV2WidgetApmDependencyStatsQueryArgs) PowerpackV2WidgetApmDependencyStatsQueryPtrInput {
+	return (*powerpackV2WidgetApmDependencyStatsQueryPtrType)(v)
+}
+
+func (*powerpackV2WidgetApmDependencyStatsQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmDependencyStatsQuery)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetApmDependencyStatsQueryPtrType) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutput() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetApmDependencyStatsQueryPtrType) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmDependencyStatsQueryPtrOutput)
+}
+
+type PowerpackV2WidgetApmDependencyStatsQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmDependencyStatsQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmDependencyStatsQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) ToPowerpackV2WidgetApmDependencyStatsQueryOutput() PowerpackV2WidgetApmDependencyStatsQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) ToPowerpackV2WidgetApmDependencyStatsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutput() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
+	return o.ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmDependencyStatsQuery) *PowerpackV2WidgetApmDependencyStatsQuery {
+		return &v
+	}).(PowerpackV2WidgetApmDependencyStatsQueryPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
+}
+
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// APM environment.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) Env() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.Env }).(pulumi.StringOutput)
+}
+
+// Determines whether stats for upstream or downstream dependencies should be queried.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) IsUpstream() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) *bool { return v.IsUpstream }).(pulumi.BoolPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of operation on service.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) OperationName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.OperationName }).(pulumi.StringOutput)
+}
+
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) *string { return v.PrimaryTagName }).(pulumi.StringPtrOutput)
+}
+
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) *string { return v.PrimaryTagValue }).(pulumi.StringPtrOutput)
+}
+
+// APM resource.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+// APM service.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.Service }).(pulumi.StringOutput)
+}
+
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) Stat() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
+}
+
+type PowerpackV2WidgetApmDependencyStatsQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmDependencyStatsQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutput() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) Elem() PowerpackV2WidgetApmDependencyStatsQueryOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) PowerpackV2WidgetApmDependencyStatsQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetApmDependencyStatsQuery
+		return ret
+	}).(PowerpackV2WidgetApmDependencyStatsQueryOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM environment.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Env
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether stats for upstream or downstream dependencies should be queried.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) IsUpstream() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsUpstream
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of operation on service.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryTagName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryTagValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM resource.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM service.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
+func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Stat
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetApmMetricsQuery struct {
+	// The data source for APM metrics queries. Valid values are `apmMetrics`.
+	DataSource string `pulumi:"dataSource"`
+	// Optional fields to group the query results by.
+	GroupBies []string `pulumi:"groupBies"`
+	// Name of this query to use in formulas.
+	Name string `pulumi:"name"`
+	// Optional operation mode used to aggregate across operation names.
+	OperationMode *string `pulumi:"operationMode"`
+	// Name of the operation on the service. If omitted, the primary operation name is used.
+	OperationName *string `pulumi:"operationName"`
+	// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
+	PeerTags []string `pulumi:"peerTags"`
+	// Additional filters for the query using metrics query syntax.
+	QueryFilter *string `pulumi:"queryFilter"`
+	// The hash of a specific resource to filter by.
+	ResourceHash *string `pulumi:"resourceHash"`
+	// The full name of a specific resource to filter by.
+	ResourceName *string `pulumi:"resourceName"`
+	// APM service name.
+	Service *string `pulumi:"service"`
+	// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
+	SpanKind *string `pulumi:"spanKind"`
+	// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
+	Stat string `pulumi:"stat"`
+}
+
+// PowerpackV2WidgetApmMetricsQueryInput is an input type that accepts PowerpackV2WidgetApmMetricsQueryArgs and PowerpackV2WidgetApmMetricsQueryOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmMetricsQueryInput` via:
+//
+//	PowerpackV2WidgetApmMetricsQueryArgs{...}
+type PowerpackV2WidgetApmMetricsQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmMetricsQueryOutput() PowerpackV2WidgetApmMetricsQueryOutput
+	ToPowerpackV2WidgetApmMetricsQueryOutputWithContext(context.Context) PowerpackV2WidgetApmMetricsQueryOutput
+}
+
+type PowerpackV2WidgetApmMetricsQueryArgs struct {
+	// The data source for APM metrics queries. Valid values are `apmMetrics`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Optional fields to group the query results by.
+	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
+	// Name of this query to use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Optional operation mode used to aggregate across operation names.
+	OperationMode pulumi.StringPtrInput `pulumi:"operationMode"`
+	// Name of the operation on the service. If omitted, the primary operation name is used.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
+	PeerTags pulumi.StringArrayInput `pulumi:"peerTags"`
+	// Additional filters for the query using metrics query syntax.
+	QueryFilter pulumi.StringPtrInput `pulumi:"queryFilter"`
+	// The hash of a specific resource to filter by.
+	ResourceHash pulumi.StringPtrInput `pulumi:"resourceHash"`
+	// The full name of a specific resource to filter by.
+	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
+	// APM service name.
+	Service pulumi.StringPtrInput `pulumi:"service"`
+	// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
+	SpanKind pulumi.StringPtrInput `pulumi:"spanKind"`
+	// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
+	Stat pulumi.StringInput `pulumi:"stat"`
+}
+
+func (PowerpackV2WidgetApmMetricsQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmMetricsQuery)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetApmMetricsQueryArgs) ToPowerpackV2WidgetApmMetricsQueryOutput() PowerpackV2WidgetApmMetricsQueryOutput {
+	return i.ToPowerpackV2WidgetApmMetricsQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmMetricsQueryArgs) ToPowerpackV2WidgetApmMetricsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmMetricsQueryOutput)
+}
+
+func (i PowerpackV2WidgetApmMetricsQueryArgs) ToPowerpackV2WidgetApmMetricsQueryPtrOutput() PowerpackV2WidgetApmMetricsQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmMetricsQueryArgs) ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmMetricsQueryOutput).ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetApmMetricsQueryPtrInput is an input type that accepts PowerpackV2WidgetApmMetricsQueryArgs, PowerpackV2WidgetApmMetricsQueryPtr and PowerpackV2WidgetApmMetricsQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmMetricsQueryPtrInput` via:
+//
+//	        PowerpackV2WidgetApmMetricsQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetApmMetricsQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmMetricsQueryPtrOutput() PowerpackV2WidgetApmMetricsQueryPtrOutput
+	ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmMetricsQueryPtrOutput
+}
+
+type powerpackV2WidgetApmMetricsQueryPtrType PowerpackV2WidgetApmMetricsQueryArgs
+
+func PowerpackV2WidgetApmMetricsQueryPtr(v *PowerpackV2WidgetApmMetricsQueryArgs) PowerpackV2WidgetApmMetricsQueryPtrInput {
+	return (*powerpackV2WidgetApmMetricsQueryPtrType)(v)
+}
+
+func (*powerpackV2WidgetApmMetricsQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmMetricsQuery)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetApmMetricsQueryPtrType) ToPowerpackV2WidgetApmMetricsQueryPtrOutput() PowerpackV2WidgetApmMetricsQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetApmMetricsQueryPtrType) ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmMetricsQueryPtrOutput)
+}
+
+type PowerpackV2WidgetApmMetricsQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmMetricsQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmMetricsQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmMetricsQueryOutput) ToPowerpackV2WidgetApmMetricsQueryOutput() PowerpackV2WidgetApmMetricsQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmMetricsQueryOutput) ToPowerpackV2WidgetApmMetricsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmMetricsQueryOutput) ToPowerpackV2WidgetApmMetricsQueryPtrOutput() PowerpackV2WidgetApmMetricsQueryPtrOutput {
+	return o.ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetApmMetricsQueryOutput) ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmMetricsQuery) *PowerpackV2WidgetApmMetricsQuery {
+		return &v
+	}).(PowerpackV2WidgetApmMetricsQueryPtrOutput)
+}
+
+// The data source for APM metrics queries. Valid values are `apmMetrics`.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// Optional fields to group the query results by.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) GroupBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
+}
+
+// Name of this query to use in formulas.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Optional operation mode used to aggregate across operation names.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) OperationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.OperationMode }).(pulumi.StringPtrOutput)
+}
+
+// Name of the operation on the service. If omitted, the primary operation name is used.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) PeerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) []string { return v.PeerTags }).(pulumi.StringArrayOutput)
+}
+
+// Additional filters for the query using metrics query syntax.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) QueryFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.QueryFilter }).(pulumi.StringPtrOutput)
+}
+
+// The hash of a specific resource to filter by.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) ResourceHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.ResourceHash }).(pulumi.StringPtrOutput)
+}
+
+// The full name of a specific resource to filter by.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+// APM service name.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) SpanKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.SpanKind }).(pulumi.StringPtrOutput)
+}
+
+// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
+func (o PowerpackV2WidgetApmMetricsQueryOutput) Stat() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) string { return v.Stat }).(pulumi.StringOutput)
+}
+
+type PowerpackV2WidgetApmMetricsQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmMetricsQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmMetricsQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) ToPowerpackV2WidgetApmMetricsQueryPtrOutput() PowerpackV2WidgetApmMetricsQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) Elem() PowerpackV2WidgetApmMetricsQueryOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) PowerpackV2WidgetApmMetricsQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetApmMetricsQuery
+		return ret
+	}).(PowerpackV2WidgetApmMetricsQueryOutput)
+}
+
+// The data source for APM metrics queries. Valid values are `apmMetrics`.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional fields to group the query results by.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of this query to use in formulas.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional operation mode used to aggregate across operation names.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) OperationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the operation on the service. If omitted, the primary operation name is used.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) PeerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PeerTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// Additional filters for the query using metrics query syntax.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) QueryFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+// The hash of a specific resource to filter by.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) ResourceHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// The full name of a specific resource to filter by.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM service name.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) SpanKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpanKind
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
+func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Stat
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetApmQuery struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *PowerpackV2WidgetApmQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []PowerpackV2WidgetApmQueryGroupBy `pulumi:"groupBies"`
+	// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes []PowerpackV2WidgetApmQueryMultiCompute `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
+}
+
+// PowerpackV2WidgetApmQueryInput is an input type that accepts PowerpackV2WidgetApmQueryArgs and PowerpackV2WidgetApmQueryOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmQueryInput` via:
+//
+//	PowerpackV2WidgetApmQueryArgs{...}
+type PowerpackV2WidgetApmQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmQueryOutput() PowerpackV2WidgetApmQueryOutput
+	ToPowerpackV2WidgetApmQueryOutputWithContext(context.Context) PowerpackV2WidgetApmQueryOutput
+}
+
+type PowerpackV2WidgetApmQueryArgs struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery PowerpackV2WidgetApmQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies PowerpackV2WidgetApmQueryGroupByArrayInput `pulumi:"groupBies"`
+	// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes PowerpackV2WidgetApmQueryMultiComputeArrayInput `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
+}
+
+func (PowerpackV2WidgetApmQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmQuery)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetApmQueryArgs) ToPowerpackV2WidgetApmQueryOutput() PowerpackV2WidgetApmQueryOutput {
+	return i.ToPowerpackV2WidgetApmQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmQueryArgs) ToPowerpackV2WidgetApmQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryOutput)
+}
+
+func (i PowerpackV2WidgetApmQueryArgs) ToPowerpackV2WidgetApmQueryPtrOutput() PowerpackV2WidgetApmQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmQueryArgs) ToPowerpackV2WidgetApmQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryOutput).ToPowerpackV2WidgetApmQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetApmQueryPtrInput is an input type that accepts PowerpackV2WidgetApmQueryArgs, PowerpackV2WidgetApmQueryPtr and PowerpackV2WidgetApmQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmQueryPtrInput` via:
+//
+//	        PowerpackV2WidgetApmQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetApmQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmQueryPtrOutput() PowerpackV2WidgetApmQueryPtrOutput
+	ToPowerpackV2WidgetApmQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmQueryPtrOutput
+}
+
+type powerpackV2WidgetApmQueryPtrType PowerpackV2WidgetApmQueryArgs
+
+func PowerpackV2WidgetApmQueryPtr(v *PowerpackV2WidgetApmQueryArgs) PowerpackV2WidgetApmQueryPtrInput {
+	return (*powerpackV2WidgetApmQueryPtrType)(v)
+}
+
+func (*powerpackV2WidgetApmQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmQuery)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetApmQueryPtrType) ToPowerpackV2WidgetApmQueryPtrOutput() PowerpackV2WidgetApmQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetApmQueryPtrType) ToPowerpackV2WidgetApmQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryPtrOutput)
+}
+
+type PowerpackV2WidgetApmQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmQueryOutput) ToPowerpackV2WidgetApmQueryOutput() PowerpackV2WidgetApmQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryOutput) ToPowerpackV2WidgetApmQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryOutput) ToPowerpackV2WidgetApmQueryPtrOutput() PowerpackV2WidgetApmQueryPtrOutput {
+	return o.ToPowerpackV2WidgetApmQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetApmQueryOutput) ToPowerpackV2WidgetApmQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmQuery) *PowerpackV2WidgetApmQuery {
+		return &v
+	}).(PowerpackV2WidgetApmQueryPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackV2WidgetApmQueryOutput) ComputeQuery() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQuery) *PowerpackV2WidgetApmQueryComputeQuery { return v.ComputeQuery }).(PowerpackV2WidgetApmQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackV2WidgetApmQueryOutput) GroupBies() PowerpackV2WidgetApmQueryGroupByArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQuery) []PowerpackV2WidgetApmQueryGroupBy { return v.GroupBies }).(PowerpackV2WidgetApmQueryGroupByArrayOutput)
+}
+
+// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
+func (o PowerpackV2WidgetApmQueryOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQuery) string { return v.Index }).(pulumi.StringOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackV2WidgetApmQueryOutput) MultiComputes() PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQuery) []PowerpackV2WidgetApmQueryMultiCompute { return v.MultiComputes }).(PowerpackV2WidgetApmQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackV2WidgetApmQueryOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetApmQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmQueryPtrOutput) ToPowerpackV2WidgetApmQueryPtrOutput() PowerpackV2WidgetApmQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryPtrOutput) ToPowerpackV2WidgetApmQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryPtrOutput) Elem() PowerpackV2WidgetApmQueryOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) PowerpackV2WidgetApmQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetApmQuery
+		return ret
+	}).(PowerpackV2WidgetApmQueryOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackV2WidgetApmQueryPtrOutput) ComputeQuery() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) *PowerpackV2WidgetApmQueryComputeQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeQuery
+	}).(PowerpackV2WidgetApmQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackV2WidgetApmQueryPtrOutput) GroupBies() PowerpackV2WidgetApmQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) []PowerpackV2WidgetApmQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(PowerpackV2WidgetApmQueryGroupByArrayOutput)
+}
+
+// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
+func (o PowerpackV2WidgetApmQueryPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackV2WidgetApmQueryPtrOutput) MultiComputes() PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) []PowerpackV2WidgetApmQueryMultiCompute {
+		if v == nil {
+			return nil
+		}
+		return v.MultiComputes
+	}).(PowerpackV2WidgetApmQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackV2WidgetApmQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetApmQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackV2WidgetApmQueryComputeQueryInput is an input type that accepts PowerpackV2WidgetApmQueryComputeQueryArgs and PowerpackV2WidgetApmQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmQueryComputeQueryInput` via:
+//
+//	PowerpackV2WidgetApmQueryComputeQueryArgs{...}
+type PowerpackV2WidgetApmQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmQueryComputeQueryOutput() PowerpackV2WidgetApmQueryComputeQueryOutput
+	ToPowerpackV2WidgetApmQueryComputeQueryOutputWithContext(context.Context) PowerpackV2WidgetApmQueryComputeQueryOutput
+}
+
+type PowerpackV2WidgetApmQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackV2WidgetApmQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetApmQueryComputeQueryArgs) ToPowerpackV2WidgetApmQueryComputeQueryOutput() PowerpackV2WidgetApmQueryComputeQueryOutput {
+	return i.ToPowerpackV2WidgetApmQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmQueryComputeQueryArgs) ToPowerpackV2WidgetApmQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryComputeQueryOutput)
+}
+
+func (i PowerpackV2WidgetApmQueryComputeQueryArgs) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutput() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmQueryComputeQueryArgs) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryComputeQueryOutput).ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetApmQueryComputeQueryPtrInput is an input type that accepts PowerpackV2WidgetApmQueryComputeQueryArgs, PowerpackV2WidgetApmQueryComputeQueryPtr and PowerpackV2WidgetApmQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackV2WidgetApmQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetApmQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmQueryComputeQueryPtrOutput() PowerpackV2WidgetApmQueryComputeQueryPtrOutput
+	ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmQueryComputeQueryPtrOutput
+}
+
+type powerpackV2WidgetApmQueryComputeQueryPtrType PowerpackV2WidgetApmQueryComputeQueryArgs
+
+func PowerpackV2WidgetApmQueryComputeQueryPtr(v *PowerpackV2WidgetApmQueryComputeQueryArgs) PowerpackV2WidgetApmQueryComputeQueryPtrInput {
+	return (*powerpackV2WidgetApmQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackV2WidgetApmQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetApmQueryComputeQueryPtrType) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutput() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetApmQueryComputeQueryPtrType) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryComputeQueryPtrOutput)
+}
+
+type PowerpackV2WidgetApmQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmQueryComputeQueryOutput) ToPowerpackV2WidgetApmQueryComputeQueryOutput() PowerpackV2WidgetApmQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryComputeQueryOutput) ToPowerpackV2WidgetApmQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryComputeQueryOutput) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutput() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
+	return o.ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetApmQueryComputeQueryOutput) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmQueryComputeQuery) *PowerpackV2WidgetApmQueryComputeQuery {
+		return &v
+	}).(PowerpackV2WidgetApmQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackV2WidgetApmQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackV2WidgetApmQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackV2WidgetApmQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackV2WidgetApmQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutput() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) Elem() PowerpackV2WidgetApmQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryComputeQuery) PowerpackV2WidgetApmQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetApmQueryComputeQuery
+		return ret
+	}).(PowerpackV2WidgetApmQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackV2WidgetApmQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackV2WidgetApmQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackV2WidgetApmQueryGroupByInput is an input type that accepts PowerpackV2WidgetApmQueryGroupByArgs and PowerpackV2WidgetApmQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmQueryGroupByInput` via:
+//
+//	PowerpackV2WidgetApmQueryGroupByArgs{...}
+type PowerpackV2WidgetApmQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmQueryGroupByOutput() PowerpackV2WidgetApmQueryGroupByOutput
+	ToPowerpackV2WidgetApmQueryGroupByOutputWithContext(context.Context) PowerpackV2WidgetApmQueryGroupByOutput
+}
+
+type PowerpackV2WidgetApmQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackV2WidgetApmQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetApmQueryGroupByArgs) ToPowerpackV2WidgetApmQueryGroupByOutput() PowerpackV2WidgetApmQueryGroupByOutput {
+	return i.ToPowerpackV2WidgetApmQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmQueryGroupByArgs) ToPowerpackV2WidgetApmQueryGroupByOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryGroupByOutput)
+}
+
+// PowerpackV2WidgetApmQueryGroupByArrayInput is an input type that accepts PowerpackV2WidgetApmQueryGroupByArray and PowerpackV2WidgetApmQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmQueryGroupByArrayInput` via:
+//
+//	PowerpackV2WidgetApmQueryGroupByArray{ PowerpackV2WidgetApmQueryGroupByArgs{...} }
+type PowerpackV2WidgetApmQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmQueryGroupByArrayOutput() PowerpackV2WidgetApmQueryGroupByArrayOutput
+	ToPowerpackV2WidgetApmQueryGroupByArrayOutputWithContext(context.Context) PowerpackV2WidgetApmQueryGroupByArrayOutput
+}
+
+type PowerpackV2WidgetApmQueryGroupByArray []PowerpackV2WidgetApmQueryGroupByInput
+
+func (PowerpackV2WidgetApmQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2WidgetApmQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetApmQueryGroupByArray) ToPowerpackV2WidgetApmQueryGroupByArrayOutput() PowerpackV2WidgetApmQueryGroupByArrayOutput {
+	return i.ToPowerpackV2WidgetApmQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmQueryGroupByArray) ToPowerpackV2WidgetApmQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryGroupByArrayOutput)
+}
+
+type PowerpackV2WidgetApmQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmQueryGroupByOutput) ToPowerpackV2WidgetApmQueryGroupByOutput() PowerpackV2WidgetApmQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryGroupByOutput) ToPowerpackV2WidgetApmQueryGroupByOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackV2WidgetApmQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackV2WidgetApmQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackV2WidgetApmQueryGroupByOutput) SortQuery() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBy) *PowerpackV2WidgetApmQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackV2WidgetApmQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2WidgetApmQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmQueryGroupByArrayOutput) ToPowerpackV2WidgetApmQueryGroupByArrayOutput() PowerpackV2WidgetApmQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryGroupByArrayOutput) ToPowerpackV2WidgetApmQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetApmQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetApmQueryGroupBy {
+		return vs[0].([]PowerpackV2WidgetApmQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackV2WidgetApmQueryGroupByOutput)
+}
+
+type PowerpackV2WidgetApmQueryGroupBySortQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// PowerpackV2WidgetApmQueryGroupBySortQueryInput is an input type that accepts PowerpackV2WidgetApmQueryGroupBySortQueryArgs and PowerpackV2WidgetApmQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmQueryGroupBySortQueryInput` via:
+//
+//	PowerpackV2WidgetApmQueryGroupBySortQueryArgs{...}
+type PowerpackV2WidgetApmQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmQueryGroupBySortQueryOutput() PowerpackV2WidgetApmQueryGroupBySortQueryOutput
+	ToPowerpackV2WidgetApmQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryOutput
+}
+
+type PowerpackV2WidgetApmQueryGroupBySortQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (PowerpackV2WidgetApmQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetApmQueryGroupBySortQueryArgs) ToPowerpackV2WidgetApmQueryGroupBySortQueryOutput() PowerpackV2WidgetApmQueryGroupBySortQueryOutput {
+	return i.ToPowerpackV2WidgetApmQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmQueryGroupBySortQueryArgs) ToPowerpackV2WidgetApmQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryGroupBySortQueryOutput)
+}
+
+func (i PowerpackV2WidgetApmQueryGroupBySortQueryArgs) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmQueryGroupBySortQueryArgs) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryGroupBySortQueryOutput).ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackV2WidgetApmQueryGroupBySortQueryArgs, PowerpackV2WidgetApmQueryGroupBySortQueryPtr and PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput` via:
+//
+//	        PowerpackV2WidgetApmQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput
+	ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput
+}
+
+type powerpackV2WidgetApmQueryGroupBySortQueryPtrType PowerpackV2WidgetApmQueryGroupBySortQueryArgs
+
+func PowerpackV2WidgetApmQueryGroupBySortQueryPtr(v *PowerpackV2WidgetApmQueryGroupBySortQueryArgs) PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput {
+	return (*powerpackV2WidgetApmQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*powerpackV2WidgetApmQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetApmQueryGroupBySortQueryPtrType) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetApmQueryGroupBySortQueryPtrType) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackV2WidgetApmQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryOutput() PowerpackV2WidgetApmQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
+	return o.ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmQueryGroupBySortQuery) *PowerpackV2WidgetApmQueryGroupBySortQuery {
+		return &v
+	}).(PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBySortQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) Elem() PowerpackV2WidgetApmQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryGroupBySortQuery) PowerpackV2WidgetApmQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetApmQueryGroupBySortQuery
+		return ret
+	}).(PowerpackV2WidgetApmQueryGroupBySortQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetApmQueryMultiCompute struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackV2WidgetApmQueryMultiComputeInput is an input type that accepts PowerpackV2WidgetApmQueryMultiComputeArgs and PowerpackV2WidgetApmQueryMultiComputeOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmQueryMultiComputeInput` via:
+//
+//	PowerpackV2WidgetApmQueryMultiComputeArgs{...}
+type PowerpackV2WidgetApmQueryMultiComputeInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmQueryMultiComputeOutput() PowerpackV2WidgetApmQueryMultiComputeOutput
+	ToPowerpackV2WidgetApmQueryMultiComputeOutputWithContext(context.Context) PowerpackV2WidgetApmQueryMultiComputeOutput
+}
+
+type PowerpackV2WidgetApmQueryMultiComputeArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackV2WidgetApmQueryMultiComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetApmQueryMultiComputeArgs) ToPowerpackV2WidgetApmQueryMultiComputeOutput() PowerpackV2WidgetApmQueryMultiComputeOutput {
+	return i.ToPowerpackV2WidgetApmQueryMultiComputeOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmQueryMultiComputeArgs) ToPowerpackV2WidgetApmQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryMultiComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryMultiComputeOutput)
+}
+
+// PowerpackV2WidgetApmQueryMultiComputeArrayInput is an input type that accepts PowerpackV2WidgetApmQueryMultiComputeArray and PowerpackV2WidgetApmQueryMultiComputeArrayOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmQueryMultiComputeArrayInput` via:
+//
+//	PowerpackV2WidgetApmQueryMultiComputeArray{ PowerpackV2WidgetApmQueryMultiComputeArgs{...} }
+type PowerpackV2WidgetApmQueryMultiComputeArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmQueryMultiComputeArrayOutput() PowerpackV2WidgetApmQueryMultiComputeArrayOutput
+	ToPowerpackV2WidgetApmQueryMultiComputeArrayOutputWithContext(context.Context) PowerpackV2WidgetApmQueryMultiComputeArrayOutput
+}
+
+type PowerpackV2WidgetApmQueryMultiComputeArray []PowerpackV2WidgetApmQueryMultiComputeInput
+
+func (PowerpackV2WidgetApmQueryMultiComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2WidgetApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetApmQueryMultiComputeArray) ToPowerpackV2WidgetApmQueryMultiComputeArrayOutput() PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
+	return i.ToPowerpackV2WidgetApmQueryMultiComputeArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmQueryMultiComputeArray) ToPowerpackV2WidgetApmQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryMultiComputeArrayOutput)
+}
+
+type PowerpackV2WidgetApmQueryMultiComputeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmQueryMultiComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmQueryMultiComputeOutput) ToPowerpackV2WidgetApmQueryMultiComputeOutput() PowerpackV2WidgetApmQueryMultiComputeOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryMultiComputeOutput) ToPowerpackV2WidgetApmQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryMultiComputeOutput {
+	return o
+}
+
+// The aggregation method.
+func (o PowerpackV2WidgetApmQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackV2WidgetApmQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackV2WidgetApmQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackV2WidgetApmQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmQueryMultiComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2WidgetApmQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmQueryMultiComputeArrayOutput) ToPowerpackV2WidgetApmQueryMultiComputeArrayOutput() PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryMultiComputeArrayOutput) ToPowerpackV2WidgetApmQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetApmQueryMultiComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetApmQueryMultiCompute {
+		return vs[0].([]PowerpackV2WidgetApmQueryMultiCompute)[vs[1].(int)]
+	}).(PowerpackV2WidgetApmQueryMultiComputeOutput)
+}
+
+type PowerpackV2WidgetApmResourceStatsQuery struct {
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
+	DataSource string `pulumi:"dataSource"`
+	// APM environment.
+	Env string `pulumi:"env"`
+	// Array of fields to group results by.
+	GroupBies []string `pulumi:"groupBies"`
+	// The name of query for use in formulas.
+	Name string `pulumi:"name"`
+	// Name of operation on service.
+	OperationName *string `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName *string `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue *string `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName *string `pulumi:"resourceName"`
+	// APM service.
+	Service string `pulumi:"service"`
+	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
+	Stat string `pulumi:"stat"`
+}
+
+// PowerpackV2WidgetApmResourceStatsQueryInput is an input type that accepts PowerpackV2WidgetApmResourceStatsQueryArgs and PowerpackV2WidgetApmResourceStatsQueryOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmResourceStatsQueryInput` via:
+//
+//	PowerpackV2WidgetApmResourceStatsQueryArgs{...}
+type PowerpackV2WidgetApmResourceStatsQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmResourceStatsQueryOutput() PowerpackV2WidgetApmResourceStatsQueryOutput
+	ToPowerpackV2WidgetApmResourceStatsQueryOutputWithContext(context.Context) PowerpackV2WidgetApmResourceStatsQueryOutput
+}
+
+type PowerpackV2WidgetApmResourceStatsQueryArgs struct {
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// APM environment.
+	Env pulumi.StringInput `pulumi:"env"`
+	// Array of fields to group results by.
+	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
+	// The name of query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Name of operation on service.
+	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
+	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
+	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
+	// APM resource.
+	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
+	// APM service.
+	Service pulumi.StringInput `pulumi:"service"`
+	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
+	Stat pulumi.StringInput `pulumi:"stat"`
+}
+
+func (PowerpackV2WidgetApmResourceStatsQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmResourceStatsQuery)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetApmResourceStatsQueryArgs) ToPowerpackV2WidgetApmResourceStatsQueryOutput() PowerpackV2WidgetApmResourceStatsQueryOutput {
+	return i.ToPowerpackV2WidgetApmResourceStatsQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmResourceStatsQueryArgs) ToPowerpackV2WidgetApmResourceStatsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmResourceStatsQueryOutput)
+}
+
+func (i PowerpackV2WidgetApmResourceStatsQueryArgs) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutput() PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetApmResourceStatsQueryArgs) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmResourceStatsQueryOutput).ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetApmResourceStatsQueryPtrInput is an input type that accepts PowerpackV2WidgetApmResourceStatsQueryArgs, PowerpackV2WidgetApmResourceStatsQueryPtr and PowerpackV2WidgetApmResourceStatsQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetApmResourceStatsQueryPtrInput` via:
+//
+//	        PowerpackV2WidgetApmResourceStatsQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetApmResourceStatsQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetApmResourceStatsQueryPtrOutput() PowerpackV2WidgetApmResourceStatsQueryPtrOutput
+	ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmResourceStatsQueryPtrOutput
+}
+
+type powerpackV2WidgetApmResourceStatsQueryPtrType PowerpackV2WidgetApmResourceStatsQueryArgs
+
+func PowerpackV2WidgetApmResourceStatsQueryPtr(v *PowerpackV2WidgetApmResourceStatsQueryArgs) PowerpackV2WidgetApmResourceStatsQueryPtrInput {
+	return (*powerpackV2WidgetApmResourceStatsQueryPtrType)(v)
+}
+
+func (*powerpackV2WidgetApmResourceStatsQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmResourceStatsQuery)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetApmResourceStatsQueryPtrType) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutput() PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
+	return i.ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetApmResourceStatsQueryPtrType) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmResourceStatsQueryPtrOutput)
+}
+
+type PowerpackV2WidgetApmResourceStatsQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmResourceStatsQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetApmResourceStatsQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) ToPowerpackV2WidgetApmResourceStatsQueryOutput() PowerpackV2WidgetApmResourceStatsQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) ToPowerpackV2WidgetApmResourceStatsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutput() PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
+	return o.ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmResourceStatsQuery) *PowerpackV2WidgetApmResourceStatsQuery {
+		return &v
+	}).(PowerpackV2WidgetApmResourceStatsQueryPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
+}
+
+// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// APM environment.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) Env() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) string { return v.Env }).(pulumi.StringOutput)
+}
+
+// Array of fields to group results by.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) GroupBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of operation on service.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) *string { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) *string { return v.PrimaryTagName }).(pulumi.StringPtrOutput)
+}
+
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) *string { return v.PrimaryTagValue }).(pulumi.StringPtrOutput)
+}
+
+// APM resource.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+// APM service.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) string { return v.Service }).(pulumi.StringOutput)
+}
+
+// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
+func (o PowerpackV2WidgetApmResourceStatsQueryOutput) Stat() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
+}
+
+type PowerpackV2WidgetApmResourceStatsQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetApmResourceStatsQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetApmResourceStatsQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutput() PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Elem() PowerpackV2WidgetApmResourceStatsQueryOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) PowerpackV2WidgetApmResourceStatsQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetApmResourceStatsQuery
+		return ret
+	}).(PowerpackV2WidgetApmResourceStatsQueryOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM environment.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Env
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of fields to group results by.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of query for use in formulas.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of operation on service.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryTagName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryTagValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM resource.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM service.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
+// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
+func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Stat
+	}).(pulumi.StringPtrOutput)
+}
+
 type PowerpackV2WidgetBarChartDefinition struct {
 	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
 	CustomLinks []PowerpackV2WidgetBarChartDefinitionCustomLink `pulumi:"customLinks"`
@@ -59252,7 +61047,7 @@ func (o PowerpackV2WidgetListStreamDefinitionRequestColumnArrayOutput) Index(i p
 type PowerpackV2WidgetListStreamDefinitionRequestQuery struct {
 	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
 	ClusteringPatternFieldPath *string `pulumi:"clusteringPatternFieldPath"`
-	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
 	DataSource string `pulumi:"dataSource"`
 	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
 	EventSize *string `pulumi:"eventSize"`
@@ -59282,7 +61077,7 @@ type PowerpackV2WidgetListStreamDefinitionRequestQueryInput interface {
 type PowerpackV2WidgetListStreamDefinitionRequestQueryArgs struct {
 	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
 	ClusteringPatternFieldPath pulumi.StringPtrInput `pulumi:"clusteringPatternFieldPath"`
-	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
 	EventSize pulumi.StringPtrInput `pulumi:"eventSize"`
@@ -59329,7 +61124,7 @@ func (o PowerpackV2WidgetListStreamDefinitionRequestQueryOutput) ClusteringPatte
 	return o.ApplyT(func(v PowerpackV2WidgetListStreamDefinitionRequestQuery) *string { return v.ClusteringPatternFieldPath }).(pulumi.StringPtrOutput)
 }
 
-// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
 func (o PowerpackV2WidgetListStreamDefinitionRequestQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetListStreamDefinitionRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -85375,860 +87170,23 @@ func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteri
 	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput)
 }
 
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery struct {
-	// Data source for the Product Analytics event query. Valid values are `productAnalytics`.
-	DataSource string `pulumi:"dataSource"`
-	// Search configuration for the Product Analytics event query.
-	Search PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch `pulumi:"search"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs struct {
-	// Data source for the Product Analytics event query. Valid values are `productAnalytics`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Search configuration for the Product Analytics event query.
-	Search PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchInput `pulumi:"search"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput {
-	return o
-}
-
-// Data source for the Product Analytics event query. Valid values are `productAnalytics`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery) string {
-		return v.DataSource
-	}).(pulumi.StringOutput)
-}
-
-// Search configuration for the Product Analytics event query.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput) Search() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch {
-		return v.Search
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch struct {
-	// Product Analytics event search query used to filter views or actions.
-	Query string `pulumi:"query"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs struct {
-	// Product Analytics event search query used to filter views or actions.
-	Query pulumi.StringInput `pulumi:"query"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput {
-	return o
-}
-
-// Product Analytics event search query used to filter views or actions.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch) string {
-		return v.Query
-	}).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval struct {
-	// Type of cohort time interval. Valid values are `calendar`.
-	Type string `pulumi:"type"`
-	// Calendar interval used to build the cohort.
-	Value PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue `pulumi:"value"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs struct {
-	// Type of cohort time interval. Valid values are `calendar`.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Calendar interval used to build the cohort.
-	Value PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueInput `pulumi:"value"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput {
-	return o
-}
-
-// Type of cohort time interval. Valid values are `calendar`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval) string {
-		return v.Type
-	}).(pulumi.StringOutput)
-}
-
-// Calendar interval used to build the cohort.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput) Value() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue {
-		return v.Value
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue struct {
-	// Alignment of the calendar interval.
-	Alignment *string `pulumi:"alignment"`
-	// Quantity of the calendar interval.
-	Quantity *int `pulumi:"quantity"`
-	// Timezone for the calendar interval.
-	Timezone *string `pulumi:"timezone"`
-	// Type of calendar interval. Valid values are `day`, `week`, `month`, `year`, `quarter`, `minute`, `hour`.
-	Type string `pulumi:"type"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs struct {
-	// Alignment of the calendar interval.
-	Alignment pulumi.StringPtrInput `pulumi:"alignment"`
-	// Quantity of the calendar interval.
-	Quantity pulumi.IntPtrInput `pulumi:"quantity"`
-	// Timezone for the calendar interval.
-	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
-	// Type of calendar interval. Valid values are `day`, `week`, `month`, `year`, `quarter`, `minute`, `hour`.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput {
-	return o
-}
-
-// Alignment of the calendar interval.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) Alignment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue) *string {
-		return v.Alignment
-	}).(pulumi.StringPtrOutput)
-}
-
-// Quantity of the calendar interval.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) Quantity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue) *int {
-		return v.Quantity
-	}).(pulumi.IntPtrOutput)
-}
-
-// Timezone for the calendar interval.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) Timezone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue) *string {
-		return v.Timezone
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of calendar interval. Valid values are `day`, `week`, `month`, `year`, `quarter`, `minute`, `hour`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue) string {
-		return v.Type
-	}).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters struct {
-	// Product Analytics audience filters.
-	AudienceFilters *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters `pulumi:"audienceFilters"`
-	// String filter for the retention query.
-	StringFilter *string `pulumi:"stringFilter"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs struct {
-	// Product Analytics audience filters.
-	AudienceFilters PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput `pulumi:"audienceFilters"`
-	// String filter for the retention query.
-	StringFilter pulumi.StringPtrInput `pulumi:"stringFilter"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput)
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput).ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs, PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtr and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput` via:
-//
-//	        PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput
-}
-
-type powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrType PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs
-
-func PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtr(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput {
-	return (*powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrType)(v)
-}
-
-func (*powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
-	return o.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters {
-		return &v
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput)
-}
-
-// Product Analytics audience filters.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) AudienceFilters() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters {
-		return v.AudienceFilters
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput)
-}
-
-// String filter for the retention query.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) StringFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) *string {
-		return v.StringFilter
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) Elem() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters
-		return ret
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput)
-}
-
-// Product Analytics audience filters.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) AudienceFilters() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters {
-		if v == nil {
-			return nil
-		}
-		return v.AudienceFilters
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput)
-}
-
-// String filter for the retention query.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) StringFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StringFilter
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters struct {
-	// Product Analytics audience account subqueries.
-	Accounts []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount `pulumi:"accounts"`
-	// An optional filter condition applied to the audience subquery.
-	FilterCondition *string `pulumi:"filterCondition"`
-	// Product Analytics audience segment subqueries.
-	Segments []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment `pulumi:"segments"`
-	// Product Analytics audience user subqueries.
-	Users []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUser `pulumi:"users"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs struct {
-	// Product Analytics audience account subqueries.
-	Accounts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayInput `pulumi:"accounts"`
-	// An optional filter condition applied to the audience subquery.
-	FilterCondition pulumi.StringPtrInput `pulumi:"filterCondition"`
-	// Product Analytics audience segment subqueries.
-	Segments PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayInput `pulumi:"segments"`
-	// Product Analytics audience user subqueries.
-	Users PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayInput `pulumi:"users"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput)
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput).ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs, PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtr and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput` via:
-//
-//	        PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput
-}
-
-type powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrType PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs
-
-func PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtr(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput {
-	return (*powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrType)(v)
-}
-
-func (*powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
-	return o.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters {
-		return &v
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput)
-}
-
-// Product Analytics audience account subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) Accounts() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount {
-		return v.Accounts
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput)
-}
-
-// An optional filter condition applied to the audience subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) FilterCondition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) *string {
-		return v.FilterCondition
-	}).(pulumi.StringPtrOutput)
-}
-
-// Product Analytics audience segment subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) Segments() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment {
-		return v.Segments
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
-}
-
-// Product Analytics audience user subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) Users() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUser {
-		return v.Users
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) Elem() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters
-		return ret
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput)
-}
-
-// Product Analytics audience account subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) Accounts() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount {
-		if v == nil {
-			return nil
-		}
-		return v.Accounts
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput)
-}
-
-// An optional filter condition applied to the audience subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) FilterCondition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FilterCondition
-	}).(pulumi.StringPtrOutput)
-}
-
-// Product Analytics audience segment subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) Segments() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment {
-		if v == nil {
-			return nil
-		}
-		return v.Segments
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
-}
-
-// Product Analytics audience user subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) Users() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUser {
-		if v == nil {
-			return nil
-		}
-		return v.Users
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount struct {
-	// The name of the account subquery.
-	Name *string `pulumi:"name"`
-	// The query string for the account subquery.
-	Query *string `pulumi:"query"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs struct {
-	// The name of the account subquery.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The query string for the account subquery.
-	Query pulumi.StringPtrInput `pulumi:"query"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray{ PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs{...} }
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountInput
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput {
-	return o
-}
-
-// The name of the account subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The query string for the account subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount) *string {
-		return v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount {
-		return vs[0].([]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount)[vs[1].(int)]
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment struct {
-	// The name of the segment subquery.
-	Name *string `pulumi:"name"`
-	// The unique identifier of the segment.
-	SegmentId *string `pulumi:"segmentId"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs struct {
-	// The name of the segment subquery.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The unique identifier of the segment.
-	SegmentId pulumi.StringPtrInput `pulumi:"segmentId"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray{ PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs{...} }
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentInput
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput {
-	return o
-}
-
-// The name of the segment subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of the segment.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput) SegmentId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment) *string {
-		return v.SegmentId
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment {
-		return vs[0].([]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment)[vs[1].(int)]
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmDependencyStatsQueryInput)(nil)).Elem(), PowerpackV2WidgetApmDependencyStatsQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmDependencyStatsQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmDependencyStatsQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmMetricsQueryInput)(nil)).Elem(), PowerpackV2WidgetApmMetricsQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmMetricsQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmMetricsQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryInput)(nil)).Elem(), PowerpackV2WidgetApmQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryComputeQueryInput)(nil)).Elem(), PowerpackV2WidgetApmQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupByInput)(nil)).Elem(), PowerpackV2WidgetApmQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupByArrayInput)(nil)).Elem(), PowerpackV2WidgetApmQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackV2WidgetApmQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryMultiComputeInput)(nil)).Elem(), PowerpackV2WidgetApmQueryMultiComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackV2WidgetApmQueryMultiComputeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmResourceStatsQueryInput)(nil)).Elem(), PowerpackV2WidgetApmResourceStatsQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmResourceStatsQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmResourceStatsQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetBarChartDefinitionCustomLinkInput)(nil)).Elem(), PowerpackV2WidgetBarChartDefinitionCustomLinkArgs{})
@@ -87195,18 +88153,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmDependencyStatsQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmDependencyStatsQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmMetricsQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmMetricsQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryComputeQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryMultiComputeOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryMultiComputeArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmResourceStatsQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetApmResourceStatsQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetBarChartDefinitionCustomLinkOutput{})
@@ -88173,16 +89135,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput{})
 }

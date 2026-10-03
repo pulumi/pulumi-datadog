@@ -34,14 +34,14 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
+     * ID of the policy to be applied when this routing rule matches.
      * 
      */
     @Import(name="escalationPolicy")
     private @Nullable Output<String> escalationPolicy;
 
     /**
-     * @return ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
+     * @return ID of the policy to be applied when this routing rule matches.
      * 
      */
     public Optional<Output<String>> escalationPolicy() {
@@ -169,7 +169,7 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param escalationPolicy ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
+         * @param escalationPolicy ID of the policy to be applied when this routing rule matches.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class OnCallTeamRoutingRulesRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param escalationPolicy ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
+         * @param escalationPolicy ID of the policy to be applied when this routing rule matches.
          * 
          * @return builder
          * 

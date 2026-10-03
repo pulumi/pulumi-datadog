@@ -16,6 +16,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProce
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorFilter;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrok;
@@ -120,6 +121,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      * 
      */
     private String include;
+    /**
+     * @return Configures the `enrichmentTable` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `referenceTable` must be configured.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable metricEnrichmentTable;
     /**
      * @return The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
      * 
@@ -310,6 +316,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         return this.include;
     }
     /**
+     * @return Configures the `enrichmentTable` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `referenceTable` must be configured.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable> metricEnrichmentTable() {
+        return Optional.ofNullable(this.metricEnrichmentTable);
+    }
+    /**
      * @return The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
      * 
      */
@@ -440,6 +453,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics generateMetrics;
         private String id;
         private String include;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable metricEnrichmentTable;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorMetricTags metricTags;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper ocsfMapper;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorParseGrok parseGrok;
@@ -474,6 +488,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
     	      this.generateMetrics = defaults.generateMetrics;
     	      this.id = defaults.id;
     	      this.include = defaults.include;
+    	      this.metricEnrichmentTable = defaults.metricEnrichmentTable;
     	      this.metricTags = defaults.metricTags;
     	      this.ocsfMapper = defaults.ocsfMapper;
     	      this.parseGrok = defaults.parseGrok;
@@ -594,6 +609,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             return this;
         }
         @CustomType.Setter
+        public Builder metricEnrichmentTable(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable metricEnrichmentTable) {
+
+            this.metricEnrichmentTable = metricEnrichmentTable;
+            return this;
+        }
+        @CustomType.Setter
         public Builder metricTags(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorMetricTags metricTags) {
 
             this.metricTags = metricTags;
@@ -701,6 +722,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             _resultValue.generateMetrics = generateMetrics;
             _resultValue.id = id;
             _resultValue.include = include;
+            _resultValue.metricEnrichmentTable = metricEnrichmentTable;
             _resultValue.metricTags = metricTags;
             _resultValue.ocsfMapper = ocsfMapper;
             _resultValue.parseGrok = parseGrok;

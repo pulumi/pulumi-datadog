@@ -13,6 +13,859 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery struct {
+	// Data source for the Product Analytics event query. Valid values are `productAnalytics`.
+	DataSource string `pulumi:"dataSource"`
+	// Search configuration for the Product Analytics event query.
+	Search PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch `pulumi:"search"`
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryInput` via:
+//
+//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs{...}
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs struct {
+	// Data source for the Product Analytics event query. Valid values are `productAnalytics`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Search configuration for the Product Analytics event query.
+	Search PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchInput `pulumi:"search"`
+}
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput {
+	return o
+}
+
+// Data source for the Product Analytics event query. Valid values are `productAnalytics`.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery) string {
+		return v.DataSource
+	}).(pulumi.StringOutput)
+}
+
+// Search configuration for the Product Analytics event query.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput) Search() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch {
+		return v.Search
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch struct {
+	// Product Analytics event search query used to filter views or actions.
+	Query string `pulumi:"query"`
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchInput` via:
+//
+//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs{...}
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs struct {
+	// Product Analytics event search query used to filter views or actions.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput {
+	return o
+}
+
+// Product Analytics event search query used to filter views or actions.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearch) string {
+		return v.Query
+	}).(pulumi.StringOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval struct {
+	// Type of cohort time interval. Valid values are `calendar`.
+	Type string `pulumi:"type"`
+	// Calendar interval used to build the cohort.
+	Value PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue `pulumi:"value"`
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalInput` via:
+//
+//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs{...}
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs struct {
+	// Type of cohort time interval. Valid values are `calendar`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Calendar interval used to build the cohort.
+	Value PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueInput `pulumi:"value"`
+}
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput {
+	return o
+}
+
+// Type of cohort time interval. Valid values are `calendar`.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Calendar interval used to build the cohort.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput) Value() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue {
+		return v.Value
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue struct {
+	// Alignment of the calendar interval.
+	Alignment *string `pulumi:"alignment"`
+	// Quantity of the calendar interval.
+	Quantity *int `pulumi:"quantity"`
+	// Timezone for the calendar interval.
+	Timezone *string `pulumi:"timezone"`
+	// Type of calendar interval. Valid values are `day`, `week`, `month`, `year`, `quarter`, `minute`, `hour`.
+	Type string `pulumi:"type"`
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueInput` via:
+//
+//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs{...}
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs struct {
+	// Alignment of the calendar interval.
+	Alignment pulumi.StringPtrInput `pulumi:"alignment"`
+	// Quantity of the calendar interval.
+	Quantity pulumi.IntPtrInput `pulumi:"quantity"`
+	// Timezone for the calendar interval.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	// Type of calendar interval. Valid values are `day`, `week`, `month`, `year`, `quarter`, `minute`, `hour`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput {
+	return o
+}
+
+// Alignment of the calendar interval.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) Alignment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue) *string {
+		return v.Alignment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Quantity of the calendar interval.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) Quantity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue) *int {
+		return v.Quantity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timezone for the calendar interval.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue) *string {
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of calendar interval. Valid values are `day`, `week`, `month`, `year`, `quarter`, `minute`, `hour`.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValue) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters struct {
+	// Product Analytics audience filters.
+	AudienceFilters *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters `pulumi:"audienceFilters"`
+	// String filter for the retention query.
+	StringFilter *string `pulumi:"stringFilter"`
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersInput` via:
+//
+//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs{...}
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs struct {
+	// Product Analytics audience filters.
+	AudienceFilters PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput `pulumi:"audienceFilters"`
+	// String filter for the retention query.
+	StringFilter pulumi.StringPtrInput `pulumi:"stringFilter"`
+}
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput)
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput).ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs, PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtr and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput` via:
+//
+//	        PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput
+}
+
+type powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrType PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs
+
+func PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtr(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput {
+	return (*powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrType)(v)
+}
+
+func (*powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
+	return o.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters {
+		return &v
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput)
+}
+
+// Product Analytics audience filters.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) AudienceFilters() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters {
+		return v.AudienceFilters
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+// String filter for the retention query.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput) StringFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) *string {
+		return v.StringFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) Elem() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters
+		return ret
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput)
+}
+
+// Product Analytics audience filters.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) AudienceFilters() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters {
+		if v == nil {
+			return nil
+		}
+		return v.AudienceFilters
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+// String filter for the retention query.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput) StringFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StringFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters struct {
+	// Product Analytics audience account subqueries.
+	Accounts []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount `pulumi:"accounts"`
+	// An optional filter condition applied to the audience subquery.
+	FilterCondition *string `pulumi:"filterCondition"`
+	// Product Analytics audience segment subqueries.
+	Segments []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment `pulumi:"segments"`
+	// Product Analytics audience user subqueries.
+	Users []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUser `pulumi:"users"`
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersInput` via:
+//
+//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs{...}
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs struct {
+	// Product Analytics audience account subqueries.
+	Accounts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayInput `pulumi:"accounts"`
+	// An optional filter condition applied to the audience subquery.
+	FilterCondition pulumi.StringPtrInput `pulumi:"filterCondition"`
+	// Product Analytics audience segment subqueries.
+	Segments PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayInput `pulumi:"segments"`
+	// Product Analytics audience user subqueries.
+	Users PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayInput `pulumi:"users"`
+}
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput)
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput).ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs, PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtr and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput` via:
+//
+//	        PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput
+}
+
+type powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrType PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs
+
+func PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtr(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput {
+	return (*powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrType)(v)
+}
+
+func (*powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters {
+		return &v
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+// Product Analytics audience account subqueries.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) Accounts() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount {
+		return v.Accounts
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput)
+}
+
+// An optional filter condition applied to the audience subquery.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) FilterCondition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) *string {
+		return v.FilterCondition
+	}).(pulumi.StringPtrOutput)
+}
+
+// Product Analytics audience segment subqueries.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) Segments() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment {
+		return v.Segments
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
+}
+
+// Product Analytics audience user subqueries.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput) Users() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUser {
+		return v.Users
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) Elem() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters
+		return ret
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput)
+}
+
+// Product Analytics audience account subqueries.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) Accounts() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput)
+}
+
+// An optional filter condition applied to the audience subquery.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) FilterCondition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterCondition
+	}).(pulumi.StringPtrOutput)
+}
+
+// Product Analytics audience segment subqueries.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) Segments() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment {
+		if v == nil {
+			return nil
+		}
+		return v.Segments
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
+}
+
+// Product Analytics audience user subqueries.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput) Users() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUser {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount struct {
+	// The name of the account subquery.
+	Name *string `pulumi:"name"`
+	// The query string for the account subquery.
+	Query *string `pulumi:"query"`
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountInput` via:
+//
+//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs{...}
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs struct {
+	// The name of the account subquery.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The query string for the account subquery.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput)
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayInput` via:
+//
+//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray{ PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs{...} }
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountInput
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput {
+	return o
+}
+
+// The name of the account subquery.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query string for the account subquery.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount) *string {
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount {
+		return vs[0].([]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccount)[vs[1].(int)]
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment struct {
+	// The name of the segment subquery.
+	Name *string `pulumi:"name"`
+	// The unique identifier of the segment.
+	SegmentId *string `pulumi:"segmentId"`
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentInput` via:
+//
+//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs{...}
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs struct {
+	// The name of the segment subquery.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The unique identifier of the segment.
+	SegmentId pulumi.StringPtrInput `pulumi:"segmentId"`
+}
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput)
+}
+
+// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayInput` via:
+//
+//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray{ PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs{...} }
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput
+	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray []PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentInput
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return o
+}
+
+// The name of the segment subquery.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of the segment.
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput) SegmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment) *string {
+		return v.SegmentId
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment {
+		return vs[0].([]PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegment)[vs[1].(int)]
+	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput)
+}
+
 type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUser struct {
 	// The name of the user subquery.
 	Name *string `pulumi:"name"`
@@ -60087,7 +60940,7 @@ func (o PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestColumnArrayOu
 type PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQuery struct {
 	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
 	ClusteringPatternFieldPath *string `pulumi:"clusteringPatternFieldPath"`
-	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
 	DataSource string `pulumi:"dataSource"`
 	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
 	EventSize *string `pulumi:"eventSize"`
@@ -60117,7 +60970,7 @@ type PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQueryInput inter
 type PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs struct {
 	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
 	ClusteringPatternFieldPath pulumi.StringPtrInput `pulumi:"clusteringPatternFieldPath"`
-	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
 	EventSize pulumi.StringPtrInput `pulumi:"eventSize"`
@@ -60217,7 +61070,7 @@ func (o PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
 func (o PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -60290,7 +61143,7 @@ func (o PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
 func (o PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQuery) *string {
 		if v == nil {
@@ -86627,1234 +87480,19 @@ func (o PowerpackWidgetGeomapDefinitionRequestFormulaArrayOutput) Index(i pulumi
 	}).(PowerpackWidgetGeomapDefinitionRequestFormulaOutput)
 }
 
-type PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat struct {
-	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-	Comparator string `pulumi:"comparator"`
-	// The color palette to apply to the background, same values available as palette.
-	CustomBgColor *string `pulumi:"customBgColor"`
-	// The color palette to apply to the foreground, same values available as palette.
-	CustomFgColor *string `pulumi:"customFgColor"`
-	// Setting this to True hides values.
-	HideValue *bool `pulumi:"hideValue"`
-	// Displays an image as the background.
-	ImageUrl *string `pulumi:"imageUrl"`
-	// The metric from the request to correlate with this conditional format.
-	Metric *string `pulumi:"metric"`
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-	Palette string `pulumi:"palette"`
-	// Defines the displayed timeframe.
-	Timeframe *string `pulumi:"timeframe"`
-	// A value for the comparator.
-	Value float64 `pulumi:"value"`
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs and PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatInput` via:
-//
-//	PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs{...}
-type PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput() PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs struct {
-	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-	Comparator pulumi.StringInput `pulumi:"comparator"`
-	// The color palette to apply to the background, same values available as palette.
-	CustomBgColor pulumi.StringPtrInput `pulumi:"customBgColor"`
-	// The color palette to apply to the foreground, same values available as palette.
-	CustomFgColor pulumi.StringPtrInput `pulumi:"customFgColor"`
-	// Setting this to True hides values.
-	HideValue pulumi.BoolPtrInput `pulumi:"hideValue"`
-	// Displays an image as the background.
-	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
-	// The metric from the request to correlate with this conditional format.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-	Palette pulumi.StringInput `pulumi:"palette"`
-	// Defines the displayed timeframe.
-	Timeframe pulumi.StringPtrInput `pulumi:"timeframe"`
-	// A value for the comparator.
-	Value pulumi.Float64Input `pulumi:"value"`
-}
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput() PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput)
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArray and PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayInput` via:
-//
-//	PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArray{ PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs{...} }
-type PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArray []PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatInput
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArray) ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArray) ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput() PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput {
-	return o
-}
-
-// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) Comparator() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat) string { return v.Comparator }).(pulumi.StringOutput)
-}
-
-// The color palette to apply to the background, same values available as palette.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) CustomBgColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat) *string { return v.CustomBgColor }).(pulumi.StringPtrOutput)
-}
-
-// The color palette to apply to the foreground, same values available as palette.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) CustomFgColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat) *string { return v.CustomFgColor }).(pulumi.StringPtrOutput)
-}
-
-// Setting this to True hides values.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) HideValue() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat) *bool { return v.HideValue }).(pulumi.BoolPtrOutput)
-}
-
-// Displays an image as the background.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) ImageUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
-}
-
-// The metric from the request to correlate with this conditional format.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat) *string { return v.Metric }).(pulumi.StringPtrOutput)
-}
-
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) Palette() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat) string { return v.Palette }).(pulumi.StringOutput)
-}
-
-// Defines the displayed timeframe.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat) *string { return v.Timeframe }).(pulumi.StringPtrOutput)
-}
-
-// A value for the comparator.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput) Value() pulumi.Float64Output {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat) float64 { return v.Value }).(pulumi.Float64Output)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat {
-		return vs[0].([]PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormat)[vs[1].(int)]
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaLimit struct {
-	// The number of results to return.
-	Count *int `pulumi:"count"`
-	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-	Order *string `pulumi:"order"`
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaLimitInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs and PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaLimitInput` via:
-//
-//	PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs{...}
-type PowerpackWidgetGeomapDefinitionRequestFormulaLimitInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput() PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs struct {
-	// The number of results to return.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-	Order pulumi.StringPtrInput `pulumi:"order"`
-}
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput() PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput)
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput).ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs, PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtr and PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrInput` via:
-//
-//	        PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput
-}
-
-type powerpackWidgetGeomapDefinitionRequestFormulaLimitPtrType PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs
-
-func PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtr(v *PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs) PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrInput {
-	return (*powerpackWidgetGeomapDefinitionRequestFormulaLimitPtrType)(v)
-}
-
-func (*powerpackWidgetGeomapDefinitionRequestFormulaLimitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaLimitPtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaLimitPtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput() PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput {
-	return o.ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetGeomapDefinitionRequestFormulaLimit) *PowerpackWidgetGeomapDefinitionRequestFormulaLimit {
-		return &v
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput)
-}
-
-// The number of results to return.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput) Elem() PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaLimit) PowerpackWidgetGeomapDefinitionRequestFormulaLimit {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetGeomapDefinitionRequestFormulaLimit
-		return ret
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput)
-}
-
-// The number of results to return.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaLimit) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Count
-	}).(pulumi.IntPtrOutput)
-}
-
-// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaLimit) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat struct {
-	// Unit of the number format.
-	Unit      PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit       `pulumi:"unit"`
-	UnitScale *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale `pulumi:"unitScale"`
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs and PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatInput` via:
-//
-//	PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs{...}
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs struct {
-	// Unit of the number format.
-	Unit      PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitInput         `pulumi:"unit"`
-	UnitScale PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrInput `pulumi:"unitScale"`
-}
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput)
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput).ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs, PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtr and PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrInput` via:
-//
-//	        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput
-}
-
-type powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrType PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs
-
-func PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtr(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrInput {
-	return (*powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrType)(v)
-}
-
-func (*powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat {
-		return &v
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput)
-}
-
-// Unit of the number format.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput) Unit() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit {
-		return v.Unit
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput)
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput) UnitScale() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale {
-		return v.UnitScale
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput) Elem() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat
-		return ret
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput)
-}
-
-// Unit of the number format.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput) Unit() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput)
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput) UnitScale() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormat) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale {
-		if v == nil {
-			return nil
-		}
-		return v.UnitScale
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit struct {
-	// Canonical Units
-	Canonical *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical `pulumi:"canonical"`
-	// Use custom (non canonical metrics)
-	Custom *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom `pulumi:"custom"`
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs and PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitInput` via:
-//
-//	PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs{...}
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs struct {
-	// Canonical Units
-	Canonical PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput `pulumi:"canonical"`
-	// Use custom (non canonical metrics)
-	Custom PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput `pulumi:"custom"`
-}
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput)
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput).ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs, PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtr and PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrInput` via:
-//
-//	        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput
-}
-
-type powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrType PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs
-
-func PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtr(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrInput {
-	return (*powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrType)(v)
-}
-
-func (*powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit {
-		return &v
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput)
-}
-
-// Canonical Units
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput) Canonical() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical {
-		return v.Canonical
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
-}
-
-// Use custom (non canonical metrics)
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput) Custom() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom {
-		return v.Custom
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput) Elem() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit
-		return ret
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput)
-}
-
-// Canonical Units
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput) Canonical() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical {
-		if v == nil {
-			return nil
-		}
-		return v.Canonical
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
-}
-
-// Use custom (non canonical metrics)
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput) Custom() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom {
-		if v == nil {
-			return nil
-		}
-		return v.Custom
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical struct {
-	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-	PerUnitName *string `pulumi:"perUnitName"`
-	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-	UnitName string `pulumi:"unitName"`
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs and PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalInput` via:
-//
-//	PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs struct {
-	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-	PerUnitName pulumi.StringPtrInput `pulumi:"perUnitName"`
-	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-	UnitName pulumi.StringInput `pulumi:"unitName"`
-}
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput).ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs, PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtr and PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput` via:
-//
-//	        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
-}
-
-type powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs
-
-func PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtr(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput {
-	return (*powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType)(v)
-}
-
-func (*powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical {
-		return &v
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
-}
-
-// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) PerUnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
-		return v.PerUnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) UnitName() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical) string {
-		return v.UnitName
-	}).(pulumi.StringOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) Elem() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical
-		return ret
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
-}
-
-// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) PerUnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PerUnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) UnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom struct {
-	// Unit label
-	Label string `pulumi:"label"`
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs and PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomInput` via:
-//
-//	PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs struct {
-	// Unit label
-	Label pulumi.StringInput `pulumi:"label"`
-}
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput)
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput).ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs, PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtr and PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput` via:
-//
-//	        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
-}
-
-type powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrType PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs
-
-func PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtr(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput {
-	return (*powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrType)(v)
-}
-
-func (*powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom {
-		return &v
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-// Unit label
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput) Label() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom) string { return v.Label }).(pulumi.StringOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Elem() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom
-		return ret
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput)
-}
-
-// Unit label
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustom) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Label
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale struct {
-	UnitName string `pulumi:"unitName"`
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs and PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleInput` via:
-//
-//	PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs struct {
-	UnitName pulumi.StringInput `pulumi:"unitName"`
-}
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput)
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput).ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs, PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtr and PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrInput` via:
-//
-//	        PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
-}
-
-type powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrType PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs
-
-func PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtr(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrInput {
-	return (*powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrType)(v)
-}
-
-func (*powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale) *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale {
-		return &v
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput) UnitName() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale) string { return v.UnitName }).(pulumi.StringOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) Elem() PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale) PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale
-		return ret
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput)
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) UnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaStyle struct {
-	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-	Palette *string `pulumi:"palette"`
-	// Index specifying which color to use within the palette.
-	PaletteIndex *int `pulumi:"paletteIndex"`
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaStyleInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs and PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaStyleInput` via:
-//
-//	PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs{...}
-type PowerpackWidgetGeomapDefinitionRequestFormulaStyleInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput() PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaStyleOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs struct {
-	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-	Palette pulumi.StringPtrInput `pulumi:"palette"`
-	// Index specifying which color to use within the palette.
-	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
-}
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput() PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaStyleOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput)
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput).ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrInput is an input type that accepts PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs, PowerpackWidgetGeomapDefinitionRequestFormulaStylePtr and PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrInput` via:
-//
-//	        PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput
-	ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutputWithContext(context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput
-}
-
-type powerpackWidgetGeomapDefinitionRequestFormulaStylePtrType PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs
-
-func PowerpackWidgetGeomapDefinitionRequestFormulaStylePtr(v *PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs) PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrInput {
-	return (*powerpackWidgetGeomapDefinitionRequestFormulaStylePtrType)(v)
-}
-
-func (*powerpackWidgetGeomapDefinitionRequestFormulaStylePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaStylePtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput {
-	return i.ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetGeomapDefinitionRequestFormulaStylePtrType) ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput() PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput {
-	return o.ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetGeomapDefinitionRequestFormulaStyle) *PowerpackWidgetGeomapDefinitionRequestFormulaStyle {
-		return &v
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput)
-}
-
-// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
-}
-
-// Index specifying which color to use within the palette.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput) PaletteIndex() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetGeomapDefinitionRequestFormulaStyle) *int { return v.PaletteIndex }).(pulumi.IntPtrOutput)
-}
-
-type PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetGeomapDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput) ToPowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput) Elem() PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaStyle) PowerpackWidgetGeomapDefinitionRequestFormulaStyle {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetGeomapDefinitionRequestFormulaStyle
-		return ret
-	}).(PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput)
-}
-
-// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Palette
-	}).(pulumi.StringPtrOutput)
-}
-
-// Index specifying which color to use within the palette.
-func (o PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput) PaletteIndex() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetGeomapDefinitionRequestFormulaStyle) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PaletteIndex
-	}).(pulumi.IntPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchReturnCriteriaInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchReturnCriteriaArgs{})
@@ -88838,22 +88476,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestArrayInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaArrayInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaLimitInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaStyleInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrInput)(nil)).Elem(), PowerpackWidgetGeomapDefinitionRequestFormulaStyleArgs{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuerySearchOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalValueOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersAccountArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersSegmentArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersAudienceFiltersUserArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchReturnCriteriaOutput{})
@@ -89837,20 +89471,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaConditionalFormatArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaLimitOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaLimitPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScalePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaStyleOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetGeomapDefinitionRequestFormulaStylePtrOutput{})
 }
