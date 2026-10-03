@@ -75,6 +75,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Include;
         /// <summary>
+        /// Configures the `EnrichmentTable` processor for `Metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `File` or `ReferenceTable` must be configured.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable? MetricEnrichmentTable;
+        /// <summary>
         /// The `MetricTags` processor filters metrics based on their tags using Datadog tag key patterns.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags? MetricTags;
@@ -169,6 +173,8 @@ namespace Pulumi.Datadog.Outputs
 
             string include,
 
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable? metricEnrichmentTable,
+
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags? metricTags,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorOcsfMapper? ocsfMapper,
@@ -215,6 +221,7 @@ namespace Pulumi.Datadog.Outputs
             GenerateMetrics = generateMetrics;
             Id = id;
             Include = include;
+            MetricEnrichmentTable = metricEnrichmentTable;
             MetricTags = metricTags;
             OcsfMapper = ocsfMapper;
             ParseGrok = parseGrok;

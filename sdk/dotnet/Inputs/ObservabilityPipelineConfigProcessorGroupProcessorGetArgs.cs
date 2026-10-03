@@ -106,6 +106,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Include { get; set; } = null!;
 
         /// <summary>
+        /// Configures the `EnrichmentTable` processor for `Metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `File` or `ReferenceTable` must be configured.
+        /// </summary>
+        [Input("metricEnrichmentTable")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableGetArgs>? MetricEnrichmentTable { get; set; }
+
+        /// <summary>
         /// The `MetricTags` processor filters metrics based on their tags using Datadog tag key patterns.
         /// </summary>
         [Input("metricTags")]

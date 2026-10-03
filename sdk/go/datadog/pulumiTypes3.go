@@ -54850,6 +54850,8 @@ type ObservabilityPipelineConfigProcessorGroupProcessor struct {
 	Id string `pulumi:"id"`
 	// A Datadog search query used to determine which logs this processor targets.
 	Include string `pulumi:"include"`
+	// Configures the `enrichmentTable` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `referenceTable` must be configured.
+	MetricEnrichmentTable *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable `pulumi:"metricEnrichmentTable"`
 	// The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
 	MetricTags *ObservabilityPipelineConfigProcessorGroupProcessorMetricTags `pulumi:"metricTags"`
 	// The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
@@ -54927,6 +54929,8 @@ type ObservabilityPipelineConfigProcessorGroupProcessorArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// A Datadog search query used to determine which logs this processor targets.
 	Include pulumi.StringInput `pulumi:"include"`
+	// Configures the `enrichmentTable` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `referenceTable` must be configured.
+	MetricEnrichmentTable ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrInput `pulumi:"metricEnrichmentTable"`
 	// The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
 	MetricTags ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsPtrInput `pulumi:"metricTags"`
 	// The `ocsfMapper` processor transforms logs into the OCSF schema using predefined library mappings or custom mapping configuration.
@@ -55113,6 +55117,13 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorOutput) Id() pulumi.St
 // A Datadog search query used to determine which logs this processor targets.
 func (o ObservabilityPipelineConfigProcessorGroupProcessorOutput) Include() pulumi.StringOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessor) string { return v.Include }).(pulumi.StringOutput)
+}
+
+// Configures the `enrichmentTable` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `referenceTable` must be configured.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorOutput) MetricEnrichmentTable() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessor) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable {
+		return v.MetricEnrichmentTable
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput)
 }
 
 // The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
@@ -58920,6 +58931,1349 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricV
 	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricValue) string {
 		return v.Strategy
 	}).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable struct {
+	// Defines a static enrichment table loaded from a CSV file for metric enrichment.
+	File *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile `pulumi:"file"`
+	// Uses a Datadog reference table to enrich metrics.
+	ReferenceTable *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable `pulumi:"referenceTable"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs struct {
+	// Defines a static enrichment table loaded from a CSV file for metric enrichment.
+	File ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrInput `pulumi:"file"`
+	// Uses a Datadog reference table to enrich metrics.
+	ReferenceTable ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrInput `pulumi:"referenceTable"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput).ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs, ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtr and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrType ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtr(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput)
+}
+
+// Defines a static enrichment table loaded from a CSV file for metric enrichment.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput) File() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile {
+		return v.File
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput)
+}
+
+// Uses a Datadog reference table to enrich metrics.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput) ReferenceTable() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable {
+		return v.ReferenceTable
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput)
+}
+
+// Defines a static enrichment table loaded from a CSV file for metric enrichment.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput) File() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput)
+}
+
+// Uses a Datadog reference table to enrich metrics.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput) ReferenceTable() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable {
+		if v == nil {
+			return nil
+		}
+		return v.ReferenceTable
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile struct {
+	// File encoding format.
+	Encoding ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding `pulumi:"encoding"`
+	// Defines how to map a metric lookup value to a CSV column during enrichment table lookups.
+	Key ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey `pulumi:"key"`
+	// Path to the CSV file.
+	Path string `pulumi:"path"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs struct {
+	// File encoding format.
+	Encoding ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingInput `pulumi:"encoding"`
+	// Defines how to map a metric lookup value to a CSV column during enrichment table lookups.
+	Key ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyInput `pulumi:"key"`
+	// Path to the CSV file.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput).ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs, ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtr and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrType ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtr(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput)
+}
+
+// File encoding format.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput) Encoding() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding {
+		return v.Encoding
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput)
+}
+
+// Defines how to map a metric lookup value to a CSV column during enrichment table lookups.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput) Key() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey {
+		return v.Key
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput)
+}
+
+// Path to the CSV file.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile) string {
+		return v.Path
+	}).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput)
+}
+
+// File encoding format.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput) Encoding() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding {
+		if v == nil {
+			return nil
+		}
+		return &v.Encoding
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput)
+}
+
+// Defines how to map a metric lookup value to a CSV column during enrichment table lookups.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput) Key() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput)
+}
+
+// Path to the CSV file.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding struct {
+	// The single character that separates columns in the file.
+	Delimiter string `pulumi:"delimiter"`
+	// Whether the first row of the file contains column headers.
+	IncludesHeaders bool `pulumi:"includesHeaders"`
+	// The encoding format of the file. The value should always be `csv`.
+	Type string `pulumi:"type"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs struct {
+	// The single character that separates columns in the file.
+	Delimiter pulumi.StringInput `pulumi:"delimiter"`
+	// Whether the first row of the file contains column headers.
+	IncludesHeaders pulumi.BoolInput `pulumi:"includesHeaders"`
+	// The encoding format of the file. The value should always be `csv`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput).ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs, ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtr and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrType ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtr(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput)
+}
+
+// The single character that separates columns in the file.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput) Delimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding) string {
+		return v.Delimiter
+	}).(pulumi.StringOutput)
+}
+
+// Whether the first row of the file contains column headers.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput) IncludesHeaders() pulumi.BoolOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding) bool {
+		return v.IncludesHeaders
+	}).(pulumi.BoolOutput)
+}
+
+// The encoding format of the file. The value should always be `csv`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput)
+}
+
+// The single character that separates columns in the file.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the first row of the file contains column headers.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput) IncludesHeaders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IncludesHeaders
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The encoding format of the file. The value should always be `csv`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey struct {
+	// The CSV column name or index to match against the lookup value.
+	Column string `pulumi:"column"`
+	// Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+	Source ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource `pulumi:"source"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs struct {
+	// The CSV column name or index to match against the lookup value.
+	Column pulumi.StringInput `pulumi:"column"`
+	// Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+	Source ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceInput `pulumi:"source"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput).ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs, ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtr and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrType ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtr(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput)
+}
+
+// The CSV column name or index to match against the lookup value.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput) Column() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey) string {
+		return v.Column
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput) Source() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource {
+		return v.Source
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput)
+}
+
+// The CSV column name or index to match against the lookup value.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput) Column() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Column
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput) Source() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource struct {
+	// The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+	Name *string `pulumi:"name"`
+	// The lookup source type. Use `metricName` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metricName`, `tag`.
+	Type string `pulumi:"type"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs struct {
+	// The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The lookup source type. Use `metricName` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metricName`, `tag`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput).ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs, ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtr and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrType ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtr(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput)
+}
+
+// The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lookup source type. Use `metricName` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metricName`, `tag`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput)
+}
+
+// The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lookup source type. Use `metricName` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metricName`, `tag`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable struct {
+	// The name of the environment variable or secret that holds the Datadog application key used to access the reference table.
+	AppKeyKey *string `pulumi:"appKeyKey"`
+	// A list of column names to include from the reference table. If not provided, all columns are included.
+	Columns []string `pulumi:"columns"`
+	// Defines the metric lookup value used as the reference-table row ID.
+	Key ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey `pulumi:"key"`
+	// The unique identifier of the reference table.
+	TableId string `pulumi:"tableId"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs struct {
+	// The name of the environment variable or secret that holds the Datadog application key used to access the reference table.
+	AppKeyKey pulumi.StringPtrInput `pulumi:"appKeyKey"`
+	// A list of column names to include from the reference table. If not provided, all columns are included.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// Defines the metric lookup value used as the reference-table row ID.
+	Key ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyInput `pulumi:"key"`
+	// The unique identifier of the reference table.
+	TableId pulumi.StringInput `pulumi:"tableId"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput).ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs, ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtr and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrType ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtr(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput)
+}
+
+// The name of the environment variable or secret that holds the Datadog application key used to access the reference table.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput) AppKeyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable) *string {
+		return v.AppKeyKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of column names to include from the reference table. If not provided, all columns are included.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable) []string {
+		return v.Columns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Defines the metric lookup value used as the reference-table row ID.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput) Key() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey {
+		return v.Key
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput)
+}
+
+// The unique identifier of the reference table.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput) TableId() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable) string {
+		return v.TableId
+	}).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput)
+}
+
+// The name of the environment variable or secret that holds the Datadog application key used to access the reference table.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput) AppKeyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppKeyKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of column names to include from the reference table. If not provided, all columns are included.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Defines the metric lookup value used as the reference-table row ID.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput) Key() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput)
+}
+
+// The unique identifier of the reference table.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput) TableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey struct {
+	// Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+	Source ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource `pulumi:"source"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs struct {
+	// Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+	Source ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceInput `pulumi:"source"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput).ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs, ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtr and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrType ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtr(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput)
+}
+
+// Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput) Source() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource {
+		return v.Source
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput)
+}
+
+// Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput) Source() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource struct {
+	// The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+	Name *string `pulumi:"name"`
+	// The lookup source type. Use `metricName` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metricName`, `tag`.
+	Type string `pulumi:"type"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs struct {
+	// The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The lookup source type. Use `metricName` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metricName`, `tag`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput).ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs, ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtr and ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrType ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtr(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource) *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput)
+}
+
+// The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lookup source type. Use `metricName` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metricName`, `tag`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource) ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput)
+}
+
+// The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lookup source type. Use `metricName` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metricName`, `tag`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ObservabilityPipelineConfigProcessorGroupProcessorMetricTags struct {
@@ -75485,7 +76839,7 @@ func (o OnCallScheduleLayerRestrictionArrayOutput) Index(i pulumi.IntInput) OnCa
 type OnCallTeamRoutingRulesRule struct {
 	// Specifies the list of actions to perform when the routing rule is matched.
 	Actions []OnCallTeamRoutingRulesRuleAction `pulumi:"actions"`
-	// ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
+	// ID of the policy to be applied when this routing rule matches.
 	EscalationPolicy *string `pulumi:"escalationPolicy"`
 	// The ID of this rule.
 	Id *string `pulumi:"id"`
@@ -75511,7 +76865,7 @@ type OnCallTeamRoutingRulesRuleInput interface {
 type OnCallTeamRoutingRulesRuleArgs struct {
 	// Specifies the list of actions to perform when the routing rule is matched.
 	Actions OnCallTeamRoutingRulesRuleActionArrayInput `pulumi:"actions"`
-	// ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
+	// ID of the policy to be applied when this routing rule matches.
 	EscalationPolicy pulumi.StringPtrInput `pulumi:"escalationPolicy"`
 	// The ID of this rule.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -75579,7 +76933,7 @@ func (o OnCallTeamRoutingRulesRuleOutput) Actions() OnCallTeamRoutingRulesRuleAc
 	return o.ApplyT(func(v OnCallTeamRoutingRulesRule) []OnCallTeamRoutingRulesRuleAction { return v.Actions }).(OnCallTeamRoutingRulesRuleActionArrayOutput)
 }
 
-// ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
+// ID of the policy to be applied when this routing rule matches.
 func (o OnCallTeamRoutingRulesRuleOutput) EscalationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OnCallTeamRoutingRulesRule) *string { return v.EscalationPolicy }).(pulumi.StringPtrOutput)
 }
@@ -80925,1801 +82279,6 @@ func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) Value() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-type PowerpackV2WidgetApmDependencyStatsQuery struct {
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
-	DataSource string `pulumi:"dataSource"`
-	// APM environment.
-	Env string `pulumi:"env"`
-	// Determines whether stats for upstream or downstream dependencies should be queried.
-	IsUpstream *bool `pulumi:"isUpstream"`
-	// The name of query for use in formulas.
-	Name string `pulumi:"name"`
-	// Name of operation on service.
-	OperationName string `pulumi:"operationName"`
-	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-	PrimaryTagName *string `pulumi:"primaryTagName"`
-	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-	PrimaryTagValue *string `pulumi:"primaryTagValue"`
-	// APM resource.
-	ResourceName string `pulumi:"resourceName"`
-	// APM service.
-	Service string `pulumi:"service"`
-	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
-	Stat string `pulumi:"stat"`
-}
-
-// PowerpackV2WidgetApmDependencyStatsQueryInput is an input type that accepts PowerpackV2WidgetApmDependencyStatsQueryArgs and PowerpackV2WidgetApmDependencyStatsQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmDependencyStatsQueryInput` via:
-//
-//	PowerpackV2WidgetApmDependencyStatsQueryArgs{...}
-type PowerpackV2WidgetApmDependencyStatsQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmDependencyStatsQueryOutput() PowerpackV2WidgetApmDependencyStatsQueryOutput
-	ToPowerpackV2WidgetApmDependencyStatsQueryOutputWithContext(context.Context) PowerpackV2WidgetApmDependencyStatsQueryOutput
-}
-
-type PowerpackV2WidgetApmDependencyStatsQueryArgs struct {
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// APM environment.
-	Env pulumi.StringInput `pulumi:"env"`
-	// Determines whether stats for upstream or downstream dependencies should be queried.
-	IsUpstream pulumi.BoolPtrInput `pulumi:"isUpstream"`
-	// The name of query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Name of operation on service.
-	OperationName pulumi.StringInput `pulumi:"operationName"`
-	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
-	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
-	// APM resource.
-	ResourceName pulumi.StringInput `pulumi:"resourceName"`
-	// APM service.
-	Service pulumi.StringInput `pulumi:"service"`
-	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
-	Stat pulumi.StringInput `pulumi:"stat"`
-}
-
-func (PowerpackV2WidgetApmDependencyStatsQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmDependencyStatsQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetApmDependencyStatsQueryArgs) ToPowerpackV2WidgetApmDependencyStatsQueryOutput() PowerpackV2WidgetApmDependencyStatsQueryOutput {
-	return i.ToPowerpackV2WidgetApmDependencyStatsQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmDependencyStatsQueryArgs) ToPowerpackV2WidgetApmDependencyStatsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmDependencyStatsQueryOutput)
-}
-
-func (i PowerpackV2WidgetApmDependencyStatsQueryArgs) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutput() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmDependencyStatsQueryArgs) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmDependencyStatsQueryOutput).ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetApmDependencyStatsQueryPtrInput is an input type that accepts PowerpackV2WidgetApmDependencyStatsQueryArgs, PowerpackV2WidgetApmDependencyStatsQueryPtr and PowerpackV2WidgetApmDependencyStatsQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmDependencyStatsQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetApmDependencyStatsQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetApmDependencyStatsQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutput() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput
-	ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmDependencyStatsQueryPtrOutput
-}
-
-type powerpackV2WidgetApmDependencyStatsQueryPtrType PowerpackV2WidgetApmDependencyStatsQueryArgs
-
-func PowerpackV2WidgetApmDependencyStatsQueryPtr(v *PowerpackV2WidgetApmDependencyStatsQueryArgs) PowerpackV2WidgetApmDependencyStatsQueryPtrInput {
-	return (*powerpackV2WidgetApmDependencyStatsQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetApmDependencyStatsQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmDependencyStatsQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetApmDependencyStatsQueryPtrType) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutput() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetApmDependencyStatsQueryPtrType) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmDependencyStatsQueryPtrOutput)
-}
-
-type PowerpackV2WidgetApmDependencyStatsQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmDependencyStatsQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmDependencyStatsQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) ToPowerpackV2WidgetApmDependencyStatsQueryOutput() PowerpackV2WidgetApmDependencyStatsQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) ToPowerpackV2WidgetApmDependencyStatsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutput() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
-	return o.ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmDependencyStatsQuery) *PowerpackV2WidgetApmDependencyStatsQuery {
-		return &v
-	}).(PowerpackV2WidgetApmDependencyStatsQueryPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
-}
-
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// APM environment.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) Env() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.Env }).(pulumi.StringOutput)
-}
-
-// Determines whether stats for upstream or downstream dependencies should be queried.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) IsUpstream() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) *bool { return v.IsUpstream }).(pulumi.BoolPtrOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Name of operation on service.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) OperationName() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.OperationName }).(pulumi.StringOutput)
-}
-
-// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) *string { return v.PrimaryTagName }).(pulumi.StringPtrOutput)
-}
-
-// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) *string { return v.PrimaryTagValue }).(pulumi.StringPtrOutput)
-}
-
-// APM resource.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) ResourceName() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.ResourceName }).(pulumi.StringOutput)
-}
-
-// APM service.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) Service() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.Service }).(pulumi.StringOutput)
-}
-
-// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
-func (o PowerpackV2WidgetApmDependencyStatsQueryOutput) Stat() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmDependencyStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetApmDependencyStatsQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmDependencyStatsQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutput() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) ToPowerpackV2WidgetApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) Elem() PowerpackV2WidgetApmDependencyStatsQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) PowerpackV2WidgetApmDependencyStatsQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetApmDependencyStatsQuery
-		return ret
-	}).(PowerpackV2WidgetApmDependencyStatsQueryOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM environment.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Env
-	}).(pulumi.StringPtrOutput)
-}
-
-// Determines whether stats for upstream or downstream dependencies should be queried.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) IsUpstream() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsUpstream
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of operation on service.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OperationName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrimaryTagName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrimaryTagValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM resource.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM service.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Service
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
-func (o PowerpackV2WidgetApmDependencyStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Stat
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetApmMetricsQuery struct {
-	// The data source for APM metrics queries. Valid values are `apmMetrics`.
-	DataSource string `pulumi:"dataSource"`
-	// Optional fields to group the query results by.
-	GroupBies []string `pulumi:"groupBies"`
-	// Name of this query to use in formulas.
-	Name string `pulumi:"name"`
-	// Optional operation mode used to aggregate across operation names.
-	OperationMode *string `pulumi:"operationMode"`
-	// Name of the operation on the service. If omitted, the primary operation name is used.
-	OperationName *string `pulumi:"operationName"`
-	// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
-	PeerTags []string `pulumi:"peerTags"`
-	// Additional filters for the query using metrics query syntax.
-	QueryFilter *string `pulumi:"queryFilter"`
-	// The hash of a specific resource to filter by.
-	ResourceHash *string `pulumi:"resourceHash"`
-	// The full name of a specific resource to filter by.
-	ResourceName *string `pulumi:"resourceName"`
-	// APM service name.
-	Service *string `pulumi:"service"`
-	// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
-	SpanKind *string `pulumi:"spanKind"`
-	// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
-	Stat string `pulumi:"stat"`
-}
-
-// PowerpackV2WidgetApmMetricsQueryInput is an input type that accepts PowerpackV2WidgetApmMetricsQueryArgs and PowerpackV2WidgetApmMetricsQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmMetricsQueryInput` via:
-//
-//	PowerpackV2WidgetApmMetricsQueryArgs{...}
-type PowerpackV2WidgetApmMetricsQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmMetricsQueryOutput() PowerpackV2WidgetApmMetricsQueryOutput
-	ToPowerpackV2WidgetApmMetricsQueryOutputWithContext(context.Context) PowerpackV2WidgetApmMetricsQueryOutput
-}
-
-type PowerpackV2WidgetApmMetricsQueryArgs struct {
-	// The data source for APM metrics queries. Valid values are `apmMetrics`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Optional fields to group the query results by.
-	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
-	// Name of this query to use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Optional operation mode used to aggregate across operation names.
-	OperationMode pulumi.StringPtrInput `pulumi:"operationMode"`
-	// Name of the operation on the service. If omitted, the primary operation name is used.
-	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
-	// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
-	PeerTags pulumi.StringArrayInput `pulumi:"peerTags"`
-	// Additional filters for the query using metrics query syntax.
-	QueryFilter pulumi.StringPtrInput `pulumi:"queryFilter"`
-	// The hash of a specific resource to filter by.
-	ResourceHash pulumi.StringPtrInput `pulumi:"resourceHash"`
-	// The full name of a specific resource to filter by.
-	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
-	// APM service name.
-	Service pulumi.StringPtrInput `pulumi:"service"`
-	// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
-	SpanKind pulumi.StringPtrInput `pulumi:"spanKind"`
-	// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
-	Stat pulumi.StringInput `pulumi:"stat"`
-}
-
-func (PowerpackV2WidgetApmMetricsQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmMetricsQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetApmMetricsQueryArgs) ToPowerpackV2WidgetApmMetricsQueryOutput() PowerpackV2WidgetApmMetricsQueryOutput {
-	return i.ToPowerpackV2WidgetApmMetricsQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmMetricsQueryArgs) ToPowerpackV2WidgetApmMetricsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmMetricsQueryOutput)
-}
-
-func (i PowerpackV2WidgetApmMetricsQueryArgs) ToPowerpackV2WidgetApmMetricsQueryPtrOutput() PowerpackV2WidgetApmMetricsQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmMetricsQueryArgs) ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmMetricsQueryOutput).ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetApmMetricsQueryPtrInput is an input type that accepts PowerpackV2WidgetApmMetricsQueryArgs, PowerpackV2WidgetApmMetricsQueryPtr and PowerpackV2WidgetApmMetricsQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmMetricsQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetApmMetricsQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetApmMetricsQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmMetricsQueryPtrOutput() PowerpackV2WidgetApmMetricsQueryPtrOutput
-	ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmMetricsQueryPtrOutput
-}
-
-type powerpackV2WidgetApmMetricsQueryPtrType PowerpackV2WidgetApmMetricsQueryArgs
-
-func PowerpackV2WidgetApmMetricsQueryPtr(v *PowerpackV2WidgetApmMetricsQueryArgs) PowerpackV2WidgetApmMetricsQueryPtrInput {
-	return (*powerpackV2WidgetApmMetricsQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetApmMetricsQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmMetricsQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetApmMetricsQueryPtrType) ToPowerpackV2WidgetApmMetricsQueryPtrOutput() PowerpackV2WidgetApmMetricsQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetApmMetricsQueryPtrType) ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmMetricsQueryPtrOutput)
-}
-
-type PowerpackV2WidgetApmMetricsQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmMetricsQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmMetricsQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmMetricsQueryOutput) ToPowerpackV2WidgetApmMetricsQueryOutput() PowerpackV2WidgetApmMetricsQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmMetricsQueryOutput) ToPowerpackV2WidgetApmMetricsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmMetricsQueryOutput) ToPowerpackV2WidgetApmMetricsQueryPtrOutput() PowerpackV2WidgetApmMetricsQueryPtrOutput {
-	return o.ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetApmMetricsQueryOutput) ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmMetricsQuery) *PowerpackV2WidgetApmMetricsQuery {
-		return &v
-	}).(PowerpackV2WidgetApmMetricsQueryPtrOutput)
-}
-
-// The data source for APM metrics queries. Valid values are `apmMetrics`.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// Optional fields to group the query results by.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
-}
-
-// Name of this query to use in formulas.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Optional operation mode used to aggregate across operation names.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) OperationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.OperationMode }).(pulumi.StringPtrOutput)
-}
-
-// Name of the operation on the service. If omitted, the primary operation name is used.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.OperationName }).(pulumi.StringPtrOutput)
-}
-
-// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) PeerTags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) []string { return v.PeerTags }).(pulumi.StringArrayOutput)
-}
-
-// Additional filters for the query using metrics query syntax.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) QueryFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.QueryFilter }).(pulumi.StringPtrOutput)
-}
-
-// The hash of a specific resource to filter by.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) ResourceHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.ResourceHash }).(pulumi.StringPtrOutput)
-}
-
-// The full name of a specific resource to filter by.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) ResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
-}
-
-// APM service name.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.Service }).(pulumi.StringPtrOutput)
-}
-
-// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) SpanKind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) *string { return v.SpanKind }).(pulumi.StringPtrOutput)
-}
-
-// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
-func (o PowerpackV2WidgetApmMetricsQueryOutput) Stat() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmMetricsQuery) string { return v.Stat }).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetApmMetricsQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmMetricsQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmMetricsQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) ToPowerpackV2WidgetApmMetricsQueryPtrOutput() PowerpackV2WidgetApmMetricsQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) ToPowerpackV2WidgetApmMetricsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmMetricsQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) Elem() PowerpackV2WidgetApmMetricsQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) PowerpackV2WidgetApmMetricsQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetApmMetricsQuery
-		return ret
-	}).(PowerpackV2WidgetApmMetricsQueryOutput)
-}
-
-// The data source for APM metrics queries. Valid values are `apmMetrics`.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Optional fields to group the query results by.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(pulumi.StringArrayOutput)
-}
-
-// Name of this query to use in formulas.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Optional operation mode used to aggregate across operation names.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) OperationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OperationMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the operation on the service. If omitted, the primary operation name is used.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OperationName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) PeerTags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PeerTags
-	}).(pulumi.StringArrayOutput)
-}
-
-// Additional filters for the query using metrics query syntax.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) QueryFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.QueryFilter
-	}).(pulumi.StringPtrOutput)
-}
-
-// The hash of a specific resource to filter by.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) ResourceHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceHash
-	}).(pulumi.StringPtrOutput)
-}
-
-// The full name of a specific resource to filter by.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM service name.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Service
-	}).(pulumi.StringPtrOutput)
-}
-
-// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) SpanKind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SpanKind
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
-func (o PowerpackV2WidgetApmMetricsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Stat
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetApmQuery struct {
-	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
-	ComputeQuery *PowerpackV2WidgetApmQueryComputeQuery `pulumi:"computeQuery"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
-	GroupBies []PowerpackV2WidgetApmQueryGroupBy `pulumi:"groupBies"`
-	// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
-	Index string `pulumi:"index"`
-	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-	MultiComputes []PowerpackV2WidgetApmQueryMultiCompute `pulumi:"multiComputes"`
-	// The search query to use.
-	SearchQuery *string `pulumi:"searchQuery"`
-}
-
-// PowerpackV2WidgetApmQueryInput is an input type that accepts PowerpackV2WidgetApmQueryArgs and PowerpackV2WidgetApmQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmQueryInput` via:
-//
-//	PowerpackV2WidgetApmQueryArgs{...}
-type PowerpackV2WidgetApmQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmQueryOutput() PowerpackV2WidgetApmQueryOutput
-	ToPowerpackV2WidgetApmQueryOutputWithContext(context.Context) PowerpackV2WidgetApmQueryOutput
-}
-
-type PowerpackV2WidgetApmQueryArgs struct {
-	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
-	ComputeQuery PowerpackV2WidgetApmQueryComputeQueryPtrInput `pulumi:"computeQuery"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
-	GroupBies PowerpackV2WidgetApmQueryGroupByArrayInput `pulumi:"groupBies"`
-	// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
-	Index pulumi.StringInput `pulumi:"index"`
-	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-	MultiComputes PowerpackV2WidgetApmQueryMultiComputeArrayInput `pulumi:"multiComputes"`
-	// The search query to use.
-	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
-}
-
-func (PowerpackV2WidgetApmQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetApmQueryArgs) ToPowerpackV2WidgetApmQueryOutput() PowerpackV2WidgetApmQueryOutput {
-	return i.ToPowerpackV2WidgetApmQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmQueryArgs) ToPowerpackV2WidgetApmQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryOutput)
-}
-
-func (i PowerpackV2WidgetApmQueryArgs) ToPowerpackV2WidgetApmQueryPtrOutput() PowerpackV2WidgetApmQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmQueryArgs) ToPowerpackV2WidgetApmQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryOutput).ToPowerpackV2WidgetApmQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetApmQueryPtrInput is an input type that accepts PowerpackV2WidgetApmQueryArgs, PowerpackV2WidgetApmQueryPtr and PowerpackV2WidgetApmQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetApmQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetApmQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmQueryPtrOutput() PowerpackV2WidgetApmQueryPtrOutput
-	ToPowerpackV2WidgetApmQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmQueryPtrOutput
-}
-
-type powerpackV2WidgetApmQueryPtrType PowerpackV2WidgetApmQueryArgs
-
-func PowerpackV2WidgetApmQueryPtr(v *PowerpackV2WidgetApmQueryArgs) PowerpackV2WidgetApmQueryPtrInput {
-	return (*powerpackV2WidgetApmQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetApmQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetApmQueryPtrType) ToPowerpackV2WidgetApmQueryPtrOutput() PowerpackV2WidgetApmQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetApmQueryPtrType) ToPowerpackV2WidgetApmQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryPtrOutput)
-}
-
-type PowerpackV2WidgetApmQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmQueryOutput) ToPowerpackV2WidgetApmQueryOutput() PowerpackV2WidgetApmQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryOutput) ToPowerpackV2WidgetApmQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryOutput) ToPowerpackV2WidgetApmQueryPtrOutput() PowerpackV2WidgetApmQueryPtrOutput {
-	return o.ToPowerpackV2WidgetApmQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetApmQueryOutput) ToPowerpackV2WidgetApmQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmQuery) *PowerpackV2WidgetApmQuery {
-		return &v
-	}).(PowerpackV2WidgetApmQueryPtrOutput)
-}
-
-// `computeQuery` or `multiCompute` is required. The map keys are listed below.
-func (o PowerpackV2WidgetApmQueryOutput) ComputeQuery() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQuery) *PowerpackV2WidgetApmQueryComputeQuery { return v.ComputeQuery }).(PowerpackV2WidgetApmQueryComputeQueryPtrOutput)
-}
-
-// Multiple `groupBy` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetApmQueryOutput) GroupBies() PowerpackV2WidgetApmQueryGroupByArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQuery) []PowerpackV2WidgetApmQueryGroupBy { return v.GroupBies }).(PowerpackV2WidgetApmQueryGroupByArrayOutput)
-}
-
-// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
-func (o PowerpackV2WidgetApmQueryOutput) Index() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQuery) string { return v.Index }).(pulumi.StringOutput)
-}
-
-// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetApmQueryOutput) MultiComputes() PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQuery) []PowerpackV2WidgetApmQueryMultiCompute { return v.MultiComputes }).(PowerpackV2WidgetApmQueryMultiComputeArrayOutput)
-}
-
-// The search query to use.
-func (o PowerpackV2WidgetApmQueryOutput) SearchQuery() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetApmQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmQueryPtrOutput) ToPowerpackV2WidgetApmQueryPtrOutput() PowerpackV2WidgetApmQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryPtrOutput) ToPowerpackV2WidgetApmQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryPtrOutput) Elem() PowerpackV2WidgetApmQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) PowerpackV2WidgetApmQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetApmQuery
-		return ret
-	}).(PowerpackV2WidgetApmQueryOutput)
-}
-
-// `computeQuery` or `multiCompute` is required. The map keys are listed below.
-func (o PowerpackV2WidgetApmQueryPtrOutput) ComputeQuery() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) *PowerpackV2WidgetApmQueryComputeQuery {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeQuery
-	}).(PowerpackV2WidgetApmQueryComputeQueryPtrOutput)
-}
-
-// Multiple `groupBy` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetApmQueryPtrOutput) GroupBies() PowerpackV2WidgetApmQueryGroupByArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) []PowerpackV2WidgetApmQueryGroupBy {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(PowerpackV2WidgetApmQueryGroupByArrayOutput)
-}
-
-// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
-func (o PowerpackV2WidgetApmQueryPtrOutput) Index() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Index
-	}).(pulumi.StringPtrOutput)
-}
-
-// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetApmQueryPtrOutput) MultiComputes() PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) []PowerpackV2WidgetApmQueryMultiCompute {
-		if v == nil {
-			return nil
-		}
-		return v.MultiComputes
-	}).(PowerpackV2WidgetApmQueryMultiComputeArrayOutput)
-}
-
-// The search query to use.
-func (o PowerpackV2WidgetApmQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SearchQuery
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetApmQueryComputeQuery struct {
-	// The aggregation method.
-	Aggregation string `pulumi:"aggregation"`
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// Define the time interval in seconds.
-	Interval *int `pulumi:"interval"`
-}
-
-// PowerpackV2WidgetApmQueryComputeQueryInput is an input type that accepts PowerpackV2WidgetApmQueryComputeQueryArgs and PowerpackV2WidgetApmQueryComputeQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmQueryComputeQueryInput` via:
-//
-//	PowerpackV2WidgetApmQueryComputeQueryArgs{...}
-type PowerpackV2WidgetApmQueryComputeQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmQueryComputeQueryOutput() PowerpackV2WidgetApmQueryComputeQueryOutput
-	ToPowerpackV2WidgetApmQueryComputeQueryOutputWithContext(context.Context) PowerpackV2WidgetApmQueryComputeQueryOutput
-}
-
-type PowerpackV2WidgetApmQueryComputeQueryArgs struct {
-	// The aggregation method.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// Define the time interval in seconds.
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
-}
-
-func (PowerpackV2WidgetApmQueryComputeQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmQueryComputeQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetApmQueryComputeQueryArgs) ToPowerpackV2WidgetApmQueryComputeQueryOutput() PowerpackV2WidgetApmQueryComputeQueryOutput {
-	return i.ToPowerpackV2WidgetApmQueryComputeQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmQueryComputeQueryArgs) ToPowerpackV2WidgetApmQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryComputeQueryOutput)
-}
-
-func (i PowerpackV2WidgetApmQueryComputeQueryArgs) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutput() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmQueryComputeQueryArgs) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryComputeQueryOutput).ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetApmQueryComputeQueryPtrInput is an input type that accepts PowerpackV2WidgetApmQueryComputeQueryArgs, PowerpackV2WidgetApmQueryComputeQueryPtr and PowerpackV2WidgetApmQueryComputeQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmQueryComputeQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetApmQueryComputeQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetApmQueryComputeQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmQueryComputeQueryPtrOutput() PowerpackV2WidgetApmQueryComputeQueryPtrOutput
-	ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmQueryComputeQueryPtrOutput
-}
-
-type powerpackV2WidgetApmQueryComputeQueryPtrType PowerpackV2WidgetApmQueryComputeQueryArgs
-
-func PowerpackV2WidgetApmQueryComputeQueryPtr(v *PowerpackV2WidgetApmQueryComputeQueryArgs) PowerpackV2WidgetApmQueryComputeQueryPtrInput {
-	return (*powerpackV2WidgetApmQueryComputeQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetApmQueryComputeQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmQueryComputeQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetApmQueryComputeQueryPtrType) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutput() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetApmQueryComputeQueryPtrType) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryComputeQueryPtrOutput)
-}
-
-type PowerpackV2WidgetApmQueryComputeQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmQueryComputeQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmQueryComputeQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmQueryComputeQueryOutput) ToPowerpackV2WidgetApmQueryComputeQueryOutput() PowerpackV2WidgetApmQueryComputeQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryComputeQueryOutput) ToPowerpackV2WidgetApmQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryComputeQueryOutput) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutput() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
-	return o.ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetApmQueryComputeQueryOutput) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmQueryComputeQuery) *PowerpackV2WidgetApmQueryComputeQuery {
-		return &v
-	}).(PowerpackV2WidgetApmQueryComputeQueryPtrOutput)
-}
-
-// The aggregation method.
-func (o PowerpackV2WidgetApmQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
-}
-
-// The facet name.
-func (o PowerpackV2WidgetApmQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// Define the time interval in seconds.
-func (o PowerpackV2WidgetApmQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetApmQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmQueryComputeQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmQueryComputeQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutput() PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) ToPowerpackV2WidgetApmQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryComputeQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) Elem() PowerpackV2WidgetApmQueryComputeQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryComputeQuery) PowerpackV2WidgetApmQueryComputeQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetApmQueryComputeQuery
-		return ret
-	}).(PowerpackV2WidgetApmQueryComputeQueryOutput)
-}
-
-// The aggregation method.
-func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryComputeQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Aggregation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The facet name.
-func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryComputeQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Facet
-	}).(pulumi.StringPtrOutput)
-}
-
-// Define the time interval in seconds.
-func (o PowerpackV2WidgetApmQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryComputeQuery) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Interval
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetApmQueryGroupBy struct {
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// The maximum number of items in the group.
-	Limit *int `pulumi:"limit"`
-	// A list of exactly one element describing the sort query to use.
-	SortQuery *PowerpackV2WidgetApmQueryGroupBySortQuery `pulumi:"sortQuery"`
-}
-
-// PowerpackV2WidgetApmQueryGroupByInput is an input type that accepts PowerpackV2WidgetApmQueryGroupByArgs and PowerpackV2WidgetApmQueryGroupByOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmQueryGroupByInput` via:
-//
-//	PowerpackV2WidgetApmQueryGroupByArgs{...}
-type PowerpackV2WidgetApmQueryGroupByInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmQueryGroupByOutput() PowerpackV2WidgetApmQueryGroupByOutput
-	ToPowerpackV2WidgetApmQueryGroupByOutputWithContext(context.Context) PowerpackV2WidgetApmQueryGroupByOutput
-}
-
-type PowerpackV2WidgetApmQueryGroupByArgs struct {
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// The maximum number of items in the group.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// A list of exactly one element describing the sort query to use.
-	SortQuery PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
-}
-
-func (PowerpackV2WidgetApmQueryGroupByArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBy)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetApmQueryGroupByArgs) ToPowerpackV2WidgetApmQueryGroupByOutput() PowerpackV2WidgetApmQueryGroupByOutput {
-	return i.ToPowerpackV2WidgetApmQueryGroupByOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmQueryGroupByArgs) ToPowerpackV2WidgetApmQueryGroupByOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupByOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryGroupByOutput)
-}
-
-// PowerpackV2WidgetApmQueryGroupByArrayInput is an input type that accepts PowerpackV2WidgetApmQueryGroupByArray and PowerpackV2WidgetApmQueryGroupByArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmQueryGroupByArrayInput` via:
-//
-//	PowerpackV2WidgetApmQueryGroupByArray{ PowerpackV2WidgetApmQueryGroupByArgs{...} }
-type PowerpackV2WidgetApmQueryGroupByArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmQueryGroupByArrayOutput() PowerpackV2WidgetApmQueryGroupByArrayOutput
-	ToPowerpackV2WidgetApmQueryGroupByArrayOutputWithContext(context.Context) PowerpackV2WidgetApmQueryGroupByArrayOutput
-}
-
-type PowerpackV2WidgetApmQueryGroupByArray []PowerpackV2WidgetApmQueryGroupByInput
-
-func (PowerpackV2WidgetApmQueryGroupByArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetApmQueryGroupBy)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetApmQueryGroupByArray) ToPowerpackV2WidgetApmQueryGroupByArrayOutput() PowerpackV2WidgetApmQueryGroupByArrayOutput {
-	return i.ToPowerpackV2WidgetApmQueryGroupByArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmQueryGroupByArray) ToPowerpackV2WidgetApmQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupByArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryGroupByArrayOutput)
-}
-
-type PowerpackV2WidgetApmQueryGroupByOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmQueryGroupByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBy)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmQueryGroupByOutput) ToPowerpackV2WidgetApmQueryGroupByOutput() PowerpackV2WidgetApmQueryGroupByOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryGroupByOutput) ToPowerpackV2WidgetApmQueryGroupByOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupByOutput {
-	return o
-}
-
-// The facet name.
-func (o PowerpackV2WidgetApmQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of items in the group.
-func (o PowerpackV2WidgetApmQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// A list of exactly one element describing the sort query to use.
-func (o PowerpackV2WidgetApmQueryGroupByOutput) SortQuery() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBy) *PowerpackV2WidgetApmQueryGroupBySortQuery {
-		return v.SortQuery
-	}).(PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput)
-}
-
-type PowerpackV2WidgetApmQueryGroupByArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmQueryGroupByArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetApmQueryGroupBy)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmQueryGroupByArrayOutput) ToPowerpackV2WidgetApmQueryGroupByArrayOutput() PowerpackV2WidgetApmQueryGroupByArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryGroupByArrayOutput) ToPowerpackV2WidgetApmQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupByArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetApmQueryGroupByOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetApmQueryGroupBy {
-		return vs[0].([]PowerpackV2WidgetApmQueryGroupBy)[vs[1].(int)]
-	}).(PowerpackV2WidgetApmQueryGroupByOutput)
-}
-
-type PowerpackV2WidgetApmQueryGroupBySortQuery struct {
-	// The aggregation method.
-	Aggregation string `pulumi:"aggregation"`
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order string `pulumi:"order"`
-}
-
-// PowerpackV2WidgetApmQueryGroupBySortQueryInput is an input type that accepts PowerpackV2WidgetApmQueryGroupBySortQueryArgs and PowerpackV2WidgetApmQueryGroupBySortQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmQueryGroupBySortQueryInput` via:
-//
-//	PowerpackV2WidgetApmQueryGroupBySortQueryArgs{...}
-type PowerpackV2WidgetApmQueryGroupBySortQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmQueryGroupBySortQueryOutput() PowerpackV2WidgetApmQueryGroupBySortQueryOutput
-	ToPowerpackV2WidgetApmQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryOutput
-}
-
-type PowerpackV2WidgetApmQueryGroupBySortQueryArgs struct {
-	// The aggregation method.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order pulumi.StringInput `pulumi:"order"`
-}
-
-func (PowerpackV2WidgetApmQueryGroupBySortQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetApmQueryGroupBySortQueryArgs) ToPowerpackV2WidgetApmQueryGroupBySortQueryOutput() PowerpackV2WidgetApmQueryGroupBySortQueryOutput {
-	return i.ToPowerpackV2WidgetApmQueryGroupBySortQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmQueryGroupBySortQueryArgs) ToPowerpackV2WidgetApmQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryGroupBySortQueryOutput)
-}
-
-func (i PowerpackV2WidgetApmQueryGroupBySortQueryArgs) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmQueryGroupBySortQueryArgs) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryGroupBySortQueryOutput).ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackV2WidgetApmQueryGroupBySortQueryArgs, PowerpackV2WidgetApmQueryGroupBySortQueryPtr and PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetApmQueryGroupBySortQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput
-	ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput
-}
-
-type powerpackV2WidgetApmQueryGroupBySortQueryPtrType PowerpackV2WidgetApmQueryGroupBySortQueryArgs
-
-func PowerpackV2WidgetApmQueryGroupBySortQueryPtr(v *PowerpackV2WidgetApmQueryGroupBySortQueryArgs) PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput {
-	return (*powerpackV2WidgetApmQueryGroupBySortQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetApmQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetApmQueryGroupBySortQueryPtrType) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetApmQueryGroupBySortQueryPtrType) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput)
-}
-
-type PowerpackV2WidgetApmQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmQueryGroupBySortQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryOutput() PowerpackV2WidgetApmQueryGroupBySortQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
-	return o.ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmQueryGroupBySortQuery) *PowerpackV2WidgetApmQueryGroupBySortQuery {
-		return &v
-	}).(PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput)
-}
-
-// The aggregation method.
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBySortQuery) string { return v.Aggregation }).(pulumi.StringOutput)
-}
-
-// The facet name.
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput() PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) ToPowerpackV2WidgetApmQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) Elem() PowerpackV2WidgetApmQueryGroupBySortQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryGroupBySortQuery) PowerpackV2WidgetApmQueryGroupBySortQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetApmQueryGroupBySortQuery
-		return ret
-	}).(PowerpackV2WidgetApmQueryGroupBySortQueryOutput)
-}
-
-// The aggregation method.
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Aggregation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The facet name.
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Facet
-	}).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetApmQueryMultiCompute struct {
-	// The aggregation method.
-	Aggregation string `pulumi:"aggregation"`
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// Define the time interval in seconds.
-	Interval *int `pulumi:"interval"`
-}
-
-// PowerpackV2WidgetApmQueryMultiComputeInput is an input type that accepts PowerpackV2WidgetApmQueryMultiComputeArgs and PowerpackV2WidgetApmQueryMultiComputeOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmQueryMultiComputeInput` via:
-//
-//	PowerpackV2WidgetApmQueryMultiComputeArgs{...}
-type PowerpackV2WidgetApmQueryMultiComputeInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmQueryMultiComputeOutput() PowerpackV2WidgetApmQueryMultiComputeOutput
-	ToPowerpackV2WidgetApmQueryMultiComputeOutputWithContext(context.Context) PowerpackV2WidgetApmQueryMultiComputeOutput
-}
-
-type PowerpackV2WidgetApmQueryMultiComputeArgs struct {
-	// The aggregation method.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// Define the time interval in seconds.
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
-}
-
-func (PowerpackV2WidgetApmQueryMultiComputeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmQueryMultiCompute)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetApmQueryMultiComputeArgs) ToPowerpackV2WidgetApmQueryMultiComputeOutput() PowerpackV2WidgetApmQueryMultiComputeOutput {
-	return i.ToPowerpackV2WidgetApmQueryMultiComputeOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmQueryMultiComputeArgs) ToPowerpackV2WidgetApmQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryMultiComputeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryMultiComputeOutput)
-}
-
-// PowerpackV2WidgetApmQueryMultiComputeArrayInput is an input type that accepts PowerpackV2WidgetApmQueryMultiComputeArray and PowerpackV2WidgetApmQueryMultiComputeArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmQueryMultiComputeArrayInput` via:
-//
-//	PowerpackV2WidgetApmQueryMultiComputeArray{ PowerpackV2WidgetApmQueryMultiComputeArgs{...} }
-type PowerpackV2WidgetApmQueryMultiComputeArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmQueryMultiComputeArrayOutput() PowerpackV2WidgetApmQueryMultiComputeArrayOutput
-	ToPowerpackV2WidgetApmQueryMultiComputeArrayOutputWithContext(context.Context) PowerpackV2WidgetApmQueryMultiComputeArrayOutput
-}
-
-type PowerpackV2WidgetApmQueryMultiComputeArray []PowerpackV2WidgetApmQueryMultiComputeInput
-
-func (PowerpackV2WidgetApmQueryMultiComputeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetApmQueryMultiCompute)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetApmQueryMultiComputeArray) ToPowerpackV2WidgetApmQueryMultiComputeArrayOutput() PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
-	return i.ToPowerpackV2WidgetApmQueryMultiComputeArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmQueryMultiComputeArray) ToPowerpackV2WidgetApmQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmQueryMultiComputeArrayOutput)
-}
-
-type PowerpackV2WidgetApmQueryMultiComputeOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmQueryMultiComputeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmQueryMultiCompute)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmQueryMultiComputeOutput) ToPowerpackV2WidgetApmQueryMultiComputeOutput() PowerpackV2WidgetApmQueryMultiComputeOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryMultiComputeOutput) ToPowerpackV2WidgetApmQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryMultiComputeOutput {
-	return o
-}
-
-// The aggregation method.
-func (o PowerpackV2WidgetApmQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
-}
-
-// The facet name.
-func (o PowerpackV2WidgetApmQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// Define the time interval in seconds.
-func (o PowerpackV2WidgetApmQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetApmQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmQueryMultiComputeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetApmQueryMultiCompute)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmQueryMultiComputeArrayOutput) ToPowerpackV2WidgetApmQueryMultiComputeArrayOutput() PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryMultiComputeArrayOutput) ToPowerpackV2WidgetApmQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetApmQueryMultiComputeArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetApmQueryMultiComputeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetApmQueryMultiCompute {
-		return vs[0].([]PowerpackV2WidgetApmQueryMultiCompute)[vs[1].(int)]
-	}).(PowerpackV2WidgetApmQueryMultiComputeOutput)
-}
-
-type PowerpackV2WidgetApmResourceStatsQuery struct {
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
-	DataSource string `pulumi:"dataSource"`
-	// APM environment.
-	Env string `pulumi:"env"`
-	// Array of fields to group results by.
-	GroupBies []string `pulumi:"groupBies"`
-	// The name of query for use in formulas.
-	Name string `pulumi:"name"`
-	// Name of operation on service.
-	OperationName *string `pulumi:"operationName"`
-	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-	PrimaryTagName *string `pulumi:"primaryTagName"`
-	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-	PrimaryTagValue *string `pulumi:"primaryTagValue"`
-	// APM resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// APM service.
-	Service string `pulumi:"service"`
-	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
-	Stat string `pulumi:"stat"`
-}
-
-// PowerpackV2WidgetApmResourceStatsQueryInput is an input type that accepts PowerpackV2WidgetApmResourceStatsQueryArgs and PowerpackV2WidgetApmResourceStatsQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmResourceStatsQueryInput` via:
-//
-//	PowerpackV2WidgetApmResourceStatsQueryArgs{...}
-type PowerpackV2WidgetApmResourceStatsQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmResourceStatsQueryOutput() PowerpackV2WidgetApmResourceStatsQueryOutput
-	ToPowerpackV2WidgetApmResourceStatsQueryOutputWithContext(context.Context) PowerpackV2WidgetApmResourceStatsQueryOutput
-}
-
-type PowerpackV2WidgetApmResourceStatsQueryArgs struct {
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// APM environment.
-	Env pulumi.StringInput `pulumi:"env"`
-	// Array of fields to group results by.
-	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
-	// The name of query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Name of operation on service.
-	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
-	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
-	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
-	// APM resource.
-	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
-	// APM service.
-	Service pulumi.StringInput `pulumi:"service"`
-	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
-	Stat pulumi.StringInput `pulumi:"stat"`
-}
-
-func (PowerpackV2WidgetApmResourceStatsQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmResourceStatsQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetApmResourceStatsQueryArgs) ToPowerpackV2WidgetApmResourceStatsQueryOutput() PowerpackV2WidgetApmResourceStatsQueryOutput {
-	return i.ToPowerpackV2WidgetApmResourceStatsQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmResourceStatsQueryArgs) ToPowerpackV2WidgetApmResourceStatsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmResourceStatsQueryOutput)
-}
-
-func (i PowerpackV2WidgetApmResourceStatsQueryArgs) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutput() PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetApmResourceStatsQueryArgs) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmResourceStatsQueryOutput).ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetApmResourceStatsQueryPtrInput is an input type that accepts PowerpackV2WidgetApmResourceStatsQueryArgs, PowerpackV2WidgetApmResourceStatsQueryPtr and PowerpackV2WidgetApmResourceStatsQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetApmResourceStatsQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetApmResourceStatsQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetApmResourceStatsQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetApmResourceStatsQueryPtrOutput() PowerpackV2WidgetApmResourceStatsQueryPtrOutput
-	ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetApmResourceStatsQueryPtrOutput
-}
-
-type powerpackV2WidgetApmResourceStatsQueryPtrType PowerpackV2WidgetApmResourceStatsQueryArgs
-
-func PowerpackV2WidgetApmResourceStatsQueryPtr(v *PowerpackV2WidgetApmResourceStatsQueryArgs) PowerpackV2WidgetApmResourceStatsQueryPtrInput {
-	return (*powerpackV2WidgetApmResourceStatsQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetApmResourceStatsQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmResourceStatsQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetApmResourceStatsQueryPtrType) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutput() PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
-	return i.ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetApmResourceStatsQueryPtrType) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetApmResourceStatsQueryPtrOutput)
-}
-
-type PowerpackV2WidgetApmResourceStatsQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmResourceStatsQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetApmResourceStatsQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) ToPowerpackV2WidgetApmResourceStatsQueryOutput() PowerpackV2WidgetApmResourceStatsQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) ToPowerpackV2WidgetApmResourceStatsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutput() PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
-	return o.ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetApmResourceStatsQuery) *PowerpackV2WidgetApmResourceStatsQuery {
-		return &v
-	}).(PowerpackV2WidgetApmResourceStatsQueryPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
-}
-
-// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// APM environment.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) Env() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) string { return v.Env }).(pulumi.StringOutput)
-}
-
-// Array of fields to group results by.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Name of operation on service.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) *string { return v.OperationName }).(pulumi.StringPtrOutput)
-}
-
-// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) *string { return v.PrimaryTagName }).(pulumi.StringPtrOutput)
-}
-
-// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) *string { return v.PrimaryTagValue }).(pulumi.StringPtrOutput)
-}
-
-// APM resource.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) ResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
-}
-
-// APM service.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) Service() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) string { return v.Service }).(pulumi.StringOutput)
-}
-
-// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
-func (o PowerpackV2WidgetApmResourceStatsQueryOutput) Stat() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetApmResourceStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetApmResourceStatsQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetApmResourceStatsQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetApmResourceStatsQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutput() PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) ToPowerpackV2WidgetApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Elem() PowerpackV2WidgetApmResourceStatsQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) PowerpackV2WidgetApmResourceStatsQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetApmResourceStatsQuery
-		return ret
-	}).(PowerpackV2WidgetApmResourceStatsQueryOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM environment.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Env
-	}).(pulumi.StringPtrOutput)
-}
-
-// Array of fields to group results by.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(pulumi.StringArrayOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of operation on service.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OperationName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrimaryTagName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrimaryTagValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM resource.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM service.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Service
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
-func (o PowerpackV2WidgetApmResourceStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Stat
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineFilterInput)(nil)).Elem(), LogsCustomPipelineFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineFilterArrayInput)(nil)).Elem(), LogsCustomPipelineFilterArray{})
@@ -83413,6 +82972,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricArrayInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricValueInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleArgs{})
@@ -83686,22 +83261,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeLiveInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmDependencyStatsQueryInput)(nil)).Elem(), PowerpackV2WidgetApmDependencyStatsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmDependencyStatsQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmDependencyStatsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmMetricsQueryInput)(nil)).Elem(), PowerpackV2WidgetApmMetricsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmMetricsQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmMetricsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryInput)(nil)).Elem(), PowerpackV2WidgetApmQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryComputeQueryInput)(nil)).Elem(), PowerpackV2WidgetApmQueryComputeQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmQueryComputeQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupByInput)(nil)).Elem(), PowerpackV2WidgetApmQueryGroupByArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupByArrayInput)(nil)).Elem(), PowerpackV2WidgetApmQueryGroupByArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackV2WidgetApmQueryGroupBySortQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmQueryGroupBySortQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryMultiComputeInput)(nil)).Elem(), PowerpackV2WidgetApmQueryMultiComputeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackV2WidgetApmQueryMultiComputeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmResourceStatsQueryInput)(nil)).Elem(), PowerpackV2WidgetApmResourceStatsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmResourceStatsQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmResourceStatsQueryArgs{})
 	pulumi.RegisterOutputType(LogsCustomPipelineFilterOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineFilterArrayOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorOutput{})
@@ -84394,6 +83953,22 @@ func init() {
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricValueOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTablePtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFilePtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncodingPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeyPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourceOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySourcePtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTablePtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeyPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourceOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySourcePtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorMetricTagsRuleOutput{})
@@ -84667,20 +84242,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmDependencyStatsQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmDependencyStatsQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmMetricsQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmMetricsQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryComputeQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryComputeQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryGroupByOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryGroupByArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryGroupBySortQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryGroupBySortQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryMultiComputeOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmQueryMultiComputeArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmResourceStatsQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetApmResourceStatsQueryPtrOutput{})
 }

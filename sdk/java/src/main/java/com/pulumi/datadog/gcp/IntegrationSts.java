@@ -153,6 +153,20 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return this.isGlobalLocationEnabled;
     }
     /**
+     * When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+     * 
+     */
+    @Export(name="isOrgFolderResourceCollectionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> isOrgFolderResourceCollectionEnabled;
+
+    /**
+     * @return When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+     * 
+     */
+    public Output<Boolean> isOrgFolderResourceCollectionEnabled() {
+        return this.isOrgFolderResourceCollectionEnabled;
+    }
+    /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      * 
      */
@@ -237,14 +251,14 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.regionFilterConfigs);
     }
     /**
-     * When enabled, Datadog scans for all resources in your GCP environment.
+     * When enabled, Datadog scans for all project-level resources in your GCP environment.
      * 
      */
     @Export(name="resourceCollectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> resourceCollectionEnabled;
 
     /**
-     * @return When enabled, Datadog scans for all resources in your GCP environment.
+     * @return When enabled, Datadog scans for all project-level resources in your GCP environment.
      * 
      */
     public Output<Boolean> resourceCollectionEnabled() {

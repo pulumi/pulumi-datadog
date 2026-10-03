@@ -8522,7 +8522,7 @@ export interface DashboardV2WidgetListStreamDefinitionRequestQuery {
      */
     clusteringPatternFieldPath?: string;
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
      */
     dataSource: string;
     /**
@@ -18279,7 +18279,7 @@ export interface DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuer
      */
     clusteringPatternFieldPath?: string;
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
      */
     dataSource: string;
     /**
@@ -37797,6 +37797,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     include: string;
     /**
+     * Configures the `enrichmentTable` processor for `metrics` pipelines. The processor enriches metrics with tags from a static CSV file or a Datadog reference table. It looks up a row using the metric name or a metric tag value. It then adds each column of the matching row as a metric tag, overwriting any existing tag with the same key. Exactly one of `file` or `referenceTable` must be configured.
+     */
+    metricEnrichmentTable?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable;
+    /**
      * The `metricTags` processor filters metrics based on their tags using Datadog tag key patterns.
      */
     metricTags?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricTags;
@@ -38176,6 +38180,106 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetri
      * Metric value strategy: `incrementByOne` or `incrementByField`.
      */
     strategy: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTable {
+    /**
+     * Defines a static enrichment table loaded from a CSV file for metric enrichment.
+     */
+    file?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile;
+    /**
+     * Uses a Datadog reference table to enrich metrics.
+     */
+    referenceTable?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFile {
+    /**
+     * File encoding format.
+     */
+    encoding: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding;
+    /**
+     * Defines how to map a metric lookup value to a CSV column during enrichment table lookups.
+     */
+    key: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey;
+    /**
+     * Path to the CSV file.
+     */
+    path: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileEncoding {
+    /**
+     * The single character that separates columns in the file.
+     */
+    delimiter: string;
+    /**
+     * Whether the first row of the file contains column headers.
+     */
+    includesHeaders: boolean;
+    /**
+     * The encoding format of the file. The value should always be `csv`.
+     */
+    type: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKey {
+    /**
+     * The CSV column name or index to match against the lookup value.
+     */
+    column: string;
+    /**
+     * Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+     */
+    source: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableFileKeySource {
+    /**
+     * The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+     */
+    name?: string;
+    /**
+     * The lookup source type. Use `metricName` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metricName`, `tag`.
+     */
+    type: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTable {
+    /**
+     * The name of the environment variable or secret that holds the Datadog application key used to access the reference table.
+     */
+    appKeyKey?: string;
+    /**
+     * A list of column names to include from the reference table. If not provided, all columns are included.
+     */
+    columns?: string[];
+    /**
+     * Defines the metric lookup value used as the reference-table row ID.
+     */
+    key: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey;
+    /**
+     * The unique identifier of the reference table.
+     */
+    tableId: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKey {
+    /**
+     * Specifies the source of the key value used for metric enrichment table lookups. The lookup key can be either the metric name or a metric tag.
+     */
+    source: outputs.ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricEnrichmentTableReferenceTableKeySource {
+    /**
+     * The Datadog tag key used as the lookup key. Required when `type` is `tag`.
+     */
+    name?: string;
+    /**
+     * The lookup source type. Use `metricName` to look up the metric name, or `tag` to look up the value of the metric tag set in `name`. Valid values are `metricName`, `tag`.
+     */
+    type: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorMetricTags {
@@ -39998,7 +40102,7 @@ export interface OnCallTeamRoutingRulesRule {
      */
     actions?: outputs.OnCallTeamRoutingRulesRuleAction[];
     /**
-     * ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
+     * ID of the policy to be applied when this routing rule matches.
      */
     escalationPolicy?: string;
     /**
@@ -47442,7 +47546,7 @@ export interface PowerpackV2WidgetListStreamDefinitionRequestQuery {
      */
     clusteringPatternFieldPath?: string;
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
      */
     dataSource: string;
     /**
@@ -56895,7 +56999,7 @@ export interface PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQuer
      */
     clusteringPatternFieldPath?: string;
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
      */
     dataSource: string;
     /**

@@ -20,7 +20,7 @@ public final class OnCallTeamRoutingRulesRule {
      */
     private @Nullable List<OnCallTeamRoutingRulesRuleAction> actions;
     /**
-     * @return ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
+     * @return ID of the policy to be applied when this routing rule matches.
      * 
      */
     private @Nullable String escalationPolicy;
@@ -54,7 +54,7 @@ public final class OnCallTeamRoutingRulesRule {
         return this.actions == null ? List.of() : this.actions;
     }
     /**
-     * @return ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `escalationPolicy` action.
+     * @return ID of the policy to be applied when this routing rule matches.
      * 
      */
     public Optional<String> escalationPolicy() {

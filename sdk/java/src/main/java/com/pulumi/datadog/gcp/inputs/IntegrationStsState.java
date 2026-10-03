@@ -156,6 +156,21 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+     * 
+     */
+    @Import(name="isOrgFolderResourceCollectionEnabled")
+    private @Nullable Output<Boolean> isOrgFolderResourceCollectionEnabled;
+
+    /**
+     * @return When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+     * 
+     */
+    public Optional<Output<Boolean>> isOrgFolderResourceCollectionEnabled() {
+        return Optional.ofNullable(this.isOrgFolderResourceCollectionEnabled);
+    }
+
+    /**
      * When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
      * 
      */
@@ -246,14 +261,14 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * When enabled, Datadog scans for all resources in your GCP environment.
+     * When enabled, Datadog scans for all project-level resources in your GCP environment.
      * 
      */
     @Import(name="resourceCollectionEnabled")
     private @Nullable Output<Boolean> resourceCollectionEnabled;
 
     /**
-     * @return When enabled, Datadog scans for all resources in your GCP environment.
+     * @return When enabled, Datadog scans for all project-level resources in your GCP environment.
      * 
      */
     public Optional<Output<Boolean>> resourceCollectionEnabled() {
@@ -271,6 +286,7 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
         this.hostFilters = $.hostFilters;
         this.isCspmEnabled = $.isCspmEnabled;
         this.isGlobalLocationEnabled = $.isGlobalLocationEnabled;
+        this.isOrgFolderResourceCollectionEnabled = $.isOrgFolderResourceCollectionEnabled;
         this.isPerProjectQuotaEnabled = $.isPerProjectQuotaEnabled;
         this.isResourceChangeCollectionEnabled = $.isResourceChangeCollectionEnabled;
         this.isSecurityCommandCenterEnabled = $.isSecurityCommandCenterEnabled;
@@ -521,6 +537,27 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param isOrgFolderResourceCollectionEnabled When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isOrgFolderResourceCollectionEnabled(@Nullable Output<Boolean> isOrgFolderResourceCollectionEnabled) {
+            $.isOrgFolderResourceCollectionEnabled = isOrgFolderResourceCollectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param isOrgFolderResourceCollectionEnabled When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isOrgFolderResourceCollectionEnabled(Boolean isOrgFolderResourceCollectionEnabled) {
+            return isOrgFolderResourceCollectionEnabled(Output.of(isOrgFolderResourceCollectionEnabled));
+        }
+
+        /**
          * @param isPerProjectQuotaEnabled When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
          * 
          * @return builder
@@ -677,7 +714,7 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceCollectionEnabled When enabled, Datadog scans for all resources in your GCP environment.
+         * @param resourceCollectionEnabled When enabled, Datadog scans for all project-level resources in your GCP environment.
          * 
          * @return builder
          * 
@@ -688,7 +725,7 @@ public final class IntegrationStsState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceCollectionEnabled When enabled, Datadog scans for all resources in your GCP environment.
+         * @param resourceCollectionEnabled When enabled, Datadog scans for all project-level resources in your GCP environment.
          * 
          * @return builder
          * 

@@ -72,6 +72,12 @@ namespace Pulumi.Datadog.Gcp
         public Output<bool> IsGlobalLocationEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+        /// </summary>
+        [Output("isOrgFolderResourceCollectionEnabled")]
+        public Output<bool> IsOrgFolderResourceCollectionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         /// </summary>
         [Output("isPerProjectQuotaEnabled")]
@@ -108,7 +114,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<ImmutableArray<string>> RegionFilterConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, Datadog scans for all resources in your GCP environment.
+        /// When enabled, Datadog scans for all project-level resources in your GCP environment.
         /// </summary>
         [Output("resourceCollectionEnabled")]
         public Output<bool> ResourceCollectionEnabled { get; private set; } = null!;
@@ -222,6 +228,12 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? IsGlobalLocationEnabled { get; set; }
 
         /// <summary>
+        /// When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+        /// </summary>
+        [Input("isOrgFolderResourceCollectionEnabled")]
+        public Input<bool>? IsOrgFolderResourceCollectionEnabled { get; set; }
+
+        /// <summary>
         /// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         /// </summary>
         [Input("isPerProjectQuotaEnabled")]
@@ -276,7 +288,7 @@ namespace Pulumi.Datadog.Gcp
         }
 
         /// <summary>
-        /// When enabled, Datadog scans for all resources in your GCP environment.
+        /// When enabled, Datadog scans for all project-level resources in your GCP environment.
         /// </summary>
         [Input("resourceCollectionEnabled")]
         public Input<bool>? ResourceCollectionEnabled { get; set; }
@@ -358,6 +370,12 @@ namespace Pulumi.Datadog.Gcp
         public Input<bool>? IsGlobalLocationEnabled { get; set; }
 
         /// <summary>
+        /// When enabled, Datadog scans for organization and folder-level resources under the organization the Service Account lives in.
+        /// </summary>
+        [Input("isOrgFolderResourceCollectionEnabled")]
+        public Input<bool>? IsOrgFolderResourceCollectionEnabled { get; set; }
+
+        /// <summary>
         /// When enabled, Datadog includes the `X-Goog-User-Project` header to attribute Google Cloud billing and quota usage to the monitored project instead of the default service account project.
         /// </summary>
         [Input("isPerProjectQuotaEnabled")]
@@ -412,7 +430,7 @@ namespace Pulumi.Datadog.Gcp
         }
 
         /// <summary>
-        /// When enabled, Datadog scans for all resources in your GCP environment.
+        /// When enabled, Datadog scans for all project-level resources in your GCP environment.
         /// </summary>
         [Input("resourceCollectionEnabled")]
         public Input<bool>? ResourceCollectionEnabled { get; set; }

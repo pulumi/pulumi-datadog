@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OnCallTeamRoutingRulesRuleAction> Actions;
         /// <summary>
-        /// ID of the policy to be applied when this routing rule matches. The last rule must define an escalation policy, either via this attribute or via an `EscalationPolicy` action.
+        /// ID of the policy to be applied when this routing rule matches.
         /// </summary>
         public readonly string? EscalationPolicy;
         /// <summary>
