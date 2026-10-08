@@ -48,6 +48,7 @@
         "aws/integrationEventBridge.ts",
         "aws/integrationExternalId.ts",
         "awsCurConfig.ts",
+        "awsWifIdentityMapping.ts",
         "azure/index.ts",
         "azure/integration.ts",
         "azureUcConfig.ts",

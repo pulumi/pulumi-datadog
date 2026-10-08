@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? ClusteringPatternFieldPath { get; set; }
 
         /// <summary>
-        /// Source from which to query items to display in the stream. Valid values are `LogsStream`, `AuditStream`, `CiPipelineStream`, `CiTestStream`, `RumIssueStream`, `ApmIssueStream`, `TraceStream`, `LogsIssueStream`, `LogsPatternStream`, `LogsTransactionStream`, `EventStream`, `RumStream`, `LlmObservabilityStream`, `IssueStream`, `SecurityRuntimeStream`, `SecuritySignalsStream`, `IncidentsStream`.
+        /// Source from which to query items to display in the stream. Valid values are `LogsStream`, `AuditStream`, `CiPipelineStream`, `CiTestStream`, `RumIssueStream`, `ApmIssueStream`, `TraceStream`, `LogsIssueStream`, `LogsPatternStream`, `LogsTransactionStream`, `EventStream`, `RumStream`, `LlmObservabilityStream`, `IssueStream`, `SecurityRuntimeStream`, `SecuritySignalsStream`, `IncidentsStream`, `CaseStream`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;

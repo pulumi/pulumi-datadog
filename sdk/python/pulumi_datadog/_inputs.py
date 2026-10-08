@@ -110825,7 +110825,7 @@ class DashboardWidgetListStreamDefinitionRequestColumnArgs:
 class DashboardWidgetListStreamDefinitionRequestQueryArgsDict(TypedDict):
     data_source: pulumi.Input[_builtins.str]
     """
-    Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+    Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
     """
     clustering_pattern_field_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -110868,7 +110868,7 @@ class DashboardWidgetListStreamDefinitionRequestQueryArgs:
                  sort: pulumi.Input[Optional['DashboardWidgetListStreamDefinitionRequestQuerySortArgs']] = None,
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        :param pulumi.Input[_builtins.str] data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         :param pulumi.Input[_builtins.str] clustering_pattern_field_path: Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
         :param pulumi.Input[_builtins.str] event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetListStreamDefinitionRequestQueryGroupByArgs']]] group_bies: Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
@@ -110897,7 +110897,7 @@ class DashboardWidgetListStreamDefinitionRequestQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         """
         return pulumi.get(self, "data_source")
 
@@ -284333,7 +284333,7 @@ class PowerpackWidgetListStreamDefinitionRequestColumnArgs:
 class PowerpackWidgetListStreamDefinitionRequestQueryArgsDict(TypedDict):
     data_source: pulumi.Input[_builtins.str]
     """
-    Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+    Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
     """
     clustering_pattern_field_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -284376,7 +284376,7 @@ class PowerpackWidgetListStreamDefinitionRequestQueryArgs:
                  sort: pulumi.Input[Optional['PowerpackWidgetListStreamDefinitionRequestQuerySortArgs']] = None,
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        :param pulumi.Input[_builtins.str] data_source: Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         :param pulumi.Input[_builtins.str] clustering_pattern_field_path: Specifies the field for logs pattern clustering. Can only be used with `logs_pattern_stream`.
         :param pulumi.Input[_builtins.str] event_size: Size of events displayed in widget. Required if `data_source` is `event_stream`. Valid values are `s`, `l`.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackWidgetListStreamDefinitionRequestQueryGroupByArgs']]] group_bies: Group by configuration for the List Stream widget. Group by can only be used with `logs_pattern_stream` (up to 4 items) or `logs_transaction_stream` (one group by item is required) list stream source.
@@ -284405,7 +284405,7 @@ class PowerpackWidgetListStreamDefinitionRequestQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`.
+        Source from which to query items to display in the stream. Valid values are `logs_stream`, `audit_stream`, `ci_pipeline_stream`, `ci_test_stream`, `rum_issue_stream`, `apm_issue_stream`, `trace_stream`, `logs_issue_stream`, `logs_pattern_stream`, `logs_transaction_stream`, `event_stream`, `rum_stream`, `llm_observability_stream`, `issue_stream`, `security_runtime_stream`, `security_signals_stream`, `incidents_stream`, `case_stream`.
         """
         return pulumi.get(self, "data_source")
 

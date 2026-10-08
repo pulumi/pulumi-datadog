@@ -22376,7 +22376,7 @@ export interface DashboardWidgetListStreamDefinitionRequestQuery {
      */
     clusteringPatternFieldPath?: pulumi.Input<string | undefined>;
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -62239,7 +62239,7 @@ export interface PowerpackWidgetListStreamDefinitionRequestQuery {
      */
     clusteringPatternFieldPath?: pulumi.Input<string | undefined>;
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
      */
     dataSource: pulumi.Input<string>;
     /**
