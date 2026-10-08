@@ -18,7 +18,10 @@ import * as utilities from "./utilities";
  * // Create new dataset resource
  * const foo = new datadog.Dataset("foo", {
  *     name: "HR Dataset",
- *     principals: ["role:00000000-0000-1111-0000-000000000000"],
+ *     principals: [
+ *         "role:00000000-0000-1111-0000-000000000000",
+ *         "user:00000000-0000-2222-0000-000000000000",
+ *     ],
  *     productFilters: [{
  *         product: "rum",
  *         filters: ["@application.id:123"],
@@ -75,7 +78,7 @@ export class Dataset extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
      */
     declare public readonly principals: pulumi.Output<string[]>;
     declare public readonly productFilters: pulumi.Output<outputs.DatasetProductFilter[] | undefined>;
@@ -134,7 +137,7 @@ export interface DatasetState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
      */
     principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     productFilters?: pulumi.Input<pulumi.Input<inputs.DatasetProductFilter>[] | undefined>;
@@ -149,7 +152,7 @@ export interface DatasetArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
      */
     principals: pulumi.Input<pulumi.Input<string>[]>;
     productFilters?: pulumi.Input<pulumi.Input<inputs.DatasetProductFilter>[] | undefined>;

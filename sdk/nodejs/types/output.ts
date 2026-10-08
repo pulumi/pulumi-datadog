@@ -22376,7 +22376,7 @@ export interface DashboardWidgetListStreamDefinitionRequestQuery {
      */
     clusteringPatternFieldPath?: string;
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
      */
     dataSource: string;
     /**
@@ -62638,7 +62638,7 @@ export interface PowerpackWidgetListStreamDefinitionRequestQuery {
      */
     clusteringPatternFieldPath?: string;
     /**
-     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+     * Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
      */
     dataSource: string;
     /**

@@ -63,14 +63,14 @@ public final class DatasetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+     * An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
      * 
      */
     @Import(name="principals")
     private @Nullable Output<List<String>> principals;
 
     /**
-     * @return An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+     * @return An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
      * 
      */
     public Optional<Output<List<String>>> principals() {
@@ -176,7 +176,7 @@ public final class DatasetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class DatasetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class DatasetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+         * @param principals An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
          * 
          * @return builder
          * 

@@ -23952,7 +23952,7 @@ func (o PowerpackWidgetListStreamDefinitionRequestColumnArrayOutput) Index(i pul
 type PowerpackWidgetListStreamDefinitionRequestQuery struct {
 	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
 	ClusteringPatternFieldPath *string `pulumi:"clusteringPatternFieldPath"`
-	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
 	DataSource string `pulumi:"dataSource"`
 	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
 	EventSize *string `pulumi:"eventSize"`
@@ -23982,7 +23982,7 @@ type PowerpackWidgetListStreamDefinitionRequestQueryInput interface {
 type PowerpackWidgetListStreamDefinitionRequestQueryArgs struct {
 	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
 	ClusteringPatternFieldPath pulumi.StringPtrInput `pulumi:"clusteringPatternFieldPath"`
-	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
 	EventSize pulumi.StringPtrInput `pulumi:"eventSize"`
@@ -24029,7 +24029,7 @@ func (o PowerpackWidgetListStreamDefinitionRequestQueryOutput) ClusteringPattern
 	return o.ApplyT(func(v PowerpackWidgetListStreamDefinitionRequestQuery) *string { return v.ClusteringPatternFieldPath }).(pulumi.StringPtrOutput)
 }
 
-// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`.
+// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
 func (o PowerpackWidgetListStreamDefinitionRequestQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetListStreamDefinitionRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }

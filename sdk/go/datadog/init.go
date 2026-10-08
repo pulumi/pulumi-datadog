@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AuthnMapping{}
 	case "datadog:index/awsCurConfig:AwsCurConfig":
 		r = &AwsCurConfig{}
+	case "datadog:index/awsWifIdentityMapping:AwsWifIdentityMapping":
+		r = &AwsWifIdentityMapping{}
 	case "datadog:index/azureUcConfig:AzureUcConfig":
 		r = &AzureUcConfig{}
 	case "datadog:index/childOrganization:ChildOrganization":
@@ -423,6 +425,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/awsCurConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/awsWifIdentityMapping",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -80,6 +80,11 @@ export type AwsCurConfig = import("./awsCurConfig").AwsCurConfig;
 export const AwsCurConfig: typeof import("./awsCurConfig").AwsCurConfig = null as any;
 utilities.lazyLoad(exports, ["AwsCurConfig"], () => require("./awsCurConfig"));
 
+export { AwsWifIdentityMappingArgs, AwsWifIdentityMappingState } from "./awsWifIdentityMapping";
+export type AwsWifIdentityMapping = import("./awsWifIdentityMapping").AwsWifIdentityMapping;
+export const AwsWifIdentityMapping: typeof import("./awsWifIdentityMapping").AwsWifIdentityMapping = null as any;
+utilities.lazyLoad(exports, ["AwsWifIdentityMapping"], () => require("./awsWifIdentityMapping"));
+
 export { AzureUcConfigArgs, AzureUcConfigState } from "./azureUcConfig";
 export type AzureUcConfig = import("./azureUcConfig").AzureUcConfig;
 export const AzureUcConfig: typeof import("./azureUcConfig").AzureUcConfig = null as any;
@@ -1245,6 +1250,8 @@ const _module = {
                 return new AuthnMapping(name, <any>undefined, { urn })
             case "datadog:index/awsCurConfig:AwsCurConfig":
                 return new AwsCurConfig(name, <any>undefined, { urn })
+            case "datadog:index/awsWifIdentityMapping:AwsWifIdentityMapping":
+                return new AwsWifIdentityMapping(name, <any>undefined, { urn })
             case "datadog:index/azureUcConfig:AzureUcConfig":
                 return new AzureUcConfig(name, <any>undefined, { urn })
             case "datadog:index/childOrganization:ChildOrganization":
@@ -1533,6 +1540,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/appsecWafCustomRule", _m
 pulumi.runtime.registerResourceModule("datadog", "index/appsecWafExclusionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/authnMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/awsCurConfig", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/awsWifIdentityMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/azureUcConfig", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/childOrganization", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/cloudConfigurationRule", _module)

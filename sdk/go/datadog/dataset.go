@@ -33,6 +33,7 @@ import (
 //				Name: pulumi.String("HR Dataset"),
 //				Principals: pulumi.StringArray{
 //					pulumi.String("role:00000000-0000-1111-0000-000000000000"),
+//					pulumi.String("user:00000000-0000-2222-0000-000000000000"),
 //				},
 //				ProductFilters: datadog.DatasetProductFilterArray{
 //					&datadog.DatasetProductFilterArgs{
@@ -68,7 +69,7 @@ type Dataset struct {
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
 	// The name of the dataset.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
 	Principals     pulumi.StringArrayOutput        `pulumi:"principals"`
 	ProductFilters DatasetProductFilterArrayOutput `pulumi:"productFilters"`
 }
@@ -115,7 +116,7 @@ type datasetState struct {
 	CreatedBy *string `pulumi:"createdBy"`
 	// The name of the dataset.
 	Name *string `pulumi:"name"`
-	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
 	Principals     []string               `pulumi:"principals"`
 	ProductFilters []DatasetProductFilter `pulumi:"productFilters"`
 }
@@ -127,7 +128,7 @@ type DatasetState struct {
 	CreatedBy pulumi.StringPtrInput
 	// The name of the dataset.
 	Name pulumi.StringPtrInput
-	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
 	Principals     pulumi.StringArrayInput
 	ProductFilters DatasetProductFilterArrayInput
 }
@@ -139,7 +140,7 @@ func (DatasetState) ElementType() reflect.Type {
 type datasetArgs struct {
 	// The name of the dataset.
 	Name string `pulumi:"name"`
-	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
 	Principals     []string               `pulumi:"principals"`
 	ProductFilters []DatasetProductFilter `pulumi:"productFilters"`
 }
@@ -148,7 +149,7 @@ type datasetArgs struct {
 type DatasetArgs struct {
 	// The name of the dataset.
 	Name pulumi.StringInput
-	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+	// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
 	Principals     pulumi.StringArrayInput
 	ProductFilters DatasetProductFilterArrayInput
 }
@@ -255,7 +256,7 @@ func (o DatasetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+// An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
 func (o DatasetOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringArrayOutput { return v.Principals }).(pulumi.StringArrayOutput)
 }

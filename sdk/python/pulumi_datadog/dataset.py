@@ -28,7 +28,7 @@ class DatasetArgs:
         The set of arguments for constructing a Dataset resource.
 
         :param pulumi.Input[_builtins.str] name: The name of the dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "principals", principals)
@@ -51,7 +51,7 @@ class DatasetArgs:
     @pulumi.getter
     def principals(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+        An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
         """
         return pulumi.get(self, "principals")
 
@@ -83,7 +83,7 @@ class _DatasetState:
         :param pulumi.Input[_builtins.str] created_at: Indicates when the dataset was created (in ISO 8601).
         :param pulumi.Input[_builtins.str] created_by: Indicates who created the dataset.
         :param pulumi.Input[_builtins.str] name: The name of the dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -136,7 +136,7 @@ class _DatasetState:
     @pulumi.getter
     def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+        An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
         """
         return pulumi.get(self, "principals")
 
@@ -176,7 +176,10 @@ class Dataset(pulumi.CustomResource):
         # Create new dataset resource
         foo = datadog.Dataset("foo",
             name="HR Dataset",
-            principals=["role:00000000-0000-1111-0000-000000000000"],
+            principals=[
+                "role:00000000-0000-1111-0000-000000000000",
+                "user:00000000-0000-2222-0000-000000000000",
+            ],
             product_filters=[{
                 "product": "rum",
                 "filters": ["@application.id:123"],
@@ -195,7 +198,7 @@ class Dataset(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
         """
         ...
     @overload
@@ -215,7 +218,10 @@ class Dataset(pulumi.CustomResource):
         # Create new dataset resource
         foo = datadog.Dataset("foo",
             name="HR Dataset",
-            principals=["role:00000000-0000-1111-0000-000000000000"],
+            principals=[
+                "role:00000000-0000-1111-0000-000000000000",
+                "user:00000000-0000-2222-0000-000000000000",
+            ],
             product_filters=[{
                 "product": "rum",
                 "filters": ["@application.id:123"],
@@ -292,7 +298,7 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_at: Indicates when the dataset was created (in ISO 8601).
         :param pulumi.Input[_builtins.str] created_by: Indicates who created the dataset.
         :param pulumi.Input[_builtins.str] name: The name of the dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -333,7 +339,7 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter
     def principals(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role` and `team`.
+        An array of principals. A principal is a subject or group of subjects. Each principal is formatted as `type:id`. Supported types: `role`, `team`, and `user`. `user` principals are supported only for Agents and Automated Processes.
         """
         return pulumi.get(self, "principals")
 

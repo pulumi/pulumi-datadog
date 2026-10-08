@@ -219,6 +219,10 @@
                     }
                 }
             },
+            "datadog_aws_wif_identity_mapping": {
+                "current": "datadog:index/awsWifIdentityMapping:AwsWifIdentityMapping",
+                "majorVersion": 5
+            },
             "datadog_azure_uc_config": {
                 "current": "datadog:index/azureUcConfig:AzureUcConfig",
                 "majorVersion": 5,
@@ -76657,6 +76661,7 @@
             "datadog_appsec_waf_custom_rule": {},
             "datadog_appsec_waf_exclusion_filter": {},
             "datadog_aws_cur_config": {},
+            "datadog_aws_wif_identity_mapping": {},
             "datadog_azure_uc_config": {},
             "datadog_cloud_inventory_sync_config": {},
             "datadog_compliance_custom_framework": {},
@@ -76823,6 +76828,7 @@
             "datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter": 1,
             "datadog:index/authnMapping:AuthnMapping": 0,
             "datadog:index/awsCurConfig:AwsCurConfig": 1,
+            "datadog:index/awsWifIdentityMapping:AwsWifIdentityMapping": 1,
             "datadog:index/azureUcConfig:AzureUcConfig": 1,
             "datadog:index/childOrganization:ChildOrganization": 0,
             "datadog:index/cloudConfigurationRule:CloudConfigurationRule": 0,
