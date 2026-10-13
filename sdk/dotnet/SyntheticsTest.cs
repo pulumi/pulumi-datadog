@@ -619,7 +619,7 @@ namespace Pulumi.Datadog
     ///         {
     ///             "aws:eu-central-1",
     ///         },
-    ///         Tags = new[] {},
+    ///         Tags = new() {},
     ///         RequestDefinition = new Datadog.Inputs.SyntheticsTestRequestDefinitionArgs
     ///         {
     ///             Method = "GET",

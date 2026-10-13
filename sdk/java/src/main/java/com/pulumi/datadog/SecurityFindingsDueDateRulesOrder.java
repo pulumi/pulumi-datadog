@@ -42,10 +42,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Manage the evaluation order of all due date rules for the organization.
- *         // rule_ids must list every due date rule ID; rules created outside Terraform appear as drift.
+ *         // rule_ids must list every due date rule ID; rules created outside Pulumi appear as drift.
  *         var order = new SecurityFindingsDueDateRulesOrder("order", SecurityFindingsDueDateRulesOrderArgs.builder()
  *             .name("security_findings_due_date_rules_order")
- *             .ruleIds(prodSla.id())
+ *             .ruleIds(prodSla.get("id"))
  *             .build());
  * 
  *     }

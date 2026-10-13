@@ -28,7 +28,7 @@ namespace Pulumi.Datadog
     ///         ApplicationId = "&lt;APPLICATION_ID&gt;",
     ///         Name = "testing.rum.retention_filter",
     ///         EventType = "session",
-    ///         SampleRate = 41,
+    ///         SampleRate = 41.0,
     ///         Query = "@session.has_replay:true",
     ///         Enabled = false,
     ///     });

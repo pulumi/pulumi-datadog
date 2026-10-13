@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Manage the evaluation order of all due date rules for the organization.
-//			// rule_ids must list every due date rule ID; rules created outside Terraform appear as drift.
+//			// rule_ids must list every due date rule ID; rules created outside Pulumi appear as drift.
 //			_, err := datadog.NewSecurityFindingsDueDateRulesOrder(ctx, "order", &datadog.SecurityFindingsDueDateRulesOrderArgs{
 //				Name: pulumi.String("security_findings_due_date_rules_order"),
 //				RuleIds: pulumi.StringArray{

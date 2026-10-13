@@ -28,7 +28,7 @@ namespace Pulumi.Datadog
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["criticalAssetsCount"] = all.Apply(getSecurityMonitoringCriticalAssetsResult =&gt; getSecurityMonitoringCriticalAssetsResult.CriticalAssets).Length(),
+        ///         ["criticalAssetsCount"] = all.Apply(getSecurityMonitoringCriticalAssetsResult =&gt; getSecurityMonitoringCriticalAssetsResult.CriticalAssets).Length,
         ///         ["criticalAssets"] = all.Apply(getSecurityMonitoringCriticalAssetsResult =&gt; getSecurityMonitoringCriticalAssetsResult.CriticalAssets),
         ///     };
         /// });
@@ -54,7 +54,7 @@ namespace Pulumi.Datadog
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["criticalAssetsCount"] = all.Apply(getSecurityMonitoringCriticalAssetsResult =&gt; getSecurityMonitoringCriticalAssetsResult.CriticalAssets).Length(),
+        ///         ["criticalAssetsCount"] = all.Apply(getSecurityMonitoringCriticalAssetsResult =&gt; getSecurityMonitoringCriticalAssetsResult.CriticalAssets).Length,
         ///         ["criticalAssets"] = all.Apply(getSecurityMonitoringCriticalAssetsResult =&gt; getSecurityMonitoringCriticalAssetsResult.CriticalAssets),
         ///     };
         /// });
@@ -80,7 +80,7 @@ namespace Pulumi.Datadog
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["criticalAssetsCount"] = all.Apply(getSecurityMonitoringCriticalAssetsResult =&gt; getSecurityMonitoringCriticalAssetsResult.CriticalAssets).Length(),
+        ///         ["criticalAssetsCount"] = all.Apply(getSecurityMonitoringCriticalAssetsResult =&gt; getSecurityMonitoringCriticalAssetsResult.CriticalAssets).Length,
         ///         ["criticalAssets"] = all.Apply(getSecurityMonitoringCriticalAssetsResult =&gt; getSecurityMonitoringCriticalAssetsResult.CriticalAssets),
         ///     };
         /// });

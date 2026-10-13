@@ -27,7 +27,7 @@ namespace Pulumi.Datadog
         ///     // Gets all pipelines
         ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
         /// 
-        ///     // Using data source to set pipeline order
+        ///     // Using function to set pipeline order
         ///     var lpo = new Datadog.LogsPipelineOrder("lpo", new()
         ///     {
         ///         Name = "lpo",
@@ -59,7 +59,7 @@ namespace Pulumi.Datadog
         ///     // Gets all pipelines
         ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
         /// 
-        ///     // Using data source to set pipeline order
+        ///     // Using function to set pipeline order
         ///     var lpo = new Datadog.LogsPipelineOrder("lpo", new()
         ///     {
         ///         Name = "lpo",
@@ -91,7 +91,7 @@ namespace Pulumi.Datadog
         ///     // Gets all pipelines
         ///     var pipelines = Datadog.GetLogsPipelines.Invoke();
         /// 
-        ///     // Using data source to set pipeline order
+        ///     // Using function to set pipeline order
         ///     var lpo = new Datadog.LogsPipelineOrder("lpo", new()
         ///     {
         ///         Name = "lpo",

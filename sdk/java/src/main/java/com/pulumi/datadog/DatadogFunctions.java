@@ -10655,7 +10655,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(api.outputs().slo())
+     *             .id(api.get("outputs").get("slo"))
      *             .build());
      * 
      *     }
@@ -10700,7 +10700,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(api.outputs().slo())
+     *             .id(api.get("outputs").get("slo"))
      *             .build());
      * 
      *     }
@@ -10745,7 +10745,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(api.outputs().slo())
+     *             .id(api.get("outputs").get("slo"))
      *             .build());
      * 
      *     }
@@ -10790,7 +10790,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(api.outputs().slo())
+     *             .id(api.get("outputs").get("slo"))
      *             .build());
      * 
      *     }
@@ -10835,7 +10835,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(api.outputs().slo())
+     *             .id(api.get("outputs").get("slo"))
      *             .build());
      * 
      *     }
@@ -10880,7 +10880,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(api.outputs().slo())
+     *             .id(api.get("outputs").get("slo"))
      *             .build());
      * 
      *     }
@@ -10925,7 +10925,7 @@ public final class DatadogFunctions {
      *             .build());
      * 
      *         final var apiSlo = DatadogFunctions.getServiceLevelObjective(GetServiceLevelObjectiveArgs.builder()
-     *             .id(api.outputs().slo())
+     *             .id(api.get("outputs").get("slo"))
      *             .build());
      * 
      *     }

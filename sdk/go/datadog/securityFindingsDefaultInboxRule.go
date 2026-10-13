@@ -31,7 +31,7 @@ import (
 //			// Only `enabled` can be managed; all other attributes are read from Datadog.
 //			// Import the rule with its fixed ID before applying, e.g.:
 //			//
-//			//	terraform import datadog_security_findings_default_inbox_rule.secret secret_default_rule
+//			//	pulumi import datadog_security_findings_default_inbox_rule.secret secret_default_rule
 //			//
 //			// Known default rule IDs: identity_risk_default_rule, secret_default_rule,
 //			// library_vulnerability_default_rule, attack_path_default_rule,

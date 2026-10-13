@@ -87,7 +87,7 @@ def get_logs_pipelines(is_read_only: Optional[_builtins.str] = None,
 
     # Gets all pipelines
     pipelines = datadog.get_logs_pipelines()
-    # Using data source to set pipeline order
+    # Using function to set pipeline order
     lpo = datadog.LogsPipelineOrder("lpo",
         name="lpo",
         pipelines=[pipeline.id for pipeline in pipelines.logs_pipelines])
@@ -118,7 +118,7 @@ def get_logs_pipelines_output(is_read_only: pulumi.Input[Optional[Optional[_buil
 
     # Gets all pipelines
     pipelines = datadog.get_logs_pipelines()
-    # Using data source to set pipeline order
+    # Using function to set pipeline order
     lpo = datadog.LogsPipelineOrder("lpo",
         name="lpo",
         pipelines=[pipeline.id for pipeline in pipelines.logs_pipelines])

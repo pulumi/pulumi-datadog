@@ -36,7 +36,7 @@ namespace Pulumi.Datadog
         ///         Description = "Created using the Datadog provider in Pulumi",
         ///         DashboardLists = new[]
         ///         {
-        ///             test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id),
+        ///             Output.Create(test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id)).Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
         ///         },
         ///         LayoutType = "ordered",
         ///         IsReadOnly = true,
@@ -86,7 +86,7 @@ namespace Pulumi.Datadog
         ///         Description = "Created using the Datadog provider in Pulumi",
         ///         DashboardLists = new[]
         ///         {
-        ///             test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id),
+        ///             Output.Create(test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id)).Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
         ///         },
         ///         LayoutType = "ordered",
         ///         IsReadOnly = true,
@@ -136,7 +136,7 @@ namespace Pulumi.Datadog
         ///         Description = "Created using the Datadog provider in Pulumi",
         ///         DashboardLists = new[]
         ///         {
-        ///             test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id),
+        ///             Output.Create(test.Apply(getDashboardListResult =&gt; getDashboardListResult.Id)).Apply(x =&gt; int.Parse(x, System.Globalization.CultureInfo.InvariantCulture)),
         ///         },
         ///         LayoutType = "ordered",
         ///         IsReadOnly = true,

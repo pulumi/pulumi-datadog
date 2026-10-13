@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Manage the evaluation order of all due date rules for the organization.
- * // rule_ids must list every due date rule ID; rules created outside Terraform appear as drift.
+ * // rule_ids must list every due date rule ID; rules created outside Pulumi appear as drift.
  * const order = new datadog.SecurityFindingsDueDateRulesOrder("order", {
  *     name: "security_findings_due_date_rules_order",
  *     ruleIds: [prodSla.id],

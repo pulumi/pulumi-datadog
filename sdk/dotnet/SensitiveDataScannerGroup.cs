@@ -42,12 +42,12 @@ namespace Pulumi.Datadog
     ///             new Datadog.Inputs.SensitiveDataScannerGroupSamplingArgs
     ///             {
     ///                 Product = "apm",
-    ///                 Rate = 100,
+    ///                 Rate = 100.0,
     ///             },
     ///             new Datadog.Inputs.SensitiveDataScannerGroupSamplingArgs
     ///             {
     ///                 Product = "logs",
-    ///                 Rate = 10,
+    ///                 Rate = 10.0,
     ///             },
     ///         },
     ///     });

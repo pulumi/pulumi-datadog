@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .value("variable-value")
  *             .build());
  * 
- *         // Write-Only Value (Recommended for Terraform 1.11+)
+ *         // Write-Only Value (Recommended for Pulumi 1.11+)
  *         var secureVariable = new SyntheticsGlobalVariable("secureVariable", SyntheticsGlobalVariableArgs.builder()
  *             .name("SECURE_VARIABLE")
  *             .description("Secure global variable with write-only value")
@@ -78,10 +78,10 @@ import javax.annotation.Nullable;
  *         // Auto-generate version from keepers
  *         final var secretVersion = String.format("rotation-%s", StdFunctions.substr(Map.ofEntries(
  *             Map.entry("input", StdFunctions.md5(Map.of("input", serializeJson(
- *                 secretKeepers))).result()),
+ *                 secretKeepers))).get("result")),
  *             Map.entry("length", 0),
  *             Map.entry("offset", 8)
- *         )).result());
+ *         )).get("result"));
  * 
  *         var automatedRotation = new SyntheticsGlobalVariable("automatedRotation", SyntheticsGlobalVariableArgs.builder()
  *             .name("AUTO_ROTATED_VARIABLE")

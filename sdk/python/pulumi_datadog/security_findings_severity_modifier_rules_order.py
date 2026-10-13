@@ -115,7 +115,7 @@ class SecurityFindingsSeverityModifierRulesOrder(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Manage the evaluation order of all severity modifier rules for the organization.
-        # rule_ids must list every severity modifier rule ID; rules created outside Terraform appear as drift.
+        # rule_ids must list every severity modifier rule ID; rules created outside Pulumi appear as drift.
         order = datadog.SecurityFindingsSeverityModifierRulesOrder("order",
             name="security_findings_severity_modifier_rules_order",
             rule_ids=[escalate_prod_secrets["id"]])
@@ -151,7 +151,7 @@ class SecurityFindingsSeverityModifierRulesOrder(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Manage the evaluation order of all severity modifier rules for the organization.
-        # rule_ids must list every severity modifier rule ID; rules created outside Terraform appear as drift.
+        # rule_ids must list every severity modifier rule ID; rules created outside Pulumi appear as drift.
         order = datadog.SecurityFindingsSeverityModifierRulesOrder("order",
             name="security_findings_severity_modifier_rules_order",
             rule_ids=[escalate_prod_secrets["id"]])

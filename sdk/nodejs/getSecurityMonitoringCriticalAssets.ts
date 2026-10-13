@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * const all = datadog.getSecurityMonitoringCriticalAssets({});
- * export const criticalAssetsCount = all.then(all => all.criticalAssets).length;
+ * export const criticalAssetsCount = all.then(all => all.criticalAssets.length);
  * export const criticalAssets = all.then(all => all.criticalAssets);
  * ```
  */
@@ -49,7 +49,7 @@ export interface GetSecurityMonitoringCriticalAssetsResult {
  * import * as datadog from "@pulumi/datadog";
  *
  * const all = datadog.getSecurityMonitoringCriticalAssets({});
- * export const criticalAssetsCount = all.then(all => all.criticalAssets).length;
+ * export const criticalAssetsCount = all.then(all => all.criticalAssets.length);
  * export const criticalAssets = all.then(all => all.criticalAssets);
  * ```
  */

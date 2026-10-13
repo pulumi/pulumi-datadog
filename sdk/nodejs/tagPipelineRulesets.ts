@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * // Example 1: Basic Usage - Manage the order of tag pipeline rulesets
  * // ============================================================================
  * // This example shows the default behavior where UI-defined rulesets that are
- * // not in Terraform will be preserved at the end of the order.
+ * // not in Pulumi will be preserved at the end of the order.
  * const first = new datadog.TagPipelineRuleset("first", {
  *     name: "Standardize Environment Tags",
  *     enabled: true,
@@ -79,7 +79,7 @@ import * as utilities from "./utilities";
  * // ============================================================================
  * // Example 2: Override UI-defined rulesets (override_ui_defined_resources = true)
  * // ============================================================================
- * // When set to true, any rulesets created via the UI that are not defined in Terraform
+ * // When set to true, any rulesets created via the UI that are not defined in Pulumi
  * // will be automatically deleted during pulumi up.
  * const managedFirst = new datadog.TagPipelineRuleset("managed_first", {
  *     name: "Standardize Environment Tags",
@@ -125,9 +125,9 @@ import * as utilities from "./utilities";
  * // ============================================================================
  * // Example 3: Preserve UI-defined rulesets (override_ui_defined_resources = false)
  * // ============================================================================
- * // When set to false (default), UI-defined rulesets that are not in Terraform
+ * // When set to false (default), UI-defined rulesets that are not in Pulumi
  * // will be preserved at the end of the order. However, if unmanaged rulesets
- * // are in the middle of the order, Terraform will error and require you to either:
+ * // are in the middle of the order, Pulumi will error and require you to either:
  * // 1. Import the unmanaged rulesets
  * // 2. Set override_ui_defined_resources = true
  * // 3. Manually reorder or delete them in the Datadog UI
@@ -165,8 +165,8 @@ import * as utilities from "./utilities";
  * });
  * // Manage order with override_ui_defined_resources = false (default)
  * // UI-defined rulesets will be preserved at the end of the order
- * // Terraform will warn if unmanaged rulesets exist at the end
- * // Terraform will error if unmanaged rulesets are in the middle
+ * // Pulumi will warn if unmanaged rulesets exist at the end
+ * // Pulumi will error if unmanaged rulesets are in the middle
  * const orderPreserve = new datadog.TagPipelineRulesets("order_preserve", {
  *     overrideUiDefinedResources: false,
  *     rulesetIds: [

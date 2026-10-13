@@ -35,7 +35,7 @@ namespace Pulumi.Datadog
     ///         {
     ///             new Datadog.Inputs.CostBudgetEntryArgs
     ///             {
-    ///                 Amount = 1000,
+    ///                 Amount = 1000.0,
     ///                 Month = 202601,
     ///                 TagFilters = new[]
     ///                 {
@@ -48,7 +48,7 @@ namespace Pulumi.Datadog
     ///             },
     ///             new Datadog.Inputs.CostBudgetEntryArgs
     ///             {
-    ///                 Amount = 1200,
+    ///                 Amount = 1200.0,
     ///                 Month = 202602,
     ///                 TagFilters = new[]
     ///                 {
@@ -69,7 +69,7 @@ namespace Pulumi.Datadog
     ///         {
     ///             new Datadog.Inputs.CostCustomForecastEntryArgs
     ///             {
-    ///                 Amount = 900,
+    ///                 Amount = 900.0,
     ///                 Month = 202601,
     ///                 TagFilters = new[]
     ///                 {

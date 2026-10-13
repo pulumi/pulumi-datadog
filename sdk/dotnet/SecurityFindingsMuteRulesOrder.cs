@@ -23,7 +23,7 @@ namespace Pulumi.Datadog
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Manage the evaluation order of all mute rules for the organization.
-    ///     // rule_ids must list every mute rule ID; rules created outside Terraform appear as drift.
+    ///     // rule_ids must list every mute rule ID; rules created outside Pulumi appear as drift.
     ///     var order = new Datadog.SecurityFindingsMuteRulesOrder("order", new()
     ///     {
     ///         Name = "security_findings_mute_rules_order",

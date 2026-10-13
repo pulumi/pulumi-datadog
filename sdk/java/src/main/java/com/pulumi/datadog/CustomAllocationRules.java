@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Example 1: Preserve mode (default) - allows unmanaged rules to exist at the end
- *         // This will preserve any existing rules created outside of Terraform as long as they are at the end
+ *         // This will preserve any existing rules created outside of Pulumi as long as they are at the end
  *         var preserveOrder = new CustomAllocationRules("preserveOrder", CustomAllocationRulesArgs.builder()
  *             .ruleIds(            
  *                 rule1.id(),
@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         // Example 2: Override mode - deletes all unmanaged rules and maintains strict order
- *         // This will delete any rules not defined in Terraform and enforce the exact order specified
+ *         // This will delete any rules not defined in Pulumi and enforce the exact order specified
  *         var overrideOrder = new CustomAllocationRules("overrideOrder", CustomAllocationRulesArgs.builder()
  *             .overrideUiDefinedResources(true)
  *             .ruleIds(            

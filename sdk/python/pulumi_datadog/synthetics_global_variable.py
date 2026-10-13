@@ -503,7 +503,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                 "env:test",
             ],
             value="variable-value")
-        # Write-Only Value (Recommended for Terraform 1.11+)
+        # Write-Only Value (Recommended for Pulumi 1.11+)
         secure_variable = datadog.SyntheticsGlobalVariable("secure_variable",
             name="SECURE_VARIABLE",
             description="Secure global variable with write-only value",
@@ -589,7 +589,7 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
                 "env:test",
             ],
             value="variable-value")
-        # Write-Only Value (Recommended for Terraform 1.11+)
+        # Write-Only Value (Recommended for Pulumi 1.11+)
         secure_variable = datadog.SyntheticsGlobalVariable("secure_variable",
             name="SECURE_VARIABLE",
             description="Secure global variable with write-only value",

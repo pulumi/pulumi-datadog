@@ -42,10 +42,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Manage the evaluation order of all ticket creation rules for the organization.
- *         // rule_ids must list every ticket creation rule ID; rules created outside Terraform appear as drift.
+ *         // rule_ids must list every ticket creation rule ID; rules created outside Pulumi appear as drift.
  *         var order = new SecurityFindingsTicketCreationRulesOrder("order", SecurityFindingsTicketCreationRulesOrderArgs.builder()
  *             .name("security_findings_ticket_creation_rules_order")
- *             .ruleIds(criticalMisconfigs.id())
+ *             .ruleIds(criticalMisconfigs.get("id"))
  *             .build());
  * 
  *     }

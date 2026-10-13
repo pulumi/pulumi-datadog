@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sampleIndexOrder = new LogsIndexOrder("sampleIndexOrder", LogsIndexOrderArgs.builder()
  *             .name("sample_index_order")
- *             .indexes(sampleIndex.id())
+ *             .indexes(sampleIndex.get("id"))
  *             .build());
  * 
  *     }

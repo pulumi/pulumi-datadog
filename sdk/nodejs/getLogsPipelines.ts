@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * // Gets all pipelines
  * const pipelines = datadog.getLogsPipelines({});
- * // Using data source to set pipeline order
+ * // Using function to set pipeline order
  * const lpo = new datadog.LogsPipelineOrder("lpo", {
  *     name: "lpo",
  *     pipelines: pipelines.then(pipelines => .map(pipeline => (pipeline.id))),
@@ -70,7 +70,7 @@ export interface GetLogsPipelinesResult {
  *
  * // Gets all pipelines
  * const pipelines = datadog.getLogsPipelines({});
- * // Using data source to set pipeline order
+ * // Using function to set pipeline order
  * const lpo = new datadog.LogsPipelineOrder("lpo", {
  *     name: "lpo",
  *     pipelines: pipelines.then(pipelines => .map(pipeline => (pipeline.id))),

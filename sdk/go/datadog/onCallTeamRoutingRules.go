@@ -69,32 +69,32 @@ import (
 //										"supportHours": []map[string]interface{}{
 //											map[string]interface{}{
 //												"timeZone": "America/New_York",
-//												"restrictions": []map[string]string{
-//													{
+//												"restrictions": []interface{}{
+//													map[string]string{
 //														"startDay":  "monday",
 //														"startTime": "09:00:00",
 //														"endDay":    "monday",
 //														"endTime":   "17:00:00",
 //													},
-//													{
+//													map[string]string{
 //														"startDay":  "tuesday",
 //														"startTime": "09:00:00",
 //														"endDay":    "tuesday",
 //														"endTime":   "17:00:00",
 //													},
-//													{
+//													map[string]string{
 //														"startDay":  "wednesday",
 //														"startTime": "09:00:00",
 //														"endDay":    "wednesday",
 //														"endTime":   "17:00:00",
 //													},
-//													{
+//													map[string]string{
 //														"startDay":  "thursday",
 //														"startTime": "09:00:00",
 //														"endDay":    "thursday",
 //														"endTime":   "17:00:00",
 //													},
-//													{
+//													map[string]string{
 //														"startDay":  "friday",
 //														"startTime": "09:00:00",
 //														"endDay":    "friday",

@@ -36,9 +36,9 @@ namespace Pulumi.Datadog
     ///             {
     ///                 Amounts = 
     ///                 {
-    ///                     { "202601", 2000 },
-    ///                     { "202602", 2200 },
-    ///                     { "202603", 2000 },
+    ///                     { "202601", 2000.0 },
+    ///                     { "202602", 2200.0 },
+    ///                     { "202603", 2000.0 },
     ///                 },
     ///                 TagFilters = new[]
     ///                 {
@@ -53,9 +53,9 @@ namespace Pulumi.Datadog
     ///             {
     ///                 Amounts = 
     ///                 {
-    ///                     { "202601", 1000 },
-    ///                     { "202602", 1100 },
-    ///                     { "202603", 1000 },
+    ///                     { "202601", 1000.0 },
+    ///                     { "202602", 1100.0 },
+    ///                     { "202603", 1000.0 },
     ///                 },
     ///                 TagFilters = new[]
     ///                 {
@@ -95,9 +95,9 @@ namespace Pulumi.Datadog
     ///             {
     ///                 Amounts = 
     ///                 {
-    ///                     { "202601", 1500 },
-    ///                     { "202602", 1600 },
-    ///                     { "202603", 1500 },
+    ///                     { "202601", 1500.0 },
+    ///                     { "202602", 1600.0 },
+    ///                     { "202603", 1500.0 },
     ///                 },
     ///                 ParentTagFilters = new[]
     ///                 {
@@ -120,9 +120,9 @@ namespace Pulumi.Datadog
     ///             {
     ///                 Amounts = 
     ///                 {
-    ///                     { "202601", 500 },
-    ///                     { "202602", 550 },
-    ///                     { "202603", 500 },
+    ///                     { "202601", 500.0 },
+    ///                     { "202602", 550.0 },
+    ///                     { "202603", 500.0 },
     ///                 },
     ///                 ParentTagFilters = new[]
     ///                 {
@@ -168,7 +168,7 @@ namespace Pulumi.Datadog
     ///             new Datadog.Inputs.CostBudgetEntryArgs
     ///             {
     ///                 Month = 202601,
-    ///                 Amount = 2000,
+    ///                 Amount = 2000.0,
     ///                 TagFilters = new[]
     ///                 {
     ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
@@ -181,7 +181,7 @@ namespace Pulumi.Datadog
     ///             new Datadog.Inputs.CostBudgetEntryArgs
     ///             {
     ///                 Month = 202602,
-    ///                 Amount = 2200,
+    ///                 Amount = 2200.0,
     ///                 TagFilters = new[]
     ///                 {
     ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs
@@ -194,7 +194,7 @@ namespace Pulumi.Datadog
     ///             new Datadog.Inputs.CostBudgetEntryArgs
     ///             {
     ///                 Month = 202603,
-    ///                 Amount = 2000,
+    ///                 Amount = 2000.0,
     ///                 TagFilters = new[]
     ///                 {
     ///                     new Datadog.Inputs.CostBudgetEntryTagFilterArgs

@@ -32,7 +32,7 @@ namespace Pulumi.Datadog
     ///             ResetTime = "14:00",
     ///             ResetUtcOffset = "+02:00",
     ///         },
-    ///         DailyLimitWarningThresholdPercentage = 50,
+    ///         DailyLimitWarningThresholdPercentage = 50.0,
     ///         RetentionDays = 7,
     ///         FlexRetentionDays = 180,
     ///         Filters = new[]
@@ -66,7 +66,7 @@ namespace Pulumi.Datadog
     ///                     new Datadog.Inputs.LogsIndexExclusionFilterFilterArgs
     ///                     {
     ///                         Query = "service:kube_apiserver",
-    ///                         SampleRate = 1,
+    ///                         SampleRate = 1.0,
     ///                     },
     ///                 },
     ///             },

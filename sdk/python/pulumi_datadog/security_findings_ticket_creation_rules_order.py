@@ -115,7 +115,7 @@ class SecurityFindingsTicketCreationRulesOrder(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Manage the evaluation order of all ticket creation rules for the organization.
-        # rule_ids must list every ticket creation rule ID; rules created outside Terraform appear as drift.
+        # rule_ids must list every ticket creation rule ID; rules created outside Pulumi appear as drift.
         order = datadog.SecurityFindingsTicketCreationRulesOrder("order",
             name="security_findings_ticket_creation_rules_order",
             rule_ids=[critical_misconfigs["id"]])
@@ -151,7 +151,7 @@ class SecurityFindingsTicketCreationRulesOrder(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Manage the evaluation order of all ticket creation rules for the organization.
-        # rule_ids must list every ticket creation rule ID; rules created outside Terraform appear as drift.
+        # rule_ids must list every ticket creation rule ID; rules created outside Pulumi appear as drift.
         order = datadog.SecurityFindingsTicketCreationRulesOrder("order",
             name="security_findings_ticket_creation_rules_order",
             rule_ids=[critical_misconfigs["id"]])

@@ -75,12 +75,12 @@ import (
 //								"sourceKeys": []string{
 //									"service",
 //								},
-//								"fieldPairs": []map[string]string{
-//									{
+//								"fieldPairs": []interface{}{
+//									map[string]string{
 //										"inputColumn": "owner_team",
 //										"outputKey":   "owner",
 //									},
-//									{
+//									map[string]string{
 //										"inputColumn": "business_unit",
 //										"outputKey":   "business_unit",
 //									},

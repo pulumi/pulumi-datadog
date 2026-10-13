@@ -37,7 +37,7 @@ namespace Pulumi.Datadog
     ///         Value = "variable-value",
     ///     });
     /// 
-    ///     // Write-Only Value (Recommended for Terraform 1.11+)
+    ///     // Write-Only Value (Recommended for Pulumi 1.11+)
     ///     var secureVariable = new Datadog.SyntheticsGlobalVariable("secure_variable", new()
     ///     {
     ///         Name = "SECURE_VARIABLE",
@@ -52,11 +52,11 @@ namespace Pulumi.Datadog
     ///         ValueWoVersion = "1",
     ///     });
     /// 
-    ///     var secretKeepers = 
+    ///     var secretKeepers = new Dictionary&lt;string, string&gt;
     ///     {
-    ///         { "rotationDate", "2024-02-15" },
-    ///         { "environment", "production" },
-    ///         { "securityPolicy", "v3.1" },
+    ///         ["rotationDate"] = "2024-02-15",
+    ///         ["environment"] = "production",
+    ///         ["securityPolicy"] = "v3.1",
     ///     };
     /// 
     ///     // Auto-generate version from keepers

@@ -54,20 +54,20 @@ import (
 //						"primaryKeys": []string{
 //							"product_id",
 //						},
-//						"fields": []map[string]string{
-//							{
+//						"fields": []interface{}{
+//							map[string]string{
 //								"name": "product_id",
 //								"type": "STRING",
 //							},
-//							{
+//							map[string]string{
 //								"name": "product_name",
 //								"type": "STRING",
 //							},
-//							{
+//							map[string]string{
 //								"name": "category",
 //								"type": "STRING",
 //							},
-//							{
+//							map[string]string{
 //								"name": "price_cents",
 //								"type": "INT32",
 //							},
