@@ -98,7 +98,7 @@ namespace Pulumi.Datadog
     ///                                 new Datadog.Inputs.DashboardV2WidgetQueryValueDefinitionRequestConditionalFormatArgs
     ///                                 {
     ///                                     Comparator = "&lt;",
-    ///                                     Value = 2,
+    ///                                     Value = 2.0,
     ///                                     Palette = "white_on_green",
     ///                                 },
     ///                                 new Datadog.Inputs.DashboardV2WidgetQueryValueDefinitionRequestConditionalFormatArgs

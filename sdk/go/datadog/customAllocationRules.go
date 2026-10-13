@@ -125,7 +125,7 @@ import (
 //				return err
 //			}
 //			// Example 1: Preserve mode (default) - allows unmanaged rules to exist at the end
-//			// This will preserve any existing rules created outside of Terraform as long as they are at the end
+//			// This will preserve any existing rules created outside of Pulumi as long as they are at the end
 //			_, err = datadog.NewCustomAllocationRules(ctx, "preserve_order", &datadog.CustomAllocationRulesArgs{
 //				RuleIds: pulumi.StringArray{
 //					rule1.ID().ToIDOutput().ToStringOutput(),
@@ -137,7 +137,7 @@ import (
 //				return err
 //			}
 //			// Example 2: Override mode - deletes all unmanaged rules and maintains strict order
-//			// This will delete any rules not defined in Terraform and enforce the exact order specified
+//			// This will delete any rules not defined in Pulumi and enforce the exact order specified
 //			_, err = datadog.NewCustomAllocationRules(ctx, "override_order", &datadog.CustomAllocationRulesArgs{
 //				OverrideUiDefinedResources: pulumi.Bool(true),
 //				RuleIds: pulumi.StringArray{

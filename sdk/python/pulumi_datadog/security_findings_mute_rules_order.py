@@ -115,7 +115,7 @@ class SecurityFindingsMuteRulesOrder(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Manage the evaluation order of all mute rules for the organization.
-        # rule_ids must list every mute rule ID; rules created outside Terraform appear as drift.
+        # rule_ids must list every mute rule ID; rules created outside Pulumi appear as drift.
         order = datadog.SecurityFindingsMuteRulesOrder("order",
             name="security_findings_mute_rules_order",
             rule_ids=[accepted_risks_dev["id"]])
@@ -151,7 +151,7 @@ class SecurityFindingsMuteRulesOrder(pulumi.CustomResource):
         import pulumi_datadog as datadog
 
         # Manage the evaluation order of all mute rules for the organization.
-        # rule_ids must list every mute rule ID; rules created outside Terraform appear as drift.
+        # rule_ids must list every mute rule ID; rules created outside Pulumi appear as drift.
         order = datadog.SecurityFindingsMuteRulesOrder("order",
             name="security_findings_mute_rules_order",
             rule_ids=[accepted_risks_dev["id"]])

@@ -37,7 +37,7 @@ import (
 //			}
 //			// Uploads an OpenAPI file from the given local path to Datadog's API catalog
 //			_, err = datadog.NewOpenapiApi(ctx, "my-api", &datadog.OpenapiApiArgs{
-//				Spec: invokeFile.Result,
+//				Spec: invokeFile.Result.(pulumi.String),
 //			})
 //			if err != nil {
 //				return err

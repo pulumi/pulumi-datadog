@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Manage the evaluation order of all ticket creation rules for the organization.
- * // rule_ids must list every ticket creation rule ID; rules created outside Terraform appear as drift.
+ * // rule_ids must list every ticket creation rule ID; rules created outside Pulumi appear as drift.
  * const order = new datadog.SecurityFindingsTicketCreationRulesOrder("order", {
  *     name: "security_findings_ticket_creation_rules_order",
  *     ruleIds: [criticalMisconfigs.id],

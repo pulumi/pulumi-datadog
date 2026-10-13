@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Uploads an OpenAPI file from the given local path to Datadog's API catalog
  *         var my_api = new OpenapiApi("my-api", OpenapiApiArgs.builder()
- *             .spec(StdFunctions.file(Map.of("input", "./path/my-api.yaml")).result())
+ *             .spec(StdFunctions.file(Map.of("input", "./path/my-api.yaml")).get("result"))
  *             .build());
  * 
  *     }

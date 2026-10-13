@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  *         var samplePipelineOrder = new LogsPipelineOrder("samplePipelineOrder", LogsPipelineOrderArgs.builder()
  *             .name("sample_pipeline_order")
  *             .pipelines(            
- *                 samplePipeline.id(),
- *                 python.id())
+ *                 samplePipeline.get("id"),
+ *                 python.get("id"))
  *             .build());
  * 
  *     }

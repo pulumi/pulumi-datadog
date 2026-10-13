@@ -53,7 +53,7 @@ namespace Pulumi.Datadog
     /// }
     /// ",
     ///         ResourceType = "aws_s3_bucket",
-    ///         RelatedResourceTypes = new[] {},
+    ///         RelatedResourceTypes = new() {},
     ///         Severity = "high",
     ///         GroupBies = new[]
     ///         {

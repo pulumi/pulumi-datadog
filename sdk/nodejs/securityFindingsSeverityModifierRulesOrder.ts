@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as datadog from "@pulumi/datadog";
  *
  * // Manage the evaluation order of all severity modifier rules for the organization.
- * // rule_ids must list every severity modifier rule ID; rules created outside Terraform appear as drift.
+ * // rule_ids must list every severity modifier rule ID; rules created outside Pulumi appear as drift.
  * const order = new datadog.SecurityFindingsSeverityModifierRulesOrder("order", {
  *     name: "security_findings_severity_modifier_rules_order",
  *     ruleIds: [escalateProdSecrets.id],

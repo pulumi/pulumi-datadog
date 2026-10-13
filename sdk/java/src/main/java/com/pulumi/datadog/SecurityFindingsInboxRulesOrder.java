@@ -42,10 +42,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         // Manage the evaluation order of all inbox rules for the organization.
- *         // rule_ids must list every inbox rule ID; rules created outside Terraform appear as drift.
+ *         // rule_ids must list every inbox rule ID; rules created outside Pulumi appear as drift.
  *         var order = new SecurityFindingsInboxRulesOrder("order", SecurityFindingsInboxRulesOrderArgs.builder()
  *             .name("security_findings_inbox_rules_order")
- *             .ruleIds(triageProductionMisconfigurations.id())
+ *             .ruleIds(triageProductionMisconfigurations.get("id"))
  *             .build());
  * 
  *     }

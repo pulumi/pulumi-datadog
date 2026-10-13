@@ -45,7 +45,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Write-Only Value (Recommended for Terraform 1.11+)
+//			// Write-Only Value (Recommended for Pulumi 1.11+)
 //			_, err = datadog.NewSyntheticsGlobalVariable(ctx, "secure_variable", &datadog.SyntheticsGlobalVariableArgs{
 //				Name:        pulumi.String("SECURE_VARIABLE"),
 //				Description: pulumi.String("Secure global variable with write-only value"),

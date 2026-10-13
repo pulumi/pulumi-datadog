@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *         var terraformAwsWifIdentityMapping = new AwsWifIdentityMapping("terraformAwsWifIdentityMapping", AwsWifIdentityMappingArgs.builder()
  *             .accountIdentifier(terraform.id())
- *             .arnPattern(String.format("arn:aws:sts::%s:assumed-role/terraform-runner/*", current.accountId()))
+ *             .arnPattern(String.format("arn:aws:sts::%s:assumed-role/terraform-runner/*", current.get("accountId")))
  *             .build());
  * 
  *     }}{@code

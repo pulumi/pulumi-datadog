@@ -67,36 +67,36 @@ import (
 //				Http: datadog.ActionConnectionHttpArgs{
 //					map[string]interface{}{
 //						"baseUrl": "https://catfact.ninja",
-//						"tokenAuth": []map[string][]map[string]string{
-//							{
-//								"tokens": []map[string]string{
-//									{
+//						"tokenAuth": []map[string]interface{}{
+//							map[string]interface{}{
+//								"tokens": []interface{}{
+//									map[string]string{
 //										"type":  "SECRET",
 //										"name":  "token1",
 //										"value": token1,
 //									},
-//									{
+//									map[string]string{
 //										"type":  "SECRET",
 //										"name":  "token2",
 //										"value": token2,
 //									},
 //								},
-//								"headers": []map[string]string{
-//									{
+//								"headers": []interface{}{
+//									map[string]string{
 //										"name":  "header-one",
 //										"value": "headerval",
 //									},
-//									{
+//									map[string]string{
 //										"name":  "h2",
 //										"value": "{{ token1 }} test",
 //									},
 //								},
-//								"urlParameters": []map[string]string{
-//									{
+//								"urlParameters": []interface{}{
+//									map[string]string{
 //										"name":  "param1",
 //										"value": "{{ token1 }}",
 //									},
-//									{
+//									map[string]string{
 //										"name":  "param2",
 //										"value": "paramVal2",
 //									},

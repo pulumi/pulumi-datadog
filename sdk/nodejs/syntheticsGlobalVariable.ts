@@ -26,7 +26,7 @@ import * as utilities from "./utilities";
  *     ],
  *     value: "variable-value",
  * });
- * // Write-Only Value (Recommended for Terraform 1.11+)
+ * // Write-Only Value (Recommended for Pulumi 1.11+)
  * const secureVariable = new datadog.SyntheticsGlobalVariable("secure_variable", {
  *     name: "SECURE_VARIABLE",
  *     description: "Secure global variable with write-only value",

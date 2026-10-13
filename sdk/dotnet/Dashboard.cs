@@ -222,7 +222,7 @@ namespace Pulumi.Datadog
     ///                                 new Datadog.Inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs
     ///                                 {
     ///                                     Comparator = "&lt;",
-    ///                                     Value = 2,
+    ///                                     Value = 2.0,
     ///                                     Palette = "white_on_green",
     ///                                 },
     ///                                 new Datadog.Inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs
@@ -258,7 +258,7 @@ namespace Pulumi.Datadog
     ///                                 new Datadog.Inputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs
     ///                                 {
     ///                                     Comparator = "&lt;",
-    ///                                     Value = 2,
+    ///                                     Value = 2.0,
     ///                                     Palette = "white_on_green",
     ///                                 },
     ///                                 new Datadog.Inputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs
@@ -487,7 +487,7 @@ namespace Pulumi.Datadog
     ///                                 new Datadog.Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatArgs
     ///                                 {
     ///                                     Comparator = "&lt;",
-    ///                                     Value = 2,
+    ///                                     Value = 2.0,
     ///                                     Palette = "white_on_green",
     ///                                 },
     ///                                 new Datadog.Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatArgs
