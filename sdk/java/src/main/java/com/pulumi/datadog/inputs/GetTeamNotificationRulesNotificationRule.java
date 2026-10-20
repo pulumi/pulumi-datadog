@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.GetTeamNotificationRulesNotificationRuleEmail;
 import com.pulumi.datadog.inputs.GetTeamNotificationRulesNotificationRuleMsTeams;
 import com.pulumi.datadog.inputs.GetTeamNotificationRulesNotificationRulePagerduty;
+import com.pulumi.datadog.inputs.GetTeamNotificationRulesNotificationRuleServicenow;
 import com.pulumi.datadog.inputs.GetTeamNotificationRulesNotificationRuleSlack;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -80,6 +81,21 @@ public final class GetTeamNotificationRulesNotificationRule extends com.pulumi.r
     }
 
     /**
+     * The ServiceNow notification settings.
+     * 
+     */
+    @Import(name="servicenow")
+    private @Nullable GetTeamNotificationRulesNotificationRuleServicenow servicenow;
+
+    /**
+     * @return The ServiceNow notification settings.
+     * 
+     */
+    public Optional<GetTeamNotificationRulesNotificationRuleServicenow> servicenow() {
+        return Optional.ofNullable(this.servicenow);
+    }
+
+    /**
      * The Slack notification settings.
      * 
      */
@@ -101,6 +117,7 @@ public final class GetTeamNotificationRulesNotificationRule extends com.pulumi.r
         this.id = $.id;
         this.msTeams = $.msTeams;
         this.pagerduty = $.pagerduty;
+        this.servicenow = $.servicenow;
         this.slack = $.slack;
     }
 
@@ -163,6 +180,17 @@ public final class GetTeamNotificationRulesNotificationRule extends com.pulumi.r
          */
         public Builder pagerduty(@Nullable GetTeamNotificationRulesNotificationRulePagerduty pagerduty) {
             $.pagerduty = pagerduty;
+            return this;
+        }
+
+        /**
+         * @param servicenow The ServiceNow notification settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicenow(@Nullable GetTeamNotificationRulesNotificationRuleServicenow servicenow) {
+            $.servicenow = servicenow;
             return this;
         }
 

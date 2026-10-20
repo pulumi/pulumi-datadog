@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Flag indicating whether email notifications should be sent.
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Email address notifications are sent to instead of all team members.
+        /// </summary>
+        public readonly string RecipientEmail;
 
         [OutputConstructor]
-        private GetTeamNotificationRulesNotificationRuleEmailResult(bool enabled)
+        private GetTeamNotificationRulesNotificationRuleEmailResult(
+            bool enabled,
+
+            string recipientEmail)
         {
             Enabled = enabled;
+            RecipientEmail = recipientEmail;
         }
     }
 }

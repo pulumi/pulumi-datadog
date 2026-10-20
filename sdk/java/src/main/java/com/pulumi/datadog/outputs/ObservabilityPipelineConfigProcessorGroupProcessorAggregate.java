@@ -4,13 +4,21 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorAggregate {
+    /**
+     * @return Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming aggregationTiming;
     /**
      * @return The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
      * 
@@ -23,6 +31,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAggregate {
     private String mode;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorAggregate() {}
+    /**
+     * @return Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming> aggregationTiming() {
+        return Optional.ofNullable(this.aggregationTiming);
+    }
     /**
      * @return The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
      * 
@@ -47,15 +62,23 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAggregate {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming aggregationTiming;
         private Integer intervalSecs;
         private String mode;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorAggregate defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.aggregationTiming = defaults.aggregationTiming;
     	      this.intervalSecs = defaults.intervalSecs;
     	      this.mode = defaults.mode;
         }
 
+        @CustomType.Setter
+        public Builder aggregationTiming(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming aggregationTiming) {
+
+            this.aggregationTiming = aggregationTiming;
+            return this;
+        }
         @CustomType.Setter
         public Builder intervalSecs(Integer intervalSecs) {
             if (intervalSecs == null) {
@@ -74,6 +97,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAggregate {
         }
         public ObservabilityPipelineConfigProcessorGroupProcessorAggregate build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorAggregate();
+            _resultValue.aggregationTiming = aggregationTiming;
             _resultValue.intervalSecs = intervalSecs;
             _resultValue.mode = mode;
             return _resultValue;

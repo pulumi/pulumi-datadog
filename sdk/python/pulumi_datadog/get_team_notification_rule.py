@@ -28,7 +28,7 @@ class GetTeamNotificationRuleResult:
     """
     A collection of values returned by getTeamNotificationRule.
     """
-    def __init__(__self__, email=None, id=None, ms_teams=None, pagerduty=None, rule_id=None, slack=None, team_id=None):
+    def __init__(__self__, email=None, id=None, ms_teams=None, pagerduty=None, rule_id=None, servicenow=None, slack=None, team_id=None):
         if email and not isinstance(email, dict):
             raise TypeError("Expected argument 'email' to be a dict")
         pulumi.set(__self__, "email", email)
@@ -44,6 +44,9 @@ class GetTeamNotificationRuleResult:
         if rule_id and not isinstance(rule_id, str):
             raise TypeError("Expected argument 'rule_id' to be a str")
         pulumi.set(__self__, "rule_id", rule_id)
+        if servicenow and not isinstance(servicenow, dict):
+            raise TypeError("Expected argument 'servicenow' to be a dict")
+        pulumi.set(__self__, "servicenow", servicenow)
         if slack and not isinstance(slack, dict):
             raise TypeError("Expected argument 'slack' to be a dict")
         pulumi.set(__self__, "slack", slack)
@@ -93,6 +96,14 @@ class GetTeamNotificationRuleResult:
 
     @_builtins.property
     @pulumi.getter
+    def servicenow(self) -> Optional['outputs.GetTeamNotificationRuleServicenowResult']:
+        """
+        The ServiceNow notification settings.
+        """
+        return pulumi.get(self, "servicenow")
+
+    @_builtins.property
+    @pulumi.getter
     def slack(self) -> Optional['outputs.GetTeamNotificationRuleSlackResult']:
         """
         The Slack notification settings.
@@ -119,6 +130,7 @@ class AwaitableGetTeamNotificationRuleResult(GetTeamNotificationRuleResult):
             ms_teams=self.ms_teams,
             pagerduty=self.pagerduty,
             rule_id=self.rule_id,
+            servicenow=self.servicenow,
             slack=self.slack,
             team_id=self.team_id)
 
@@ -127,6 +139,7 @@ def get_team_notification_rule(email: Optional[Union['GetTeamNotificationRuleEma
                                ms_teams: Optional[Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict', 'outputs.GetTeamNotificationRuleMsTeamsResult']] = None,
                                pagerduty: Optional[Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict', 'outputs.GetTeamNotificationRulePagerdutyResult']] = None,
                                rule_id: Optional[_builtins.str] = None,
+                               servicenow: Optional[Union['GetTeamNotificationRuleServicenowArgs', 'GetTeamNotificationRuleServicenowArgsDict', 'outputs.GetTeamNotificationRuleServicenowResult']] = None,
                                slack: Optional[Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict', 'outputs.GetTeamNotificationRuleSlackResult']] = None,
                                team_id: Optional[_builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamNotificationRuleResult:
@@ -149,6 +162,7 @@ def get_team_notification_rule(email: Optional[Union['GetTeamNotificationRuleEma
     :param Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict', 'outputs.GetTeamNotificationRuleMsTeamsResult'] ms_teams: The MS Teams notification settings.
     :param Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict', 'outputs.GetTeamNotificationRulePagerdutyResult'] pagerduty: The PagerDuty notification settings.
     :param _builtins.str rule_id: The notification rule ID to fetch.
+    :param Union['GetTeamNotificationRuleServicenowArgs', 'GetTeamNotificationRuleServicenowArgsDict', 'outputs.GetTeamNotificationRuleServicenowResult'] servicenow: The ServiceNow notification settings.
     :param Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict', 'outputs.GetTeamNotificationRuleSlackResult'] slack: The Slack notification settings.
     :param _builtins.str team_id: The team ID to fetch the notification rule for.
     """
@@ -157,6 +171,7 @@ def get_team_notification_rule(email: Optional[Union['GetTeamNotificationRuleEma
     __args__['msTeams'] = ms_teams
     __args__['pagerduty'] = pagerduty
     __args__['ruleId'] = rule_id
+    __args__['servicenow'] = servicenow
     __args__['slack'] = slack
     __args__['teamId'] = team_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -168,12 +183,14 @@ def get_team_notification_rule(email: Optional[Union['GetTeamNotificationRuleEma
         ms_teams=pulumi.get(__ret__, 'ms_teams'),
         pagerduty=pulumi.get(__ret__, 'pagerduty'),
         rule_id=pulumi.get(__ret__, 'rule_id'),
+        servicenow=pulumi.get(__ret__, 'servicenow'),
         slack=pulumi.get(__ret__, 'slack'),
         team_id=pulumi.get(__ret__, 'team_id'))
 def get_team_notification_rule_output(email: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleEmailArgs', 'GetTeamNotificationRuleEmailArgsDict', 'outputs.GetTeamNotificationRuleEmailResult']]]] = None,
                                       ms_teams: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict', 'outputs.GetTeamNotificationRuleMsTeamsResult']]]] = None,
                                       pagerduty: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict', 'outputs.GetTeamNotificationRulePagerdutyResult']]]] = None,
                                       rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                      servicenow: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleServicenowArgs', 'GetTeamNotificationRuleServicenowArgsDict', 'outputs.GetTeamNotificationRuleServicenowResult']]]] = None,
                                       slack: pulumi.Input[Optional[Optional[Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict', 'outputs.GetTeamNotificationRuleSlackResult']]]] = None,
                                       team_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTeamNotificationRuleResult]:
@@ -196,6 +213,7 @@ def get_team_notification_rule_output(email: pulumi.Input[Optional[Optional[Unio
     :param Union['GetTeamNotificationRuleMsTeamsArgs', 'GetTeamNotificationRuleMsTeamsArgsDict', 'outputs.GetTeamNotificationRuleMsTeamsResult'] ms_teams: The MS Teams notification settings.
     :param Union['GetTeamNotificationRulePagerdutyArgs', 'GetTeamNotificationRulePagerdutyArgsDict', 'outputs.GetTeamNotificationRulePagerdutyResult'] pagerduty: The PagerDuty notification settings.
     :param _builtins.str rule_id: The notification rule ID to fetch.
+    :param Union['GetTeamNotificationRuleServicenowArgs', 'GetTeamNotificationRuleServicenowArgsDict', 'outputs.GetTeamNotificationRuleServicenowResult'] servicenow: The ServiceNow notification settings.
     :param Union['GetTeamNotificationRuleSlackArgs', 'GetTeamNotificationRuleSlackArgsDict', 'outputs.GetTeamNotificationRuleSlackResult'] slack: The Slack notification settings.
     :param _builtins.str team_id: The team ID to fetch the notification rule for.
     """
@@ -204,6 +222,7 @@ def get_team_notification_rule_output(email: pulumi.Input[Optional[Optional[Unio
     __args__['msTeams'] = ms_teams
     __args__['pagerduty'] = pagerduty
     __args__['ruleId'] = rule_id
+    __args__['servicenow'] = servicenow
     __args__['slack'] = slack
     __args__['teamId'] = team_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -214,5 +233,6 @@ def get_team_notification_rule_output(email: pulumi.Input[Optional[Optional[Unio
         ms_teams=pulumi.get(__response__, 'ms_teams'),
         pagerduty=pulumi.get(__response__, 'pagerduty'),
         rule_id=pulumi.get(__response__, 'rule_id'),
+        servicenow=pulumi.get(__response__, 'servicenow'),
         slack=pulumi.get(__response__, 'slack'),
         team_id=pulumi.get(__response__, 'team_id')))

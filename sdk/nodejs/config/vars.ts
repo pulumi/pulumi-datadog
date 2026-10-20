@@ -10,7 +10,7 @@ declare var exports: any;
 const __config = new pulumi.Config("datadog");
 
 /**
- * (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+ * Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
  */
 export declare const apiKey: string | undefined;
 Object.defineProperty(exports, "apiKey", {
@@ -32,7 +32,7 @@ Object.defineProperty(exports, "apiUrl", {
 });
 
 /**
- * (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+ * Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
  */
 export declare const appKey: string | undefined;
 Object.defineProperty(exports, "appKey", {
@@ -197,7 +197,7 @@ Object.defineProperty(exports, "ignoreTagKeys", {
 });
 
 /**
- * The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+ * The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
  */
 export declare const orgUuid: string | undefined;
 Object.defineProperty(exports, "orgUuid", {
@@ -208,12 +208,23 @@ Object.defineProperty(exports, "orgUuid", {
 });
 
 /**
- * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
+ * Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
  */
 export declare const validate: string | undefined;
 Object.defineProperty(exports, "validate", {
     get() {
         return __config.get("validate");
+    },
+    enumerable: true,
+});
+
+/**
+ * Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloudProviderType take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
+ */
+export declare const workloadIdentityTokenTag: string | undefined;
+Object.defineProperty(exports, "workloadIdentityTokenTag", {
+    get() {
+        return __config.get("workloadIdentityTokenTag");
     },
     enumerable: true,
 });

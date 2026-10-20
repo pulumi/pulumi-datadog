@@ -38,6 +38,7 @@ namespace Pulumi.Datadog
     ///             
     ///             {
     ///                 { "enabled", true },
+    ///                 { "recipientEmail", "team-alerts@example.com" },
     ///             },
     ///         },
     ///         MsTeams = new[]
@@ -52,6 +53,16 @@ namespace Pulumi.Datadog
     ///             
     ///             {
     ///                 { "serviceName", "my-service" },
+    ///             },
+    ///         },
+    ///         Servicenow = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "templates", new[]
+    ///                 {
+    ///                     "incident-template",
+    ///                 } },
     ///             },
     ///         },
     ///         Slack = new[]
@@ -97,6 +108,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("pagerduty")]
         public Output<Outputs.TeamNotificationRulePagerduty?> Pagerduty { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceNow notification settings.
+        /// </summary>
+        [Output("servicenow")]
+        public Output<Outputs.TeamNotificationRuleServicenow?> Servicenow { get; private set; } = null!;
 
         /// <summary>
         /// The Slack notification settings.
@@ -175,6 +192,12 @@ namespace Pulumi.Datadog
         public Input<Inputs.TeamNotificationRulePagerdutyArgs>? Pagerduty { get; set; }
 
         /// <summary>
+        /// The ServiceNow notification settings.
+        /// </summary>
+        [Input("servicenow")]
+        public Input<Inputs.TeamNotificationRuleServicenowArgs>? Servicenow { get; set; }
+
+        /// <summary>
         /// The Slack notification settings.
         /// </summary>
         [Input("slack")]
@@ -211,6 +234,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("pagerduty")]
         public Input<Inputs.TeamNotificationRulePagerdutyGetArgs>? Pagerduty { get; set; }
+
+        /// <summary>
+        /// The ServiceNow notification settings.
+        /// </summary>
+        [Input("servicenow")]
+        public Input<Inputs.TeamNotificationRuleServicenowGetArgs>? Servicenow { get; set; }
 
         /// <summary>
         /// The Slack notification settings.

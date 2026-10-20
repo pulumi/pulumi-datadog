@@ -111,6 +111,21 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build(),
  *                 OnCallTeamRoutingRulesRuleArgs.builder()
+ *                     .query("tags.service:checkout")
+ *                     .actions(                    
+ *                         OnCallTeamRoutingRulesRuleActionArgs.builder()
+ *                             .rerouteToTeam(com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs.builder()
+ *                                 .destinationTeamId("00000000-aba2-0000-0000-000000000001")
+ *                                 .build())
+ *                             .build(),
+ *                         OnCallTeamRoutingRulesRuleActionArgs.builder()
+ *                             .sendSlackMessage(com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs.builder()
+ *                                 .workspace("workspace")
+ *                                 .channel("channel")
+ *                                 .build())
+ *                             .build())
+ *                     .build(),
+ *                 OnCallTeamRoutingRulesRuleArgs.builder()
  *                     .escalationPolicy("00000000-aba2-0000-0000-000000000000")
  *                     .urgency("dynamic")
  *                     .build())

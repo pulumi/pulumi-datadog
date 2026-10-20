@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionEscalationPolicy;
+import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionRerouteToTeam;
 import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage;
 import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage;
 import com.pulumi.datadog.outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OnCallTeamRoutingRulesRuleAction {
     private @Nullable OnCallTeamRoutingRulesRuleActionEscalationPolicy escalationPolicy;
+    /**
+     * @return Reroutes the page to another team&#39;s routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+     * 
+     */
+    private @Nullable OnCallTeamRoutingRulesRuleActionRerouteToTeam rerouteToTeam;
     private @Nullable OnCallTeamRoutingRulesRuleActionSendSlackMessage sendSlackMessage;
     private @Nullable OnCallTeamRoutingRulesRuleActionSendTeamsMessage sendTeamsMessage;
     private @Nullable OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation triggerWorkflowAutomation;
@@ -22,6 +28,13 @@ public final class OnCallTeamRoutingRulesRuleAction {
     private OnCallTeamRoutingRulesRuleAction() {}
     public Optional<OnCallTeamRoutingRulesRuleActionEscalationPolicy> escalationPolicy() {
         return Optional.ofNullable(this.escalationPolicy);
+    }
+    /**
+     * @return Reroutes the page to another team&#39;s routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+     * 
+     */
+    public Optional<OnCallTeamRoutingRulesRuleActionRerouteToTeam> rerouteToTeam() {
+        return Optional.ofNullable(this.rerouteToTeam);
     }
     public Optional<OnCallTeamRoutingRulesRuleActionSendSlackMessage> sendSlackMessage() {
         return Optional.ofNullable(this.sendSlackMessage);
@@ -43,6 +56,7 @@ public final class OnCallTeamRoutingRulesRuleAction {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable OnCallTeamRoutingRulesRuleActionEscalationPolicy escalationPolicy;
+        private @Nullable OnCallTeamRoutingRulesRuleActionRerouteToTeam rerouteToTeam;
         private @Nullable OnCallTeamRoutingRulesRuleActionSendSlackMessage sendSlackMessage;
         private @Nullable OnCallTeamRoutingRulesRuleActionSendTeamsMessage sendTeamsMessage;
         private @Nullable OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation triggerWorkflowAutomation;
@@ -50,6 +64,7 @@ public final class OnCallTeamRoutingRulesRuleAction {
         public Builder(OnCallTeamRoutingRulesRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.escalationPolicy = defaults.escalationPolicy;
+    	      this.rerouteToTeam = defaults.rerouteToTeam;
     	      this.sendSlackMessage = defaults.sendSlackMessage;
     	      this.sendTeamsMessage = defaults.sendTeamsMessage;
     	      this.triggerWorkflowAutomation = defaults.triggerWorkflowAutomation;
@@ -59,6 +74,12 @@ public final class OnCallTeamRoutingRulesRuleAction {
         public Builder escalationPolicy(@Nullable OnCallTeamRoutingRulesRuleActionEscalationPolicy escalationPolicy) {
 
             this.escalationPolicy = escalationPolicy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rerouteToTeam(@Nullable OnCallTeamRoutingRulesRuleActionRerouteToTeam rerouteToTeam) {
+
+            this.rerouteToTeam = rerouteToTeam;
             return this;
         }
         @CustomType.Setter
@@ -82,6 +103,7 @@ public final class OnCallTeamRoutingRulesRuleAction {
         public OnCallTeamRoutingRulesRuleAction build() {
             final var _resultValue = new OnCallTeamRoutingRulesRuleAction();
             _resultValue.escalationPolicy = escalationPolicy;
+            _resultValue.rerouteToTeam = rerouteToTeam;
             _resultValue.sendSlackMessage = sendSlackMessage;
             _resultValue.sendTeamsMessage = sendTeamsMessage;
             _resultValue.triggerWorkflowAutomation = triggerWorkflowAutomation;

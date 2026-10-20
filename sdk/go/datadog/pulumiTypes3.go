@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type LogsCustomDestinationSplunkDestinationSourcetype struct {
+	// The source type string. Set to `null` to omit the sourcetype from forwarded events.
+	Value *string `pulumi:"value"`
+}
+
+// LogsCustomDestinationSplunkDestinationSourcetypeInput is an input type that accepts LogsCustomDestinationSplunkDestinationSourcetypeArgs and LogsCustomDestinationSplunkDestinationSourcetypeOutput values.
+// You can construct a concrete instance of `LogsCustomDestinationSplunkDestinationSourcetypeInput` via:
+//
+//	LogsCustomDestinationSplunkDestinationSourcetypeArgs{...}
+type LogsCustomDestinationSplunkDestinationSourcetypeInput interface {
+	pulumi.Input
+
+	ToLogsCustomDestinationSplunkDestinationSourcetypeOutput() LogsCustomDestinationSplunkDestinationSourcetypeOutput
+	ToLogsCustomDestinationSplunkDestinationSourcetypeOutputWithContext(context.Context) LogsCustomDestinationSplunkDestinationSourcetypeOutput
+}
+
+type LogsCustomDestinationSplunkDestinationSourcetypeArgs struct {
+	// The source type string. Set to `null` to omit the sourcetype from forwarded events.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LogsCustomDestinationSplunkDestinationSourcetypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomDestinationSplunkDestinationSourcetype)(nil)).Elem()
+}
+
+func (i LogsCustomDestinationSplunkDestinationSourcetypeArgs) ToLogsCustomDestinationSplunkDestinationSourcetypeOutput() LogsCustomDestinationSplunkDestinationSourcetypeOutput {
+	return i.ToLogsCustomDestinationSplunkDestinationSourcetypeOutputWithContext(context.Background())
+}
+
+func (i LogsCustomDestinationSplunkDestinationSourcetypeArgs) ToLogsCustomDestinationSplunkDestinationSourcetypeOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationSplunkDestinationSourcetypeOutput)
+}
+
+func (i LogsCustomDestinationSplunkDestinationSourcetypeArgs) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutput() LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
+	return i.ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(context.Background())
+}
+
+func (i LogsCustomDestinationSplunkDestinationSourcetypeArgs) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationSplunkDestinationSourcetypeOutput).ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(ctx)
+}
+
+// LogsCustomDestinationSplunkDestinationSourcetypePtrInput is an input type that accepts LogsCustomDestinationSplunkDestinationSourcetypeArgs, LogsCustomDestinationSplunkDestinationSourcetypePtr and LogsCustomDestinationSplunkDestinationSourcetypePtrOutput values.
+// You can construct a concrete instance of `LogsCustomDestinationSplunkDestinationSourcetypePtrInput` via:
+//
+//	        LogsCustomDestinationSplunkDestinationSourcetypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsCustomDestinationSplunkDestinationSourcetypePtrInput interface {
+	pulumi.Input
+
+	ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutput() LogsCustomDestinationSplunkDestinationSourcetypePtrOutput
+	ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(context.Context) LogsCustomDestinationSplunkDestinationSourcetypePtrOutput
+}
+
+type logsCustomDestinationSplunkDestinationSourcetypePtrType LogsCustomDestinationSplunkDestinationSourcetypeArgs
+
+func LogsCustomDestinationSplunkDestinationSourcetypePtr(v *LogsCustomDestinationSplunkDestinationSourcetypeArgs) LogsCustomDestinationSplunkDestinationSourcetypePtrInput {
+	return (*logsCustomDestinationSplunkDestinationSourcetypePtrType)(v)
+}
+
+func (*logsCustomDestinationSplunkDestinationSourcetypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomDestinationSplunkDestinationSourcetype)(nil)).Elem()
+}
+
+func (i *logsCustomDestinationSplunkDestinationSourcetypePtrType) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutput() LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
+	return i.ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(context.Background())
+}
+
+func (i *logsCustomDestinationSplunkDestinationSourcetypePtrType) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationSplunkDestinationSourcetypePtrOutput)
+}
+
+type LogsCustomDestinationSplunkDestinationSourcetypeOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomDestinationSplunkDestinationSourcetypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomDestinationSplunkDestinationSourcetype)(nil)).Elem()
+}
+
+func (o LogsCustomDestinationSplunkDestinationSourcetypeOutput) ToLogsCustomDestinationSplunkDestinationSourcetypeOutput() LogsCustomDestinationSplunkDestinationSourcetypeOutput {
+	return o
+}
+
+func (o LogsCustomDestinationSplunkDestinationSourcetypeOutput) ToLogsCustomDestinationSplunkDestinationSourcetypeOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypeOutput {
+	return o
+}
+
+func (o LogsCustomDestinationSplunkDestinationSourcetypeOutput) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutput() LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
+	return o.ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(context.Background())
+}
+
+func (o LogsCustomDestinationSplunkDestinationSourcetypeOutput) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomDestinationSplunkDestinationSourcetype) *LogsCustomDestinationSplunkDestinationSourcetype {
+		return &v
+	}).(LogsCustomDestinationSplunkDestinationSourcetypePtrOutput)
+}
+
+// The source type string. Set to `null` to omit the sourcetype from forwarded events.
+func (o LogsCustomDestinationSplunkDestinationSourcetypeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsCustomDestinationSplunkDestinationSourcetype) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LogsCustomDestinationSplunkDestinationSourcetypePtrOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomDestinationSplunkDestinationSourcetype)(nil)).Elem()
+}
+
+func (o LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutput() LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
+	return o
+}
+
+func (o LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
+	return o
+}
+
+func (o LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) Elem() LogsCustomDestinationSplunkDestinationSourcetypeOutput {
+	return o.ApplyT(func(v *LogsCustomDestinationSplunkDestinationSourcetype) LogsCustomDestinationSplunkDestinationSourcetype {
+		if v != nil {
+			return *v
+		}
+		var ret LogsCustomDestinationSplunkDestinationSourcetype
+		return ret
+	}).(LogsCustomDestinationSplunkDestinationSourcetypeOutput)
+}
+
+// The source type string. Set to `null` to omit the sourcetype from forwarded events.
+func (o LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomDestinationSplunkDestinationSourcetype) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type LogsCustomPipelineFilter struct {
 	// Filter criteria of the category.
 	Query string `pulumi:"query"`
@@ -27761,6 +27898,8 @@ type ObservabilityPipelineConfigDestination struct {
 	AmazonS3s []ObservabilityPipelineConfigDestinationAmazonS3 `pulumi:"amazonS3s"`
 	// The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
 	AmazonSecurityLakes []ObservabilityPipelineConfigDestinationAmazonSecurityLake `pulumi:"amazonSecurityLakes"`
+	// The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+	AzureDataExplorer *ObservabilityPipelineConfigDestinationAzureDataExplorer `pulumi:"azureDataExplorer"`
 	// The `azureStorage` destination forwards logs to an Azure Blob Storage container.
 	AzureStorages []ObservabilityPipelineConfigDestinationAzureStorage `pulumi:"azureStorages"`
 	// The `clickhouse` destination forwards logs to a ClickHouse server via HTTP.
@@ -27837,6 +27976,8 @@ type ObservabilityPipelineConfigDestinationArgs struct {
 	AmazonS3s ObservabilityPipelineConfigDestinationAmazonS3ArrayInput `pulumi:"amazonS3s"`
 	// The `amazonSecurityLake` destination sends your logs to Amazon Security Lake.
 	AmazonSecurityLakes ObservabilityPipelineConfigDestinationAmazonSecurityLakeArrayInput `pulumi:"amazonSecurityLakes"`
+	// The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+	AzureDataExplorer ObservabilityPipelineConfigDestinationAzureDataExplorerPtrInput `pulumi:"azureDataExplorer"`
 	// The `azureStorage` destination forwards logs to an Azure Blob Storage container.
 	AzureStorages ObservabilityPipelineConfigDestinationAzureStorageArrayInput `pulumi:"azureStorages"`
 	// The `clickhouse` destination forwards logs to a ClickHouse server via HTTP.
@@ -27970,6 +28111,13 @@ func (o ObservabilityPipelineConfigDestinationOutput) AmazonSecurityLakes() Obse
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestination) []ObservabilityPipelineConfigDestinationAmazonSecurityLake {
 		return v.AmazonSecurityLakes
 	}).(ObservabilityPipelineConfigDestinationAmazonSecurityLakeArrayOutput)
+}
+
+// The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+func (o ObservabilityPipelineConfigDestinationOutput) AzureDataExplorer() ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestination) *ObservabilityPipelineConfigDestinationAzureDataExplorer {
+		return v.AzureDataExplorer
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput)
 }
 
 // The `azureStorage` destination forwards logs to an Azure Blob Storage container.
@@ -32329,6 +32477,2413 @@ func (o ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsPtrOutput) Ke
 		}
 		return v.KeyPassKey
 	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorer struct {
+	// Authentication configuration for Azure Data Explorer. Exactly one of `azureCli`, `clientSecret`, `clientCertificate`, `managedIdentity`, `managedIdentityClientAssertion`, or `workloadIdentity` must be specified.
+	Auth ObservabilityPipelineConfigDestinationAzureDataExplorerAuth `pulumi:"auth"`
+	// Event batching settings for Azure Data Explorer ingestion.
+	Batch *ObservabilityPipelineConfigDestinationAzureDataExplorerBatch `pulumi:"batch"`
+	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+	Buffer *ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer `pulumi:"buffer"`
+	// Compression configuration for ingested data. Only `gzip` is supported.
+	Compression *ObservabilityPipelineConfigDestinationAzureDataExplorerCompression `pulumi:"compression"`
+	// The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+	Database string `pulumi:"database"`
+	// Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+	IngestionEndpointKey *string `pulumi:"ingestionEndpointKey"`
+	// The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+	MappingReference *string `pulumi:"mappingReference"`
+	// The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+	Table string `pulumi:"table"`
+	// The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+	TokenScope *string `pulumi:"tokenScope"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerArgs struct {
+	// Authentication configuration for Azure Data Explorer. Exactly one of `azureCli`, `clientSecret`, `clientCertificate`, `managedIdentity`, `managedIdentityClientAssertion`, or `workloadIdentity` must be specified.
+	Auth ObservabilityPipelineConfigDestinationAzureDataExplorerAuthInput `pulumi:"auth"`
+	// Event batching settings for Azure Data Explorer ingestion.
+	Batch ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrInput `pulumi:"batch"`
+	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+	Buffer ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrInput `pulumi:"buffer"`
+	// Compression configuration for ingested data. Only `gzip` is supported.
+	Compression ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrInput `pulumi:"compression"`
+	// The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+	Database pulumi.StringInput `pulumi:"database"`
+	// Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+	IngestionEndpointKey pulumi.StringPtrInput `pulumi:"ingestionEndpointKey"`
+	// The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+	MappingReference pulumi.StringPtrInput `pulumi:"mappingReference"`
+	// The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+	Table pulumi.StringInput `pulumi:"table"`
+	// The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+	TokenScope pulumi.StringPtrInput `pulumi:"tokenScope"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorer)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorer)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorer)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorer) *ObservabilityPipelineConfigDestinationAzureDataExplorer {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput)
+}
+
+// Authentication configuration for Azure Data Explorer. Exactly one of `azureCli`, `clientSecret`, `clientCertificate`, `managedIdentity`, `managedIdentityClientAssertion`, or `workloadIdentity` must be specified.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) Auth() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorer) ObservabilityPipelineConfigDestinationAzureDataExplorerAuth {
+		return v.Auth
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput)
+}
+
+// Event batching settings for Azure Data Explorer ingestion.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) Batch() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorer) *ObservabilityPipelineConfigDestinationAzureDataExplorerBatch {
+		return v.Batch
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput)
+}
+
+// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) Buffer() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorer) *ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer {
+		return v.Buffer
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput)
+}
+
+// Compression configuration for ingested data. Only `gzip` is supported.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) Compression() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorer) *ObservabilityPipelineConfigDestinationAzureDataExplorerCompression {
+		return v.Compression
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput)
+}
+
+// The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorer) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) IngestionEndpointKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorer) *string { return v.IngestionEndpointKey }).(pulumi.StringPtrOutput)
+}
+
+// The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) MappingReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorer) *string { return v.MappingReference }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) Table() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorer) string { return v.Table }).(pulumi.StringOutput)
+}
+
+// The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerOutput) TokenScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorer) *string { return v.TokenScope }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorer)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorer) ObservabilityPipelineConfigDestinationAzureDataExplorer {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorer
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerOutput)
+}
+
+// Authentication configuration for Azure Data Explorer. Exactly one of `azureCli`, `clientSecret`, `clientCertificate`, `managedIdentity`, `managedIdentityClientAssertion`, or `workloadIdentity` must be specified.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) Auth() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorer) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuth {
+		if v == nil {
+			return nil
+		}
+		return &v.Auth
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput)
+}
+
+// Event batching settings for Azure Data Explorer ingestion.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) Batch() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorer) *ObservabilityPipelineConfigDestinationAzureDataExplorerBatch {
+		if v == nil {
+			return nil
+		}
+		return v.Batch
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput)
+}
+
+// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) Buffer() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorer) *ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer {
+		if v == nil {
+			return nil
+		}
+		return v.Buffer
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput)
+}
+
+// Compression configuration for ingested data. Only `gzip` is supported.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) Compression() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorer) *ObservabilityPipelineConfigDestinationAzureDataExplorerCompression {
+		if v == nil {
+			return nil
+		}
+		return v.Compression
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput)
+}
+
+// The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) IngestionEndpointKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IngestionEndpointKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) MappingReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MappingReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Table
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput) TokenScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenScope
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuth struct {
+	// Authenticate using the Azure CLI credentials available in the environment.
+	AzureCli *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli `pulumi:"azureCli"`
+	// Authenticate using a Microsoft Entra application client certificate.
+	ClientCertificate *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate `pulumi:"clientCertificate"`
+	// Authenticate using a Microsoft Entra application client secret.
+	ClientSecret *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret `pulumi:"clientSecret"`
+	// Authenticate using an Azure managed identity.
+	ManagedIdentity *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity `pulumi:"managedIdentity"`
+	// Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+	ManagedIdentityClientAssertion *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion `pulumi:"managedIdentityClientAssertion"`
+	// Authenticate using Azure Workload Identity (for example, on Kubernetes).
+	WorkloadIdentity *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity `pulumi:"workloadIdentity"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs struct {
+	// Authenticate using the Azure CLI credentials available in the environment.
+	AzureCli ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrInput `pulumi:"azureCli"`
+	// Authenticate using a Microsoft Entra application client certificate.
+	ClientCertificate ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrInput `pulumi:"clientCertificate"`
+	// Authenticate using a Microsoft Entra application client secret.
+	ClientSecret ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrInput `pulumi:"clientSecret"`
+	// Authenticate using an Azure managed identity.
+	ManagedIdentity ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrInput `pulumi:"managedIdentity"`
+	// Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+	ManagedIdentityClientAssertion ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrInput `pulumi:"managedIdentityClientAssertion"`
+	// Authenticate using Azure Workload Identity (for example, on Kubernetes).
+	WorkloadIdentity ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrInput `pulumi:"workloadIdentity"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuth)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerAuthPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerAuthPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuth)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuth)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuth {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput)
+}
+
+// Authenticate using the Azure CLI credentials available in the environment.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) AzureCli() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli {
+		return v.AzureCli
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput)
+}
+
+// Authenticate using a Microsoft Entra application client certificate.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) ClientCertificate() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate {
+		return v.ClientCertificate
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput)
+}
+
+// Authenticate using a Microsoft Entra application client secret.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) ClientSecret() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret {
+		return v.ClientSecret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput)
+}
+
+// Authenticate using an Azure managed identity.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) ManagedIdentity() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity {
+		return v.ManagedIdentity
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput)
+}
+
+// Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) ManagedIdentityClientAssertion() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion {
+		return v.ManagedIdentityClientAssertion
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput)
+}
+
+// Authenticate using Azure Workload Identity (for example, on Kubernetes).
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput) WorkloadIdentity() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity {
+		return v.WorkloadIdentity
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuth)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) ObservabilityPipelineConfigDestinationAzureDataExplorerAuth {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerAuth
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput)
+}
+
+// Authenticate using the Azure CLI credentials available in the environment.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput) AzureCli() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli {
+		if v == nil {
+			return nil
+		}
+		return v.AzureCli
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput)
+}
+
+// Authenticate using a Microsoft Entra application client certificate.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput) ClientCertificate() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificate
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput)
+}
+
+// Authenticate using a Microsoft Entra application client secret.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput) ClientSecret() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput)
+}
+
+// Authenticate using an Azure managed identity.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput) ManagedIdentity() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedIdentity
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput)
+}
+
+// Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput) ManagedIdentityClientAssertion() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedIdentityClientAssertion
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput)
+}
+
+// Authenticate using Azure Workload Identity (for example, on Kubernetes).
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput) WorkloadIdentity() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuth) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.WorkloadIdentity
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli struct {
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs struct {
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate struct {
+	// The Microsoft Entra application (client) ID.
+	AzureClientId string `pulumi:"azureClientId"`
+	// The Microsoft Entra tenant ID.
+	AzureTenantId string `pulumi:"azureTenantId"`
+	// Name of the environment variable or secret that holds the password for the client certificate.
+	CertificatePasswordKey *string `pulumi:"certificatePasswordKey"`
+	// Path to the `.pfx` client certificate file on the Worker.
+	CertificatePath string `pulumi:"certificatePath"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs struct {
+	// The Microsoft Entra application (client) ID.
+	AzureClientId pulumi.StringInput `pulumi:"azureClientId"`
+	// The Microsoft Entra tenant ID.
+	AzureTenantId pulumi.StringInput `pulumi:"azureTenantId"`
+	// Name of the environment variable or secret that holds the password for the client certificate.
+	CertificatePasswordKey pulumi.StringPtrInput `pulumi:"certificatePasswordKey"`
+	// Path to the `.pfx` client certificate file on the Worker.
+	CertificatePath pulumi.StringInput `pulumi:"certificatePath"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtr and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrType ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput)
+}
+
+// The Microsoft Entra application (client) ID.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput) AzureClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate) string {
+		return v.AzureClientId
+	}).(pulumi.StringOutput)
+}
+
+// The Microsoft Entra tenant ID.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput) AzureTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate) string {
+		return v.AzureTenantId
+	}).(pulumi.StringOutput)
+}
+
+// Name of the environment variable or secret that holds the password for the client certificate.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput) CertificatePasswordKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate) *string {
+		return v.CertificatePasswordKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the `.pfx` client certificate file on the Worker.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput) CertificatePath() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate) string {
+		return v.CertificatePath
+	}).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput)
+}
+
+// The Microsoft Entra application (client) ID.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput) AzureClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AzureClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft Entra tenant ID.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput) AzureTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AzureTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the password for the client certificate.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput) CertificatePasswordKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificatePasswordKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the `.pfx` client certificate file on the Worker.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput) CertificatePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificatePath
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret struct {
+	// The Microsoft Entra application (client) ID.
+	AzureClientId string `pulumi:"azureClientId"`
+	// Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+	AzureClientSecretKey string `pulumi:"azureClientSecretKey"`
+	// The Microsoft Entra tenant ID.
+	AzureTenantId string `pulumi:"azureTenantId"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs struct {
+	// The Microsoft Entra application (client) ID.
+	AzureClientId pulumi.StringInput `pulumi:"azureClientId"`
+	// Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+	AzureClientSecretKey pulumi.StringInput `pulumi:"azureClientSecretKey"`
+	// The Microsoft Entra tenant ID.
+	AzureTenantId pulumi.StringInput `pulumi:"azureTenantId"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput)
+}
+
+// The Microsoft Entra application (client) ID.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput) AzureClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret) string {
+		return v.AzureClientId
+	}).(pulumi.StringOutput)
+}
+
+// Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput) AzureClientSecretKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret) string {
+		return v.AzureClientSecretKey
+	}).(pulumi.StringOutput)
+}
+
+// The Microsoft Entra tenant ID.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput) AzureTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret) string {
+		return v.AzureTenantId
+	}).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput)
+}
+
+// The Microsoft Entra application (client) ID.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput) AzureClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AzureClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput) AzureClientSecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AzureClientSecretKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft Entra tenant ID.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput) AzureTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AzureTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity struct {
+	// The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+	UserAssignedManagedIdentityId *string `pulumi:"userAssignedManagedIdentityId"`
+	// The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+	UserAssignedManagedIdentityIdType *string `pulumi:"userAssignedManagedIdentityIdType"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs struct {
+	// The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+	UserAssignedManagedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedManagedIdentityId"`
+	// The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+	UserAssignedManagedIdentityIdType pulumi.StringPtrInput `pulumi:"userAssignedManagedIdentityIdType"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput)
+}
+
+// The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput) UserAssignedManagedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity) *string {
+		return v.UserAssignedManagedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput) UserAssignedManagedIdentityIdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity) *string {
+		return v.UserAssignedManagedIdentityIdType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput)
+}
+
+// The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput) UserAssignedManagedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedManagedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput) UserAssignedManagedIdentityIdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedManagedIdentityIdType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion struct {
+	// The client ID of the Microsoft Entra application that trusts the managed identity.
+	ClientAssertionClientId string `pulumi:"clientAssertionClientId"`
+	// The tenant ID of the Microsoft Entra application that trusts the managed identity.
+	ClientAssertionTenantId string `pulumi:"clientAssertionTenantId"`
+	// The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+	UserAssignedManagedIdentityId *string `pulumi:"userAssignedManagedIdentityId"`
+	// The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+	UserAssignedManagedIdentityIdType *string `pulumi:"userAssignedManagedIdentityIdType"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs struct {
+	// The client ID of the Microsoft Entra application that trusts the managed identity.
+	ClientAssertionClientId pulumi.StringInput `pulumi:"clientAssertionClientId"`
+	// The tenant ID of the Microsoft Entra application that trusts the managed identity.
+	ClientAssertionTenantId pulumi.StringInput `pulumi:"clientAssertionTenantId"`
+	// The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+	UserAssignedManagedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedManagedIdentityId"`
+	// The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+	UserAssignedManagedIdentityIdType pulumi.StringPtrInput `pulumi:"userAssignedManagedIdentityIdType"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput)
+}
+
+// The client ID of the Microsoft Entra application that trusts the managed identity.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput) ClientAssertionClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion) string {
+		return v.ClientAssertionClientId
+	}).(pulumi.StringOutput)
+}
+
+// The tenant ID of the Microsoft Entra application that trusts the managed identity.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput) ClientAssertionTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion) string {
+		return v.ClientAssertionTenantId
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput) UserAssignedManagedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion) *string {
+		return v.UserAssignedManagedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput) UserAssignedManagedIdentityIdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion) *string {
+		return v.UserAssignedManagedIdentityIdType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput)
+}
+
+// The client ID of the Microsoft Entra application that trusts the managed identity.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput) ClientAssertionClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientAssertionClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of the Microsoft Entra application that trusts the managed identity.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput) ClientAssertionTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientAssertionTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput) UserAssignedManagedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedManagedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput) UserAssignedManagedIdentityIdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedManagedIdentityIdType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity struct {
+	// The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+	ClientId *string `pulumi:"clientId"`
+	// The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+	TenantId *string `pulumi:"tenantId"`
+	// Path to the federated token file. If omitted, it is read from the environment.
+	TokenFilePath *string `pulumi:"tokenFilePath"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs struct {
+	// The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Path to the federated token file. If omitted, it is read from the environment.
+	TokenFilePath pulumi.StringPtrInput `pulumi:"tokenFilePath"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity) *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput)
+}
+
+// The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity) *string {
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity) *string {
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the federated token file. If omitted, it is read from the environment.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput) TokenFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity) *string {
+		return v.TokenFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity) ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput)
+}
+
+// The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the federated token file. If omitted, it is read from the environment.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput) TokenFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBatch struct {
+	// Maximum batch size in bytes. Value must be between 1 and 4000000.
+	MaxBytes *int `pulumi:"maxBytes"`
+	// Maximum number of events per batch before it is flushed. Value must be at least 1.
+	MaxEvents *int `pulumi:"maxEvents"`
+	// Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+	TimeoutSecs *int `pulumi:"timeoutSecs"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerBatchInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerBatchInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBatchInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs struct {
+	// Maximum batch size in bytes. Value must be between 1 and 4000000.
+	MaxBytes pulumi.IntPtrInput `pulumi:"maxBytes"`
+	// Maximum number of events per batch before it is flushed. Value must be at least 1.
+	MaxEvents pulumi.IntPtrInput `pulumi:"maxEvents"`
+	// Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+	TimeoutSecs pulumi.IntPtrInput `pulumi:"timeoutSecs"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBatch)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerBatchPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerBatchPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerBatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerBatch)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerBatchPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerBatchPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBatch)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerBatch) *ObservabilityPipelineConfigDestinationAzureDataExplorerBatch {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput)
+}
+
+// Maximum batch size in bytes. Value must be between 1 and 4000000.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput) MaxBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerBatch) *int { return v.MaxBytes }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of events per batch before it is flushed. Value must be at least 1.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput) MaxEvents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerBatch) *int { return v.MaxEvents }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput) TimeoutSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerBatch) *int { return v.TimeoutSecs }).(pulumi.IntPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerBatch)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBatch) ObservabilityPipelineConfigDestinationAzureDataExplorerBatch {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerBatch
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput)
+}
+
+// Maximum batch size in bytes. Value must be between 1 and 4000000.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput) MaxBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of events per batch before it is flushed. Value must be at least 1.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput) MaxEvents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEvents
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput) TimeoutSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBatch) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSecs
+	}).(pulumi.IntPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer struct {
+	// Options for configuring a disk buffer. Cannot be used with `memory`.
+	Disk *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk `pulumi:"disk"`
+	// Options for configuring a memory buffer. Cannot be used with `disk`.
+	Memory *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory `pulumi:"memory"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerBufferInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerBufferInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs struct {
+	// Options for configuring a disk buffer. Cannot be used with `memory`.
+	Disk ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrInput `pulumi:"disk"`
+	// Options for configuring a memory buffer. Cannot be used with `disk`.
+	Memory ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrInput `pulumi:"memory"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerBufferPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerBufferPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerBufferPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerBufferPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerBufferPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer) *ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput)
+}
+
+// Options for configuring a disk buffer. Cannot be used with `memory`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput) Disk() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer) *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk {
+		return v.Disk
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput)
+}
+
+// Options for configuring a memory buffer. Cannot be used with `disk`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput) Memory() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer) *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory {
+		return v.Memory
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer) ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput)
+}
+
+// Options for configuring a disk buffer. Cannot be used with `memory`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput) Disk() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer) *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk {
+		if v == nil {
+			return nil
+		}
+		return v.Disk
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput)
+}
+
+// Options for configuring a memory buffer. Cannot be used with `disk`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput) Memory() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer) *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk struct {
+	// Maximum size of the disk buffer (in bytes).
+	MaxSize *int `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull *string `pulumi:"whenFull"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs struct {
+	// Maximum size of the disk buffer (in bytes).
+	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull pulumi.StringPtrInput `pulumi:"whenFull"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk) *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput)
+}
+
+// Maximum size of the disk buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk) *string { return v.WhenFull }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput)
+}
+
+// Maximum size of the disk buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory struct {
+	// Maximum events for the memory buffer.
+	MaxEvents *int `pulumi:"maxEvents"`
+	// Maximum size of the memory buffer (in bytes).
+	MaxSize *int `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull *string `pulumi:"whenFull"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs struct {
+	// Maximum events for the memory buffer.
+	MaxEvents pulumi.IntPtrInput `pulumi:"maxEvents"`
+	// Maximum size of the memory buffer (in bytes).
+	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull pulumi.StringPtrInput `pulumi:"whenFull"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory) *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput)
+}
+
+// Maximum events for the memory buffer.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput) MaxEvents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory) *int { return v.MaxEvents }).(pulumi.IntPtrOutput)
+}
+
+// Maximum size of the memory buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory) *string { return v.WhenFull }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory) ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput)
+}
+
+// Maximum events for the memory buffer.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput) MaxEvents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEvents
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum size of the memory buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerCompression struct {
+	// Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+	Algorithm string `pulumi:"algorithm"`
+	// Gzip compression level (1-9). Value must be between 1 and 9.
+	Level int `pulumi:"level"`
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs and ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs{...}
+type ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs struct {
+	// Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	// Gzip compression level (1-9). Value must be between 1 and 9.
+	Level pulumi.IntInput `pulumi:"level"`
+}
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerCompression)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput).ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs, ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtr and ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput
+	ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrType ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs
+
+func ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtr(v *ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs) ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrInput {
+	return (*observabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerCompression)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrType) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerCompression)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAzureDataExplorerCompression) *ObservabilityPipelineConfigDestinationAzureDataExplorerCompression {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput)
+}
+
+// Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerCompression) string { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// Gzip compression level (1-9). Value must be between 1 and 9.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput) Level() pulumi.IntOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAzureDataExplorerCompression) int { return v.Level }).(pulumi.IntOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAzureDataExplorerCompression)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput) ToObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput) Elem() ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerCompression) ObservabilityPipelineConfigDestinationAzureDataExplorerCompression {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAzureDataExplorerCompression
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput)
+}
+
+// Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerCompression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gzip compression level (1-9). Value must be between 1 and 9.
+func (o ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput) Level() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAzureDataExplorerCompression) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Level
+	}).(pulumi.IntPtrOutput)
 }
 
 type ObservabilityPipelineConfigDestinationAzureStorage struct {
@@ -56105,6 +58660,8 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTagsTagArrayO
 }
 
 type ObservabilityPipelineConfigProcessorGroupProcessorAggregate struct {
+	// Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+	AggregationTiming *ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming `pulumi:"aggregationTiming"`
 	// The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
 	IntervalSecs int `pulumi:"intervalSecs"`
 	// The aggregation mode. One of `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`. Valid values are `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`.
@@ -56123,6 +58680,8 @@ type ObservabilityPipelineConfigProcessorGroupProcessorAggregateInput interface 
 }
 
 type ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs struct {
+	// Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+	AggregationTiming ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrInput `pulumi:"aggregationTiming"`
 	// The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
 	IntervalSecs pulumi.IntInput `pulumi:"intervalSecs"`
 	// The aggregation mode. One of `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`. Valid values are `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`.
@@ -56206,6 +58765,13 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateOutput) ToObs
 	}).(ObservabilityPipelineConfigProcessorGroupProcessorAggregatePtrOutput)
 }
 
+// Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateOutput) AggregationTiming() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorAggregate) *ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming {
+		return v.AggregationTiming
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput)
+}
+
 // The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
 func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateOutput) IntervalSecs() pulumi.IntOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorAggregate) int { return v.IntervalSecs }).(pulumi.IntOutput)
@@ -56240,6 +58806,16 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregatePtrOutput) El
 	}).(ObservabilityPipelineConfigProcessorGroupProcessorAggregateOutput)
 }
 
+// Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregatePtrOutput) AggregationTiming() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorAggregate) *ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming {
+		if v == nil {
+			return nil
+		}
+		return v.AggregationTiming
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput)
+}
+
 // The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
 func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregatePtrOutput) IntervalSecs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorAggregate) *int {
@@ -56257,6 +58833,166 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregatePtrOutput) Mo
 			return nil
 		}
 		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming struct {
+	// Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+	AllowedLatenessSecs *int `pulumi:"allowedLatenessSecs"`
+	// Determines whether metrics are assigned to aggregation windows based on when they are processed (`systemTime`) or their timestamps (`eventTime`). Valid values are `systemTime`, `eventTime`.
+	Type string `pulumi:"type"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs and ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs struct {
+	// Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+	AllowedLatenessSecs pulumi.IntPtrInput `pulumi:"allowedLatenessSecs"`
+	// Determines whether metrics are assigned to aggregation windows based on when they are processed (`systemTime`) or their timestamps (`eventTime`). Valid values are `systemTime`, `eventTime`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput).ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs, ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtr and ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrType ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtr(v *ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs) ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrType) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrType) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming) *ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput)
+}
+
+// Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput) AllowedLatenessSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming) *int {
+		return v.AllowedLatenessSecs
+	}).(pulumi.IntPtrOutput)
+}
+
+// Determines whether metrics are assigned to aggregation windows based on when they are processed (`systemTime`) or their timestamps (`eventTime`). Valid values are `systemTime`, `eventTime`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming) ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput)
+}
+
+// Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput) AllowedLatenessSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedLatenessSecs
+	}).(pulumi.IntPtrOutput)
+}
+
+// Determines whether metrics are assigned to aggregation windows based on when they are processed (`systemTime`) or their timestamps (`eventTime`). Valid values are `systemTime`, `eventTime`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -76981,7 +79717,9 @@ func (o OnCallTeamRoutingRulesRuleArrayOutput) Index(i pulumi.IntInput) OnCallTe
 }
 
 type OnCallTeamRoutingRulesRuleAction struct {
-	EscalationPolicy          *OnCallTeamRoutingRulesRuleActionEscalationPolicy          `pulumi:"escalationPolicy"`
+	EscalationPolicy *OnCallTeamRoutingRulesRuleActionEscalationPolicy `pulumi:"escalationPolicy"`
+	// Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+	RerouteToTeam             *OnCallTeamRoutingRulesRuleActionRerouteToTeam             `pulumi:"rerouteToTeam"`
 	SendSlackMessage          *OnCallTeamRoutingRulesRuleActionSendSlackMessage          `pulumi:"sendSlackMessage"`
 	SendTeamsMessage          *OnCallTeamRoutingRulesRuleActionSendTeamsMessage          `pulumi:"sendTeamsMessage"`
 	TriggerWorkflowAutomation *OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation `pulumi:"triggerWorkflowAutomation"`
@@ -76999,7 +79737,9 @@ type OnCallTeamRoutingRulesRuleActionInput interface {
 }
 
 type OnCallTeamRoutingRulesRuleActionArgs struct {
-	EscalationPolicy          OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput          `pulumi:"escalationPolicy"`
+	EscalationPolicy OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput `pulumi:"escalationPolicy"`
+	// Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+	RerouteToTeam             OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput             `pulumi:"rerouteToTeam"`
 	SendSlackMessage          OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput          `pulumi:"sendSlackMessage"`
 	SendTeamsMessage          OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput          `pulumi:"sendTeamsMessage"`
 	TriggerWorkflowAutomation OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrInput `pulumi:"triggerWorkflowAutomation"`
@@ -77060,6 +79800,13 @@ func (o OnCallTeamRoutingRulesRuleActionOutput) EscalationPolicy() OnCallTeamRou
 	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionEscalationPolicy {
 		return v.EscalationPolicy
 	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput)
+}
+
+// Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+func (o OnCallTeamRoutingRulesRuleActionOutput) RerouteToTeam() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionRerouteToTeam {
+		return v.RerouteToTeam
+	}).(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput)
 }
 
 func (o OnCallTeamRoutingRulesRuleActionOutput) SendSlackMessage() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
@@ -77580,6 +80327,143 @@ func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionA
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction {
 		return vs[0].([]OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)[vs[1].(int)]
 	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionRerouteToTeam struct {
+	// ID of the team to reroute the page to.
+	DestinationTeamId *string `pulumi:"destinationTeamId"`
+}
+
+// OnCallTeamRoutingRulesRuleActionRerouteToTeamInput is an input type that accepts OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs and OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionRerouteToTeamInput` via:
+//
+//	OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{...}
+type OnCallTeamRoutingRulesRuleActionRerouteToTeamInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput
+	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput
+}
+
+type OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs struct {
+	// ID of the team to reroute the page to.
+	DestinationTeamId pulumi.StringPtrInput `pulumi:"destinationTeamId"`
+}
+
+func (OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
+}
+
+func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput)
+}
+
+func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput).ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx)
+}
+
+// OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs, OnCallTeamRoutingRulesRuleActionRerouteToTeamPtr and OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput` via:
+//
+//	        OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{...}
+//
+//	or:
+//
+//	        nil
+type OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput
+	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput
+}
+
+type onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs
+
+func OnCallTeamRoutingRulesRuleActionRerouteToTeamPtr(v *OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput {
+	return (*onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType)(v)
+}
+
+func (*onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
+}
+
+func (i *onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Background())
+}
+
+func (i *onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return o.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Background())
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionRerouteToTeam) *OnCallTeamRoutingRulesRuleActionRerouteToTeam {
+		return &v
+	}).(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput)
+}
+
+// ID of the team to reroute the page to.
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) DestinationTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionRerouteToTeam) *string { return v.DestinationTeamId }).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) Elem() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionRerouteToTeam) OnCallTeamRoutingRulesRuleActionRerouteToTeam {
+		if v != nil {
+			return *v
+		}
+		var ret OnCallTeamRoutingRulesRuleActionRerouteToTeam
+		return ret
+	}).(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput)
+}
+
+// ID of the team to reroute the page to.
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) DestinationTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionRerouteToTeam) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationTeamId
+	}).(pulumi.StringPtrOutput)
 }
 
 type OnCallTeamRoutingRulesRuleActionSendSlackMessage struct {
@@ -79213,3073 +82097,9 @@ func (o OrganizationSettingsSettingsSamlPtrOutput) Enabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-type OrganizationSettingsSettingsSamlAutocreateUsersDomains struct {
-	// List of domains where the SAML automated user creation is enabled.
-	Domains []string `pulumi:"domains"`
-	// Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// OrganizationSettingsSettingsSamlAutocreateUsersDomainsInput is an input type that accepts OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs and OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput values.
-// You can construct a concrete instance of `OrganizationSettingsSettingsSamlAutocreateUsersDomainsInput` via:
-//
-//	OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs{...}
-type OrganizationSettingsSettingsSamlAutocreateUsersDomainsInput interface {
-	pulumi.Input
-
-	ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput
-	ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutputWithContext(context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput
-}
-
-type OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs struct {
-	// List of domains where the SAML automated user creation is enabled.
-	Domains pulumi.StringArrayInput `pulumi:"domains"`
-	// Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationSettingsSettingsSamlAutocreateUsersDomains)(nil)).Elem()
-}
-
-func (i OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput {
-	return i.ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutputWithContext(context.Background())
-}
-
-func (i OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput)
-}
-
-func (i OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
-	return i.ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(context.Background())
-}
-
-func (i OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput).ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(ctx)
-}
-
-// OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrInput is an input type that accepts OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs, OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtr and OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput values.
-// You can construct a concrete instance of `OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrInput` via:
-//
-//	        OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs{...}
-//
-//	or:
-//
-//	        nil
-type OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrInput interface {
-	pulumi.Input
-
-	ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput
-	ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput
-}
-
-type organizationSettingsSettingsSamlAutocreateUsersDomainsPtrType OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs
-
-func OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtr(v *OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrInput {
-	return (*organizationSettingsSettingsSamlAutocreateUsersDomainsPtrType)(v)
-}
-
-func (*organizationSettingsSettingsSamlAutocreateUsersDomainsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationSettingsSettingsSamlAutocreateUsersDomains)(nil)).Elem()
-}
-
-func (i *organizationSettingsSettingsSamlAutocreateUsersDomainsPtrType) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
-	return i.ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(context.Background())
-}
-
-func (i *organizationSettingsSettingsSamlAutocreateUsersDomainsPtrType) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput)
-}
-
-type OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput struct{ *pulumi.OutputState }
-
-func (OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationSettingsSettingsSamlAutocreateUsersDomains)(nil)).Elem()
-}
-
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
-	return o.ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(context.Background())
-}
-
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationSettingsSettingsSamlAutocreateUsersDomains) *OrganizationSettingsSettingsSamlAutocreateUsersDomains {
-		return &v
-	}).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput)
-}
-
-// List of domains where the SAML automated user creation is enabled.
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) Domains() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OrganizationSettingsSettingsSamlAutocreateUsersDomains) []string { return v.Domains }).(pulumi.StringArrayOutput)
-}
-
-// Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v OrganizationSettingsSettingsSamlAutocreateUsersDomains) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput struct{ *pulumi.OutputState }
-
-func (OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationSettingsSettingsSamlAutocreateUsersDomains)(nil)).Elem()
-}
-
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Elem() OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput {
-	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlAutocreateUsersDomains) OrganizationSettingsSettingsSamlAutocreateUsersDomains {
-		if v != nil {
-			return *v
-		}
-		var ret OrganizationSettingsSettingsSamlAutocreateUsersDomains
-		return ret
-	}).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput)
-}
-
-// List of domains where the SAML automated user creation is enabled.
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Domains() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlAutocreateUsersDomains) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Domains
-	}).(pulumi.StringArrayOutput)
-}
-
-// Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
-func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlAutocreateUsersDomains) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-type OrganizationSettingsSettingsSamlIdpInitiatedLogin struct {
-	// Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// OrganizationSettingsSettingsSamlIdpInitiatedLoginInput is an input type that accepts OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs and OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput values.
-// You can construct a concrete instance of `OrganizationSettingsSettingsSamlIdpInitiatedLoginInput` via:
-//
-//	OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs{...}
-type OrganizationSettingsSettingsSamlIdpInitiatedLoginInput interface {
-	pulumi.Input
-
-	ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput
-	ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutputWithContext(context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput
-}
-
-type OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs struct {
-	// Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationSettingsSettingsSamlIdpInitiatedLogin)(nil)).Elem()
-}
-
-func (i OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput {
-	return i.ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutputWithContext(context.Background())
-}
-
-func (i OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput)
-}
-
-func (i OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
-	return i.ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(context.Background())
-}
-
-func (i OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput).ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(ctx)
-}
-
-// OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput is an input type that accepts OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs, OrganizationSettingsSettingsSamlIdpInitiatedLoginPtr and OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput values.
-// You can construct a concrete instance of `OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput` via:
-//
-//	        OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs{...}
-//
-//	or:
-//
-//	        nil
-type OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput interface {
-	pulumi.Input
-
-	ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput
-	ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput
-}
-
-type organizationSettingsSettingsSamlIdpInitiatedLoginPtrType OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs
-
-func OrganizationSettingsSettingsSamlIdpInitiatedLoginPtr(v *OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput {
-	return (*organizationSettingsSettingsSamlIdpInitiatedLoginPtrType)(v)
-}
-
-func (*organizationSettingsSettingsSamlIdpInitiatedLoginPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationSettingsSettingsSamlIdpInitiatedLogin)(nil)).Elem()
-}
-
-func (i *organizationSettingsSettingsSamlIdpInitiatedLoginPtrType) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
-	return i.ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(context.Background())
-}
-
-func (i *organizationSettingsSettingsSamlIdpInitiatedLoginPtrType) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput)
-}
-
-type OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput struct{ *pulumi.OutputState }
-
-func (OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationSettingsSettingsSamlIdpInitiatedLogin)(nil)).Elem()
-}
-
-func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
-	return o.ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(context.Background())
-}
-
-func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationSettingsSettingsSamlIdpInitiatedLogin) *OrganizationSettingsSettingsSamlIdpInitiatedLogin {
-		return &v
-	}).(OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput)
-}
-
-// Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
-func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v OrganizationSettingsSettingsSamlIdpInitiatedLogin) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput struct{ *pulumi.OutputState }
-
-func (OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationSettingsSettingsSamlIdpInitiatedLogin)(nil)).Elem()
-}
-
-func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) Elem() OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput {
-	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlIdpInitiatedLogin) OrganizationSettingsSettingsSamlIdpInitiatedLogin {
-		if v != nil {
-			return *v
-		}
-		var ret OrganizationSettingsSettingsSamlIdpInitiatedLogin
-		return ret
-	}).(OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput)
-}
-
-// Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
-func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlIdpInitiatedLogin) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-type OrganizationSettingsSettingsSamlStrictMode struct {
-	// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// OrganizationSettingsSettingsSamlStrictModeInput is an input type that accepts OrganizationSettingsSettingsSamlStrictModeArgs and OrganizationSettingsSettingsSamlStrictModeOutput values.
-// You can construct a concrete instance of `OrganizationSettingsSettingsSamlStrictModeInput` via:
-//
-//	OrganizationSettingsSettingsSamlStrictModeArgs{...}
-type OrganizationSettingsSettingsSamlStrictModeInput interface {
-	pulumi.Input
-
-	ToOrganizationSettingsSettingsSamlStrictModeOutput() OrganizationSettingsSettingsSamlStrictModeOutput
-	ToOrganizationSettingsSettingsSamlStrictModeOutputWithContext(context.Context) OrganizationSettingsSettingsSamlStrictModeOutput
-}
-
-type OrganizationSettingsSettingsSamlStrictModeArgs struct {
-	// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (OrganizationSettingsSettingsSamlStrictModeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationSettingsSettingsSamlStrictMode)(nil)).Elem()
-}
-
-func (i OrganizationSettingsSettingsSamlStrictModeArgs) ToOrganizationSettingsSettingsSamlStrictModeOutput() OrganizationSettingsSettingsSamlStrictModeOutput {
-	return i.ToOrganizationSettingsSettingsSamlStrictModeOutputWithContext(context.Background())
-}
-
-func (i OrganizationSettingsSettingsSamlStrictModeArgs) ToOrganizationSettingsSettingsSamlStrictModeOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlStrictModeOutput)
-}
-
-func (i OrganizationSettingsSettingsSamlStrictModeArgs) ToOrganizationSettingsSettingsSamlStrictModePtrOutput() OrganizationSettingsSettingsSamlStrictModePtrOutput {
-	return i.ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(context.Background())
-}
-
-func (i OrganizationSettingsSettingsSamlStrictModeArgs) ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlStrictModeOutput).ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(ctx)
-}
-
-// OrganizationSettingsSettingsSamlStrictModePtrInput is an input type that accepts OrganizationSettingsSettingsSamlStrictModeArgs, OrganizationSettingsSettingsSamlStrictModePtr and OrganizationSettingsSettingsSamlStrictModePtrOutput values.
-// You can construct a concrete instance of `OrganizationSettingsSettingsSamlStrictModePtrInput` via:
-//
-//	        OrganizationSettingsSettingsSamlStrictModeArgs{...}
-//
-//	or:
-//
-//	        nil
-type OrganizationSettingsSettingsSamlStrictModePtrInput interface {
-	pulumi.Input
-
-	ToOrganizationSettingsSettingsSamlStrictModePtrOutput() OrganizationSettingsSettingsSamlStrictModePtrOutput
-	ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(context.Context) OrganizationSettingsSettingsSamlStrictModePtrOutput
-}
-
-type organizationSettingsSettingsSamlStrictModePtrType OrganizationSettingsSettingsSamlStrictModeArgs
-
-func OrganizationSettingsSettingsSamlStrictModePtr(v *OrganizationSettingsSettingsSamlStrictModeArgs) OrganizationSettingsSettingsSamlStrictModePtrInput {
-	return (*organizationSettingsSettingsSamlStrictModePtrType)(v)
-}
-
-func (*organizationSettingsSettingsSamlStrictModePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationSettingsSettingsSamlStrictMode)(nil)).Elem()
-}
-
-func (i *organizationSettingsSettingsSamlStrictModePtrType) ToOrganizationSettingsSettingsSamlStrictModePtrOutput() OrganizationSettingsSettingsSamlStrictModePtrOutput {
-	return i.ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(context.Background())
-}
-
-func (i *organizationSettingsSettingsSamlStrictModePtrType) ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlStrictModePtrOutput)
-}
-
-type OrganizationSettingsSettingsSamlStrictModeOutput struct{ *pulumi.OutputState }
-
-func (OrganizationSettingsSettingsSamlStrictModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationSettingsSettingsSamlStrictMode)(nil)).Elem()
-}
-
-func (o OrganizationSettingsSettingsSamlStrictModeOutput) ToOrganizationSettingsSettingsSamlStrictModeOutput() OrganizationSettingsSettingsSamlStrictModeOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlStrictModeOutput) ToOrganizationSettingsSettingsSamlStrictModeOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModeOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlStrictModeOutput) ToOrganizationSettingsSettingsSamlStrictModePtrOutput() OrganizationSettingsSettingsSamlStrictModePtrOutput {
-	return o.ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(context.Background())
-}
-
-func (o OrganizationSettingsSettingsSamlStrictModeOutput) ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationSettingsSettingsSamlStrictMode) *OrganizationSettingsSettingsSamlStrictMode {
-		return &v
-	}).(OrganizationSettingsSettingsSamlStrictModePtrOutput)
-}
-
-// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
-func (o OrganizationSettingsSettingsSamlStrictModeOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v OrganizationSettingsSettingsSamlStrictMode) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type OrganizationSettingsSettingsSamlStrictModePtrOutput struct{ *pulumi.OutputState }
-
-func (OrganizationSettingsSettingsSamlStrictModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationSettingsSettingsSamlStrictMode)(nil)).Elem()
-}
-
-func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) ToOrganizationSettingsSettingsSamlStrictModePtrOutput() OrganizationSettingsSettingsSamlStrictModePtrOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModePtrOutput {
-	return o
-}
-
-func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) Elem() OrganizationSettingsSettingsSamlStrictModeOutput {
-	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlStrictMode) OrganizationSettingsSettingsSamlStrictMode {
-		if v != nil {
-			return *v
-		}
-		var ret OrganizationSettingsSettingsSamlStrictMode
-		return ret
-	}).(OrganizationSettingsSettingsSamlStrictModeOutput)
-}
-
-// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
-func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlStrictMode) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-type PowerpackLayout struct {
-	// The height of the widget.
-	Height *int `pulumi:"height"`
-	// The width of the widget.
-	Width *int `pulumi:"width"`
-	// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
-	X *int `pulumi:"x"`
-	// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
-	Y *int `pulumi:"y"`
-}
-
-// PowerpackLayoutInput is an input type that accepts PowerpackLayoutArgs and PowerpackLayoutOutput values.
-// You can construct a concrete instance of `PowerpackLayoutInput` via:
-//
-//	PowerpackLayoutArgs{...}
-type PowerpackLayoutInput interface {
-	pulumi.Input
-
-	ToPowerpackLayoutOutput() PowerpackLayoutOutput
-	ToPowerpackLayoutOutputWithContext(context.Context) PowerpackLayoutOutput
-}
-
-type PowerpackLayoutArgs struct {
-	// The height of the widget.
-	Height pulumi.IntPtrInput `pulumi:"height"`
-	// The width of the widget.
-	Width pulumi.IntPtrInput `pulumi:"width"`
-	// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
-	X pulumi.IntPtrInput `pulumi:"x"`
-	// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
-	Y pulumi.IntPtrInput `pulumi:"y"`
-}
-
-func (PowerpackLayoutArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackLayout)(nil)).Elem()
-}
-
-func (i PowerpackLayoutArgs) ToPowerpackLayoutOutput() PowerpackLayoutOutput {
-	return i.ToPowerpackLayoutOutputWithContext(context.Background())
-}
-
-func (i PowerpackLayoutArgs) ToPowerpackLayoutOutputWithContext(ctx context.Context) PowerpackLayoutOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackLayoutOutput)
-}
-
-func (i PowerpackLayoutArgs) ToPowerpackLayoutPtrOutput() PowerpackLayoutPtrOutput {
-	return i.ToPowerpackLayoutPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackLayoutArgs) ToPowerpackLayoutPtrOutputWithContext(ctx context.Context) PowerpackLayoutPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackLayoutOutput).ToPowerpackLayoutPtrOutputWithContext(ctx)
-}
-
-// PowerpackLayoutPtrInput is an input type that accepts PowerpackLayoutArgs, PowerpackLayoutPtr and PowerpackLayoutPtrOutput values.
-// You can construct a concrete instance of `PowerpackLayoutPtrInput` via:
-//
-//	        PowerpackLayoutArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackLayoutPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackLayoutPtrOutput() PowerpackLayoutPtrOutput
-	ToPowerpackLayoutPtrOutputWithContext(context.Context) PowerpackLayoutPtrOutput
-}
-
-type powerpackLayoutPtrType PowerpackLayoutArgs
-
-func PowerpackLayoutPtr(v *PowerpackLayoutArgs) PowerpackLayoutPtrInput {
-	return (*powerpackLayoutPtrType)(v)
-}
-
-func (*powerpackLayoutPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackLayout)(nil)).Elem()
-}
-
-func (i *powerpackLayoutPtrType) ToPowerpackLayoutPtrOutput() PowerpackLayoutPtrOutput {
-	return i.ToPowerpackLayoutPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackLayoutPtrType) ToPowerpackLayoutPtrOutputWithContext(ctx context.Context) PowerpackLayoutPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackLayoutPtrOutput)
-}
-
-type PowerpackLayoutOutput struct{ *pulumi.OutputState }
-
-func (PowerpackLayoutOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackLayout)(nil)).Elem()
-}
-
-func (o PowerpackLayoutOutput) ToPowerpackLayoutOutput() PowerpackLayoutOutput {
-	return o
-}
-
-func (o PowerpackLayoutOutput) ToPowerpackLayoutOutputWithContext(ctx context.Context) PowerpackLayoutOutput {
-	return o
-}
-
-func (o PowerpackLayoutOutput) ToPowerpackLayoutPtrOutput() PowerpackLayoutPtrOutput {
-	return o.ToPowerpackLayoutPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackLayoutOutput) ToPowerpackLayoutPtrOutputWithContext(ctx context.Context) PowerpackLayoutPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackLayout) *PowerpackLayout {
-		return &v
-	}).(PowerpackLayoutPtrOutput)
-}
-
-// The height of the widget.
-func (o PowerpackLayoutOutput) Height() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackLayout) *int { return v.Height }).(pulumi.IntPtrOutput)
-}
-
-// The width of the widget.
-func (o PowerpackLayoutOutput) Width() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackLayout) *int { return v.Width }).(pulumi.IntPtrOutput)
-}
-
-// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
-func (o PowerpackLayoutOutput) X() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackLayout) *int { return v.X }).(pulumi.IntPtrOutput)
-}
-
-// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
-func (o PowerpackLayoutOutput) Y() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackLayout) *int { return v.Y }).(pulumi.IntPtrOutput)
-}
-
-type PowerpackLayoutPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackLayoutPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackLayout)(nil)).Elem()
-}
-
-func (o PowerpackLayoutPtrOutput) ToPowerpackLayoutPtrOutput() PowerpackLayoutPtrOutput {
-	return o
-}
-
-func (o PowerpackLayoutPtrOutput) ToPowerpackLayoutPtrOutputWithContext(ctx context.Context) PowerpackLayoutPtrOutput {
-	return o
-}
-
-func (o PowerpackLayoutPtrOutput) Elem() PowerpackLayoutOutput {
-	return o.ApplyT(func(v *PowerpackLayout) PowerpackLayout {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackLayout
-		return ret
-	}).(PowerpackLayoutOutput)
-}
-
-// The height of the widget.
-func (o PowerpackLayoutPtrOutput) Height() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackLayout) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Height
-	}).(pulumi.IntPtrOutput)
-}
-
-// The width of the widget.
-func (o PowerpackLayoutPtrOutput) Width() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackLayout) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Width
-	}).(pulumi.IntPtrOutput)
-}
-
-// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
-func (o PowerpackLayoutPtrOutput) X() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackLayout) *int {
-		if v == nil {
-			return nil
-		}
-		return v.X
-	}).(pulumi.IntPtrOutput)
-}
-
-// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
-func (o PowerpackLayoutPtrOutput) Y() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackLayout) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Y
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackTemplateVariable struct {
-	// One or many default values for powerpack template variables on load. If more than one default is specified, they will be unioned together with `OR`.
-	Defaults []string `pulumi:"defaults"`
-	// The name of the powerpack template variable.
-	Name string `pulumi:"name"`
-}
-
-// PowerpackTemplateVariableInput is an input type that accepts PowerpackTemplateVariableArgs and PowerpackTemplateVariableOutput values.
-// You can construct a concrete instance of `PowerpackTemplateVariableInput` via:
-//
-//	PowerpackTemplateVariableArgs{...}
-type PowerpackTemplateVariableInput interface {
-	pulumi.Input
-
-	ToPowerpackTemplateVariableOutput() PowerpackTemplateVariableOutput
-	ToPowerpackTemplateVariableOutputWithContext(context.Context) PowerpackTemplateVariableOutput
-}
-
-type PowerpackTemplateVariableArgs struct {
-	// One or many default values for powerpack template variables on load. If more than one default is specified, they will be unioned together with `OR`.
-	Defaults pulumi.StringArrayInput `pulumi:"defaults"`
-	// The name of the powerpack template variable.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (PowerpackTemplateVariableArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackTemplateVariable)(nil)).Elem()
-}
-
-func (i PowerpackTemplateVariableArgs) ToPowerpackTemplateVariableOutput() PowerpackTemplateVariableOutput {
-	return i.ToPowerpackTemplateVariableOutputWithContext(context.Background())
-}
-
-func (i PowerpackTemplateVariableArgs) ToPowerpackTemplateVariableOutputWithContext(ctx context.Context) PowerpackTemplateVariableOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackTemplateVariableOutput)
-}
-
-// PowerpackTemplateVariableArrayInput is an input type that accepts PowerpackTemplateVariableArray and PowerpackTemplateVariableArrayOutput values.
-// You can construct a concrete instance of `PowerpackTemplateVariableArrayInput` via:
-//
-//	PowerpackTemplateVariableArray{ PowerpackTemplateVariableArgs{...} }
-type PowerpackTemplateVariableArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackTemplateVariableArrayOutput() PowerpackTemplateVariableArrayOutput
-	ToPowerpackTemplateVariableArrayOutputWithContext(context.Context) PowerpackTemplateVariableArrayOutput
-}
-
-type PowerpackTemplateVariableArray []PowerpackTemplateVariableInput
-
-func (PowerpackTemplateVariableArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackTemplateVariable)(nil)).Elem()
-}
-
-func (i PowerpackTemplateVariableArray) ToPowerpackTemplateVariableArrayOutput() PowerpackTemplateVariableArrayOutput {
-	return i.ToPowerpackTemplateVariableArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackTemplateVariableArray) ToPowerpackTemplateVariableArrayOutputWithContext(ctx context.Context) PowerpackTemplateVariableArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackTemplateVariableArrayOutput)
-}
-
-type PowerpackTemplateVariableOutput struct{ *pulumi.OutputState }
-
-func (PowerpackTemplateVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackTemplateVariable)(nil)).Elem()
-}
-
-func (o PowerpackTemplateVariableOutput) ToPowerpackTemplateVariableOutput() PowerpackTemplateVariableOutput {
-	return o
-}
-
-func (o PowerpackTemplateVariableOutput) ToPowerpackTemplateVariableOutputWithContext(ctx context.Context) PowerpackTemplateVariableOutput {
-	return o
-}
-
-// One or many default values for powerpack template variables on load. If more than one default is specified, they will be unioned together with `OR`.
-func (o PowerpackTemplateVariableOutput) Defaults() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackTemplateVariable) []string { return v.Defaults }).(pulumi.StringArrayOutput)
-}
-
-// The name of the powerpack template variable.
-func (o PowerpackTemplateVariableOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackTemplateVariable) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type PowerpackTemplateVariableArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackTemplateVariableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackTemplateVariable)(nil)).Elem()
-}
-
-func (o PowerpackTemplateVariableArrayOutput) ToPowerpackTemplateVariableArrayOutput() PowerpackTemplateVariableArrayOutput {
-	return o
-}
-
-func (o PowerpackTemplateVariableArrayOutput) ToPowerpackTemplateVariableArrayOutputWithContext(ctx context.Context) PowerpackTemplateVariableArrayOutput {
-	return o
-}
-
-func (o PowerpackTemplateVariableArrayOutput) Index(i pulumi.IntInput) PowerpackTemplateVariableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackTemplateVariable {
-		return vs[0].([]PowerpackTemplateVariable)[vs[1].(int)]
-	}).(PowerpackTemplateVariableOutput)
-}
-
-type PowerpackV2Layout struct {
-	// The height of the widget.
-	Height *int `pulumi:"height"`
-	// The width of the widget.
-	Width *int `pulumi:"width"`
-	// The position of the widget on the x (horizontal) axis.
-	X *int `pulumi:"x"`
-	// The position of the widget on the y (vertical) axis.
-	Y *int `pulumi:"y"`
-}
-
-// PowerpackV2LayoutInput is an input type that accepts PowerpackV2LayoutArgs and PowerpackV2LayoutOutput values.
-// You can construct a concrete instance of `PowerpackV2LayoutInput` via:
-//
-//	PowerpackV2LayoutArgs{...}
-type PowerpackV2LayoutInput interface {
-	pulumi.Input
-
-	ToPowerpackV2LayoutOutput() PowerpackV2LayoutOutput
-	ToPowerpackV2LayoutOutputWithContext(context.Context) PowerpackV2LayoutOutput
-}
-
-type PowerpackV2LayoutArgs struct {
-	// The height of the widget.
-	Height pulumi.IntPtrInput `pulumi:"height"`
-	// The width of the widget.
-	Width pulumi.IntPtrInput `pulumi:"width"`
-	// The position of the widget on the x (horizontal) axis.
-	X pulumi.IntPtrInput `pulumi:"x"`
-	// The position of the widget on the y (vertical) axis.
-	Y pulumi.IntPtrInput `pulumi:"y"`
-}
-
-func (PowerpackV2LayoutArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2Layout)(nil)).Elem()
-}
-
-func (i PowerpackV2LayoutArgs) ToPowerpackV2LayoutOutput() PowerpackV2LayoutOutput {
-	return i.ToPowerpackV2LayoutOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2LayoutArgs) ToPowerpackV2LayoutOutputWithContext(ctx context.Context) PowerpackV2LayoutOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2LayoutOutput)
-}
-
-func (i PowerpackV2LayoutArgs) ToPowerpackV2LayoutPtrOutput() PowerpackV2LayoutPtrOutput {
-	return i.ToPowerpackV2LayoutPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2LayoutArgs) ToPowerpackV2LayoutPtrOutputWithContext(ctx context.Context) PowerpackV2LayoutPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2LayoutOutput).ToPowerpackV2LayoutPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2LayoutPtrInput is an input type that accepts PowerpackV2LayoutArgs, PowerpackV2LayoutPtr and PowerpackV2LayoutPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2LayoutPtrInput` via:
-//
-//	        PowerpackV2LayoutArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2LayoutPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2LayoutPtrOutput() PowerpackV2LayoutPtrOutput
-	ToPowerpackV2LayoutPtrOutputWithContext(context.Context) PowerpackV2LayoutPtrOutput
-}
-
-type powerpackV2LayoutPtrType PowerpackV2LayoutArgs
-
-func PowerpackV2LayoutPtr(v *PowerpackV2LayoutArgs) PowerpackV2LayoutPtrInput {
-	return (*powerpackV2LayoutPtrType)(v)
-}
-
-func (*powerpackV2LayoutPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2Layout)(nil)).Elem()
-}
-
-func (i *powerpackV2LayoutPtrType) ToPowerpackV2LayoutPtrOutput() PowerpackV2LayoutPtrOutput {
-	return i.ToPowerpackV2LayoutPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2LayoutPtrType) ToPowerpackV2LayoutPtrOutputWithContext(ctx context.Context) PowerpackV2LayoutPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2LayoutPtrOutput)
-}
-
-type PowerpackV2LayoutOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2LayoutOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2Layout)(nil)).Elem()
-}
-
-func (o PowerpackV2LayoutOutput) ToPowerpackV2LayoutOutput() PowerpackV2LayoutOutput {
-	return o
-}
-
-func (o PowerpackV2LayoutOutput) ToPowerpackV2LayoutOutputWithContext(ctx context.Context) PowerpackV2LayoutOutput {
-	return o
-}
-
-func (o PowerpackV2LayoutOutput) ToPowerpackV2LayoutPtrOutput() PowerpackV2LayoutPtrOutput {
-	return o.ToPowerpackV2LayoutPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2LayoutOutput) ToPowerpackV2LayoutPtrOutputWithContext(ctx context.Context) PowerpackV2LayoutPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2Layout) *PowerpackV2Layout {
-		return &v
-	}).(PowerpackV2LayoutPtrOutput)
-}
-
-// The height of the widget.
-func (o PowerpackV2LayoutOutput) Height() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Layout) *int { return v.Height }).(pulumi.IntPtrOutput)
-}
-
-// The width of the widget.
-func (o PowerpackV2LayoutOutput) Width() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Layout) *int { return v.Width }).(pulumi.IntPtrOutput)
-}
-
-// The position of the widget on the x (horizontal) axis.
-func (o PowerpackV2LayoutOutput) X() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Layout) *int { return v.X }).(pulumi.IntPtrOutput)
-}
-
-// The position of the widget on the y (vertical) axis.
-func (o PowerpackV2LayoutOutput) Y() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Layout) *int { return v.Y }).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2LayoutPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2LayoutPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2Layout)(nil)).Elem()
-}
-
-func (o PowerpackV2LayoutPtrOutput) ToPowerpackV2LayoutPtrOutput() PowerpackV2LayoutPtrOutput {
-	return o
-}
-
-func (o PowerpackV2LayoutPtrOutput) ToPowerpackV2LayoutPtrOutputWithContext(ctx context.Context) PowerpackV2LayoutPtrOutput {
-	return o
-}
-
-func (o PowerpackV2LayoutPtrOutput) Elem() PowerpackV2LayoutOutput {
-	return o.ApplyT(func(v *PowerpackV2Layout) PowerpackV2Layout {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2Layout
-		return ret
-	}).(PowerpackV2LayoutOutput)
-}
-
-// The height of the widget.
-func (o PowerpackV2LayoutPtrOutput) Height() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2Layout) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Height
-	}).(pulumi.IntPtrOutput)
-}
-
-// The width of the widget.
-func (o PowerpackV2LayoutPtrOutput) Width() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2Layout) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Width
-	}).(pulumi.IntPtrOutput)
-}
-
-// The position of the widget on the x (horizontal) axis.
-func (o PowerpackV2LayoutPtrOutput) X() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2Layout) *int {
-		if v == nil {
-			return nil
-		}
-		return v.X
-	}).(pulumi.IntPtrOutput)
-}
-
-// The position of the widget on the y (vertical) axis.
-func (o PowerpackV2LayoutPtrOutput) Y() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2Layout) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Y
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2TemplateVariable struct {
-	// One or many default values for powerpack template variables on load.
-	Defaults []string `pulumi:"defaults"`
-	// The name of the powerpack template variable.
-	Name string `pulumi:"name"`
-}
-
-// PowerpackV2TemplateVariableInput is an input type that accepts PowerpackV2TemplateVariableArgs and PowerpackV2TemplateVariableOutput values.
-// You can construct a concrete instance of `PowerpackV2TemplateVariableInput` via:
-//
-//	PowerpackV2TemplateVariableArgs{...}
-type PowerpackV2TemplateVariableInput interface {
-	pulumi.Input
-
-	ToPowerpackV2TemplateVariableOutput() PowerpackV2TemplateVariableOutput
-	ToPowerpackV2TemplateVariableOutputWithContext(context.Context) PowerpackV2TemplateVariableOutput
-}
-
-type PowerpackV2TemplateVariableArgs struct {
-	// One or many default values for powerpack template variables on load.
-	Defaults pulumi.StringArrayInput `pulumi:"defaults"`
-	// The name of the powerpack template variable.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (PowerpackV2TemplateVariableArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2TemplateVariable)(nil)).Elem()
-}
-
-func (i PowerpackV2TemplateVariableArgs) ToPowerpackV2TemplateVariableOutput() PowerpackV2TemplateVariableOutput {
-	return i.ToPowerpackV2TemplateVariableOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2TemplateVariableArgs) ToPowerpackV2TemplateVariableOutputWithContext(ctx context.Context) PowerpackV2TemplateVariableOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2TemplateVariableOutput)
-}
-
-// PowerpackV2TemplateVariableArrayInput is an input type that accepts PowerpackV2TemplateVariableArray and PowerpackV2TemplateVariableArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2TemplateVariableArrayInput` via:
-//
-//	PowerpackV2TemplateVariableArray{ PowerpackV2TemplateVariableArgs{...} }
-type PowerpackV2TemplateVariableArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2TemplateVariableArrayOutput() PowerpackV2TemplateVariableArrayOutput
-	ToPowerpackV2TemplateVariableArrayOutputWithContext(context.Context) PowerpackV2TemplateVariableArrayOutput
-}
-
-type PowerpackV2TemplateVariableArray []PowerpackV2TemplateVariableInput
-
-func (PowerpackV2TemplateVariableArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2TemplateVariable)(nil)).Elem()
-}
-
-func (i PowerpackV2TemplateVariableArray) ToPowerpackV2TemplateVariableArrayOutput() PowerpackV2TemplateVariableArrayOutput {
-	return i.ToPowerpackV2TemplateVariableArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2TemplateVariableArray) ToPowerpackV2TemplateVariableArrayOutputWithContext(ctx context.Context) PowerpackV2TemplateVariableArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2TemplateVariableArrayOutput)
-}
-
-type PowerpackV2TemplateVariableOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2TemplateVariableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2TemplateVariable)(nil)).Elem()
-}
-
-func (o PowerpackV2TemplateVariableOutput) ToPowerpackV2TemplateVariableOutput() PowerpackV2TemplateVariableOutput {
-	return o
-}
-
-func (o PowerpackV2TemplateVariableOutput) ToPowerpackV2TemplateVariableOutputWithContext(ctx context.Context) PowerpackV2TemplateVariableOutput {
-	return o
-}
-
-// One or many default values for powerpack template variables on load.
-func (o PowerpackV2TemplateVariableOutput) Defaults() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2TemplateVariable) []string { return v.Defaults }).(pulumi.StringArrayOutput)
-}
-
-// The name of the powerpack template variable.
-func (o PowerpackV2TemplateVariableOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2TemplateVariable) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type PowerpackV2TemplateVariableArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2TemplateVariableArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2TemplateVariable)(nil)).Elem()
-}
-
-func (o PowerpackV2TemplateVariableArrayOutput) ToPowerpackV2TemplateVariableArrayOutput() PowerpackV2TemplateVariableArrayOutput {
-	return o
-}
-
-func (o PowerpackV2TemplateVariableArrayOutput) ToPowerpackV2TemplateVariableArrayOutputWithContext(ctx context.Context) PowerpackV2TemplateVariableArrayOutput {
-	return o
-}
-
-func (o PowerpackV2TemplateVariableArrayOutput) Index(i pulumi.IntInput) PowerpackV2TemplateVariableOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2TemplateVariable {
-		return vs[0].([]PowerpackV2TemplateVariable)[vs[1].(int)]
-	}).(PowerpackV2TemplateVariableOutput)
-}
-
-type PowerpackV2Widget struct {
-	// The definition for a Alert Graph widget.
-	AlertGraphDefinition *PowerpackV2WidgetAlertGraphDefinition `pulumi:"alertGraphDefinition"`
-	// The definition for a Alert Value widget.
-	AlertValueDefinition *PowerpackV2WidgetAlertValueDefinition `pulumi:"alertValueDefinition"`
-	// The definition for a Bar Chart widget.
-	BarChartDefinition *PowerpackV2WidgetBarChartDefinition `pulumi:"barChartDefinition"`
-	// The definition for a Change widget.
-	ChangeDefinition *PowerpackV2WidgetChangeDefinition `pulumi:"changeDefinition"`
-	// The definition for a Check Status widget.
-	CheckStatusDefinition *PowerpackV2WidgetCheckStatusDefinition `pulumi:"checkStatusDefinition"`
-	// The definition for a Cohort retention-grid widget.
-	CohortDefinition *PowerpackV2WidgetCohortDefinition `pulumi:"cohortDefinition"`
-	// The definition for a Distribution widget.
-	DistributionDefinition *PowerpackV2WidgetDistributionDefinition `pulumi:"distributionDefinition"`
-	// The definition for an App Builder embedded app widget.
-	EmbeddedAppDefinition *PowerpackV2WidgetEmbeddedAppDefinition `pulumi:"embeddedAppDefinition"`
-	// The definition for a Event Stream widget.
-	EventStreamDefinition *PowerpackV2WidgetEventStreamDefinition `pulumi:"eventStreamDefinition"`
-	// The definition for a Event Timeline widget.
-	EventTimelineDefinition *PowerpackV2WidgetEventTimelineDefinition `pulumi:"eventTimelineDefinition"`
-	// The definition for a Free Text widget.
-	FreeTextDefinition *PowerpackV2WidgetFreeTextDefinition `pulumi:"freeTextDefinition"`
-	// The definition for a Funnel widget.
-	FunnelDefinition *PowerpackV2WidgetFunnelDefinition `pulumi:"funnelDefinition"`
-	// The definition for a Geomap widget.
-	GeomapDefinition *PowerpackV2WidgetGeomapDefinition `pulumi:"geomapDefinition"`
-	// The definition for a Group widget.
-	GroupDefinition *PowerpackV2WidgetGroupDefinition `pulumi:"groupDefinition"`
-	// The definition for a Heatmap widget.
-	HeatmapDefinition *PowerpackV2WidgetHeatmapDefinition `pulumi:"heatmapDefinition"`
-	// The definition for a Hostmap widget.
-	HostmapDefinition *PowerpackV2WidgetHostmapDefinition `pulumi:"hostmapDefinition"`
-	// The ID of the widget.
-	Id *int `pulumi:"id"`
-	// The definition for an Iframe widget.
-	IframeDefinition *PowerpackV2WidgetIframeDefinition `pulumi:"iframeDefinition"`
-	// The definition for an Image widget
-	ImageDefinition *PowerpackV2WidgetImageDefinition `pulumi:"imageDefinition"`
-	// The definition for a List Stream widget.
-	ListStreamDefinition *PowerpackV2WidgetListStreamDefinition `pulumi:"listStreamDefinition"`
-	// The definition for an Log Stream widget.
-	LogStreamDefinition *PowerpackV2WidgetLogStreamDefinition `pulumi:"logStreamDefinition"`
-	// The definition for an Manage Status widget.
-	ManageStatusDefinition *PowerpackV2WidgetManageStatusDefinition `pulumi:"manageStatusDefinition"`
-	// The definition for a Note widget.
-	NoteDefinition *PowerpackV2WidgetNoteDefinition `pulumi:"noteDefinition"`
-	// The definition for a Point Plot widget.
-	PointPlotDefinition *PowerpackV2WidgetPointPlotDefinition `pulumi:"pointPlotDefinition"`
-	// The definition for a Product Analytics user journey funnel widget.
-	ProductAnalyticsFunnelDefinition *PowerpackV2WidgetProductAnalyticsFunnelDefinition `pulumi:"productAnalyticsFunnelDefinition"`
-	// The definition for a Query Table widget.
-	QueryTableDefinition *PowerpackV2WidgetQueryTableDefinition `pulumi:"queryTableDefinition"`
-	// The definition for a Query Value widget.
-	QueryValueDefinition *PowerpackV2WidgetQueryValueDefinition `pulumi:"queryValueDefinition"`
-	// The definition for a Retention Curve widget.
-	RetentionCurveDefinition *PowerpackV2WidgetRetentionCurveDefinition `pulumi:"retentionCurveDefinition"`
-	// The definition for a Run Workflow widget.
-	RunWorkflowDefinition *PowerpackV2WidgetRunWorkflowDefinition `pulumi:"runWorkflowDefinition"`
-	// The definition for a Sankey diagram widget.
-	SankeyDefinition *PowerpackV2WidgetSankeyDefinition `pulumi:"sankeyDefinition"`
-	// The definition for a Scatterplot widget.
-	ScatterplotDefinition *PowerpackV2WidgetScatterplotDefinition `pulumi:"scatterplotDefinition"`
-	// The definition for a Service Level Objective widget.
-	ServiceLevelObjectiveDefinition *PowerpackV2WidgetServiceLevelObjectiveDefinition `pulumi:"serviceLevelObjectiveDefinition"`
-	// The definition for a Service Map widget.
-	ServicemapDefinition *PowerpackV2WidgetServicemapDefinition `pulumi:"servicemapDefinition"`
-	// The definition for an SLO (Service Level Objective) List widget.
-	SloListDefinition *PowerpackV2WidgetSloListDefinition `pulumi:"sloListDefinition"`
-	// The definition for a Sunburst widget.
-	SunburstDefinition *PowerpackV2WidgetSunburstDefinition `pulumi:"sunburstDefinition"`
-	// The definition for a Timeseries widget.
-	TimeseriesDefinition *PowerpackV2WidgetTimeseriesDefinition `pulumi:"timeseriesDefinition"`
-	// The definition for a Toplist widget.
-	ToplistDefinition *PowerpackV2WidgetToplistDefinition `pulumi:"toplistDefinition"`
-	// The definition for a Topology Map widget.
-	TopologyMapDefinition *PowerpackV2WidgetTopologyMapDefinition `pulumi:"topologyMapDefinition"`
-	// The definition for a Trace Service widget.
-	TraceServiceDefinition *PowerpackV2WidgetTraceServiceDefinition `pulumi:"traceServiceDefinition"`
-	// The definition for a Treemap widget.
-	TreemapDefinition *PowerpackV2WidgetTreemapDefinition `pulumi:"treemapDefinition"`
-	// The layout of the widget on a 'free' dashboard.
-	WidgetLayout *PowerpackV2WidgetWidgetLayout `pulumi:"widgetLayout"`
-	// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
-	WildcardDefinition *PowerpackV2WidgetWildcardDefinition `pulumi:"wildcardDefinition"`
-}
-
-// PowerpackV2WidgetInput is an input type that accepts PowerpackV2WidgetArgs and PowerpackV2WidgetOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetInput` via:
-//
-//	PowerpackV2WidgetArgs{...}
-type PowerpackV2WidgetInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetOutput() PowerpackV2WidgetOutput
-	ToPowerpackV2WidgetOutputWithContext(context.Context) PowerpackV2WidgetOutput
-}
-
-type PowerpackV2WidgetArgs struct {
-	// The definition for a Alert Graph widget.
-	AlertGraphDefinition PowerpackV2WidgetAlertGraphDefinitionPtrInput `pulumi:"alertGraphDefinition"`
-	// The definition for a Alert Value widget.
-	AlertValueDefinition PowerpackV2WidgetAlertValueDefinitionPtrInput `pulumi:"alertValueDefinition"`
-	// The definition for a Bar Chart widget.
-	BarChartDefinition PowerpackV2WidgetBarChartDefinitionPtrInput `pulumi:"barChartDefinition"`
-	// The definition for a Change widget.
-	ChangeDefinition PowerpackV2WidgetChangeDefinitionPtrInput `pulumi:"changeDefinition"`
-	// The definition for a Check Status widget.
-	CheckStatusDefinition PowerpackV2WidgetCheckStatusDefinitionPtrInput `pulumi:"checkStatusDefinition"`
-	// The definition for a Cohort retention-grid widget.
-	CohortDefinition PowerpackV2WidgetCohortDefinitionPtrInput `pulumi:"cohortDefinition"`
-	// The definition for a Distribution widget.
-	DistributionDefinition PowerpackV2WidgetDistributionDefinitionPtrInput `pulumi:"distributionDefinition"`
-	// The definition for an App Builder embedded app widget.
-	EmbeddedAppDefinition PowerpackV2WidgetEmbeddedAppDefinitionPtrInput `pulumi:"embeddedAppDefinition"`
-	// The definition for a Event Stream widget.
-	EventStreamDefinition PowerpackV2WidgetEventStreamDefinitionPtrInput `pulumi:"eventStreamDefinition"`
-	// The definition for a Event Timeline widget.
-	EventTimelineDefinition PowerpackV2WidgetEventTimelineDefinitionPtrInput `pulumi:"eventTimelineDefinition"`
-	// The definition for a Free Text widget.
-	FreeTextDefinition PowerpackV2WidgetFreeTextDefinitionPtrInput `pulumi:"freeTextDefinition"`
-	// The definition for a Funnel widget.
-	FunnelDefinition PowerpackV2WidgetFunnelDefinitionPtrInput `pulumi:"funnelDefinition"`
-	// The definition for a Geomap widget.
-	GeomapDefinition PowerpackV2WidgetGeomapDefinitionPtrInput `pulumi:"geomapDefinition"`
-	// The definition for a Group widget.
-	GroupDefinition PowerpackV2WidgetGroupDefinitionPtrInput `pulumi:"groupDefinition"`
-	// The definition for a Heatmap widget.
-	HeatmapDefinition PowerpackV2WidgetHeatmapDefinitionPtrInput `pulumi:"heatmapDefinition"`
-	// The definition for a Hostmap widget.
-	HostmapDefinition PowerpackV2WidgetHostmapDefinitionPtrInput `pulumi:"hostmapDefinition"`
-	// The ID of the widget.
-	Id pulumi.IntPtrInput `pulumi:"id"`
-	// The definition for an Iframe widget.
-	IframeDefinition PowerpackV2WidgetIframeDefinitionPtrInput `pulumi:"iframeDefinition"`
-	// The definition for an Image widget
-	ImageDefinition PowerpackV2WidgetImageDefinitionPtrInput `pulumi:"imageDefinition"`
-	// The definition for a List Stream widget.
-	ListStreamDefinition PowerpackV2WidgetListStreamDefinitionPtrInput `pulumi:"listStreamDefinition"`
-	// The definition for an Log Stream widget.
-	LogStreamDefinition PowerpackV2WidgetLogStreamDefinitionPtrInput `pulumi:"logStreamDefinition"`
-	// The definition for an Manage Status widget.
-	ManageStatusDefinition PowerpackV2WidgetManageStatusDefinitionPtrInput `pulumi:"manageStatusDefinition"`
-	// The definition for a Note widget.
-	NoteDefinition PowerpackV2WidgetNoteDefinitionPtrInput `pulumi:"noteDefinition"`
-	// The definition for a Point Plot widget.
-	PointPlotDefinition PowerpackV2WidgetPointPlotDefinitionPtrInput `pulumi:"pointPlotDefinition"`
-	// The definition for a Product Analytics user journey funnel widget.
-	ProductAnalyticsFunnelDefinition PowerpackV2WidgetProductAnalyticsFunnelDefinitionPtrInput `pulumi:"productAnalyticsFunnelDefinition"`
-	// The definition for a Query Table widget.
-	QueryTableDefinition PowerpackV2WidgetQueryTableDefinitionPtrInput `pulumi:"queryTableDefinition"`
-	// The definition for a Query Value widget.
-	QueryValueDefinition PowerpackV2WidgetQueryValueDefinitionPtrInput `pulumi:"queryValueDefinition"`
-	// The definition for a Retention Curve widget.
-	RetentionCurveDefinition PowerpackV2WidgetRetentionCurveDefinitionPtrInput `pulumi:"retentionCurveDefinition"`
-	// The definition for a Run Workflow widget.
-	RunWorkflowDefinition PowerpackV2WidgetRunWorkflowDefinitionPtrInput `pulumi:"runWorkflowDefinition"`
-	// The definition for a Sankey diagram widget.
-	SankeyDefinition PowerpackV2WidgetSankeyDefinitionPtrInput `pulumi:"sankeyDefinition"`
-	// The definition for a Scatterplot widget.
-	ScatterplotDefinition PowerpackV2WidgetScatterplotDefinitionPtrInput `pulumi:"scatterplotDefinition"`
-	// The definition for a Service Level Objective widget.
-	ServiceLevelObjectiveDefinition PowerpackV2WidgetServiceLevelObjectiveDefinitionPtrInput `pulumi:"serviceLevelObjectiveDefinition"`
-	// The definition for a Service Map widget.
-	ServicemapDefinition PowerpackV2WidgetServicemapDefinitionPtrInput `pulumi:"servicemapDefinition"`
-	// The definition for an SLO (Service Level Objective) List widget.
-	SloListDefinition PowerpackV2WidgetSloListDefinitionPtrInput `pulumi:"sloListDefinition"`
-	// The definition for a Sunburst widget.
-	SunburstDefinition PowerpackV2WidgetSunburstDefinitionPtrInput `pulumi:"sunburstDefinition"`
-	// The definition for a Timeseries widget.
-	TimeseriesDefinition PowerpackV2WidgetTimeseriesDefinitionPtrInput `pulumi:"timeseriesDefinition"`
-	// The definition for a Toplist widget.
-	ToplistDefinition PowerpackV2WidgetToplistDefinitionPtrInput `pulumi:"toplistDefinition"`
-	// The definition for a Topology Map widget.
-	TopologyMapDefinition PowerpackV2WidgetTopologyMapDefinitionPtrInput `pulumi:"topologyMapDefinition"`
-	// The definition for a Trace Service widget.
-	TraceServiceDefinition PowerpackV2WidgetTraceServiceDefinitionPtrInput `pulumi:"traceServiceDefinition"`
-	// The definition for a Treemap widget.
-	TreemapDefinition PowerpackV2WidgetTreemapDefinitionPtrInput `pulumi:"treemapDefinition"`
-	// The layout of the widget on a 'free' dashboard.
-	WidgetLayout PowerpackV2WidgetWidgetLayoutPtrInput `pulumi:"widgetLayout"`
-	// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
-	WildcardDefinition PowerpackV2WidgetWildcardDefinitionPtrInput `pulumi:"wildcardDefinition"`
-}
-
-func (PowerpackV2WidgetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2Widget)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetArgs) ToPowerpackV2WidgetOutput() PowerpackV2WidgetOutput {
-	return i.ToPowerpackV2WidgetOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetArgs) ToPowerpackV2WidgetOutputWithContext(ctx context.Context) PowerpackV2WidgetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetOutput)
-}
-
-// PowerpackV2WidgetArrayInput is an input type that accepts PowerpackV2WidgetArray and PowerpackV2WidgetArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetArrayInput` via:
-//
-//	PowerpackV2WidgetArray{ PowerpackV2WidgetArgs{...} }
-type PowerpackV2WidgetArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetArrayOutput() PowerpackV2WidgetArrayOutput
-	ToPowerpackV2WidgetArrayOutputWithContext(context.Context) PowerpackV2WidgetArrayOutput
-}
-
-type PowerpackV2WidgetArray []PowerpackV2WidgetInput
-
-func (PowerpackV2WidgetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2Widget)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetArray) ToPowerpackV2WidgetArrayOutput() PowerpackV2WidgetArrayOutput {
-	return i.ToPowerpackV2WidgetArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetArray) ToPowerpackV2WidgetArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetArrayOutput)
-}
-
-type PowerpackV2WidgetOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2Widget)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetOutput) ToPowerpackV2WidgetOutput() PowerpackV2WidgetOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetOutput) ToPowerpackV2WidgetOutputWithContext(ctx context.Context) PowerpackV2WidgetOutput {
-	return o
-}
-
-// The definition for a Alert Graph widget.
-func (o PowerpackV2WidgetOutput) AlertGraphDefinition() PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetAlertGraphDefinition { return v.AlertGraphDefinition }).(PowerpackV2WidgetAlertGraphDefinitionPtrOutput)
-}
-
-// The definition for a Alert Value widget.
-func (o PowerpackV2WidgetOutput) AlertValueDefinition() PowerpackV2WidgetAlertValueDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetAlertValueDefinition { return v.AlertValueDefinition }).(PowerpackV2WidgetAlertValueDefinitionPtrOutput)
-}
-
-// The definition for a Bar Chart widget.
-func (o PowerpackV2WidgetOutput) BarChartDefinition() PowerpackV2WidgetBarChartDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetBarChartDefinition { return v.BarChartDefinition }).(PowerpackV2WidgetBarChartDefinitionPtrOutput)
-}
-
-// The definition for a Change widget.
-func (o PowerpackV2WidgetOutput) ChangeDefinition() PowerpackV2WidgetChangeDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetChangeDefinition { return v.ChangeDefinition }).(PowerpackV2WidgetChangeDefinitionPtrOutput)
-}
-
-// The definition for a Check Status widget.
-func (o PowerpackV2WidgetOutput) CheckStatusDefinition() PowerpackV2WidgetCheckStatusDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetCheckStatusDefinition { return v.CheckStatusDefinition }).(PowerpackV2WidgetCheckStatusDefinitionPtrOutput)
-}
-
-// The definition for a Cohort retention-grid widget.
-func (o PowerpackV2WidgetOutput) CohortDefinition() PowerpackV2WidgetCohortDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetCohortDefinition { return v.CohortDefinition }).(PowerpackV2WidgetCohortDefinitionPtrOutput)
-}
-
-// The definition for a Distribution widget.
-func (o PowerpackV2WidgetOutput) DistributionDefinition() PowerpackV2WidgetDistributionDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetDistributionDefinition { return v.DistributionDefinition }).(PowerpackV2WidgetDistributionDefinitionPtrOutput)
-}
-
-// The definition for an App Builder embedded app widget.
-func (o PowerpackV2WidgetOutput) EmbeddedAppDefinition() PowerpackV2WidgetEmbeddedAppDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetEmbeddedAppDefinition { return v.EmbeddedAppDefinition }).(PowerpackV2WidgetEmbeddedAppDefinitionPtrOutput)
-}
-
-// The definition for a Event Stream widget.
-func (o PowerpackV2WidgetOutput) EventStreamDefinition() PowerpackV2WidgetEventStreamDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetEventStreamDefinition { return v.EventStreamDefinition }).(PowerpackV2WidgetEventStreamDefinitionPtrOutput)
-}
-
-// The definition for a Event Timeline widget.
-func (o PowerpackV2WidgetOutput) EventTimelineDefinition() PowerpackV2WidgetEventTimelineDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetEventTimelineDefinition { return v.EventTimelineDefinition }).(PowerpackV2WidgetEventTimelineDefinitionPtrOutput)
-}
-
-// The definition for a Free Text widget.
-func (o PowerpackV2WidgetOutput) FreeTextDefinition() PowerpackV2WidgetFreeTextDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetFreeTextDefinition { return v.FreeTextDefinition }).(PowerpackV2WidgetFreeTextDefinitionPtrOutput)
-}
-
-// The definition for a Funnel widget.
-func (o PowerpackV2WidgetOutput) FunnelDefinition() PowerpackV2WidgetFunnelDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetFunnelDefinition { return v.FunnelDefinition }).(PowerpackV2WidgetFunnelDefinitionPtrOutput)
-}
-
-// The definition for a Geomap widget.
-func (o PowerpackV2WidgetOutput) GeomapDefinition() PowerpackV2WidgetGeomapDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetGeomapDefinition { return v.GeomapDefinition }).(PowerpackV2WidgetGeomapDefinitionPtrOutput)
-}
-
-// The definition for a Group widget.
-func (o PowerpackV2WidgetOutput) GroupDefinition() PowerpackV2WidgetGroupDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetGroupDefinition { return v.GroupDefinition }).(PowerpackV2WidgetGroupDefinitionPtrOutput)
-}
-
-// The definition for a Heatmap widget.
-func (o PowerpackV2WidgetOutput) HeatmapDefinition() PowerpackV2WidgetHeatmapDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetHeatmapDefinition { return v.HeatmapDefinition }).(PowerpackV2WidgetHeatmapDefinitionPtrOutput)
-}
-
-// The definition for a Hostmap widget.
-func (o PowerpackV2WidgetOutput) HostmapDefinition() PowerpackV2WidgetHostmapDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetHostmapDefinition { return v.HostmapDefinition }).(PowerpackV2WidgetHostmapDefinitionPtrOutput)
-}
-
-// The ID of the widget.
-func (o PowerpackV2WidgetOutput) Id() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *int { return v.Id }).(pulumi.IntPtrOutput)
-}
-
-// The definition for an Iframe widget.
-func (o PowerpackV2WidgetOutput) IframeDefinition() PowerpackV2WidgetIframeDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetIframeDefinition { return v.IframeDefinition }).(PowerpackV2WidgetIframeDefinitionPtrOutput)
-}
-
-// The definition for an Image widget
-func (o PowerpackV2WidgetOutput) ImageDefinition() PowerpackV2WidgetImageDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetImageDefinition { return v.ImageDefinition }).(PowerpackV2WidgetImageDefinitionPtrOutput)
-}
-
-// The definition for a List Stream widget.
-func (o PowerpackV2WidgetOutput) ListStreamDefinition() PowerpackV2WidgetListStreamDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetListStreamDefinition { return v.ListStreamDefinition }).(PowerpackV2WidgetListStreamDefinitionPtrOutput)
-}
-
-// The definition for an Log Stream widget.
-func (o PowerpackV2WidgetOutput) LogStreamDefinition() PowerpackV2WidgetLogStreamDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetLogStreamDefinition { return v.LogStreamDefinition }).(PowerpackV2WidgetLogStreamDefinitionPtrOutput)
-}
-
-// The definition for an Manage Status widget.
-func (o PowerpackV2WidgetOutput) ManageStatusDefinition() PowerpackV2WidgetManageStatusDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetManageStatusDefinition { return v.ManageStatusDefinition }).(PowerpackV2WidgetManageStatusDefinitionPtrOutput)
-}
-
-// The definition for a Note widget.
-func (o PowerpackV2WidgetOutput) NoteDefinition() PowerpackV2WidgetNoteDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetNoteDefinition { return v.NoteDefinition }).(PowerpackV2WidgetNoteDefinitionPtrOutput)
-}
-
-// The definition for a Point Plot widget.
-func (o PowerpackV2WidgetOutput) PointPlotDefinition() PowerpackV2WidgetPointPlotDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetPointPlotDefinition { return v.PointPlotDefinition }).(PowerpackV2WidgetPointPlotDefinitionPtrOutput)
-}
-
-// The definition for a Product Analytics user journey funnel widget.
-func (o PowerpackV2WidgetOutput) ProductAnalyticsFunnelDefinition() PowerpackV2WidgetProductAnalyticsFunnelDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetProductAnalyticsFunnelDefinition {
-		return v.ProductAnalyticsFunnelDefinition
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionPtrOutput)
-}
-
-// The definition for a Query Table widget.
-func (o PowerpackV2WidgetOutput) QueryTableDefinition() PowerpackV2WidgetQueryTableDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetQueryTableDefinition { return v.QueryTableDefinition }).(PowerpackV2WidgetQueryTableDefinitionPtrOutput)
-}
-
-// The definition for a Query Value widget.
-func (o PowerpackV2WidgetOutput) QueryValueDefinition() PowerpackV2WidgetQueryValueDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetQueryValueDefinition { return v.QueryValueDefinition }).(PowerpackV2WidgetQueryValueDefinitionPtrOutput)
-}
-
-// The definition for a Retention Curve widget.
-func (o PowerpackV2WidgetOutput) RetentionCurveDefinition() PowerpackV2WidgetRetentionCurveDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetRetentionCurveDefinition {
-		return v.RetentionCurveDefinition
-	}).(PowerpackV2WidgetRetentionCurveDefinitionPtrOutput)
-}
-
-// The definition for a Run Workflow widget.
-func (o PowerpackV2WidgetOutput) RunWorkflowDefinition() PowerpackV2WidgetRunWorkflowDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetRunWorkflowDefinition { return v.RunWorkflowDefinition }).(PowerpackV2WidgetRunWorkflowDefinitionPtrOutput)
-}
-
-// The definition for a Sankey diagram widget.
-func (o PowerpackV2WidgetOutput) SankeyDefinition() PowerpackV2WidgetSankeyDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetSankeyDefinition { return v.SankeyDefinition }).(PowerpackV2WidgetSankeyDefinitionPtrOutput)
-}
-
-// The definition for a Scatterplot widget.
-func (o PowerpackV2WidgetOutput) ScatterplotDefinition() PowerpackV2WidgetScatterplotDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetScatterplotDefinition { return v.ScatterplotDefinition }).(PowerpackV2WidgetScatterplotDefinitionPtrOutput)
-}
-
-// The definition for a Service Level Objective widget.
-func (o PowerpackV2WidgetOutput) ServiceLevelObjectiveDefinition() PowerpackV2WidgetServiceLevelObjectiveDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetServiceLevelObjectiveDefinition {
-		return v.ServiceLevelObjectiveDefinition
-	}).(PowerpackV2WidgetServiceLevelObjectiveDefinitionPtrOutput)
-}
-
-// The definition for a Service Map widget.
-func (o PowerpackV2WidgetOutput) ServicemapDefinition() PowerpackV2WidgetServicemapDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetServicemapDefinition { return v.ServicemapDefinition }).(PowerpackV2WidgetServicemapDefinitionPtrOutput)
-}
-
-// The definition for an SLO (Service Level Objective) List widget.
-func (o PowerpackV2WidgetOutput) SloListDefinition() PowerpackV2WidgetSloListDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetSloListDefinition { return v.SloListDefinition }).(PowerpackV2WidgetSloListDefinitionPtrOutput)
-}
-
-// The definition for a Sunburst widget.
-func (o PowerpackV2WidgetOutput) SunburstDefinition() PowerpackV2WidgetSunburstDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetSunburstDefinition { return v.SunburstDefinition }).(PowerpackV2WidgetSunburstDefinitionPtrOutput)
-}
-
-// The definition for a Timeseries widget.
-func (o PowerpackV2WidgetOutput) TimeseriesDefinition() PowerpackV2WidgetTimeseriesDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetTimeseriesDefinition { return v.TimeseriesDefinition }).(PowerpackV2WidgetTimeseriesDefinitionPtrOutput)
-}
-
-// The definition for a Toplist widget.
-func (o PowerpackV2WidgetOutput) ToplistDefinition() PowerpackV2WidgetToplistDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetToplistDefinition { return v.ToplistDefinition }).(PowerpackV2WidgetToplistDefinitionPtrOutput)
-}
-
-// The definition for a Topology Map widget.
-func (o PowerpackV2WidgetOutput) TopologyMapDefinition() PowerpackV2WidgetTopologyMapDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetTopologyMapDefinition { return v.TopologyMapDefinition }).(PowerpackV2WidgetTopologyMapDefinitionPtrOutput)
-}
-
-// The definition for a Trace Service widget.
-func (o PowerpackV2WidgetOutput) TraceServiceDefinition() PowerpackV2WidgetTraceServiceDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetTraceServiceDefinition { return v.TraceServiceDefinition }).(PowerpackV2WidgetTraceServiceDefinitionPtrOutput)
-}
-
-// The definition for a Treemap widget.
-func (o PowerpackV2WidgetOutput) TreemapDefinition() PowerpackV2WidgetTreemapDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetTreemapDefinition { return v.TreemapDefinition }).(PowerpackV2WidgetTreemapDefinitionPtrOutput)
-}
-
-// The layout of the widget on a 'free' dashboard.
-func (o PowerpackV2WidgetOutput) WidgetLayout() PowerpackV2WidgetWidgetLayoutPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetWidgetLayout { return v.WidgetLayout }).(PowerpackV2WidgetWidgetLayoutPtrOutput)
-}
-
-// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
-func (o PowerpackV2WidgetOutput) WildcardDefinition() PowerpackV2WidgetWildcardDefinitionPtrOutput {
-	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetWildcardDefinition { return v.WildcardDefinition }).(PowerpackV2WidgetWildcardDefinitionPtrOutput)
-}
-
-type PowerpackV2WidgetArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2Widget)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetArrayOutput) ToPowerpackV2WidgetArrayOutput() PowerpackV2WidgetArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetArrayOutput) ToPowerpackV2WidgetArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2Widget {
-		return vs[0].([]PowerpackV2Widget)[vs[1].(int)]
-	}).(PowerpackV2WidgetOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinition struct {
-	// The ID of the monitor used by the widget.
-	AlertId string `pulumi:"alertId"`
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *PowerpackV2WidgetAlertGraphDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-	// Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
-	VizType string `pulumi:"vizType"`
-}
-
-// PowerpackV2WidgetAlertGraphDefinitionInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionArgs and PowerpackV2WidgetAlertGraphDefinitionOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionInput` via:
-//
-//	PowerpackV2WidgetAlertGraphDefinitionArgs{...}
-type PowerpackV2WidgetAlertGraphDefinitionInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertGraphDefinitionOutput() PowerpackV2WidgetAlertGraphDefinitionOutput
-	ToPowerpackV2WidgetAlertGraphDefinitionOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionOutput
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionArgs struct {
-	// The ID of the monitor used by the widget.
-	AlertId pulumi.StringInput `pulumi:"alertId"`
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time PowerpackV2WidgetAlertGraphDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-	// Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
-	VizType pulumi.StringInput `pulumi:"vizType"`
-}
-
-func (PowerpackV2WidgetAlertGraphDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinition)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionArgs) ToPowerpackV2WidgetAlertGraphDefinitionOutput() PowerpackV2WidgetAlertGraphDefinitionOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionArgs) ToPowerpackV2WidgetAlertGraphDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionOutput)
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionArgs) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutput() PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionArgs) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionOutput).ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetAlertGraphDefinitionPtrInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionArgs, PowerpackV2WidgetAlertGraphDefinitionPtr and PowerpackV2WidgetAlertGraphDefinitionPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionPtrInput` via:
-//
-//	        PowerpackV2WidgetAlertGraphDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetAlertGraphDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertGraphDefinitionPtrOutput() PowerpackV2WidgetAlertGraphDefinitionPtrOutput
-	ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionPtrOutput
-}
-
-type powerpackV2WidgetAlertGraphDefinitionPtrType PowerpackV2WidgetAlertGraphDefinitionArgs
-
-func PowerpackV2WidgetAlertGraphDefinitionPtr(v *PowerpackV2WidgetAlertGraphDefinitionArgs) PowerpackV2WidgetAlertGraphDefinitionPtrInput {
-	return (*powerpackV2WidgetAlertGraphDefinitionPtrType)(v)
-}
-
-func (*powerpackV2WidgetAlertGraphDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinition)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetAlertGraphDefinitionPtrType) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutput() PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetAlertGraphDefinitionPtrType) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionPtrOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertGraphDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) ToPowerpackV2WidgetAlertGraphDefinitionOutput() PowerpackV2WidgetAlertGraphDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) ToPowerpackV2WidgetAlertGraphDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutput() PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
-	return o.ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertGraphDefinition) *PowerpackV2WidgetAlertGraphDefinition {
-		return &v
-	}).(PowerpackV2WidgetAlertGraphDefinitionPtrOutput)
-}
-
-// The ID of the monitor used by the widget.
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) AlertId() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) string { return v.AlertId }).(pulumi.StringOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) Time() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *PowerpackV2WidgetAlertGraphDefinitionTime {
-		return v.Time
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-// Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
-func (o PowerpackV2WidgetAlertGraphDefinitionOutput) VizType() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) string { return v.VizType }).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertGraphDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutput() PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) Elem() PowerpackV2WidgetAlertGraphDefinitionOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) PowerpackV2WidgetAlertGraphDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetAlertGraphDefinition
-		return ret
-	}).(PowerpackV2WidgetAlertGraphDefinitionOutput)
-}
-
-// The ID of the monitor used by the widget.
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) AlertId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AlertId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) Time() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *PowerpackV2WidgetAlertGraphDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
-func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) VizType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VizType
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *PowerpackV2WidgetAlertGraphDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *PowerpackV2WidgetAlertGraphDefinitionTimeLive `pulumi:"live"`
-}
-
-// PowerpackV2WidgetAlertGraphDefinitionTimeInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeArgs and PowerpackV2WidgetAlertGraphDefinitionTimeOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimeInput` via:
-//
-//	PowerpackV2WidgetAlertGraphDefinitionTimeArgs{...}
-type PowerpackV2WidgetAlertGraphDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertGraphDefinitionTimeOutput() PowerpackV2WidgetAlertGraphDefinitionTimeOutput
-	ToPowerpackV2WidgetAlertGraphDefinitionTimeOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeOutput
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (PowerpackV2WidgetAlertGraphDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTime)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeOutput() PowerpackV2WidgetAlertGraphDefinitionTimeOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeOutput)
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeOutput).ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetAlertGraphDefinitionTimePtrInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeArgs, PowerpackV2WidgetAlertGraphDefinitionTimePtr and PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimePtrInput` via:
-//
-//	        PowerpackV2WidgetAlertGraphDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetAlertGraphDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput
-	ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput
-}
-
-type powerpackV2WidgetAlertGraphDefinitionTimePtrType PowerpackV2WidgetAlertGraphDefinitionTimeArgs
-
-func PowerpackV2WidgetAlertGraphDefinitionTimePtr(v *PowerpackV2WidgetAlertGraphDefinitionTimeArgs) PowerpackV2WidgetAlertGraphDefinitionTimePtrInput {
-	return (*powerpackV2WidgetAlertGraphDefinitionTimePtrType)(v)
-}
-
-func (*powerpackV2WidgetAlertGraphDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTime)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetAlertGraphDefinitionTimePtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetAlertGraphDefinitionTimePtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertGraphDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTime)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeOutput() PowerpackV2WidgetAlertGraphDefinitionTimeOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
-	return o.ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertGraphDefinitionTime) *PowerpackV2WidgetAlertGraphDefinitionTime {
-		return &v
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) Fixed() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTime) *PowerpackV2WidgetAlertGraphDefinitionTimeFixed {
-		return v.Fixed
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) Live() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTime) *PowerpackV2WidgetAlertGraphDefinitionTimeLive {
-		return v.Live
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTime)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) Elem() PowerpackV2WidgetAlertGraphDefinitionTimeOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTime) PowerpackV2WidgetAlertGraphDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetAlertGraphDefinitionTime
-		return ret
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) Fixed() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTime) *PowerpackV2WidgetAlertGraphDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) Live() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTime) *PowerpackV2WidgetAlertGraphDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// PowerpackV2WidgetAlertGraphDefinitionTimeFixedInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs and PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimeFixedInput` via:
-//
-//	PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs{...}
-type PowerpackV2WidgetAlertGraphDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput
-	ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput)
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput).ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs, PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtr and PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput` via:
-//
-//	        PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput
-	ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput
-}
-
-type powerpackV2WidgetAlertGraphDefinitionTimeFixedPtrType PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs
-
-func PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtr(v *PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput {
-	return (*powerpackV2WidgetAlertGraphDefinitionTimeFixedPtrType)(v)
-}
-
-func (*powerpackV2WidgetAlertGraphDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetAlertGraphDefinitionTimeFixedPtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetAlertGraphDefinitionTimeFixedPtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
-	return o.ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertGraphDefinitionTimeFixed) *PowerpackV2WidgetAlertGraphDefinitionTimeFixed {
-		return &v
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) Elem() PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeFixed) PowerpackV2WidgetAlertGraphDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetAlertGraphDefinitionTimeFixed
-		return ret
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// PowerpackV2WidgetAlertGraphDefinitionTimeLiveInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs and PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimeLiveInput` via:
-//
-//	PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs{...}
-type PowerpackV2WidgetAlertGraphDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput
-	ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput)
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput).ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs, PowerpackV2WidgetAlertGraphDefinitionTimeLivePtr and PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput` via:
-//
-//	        PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput
-	ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput
-}
-
-type powerpackV2WidgetAlertGraphDefinitionTimeLivePtrType PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs
-
-func PowerpackV2WidgetAlertGraphDefinitionTimeLivePtr(v *PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput {
-	return (*powerpackV2WidgetAlertGraphDefinitionTimeLivePtrType)(v)
-}
-
-func (*powerpackV2WidgetAlertGraphDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetAlertGraphDefinitionTimeLivePtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
-	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetAlertGraphDefinitionTimeLivePtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
-	return o.ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertGraphDefinitionTimeLive) *PowerpackV2WidgetAlertGraphDefinitionTimeLive {
-		return &v
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) Elem() PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeLive) PowerpackV2WidgetAlertGraphDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetAlertGraphDefinitionTimeLive
-		return ret
-	}).(PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinition struct {
-	// The ID of the monitor used by the widget.
-	AlertId string `pulumi:"alertId"`
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// The precision to use when displaying the value. Use `*` for maximum precision.
-	Precision *int `pulumi:"precision"`
-	// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
-	TextAlign *string `pulumi:"textAlign"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *PowerpackV2WidgetAlertValueDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-	// The unit for the value displayed in the widget.
-	Unit *string `pulumi:"unit"`
-}
-
-// PowerpackV2WidgetAlertValueDefinitionInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionArgs and PowerpackV2WidgetAlertValueDefinitionOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionInput` via:
-//
-//	PowerpackV2WidgetAlertValueDefinitionArgs{...}
-type PowerpackV2WidgetAlertValueDefinitionInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertValueDefinitionOutput() PowerpackV2WidgetAlertValueDefinitionOutput
-	ToPowerpackV2WidgetAlertValueDefinitionOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionOutput
-}
-
-type PowerpackV2WidgetAlertValueDefinitionArgs struct {
-	// The ID of the monitor used by the widget.
-	AlertId pulumi.StringInput `pulumi:"alertId"`
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// The precision to use when displaying the value. Use `*` for maximum precision.
-	Precision pulumi.IntPtrInput `pulumi:"precision"`
-	// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
-	TextAlign pulumi.StringPtrInput `pulumi:"textAlign"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time PowerpackV2WidgetAlertValueDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-	// The unit for the value displayed in the widget.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
-}
-
-func (PowerpackV2WidgetAlertValueDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinition)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionArgs) ToPowerpackV2WidgetAlertValueDefinitionOutput() PowerpackV2WidgetAlertValueDefinitionOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionArgs) ToPowerpackV2WidgetAlertValueDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionOutput)
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionArgs) ToPowerpackV2WidgetAlertValueDefinitionPtrOutput() PowerpackV2WidgetAlertValueDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionArgs) ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionOutput).ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetAlertValueDefinitionPtrInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionArgs, PowerpackV2WidgetAlertValueDefinitionPtr and PowerpackV2WidgetAlertValueDefinitionPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionPtrInput` via:
-//
-//	        PowerpackV2WidgetAlertValueDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetAlertValueDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertValueDefinitionPtrOutput() PowerpackV2WidgetAlertValueDefinitionPtrOutput
-	ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionPtrOutput
-}
-
-type powerpackV2WidgetAlertValueDefinitionPtrType PowerpackV2WidgetAlertValueDefinitionArgs
-
-func PowerpackV2WidgetAlertValueDefinitionPtr(v *PowerpackV2WidgetAlertValueDefinitionArgs) PowerpackV2WidgetAlertValueDefinitionPtrInput {
-	return (*powerpackV2WidgetAlertValueDefinitionPtrType)(v)
-}
-
-func (*powerpackV2WidgetAlertValueDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinition)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetAlertValueDefinitionPtrType) ToPowerpackV2WidgetAlertValueDefinitionPtrOutput() PowerpackV2WidgetAlertValueDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetAlertValueDefinitionPtrType) ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionPtrOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertValueDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) ToPowerpackV2WidgetAlertValueDefinitionOutput() PowerpackV2WidgetAlertValueDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) ToPowerpackV2WidgetAlertValueDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) ToPowerpackV2WidgetAlertValueDefinitionPtrOutput() PowerpackV2WidgetAlertValueDefinitionPtrOutput {
-	return o.ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertValueDefinition) *PowerpackV2WidgetAlertValueDefinition {
-		return &v
-	}).(PowerpackV2WidgetAlertValueDefinitionPtrOutput)
-}
-
-// The ID of the monitor used by the widget.
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) AlertId() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) string { return v.AlertId }).(pulumi.StringOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// The precision to use when displaying the value. Use `*` for maximum precision.
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) Precision() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *int { return v.Precision }).(pulumi.IntPtrOutput)
-}
-
-// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) TextAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.TextAlign }).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) Time() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *PowerpackV2WidgetAlertValueDefinitionTime {
-		return v.Time
-	}).(PowerpackV2WidgetAlertValueDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-// The unit for the value displayed in the widget.
-func (o PowerpackV2WidgetAlertValueDefinitionOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.Unit }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertValueDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) ToPowerpackV2WidgetAlertValueDefinitionPtrOutput() PowerpackV2WidgetAlertValueDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Elem() PowerpackV2WidgetAlertValueDefinitionOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) PowerpackV2WidgetAlertValueDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetAlertValueDefinition
-		return ret
-	}).(PowerpackV2WidgetAlertValueDefinitionOutput)
-}
-
-// The ID of the monitor used by the widget.
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) AlertId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AlertId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// The precision to use when displaying the value. Use `*` for maximum precision.
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Precision() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Precision
-	}).(pulumi.IntPtrOutput)
-}
-
-// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) TextAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TextAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Time() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *PowerpackV2WidgetAlertValueDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(PowerpackV2WidgetAlertValueDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unit for the value displayed in the widget.
-func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *PowerpackV2WidgetAlertValueDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *PowerpackV2WidgetAlertValueDefinitionTimeLive `pulumi:"live"`
-}
-
-// PowerpackV2WidgetAlertValueDefinitionTimeInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeArgs and PowerpackV2WidgetAlertValueDefinitionTimeOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimeInput` via:
-//
-//	PowerpackV2WidgetAlertValueDefinitionTimeArgs{...}
-type PowerpackV2WidgetAlertValueDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertValueDefinitionTimeOutput() PowerpackV2WidgetAlertValueDefinitionTimeOutput
-	ToPowerpackV2WidgetAlertValueDefinitionTimeOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimeOutput
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (PowerpackV2WidgetAlertValueDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTime)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeOutput() PowerpackV2WidgetAlertValueDefinitionTimeOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeOutput)
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeArgs) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeArgs) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeOutput).ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetAlertValueDefinitionTimePtrInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeArgs, PowerpackV2WidgetAlertValueDefinitionTimePtr and PowerpackV2WidgetAlertValueDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimePtrInput` via:
-//
-//	        PowerpackV2WidgetAlertValueDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetAlertValueDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput
-	ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimePtrOutput
-}
-
-type powerpackV2WidgetAlertValueDefinitionTimePtrType PowerpackV2WidgetAlertValueDefinitionTimeArgs
-
-func PowerpackV2WidgetAlertValueDefinitionTimePtr(v *PowerpackV2WidgetAlertValueDefinitionTimeArgs) PowerpackV2WidgetAlertValueDefinitionTimePtrInput {
-	return (*powerpackV2WidgetAlertValueDefinitionTimePtrType)(v)
-}
-
-func (*powerpackV2WidgetAlertValueDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTime)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetAlertValueDefinitionTimePtrType) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetAlertValueDefinitionTimePtrType) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimePtrOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertValueDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTime)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeOutput() PowerpackV2WidgetAlertValueDefinitionTimeOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
-	return o.ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertValueDefinitionTime) *PowerpackV2WidgetAlertValueDefinitionTime {
-		return &v
-	}).(PowerpackV2WidgetAlertValueDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) Fixed() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTime) *PowerpackV2WidgetAlertValueDefinitionTimeFixed {
-		return v.Fixed
-	}).(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) Live() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTime) *PowerpackV2WidgetAlertValueDefinitionTimeLive {
-		return v.Live
-	}).(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTime)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) Elem() PowerpackV2WidgetAlertValueDefinitionTimeOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTime) PowerpackV2WidgetAlertValueDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetAlertValueDefinitionTime
-		return ret
-	}).(PowerpackV2WidgetAlertValueDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) Fixed() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTime) *PowerpackV2WidgetAlertValueDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) Live() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTime) *PowerpackV2WidgetAlertValueDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// PowerpackV2WidgetAlertValueDefinitionTimeFixedInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs and PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimeFixedInput` via:
-//
-//	PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs{...}
-type PowerpackV2WidgetAlertValueDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput
-	ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput)
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput).ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs, PowerpackV2WidgetAlertValueDefinitionTimeFixedPtr and PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput` via:
-//
-//	        PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput
-	ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput
-}
-
-type powerpackV2WidgetAlertValueDefinitionTimeFixedPtrType PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs
-
-func PowerpackV2WidgetAlertValueDefinitionTimeFixedPtr(v *PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput {
-	return (*powerpackV2WidgetAlertValueDefinitionTimeFixedPtrType)(v)
-}
-
-func (*powerpackV2WidgetAlertValueDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetAlertValueDefinitionTimeFixedPtrType) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetAlertValueDefinitionTimeFixedPtrType) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
-	return o.ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertValueDefinitionTimeFixed) *PowerpackV2WidgetAlertValueDefinitionTimeFixed {
-		return &v
-	}).(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) Elem() PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeFixed) PowerpackV2WidgetAlertValueDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetAlertValueDefinitionTimeFixed
-		return ret
-	}).(PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// PowerpackV2WidgetAlertValueDefinitionTimeLiveInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs and PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimeLiveInput` via:
-//
-//	PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs{...}
-type PowerpackV2WidgetAlertValueDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutput() PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput
-	ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutput() PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput)
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput).ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs, PowerpackV2WidgetAlertValueDefinitionTimeLivePtr and PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput` via:
-//
-//	        PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput
-	ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput
-}
-
-type powerpackV2WidgetAlertValueDefinitionTimeLivePtrType PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs
-
-func PowerpackV2WidgetAlertValueDefinitionTimeLivePtr(v *PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput {
-	return (*powerpackV2WidgetAlertValueDefinitionTimeLivePtrType)(v)
-}
-
-func (*powerpackV2WidgetAlertValueDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetAlertValueDefinitionTimeLivePtrType) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
-	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetAlertValueDefinitionTimeLivePtrType) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutput() PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
-	return o.ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertValueDefinitionTimeLive) *PowerpackV2WidgetAlertValueDefinitionTimeLive {
-		return &v
-	}).(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) Elem() PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeLive) PowerpackV2WidgetAlertValueDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetAlertValueDefinitionTimeLive
-		return ret
-	}).(PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationSplunkDestinationSourcetypeInput)(nil)).Elem(), LogsCustomDestinationSplunkDestinationSourcetypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationSplunkDestinationSourcetypePtrInput)(nil)).Elem(), LogsCustomDestinationSplunkDestinationSourcetypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineFilterInput)(nil)).Elem(), LogsCustomPipelineFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineFilterArrayInput)(nil)).Elem(), LogsCustomPipelineFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomPipelineProcessorInput)(nil)).Elem(), LogsCustomPipelineProcessorArgs{})
@@ -82651,6 +82471,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferMemoryPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferMemoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBatchInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBufferInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureStorageInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureStorageArrayInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAzureStorageBufferInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAzureStorageBufferArgs{})
@@ -82938,6 +82784,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTagsTagArrayInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTagsTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorAggregateInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorAggregatePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorPtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs{})
@@ -83209,6 +83057,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeamInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessageInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessageInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{})
@@ -83229,38 +83079,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsPtrInput)(nil)).Elem(), OrganizationSettingsSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlInput)(nil)).Elem(), OrganizationSettingsSettingsSamlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlPtrInput)(nil)).Elem(), OrganizationSettingsSettingsSamlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlAutocreateUsersDomainsInput)(nil)).Elem(), OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrInput)(nil)).Elem(), OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlIdpInitiatedLoginInput)(nil)).Elem(), OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput)(nil)).Elem(), OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlStrictModeInput)(nil)).Elem(), OrganizationSettingsSettingsSamlStrictModeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlStrictModePtrInput)(nil)).Elem(), OrganizationSettingsSettingsSamlStrictModeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackLayoutInput)(nil)).Elem(), PowerpackLayoutArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackLayoutPtrInput)(nil)).Elem(), PowerpackLayoutArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackTemplateVariableInput)(nil)).Elem(), PowerpackTemplateVariableArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackTemplateVariableArrayInput)(nil)).Elem(), PowerpackTemplateVariableArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2LayoutInput)(nil)).Elem(), PowerpackV2LayoutArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2LayoutPtrInput)(nil)).Elem(), PowerpackV2LayoutArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2TemplateVariableInput)(nil)).Elem(), PowerpackV2TemplateVariableArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2TemplateVariableArrayInput)(nil)).Elem(), PowerpackV2TemplateVariableArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetInput)(nil)).Elem(), PowerpackV2WidgetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetArrayInput)(nil)).Elem(), PowerpackV2WidgetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimePtrInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeFixedInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeLiveInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimePtrInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeFixedInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeLiveInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs{})
+	pulumi.RegisterOutputType(LogsCustomDestinationSplunkDestinationSourcetypeOutput{})
+	pulumi.RegisterOutputType(LogsCustomDestinationSplunkDestinationSourcetypePtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineFilterOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineFilterArrayOutput{})
 	pulumi.RegisterOutputType(LogsCustomPipelineProcessorOutput{})
@@ -83632,6 +83452,32 @@ func init() {
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferMemoryPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificatePtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerBatchOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerBatchPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureStorageOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureStorageArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAzureStorageBufferOutput{})
@@ -83919,6 +83765,8 @@ func init() {
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTagsTagArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorAggregateOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorAggregatePtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapOutput{})
@@ -84190,6 +84038,8 @@ func init() {
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput{})
@@ -84210,36 +84060,4 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationSettingsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlOutput{})
 	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlPtrOutput{})
-	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput{})
-	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput{})
-	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput{})
-	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput{})
-	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlStrictModeOutput{})
-	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlStrictModePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackLayoutOutput{})
-	pulumi.RegisterOutputType(PowerpackLayoutPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackTemplateVariableOutput{})
-	pulumi.RegisterOutputType(PowerpackTemplateVariableArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2LayoutOutput{})
-	pulumi.RegisterOutputType(PowerpackV2LayoutPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2TemplateVariableOutput{})
-	pulumi.RegisterOutputType(PowerpackV2TemplateVariableArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput{})
 }

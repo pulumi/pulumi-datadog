@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Whether to send email notifications to team members when alerts are triggered.
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// A single email address to send notifications to instead of all team members. Requires `Enabled` to be `True`. When omitted, notifications are sent to all team members.
+        /// </summary>
+        public readonly string? RecipientEmail;
 
         [OutputConstructor]
-        private TeamNotificationRuleEmail(bool? enabled)
+        private TeamNotificationRuleEmail(
+            bool? enabled,
+
+            string? recipientEmail)
         {
             Enabled = enabled;
+            RecipientEmail = recipientEmail;
         }
     }
 }

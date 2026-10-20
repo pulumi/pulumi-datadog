@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+        /// </summary>
+        [Input("aggregationTiming")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs>? AggregationTiming { get; set; }
+
+        /// <summary>
         /// The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
         /// </summary>
         [Input("intervalSecs", required: true)]

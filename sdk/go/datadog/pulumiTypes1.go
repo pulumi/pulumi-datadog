@@ -10662,7 +10662,7 @@ type DashboardV2WidgetQueryTableDefinitionRequestQueryEventQuery struct {
 	Computes []DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -10694,7 +10694,7 @@ type DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryArgs struct {
 	Computes DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -10799,7 +10799,7 @@ func (o DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryOutput) Cross
 	return o.ApplyT(func(v DashboardV2WidgetQueryTableDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetQueryTableDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -10884,7 +10884,7 @@ func (o DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) Cr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetQueryTableDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -17926,7 +17926,7 @@ type DashboardV2WidgetQueryValueDefinitionRequestQueryEventQuery struct {
 	Computes []DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -17958,7 +17958,7 @@ type DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs struct {
 	Computes DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -18063,7 +18063,7 @@ func (o DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) Cross
 	return o.ApplyT(func(v DashboardV2WidgetQueryValueDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetQueryValueDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -18148,7 +18148,7 @@ func (o DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) Cr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetQueryValueDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -33020,7 +33020,7 @@ type DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuer
 	Computes []DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -33052,7 +33052,7 @@ type DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuer
 	Computes DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -33159,7 +33159,7 @@ func (o DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQ
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery) string {
 		return v.DataSource
@@ -33252,7 +33252,7 @@ func (o DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQ
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery) *string {
 		if v == nil {
@@ -36912,7 +36912,7 @@ type DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQuery struct {
 	Computes []DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -36944,7 +36944,7 @@ type DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryArgs struct {
 	Computes DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -37049,7 +37049,7 @@ func (o DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryOutput) Cro
 	return o.ApplyT(func(v DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -37134,7 +37134,7 @@ func (o DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQuery) *string {
 		if v == nil {
@@ -40768,7 +40768,7 @@ type DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQuery struct {
 	Computes []DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -40800,7 +40800,7 @@ type DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryArgs struct {
 	Computes DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -40905,7 +40905,7 @@ func (o DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryOutput) Cro
 	return o.ApplyT(func(v DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -40990,7 +40990,7 @@ func (o DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQuery) *string {
 		if v == nil {
@@ -53610,7 +53610,7 @@ type DashboardV2WidgetSunburstDefinitionRequestQueryEventQuery struct {
 	Computes []DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -53642,7 +53642,7 @@ type DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryArgs struct {
 	Computes DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -53747,7 +53747,7 @@ func (o DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryOutput) CrossOr
 	return o.ApplyT(func(v DashboardV2WidgetSunburstDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetSunburstDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -53832,7 +53832,7 @@ func (o DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryPtrOutput) Cros
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetSunburstDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -62776,7 +62776,7 @@ type DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQuery struct {
 	Computes []DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -62808,7 +62808,7 @@ type DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryArgs struct {
 	Computes DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -62913,7 +62913,7 @@ func (o DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryOutput) Cross
 	return o.ApplyT(func(v DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -62998,7 +62998,7 @@ func (o DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryPtrOutput) Cr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -69036,7 +69036,7 @@ type DashboardV2WidgetToplistDefinitionRequestQueryEventQuery struct {
 	Computes []DashboardV2WidgetToplistDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetToplistDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -69068,7 +69068,7 @@ type DashboardV2WidgetToplistDefinitionRequestQueryEventQueryArgs struct {
 	Computes DashboardV2WidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -69173,7 +69173,7 @@ func (o DashboardV2WidgetToplistDefinitionRequestQueryEventQueryOutput) CrossOrg
 	return o.ApplyT(func(v DashboardV2WidgetToplistDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetToplistDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetToplistDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -69258,7 +69258,7 @@ func (o DashboardV2WidgetToplistDefinitionRequestQueryEventQueryPtrOutput) Cross
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetToplistDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetToplistDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -76801,7 +76801,7 @@ type DashboardV2WidgetTreemapDefinitionRequestQueryEventQuery struct {
 	Computes []DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -76833,7 +76833,7 @@ type DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryArgs struct {
 	Computes DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -76938,7 +76938,7 @@ func (o DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryOutput) CrossOrg
 	return o.ApplyT(func(v DashboardV2WidgetTreemapDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetTreemapDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -77023,7 +77023,7 @@ func (o DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) Cross
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetTreemapDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -83170,7 +83170,7 @@ type DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEve
 	Computes []DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -83202,7 +83202,7 @@ type DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEve
 	Computes DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -83309,7 +83309,7 @@ func (o DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQuery
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQuery) string {
 		return v.DataSource
@@ -83402,7 +83402,7 @@ func (o DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQuery
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQuery) *string {
 		if v == nil {

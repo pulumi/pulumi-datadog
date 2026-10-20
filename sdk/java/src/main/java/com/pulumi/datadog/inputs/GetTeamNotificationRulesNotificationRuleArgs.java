@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.GetTeamNotificationRulesNotificationRuleEmailArgs;
 import com.pulumi.datadog.inputs.GetTeamNotificationRulesNotificationRuleMsTeamsArgs;
 import com.pulumi.datadog.inputs.GetTeamNotificationRulesNotificationRulePagerdutyArgs;
+import com.pulumi.datadog.inputs.GetTeamNotificationRulesNotificationRuleServicenowArgs;
 import com.pulumi.datadog.inputs.GetTeamNotificationRulesNotificationRuleSlackArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -81,6 +82,21 @@ public final class GetTeamNotificationRulesNotificationRuleArgs extends com.pulu
     }
 
     /**
+     * The ServiceNow notification settings.
+     * 
+     */
+    @Import(name="servicenow")
+    private @Nullable Output<GetTeamNotificationRulesNotificationRuleServicenowArgs> servicenow;
+
+    /**
+     * @return The ServiceNow notification settings.
+     * 
+     */
+    public Optional<Output<GetTeamNotificationRulesNotificationRuleServicenowArgs>> servicenow() {
+        return Optional.ofNullable(this.servicenow);
+    }
+
+    /**
      * The Slack notification settings.
      * 
      */
@@ -102,6 +118,7 @@ public final class GetTeamNotificationRulesNotificationRuleArgs extends com.pulu
         this.id = $.id;
         this.msTeams = $.msTeams;
         this.pagerduty = $.pagerduty;
+        this.servicenow = $.servicenow;
         this.slack = $.slack;
     }
 
@@ -205,6 +222,27 @@ public final class GetTeamNotificationRulesNotificationRuleArgs extends com.pulu
          */
         public Builder pagerduty(GetTeamNotificationRulesNotificationRulePagerdutyArgs pagerduty) {
             return pagerduty(Output.of(pagerduty));
+        }
+
+        /**
+         * @param servicenow The ServiceNow notification settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicenow(@Nullable Output<GetTeamNotificationRulesNotificationRuleServicenowArgs> servicenow) {
+            $.servicenow = servicenow;
+            return this;
+        }
+
+        /**
+         * @param servicenow The ServiceNow notification settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicenow(GetTeamNotificationRulesNotificationRuleServicenowArgs servicenow) {
+            return servicenow(Output.of(servicenow));
         }
 
         /**

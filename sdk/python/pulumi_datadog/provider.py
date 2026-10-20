@@ -38,13 +38,14 @@ class ProviderArgs:
                  http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
-                 validate: pulumi.Input[Optional[_builtins.str]] = None):
+                 validate: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_identity_token_tag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
-        :param pulumi.Input[_builtins.str] api_key: (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+        :param pulumi.Input[_builtins.str] api_key: Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
         :param pulumi.Input[_builtins.str] api_url: The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
-        :param pulumi.Input[_builtins.str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input[_builtins.str] app_key: Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
         :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
         :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
         :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
@@ -59,8 +60,9 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignore_tag_keys`. A resource's own `ignore_tag_keys` is merged with this list for that resource. Any `:value` suffix is ignored.
-        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
-        :param pulumi.Input[_builtins.str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
+        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        :param pulumi.Input[_builtins.str] validate: Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
+        :param pulumi.Input[_builtins.str] workload_identity_token_tag: Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloud_provider_type take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -100,12 +102,14 @@ class ProviderArgs:
             pulumi.set(__self__, "org_uuid", org_uuid)
         if validate is not None:
             pulumi.set(__self__, "validate", validate)
+        if workload_identity_token_tag is not None:
+            pulumi.set(__self__, "workload_identity_token_tag", workload_identity_token_tag)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+        Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
         """
         return pulumi.get(self, "api_key")
 
@@ -129,7 +133,7 @@ class ProviderArgs:
     @pulumi.getter(name="appKey")
     def app_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
         """
         return pulumi.get(self, "app_key")
 
@@ -309,7 +313,7 @@ class ProviderArgs:
     @pulumi.getter(name="orgUuid")
     def org_uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return pulumi.get(self, "org_uuid")
 
@@ -321,13 +325,25 @@ class ProviderArgs:
     @pulumi.getter
     def validate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
+        Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
     def validate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityTokenTag")
+    def workload_identity_token_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloud_provider_type take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
+        """
+        return pulumi.get(self, "workload_identity_token_tag")
+
+    @workload_identity_token_tag.setter
+    def workload_identity_token_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "workload_identity_token_tag", value)
 
 
 @pulumi.type_token("pulumi:providers:datadog")
@@ -355,6 +371,7 @@ class Provider(pulumi.ProviderResource):
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
                  validate: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_identity_token_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the datadog package. By default, resources use package-wide configuration
@@ -365,9 +382,9 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+        :param pulumi.Input[_builtins.str] api_key: Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
         :param pulumi.Input[_builtins.str] api_url: The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
-        :param pulumi.Input[_builtins.str] app_key: (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        :param pulumi.Input[_builtins.str] app_key: Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
         :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
         :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
         :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
@@ -382,8 +399,9 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignore_tag_keys`. A resource's own `ignore_tag_keys` is merged with this list for that resource. Any `:value` suffix is ignored.
-        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
-        :param pulumi.Input[_builtins.str] validate: Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
+        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        :param pulumi.Input[_builtins.str] validate: Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
+        :param pulumi.Input[_builtins.str] workload_identity_token_tag: Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloud_provider_type take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
         """
         ...
     @overload
@@ -432,6 +450,7 @@ class Provider(pulumi.ProviderResource):
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
                  validate: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload_identity_token_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -460,6 +479,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["ignore_tag_keys"] = pulumi.Output.from_input(ignore_tag_keys).apply(pulumi.runtime.to_json) if ignore_tag_keys is not None else None
             __props__.__dict__["org_uuid"] = org_uuid
             __props__.__dict__["validate"] = validate
+            __props__.__dict__["workload_identity_token_tag"] = workload_identity_token_tag
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "appKey", "awsAccessKeyId", "awsSecretAccessKey", "awsSessionToken", "bearerToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
@@ -472,7 +492,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+        Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
         """
         return pulumi.get(self, "api_key")
 
@@ -488,7 +508,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="appKey")
     def app_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
         """
         return pulumi.get(self, "app_key")
 
@@ -552,7 +572,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="orgUuid")
     def org_uuid(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return pulumi.get(self, "org_uuid")
 
@@ -560,9 +580,17 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def validate(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
+        Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
         """
         return pulumi.get(self, "validate")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentityTokenTag")
+    def workload_identity_token_tag(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloud_provider_type take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
+        """
+        return pulumi.get(self, "workload_identity_token_tag")
 
     @pulumi.output_type
     class TerraformConfigResult:

@@ -2946,7 +2946,7 @@ type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery 
 	Computes []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -2978,7 +2978,7 @@ type DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryA
 	Computes DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -3085,7 +3085,7 @@ func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQue
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery) string {
 		return v.DataSource
@@ -3178,7 +3178,7 @@ func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQue
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery) *string {
 		if v == nil {
@@ -7623,7 +7623,7 @@ type DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQuery str
 	Computes []DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -7655,7 +7655,7 @@ type DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryArgs
 	Computes DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -7762,7 +7762,7 @@ func (o DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQuery) string {
 		return v.DataSource
@@ -7853,7 +7853,7 @@ func (o DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQuery) *string {
 		if v == nil {
@@ -89100,12 +89100,22 @@ func (o DeploymentGateRuleArrayOutput) Index(i pulumi.IntInput) DeploymentGateRu
 }
 
 type DeploymentGateRuleOptions struct {
+	// Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+	AllowedResources []string `pulumi:"allowedResources"`
 	// The duration for the rule.
 	Duration *int `pulumi:"duration"`
-	// Resources to exclude from faulty deployment detection.
+	// Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
 	ExcludedResources []string `pulumi:"excludedResources"`
-	// The query for monitor rules.
+	// Fail if a matching monitor group is in NO DATA state (API default: true).
+	FailOnNoData *bool `pulumi:"failOnNoData"`
+	// Fail if no monitor groups are found (API default: false).
+	FailOnNoGroupsFound *bool `pulumi:"failOnNoGroupsFound"`
+	// Specific monitors to evaluate. Mutually exclusive with query.
+	MonitorIds []DeploymentGateRuleOptionsMonitorId `pulumi:"monitorIds"`
+	// A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
 	Query *string `pulumi:"query"`
+	// Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+	Warmup *int `pulumi:"warmup"`
 }
 
 // DeploymentGateRuleOptionsInput is an input type that accepts DeploymentGateRuleOptionsArgs and DeploymentGateRuleOptionsOutput values.
@@ -89120,12 +89130,22 @@ type DeploymentGateRuleOptionsInput interface {
 }
 
 type DeploymentGateRuleOptionsArgs struct {
+	// Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+	AllowedResources pulumi.StringArrayInput `pulumi:"allowedResources"`
 	// The duration for the rule.
 	Duration pulumi.IntPtrInput `pulumi:"duration"`
-	// Resources to exclude from faulty deployment detection.
+	// Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
 	ExcludedResources pulumi.StringArrayInput `pulumi:"excludedResources"`
-	// The query for monitor rules.
+	// Fail if a matching monitor group is in NO DATA state (API default: true).
+	FailOnNoData pulumi.BoolPtrInput `pulumi:"failOnNoData"`
+	// Fail if no monitor groups are found (API default: false).
+	FailOnNoGroupsFound pulumi.BoolPtrInput `pulumi:"failOnNoGroupsFound"`
+	// Specific monitors to evaluate. Mutually exclusive with query.
+	MonitorIds DeploymentGateRuleOptionsMonitorIdArrayInput `pulumi:"monitorIds"`
+	// A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
 	Query pulumi.StringPtrInput `pulumi:"query"`
+	// Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+	Warmup pulumi.IntPtrInput `pulumi:"warmup"`
 }
 
 func (DeploymentGateRuleOptionsArgs) ElementType() reflect.Type {
@@ -89205,19 +89225,44 @@ func (o DeploymentGateRuleOptionsOutput) ToDeploymentGateRuleOptionsPtrOutputWit
 	}).(DeploymentGateRuleOptionsPtrOutput)
 }
 
+// Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+func (o DeploymentGateRuleOptionsOutput) AllowedResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeploymentGateRuleOptions) []string { return v.AllowedResources }).(pulumi.StringArrayOutput)
+}
+
 // The duration for the rule.
 func (o DeploymentGateRuleOptionsOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentGateRuleOptions) *int { return v.Duration }).(pulumi.IntPtrOutput)
 }
 
-// Resources to exclude from faulty deployment detection.
+// Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
 func (o DeploymentGateRuleOptionsOutput) ExcludedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentGateRuleOptions) []string { return v.ExcludedResources }).(pulumi.StringArrayOutput)
 }
 
-// The query for monitor rules.
+// Fail if a matching monitor group is in NO DATA state (API default: true).
+func (o DeploymentGateRuleOptionsOutput) FailOnNoData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentGateRuleOptions) *bool { return v.FailOnNoData }).(pulumi.BoolPtrOutput)
+}
+
+// Fail if no monitor groups are found (API default: false).
+func (o DeploymentGateRuleOptionsOutput) FailOnNoGroupsFound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentGateRuleOptions) *bool { return v.FailOnNoGroupsFound }).(pulumi.BoolPtrOutput)
+}
+
+// Specific monitors to evaluate. Mutually exclusive with query.
+func (o DeploymentGateRuleOptionsOutput) MonitorIds() DeploymentGateRuleOptionsMonitorIdArrayOutput {
+	return o.ApplyT(func(v DeploymentGateRuleOptions) []DeploymentGateRuleOptionsMonitorId { return v.MonitorIds }).(DeploymentGateRuleOptionsMonitorIdArrayOutput)
+}
+
+// A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
 func (o DeploymentGateRuleOptionsOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentGateRuleOptions) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+func (o DeploymentGateRuleOptionsOutput) Warmup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentGateRuleOptions) *int { return v.Warmup }).(pulumi.IntPtrOutput)
 }
 
 type DeploymentGateRuleOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -89244,6 +89289,16 @@ func (o DeploymentGateRuleOptionsPtrOutput) Elem() DeploymentGateRuleOptionsOutp
 	}).(DeploymentGateRuleOptionsOutput)
 }
 
+// Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+func (o DeploymentGateRuleOptionsPtrOutput) AllowedResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeploymentGateRuleOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedResources
+	}).(pulumi.StringArrayOutput)
+}
+
 // The duration for the rule.
 func (o DeploymentGateRuleOptionsPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentGateRuleOptions) *int {
@@ -89254,7 +89309,7 @@ func (o DeploymentGateRuleOptionsPtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Resources to exclude from faulty deployment detection.
+// Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
 func (o DeploymentGateRuleOptionsPtrOutput) ExcludedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentGateRuleOptions) []string {
 		if v == nil {
@@ -89264,7 +89319,37 @@ func (o DeploymentGateRuleOptionsPtrOutput) ExcludedResources() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The query for monitor rules.
+// Fail if a matching monitor group is in NO DATA state (API default: true).
+func (o DeploymentGateRuleOptionsPtrOutput) FailOnNoData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentGateRuleOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailOnNoData
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Fail if no monitor groups are found (API default: false).
+func (o DeploymentGateRuleOptionsPtrOutput) FailOnNoGroupsFound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentGateRuleOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailOnNoGroupsFound
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specific monitors to evaluate. Mutually exclusive with query.
+func (o DeploymentGateRuleOptionsPtrOutput) MonitorIds() DeploymentGateRuleOptionsMonitorIdArrayOutput {
+	return o.ApplyT(func(v *DeploymentGateRuleOptions) []DeploymentGateRuleOptionsMonitorId {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorIds
+	}).(DeploymentGateRuleOptionsMonitorIdArrayOutput)
+}
+
+// A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
 func (o DeploymentGateRuleOptionsPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentGateRuleOptions) *string {
 		if v == nil {
@@ -89272,6 +89357,122 @@ func (o DeploymentGateRuleOptionsPtrOutput) Query() pulumi.StringPtrOutput {
 		}
 		return v.Query
 	}).(pulumi.StringPtrOutput)
+}
+
+// Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+func (o DeploymentGateRuleOptionsPtrOutput) Warmup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentGateRuleOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Warmup
+	}).(pulumi.IntPtrOutput)
+}
+
+type DeploymentGateRuleOptionsMonitorId struct {
+	// Exact group names to evaluate; an empty list evaluates all groups.
+	Groups []string `pulumi:"groups"`
+	// The monitor's decimal ID.
+	Id string `pulumi:"id"`
+}
+
+// DeploymentGateRuleOptionsMonitorIdInput is an input type that accepts DeploymentGateRuleOptionsMonitorIdArgs and DeploymentGateRuleOptionsMonitorIdOutput values.
+// You can construct a concrete instance of `DeploymentGateRuleOptionsMonitorIdInput` via:
+//
+//	DeploymentGateRuleOptionsMonitorIdArgs{...}
+type DeploymentGateRuleOptionsMonitorIdInput interface {
+	pulumi.Input
+
+	ToDeploymentGateRuleOptionsMonitorIdOutput() DeploymentGateRuleOptionsMonitorIdOutput
+	ToDeploymentGateRuleOptionsMonitorIdOutputWithContext(context.Context) DeploymentGateRuleOptionsMonitorIdOutput
+}
+
+type DeploymentGateRuleOptionsMonitorIdArgs struct {
+	// Exact group names to evaluate; an empty list evaluates all groups.
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// The monitor's decimal ID.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (DeploymentGateRuleOptionsMonitorIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGateRuleOptionsMonitorId)(nil)).Elem()
+}
+
+func (i DeploymentGateRuleOptionsMonitorIdArgs) ToDeploymentGateRuleOptionsMonitorIdOutput() DeploymentGateRuleOptionsMonitorIdOutput {
+	return i.ToDeploymentGateRuleOptionsMonitorIdOutputWithContext(context.Background())
+}
+
+func (i DeploymentGateRuleOptionsMonitorIdArgs) ToDeploymentGateRuleOptionsMonitorIdOutputWithContext(ctx context.Context) DeploymentGateRuleOptionsMonitorIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGateRuleOptionsMonitorIdOutput)
+}
+
+// DeploymentGateRuleOptionsMonitorIdArrayInput is an input type that accepts DeploymentGateRuleOptionsMonitorIdArray and DeploymentGateRuleOptionsMonitorIdArrayOutput values.
+// You can construct a concrete instance of `DeploymentGateRuleOptionsMonitorIdArrayInput` via:
+//
+//	DeploymentGateRuleOptionsMonitorIdArray{ DeploymentGateRuleOptionsMonitorIdArgs{...} }
+type DeploymentGateRuleOptionsMonitorIdArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentGateRuleOptionsMonitorIdArrayOutput() DeploymentGateRuleOptionsMonitorIdArrayOutput
+	ToDeploymentGateRuleOptionsMonitorIdArrayOutputWithContext(context.Context) DeploymentGateRuleOptionsMonitorIdArrayOutput
+}
+
+type DeploymentGateRuleOptionsMonitorIdArray []DeploymentGateRuleOptionsMonitorIdInput
+
+func (DeploymentGateRuleOptionsMonitorIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGateRuleOptionsMonitorId)(nil)).Elem()
+}
+
+func (i DeploymentGateRuleOptionsMonitorIdArray) ToDeploymentGateRuleOptionsMonitorIdArrayOutput() DeploymentGateRuleOptionsMonitorIdArrayOutput {
+	return i.ToDeploymentGateRuleOptionsMonitorIdArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentGateRuleOptionsMonitorIdArray) ToDeploymentGateRuleOptionsMonitorIdArrayOutputWithContext(ctx context.Context) DeploymentGateRuleOptionsMonitorIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGateRuleOptionsMonitorIdArrayOutput)
+}
+
+type DeploymentGateRuleOptionsMonitorIdOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGateRuleOptionsMonitorIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentGateRuleOptionsMonitorId)(nil)).Elem()
+}
+
+func (o DeploymentGateRuleOptionsMonitorIdOutput) ToDeploymentGateRuleOptionsMonitorIdOutput() DeploymentGateRuleOptionsMonitorIdOutput {
+	return o
+}
+
+func (o DeploymentGateRuleOptionsMonitorIdOutput) ToDeploymentGateRuleOptionsMonitorIdOutputWithContext(ctx context.Context) DeploymentGateRuleOptionsMonitorIdOutput {
+	return o
+}
+
+// Exact group names to evaluate; an empty list evaluates all groups.
+func (o DeploymentGateRuleOptionsMonitorIdOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeploymentGateRuleOptionsMonitorId) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// The monitor's decimal ID.
+func (o DeploymentGateRuleOptionsMonitorIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentGateRuleOptionsMonitorId) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type DeploymentGateRuleOptionsMonitorIdArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentGateRuleOptionsMonitorIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentGateRuleOptionsMonitorId)(nil)).Elem()
+}
+
+func (o DeploymentGateRuleOptionsMonitorIdArrayOutput) ToDeploymentGateRuleOptionsMonitorIdArrayOutput() DeploymentGateRuleOptionsMonitorIdArrayOutput {
+	return o
+}
+
+func (o DeploymentGateRuleOptionsMonitorIdArrayOutput) ToDeploymentGateRuleOptionsMonitorIdArrayOutputWithContext(ctx context.Context) DeploymentGateRuleOptionsMonitorIdArrayOutput {
+	return o
+}
+
+func (o DeploymentGateRuleOptionsMonitorIdArrayOutput) Index(i pulumi.IntInput) DeploymentGateRuleOptionsMonitorIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGateRuleOptionsMonitorId {
+		return vs[0].([]DeploymentGateRuleOptionsMonitorId)[vs[1].(int)]
+	}).(DeploymentGateRuleOptionsMonitorIdOutput)
 }
 
 type DowntimeRecurrence struct {
@@ -93754,143 +93955,6 @@ func (o LogsCustomDestinationSplunkDestinationPtrOutput) Sourcetype() LogsCustom
 	}).(LogsCustomDestinationSplunkDestinationSourcetypePtrOutput)
 }
 
-type LogsCustomDestinationSplunkDestinationSourcetype struct {
-	// The source type string. Set to `null` to omit the sourcetype from forwarded events.
-	Value *string `pulumi:"value"`
-}
-
-// LogsCustomDestinationSplunkDestinationSourcetypeInput is an input type that accepts LogsCustomDestinationSplunkDestinationSourcetypeArgs and LogsCustomDestinationSplunkDestinationSourcetypeOutput values.
-// You can construct a concrete instance of `LogsCustomDestinationSplunkDestinationSourcetypeInput` via:
-//
-//	LogsCustomDestinationSplunkDestinationSourcetypeArgs{...}
-type LogsCustomDestinationSplunkDestinationSourcetypeInput interface {
-	pulumi.Input
-
-	ToLogsCustomDestinationSplunkDestinationSourcetypeOutput() LogsCustomDestinationSplunkDestinationSourcetypeOutput
-	ToLogsCustomDestinationSplunkDestinationSourcetypeOutputWithContext(context.Context) LogsCustomDestinationSplunkDestinationSourcetypeOutput
-}
-
-type LogsCustomDestinationSplunkDestinationSourcetypeArgs struct {
-	// The source type string. Set to `null` to omit the sourcetype from forwarded events.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (LogsCustomDestinationSplunkDestinationSourcetypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomDestinationSplunkDestinationSourcetype)(nil)).Elem()
-}
-
-func (i LogsCustomDestinationSplunkDestinationSourcetypeArgs) ToLogsCustomDestinationSplunkDestinationSourcetypeOutput() LogsCustomDestinationSplunkDestinationSourcetypeOutput {
-	return i.ToLogsCustomDestinationSplunkDestinationSourcetypeOutputWithContext(context.Background())
-}
-
-func (i LogsCustomDestinationSplunkDestinationSourcetypeArgs) ToLogsCustomDestinationSplunkDestinationSourcetypeOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationSplunkDestinationSourcetypeOutput)
-}
-
-func (i LogsCustomDestinationSplunkDestinationSourcetypeArgs) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutput() LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
-	return i.ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(context.Background())
-}
-
-func (i LogsCustomDestinationSplunkDestinationSourcetypeArgs) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationSplunkDestinationSourcetypeOutput).ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(ctx)
-}
-
-// LogsCustomDestinationSplunkDestinationSourcetypePtrInput is an input type that accepts LogsCustomDestinationSplunkDestinationSourcetypeArgs, LogsCustomDestinationSplunkDestinationSourcetypePtr and LogsCustomDestinationSplunkDestinationSourcetypePtrOutput values.
-// You can construct a concrete instance of `LogsCustomDestinationSplunkDestinationSourcetypePtrInput` via:
-//
-//	        LogsCustomDestinationSplunkDestinationSourcetypeArgs{...}
-//
-//	or:
-//
-//	        nil
-type LogsCustomDestinationSplunkDestinationSourcetypePtrInput interface {
-	pulumi.Input
-
-	ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutput() LogsCustomDestinationSplunkDestinationSourcetypePtrOutput
-	ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(context.Context) LogsCustomDestinationSplunkDestinationSourcetypePtrOutput
-}
-
-type logsCustomDestinationSplunkDestinationSourcetypePtrType LogsCustomDestinationSplunkDestinationSourcetypeArgs
-
-func LogsCustomDestinationSplunkDestinationSourcetypePtr(v *LogsCustomDestinationSplunkDestinationSourcetypeArgs) LogsCustomDestinationSplunkDestinationSourcetypePtrInput {
-	return (*logsCustomDestinationSplunkDestinationSourcetypePtrType)(v)
-}
-
-func (*logsCustomDestinationSplunkDestinationSourcetypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomDestinationSplunkDestinationSourcetype)(nil)).Elem()
-}
-
-func (i *logsCustomDestinationSplunkDestinationSourcetypePtrType) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutput() LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
-	return i.ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(context.Background())
-}
-
-func (i *logsCustomDestinationSplunkDestinationSourcetypePtrType) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationSplunkDestinationSourcetypePtrOutput)
-}
-
-type LogsCustomDestinationSplunkDestinationSourcetypeOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomDestinationSplunkDestinationSourcetypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomDestinationSplunkDestinationSourcetype)(nil)).Elem()
-}
-
-func (o LogsCustomDestinationSplunkDestinationSourcetypeOutput) ToLogsCustomDestinationSplunkDestinationSourcetypeOutput() LogsCustomDestinationSplunkDestinationSourcetypeOutput {
-	return o
-}
-
-func (o LogsCustomDestinationSplunkDestinationSourcetypeOutput) ToLogsCustomDestinationSplunkDestinationSourcetypeOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypeOutput {
-	return o
-}
-
-func (o LogsCustomDestinationSplunkDestinationSourcetypeOutput) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutput() LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
-	return o.ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(context.Background())
-}
-
-func (o LogsCustomDestinationSplunkDestinationSourcetypeOutput) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomDestinationSplunkDestinationSourcetype) *LogsCustomDestinationSplunkDestinationSourcetype {
-		return &v
-	}).(LogsCustomDestinationSplunkDestinationSourcetypePtrOutput)
-}
-
-// The source type string. Set to `null` to omit the sourcetype from forwarded events.
-func (o LogsCustomDestinationSplunkDestinationSourcetypeOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsCustomDestinationSplunkDestinationSourcetype) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type LogsCustomDestinationSplunkDestinationSourcetypePtrOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomDestinationSplunkDestinationSourcetype)(nil)).Elem()
-}
-
-func (o LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutput() LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
-	return o
-}
-
-func (o LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) ToLogsCustomDestinationSplunkDestinationSourcetypePtrOutputWithContext(ctx context.Context) LogsCustomDestinationSplunkDestinationSourcetypePtrOutput {
-	return o
-}
-
-func (o LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) Elem() LogsCustomDestinationSplunkDestinationSourcetypeOutput {
-	return o.ApplyT(func(v *LogsCustomDestinationSplunkDestinationSourcetype) LogsCustomDestinationSplunkDestinationSourcetype {
-		if v != nil {
-			return *v
-		}
-		var ret LogsCustomDestinationSplunkDestinationSourcetype
-		return ret
-	}).(LogsCustomDestinationSplunkDestinationSourcetypeOutput)
-}
-
-// The source type string. Set to `null` to omit the sourcetype from forwarded events.
-func (o LogsCustomDestinationSplunkDestinationSourcetypePtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomDestinationSplunkDestinationSourcetype) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrInput)(nil)).Elem(), DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryArgs{})
@@ -94836,6 +94900,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGateRuleArrayInput)(nil)).Elem(), DeploymentGateRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGateRuleOptionsInput)(nil)).Elem(), DeploymentGateRuleOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGateRuleOptionsPtrInput)(nil)).Elem(), DeploymentGateRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGateRuleOptionsMonitorIdInput)(nil)).Elem(), DeploymentGateRuleOptionsMonitorIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGateRuleOptionsMonitorIdArrayInput)(nil)).Elem(), DeploymentGateRuleOptionsMonitorIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeRecurrenceInput)(nil)).Elem(), DowntimeRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeRecurrencePtrInput)(nil)).Elem(), DowntimeRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleMonitorIdentifierInput)(nil)).Elem(), DowntimeScheduleMonitorIdentifierArgs{})
@@ -94888,8 +94954,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationMicrosoftSentinelDestinationPtrInput)(nil)).Elem(), LogsCustomDestinationMicrosoftSentinelDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationSplunkDestinationInput)(nil)).Elem(), LogsCustomDestinationSplunkDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationSplunkDestinationPtrInput)(nil)).Elem(), LogsCustomDestinationSplunkDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationSplunkDestinationSourcetypeInput)(nil)).Elem(), LogsCustomDestinationSplunkDestinationSourcetypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationSplunkDestinationSourcetypePtrInput)(nil)).Elem(), LogsCustomDestinationSplunkDestinationSourcetypeArgs{})
 	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryPtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQueryGroupByOutput{})
@@ -95834,6 +95898,8 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentGateRuleArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentGateRuleOptionsOutput{})
 	pulumi.RegisterOutputType(DeploymentGateRuleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentGateRuleOptionsMonitorIdOutput{})
+	pulumi.RegisterOutputType(DeploymentGateRuleOptionsMonitorIdArrayOutput{})
 	pulumi.RegisterOutputType(DowntimeRecurrenceOutput{})
 	pulumi.RegisterOutputType(DowntimeRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(DowntimeScheduleMonitorIdentifierOutput{})
@@ -95886,6 +95952,4 @@ func init() {
 	pulumi.RegisterOutputType(LogsCustomDestinationMicrosoftSentinelDestinationPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomDestinationSplunkDestinationOutput{})
 	pulumi.RegisterOutputType(LogsCustomDestinationSplunkDestinationPtrOutput{})
-	pulumi.RegisterOutputType(LogsCustomDestinationSplunkDestinationSourcetypeOutput{})
-	pulumi.RegisterOutputType(LogsCustomDestinationSplunkDestinationSourcetypePtrOutput{})
 }

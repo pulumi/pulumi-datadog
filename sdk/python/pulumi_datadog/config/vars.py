@@ -24,7 +24,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def api_key(self) -> Optional[str]:
         """
-        (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+        Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
         """
         return __config__.get('apiKey')
 
@@ -38,7 +38,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def app_key(self) -> Optional[str]:
         """
-        (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
         """
         return __config__.get('appKey')
 
@@ -143,14 +143,21 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def org_uuid(self) -> Optional[str]:
         """
-        The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return __config__.get('orgUuid')
 
     @_builtins.property
     def validate(self) -> Optional[str]:
         """
-        Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, api_key won't be checked.
+        Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
         """
         return __config__.get('validate')
+
+    @_builtins.property
+    def workload_identity_token_tag(self) -> Optional[str]:
+        """
+        Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloud_provider_type take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
+        """
+        return __config__.get('workloadIdentityTokenTag')
 

@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonOp
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonS3Generic;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLake;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAzureDataExplorer;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationAzureStorage;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationClickhouse;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCloudPrem;
@@ -62,6 +63,11 @@ public final class ObservabilityPipelineConfigDestination {
      * 
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationAmazonSecurityLake> amazonSecurityLakes;
+    /**
+     * @return The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationAzureDataExplorer azureDataExplorer;
     /**
      * @return The `azureStorage` destination forwards logs to an Azure Blob Storage container.
      * 
@@ -226,6 +232,13 @@ public final class ObservabilityPipelineConfigDestination {
      */
     public List<ObservabilityPipelineConfigDestinationAmazonSecurityLake> amazonSecurityLakes() {
         return this.amazonSecurityLakes == null ? List.of() : this.amazonSecurityLakes;
+    }
+    /**
+     * @return The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationAzureDataExplorer> azureDataExplorer() {
+        return Optional.ofNullable(this.azureDataExplorer);
     }
     /**
      * @return The `azureStorage` destination forwards logs to an Azure Blob Storage container.
@@ -430,6 +443,7 @@ public final class ObservabilityPipelineConfigDestination {
         private @Nullable ObservabilityPipelineConfigDestinationAmazonS3Generic amazonS3Generic;
         private @Nullable List<ObservabilityPipelineConfigDestinationAmazonS3> amazonS3s;
         private @Nullable List<ObservabilityPipelineConfigDestinationAmazonSecurityLake> amazonSecurityLakes;
+        private @Nullable ObservabilityPipelineConfigDestinationAzureDataExplorer azureDataExplorer;
         private @Nullable List<ObservabilityPipelineConfigDestinationAzureStorage> azureStorages;
         private @Nullable ObservabilityPipelineConfigDestinationClickhouse clickhouse;
         private @Nullable ObservabilityPipelineConfigDestinationCloudPrem cloudPrem;
@@ -464,6 +478,7 @@ public final class ObservabilityPipelineConfigDestination {
     	      this.amazonS3Generic = defaults.amazonS3Generic;
     	      this.amazonS3s = defaults.amazonS3s;
     	      this.amazonSecurityLakes = defaults.amazonSecurityLakes;
+    	      this.azureDataExplorer = defaults.azureDataExplorer;
     	      this.azureStorages = defaults.azureStorages;
     	      this.clickhouse = defaults.clickhouse;
     	      this.cloudPrem = defaults.cloudPrem;
@@ -525,6 +540,12 @@ public final class ObservabilityPipelineConfigDestination {
         }
         public Builder amazonSecurityLakes(ObservabilityPipelineConfigDestinationAmazonSecurityLake... amazonSecurityLakes) {
             return amazonSecurityLakes(List.of(amazonSecurityLakes));
+        }
+        @CustomType.Setter
+        public Builder azureDataExplorer(@Nullable ObservabilityPipelineConfigDestinationAzureDataExplorer azureDataExplorer) {
+
+            this.azureDataExplorer = azureDataExplorer;
+            return this;
         }
         @CustomType.Setter
         public Builder azureStorages(@Nullable List<ObservabilityPipelineConfigDestinationAzureStorage> azureStorages) {
@@ -758,6 +779,7 @@ public final class ObservabilityPipelineConfigDestination {
             _resultValue.amazonS3Generic = amazonS3Generic;
             _resultValue.amazonS3s = amazonS3s;
             _resultValue.amazonSecurityLakes = amazonSecurityLakes;
+            _resultValue.azureDataExplorer = azureDataExplorer;
             _resultValue.azureStorages = azureStorages;
             _resultValue.clickhouse = clickhouse;
             _resultValue.cloudPrem = cloudPrem;

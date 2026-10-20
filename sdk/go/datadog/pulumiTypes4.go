@@ -13,6 +13,3072 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type OrganizationSettingsSettingsSamlAutocreateUsersDomains struct {
+	// List of domains where the SAML automated user creation is enabled.
+	Domains []string `pulumi:"domains"`
+	// Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// OrganizationSettingsSettingsSamlAutocreateUsersDomainsInput is an input type that accepts OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs and OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput values.
+// You can construct a concrete instance of `OrganizationSettingsSettingsSamlAutocreateUsersDomainsInput` via:
+//
+//	OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs{...}
+type OrganizationSettingsSettingsSamlAutocreateUsersDomainsInput interface {
+	pulumi.Input
+
+	ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput
+	ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutputWithContext(context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput
+}
+
+type OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs struct {
+	// List of domains where the SAML automated user creation is enabled.
+	Domains pulumi.StringArrayInput `pulumi:"domains"`
+	// Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationSettingsSettingsSamlAutocreateUsersDomains)(nil)).Elem()
+}
+
+func (i OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput {
+	return i.ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutputWithContext(context.Background())
+}
+
+func (i OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput)
+}
+
+func (i OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
+	return i.ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput).ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(ctx)
+}
+
+// OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrInput is an input type that accepts OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs, OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtr and OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput values.
+// You can construct a concrete instance of `OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrInput` via:
+//
+//	        OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput
+	ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput
+}
+
+type organizationSettingsSettingsSamlAutocreateUsersDomainsPtrType OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs
+
+func OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtr(v *OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrInput {
+	return (*organizationSettingsSettingsSamlAutocreateUsersDomainsPtrType)(v)
+}
+
+func (*organizationSettingsSettingsSamlAutocreateUsersDomainsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationSettingsSettingsSamlAutocreateUsersDomains)(nil)).Elem()
+}
+
+func (i *organizationSettingsSettingsSamlAutocreateUsersDomainsPtrType) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
+	return i.ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationSettingsSettingsSamlAutocreateUsersDomainsPtrType) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput)
+}
+
+type OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput struct{ *pulumi.OutputState }
+
+func (OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationSettingsSettingsSamlAutocreateUsersDomains)(nil)).Elem()
+}
+
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
+	return o.ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationSettingsSettingsSamlAutocreateUsersDomains) *OrganizationSettingsSettingsSamlAutocreateUsersDomains {
+		return &v
+	}).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput)
+}
+
+// List of domains where the SAML automated user creation is enabled.
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationSettingsSettingsSamlAutocreateUsersDomains) []string { return v.Domains }).(pulumi.StringArrayOutput)
+}
+
+// Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationSettingsSettingsSamlAutocreateUsersDomains) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationSettingsSettingsSamlAutocreateUsersDomains)(nil)).Elem()
+}
+
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput() OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) ToOrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Elem() OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput {
+	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlAutocreateUsersDomains) OrganizationSettingsSettingsSamlAutocreateUsersDomains {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationSettingsSettingsSamlAutocreateUsersDomains
+		return ret
+	}).(OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput)
+}
+
+// List of domains where the SAML automated user creation is enabled.
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Domains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlAutocreateUsersDomains) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Domains
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether or not the automated user creation based on SAML domain is enabled. Defaults to `false`.
+func (o OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlAutocreateUsersDomains) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationSettingsSettingsSamlIdpInitiatedLogin struct {
+	// Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// OrganizationSettingsSettingsSamlIdpInitiatedLoginInput is an input type that accepts OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs and OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput values.
+// You can construct a concrete instance of `OrganizationSettingsSettingsSamlIdpInitiatedLoginInput` via:
+//
+//	OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs{...}
+type OrganizationSettingsSettingsSamlIdpInitiatedLoginInput interface {
+	pulumi.Input
+
+	ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput
+	ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutputWithContext(context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput
+}
+
+type OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs struct {
+	// Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationSettingsSettingsSamlIdpInitiatedLogin)(nil)).Elem()
+}
+
+func (i OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput {
+	return i.ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutputWithContext(context.Background())
+}
+
+func (i OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput)
+}
+
+func (i OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
+	return i.ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput).ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(ctx)
+}
+
+// OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput is an input type that accepts OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs, OrganizationSettingsSettingsSamlIdpInitiatedLoginPtr and OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput values.
+// You can construct a concrete instance of `OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput` via:
+//
+//	        OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput
+	ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput
+}
+
+type organizationSettingsSettingsSamlIdpInitiatedLoginPtrType OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs
+
+func OrganizationSettingsSettingsSamlIdpInitiatedLoginPtr(v *OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput {
+	return (*organizationSettingsSettingsSamlIdpInitiatedLoginPtrType)(v)
+}
+
+func (*organizationSettingsSettingsSamlIdpInitiatedLoginPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationSettingsSettingsSamlIdpInitiatedLogin)(nil)).Elem()
+}
+
+func (i *organizationSettingsSettingsSamlIdpInitiatedLoginPtrType) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
+	return i.ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationSettingsSettingsSamlIdpInitiatedLoginPtrType) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput)
+}
+
+type OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput struct{ *pulumi.OutputState }
+
+func (OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationSettingsSettingsSamlIdpInitiatedLogin)(nil)).Elem()
+}
+
+func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
+	return o.ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationSettingsSettingsSamlIdpInitiatedLogin) *OrganizationSettingsSettingsSamlIdpInitiatedLogin {
+		return &v
+	}).(OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput)
+}
+
+// Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
+func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationSettingsSettingsSamlIdpInitiatedLogin) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationSettingsSettingsSamlIdpInitiatedLogin)(nil)).Elem()
+}
+
+func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput() OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) ToOrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) Elem() OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput {
+	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlIdpInitiatedLogin) OrganizationSettingsSettingsSamlIdpInitiatedLogin {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationSettingsSettingsSamlIdpInitiatedLogin
+		return ret
+	}).(OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput)
+}
+
+// Whether or not a SAML identity provider metadata file was provided to the Datadog organization. Defaults to `false`.
+func (o OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlIdpInitiatedLogin) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationSettingsSettingsSamlStrictMode struct {
+	// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// OrganizationSettingsSettingsSamlStrictModeInput is an input type that accepts OrganizationSettingsSettingsSamlStrictModeArgs and OrganizationSettingsSettingsSamlStrictModeOutput values.
+// You can construct a concrete instance of `OrganizationSettingsSettingsSamlStrictModeInput` via:
+//
+//	OrganizationSettingsSettingsSamlStrictModeArgs{...}
+type OrganizationSettingsSettingsSamlStrictModeInput interface {
+	pulumi.Input
+
+	ToOrganizationSettingsSettingsSamlStrictModeOutput() OrganizationSettingsSettingsSamlStrictModeOutput
+	ToOrganizationSettingsSettingsSamlStrictModeOutputWithContext(context.Context) OrganizationSettingsSettingsSamlStrictModeOutput
+}
+
+type OrganizationSettingsSettingsSamlStrictModeArgs struct {
+	// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (OrganizationSettingsSettingsSamlStrictModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationSettingsSettingsSamlStrictMode)(nil)).Elem()
+}
+
+func (i OrganizationSettingsSettingsSamlStrictModeArgs) ToOrganizationSettingsSettingsSamlStrictModeOutput() OrganizationSettingsSettingsSamlStrictModeOutput {
+	return i.ToOrganizationSettingsSettingsSamlStrictModeOutputWithContext(context.Background())
+}
+
+func (i OrganizationSettingsSettingsSamlStrictModeArgs) ToOrganizationSettingsSettingsSamlStrictModeOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlStrictModeOutput)
+}
+
+func (i OrganizationSettingsSettingsSamlStrictModeArgs) ToOrganizationSettingsSettingsSamlStrictModePtrOutput() OrganizationSettingsSettingsSamlStrictModePtrOutput {
+	return i.ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationSettingsSettingsSamlStrictModeArgs) ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlStrictModeOutput).ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(ctx)
+}
+
+// OrganizationSettingsSettingsSamlStrictModePtrInput is an input type that accepts OrganizationSettingsSettingsSamlStrictModeArgs, OrganizationSettingsSettingsSamlStrictModePtr and OrganizationSettingsSettingsSamlStrictModePtrOutput values.
+// You can construct a concrete instance of `OrganizationSettingsSettingsSamlStrictModePtrInput` via:
+//
+//	        OrganizationSettingsSettingsSamlStrictModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationSettingsSettingsSamlStrictModePtrInput interface {
+	pulumi.Input
+
+	ToOrganizationSettingsSettingsSamlStrictModePtrOutput() OrganizationSettingsSettingsSamlStrictModePtrOutput
+	ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(context.Context) OrganizationSettingsSettingsSamlStrictModePtrOutput
+}
+
+type organizationSettingsSettingsSamlStrictModePtrType OrganizationSettingsSettingsSamlStrictModeArgs
+
+func OrganizationSettingsSettingsSamlStrictModePtr(v *OrganizationSettingsSettingsSamlStrictModeArgs) OrganizationSettingsSettingsSamlStrictModePtrInput {
+	return (*organizationSettingsSettingsSamlStrictModePtrType)(v)
+}
+
+func (*organizationSettingsSettingsSamlStrictModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationSettingsSettingsSamlStrictMode)(nil)).Elem()
+}
+
+func (i *organizationSettingsSettingsSamlStrictModePtrType) ToOrganizationSettingsSettingsSamlStrictModePtrOutput() OrganizationSettingsSettingsSamlStrictModePtrOutput {
+	return i.ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(context.Background())
+}
+
+func (i *organizationSettingsSettingsSamlStrictModePtrType) ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationSettingsSettingsSamlStrictModePtrOutput)
+}
+
+type OrganizationSettingsSettingsSamlStrictModeOutput struct{ *pulumi.OutputState }
+
+func (OrganizationSettingsSettingsSamlStrictModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationSettingsSettingsSamlStrictMode)(nil)).Elem()
+}
+
+func (o OrganizationSettingsSettingsSamlStrictModeOutput) ToOrganizationSettingsSettingsSamlStrictModeOutput() OrganizationSettingsSettingsSamlStrictModeOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlStrictModeOutput) ToOrganizationSettingsSettingsSamlStrictModeOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModeOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlStrictModeOutput) ToOrganizationSettingsSettingsSamlStrictModePtrOutput() OrganizationSettingsSettingsSamlStrictModePtrOutput {
+	return o.ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationSettingsSettingsSamlStrictModeOutput) ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationSettingsSettingsSamlStrictMode) *OrganizationSettingsSettingsSamlStrictMode {
+		return &v
+	}).(OrganizationSettingsSettingsSamlStrictModePtrOutput)
+}
+
+// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
+func (o OrganizationSettingsSettingsSamlStrictModeOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationSettingsSettingsSamlStrictMode) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type OrganizationSettingsSettingsSamlStrictModePtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationSettingsSettingsSamlStrictModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationSettingsSettingsSamlStrictMode)(nil)).Elem()
+}
+
+func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) ToOrganizationSettingsSettingsSamlStrictModePtrOutput() OrganizationSettingsSettingsSamlStrictModePtrOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) ToOrganizationSettingsSettingsSamlStrictModePtrOutputWithContext(ctx context.Context) OrganizationSettingsSettingsSamlStrictModePtrOutput {
+	return o
+}
+
+func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) Elem() OrganizationSettingsSettingsSamlStrictModeOutput {
+	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlStrictMode) OrganizationSettingsSettingsSamlStrictMode {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationSettingsSettingsSamlStrictMode
+		return ret
+	}).(OrganizationSettingsSettingsSamlStrictModeOutput)
+}
+
+// Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Defaults to `false`.
+func (o OrganizationSettingsSettingsSamlStrictModePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationSettingsSettingsSamlStrictMode) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type PowerpackLayout struct {
+	// The height of the widget.
+	Height *int `pulumi:"height"`
+	// The width of the widget.
+	Width *int `pulumi:"width"`
+	// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+	X *int `pulumi:"x"`
+	// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+	Y *int `pulumi:"y"`
+}
+
+// PowerpackLayoutInput is an input type that accepts PowerpackLayoutArgs and PowerpackLayoutOutput values.
+// You can construct a concrete instance of `PowerpackLayoutInput` via:
+//
+//	PowerpackLayoutArgs{...}
+type PowerpackLayoutInput interface {
+	pulumi.Input
+
+	ToPowerpackLayoutOutput() PowerpackLayoutOutput
+	ToPowerpackLayoutOutputWithContext(context.Context) PowerpackLayoutOutput
+}
+
+type PowerpackLayoutArgs struct {
+	// The height of the widget.
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The width of the widget.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+	// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+	X pulumi.IntPtrInput `pulumi:"x"`
+	// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+	Y pulumi.IntPtrInput `pulumi:"y"`
+}
+
+func (PowerpackLayoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackLayout)(nil)).Elem()
+}
+
+func (i PowerpackLayoutArgs) ToPowerpackLayoutOutput() PowerpackLayoutOutput {
+	return i.ToPowerpackLayoutOutputWithContext(context.Background())
+}
+
+func (i PowerpackLayoutArgs) ToPowerpackLayoutOutputWithContext(ctx context.Context) PowerpackLayoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackLayoutOutput)
+}
+
+func (i PowerpackLayoutArgs) ToPowerpackLayoutPtrOutput() PowerpackLayoutPtrOutput {
+	return i.ToPowerpackLayoutPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackLayoutArgs) ToPowerpackLayoutPtrOutputWithContext(ctx context.Context) PowerpackLayoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackLayoutOutput).ToPowerpackLayoutPtrOutputWithContext(ctx)
+}
+
+// PowerpackLayoutPtrInput is an input type that accepts PowerpackLayoutArgs, PowerpackLayoutPtr and PowerpackLayoutPtrOutput values.
+// You can construct a concrete instance of `PowerpackLayoutPtrInput` via:
+//
+//	        PowerpackLayoutArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackLayoutPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackLayoutPtrOutput() PowerpackLayoutPtrOutput
+	ToPowerpackLayoutPtrOutputWithContext(context.Context) PowerpackLayoutPtrOutput
+}
+
+type powerpackLayoutPtrType PowerpackLayoutArgs
+
+func PowerpackLayoutPtr(v *PowerpackLayoutArgs) PowerpackLayoutPtrInput {
+	return (*powerpackLayoutPtrType)(v)
+}
+
+func (*powerpackLayoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackLayout)(nil)).Elem()
+}
+
+func (i *powerpackLayoutPtrType) ToPowerpackLayoutPtrOutput() PowerpackLayoutPtrOutput {
+	return i.ToPowerpackLayoutPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackLayoutPtrType) ToPowerpackLayoutPtrOutputWithContext(ctx context.Context) PowerpackLayoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackLayoutPtrOutput)
+}
+
+type PowerpackLayoutOutput struct{ *pulumi.OutputState }
+
+func (PowerpackLayoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackLayout)(nil)).Elem()
+}
+
+func (o PowerpackLayoutOutput) ToPowerpackLayoutOutput() PowerpackLayoutOutput {
+	return o
+}
+
+func (o PowerpackLayoutOutput) ToPowerpackLayoutOutputWithContext(ctx context.Context) PowerpackLayoutOutput {
+	return o
+}
+
+func (o PowerpackLayoutOutput) ToPowerpackLayoutPtrOutput() PowerpackLayoutPtrOutput {
+	return o.ToPowerpackLayoutPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackLayoutOutput) ToPowerpackLayoutPtrOutputWithContext(ctx context.Context) PowerpackLayoutPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackLayout) *PowerpackLayout {
+		return &v
+	}).(PowerpackLayoutPtrOutput)
+}
+
+// The height of the widget.
+func (o PowerpackLayoutOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackLayout) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+// The width of the widget.
+func (o PowerpackLayoutOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackLayout) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+func (o PowerpackLayoutOutput) X() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackLayout) *int { return v.X }).(pulumi.IntPtrOutput)
+}
+
+// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+func (o PowerpackLayoutOutput) Y() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackLayout) *int { return v.Y }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackLayoutPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackLayoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackLayout)(nil)).Elem()
+}
+
+func (o PowerpackLayoutPtrOutput) ToPowerpackLayoutPtrOutput() PowerpackLayoutPtrOutput {
+	return o
+}
+
+func (o PowerpackLayoutPtrOutput) ToPowerpackLayoutPtrOutputWithContext(ctx context.Context) PowerpackLayoutPtrOutput {
+	return o
+}
+
+func (o PowerpackLayoutPtrOutput) Elem() PowerpackLayoutOutput {
+	return o.ApplyT(func(v *PowerpackLayout) PowerpackLayout {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackLayout
+		return ret
+	}).(PowerpackLayoutOutput)
+}
+
+// The height of the widget.
+func (o PowerpackLayoutPtrOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackLayout) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Height
+	}).(pulumi.IntPtrOutput)
+}
+
+// The width of the widget.
+func (o PowerpackLayoutPtrOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackLayout) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Width
+	}).(pulumi.IntPtrOutput)
+}
+
+// The position of the widget on the x (horizontal) axis. Should be greater than or equal to 0.
+func (o PowerpackLayoutPtrOutput) X() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackLayout) *int {
+		if v == nil {
+			return nil
+		}
+		return v.X
+	}).(pulumi.IntPtrOutput)
+}
+
+// The position of the widget on the y (vertical) axis. Should be greater than or equal to 0.
+func (o PowerpackLayoutPtrOutput) Y() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackLayout) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Y
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackTemplateVariable struct {
+	// One or many default values for powerpack template variables on load. If more than one default is specified, they will be unioned together with `OR`.
+	Defaults []string `pulumi:"defaults"`
+	// The name of the powerpack template variable.
+	Name string `pulumi:"name"`
+}
+
+// PowerpackTemplateVariableInput is an input type that accepts PowerpackTemplateVariableArgs and PowerpackTemplateVariableOutput values.
+// You can construct a concrete instance of `PowerpackTemplateVariableInput` via:
+//
+//	PowerpackTemplateVariableArgs{...}
+type PowerpackTemplateVariableInput interface {
+	pulumi.Input
+
+	ToPowerpackTemplateVariableOutput() PowerpackTemplateVariableOutput
+	ToPowerpackTemplateVariableOutputWithContext(context.Context) PowerpackTemplateVariableOutput
+}
+
+type PowerpackTemplateVariableArgs struct {
+	// One or many default values for powerpack template variables on load. If more than one default is specified, they will be unioned together with `OR`.
+	Defaults pulumi.StringArrayInput `pulumi:"defaults"`
+	// The name of the powerpack template variable.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (PowerpackTemplateVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackTemplateVariable)(nil)).Elem()
+}
+
+func (i PowerpackTemplateVariableArgs) ToPowerpackTemplateVariableOutput() PowerpackTemplateVariableOutput {
+	return i.ToPowerpackTemplateVariableOutputWithContext(context.Background())
+}
+
+func (i PowerpackTemplateVariableArgs) ToPowerpackTemplateVariableOutputWithContext(ctx context.Context) PowerpackTemplateVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackTemplateVariableOutput)
+}
+
+// PowerpackTemplateVariableArrayInput is an input type that accepts PowerpackTemplateVariableArray and PowerpackTemplateVariableArrayOutput values.
+// You can construct a concrete instance of `PowerpackTemplateVariableArrayInput` via:
+//
+//	PowerpackTemplateVariableArray{ PowerpackTemplateVariableArgs{...} }
+type PowerpackTemplateVariableArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackTemplateVariableArrayOutput() PowerpackTemplateVariableArrayOutput
+	ToPowerpackTemplateVariableArrayOutputWithContext(context.Context) PowerpackTemplateVariableArrayOutput
+}
+
+type PowerpackTemplateVariableArray []PowerpackTemplateVariableInput
+
+func (PowerpackTemplateVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackTemplateVariable)(nil)).Elem()
+}
+
+func (i PowerpackTemplateVariableArray) ToPowerpackTemplateVariableArrayOutput() PowerpackTemplateVariableArrayOutput {
+	return i.ToPowerpackTemplateVariableArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackTemplateVariableArray) ToPowerpackTemplateVariableArrayOutputWithContext(ctx context.Context) PowerpackTemplateVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackTemplateVariableArrayOutput)
+}
+
+type PowerpackTemplateVariableOutput struct{ *pulumi.OutputState }
+
+func (PowerpackTemplateVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackTemplateVariable)(nil)).Elem()
+}
+
+func (o PowerpackTemplateVariableOutput) ToPowerpackTemplateVariableOutput() PowerpackTemplateVariableOutput {
+	return o
+}
+
+func (o PowerpackTemplateVariableOutput) ToPowerpackTemplateVariableOutputWithContext(ctx context.Context) PowerpackTemplateVariableOutput {
+	return o
+}
+
+// One or many default values for powerpack template variables on load. If more than one default is specified, they will be unioned together with `OR`.
+func (o PowerpackTemplateVariableOutput) Defaults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackTemplateVariable) []string { return v.Defaults }).(pulumi.StringArrayOutput)
+}
+
+// The name of the powerpack template variable.
+func (o PowerpackTemplateVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackTemplateVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PowerpackTemplateVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackTemplateVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackTemplateVariable)(nil)).Elem()
+}
+
+func (o PowerpackTemplateVariableArrayOutput) ToPowerpackTemplateVariableArrayOutput() PowerpackTemplateVariableArrayOutput {
+	return o
+}
+
+func (o PowerpackTemplateVariableArrayOutput) ToPowerpackTemplateVariableArrayOutputWithContext(ctx context.Context) PowerpackTemplateVariableArrayOutput {
+	return o
+}
+
+func (o PowerpackTemplateVariableArrayOutput) Index(i pulumi.IntInput) PowerpackTemplateVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackTemplateVariable {
+		return vs[0].([]PowerpackTemplateVariable)[vs[1].(int)]
+	}).(PowerpackTemplateVariableOutput)
+}
+
+type PowerpackV2Layout struct {
+	// The height of the widget.
+	Height *int `pulumi:"height"`
+	// The width of the widget.
+	Width *int `pulumi:"width"`
+	// The position of the widget on the x (horizontal) axis.
+	X *int `pulumi:"x"`
+	// The position of the widget on the y (vertical) axis.
+	Y *int `pulumi:"y"`
+}
+
+// PowerpackV2LayoutInput is an input type that accepts PowerpackV2LayoutArgs and PowerpackV2LayoutOutput values.
+// You can construct a concrete instance of `PowerpackV2LayoutInput` via:
+//
+//	PowerpackV2LayoutArgs{...}
+type PowerpackV2LayoutInput interface {
+	pulumi.Input
+
+	ToPowerpackV2LayoutOutput() PowerpackV2LayoutOutput
+	ToPowerpackV2LayoutOutputWithContext(context.Context) PowerpackV2LayoutOutput
+}
+
+type PowerpackV2LayoutArgs struct {
+	// The height of the widget.
+	Height pulumi.IntPtrInput `pulumi:"height"`
+	// The width of the widget.
+	Width pulumi.IntPtrInput `pulumi:"width"`
+	// The position of the widget on the x (horizontal) axis.
+	X pulumi.IntPtrInput `pulumi:"x"`
+	// The position of the widget on the y (vertical) axis.
+	Y pulumi.IntPtrInput `pulumi:"y"`
+}
+
+func (PowerpackV2LayoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2Layout)(nil)).Elem()
+}
+
+func (i PowerpackV2LayoutArgs) ToPowerpackV2LayoutOutput() PowerpackV2LayoutOutput {
+	return i.ToPowerpackV2LayoutOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2LayoutArgs) ToPowerpackV2LayoutOutputWithContext(ctx context.Context) PowerpackV2LayoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2LayoutOutput)
+}
+
+func (i PowerpackV2LayoutArgs) ToPowerpackV2LayoutPtrOutput() PowerpackV2LayoutPtrOutput {
+	return i.ToPowerpackV2LayoutPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2LayoutArgs) ToPowerpackV2LayoutPtrOutputWithContext(ctx context.Context) PowerpackV2LayoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2LayoutOutput).ToPowerpackV2LayoutPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2LayoutPtrInput is an input type that accepts PowerpackV2LayoutArgs, PowerpackV2LayoutPtr and PowerpackV2LayoutPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2LayoutPtrInput` via:
+//
+//	        PowerpackV2LayoutArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2LayoutPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2LayoutPtrOutput() PowerpackV2LayoutPtrOutput
+	ToPowerpackV2LayoutPtrOutputWithContext(context.Context) PowerpackV2LayoutPtrOutput
+}
+
+type powerpackV2LayoutPtrType PowerpackV2LayoutArgs
+
+func PowerpackV2LayoutPtr(v *PowerpackV2LayoutArgs) PowerpackV2LayoutPtrInput {
+	return (*powerpackV2LayoutPtrType)(v)
+}
+
+func (*powerpackV2LayoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2Layout)(nil)).Elem()
+}
+
+func (i *powerpackV2LayoutPtrType) ToPowerpackV2LayoutPtrOutput() PowerpackV2LayoutPtrOutput {
+	return i.ToPowerpackV2LayoutPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2LayoutPtrType) ToPowerpackV2LayoutPtrOutputWithContext(ctx context.Context) PowerpackV2LayoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2LayoutPtrOutput)
+}
+
+type PowerpackV2LayoutOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2LayoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2Layout)(nil)).Elem()
+}
+
+func (o PowerpackV2LayoutOutput) ToPowerpackV2LayoutOutput() PowerpackV2LayoutOutput {
+	return o
+}
+
+func (o PowerpackV2LayoutOutput) ToPowerpackV2LayoutOutputWithContext(ctx context.Context) PowerpackV2LayoutOutput {
+	return o
+}
+
+func (o PowerpackV2LayoutOutput) ToPowerpackV2LayoutPtrOutput() PowerpackV2LayoutPtrOutput {
+	return o.ToPowerpackV2LayoutPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2LayoutOutput) ToPowerpackV2LayoutPtrOutputWithContext(ctx context.Context) PowerpackV2LayoutPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2Layout) *PowerpackV2Layout {
+		return &v
+	}).(PowerpackV2LayoutPtrOutput)
+}
+
+// The height of the widget.
+func (o PowerpackV2LayoutOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Layout) *int { return v.Height }).(pulumi.IntPtrOutput)
+}
+
+// The width of the widget.
+func (o PowerpackV2LayoutOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Layout) *int { return v.Width }).(pulumi.IntPtrOutput)
+}
+
+// The position of the widget on the x (horizontal) axis.
+func (o PowerpackV2LayoutOutput) X() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Layout) *int { return v.X }).(pulumi.IntPtrOutput)
+}
+
+// The position of the widget on the y (vertical) axis.
+func (o PowerpackV2LayoutOutput) Y() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Layout) *int { return v.Y }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackV2LayoutPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2LayoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2Layout)(nil)).Elem()
+}
+
+func (o PowerpackV2LayoutPtrOutput) ToPowerpackV2LayoutPtrOutput() PowerpackV2LayoutPtrOutput {
+	return o
+}
+
+func (o PowerpackV2LayoutPtrOutput) ToPowerpackV2LayoutPtrOutputWithContext(ctx context.Context) PowerpackV2LayoutPtrOutput {
+	return o
+}
+
+func (o PowerpackV2LayoutPtrOutput) Elem() PowerpackV2LayoutOutput {
+	return o.ApplyT(func(v *PowerpackV2Layout) PowerpackV2Layout {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2Layout
+		return ret
+	}).(PowerpackV2LayoutOutput)
+}
+
+// The height of the widget.
+func (o PowerpackV2LayoutPtrOutput) Height() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2Layout) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Height
+	}).(pulumi.IntPtrOutput)
+}
+
+// The width of the widget.
+func (o PowerpackV2LayoutPtrOutput) Width() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2Layout) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Width
+	}).(pulumi.IntPtrOutput)
+}
+
+// The position of the widget on the x (horizontal) axis.
+func (o PowerpackV2LayoutPtrOutput) X() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2Layout) *int {
+		if v == nil {
+			return nil
+		}
+		return v.X
+	}).(pulumi.IntPtrOutput)
+}
+
+// The position of the widget on the y (vertical) axis.
+func (o PowerpackV2LayoutPtrOutput) Y() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2Layout) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Y
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackV2TemplateVariable struct {
+	// One or many default values for powerpack template variables on load.
+	Defaults []string `pulumi:"defaults"`
+	// The name of the powerpack template variable.
+	Name string `pulumi:"name"`
+}
+
+// PowerpackV2TemplateVariableInput is an input type that accepts PowerpackV2TemplateVariableArgs and PowerpackV2TemplateVariableOutput values.
+// You can construct a concrete instance of `PowerpackV2TemplateVariableInput` via:
+//
+//	PowerpackV2TemplateVariableArgs{...}
+type PowerpackV2TemplateVariableInput interface {
+	pulumi.Input
+
+	ToPowerpackV2TemplateVariableOutput() PowerpackV2TemplateVariableOutput
+	ToPowerpackV2TemplateVariableOutputWithContext(context.Context) PowerpackV2TemplateVariableOutput
+}
+
+type PowerpackV2TemplateVariableArgs struct {
+	// One or many default values for powerpack template variables on load.
+	Defaults pulumi.StringArrayInput `pulumi:"defaults"`
+	// The name of the powerpack template variable.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (PowerpackV2TemplateVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2TemplateVariable)(nil)).Elem()
+}
+
+func (i PowerpackV2TemplateVariableArgs) ToPowerpackV2TemplateVariableOutput() PowerpackV2TemplateVariableOutput {
+	return i.ToPowerpackV2TemplateVariableOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2TemplateVariableArgs) ToPowerpackV2TemplateVariableOutputWithContext(ctx context.Context) PowerpackV2TemplateVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2TemplateVariableOutput)
+}
+
+// PowerpackV2TemplateVariableArrayInput is an input type that accepts PowerpackV2TemplateVariableArray and PowerpackV2TemplateVariableArrayOutput values.
+// You can construct a concrete instance of `PowerpackV2TemplateVariableArrayInput` via:
+//
+//	PowerpackV2TemplateVariableArray{ PowerpackV2TemplateVariableArgs{...} }
+type PowerpackV2TemplateVariableArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackV2TemplateVariableArrayOutput() PowerpackV2TemplateVariableArrayOutput
+	ToPowerpackV2TemplateVariableArrayOutputWithContext(context.Context) PowerpackV2TemplateVariableArrayOutput
+}
+
+type PowerpackV2TemplateVariableArray []PowerpackV2TemplateVariableInput
+
+func (PowerpackV2TemplateVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2TemplateVariable)(nil)).Elem()
+}
+
+func (i PowerpackV2TemplateVariableArray) ToPowerpackV2TemplateVariableArrayOutput() PowerpackV2TemplateVariableArrayOutput {
+	return i.ToPowerpackV2TemplateVariableArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2TemplateVariableArray) ToPowerpackV2TemplateVariableArrayOutputWithContext(ctx context.Context) PowerpackV2TemplateVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2TemplateVariableArrayOutput)
+}
+
+type PowerpackV2TemplateVariableOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2TemplateVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2TemplateVariable)(nil)).Elem()
+}
+
+func (o PowerpackV2TemplateVariableOutput) ToPowerpackV2TemplateVariableOutput() PowerpackV2TemplateVariableOutput {
+	return o
+}
+
+func (o PowerpackV2TemplateVariableOutput) ToPowerpackV2TemplateVariableOutputWithContext(ctx context.Context) PowerpackV2TemplateVariableOutput {
+	return o
+}
+
+// One or many default values for powerpack template variables on load.
+func (o PowerpackV2TemplateVariableOutput) Defaults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackV2TemplateVariable) []string { return v.Defaults }).(pulumi.StringArrayOutput)
+}
+
+// The name of the powerpack template variable.
+func (o PowerpackV2TemplateVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2TemplateVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PowerpackV2TemplateVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2TemplateVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2TemplateVariable)(nil)).Elem()
+}
+
+func (o PowerpackV2TemplateVariableArrayOutput) ToPowerpackV2TemplateVariableArrayOutput() PowerpackV2TemplateVariableArrayOutput {
+	return o
+}
+
+func (o PowerpackV2TemplateVariableArrayOutput) ToPowerpackV2TemplateVariableArrayOutputWithContext(ctx context.Context) PowerpackV2TemplateVariableArrayOutput {
+	return o
+}
+
+func (o PowerpackV2TemplateVariableArrayOutput) Index(i pulumi.IntInput) PowerpackV2TemplateVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2TemplateVariable {
+		return vs[0].([]PowerpackV2TemplateVariable)[vs[1].(int)]
+	}).(PowerpackV2TemplateVariableOutput)
+}
+
+type PowerpackV2Widget struct {
+	// The definition for a Alert Graph widget.
+	AlertGraphDefinition *PowerpackV2WidgetAlertGraphDefinition `pulumi:"alertGraphDefinition"`
+	// The definition for a Alert Value widget.
+	AlertValueDefinition *PowerpackV2WidgetAlertValueDefinition `pulumi:"alertValueDefinition"`
+	// The definition for a Bar Chart widget.
+	BarChartDefinition *PowerpackV2WidgetBarChartDefinition `pulumi:"barChartDefinition"`
+	// The definition for a Change widget.
+	ChangeDefinition *PowerpackV2WidgetChangeDefinition `pulumi:"changeDefinition"`
+	// The definition for a Check Status widget.
+	CheckStatusDefinition *PowerpackV2WidgetCheckStatusDefinition `pulumi:"checkStatusDefinition"`
+	// The definition for a Cohort retention-grid widget.
+	CohortDefinition *PowerpackV2WidgetCohortDefinition `pulumi:"cohortDefinition"`
+	// The definition for a Distribution widget.
+	DistributionDefinition *PowerpackV2WidgetDistributionDefinition `pulumi:"distributionDefinition"`
+	// The definition for an App Builder embedded app widget.
+	EmbeddedAppDefinition *PowerpackV2WidgetEmbeddedAppDefinition `pulumi:"embeddedAppDefinition"`
+	// The definition for a Event Stream widget.
+	EventStreamDefinition *PowerpackV2WidgetEventStreamDefinition `pulumi:"eventStreamDefinition"`
+	// The definition for a Event Timeline widget.
+	EventTimelineDefinition *PowerpackV2WidgetEventTimelineDefinition `pulumi:"eventTimelineDefinition"`
+	// The definition for a Free Text widget.
+	FreeTextDefinition *PowerpackV2WidgetFreeTextDefinition `pulumi:"freeTextDefinition"`
+	// The definition for a Funnel widget.
+	FunnelDefinition *PowerpackV2WidgetFunnelDefinition `pulumi:"funnelDefinition"`
+	// The definition for a Geomap widget.
+	GeomapDefinition *PowerpackV2WidgetGeomapDefinition `pulumi:"geomapDefinition"`
+	// The definition for a Group widget.
+	GroupDefinition *PowerpackV2WidgetGroupDefinition `pulumi:"groupDefinition"`
+	// The definition for a Heatmap widget.
+	HeatmapDefinition *PowerpackV2WidgetHeatmapDefinition `pulumi:"heatmapDefinition"`
+	// The definition for a Hostmap widget.
+	HostmapDefinition *PowerpackV2WidgetHostmapDefinition `pulumi:"hostmapDefinition"`
+	// The ID of the widget.
+	Id *int `pulumi:"id"`
+	// The definition for an Iframe widget.
+	IframeDefinition *PowerpackV2WidgetIframeDefinition `pulumi:"iframeDefinition"`
+	// The definition for an Image widget
+	ImageDefinition *PowerpackV2WidgetImageDefinition `pulumi:"imageDefinition"`
+	// The definition for a List Stream widget.
+	ListStreamDefinition *PowerpackV2WidgetListStreamDefinition `pulumi:"listStreamDefinition"`
+	// The definition for an Log Stream widget.
+	LogStreamDefinition *PowerpackV2WidgetLogStreamDefinition `pulumi:"logStreamDefinition"`
+	// The definition for an Manage Status widget.
+	ManageStatusDefinition *PowerpackV2WidgetManageStatusDefinition `pulumi:"manageStatusDefinition"`
+	// The definition for a Note widget.
+	NoteDefinition *PowerpackV2WidgetNoteDefinition `pulumi:"noteDefinition"`
+	// The definition for a Point Plot widget.
+	PointPlotDefinition *PowerpackV2WidgetPointPlotDefinition `pulumi:"pointPlotDefinition"`
+	// The definition for a Product Analytics user journey funnel widget.
+	ProductAnalyticsFunnelDefinition *PowerpackV2WidgetProductAnalyticsFunnelDefinition `pulumi:"productAnalyticsFunnelDefinition"`
+	// The definition for a Query Table widget.
+	QueryTableDefinition *PowerpackV2WidgetQueryTableDefinition `pulumi:"queryTableDefinition"`
+	// The definition for a Query Value widget.
+	QueryValueDefinition *PowerpackV2WidgetQueryValueDefinition `pulumi:"queryValueDefinition"`
+	// The definition for a Retention Curve widget.
+	RetentionCurveDefinition *PowerpackV2WidgetRetentionCurveDefinition `pulumi:"retentionCurveDefinition"`
+	// The definition for a Run Workflow widget.
+	RunWorkflowDefinition *PowerpackV2WidgetRunWorkflowDefinition `pulumi:"runWorkflowDefinition"`
+	// The definition for a Sankey diagram widget.
+	SankeyDefinition *PowerpackV2WidgetSankeyDefinition `pulumi:"sankeyDefinition"`
+	// The definition for a Scatterplot widget.
+	ScatterplotDefinition *PowerpackV2WidgetScatterplotDefinition `pulumi:"scatterplotDefinition"`
+	// The definition for a Service Level Objective widget.
+	ServiceLevelObjectiveDefinition *PowerpackV2WidgetServiceLevelObjectiveDefinition `pulumi:"serviceLevelObjectiveDefinition"`
+	// The definition for a Service Map widget.
+	ServicemapDefinition *PowerpackV2WidgetServicemapDefinition `pulumi:"servicemapDefinition"`
+	// The definition for an SLO (Service Level Objective) List widget.
+	SloListDefinition *PowerpackV2WidgetSloListDefinition `pulumi:"sloListDefinition"`
+	// The definition for a Sunburst widget.
+	SunburstDefinition *PowerpackV2WidgetSunburstDefinition `pulumi:"sunburstDefinition"`
+	// The definition for a Timeseries widget.
+	TimeseriesDefinition *PowerpackV2WidgetTimeseriesDefinition `pulumi:"timeseriesDefinition"`
+	// The definition for a Toplist widget.
+	ToplistDefinition *PowerpackV2WidgetToplistDefinition `pulumi:"toplistDefinition"`
+	// The definition for a Topology Map widget.
+	TopologyMapDefinition *PowerpackV2WidgetTopologyMapDefinition `pulumi:"topologyMapDefinition"`
+	// The definition for a Trace Service widget.
+	TraceServiceDefinition *PowerpackV2WidgetTraceServiceDefinition `pulumi:"traceServiceDefinition"`
+	// The definition for a Treemap widget.
+	TreemapDefinition *PowerpackV2WidgetTreemapDefinition `pulumi:"treemapDefinition"`
+	// The layout of the widget on a 'free' dashboard.
+	WidgetLayout *PowerpackV2WidgetWidgetLayout `pulumi:"widgetLayout"`
+	// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+	WildcardDefinition *PowerpackV2WidgetWildcardDefinition `pulumi:"wildcardDefinition"`
+}
+
+// PowerpackV2WidgetInput is an input type that accepts PowerpackV2WidgetArgs and PowerpackV2WidgetOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetInput` via:
+//
+//	PowerpackV2WidgetArgs{...}
+type PowerpackV2WidgetInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetOutput() PowerpackV2WidgetOutput
+	ToPowerpackV2WidgetOutputWithContext(context.Context) PowerpackV2WidgetOutput
+}
+
+type PowerpackV2WidgetArgs struct {
+	// The definition for a Alert Graph widget.
+	AlertGraphDefinition PowerpackV2WidgetAlertGraphDefinitionPtrInput `pulumi:"alertGraphDefinition"`
+	// The definition for a Alert Value widget.
+	AlertValueDefinition PowerpackV2WidgetAlertValueDefinitionPtrInput `pulumi:"alertValueDefinition"`
+	// The definition for a Bar Chart widget.
+	BarChartDefinition PowerpackV2WidgetBarChartDefinitionPtrInput `pulumi:"barChartDefinition"`
+	// The definition for a Change widget.
+	ChangeDefinition PowerpackV2WidgetChangeDefinitionPtrInput `pulumi:"changeDefinition"`
+	// The definition for a Check Status widget.
+	CheckStatusDefinition PowerpackV2WidgetCheckStatusDefinitionPtrInput `pulumi:"checkStatusDefinition"`
+	// The definition for a Cohort retention-grid widget.
+	CohortDefinition PowerpackV2WidgetCohortDefinitionPtrInput `pulumi:"cohortDefinition"`
+	// The definition for a Distribution widget.
+	DistributionDefinition PowerpackV2WidgetDistributionDefinitionPtrInput `pulumi:"distributionDefinition"`
+	// The definition for an App Builder embedded app widget.
+	EmbeddedAppDefinition PowerpackV2WidgetEmbeddedAppDefinitionPtrInput `pulumi:"embeddedAppDefinition"`
+	// The definition for a Event Stream widget.
+	EventStreamDefinition PowerpackV2WidgetEventStreamDefinitionPtrInput `pulumi:"eventStreamDefinition"`
+	// The definition for a Event Timeline widget.
+	EventTimelineDefinition PowerpackV2WidgetEventTimelineDefinitionPtrInput `pulumi:"eventTimelineDefinition"`
+	// The definition for a Free Text widget.
+	FreeTextDefinition PowerpackV2WidgetFreeTextDefinitionPtrInput `pulumi:"freeTextDefinition"`
+	// The definition for a Funnel widget.
+	FunnelDefinition PowerpackV2WidgetFunnelDefinitionPtrInput `pulumi:"funnelDefinition"`
+	// The definition for a Geomap widget.
+	GeomapDefinition PowerpackV2WidgetGeomapDefinitionPtrInput `pulumi:"geomapDefinition"`
+	// The definition for a Group widget.
+	GroupDefinition PowerpackV2WidgetGroupDefinitionPtrInput `pulumi:"groupDefinition"`
+	// The definition for a Heatmap widget.
+	HeatmapDefinition PowerpackV2WidgetHeatmapDefinitionPtrInput `pulumi:"heatmapDefinition"`
+	// The definition for a Hostmap widget.
+	HostmapDefinition PowerpackV2WidgetHostmapDefinitionPtrInput `pulumi:"hostmapDefinition"`
+	// The ID of the widget.
+	Id pulumi.IntPtrInput `pulumi:"id"`
+	// The definition for an Iframe widget.
+	IframeDefinition PowerpackV2WidgetIframeDefinitionPtrInput `pulumi:"iframeDefinition"`
+	// The definition for an Image widget
+	ImageDefinition PowerpackV2WidgetImageDefinitionPtrInput `pulumi:"imageDefinition"`
+	// The definition for a List Stream widget.
+	ListStreamDefinition PowerpackV2WidgetListStreamDefinitionPtrInput `pulumi:"listStreamDefinition"`
+	// The definition for an Log Stream widget.
+	LogStreamDefinition PowerpackV2WidgetLogStreamDefinitionPtrInput `pulumi:"logStreamDefinition"`
+	// The definition for an Manage Status widget.
+	ManageStatusDefinition PowerpackV2WidgetManageStatusDefinitionPtrInput `pulumi:"manageStatusDefinition"`
+	// The definition for a Note widget.
+	NoteDefinition PowerpackV2WidgetNoteDefinitionPtrInput `pulumi:"noteDefinition"`
+	// The definition for a Point Plot widget.
+	PointPlotDefinition PowerpackV2WidgetPointPlotDefinitionPtrInput `pulumi:"pointPlotDefinition"`
+	// The definition for a Product Analytics user journey funnel widget.
+	ProductAnalyticsFunnelDefinition PowerpackV2WidgetProductAnalyticsFunnelDefinitionPtrInput `pulumi:"productAnalyticsFunnelDefinition"`
+	// The definition for a Query Table widget.
+	QueryTableDefinition PowerpackV2WidgetQueryTableDefinitionPtrInput `pulumi:"queryTableDefinition"`
+	// The definition for a Query Value widget.
+	QueryValueDefinition PowerpackV2WidgetQueryValueDefinitionPtrInput `pulumi:"queryValueDefinition"`
+	// The definition for a Retention Curve widget.
+	RetentionCurveDefinition PowerpackV2WidgetRetentionCurveDefinitionPtrInput `pulumi:"retentionCurveDefinition"`
+	// The definition for a Run Workflow widget.
+	RunWorkflowDefinition PowerpackV2WidgetRunWorkflowDefinitionPtrInput `pulumi:"runWorkflowDefinition"`
+	// The definition for a Sankey diagram widget.
+	SankeyDefinition PowerpackV2WidgetSankeyDefinitionPtrInput `pulumi:"sankeyDefinition"`
+	// The definition for a Scatterplot widget.
+	ScatterplotDefinition PowerpackV2WidgetScatterplotDefinitionPtrInput `pulumi:"scatterplotDefinition"`
+	// The definition for a Service Level Objective widget.
+	ServiceLevelObjectiveDefinition PowerpackV2WidgetServiceLevelObjectiveDefinitionPtrInput `pulumi:"serviceLevelObjectiveDefinition"`
+	// The definition for a Service Map widget.
+	ServicemapDefinition PowerpackV2WidgetServicemapDefinitionPtrInput `pulumi:"servicemapDefinition"`
+	// The definition for an SLO (Service Level Objective) List widget.
+	SloListDefinition PowerpackV2WidgetSloListDefinitionPtrInput `pulumi:"sloListDefinition"`
+	// The definition for a Sunburst widget.
+	SunburstDefinition PowerpackV2WidgetSunburstDefinitionPtrInput `pulumi:"sunburstDefinition"`
+	// The definition for a Timeseries widget.
+	TimeseriesDefinition PowerpackV2WidgetTimeseriesDefinitionPtrInput `pulumi:"timeseriesDefinition"`
+	// The definition for a Toplist widget.
+	ToplistDefinition PowerpackV2WidgetToplistDefinitionPtrInput `pulumi:"toplistDefinition"`
+	// The definition for a Topology Map widget.
+	TopologyMapDefinition PowerpackV2WidgetTopologyMapDefinitionPtrInput `pulumi:"topologyMapDefinition"`
+	// The definition for a Trace Service widget.
+	TraceServiceDefinition PowerpackV2WidgetTraceServiceDefinitionPtrInput `pulumi:"traceServiceDefinition"`
+	// The definition for a Treemap widget.
+	TreemapDefinition PowerpackV2WidgetTreemapDefinitionPtrInput `pulumi:"treemapDefinition"`
+	// The layout of the widget on a 'free' dashboard.
+	WidgetLayout PowerpackV2WidgetWidgetLayoutPtrInput `pulumi:"widgetLayout"`
+	// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+	WildcardDefinition PowerpackV2WidgetWildcardDefinitionPtrInput `pulumi:"wildcardDefinition"`
+}
+
+func (PowerpackV2WidgetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2Widget)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetArgs) ToPowerpackV2WidgetOutput() PowerpackV2WidgetOutput {
+	return i.ToPowerpackV2WidgetOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetArgs) ToPowerpackV2WidgetOutputWithContext(ctx context.Context) PowerpackV2WidgetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetOutput)
+}
+
+// PowerpackV2WidgetArrayInput is an input type that accepts PowerpackV2WidgetArray and PowerpackV2WidgetArrayOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetArrayInput` via:
+//
+//	PowerpackV2WidgetArray{ PowerpackV2WidgetArgs{...} }
+type PowerpackV2WidgetArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetArrayOutput() PowerpackV2WidgetArrayOutput
+	ToPowerpackV2WidgetArrayOutputWithContext(context.Context) PowerpackV2WidgetArrayOutput
+}
+
+type PowerpackV2WidgetArray []PowerpackV2WidgetInput
+
+func (PowerpackV2WidgetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2Widget)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetArray) ToPowerpackV2WidgetArrayOutput() PowerpackV2WidgetArrayOutput {
+	return i.ToPowerpackV2WidgetArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetArray) ToPowerpackV2WidgetArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetArrayOutput)
+}
+
+type PowerpackV2WidgetOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2Widget)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetOutput) ToPowerpackV2WidgetOutput() PowerpackV2WidgetOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetOutput) ToPowerpackV2WidgetOutputWithContext(ctx context.Context) PowerpackV2WidgetOutput {
+	return o
+}
+
+// The definition for a Alert Graph widget.
+func (o PowerpackV2WidgetOutput) AlertGraphDefinition() PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetAlertGraphDefinition { return v.AlertGraphDefinition }).(PowerpackV2WidgetAlertGraphDefinitionPtrOutput)
+}
+
+// The definition for a Alert Value widget.
+func (o PowerpackV2WidgetOutput) AlertValueDefinition() PowerpackV2WidgetAlertValueDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetAlertValueDefinition { return v.AlertValueDefinition }).(PowerpackV2WidgetAlertValueDefinitionPtrOutput)
+}
+
+// The definition for a Bar Chart widget.
+func (o PowerpackV2WidgetOutput) BarChartDefinition() PowerpackV2WidgetBarChartDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetBarChartDefinition { return v.BarChartDefinition }).(PowerpackV2WidgetBarChartDefinitionPtrOutput)
+}
+
+// The definition for a Change widget.
+func (o PowerpackV2WidgetOutput) ChangeDefinition() PowerpackV2WidgetChangeDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetChangeDefinition { return v.ChangeDefinition }).(PowerpackV2WidgetChangeDefinitionPtrOutput)
+}
+
+// The definition for a Check Status widget.
+func (o PowerpackV2WidgetOutput) CheckStatusDefinition() PowerpackV2WidgetCheckStatusDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetCheckStatusDefinition { return v.CheckStatusDefinition }).(PowerpackV2WidgetCheckStatusDefinitionPtrOutput)
+}
+
+// The definition for a Cohort retention-grid widget.
+func (o PowerpackV2WidgetOutput) CohortDefinition() PowerpackV2WidgetCohortDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetCohortDefinition { return v.CohortDefinition }).(PowerpackV2WidgetCohortDefinitionPtrOutput)
+}
+
+// The definition for a Distribution widget.
+func (o PowerpackV2WidgetOutput) DistributionDefinition() PowerpackV2WidgetDistributionDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetDistributionDefinition { return v.DistributionDefinition }).(PowerpackV2WidgetDistributionDefinitionPtrOutput)
+}
+
+// The definition for an App Builder embedded app widget.
+func (o PowerpackV2WidgetOutput) EmbeddedAppDefinition() PowerpackV2WidgetEmbeddedAppDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetEmbeddedAppDefinition { return v.EmbeddedAppDefinition }).(PowerpackV2WidgetEmbeddedAppDefinitionPtrOutput)
+}
+
+// The definition for a Event Stream widget.
+func (o PowerpackV2WidgetOutput) EventStreamDefinition() PowerpackV2WidgetEventStreamDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetEventStreamDefinition { return v.EventStreamDefinition }).(PowerpackV2WidgetEventStreamDefinitionPtrOutput)
+}
+
+// The definition for a Event Timeline widget.
+func (o PowerpackV2WidgetOutput) EventTimelineDefinition() PowerpackV2WidgetEventTimelineDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetEventTimelineDefinition { return v.EventTimelineDefinition }).(PowerpackV2WidgetEventTimelineDefinitionPtrOutput)
+}
+
+// The definition for a Free Text widget.
+func (o PowerpackV2WidgetOutput) FreeTextDefinition() PowerpackV2WidgetFreeTextDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetFreeTextDefinition { return v.FreeTextDefinition }).(PowerpackV2WidgetFreeTextDefinitionPtrOutput)
+}
+
+// The definition for a Funnel widget.
+func (o PowerpackV2WidgetOutput) FunnelDefinition() PowerpackV2WidgetFunnelDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetFunnelDefinition { return v.FunnelDefinition }).(PowerpackV2WidgetFunnelDefinitionPtrOutput)
+}
+
+// The definition for a Geomap widget.
+func (o PowerpackV2WidgetOutput) GeomapDefinition() PowerpackV2WidgetGeomapDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetGeomapDefinition { return v.GeomapDefinition }).(PowerpackV2WidgetGeomapDefinitionPtrOutput)
+}
+
+// The definition for a Group widget.
+func (o PowerpackV2WidgetOutput) GroupDefinition() PowerpackV2WidgetGroupDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetGroupDefinition { return v.GroupDefinition }).(PowerpackV2WidgetGroupDefinitionPtrOutput)
+}
+
+// The definition for a Heatmap widget.
+func (o PowerpackV2WidgetOutput) HeatmapDefinition() PowerpackV2WidgetHeatmapDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetHeatmapDefinition { return v.HeatmapDefinition }).(PowerpackV2WidgetHeatmapDefinitionPtrOutput)
+}
+
+// The definition for a Hostmap widget.
+func (o PowerpackV2WidgetOutput) HostmapDefinition() PowerpackV2WidgetHostmapDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetHostmapDefinition { return v.HostmapDefinition }).(PowerpackV2WidgetHostmapDefinitionPtrOutput)
+}
+
+// The ID of the widget.
+func (o PowerpackV2WidgetOutput) Id() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *int { return v.Id }).(pulumi.IntPtrOutput)
+}
+
+// The definition for an Iframe widget.
+func (o PowerpackV2WidgetOutput) IframeDefinition() PowerpackV2WidgetIframeDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetIframeDefinition { return v.IframeDefinition }).(PowerpackV2WidgetIframeDefinitionPtrOutput)
+}
+
+// The definition for an Image widget
+func (o PowerpackV2WidgetOutput) ImageDefinition() PowerpackV2WidgetImageDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetImageDefinition { return v.ImageDefinition }).(PowerpackV2WidgetImageDefinitionPtrOutput)
+}
+
+// The definition for a List Stream widget.
+func (o PowerpackV2WidgetOutput) ListStreamDefinition() PowerpackV2WidgetListStreamDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetListStreamDefinition { return v.ListStreamDefinition }).(PowerpackV2WidgetListStreamDefinitionPtrOutput)
+}
+
+// The definition for an Log Stream widget.
+func (o PowerpackV2WidgetOutput) LogStreamDefinition() PowerpackV2WidgetLogStreamDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetLogStreamDefinition { return v.LogStreamDefinition }).(PowerpackV2WidgetLogStreamDefinitionPtrOutput)
+}
+
+// The definition for an Manage Status widget.
+func (o PowerpackV2WidgetOutput) ManageStatusDefinition() PowerpackV2WidgetManageStatusDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetManageStatusDefinition { return v.ManageStatusDefinition }).(PowerpackV2WidgetManageStatusDefinitionPtrOutput)
+}
+
+// The definition for a Note widget.
+func (o PowerpackV2WidgetOutput) NoteDefinition() PowerpackV2WidgetNoteDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetNoteDefinition { return v.NoteDefinition }).(PowerpackV2WidgetNoteDefinitionPtrOutput)
+}
+
+// The definition for a Point Plot widget.
+func (o PowerpackV2WidgetOutput) PointPlotDefinition() PowerpackV2WidgetPointPlotDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetPointPlotDefinition { return v.PointPlotDefinition }).(PowerpackV2WidgetPointPlotDefinitionPtrOutput)
+}
+
+// The definition for a Product Analytics user journey funnel widget.
+func (o PowerpackV2WidgetOutput) ProductAnalyticsFunnelDefinition() PowerpackV2WidgetProductAnalyticsFunnelDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetProductAnalyticsFunnelDefinition {
+		return v.ProductAnalyticsFunnelDefinition
+	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionPtrOutput)
+}
+
+// The definition for a Query Table widget.
+func (o PowerpackV2WidgetOutput) QueryTableDefinition() PowerpackV2WidgetQueryTableDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetQueryTableDefinition { return v.QueryTableDefinition }).(PowerpackV2WidgetQueryTableDefinitionPtrOutput)
+}
+
+// The definition for a Query Value widget.
+func (o PowerpackV2WidgetOutput) QueryValueDefinition() PowerpackV2WidgetQueryValueDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetQueryValueDefinition { return v.QueryValueDefinition }).(PowerpackV2WidgetQueryValueDefinitionPtrOutput)
+}
+
+// The definition for a Retention Curve widget.
+func (o PowerpackV2WidgetOutput) RetentionCurveDefinition() PowerpackV2WidgetRetentionCurveDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetRetentionCurveDefinition {
+		return v.RetentionCurveDefinition
+	}).(PowerpackV2WidgetRetentionCurveDefinitionPtrOutput)
+}
+
+// The definition for a Run Workflow widget.
+func (o PowerpackV2WidgetOutput) RunWorkflowDefinition() PowerpackV2WidgetRunWorkflowDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetRunWorkflowDefinition { return v.RunWorkflowDefinition }).(PowerpackV2WidgetRunWorkflowDefinitionPtrOutput)
+}
+
+// The definition for a Sankey diagram widget.
+func (o PowerpackV2WidgetOutput) SankeyDefinition() PowerpackV2WidgetSankeyDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetSankeyDefinition { return v.SankeyDefinition }).(PowerpackV2WidgetSankeyDefinitionPtrOutput)
+}
+
+// The definition for a Scatterplot widget.
+func (o PowerpackV2WidgetOutput) ScatterplotDefinition() PowerpackV2WidgetScatterplotDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetScatterplotDefinition { return v.ScatterplotDefinition }).(PowerpackV2WidgetScatterplotDefinitionPtrOutput)
+}
+
+// The definition for a Service Level Objective widget.
+func (o PowerpackV2WidgetOutput) ServiceLevelObjectiveDefinition() PowerpackV2WidgetServiceLevelObjectiveDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetServiceLevelObjectiveDefinition {
+		return v.ServiceLevelObjectiveDefinition
+	}).(PowerpackV2WidgetServiceLevelObjectiveDefinitionPtrOutput)
+}
+
+// The definition for a Service Map widget.
+func (o PowerpackV2WidgetOutput) ServicemapDefinition() PowerpackV2WidgetServicemapDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetServicemapDefinition { return v.ServicemapDefinition }).(PowerpackV2WidgetServicemapDefinitionPtrOutput)
+}
+
+// The definition for an SLO (Service Level Objective) List widget.
+func (o PowerpackV2WidgetOutput) SloListDefinition() PowerpackV2WidgetSloListDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetSloListDefinition { return v.SloListDefinition }).(PowerpackV2WidgetSloListDefinitionPtrOutput)
+}
+
+// The definition for a Sunburst widget.
+func (o PowerpackV2WidgetOutput) SunburstDefinition() PowerpackV2WidgetSunburstDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetSunburstDefinition { return v.SunburstDefinition }).(PowerpackV2WidgetSunburstDefinitionPtrOutput)
+}
+
+// The definition for a Timeseries widget.
+func (o PowerpackV2WidgetOutput) TimeseriesDefinition() PowerpackV2WidgetTimeseriesDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetTimeseriesDefinition { return v.TimeseriesDefinition }).(PowerpackV2WidgetTimeseriesDefinitionPtrOutput)
+}
+
+// The definition for a Toplist widget.
+func (o PowerpackV2WidgetOutput) ToplistDefinition() PowerpackV2WidgetToplistDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetToplistDefinition { return v.ToplistDefinition }).(PowerpackV2WidgetToplistDefinitionPtrOutput)
+}
+
+// The definition for a Topology Map widget.
+func (o PowerpackV2WidgetOutput) TopologyMapDefinition() PowerpackV2WidgetTopologyMapDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetTopologyMapDefinition { return v.TopologyMapDefinition }).(PowerpackV2WidgetTopologyMapDefinitionPtrOutput)
+}
+
+// The definition for a Trace Service widget.
+func (o PowerpackV2WidgetOutput) TraceServiceDefinition() PowerpackV2WidgetTraceServiceDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetTraceServiceDefinition { return v.TraceServiceDefinition }).(PowerpackV2WidgetTraceServiceDefinitionPtrOutput)
+}
+
+// The definition for a Treemap widget.
+func (o PowerpackV2WidgetOutput) TreemapDefinition() PowerpackV2WidgetTreemapDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetTreemapDefinition { return v.TreemapDefinition }).(PowerpackV2WidgetTreemapDefinitionPtrOutput)
+}
+
+// The layout of the widget on a 'free' dashboard.
+func (o PowerpackV2WidgetOutput) WidgetLayout() PowerpackV2WidgetWidgetLayoutPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetWidgetLayout { return v.WidgetLayout }).(PowerpackV2WidgetWidgetLayoutPtrOutput)
+}
+
+// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+func (o PowerpackV2WidgetOutput) WildcardDefinition() PowerpackV2WidgetWildcardDefinitionPtrOutput {
+	return o.ApplyT(func(v PowerpackV2Widget) *PowerpackV2WidgetWildcardDefinition { return v.WildcardDefinition }).(PowerpackV2WidgetWildcardDefinitionPtrOutput)
+}
+
+type PowerpackV2WidgetArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2Widget)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetArrayOutput) ToPowerpackV2WidgetArrayOutput() PowerpackV2WidgetArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetArrayOutput) ToPowerpackV2WidgetArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2Widget {
+		return vs[0].([]PowerpackV2Widget)[vs[1].(int)]
+	}).(PowerpackV2WidgetOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinition struct {
+	// The ID of the monitor used by the widget.
+	AlertId string `pulumi:"alertId"`
+	// The description of the widget.
+	Description *string `pulumi:"description"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan *string `pulumi:"liveSpan"`
+	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+	Time *PowerpackV2WidgetAlertGraphDefinitionTime `pulumi:"time"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign *string `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize *string `pulumi:"titleSize"`
+	// Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
+	VizType string `pulumi:"vizType"`
+}
+
+// PowerpackV2WidgetAlertGraphDefinitionInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionArgs and PowerpackV2WidgetAlertGraphDefinitionOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionInput` via:
+//
+//	PowerpackV2WidgetAlertGraphDefinitionArgs{...}
+type PowerpackV2WidgetAlertGraphDefinitionInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertGraphDefinitionOutput() PowerpackV2WidgetAlertGraphDefinitionOutput
+	ToPowerpackV2WidgetAlertGraphDefinitionOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionOutput
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionArgs struct {
+	// The ID of the monitor used by the widget.
+	AlertId pulumi.StringInput `pulumi:"alertId"`
+	// The description of the widget.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
+	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+	Time PowerpackV2WidgetAlertGraphDefinitionTimePtrInput `pulumi:"time"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
+	// Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
+	VizType pulumi.StringInput `pulumi:"vizType"`
+}
+
+func (PowerpackV2WidgetAlertGraphDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinition)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionArgs) ToPowerpackV2WidgetAlertGraphDefinitionOutput() PowerpackV2WidgetAlertGraphDefinitionOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionArgs) ToPowerpackV2WidgetAlertGraphDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionOutput)
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionArgs) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutput() PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionArgs) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionOutput).ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetAlertGraphDefinitionPtrInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionArgs, PowerpackV2WidgetAlertGraphDefinitionPtr and PowerpackV2WidgetAlertGraphDefinitionPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionPtrInput` via:
+//
+//	        PowerpackV2WidgetAlertGraphDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetAlertGraphDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertGraphDefinitionPtrOutput() PowerpackV2WidgetAlertGraphDefinitionPtrOutput
+	ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionPtrOutput
+}
+
+type powerpackV2WidgetAlertGraphDefinitionPtrType PowerpackV2WidgetAlertGraphDefinitionArgs
+
+func PowerpackV2WidgetAlertGraphDefinitionPtr(v *PowerpackV2WidgetAlertGraphDefinitionArgs) PowerpackV2WidgetAlertGraphDefinitionPtrInput {
+	return (*powerpackV2WidgetAlertGraphDefinitionPtrType)(v)
+}
+
+func (*powerpackV2WidgetAlertGraphDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinition)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetAlertGraphDefinitionPtrType) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutput() PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetAlertGraphDefinitionPtrType) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionPtrOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertGraphDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinition)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) ToPowerpackV2WidgetAlertGraphDefinitionOutput() PowerpackV2WidgetAlertGraphDefinitionOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) ToPowerpackV2WidgetAlertGraphDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutput() PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
+	return o.ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertGraphDefinition) *PowerpackV2WidgetAlertGraphDefinition {
+		return &v
+	}).(PowerpackV2WidgetAlertGraphDefinitionPtrOutput)
+}
+
+// The ID of the monitor used by the widget.
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) AlertId() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) string { return v.AlertId }).(pulumi.StringOutput)
+}
+
+// The description of the widget.
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
+}
+
+// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) Time() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *PowerpackV2WidgetAlertGraphDefinitionTime {
+		return v.Time
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
+}
+
+// Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
+func (o PowerpackV2WidgetAlertGraphDefinitionOutput) VizType() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinition) string { return v.VizType }).(pulumi.StringOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertGraphDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinition)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutput() PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) Elem() PowerpackV2WidgetAlertGraphDefinitionOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) PowerpackV2WidgetAlertGraphDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetAlertGraphDefinition
+		return ret
+	}).(PowerpackV2WidgetAlertGraphDefinitionOutput)
+}
+
+// The ID of the monitor used by the widget.
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) AlertId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AlertId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description of the widget.
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HideIncompleteCostData
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LiveSpan
+	}).(pulumi.StringPtrOutput)
+}
+
+// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) Time() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *PowerpackV2WidgetAlertGraphDefinitionTime {
+		if v == nil {
+			return nil
+		}
+		return v.Time
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleAlign
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
+func (o PowerpackV2WidgetAlertGraphDefinitionPtrOutput) VizType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VizType
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTime struct {
+	// A fixed time range with explicit start and end times.
+	Fixed *PowerpackV2WidgetAlertGraphDefinitionTimeFixed `pulumi:"fixed"`
+	// An arbitrary live time span, such as 17 minutes or 6 hours.
+	Live *PowerpackV2WidgetAlertGraphDefinitionTimeLive `pulumi:"live"`
+}
+
+// PowerpackV2WidgetAlertGraphDefinitionTimeInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeArgs and PowerpackV2WidgetAlertGraphDefinitionTimeOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimeInput` via:
+//
+//	PowerpackV2WidgetAlertGraphDefinitionTimeArgs{...}
+type PowerpackV2WidgetAlertGraphDefinitionTimeInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertGraphDefinitionTimeOutput() PowerpackV2WidgetAlertGraphDefinitionTimeOutput
+	ToPowerpackV2WidgetAlertGraphDefinitionTimeOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeOutput
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimeArgs struct {
+	// A fixed time range with explicit start and end times.
+	Fixed PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput `pulumi:"fixed"`
+	// An arbitrary live time span, such as 17 minutes or 6 hours.
+	Live PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput `pulumi:"live"`
+}
+
+func (PowerpackV2WidgetAlertGraphDefinitionTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTime)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeOutput() PowerpackV2WidgetAlertGraphDefinitionTimeOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeOutput)
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeOutput).ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetAlertGraphDefinitionTimePtrInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeArgs, PowerpackV2WidgetAlertGraphDefinitionTimePtr and PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimePtrInput` via:
+//
+//	        PowerpackV2WidgetAlertGraphDefinitionTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetAlertGraphDefinitionTimePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput
+	ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput
+}
+
+type powerpackV2WidgetAlertGraphDefinitionTimePtrType PowerpackV2WidgetAlertGraphDefinitionTimeArgs
+
+func PowerpackV2WidgetAlertGraphDefinitionTimePtr(v *PowerpackV2WidgetAlertGraphDefinitionTimeArgs) PowerpackV2WidgetAlertGraphDefinitionTimePtrInput {
+	return (*powerpackV2WidgetAlertGraphDefinitionTimePtrType)(v)
+}
+
+func (*powerpackV2WidgetAlertGraphDefinitionTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTime)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetAlertGraphDefinitionTimePtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetAlertGraphDefinitionTimePtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertGraphDefinitionTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTime)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeOutput() PowerpackV2WidgetAlertGraphDefinitionTimeOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
+	return o.ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertGraphDefinitionTime) *PowerpackV2WidgetAlertGraphDefinitionTime {
+		return &v
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput)
+}
+
+// A fixed time range with explicit start and end times.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) Fixed() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTime) *PowerpackV2WidgetAlertGraphDefinitionTimeFixed {
+		return v.Fixed
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput)
+}
+
+// An arbitrary live time span, such as 17 minutes or 6 hours.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeOutput) Live() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTime) *PowerpackV2WidgetAlertGraphDefinitionTimeLive {
+		return v.Live
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTime)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) Elem() PowerpackV2WidgetAlertGraphDefinitionTimeOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTime) PowerpackV2WidgetAlertGraphDefinitionTime {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetAlertGraphDefinitionTime
+		return ret
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimeOutput)
+}
+
+// A fixed time range with explicit start and end times.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) Fixed() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTime) *PowerpackV2WidgetAlertGraphDefinitionTimeFixed {
+		if v == nil {
+			return nil
+		}
+		return v.Fixed
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput)
+}
+
+// An arbitrary live time span, such as 17 minutes or 6 hours.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput) Live() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTime) *PowerpackV2WidgetAlertGraphDefinitionTimeLive {
+		if v == nil {
+			return nil
+		}
+		return v.Live
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimeFixed struct {
+	// Start time in seconds since epoch.
+	From int `pulumi:"from"`
+	// End time in seconds since epoch.
+	To int `pulumi:"to"`
+}
+
+// PowerpackV2WidgetAlertGraphDefinitionTimeFixedInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs and PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimeFixedInput` via:
+//
+//	PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs{...}
+type PowerpackV2WidgetAlertGraphDefinitionTimeFixedInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput
+	ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs struct {
+	// Start time in seconds since epoch.
+	From pulumi.IntInput `pulumi:"from"`
+	// End time in seconds since epoch.
+	To pulumi.IntInput `pulumi:"to"`
+}
+
+func (PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput)
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput).ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs, PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtr and PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput` via:
+//
+//	        PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput
+	ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput
+}
+
+type powerpackV2WidgetAlertGraphDefinitionTimeFixedPtrType PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs
+
+func PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtr(v *PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput {
+	return (*powerpackV2WidgetAlertGraphDefinitionTimeFixedPtrType)(v)
+}
+
+func (*powerpackV2WidgetAlertGraphDefinitionTimeFixedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetAlertGraphDefinitionTimeFixedPtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetAlertGraphDefinitionTimeFixedPtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
+	return o.ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertGraphDefinitionTimeFixed) *PowerpackV2WidgetAlertGraphDefinitionTimeFixed {
+		return &v
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput)
+}
+
+// Start time in seconds since epoch.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) From() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
+}
+
+// End time in seconds since epoch.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput) To() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) Elem() PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeFixed) PowerpackV2WidgetAlertGraphDefinitionTimeFixed {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetAlertGraphDefinitionTimeFixed
+		return ret
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput)
+}
+
+// Start time in seconds since epoch.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// End time in seconds since epoch.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.To
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimeLive struct {
+	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit string `pulumi:"unit"`
+	// Value of the time span.
+	Value int `pulumi:"value"`
+}
+
+// PowerpackV2WidgetAlertGraphDefinitionTimeLiveInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs and PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimeLiveInput` via:
+//
+//	PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs{...}
+type PowerpackV2WidgetAlertGraphDefinitionTimeLiveInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput
+	ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs struct {
+	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value of the time span.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeLive)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput)
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput).ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput is an input type that accepts PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs, PowerpackV2WidgetAlertGraphDefinitionTimeLivePtr and PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput` via:
+//
+//	        PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput
+	ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput
+}
+
+type powerpackV2WidgetAlertGraphDefinitionTimeLivePtrType PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs
+
+func PowerpackV2WidgetAlertGraphDefinitionTimeLivePtr(v *PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput {
+	return (*powerpackV2WidgetAlertGraphDefinitionTimeLivePtrType)(v)
+}
+
+func (*powerpackV2WidgetAlertGraphDefinitionTimeLivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTimeLive)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetAlertGraphDefinitionTimeLivePtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
+	return i.ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetAlertGraphDefinitionTimeLivePtrType) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeLive)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
+	return o.ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertGraphDefinitionTimeLive) *PowerpackV2WidgetAlertGraphDefinitionTimeLive {
+		return &v
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput)
+}
+
+// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Value of the time span.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertGraphDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertGraphDefinitionTimeLive)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) Elem() PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeLive) PowerpackV2WidgetAlertGraphDefinitionTimeLive {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetAlertGraphDefinitionTimeLive
+		return ret
+	}).(PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput)
+}
+
+// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeLive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the time span.
+func (o PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertGraphDefinitionTimeLive) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinition struct {
+	// The ID of the monitor used by the widget.
+	AlertId string `pulumi:"alertId"`
+	// The description of the widget.
+	Description *string `pulumi:"description"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan *string `pulumi:"liveSpan"`
+	// The precision to use when displaying the value. Use `*` for maximum precision.
+	Precision *int `pulumi:"precision"`
+	// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+	TextAlign *string `pulumi:"textAlign"`
+	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+	Time *PowerpackV2WidgetAlertValueDefinitionTime `pulumi:"time"`
+	// The title of the widget.
+	Title *string `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign *string `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize *string `pulumi:"titleSize"`
+	// The unit for the value displayed in the widget.
+	Unit *string `pulumi:"unit"`
+}
+
+// PowerpackV2WidgetAlertValueDefinitionInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionArgs and PowerpackV2WidgetAlertValueDefinitionOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionInput` via:
+//
+//	PowerpackV2WidgetAlertValueDefinitionArgs{...}
+type PowerpackV2WidgetAlertValueDefinitionInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertValueDefinitionOutput() PowerpackV2WidgetAlertValueDefinitionOutput
+	ToPowerpackV2WidgetAlertValueDefinitionOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionOutput
+}
+
+type PowerpackV2WidgetAlertValueDefinitionArgs struct {
+	// The ID of the monitor used by the widget.
+	AlertId pulumi.StringInput `pulumi:"alertId"`
+	// The description of the widget.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
+	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
+	// The precision to use when displaying the value. Use `*` for maximum precision.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+	// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+	TextAlign pulumi.StringPtrInput `pulumi:"textAlign"`
+	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+	Time PowerpackV2WidgetAlertValueDefinitionTimePtrInput `pulumi:"time"`
+	// The title of the widget.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
+	// The size of the widget's title (defaults to 16).
+	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
+	// The unit for the value displayed in the widget.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (PowerpackV2WidgetAlertValueDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinition)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionArgs) ToPowerpackV2WidgetAlertValueDefinitionOutput() PowerpackV2WidgetAlertValueDefinitionOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionArgs) ToPowerpackV2WidgetAlertValueDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionOutput)
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionArgs) ToPowerpackV2WidgetAlertValueDefinitionPtrOutput() PowerpackV2WidgetAlertValueDefinitionPtrOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionArgs) ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionOutput).ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetAlertValueDefinitionPtrInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionArgs, PowerpackV2WidgetAlertValueDefinitionPtr and PowerpackV2WidgetAlertValueDefinitionPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionPtrInput` via:
+//
+//	        PowerpackV2WidgetAlertValueDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetAlertValueDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertValueDefinitionPtrOutput() PowerpackV2WidgetAlertValueDefinitionPtrOutput
+	ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionPtrOutput
+}
+
+type powerpackV2WidgetAlertValueDefinitionPtrType PowerpackV2WidgetAlertValueDefinitionArgs
+
+func PowerpackV2WidgetAlertValueDefinitionPtr(v *PowerpackV2WidgetAlertValueDefinitionArgs) PowerpackV2WidgetAlertValueDefinitionPtrInput {
+	return (*powerpackV2WidgetAlertValueDefinitionPtrType)(v)
+}
+
+func (*powerpackV2WidgetAlertValueDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinition)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetAlertValueDefinitionPtrType) ToPowerpackV2WidgetAlertValueDefinitionPtrOutput() PowerpackV2WidgetAlertValueDefinitionPtrOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetAlertValueDefinitionPtrType) ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionPtrOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertValueDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinition)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) ToPowerpackV2WidgetAlertValueDefinitionOutput() PowerpackV2WidgetAlertValueDefinitionOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) ToPowerpackV2WidgetAlertValueDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) ToPowerpackV2WidgetAlertValueDefinitionPtrOutput() PowerpackV2WidgetAlertValueDefinitionPtrOutput {
+	return o.ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertValueDefinition) *PowerpackV2WidgetAlertValueDefinition {
+		return &v
+	}).(PowerpackV2WidgetAlertValueDefinitionPtrOutput)
+}
+
+// The ID of the monitor used by the widget.
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) AlertId() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) string { return v.AlertId }).(pulumi.StringOutput)
+}
+
+// The description of the widget.
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
+}
+
+// The precision to use when displaying the value. Use `*` for maximum precision.
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) TextAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.TextAlign }).(pulumi.StringPtrOutput)
+}
+
+// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) Time() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *PowerpackV2WidgetAlertValueDefinitionTime {
+		return v.Time
+	}).(PowerpackV2WidgetAlertValueDefinitionTimePtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
+}
+
+// The unit for the value displayed in the widget.
+func (o PowerpackV2WidgetAlertValueDefinitionOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinition) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertValueDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinition)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) ToPowerpackV2WidgetAlertValueDefinitionPtrOutput() PowerpackV2WidgetAlertValueDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) ToPowerpackV2WidgetAlertValueDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Elem() PowerpackV2WidgetAlertValueDefinitionOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) PowerpackV2WidgetAlertValueDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetAlertValueDefinition
+		return ret
+	}).(PowerpackV2WidgetAlertValueDefinitionOutput)
+}
+
+// The ID of the monitor used by the widget.
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) AlertId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AlertId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description of the widget.
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HideIncompleteCostData
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LiveSpan
+	}).(pulumi.StringPtrOutput)
+}
+
+// The precision to use when displaying the value. Use `*` for maximum precision.
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Precision
+	}).(pulumi.IntPtrOutput)
+}
+
+// The alignment of the text in the widget. Valid values are `center`, `left`, `right`.
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) TextAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextAlign
+	}).(pulumi.StringPtrOutput)
+}
+
+// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Time() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *PowerpackV2WidgetAlertValueDefinitionTime {
+		if v == nil {
+			return nil
+		}
+		return v.Time
+	}).(PowerpackV2WidgetAlertValueDefinitionTimePtrOutput)
+}
+
+// The title of the widget.
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleAlign
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the widget's title (defaults to 16).
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TitleSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unit for the value displayed in the widget.
+func (o PowerpackV2WidgetAlertValueDefinitionPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTime struct {
+	// A fixed time range with explicit start and end times.
+	Fixed *PowerpackV2WidgetAlertValueDefinitionTimeFixed `pulumi:"fixed"`
+	// An arbitrary live time span, such as 17 minutes or 6 hours.
+	Live *PowerpackV2WidgetAlertValueDefinitionTimeLive `pulumi:"live"`
+}
+
+// PowerpackV2WidgetAlertValueDefinitionTimeInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeArgs and PowerpackV2WidgetAlertValueDefinitionTimeOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimeInput` via:
+//
+//	PowerpackV2WidgetAlertValueDefinitionTimeArgs{...}
+type PowerpackV2WidgetAlertValueDefinitionTimeInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertValueDefinitionTimeOutput() PowerpackV2WidgetAlertValueDefinitionTimeOutput
+	ToPowerpackV2WidgetAlertValueDefinitionTimeOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimeOutput
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimeArgs struct {
+	// A fixed time range with explicit start and end times.
+	Fixed PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput `pulumi:"fixed"`
+	// An arbitrary live time span, such as 17 minutes or 6 hours.
+	Live PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput `pulumi:"live"`
+}
+
+func (PowerpackV2WidgetAlertValueDefinitionTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTime)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeOutput() PowerpackV2WidgetAlertValueDefinitionTimeOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeOutput)
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeArgs) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeArgs) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeOutput).ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetAlertValueDefinitionTimePtrInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeArgs, PowerpackV2WidgetAlertValueDefinitionTimePtr and PowerpackV2WidgetAlertValueDefinitionTimePtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimePtrInput` via:
+//
+//	        PowerpackV2WidgetAlertValueDefinitionTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetAlertValueDefinitionTimePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput
+	ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimePtrOutput
+}
+
+type powerpackV2WidgetAlertValueDefinitionTimePtrType PowerpackV2WidgetAlertValueDefinitionTimeArgs
+
+func PowerpackV2WidgetAlertValueDefinitionTimePtr(v *PowerpackV2WidgetAlertValueDefinitionTimeArgs) PowerpackV2WidgetAlertValueDefinitionTimePtrInput {
+	return (*powerpackV2WidgetAlertValueDefinitionTimePtrType)(v)
+}
+
+func (*powerpackV2WidgetAlertValueDefinitionTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTime)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetAlertValueDefinitionTimePtrType) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetAlertValueDefinitionTimePtrType) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimePtrOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertValueDefinitionTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTime)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeOutput() PowerpackV2WidgetAlertValueDefinitionTimeOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
+	return o.ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertValueDefinitionTime) *PowerpackV2WidgetAlertValueDefinitionTime {
+		return &v
+	}).(PowerpackV2WidgetAlertValueDefinitionTimePtrOutput)
+}
+
+// A fixed time range with explicit start and end times.
+func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) Fixed() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTime) *PowerpackV2WidgetAlertValueDefinitionTimeFixed {
+		return v.Fixed
+	}).(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput)
+}
+
+// An arbitrary live time span, such as 17 minutes or 6 hours.
+func (o PowerpackV2WidgetAlertValueDefinitionTimeOutput) Live() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTime) *PowerpackV2WidgetAlertValueDefinitionTimeLive {
+		return v.Live
+	}).(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTime)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) Elem() PowerpackV2WidgetAlertValueDefinitionTimeOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTime) PowerpackV2WidgetAlertValueDefinitionTime {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetAlertValueDefinitionTime
+		return ret
+	}).(PowerpackV2WidgetAlertValueDefinitionTimeOutput)
+}
+
+// A fixed time range with explicit start and end times.
+func (o PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) Fixed() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTime) *PowerpackV2WidgetAlertValueDefinitionTimeFixed {
+		if v == nil {
+			return nil
+		}
+		return v.Fixed
+	}).(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput)
+}
+
+// An arbitrary live time span, such as 17 minutes or 6 hours.
+func (o PowerpackV2WidgetAlertValueDefinitionTimePtrOutput) Live() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTime) *PowerpackV2WidgetAlertValueDefinitionTimeLive {
+		if v == nil {
+			return nil
+		}
+		return v.Live
+	}).(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimeFixed struct {
+	// Start time in seconds since epoch.
+	From int `pulumi:"from"`
+	// End time in seconds since epoch.
+	To int `pulumi:"to"`
+}
+
+// PowerpackV2WidgetAlertValueDefinitionTimeFixedInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs and PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimeFixedInput` via:
+//
+//	PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs{...}
+type PowerpackV2WidgetAlertValueDefinitionTimeFixedInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput
+	ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs struct {
+	// Start time in seconds since epoch.
+	From pulumi.IntInput `pulumi:"from"`
+	// End time in seconds since epoch.
+	To pulumi.IntInput `pulumi:"to"`
+}
+
+func (PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput)
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput).ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs, PowerpackV2WidgetAlertValueDefinitionTimeFixedPtr and PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput` via:
+//
+//	        PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput
+	ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput
+}
+
+type powerpackV2WidgetAlertValueDefinitionTimeFixedPtrType PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs
+
+func PowerpackV2WidgetAlertValueDefinitionTimeFixedPtr(v *PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput {
+	return (*powerpackV2WidgetAlertValueDefinitionTimeFixedPtrType)(v)
+}
+
+func (*powerpackV2WidgetAlertValueDefinitionTimeFixedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetAlertValueDefinitionTimeFixedPtrType) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetAlertValueDefinitionTimeFixedPtrType) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
+	return o.ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertValueDefinitionTimeFixed) *PowerpackV2WidgetAlertValueDefinitionTimeFixed {
+		return &v
+	}).(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput)
+}
+
+// Start time in seconds since epoch.
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) From() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
+}
+
+// End time in seconds since epoch.
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput) To() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTimeFixed)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) Elem() PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeFixed) PowerpackV2WidgetAlertValueDefinitionTimeFixed {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetAlertValueDefinitionTimeFixed
+		return ret
+	}).(PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput)
+}
+
+// Start time in seconds since epoch.
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// End time in seconds since epoch.
+func (o PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.To
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimeLive struct {
+	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit string `pulumi:"unit"`
+	// Value of the time span.
+	Value int `pulumi:"value"`
+}
+
+// PowerpackV2WidgetAlertValueDefinitionTimeLiveInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs and PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimeLiveInput` via:
+//
+//	PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs{...}
+type PowerpackV2WidgetAlertValueDefinitionTimeLiveInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutput() PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput
+	ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs struct {
+	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value of the time span.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeLive)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutput() PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput)
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput).ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput is an input type that accepts PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs, PowerpackV2WidgetAlertValueDefinitionTimeLivePtr and PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput` via:
+//
+//	        PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput
+	ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput
+}
+
+type powerpackV2WidgetAlertValueDefinitionTimeLivePtrType PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs
+
+func PowerpackV2WidgetAlertValueDefinitionTimeLivePtr(v *PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput {
+	return (*powerpackV2WidgetAlertValueDefinitionTimeLivePtrType)(v)
+}
+
+func (*powerpackV2WidgetAlertValueDefinitionTimeLivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTimeLive)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetAlertValueDefinitionTimeLivePtrType) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
+	return i.ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetAlertValueDefinitionTimeLivePtrType) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeLive)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutput() PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
+	return o.ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetAlertValueDefinitionTimeLive) *PowerpackV2WidgetAlertValueDefinitionTimeLive {
+		return &v
+	}).(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput)
+}
+
+// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Value of the time span.
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetAlertValueDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetAlertValueDefinitionTimeLive)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) Elem() PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeLive) PowerpackV2WidgetAlertValueDefinitionTimeLive {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetAlertValueDefinitionTimeLive
+		return ret
+	}).(PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput)
+}
+
+// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeLive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the time span.
+func (o PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetAlertValueDefinitionTimeLive) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type PowerpackV2WidgetApmDependencyStatsQuery struct {
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
@@ -4779,7 +7845,7 @@ type PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery struct {
 	Computes []PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -4811,7 +7877,7 @@ type PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs struct {
 	Computes PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -4916,7 +7982,7 @@ func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) CrossOr
 	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -5001,7 +8067,7 @@ func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) Cros
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -10733,7 +13799,7 @@ type PowerpackV2WidgetChangeDefinitionRequestQueryEventQuery struct {
 	Computes []PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -10765,7 +13831,7 @@ type PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryArgs struct {
 	Computes PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -10870,7 +13936,7 @@ func (o PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryOutput) CrossOrgU
 	return o.ApplyT(func(v PowerpackV2WidgetChangeDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetChangeDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -10955,7 +14021,7 @@ func (o PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryPtrOutput) CrossO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetChangeDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -20405,7 +23471,7 @@ type PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQuery stru
 	Computes []PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -20437,7 +23503,7 @@ type PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryArgs 
 	Computes PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -20544,7 +23610,7 @@ func (o PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQuery) string {
 		return v.DataSource
@@ -20635,7 +23701,7 @@ func (o PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQuery) *string {
 		if v == nil {
@@ -22037,7 +25103,7 @@ type PowerpackV2WidgetDistributionDefinitionRequestQueryEventQuery struct {
 	Computes []PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -22069,7 +25135,7 @@ type PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryArgs struct {
 	Computes PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -22174,7 +25240,7 @@ func (o PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryOutput) Cro
 	return o.ApplyT(func(v PowerpackV2WidgetDistributionDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetDistributionDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -22259,7 +25325,7 @@ func (o PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetDistributionDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -31579,7 +34645,7 @@ type PowerpackV2WidgetGeomapDefinitionRequestQueryEventQuery struct {
 	Computes []PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -31611,7 +34677,7 @@ type PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryArgs struct {
 	Computes PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -31716,7 +34782,7 @@ func (o PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryOutput) CrossOrgU
 	return o.ApplyT(func(v PowerpackV2WidgetGeomapDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetGeomapDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -31801,7 +34867,7 @@ func (o PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryPtrOutput) CrossO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetGeomapDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -38835,7 +41901,7 @@ type PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQuery struct {
 	Computes []PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -38867,7 +41933,7 @@ type PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryArgs struct {
 	Computes PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -38972,7 +42038,7 @@ func (o PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryOutput) CrossOrg
 	return o.ApplyT(func(v PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -39057,7 +42123,7 @@ func (o PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryPtrOutput) Cross
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -43979,7 +47045,7 @@ type PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQuery str
 	Computes []PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -44011,7 +47077,7 @@ type PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryArgs
 	Computes PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -44118,7 +47184,7 @@ func (o PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQuery) string {
 		return v.DataSource
@@ -44209,7 +47275,7 @@ func (o PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQuery) *string {
 		if v == nil {
@@ -47215,7 +50281,7 @@ type PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQuery struct {
 	Computes []PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -47247,7 +50313,7 @@ type PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryArgs stru
 	Computes PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -47354,7 +50420,7 @@ func (o PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -47439,7 +50505,7 @@ func (o PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQuery) *string {
 		if v == nil {
@@ -51066,7 +54132,7 @@ type PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQuery struct {
 	Computes []PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -51098,7 +54164,7 @@ type PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryArgs struct {
 	Computes PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -51203,7 +54269,7 @@ func (o PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryOutput) Cros
 	return o.ApplyT(func(v PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -51288,7 +54354,7 @@ func (o PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryPtrOutput) C
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQuery) *string {
 		if v == nil {
@@ -56520,7 +59586,7 @@ type PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQuery struct {
 	Computes []PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -56552,7 +59618,7 @@ type PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryArgs struct {
 	Computes PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -56657,7 +59723,7 @@ func (o PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryOutput) Cros
 	return o.ApplyT(func(v PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -56742,7 +59808,7 @@ func (o PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryPtrOutput) C
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQuery) *string {
 		if v == nil {
@@ -75862,7 +78928,7 @@ type PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQuery struct {
 	Computes []PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -75894,7 +78960,7 @@ type PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryArgs struct {
 	Computes PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -75999,7 +79065,7 @@ func (o PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryOutput) Cross
 	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -76084,7 +79150,7 @@ func (o PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) Cr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -83126,7 +86192,7 @@ type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery struct {
 	Computes []PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -83158,7 +86224,7 @@ type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs struct {
 	Computes PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -83263,7 +86329,7 @@ func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) Cross
 	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -83348,7 +86414,7 @@ func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) Cr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -84952,2225 +88018,39 @@ func (o PowerpackV2WidgetQueryValueDefinitionTimeFixedPtrOutput) To() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-type PowerpackV2WidgetQueryValueDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// PowerpackV2WidgetQueryValueDefinitionTimeLiveInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs and PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionTimeLiveInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs{...}
-type PowerpackV2WidgetQueryValueDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionTimeLiveOutput() PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput
-	ToPowerpackV2WidgetQueryValueDefinitionTimeLiveOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeLiveOutput() PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput)
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput).ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryValueDefinitionTimeLivePtrInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs, PowerpackV2WidgetQueryValueDefinitionTimeLivePtr and PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionTimeLivePtrInput` via:
-//
-//	        PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryValueDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput
-	ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput
-}
-
-type powerpackV2WidgetQueryValueDefinitionTimeLivePtrType PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs
-
-func PowerpackV2WidgetQueryValueDefinitionTimeLivePtr(v *PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs) PowerpackV2WidgetQueryValueDefinitionTimeLivePtrInput {
-	return (*powerpackV2WidgetQueryValueDefinitionTimeLivePtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryValueDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionTimeLivePtrType) ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionTimeLivePtrType) ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeLiveOutput() PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput {
-	return o.ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryValueDefinitionTimeLive) *PowerpackV2WidgetQueryValueDefinitionTimeLive {
-		return &v
-	}).(PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput) Elem() PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeLive) PowerpackV2WidgetQueryValueDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryValueDefinitionTimeLive
-		return ret
-	}).(PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground struct {
-	// Whether the Timeseries is made using an area or bars. Valid values are `area`, `bars`.
-	Type string `pulumi:"type"`
-	// A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
-	Yaxis *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis `pulumi:"yaxis"`
-}
-
-// PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs and PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs{...}
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput
-	ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs struct {
-	// Whether the Timeseries is made using an area or bars. Valid values are `area`, `bars`.
-	Type pulumi.StringInput `pulumi:"type"`
-	// A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
-	Yaxis PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrInput `pulumi:"yaxis"`
-}
-
-func (PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput)
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput).ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs, PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtr and PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrInput` via:
-//
-//	        PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput
-	ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput
-}
-
-type powerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrType PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs
-
-func PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtr(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrInput {
-	return (*powerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrType) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrType) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput {
-	return o.ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground) *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground {
-		return &v
-	}).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput)
-}
-
-// Whether the Timeseries is made using an area or bars. Valid values are `area`, `bars`.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput) Yaxis() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground) *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
-		return v.Yaxis
-	}).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput) Elem() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground
-		return ret
-	}).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput)
-}
-
-// Whether the Timeseries is made using an area or bars. Valid values are `area`, `bars`.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing the Y-Axis Controls. Exactly one nested block is allowed using the structure below.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput) Yaxis() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackground) *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
-		if v == nil {
-			return nil
-		}
-		return v.Yaxis
-	}).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis struct {
-	// Set to `true` to include zero.
-	IncludeZero *bool `pulumi:"includeZero"`
-	// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
-	Label *string `pulumi:"label"`
-	// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
-	Max *string `pulumi:"max"`
-	// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
-	Min *string `pulumi:"min"`
-	// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
-	Scale *string `pulumi:"scale"`
-}
-
-// PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs and PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs{...}
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput
-	ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs struct {
-	// Set to `true` to include zero.
-	IncludeZero pulumi.BoolPtrInput `pulumi:"includeZero"`
-	// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
-	Max pulumi.StringPtrInput `pulumi:"max"`
-	// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
-	Min pulumi.StringPtrInput `pulumi:"min"`
-	// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
-	Scale pulumi.StringPtrInput `pulumi:"scale"`
-}
-
-func (PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput)
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput).ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs, PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtr and PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrInput` via:
-//
-//	        PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput
-	ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput
-}
-
-type powerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrType PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs
-
-func PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtr(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrInput {
-	return (*powerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrType) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrType) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput {
-	return o.ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
-		return &v
-	}).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput)
-}
-
-// Set to `true` to include zero.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput) IncludeZero() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *bool { return v.IncludeZero }).(pulumi.BoolPtrOutput)
-}
-
-// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *string { return v.Label }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput) Max() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *string { return v.Max }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput) Min() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *string { return v.Min }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput) Scale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *string { return v.Scale }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput) Elem() PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis
-		return ret
-	}).(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput)
-}
-
-// Set to `true` to include zero.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput) IncludeZero() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IncludeZero
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Label
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput) Max() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Max
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput) Min() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Min
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
-func (o PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput) Scale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxis) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Scale
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinition struct {
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// Retention curve requests.
-	Requests []PowerpackV2WidgetRetentionCurveDefinitionRequest `pulumi:"requests"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *PowerpackV2WidgetRetentionCurveDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionArgs and PowerpackV2WidgetRetentionCurveDefinitionOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionOutput() PowerpackV2WidgetRetentionCurveDefinitionOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionArgs struct {
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// Retention curve requests.
-	Requests PowerpackV2WidgetRetentionCurveDefinitionRequestArrayInput `pulumi:"requests"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time PowerpackV2WidgetRetentionCurveDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinition)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionArgs) ToPowerpackV2WidgetRetentionCurveDefinitionOutput() PowerpackV2WidgetRetentionCurveDefinitionOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionArgs) ToPowerpackV2WidgetRetentionCurveDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionOutput)
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionArgs) ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionArgs) ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionOutput).ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionPtrInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionArgs, PowerpackV2WidgetRetentionCurveDefinitionPtr and PowerpackV2WidgetRetentionCurveDefinitionPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionPtrInput` via:
-//
-//	        PowerpackV2WidgetRetentionCurveDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetRetentionCurveDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionPtrOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionPtrOutput
-}
-
-type powerpackV2WidgetRetentionCurveDefinitionPtrType PowerpackV2WidgetRetentionCurveDefinitionArgs
-
-func PowerpackV2WidgetRetentionCurveDefinitionPtr(v *PowerpackV2WidgetRetentionCurveDefinitionArgs) PowerpackV2WidgetRetentionCurveDefinitionPtrInput {
-	return (*powerpackV2WidgetRetentionCurveDefinitionPtrType)(v)
-}
-
-func (*powerpackV2WidgetRetentionCurveDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinition)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) ToPowerpackV2WidgetRetentionCurveDefinitionOutput() PowerpackV2WidgetRetentionCurveDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) ToPowerpackV2WidgetRetentionCurveDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionPtrOutput {
-	return o.ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetRetentionCurveDefinition) *PowerpackV2WidgetRetentionCurveDefinition {
-		return &v
-	}).(PowerpackV2WidgetRetentionCurveDefinitionPtrOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// Retention curve requests.
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) Requests() PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinition) []PowerpackV2WidgetRetentionCurveDefinitionRequest {
-		return v.Requests
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) Time() PowerpackV2WidgetRetentionCurveDefinitionTimePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinition) *PowerpackV2WidgetRetentionCurveDefinitionTime {
-		return v.Time
-	}).(PowerpackV2WidgetRetentionCurveDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetRetentionCurveDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) Elem() PowerpackV2WidgetRetentionCurveDefinitionOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinition) PowerpackV2WidgetRetentionCurveDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetRetentionCurveDefinition
-		return ret
-	}).(PowerpackV2WidgetRetentionCurveDefinitionOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// Retention curve requests.
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) Requests() PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinition) []PowerpackV2WidgetRetentionCurveDefinitionRequest {
-		if v == nil {
-			return nil
-		}
-		return v.Requests
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) Time() PowerpackV2WidgetRetentionCurveDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinition) *PowerpackV2WidgetRetentionCurveDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(PowerpackV2WidgetRetentionCurveDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetRetentionCurveDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequest struct {
-	// Retention query displayed by the retention curve.
-	Query PowerpackV2WidgetRetentionCurveDefinitionRequestQuery `pulumi:"query"`
-	// Request type for the retention curve widget. Valid values are `retentionCurve`.
-	RequestType string `pulumi:"requestType"`
-	// Style configuration for the retention curve.
-	Style *PowerpackV2WidgetRetentionCurveDefinitionRequestStyle `pulumi:"style"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestArgs struct {
-	// Retention query displayed by the retention curve.
-	Query PowerpackV2WidgetRetentionCurveDefinitionRequestQueryInput `pulumi:"query"`
-	// Request type for the retention curve widget. Valid values are `retentionCurve`.
-	RequestType pulumi.StringInput `pulumi:"requestType"`
-	// Style configuration for the retention curve.
-	Style PowerpackV2WidgetRetentionCurveDefinitionRequestStylePtrInput `pulumi:"style"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequest)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestOutput)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestArrayInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestArray and PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestArrayInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestArray{ PowerpackV2WidgetRetentionCurveDefinitionRequestArgs{...} }
-type PowerpackV2WidgetRetentionCurveDefinitionRequestArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestArray []PowerpackV2WidgetRetentionCurveDefinitionRequestInput
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequest)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequest)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestOutput {
-	return o
-}
-
-// Retention query displayed by the retention curve.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestOutput) Query() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequest) PowerpackV2WidgetRetentionCurveDefinitionRequestQuery {
-		return v.Query
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput)
-}
-
-// Request type for the retention curve widget. Valid values are `retentionCurve`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestOutput) RequestType() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequest) string { return v.RequestType }).(pulumi.StringOutput)
-}
-
-// Style configuration for the retention curve.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestOutput) Style() PowerpackV2WidgetRetentionCurveDefinitionRequestStylePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequest) *PowerpackV2WidgetRetentionCurveDefinitionRequestStyle {
-		return v.Style
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestStylePtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequest)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetRetentionCurveDefinitionRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetRetentionCurveDefinitionRequest {
-		return vs[0].([]PowerpackV2WidgetRetentionCurveDefinitionRequest)[vs[1].(int)]
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuery struct {
-	// Compute configuration for the retention query.
-	Compute PowerpackV2WidgetRetentionCurveDefinitionRequestQueryCompute `pulumi:"compute"`
-	// Data source for retention queries. Valid values are `productAnalyticsRetention`.
-	DataSource string `pulumi:"dataSource"`
-	// Filters for the retention query.
-	Filters *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters `pulumi:"filters"`
-	// Group by configuration for the retention query.
-	GroupBies []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy `pulumi:"groupBies"`
-	// Name of the retention query.
-	Name *string `pulumi:"name"`
-	// Search configuration for the retention query.
-	Search PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearch `pulumi:"search"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryArgs struct {
-	// Compute configuration for the retention query.
-	Compute PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeInput `pulumi:"compute"`
-	// Data source for retention queries. Valid values are `productAnalyticsRetention`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Filters for the retention query.
-	Filters PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrInput `pulumi:"filters"`
-	// Group by configuration for the retention query.
-	GroupBies PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayInput `pulumi:"groupBies"`
-	// Name of the retention query.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Search configuration for the retention query.
-	Search PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchInput `pulumi:"search"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput {
-	return o
-}
-
-// Compute configuration for the retention query.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput) Compute() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuery) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryCompute {
-		return v.Compute
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput)
-}
-
-// Data source for retention queries. Valid values are `productAnalyticsRetention`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// Filters for the retention query.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput) Filters() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuery) *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters {
-		return v.Filters
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput)
-}
-
-// Group by configuration for the retention query.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput) GroupBies() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuery) []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy {
-		return v.GroupBies
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput)
-}
-
-// Name of the retention query.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Search configuration for the retention query.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput) Search() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuery) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearch {
-		return v.Search
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryCompute struct {
-	// Aggregation for the retention query, including standard event aggregations and `pcNN` percentiles.
-	Aggregation string `pulumi:"aggregation"`
-	// Metric for the retention computation. Valid values are `__dd.retention`, `__dd.retention_rate`.
-	Metric string `pulumi:"metric"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeArgs struct {
-	// Aggregation for the retention query, including standard event aggregations and `pcNN` percentiles.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// Metric for the retention computation. Valid values are `__dd.retention`, `__dd.retention_rate`.
-	Metric pulumi.StringInput `pulumi:"metric"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryCompute)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryCompute)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput {
-	return o
-}
-
-// Aggregation for the retention query, including standard event aggregations and `pcNN` percentiles.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryCompute) string { return v.Aggregation }).(pulumi.StringOutput)
-}
-
-// Metric for the retention computation. Valid values are `__dd.retention`, `__dd.retention_rate`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput) Metric() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryCompute) string { return v.Metric }).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters struct {
-	// Product Analytics audience filters.
-	AudienceFilters *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters `pulumi:"audienceFilters"`
-	// String filter for the retention query.
-	StringFilter *string `pulumi:"stringFilter"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs struct {
-	// Product Analytics audience filters.
-	AudienceFilters PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrInput `pulumi:"audienceFilters"`
-	// String filter for the retention query.
-	StringFilter pulumi.StringPtrInput `pulumi:"stringFilter"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput)
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput).ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs, PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtr and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrInput` via:
-//
-//	        PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput
-}
-
-type powerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrType PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs
-
-func PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtr(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrInput {
-	return (*powerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrType)(v)
-}
-
-func (*powerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput {
-	return o.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters {
-		return &v
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput)
-}
-
-// Product Analytics audience filters.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput) AudienceFilters() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters {
-		return v.AudienceFilters
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput)
-}
-
-// String filter for the retention query.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput) StringFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters) *string { return v.StringFilter }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput) Elem() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters
-		return ret
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput)
-}
-
-// Product Analytics audience filters.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput) AudienceFilters() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters {
-		if v == nil {
-			return nil
-		}
-		return v.AudienceFilters
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput)
-}
-
-// String filter for the retention query.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput) StringFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFilters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StringFilter
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters struct {
-	// Product Analytics audience account subqueries.
-	Accounts []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount `pulumi:"accounts"`
-	// An optional filter condition applied to the audience subquery.
-	FilterCondition *string `pulumi:"filterCondition"`
-	// Product Analytics audience segment subqueries.
-	Segments []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment `pulumi:"segments"`
-	// Product Analytics audience user subqueries.
-	Users []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser `pulumi:"users"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs struct {
-	// Product Analytics audience account subqueries.
-	Accounts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayInput `pulumi:"accounts"`
-	// An optional filter condition applied to the audience subquery.
-	FilterCondition pulumi.StringPtrInput `pulumi:"filterCondition"`
-	// Product Analytics audience segment subqueries.
-	Segments PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayInput `pulumi:"segments"`
-	// Product Analytics audience user subqueries.
-	Users PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayInput `pulumi:"users"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput)
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput).ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs, PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtr and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrInput` via:
-//
-//	        PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput
-}
-
-type powerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrType PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs
-
-func PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtr(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrInput {
-	return (*powerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrType)(v)
-}
-
-func (*powerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput {
-	return o.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters) *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters {
-		return &v
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput)
-}
-
-// Product Analytics audience account subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput) Accounts() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount {
-		return v.Accounts
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput)
-}
-
-// An optional filter condition applied to the audience subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput) FilterCondition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters) *string {
-		return v.FilterCondition
-	}).(pulumi.StringPtrOutput)
-}
-
-// Product Analytics audience segment subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput) Segments() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment {
-		return v.Segments
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput)
-}
-
-// Product Analytics audience user subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput) Users() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser {
-		return v.Users
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput) Elem() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters
-		return ret
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput)
-}
-
-// Product Analytics audience account subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput) Accounts() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount {
-		if v == nil {
-			return nil
-		}
-		return v.Accounts
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput)
-}
-
-// An optional filter condition applied to the audience subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput) FilterCondition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FilterCondition
-	}).(pulumi.StringPtrOutput)
-}
-
-// Product Analytics audience segment subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput) Segments() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment {
-		if v == nil {
-			return nil
-		}
-		return v.Segments
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput)
-}
-
-// Product Analytics audience user subqueries.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput) Users() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFilters) []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser {
-		if v == nil {
-			return nil
-		}
-		return v.Users
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount struct {
-	// The name of the account subquery.
-	Name *string `pulumi:"name"`
-	// The query string for the account subquery.
-	Query *string `pulumi:"query"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArgs struct {
-	// The name of the account subquery.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The query string for the account subquery.
-	Query pulumi.StringPtrInput `pulumi:"query"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArray and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArray{ PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArgs{...} }
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArray []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountInput
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput {
-	return o
-}
-
-// The name of the account subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The query string for the account subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount) *string {
-		return v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount {
-		return vs[0].([]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccount)[vs[1].(int)]
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment struct {
-	// The name of the segment subquery.
-	Name *string `pulumi:"name"`
-	// The unique identifier of the segment.
-	SegmentId *string `pulumi:"segmentId"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArgs struct {
-	// The name of the segment subquery.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The unique identifier of the segment.
-	SegmentId pulumi.StringPtrInput `pulumi:"segmentId"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArray and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArray{ PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArgs{...} }
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArray []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentInput
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput {
-	return o
-}
-
-// The name of the segment subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of the segment.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput) SegmentId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment) *string {
-		return v.SegmentId
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment {
-		return vs[0].([]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegment)[vs[1].(int)]
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser struct {
-	// The name of the user subquery.
-	Name *string `pulumi:"name"`
-	// The query string for the user subquery.
-	Query *string `pulumi:"query"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArgs struct {
-	// The name of the user subquery.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The query string for the user subquery.
-	Query pulumi.StringPtrInput `pulumi:"query"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArray and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArray{ PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArgs{...} }
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArray []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserInput
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput {
-	return o
-}
-
-// The name of the user subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The query string for the user subquery.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser) *string {
-		return v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser {
-		return vs[0].([]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUser)[vs[1].(int)]
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy struct {
-	// Facet to group by.
-	Facet string `pulumi:"facet"`
-	// Maximum number of groups.
-	Limit *int `pulumi:"limit"`
-	// Whether to exclude missing values.
-	ShouldExcludeMissing *bool `pulumi:"shouldExcludeMissing"`
-	// Sort configuration for retention group by results.
-	Sort *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort `pulumi:"sort"`
-	// Source field for the retention group by.
-	Source *string `pulumi:"source"`
-	// Target for the retention group by. Valid values are `cohort`, `returnPeriod`.
-	Target string `pulumi:"target"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArgs struct {
-	// Facet to group by.
-	Facet pulumi.StringInput `pulumi:"facet"`
-	// Maximum number of groups.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// Whether to exclude missing values.
-	ShouldExcludeMissing pulumi.BoolPtrInput `pulumi:"shouldExcludeMissing"`
-	// Sort configuration for retention group by results.
-	Sort PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrInput `pulumi:"sort"`
-	// Source field for the retention group by.
-	Source pulumi.StringPtrInput `pulumi:"source"`
-	// Target for the retention group by. Valid values are `cohort`, `returnPeriod`.
-	Target pulumi.StringInput `pulumi:"target"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArray and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArray{ PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArgs{...} }
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArray []PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByInput
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArray) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput {
-	return o
-}
-
-// Facet to group by.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput) Facet() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
-}
-
-// Maximum number of groups.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// Whether to exclude missing values.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput) ShouldExcludeMissing() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy) *bool {
-		return v.ShouldExcludeMissing
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Sort configuration for retention group by results.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput) Sort() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy) *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort {
-		return v.Sort
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput)
-}
-
-// Source field for the retention group by.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput) Source() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy) *string { return v.Source }).(pulumi.StringPtrOutput)
-}
-
-// Target for the retention group by. Valid values are `cohort`, `returnPeriod`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy) string { return v.Target }).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy {
-		return vs[0].([]PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBy)[vs[1].(int)]
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort struct {
-	// Sort order for retention group by results. Valid values are `asc`, `desc`.
-	Order *string `pulumi:"order"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs struct {
-	// Sort order for retention group by results. Valid values are `asc`, `desc`.
-	Order pulumi.StringPtrInput `pulumi:"order"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput)
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput).ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs, PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtr and PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrInput` via:
-//
-//	        PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput
-}
-
-type powerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrType PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs
-
-func PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtr(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrInput {
-	return (*powerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrType)(v)
-}
-
-func (*powerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrType) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput {
-	return o.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort) *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort {
-		return &v
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput)
-}
-
-// Sort order for retention group by results. Valid values are `asc`, `desc`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput) Elem() PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort) PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort
-		return ret
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput)
-}
-
-// Sort order for retention group by results. Valid values are `asc`, `desc`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearch struct {
-	// Criteria used to construct the retention cohort.
-	CohortCriteria PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteria `pulumi:"cohortCriteria"`
-	// Filters for the retention search.
-	Filters *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters `pulumi:"filters"`
-	// Entity tracked for retention. Valid values are `@usr.id`, `@account.id`.
-	RetentionEntity string `pulumi:"retentionEntity"`
-	// Condition for counting an entity as returned. Valid values are `conversionOn`, `conversionOnOrAfter`.
-	ReturnCondition string `pulumi:"returnCondition"`
-	// Criteria used to identify return activity.
-	ReturnCriteria *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchReturnCriteria `pulumi:"returnCriteria"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchArgs struct {
-	// Criteria used to construct the retention cohort.
-	CohortCriteria PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaInput `pulumi:"cohortCriteria"`
-	// Filters for the retention search.
-	Filters PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrInput `pulumi:"filters"`
-	// Entity tracked for retention. Valid values are `@usr.id`, `@account.id`.
-	RetentionEntity pulumi.StringInput `pulumi:"retentionEntity"`
-	// Condition for counting an entity as returned. Valid values are `conversionOn`, `conversionOnOrAfter`.
-	ReturnCondition pulumi.StringInput `pulumi:"returnCondition"`
-	// Criteria used to identify return activity.
-	ReturnCriteria PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchReturnCriteriaPtrInput `pulumi:"returnCriteria"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearch)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearch)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput {
-	return o
-}
-
-// Criteria used to construct the retention cohort.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput) CohortCriteria() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearch) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteria {
-		return v.CohortCriteria
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput)
-}
-
-// Filters for the retention search.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput) Filters() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearch) *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFilters {
-		return v.Filters
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchFiltersPtrOutput)
-}
-
-// Entity tracked for retention. Valid values are `@usr.id`, `@account.id`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput) RetentionEntity() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearch) string { return v.RetentionEntity }).(pulumi.StringOutput)
-}
-
-// Condition for counting an entity as returned. Valid values are `conversionOn`, `conversionOnOrAfter`.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput) ReturnCondition() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearch) string { return v.ReturnCondition }).(pulumi.StringOutput)
-}
-
-// Criteria used to identify return activity.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput) ReturnCriteria() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchReturnCriteriaPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearch) *PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchReturnCriteria {
-		return v.ReturnCriteria
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchReturnCriteriaPtrOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteria struct {
-	// Base Product Analytics event query for cohort membership.
-	BaseQuery PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery `pulumi:"baseQuery"`
-	// Time interval used to build the cohort.
-	TimeInterval PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval `pulumi:"timeInterval"`
-}
-
-// PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaInput is an input type that accepts PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaArgs and PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaInput` via:
-//
-//	PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaArgs{...}
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput
-	ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutputWithContext(context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaArgs struct {
-	// Base Product Analytics event query for cohort membership.
-	BaseQuery PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryInput `pulumi:"baseQuery"`
-	// Time interval used to build the cohort.
-	TimeInterval PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalInput `pulumi:"timeInterval"`
-}
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteria)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput {
-	return i.ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaArgs) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput)
-}
-
-type PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteria)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput) ToPowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutputWithContext(ctx context.Context) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput {
-	return o
-}
-
-// Base Product Analytics event query for cohort membership.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput) BaseQuery() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteria) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQuery {
-		return v.BaseQuery
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaBaseQueryOutput)
-}
-
-// Time interval used to build the cohort.
-func (o PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput) TimeInterval() PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteria) PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeInterval {
-		return v.TimeInterval
-	}).(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaTimeIntervalOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlAutocreateUsersDomainsInput)(nil)).Elem(), OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrInput)(nil)).Elem(), OrganizationSettingsSettingsSamlAutocreateUsersDomainsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlIdpInitiatedLoginInput)(nil)).Elem(), OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrInput)(nil)).Elem(), OrganizationSettingsSettingsSamlIdpInitiatedLoginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlStrictModeInput)(nil)).Elem(), OrganizationSettingsSettingsSamlStrictModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationSettingsSettingsSamlStrictModePtrInput)(nil)).Elem(), OrganizationSettingsSettingsSamlStrictModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackLayoutInput)(nil)).Elem(), PowerpackLayoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackLayoutPtrInput)(nil)).Elem(), PowerpackLayoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackTemplateVariableInput)(nil)).Elem(), PowerpackTemplateVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackTemplateVariableArrayInput)(nil)).Elem(), PowerpackTemplateVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2LayoutInput)(nil)).Elem(), PowerpackV2LayoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2LayoutPtrInput)(nil)).Elem(), PowerpackV2LayoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2TemplateVariableInput)(nil)).Elem(), PowerpackV2TemplateVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2TemplateVariableArrayInput)(nil)).Elem(), PowerpackV2TemplateVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetInput)(nil)).Elem(), PowerpackV2WidgetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetArrayInput)(nil)).Elem(), PowerpackV2WidgetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimePtrInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeFixedInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeLiveInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetAlertGraphDefinitionTimeLiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimePtrInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeFixedInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeLiveInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetAlertValueDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetAlertValueDefinitionTimeLiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmDependencyStatsQueryInput)(nil)).Elem(), PowerpackV2WidgetApmDependencyStatsQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmDependencyStatsQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetApmDependencyStatsQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetApmMetricsQueryInput)(nil)).Elem(), PowerpackV2WidgetApmMetricsQueryArgs{})
@@ -88125,34 +89005,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimePtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeFixedInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionTimeFixedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeFixedPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeLiveInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestArrayInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaInput)(nil)).Elem(), PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaArgs{})
+	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlAutocreateUsersDomainsOutput{})
+	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlAutocreateUsersDomainsPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlIdpInitiatedLoginOutput{})
+	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlIdpInitiatedLoginPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlStrictModeOutput{})
+	pulumi.RegisterOutputType(OrganizationSettingsSettingsSamlStrictModePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackLayoutOutput{})
+	pulumi.RegisterOutputType(PowerpackLayoutPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackTemplateVariableOutput{})
+	pulumi.RegisterOutputType(PowerpackTemplateVariableArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackV2LayoutOutput{})
+	pulumi.RegisterOutputType(PowerpackV2LayoutPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2TemplateVariableOutput{})
+	pulumi.RegisterOutputType(PowerpackV2TemplateVariableArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimeOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimeFixedOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimeFixedPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimeLiveOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertGraphDefinitionTimeLivePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeFixedOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeFixedPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeLiveOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetAlertValueDefinitionTimeLivePtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetApmDependencyStatsQueryOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetApmDependencyStatsQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetApmMetricsQueryOutput{})
@@ -89107,32 +89991,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionTimePtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionTimeFixedOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionTimeseriesBackgroundYaxisPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryComputeOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersAccountArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersSegmentArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryFiltersAudienceFiltersUserArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupByArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQueryGroupBySortPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetRetentionCurveDefinitionRequestQuerySearchCohortCriteriaOutput{})
 }

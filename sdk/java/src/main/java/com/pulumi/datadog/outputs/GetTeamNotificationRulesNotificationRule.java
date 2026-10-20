@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.GetTeamNotificationRulesNotificationRuleEmail;
 import com.pulumi.datadog.outputs.GetTeamNotificationRulesNotificationRuleMsTeams;
 import com.pulumi.datadog.outputs.GetTeamNotificationRulesNotificationRulePagerduty;
+import com.pulumi.datadog.outputs.GetTeamNotificationRulesNotificationRuleServicenow;
 import com.pulumi.datadog.outputs.GetTeamNotificationRulesNotificationRuleSlack;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -36,6 +37,11 @@ public final class GetTeamNotificationRulesNotificationRule {
      * 
      */
     private @Nullable GetTeamNotificationRulesNotificationRulePagerduty pagerduty;
+    /**
+     * @return The ServiceNow notification settings.
+     * 
+     */
+    private @Nullable GetTeamNotificationRulesNotificationRuleServicenow servicenow;
     /**
      * @return The Slack notification settings.
      * 
@@ -72,6 +78,13 @@ public final class GetTeamNotificationRulesNotificationRule {
         return Optional.ofNullable(this.pagerduty);
     }
     /**
+     * @return The ServiceNow notification settings.
+     * 
+     */
+    public Optional<GetTeamNotificationRulesNotificationRuleServicenow> servicenow() {
+        return Optional.ofNullable(this.servicenow);
+    }
+    /**
      * @return The Slack notification settings.
      * 
      */
@@ -92,6 +105,7 @@ public final class GetTeamNotificationRulesNotificationRule {
         private String id;
         private @Nullable GetTeamNotificationRulesNotificationRuleMsTeams msTeams;
         private @Nullable GetTeamNotificationRulesNotificationRulePagerduty pagerduty;
+        private @Nullable GetTeamNotificationRulesNotificationRuleServicenow servicenow;
         private @Nullable GetTeamNotificationRulesNotificationRuleSlack slack;
         public Builder() {}
         public Builder(GetTeamNotificationRulesNotificationRule defaults) {
@@ -100,6 +114,7 @@ public final class GetTeamNotificationRulesNotificationRule {
     	      this.id = defaults.id;
     	      this.msTeams = defaults.msTeams;
     	      this.pagerduty = defaults.pagerduty;
+    	      this.servicenow = defaults.servicenow;
     	      this.slack = defaults.slack;
         }
 
@@ -130,6 +145,12 @@ public final class GetTeamNotificationRulesNotificationRule {
             return this;
         }
         @CustomType.Setter
+        public Builder servicenow(@Nullable GetTeamNotificationRulesNotificationRuleServicenow servicenow) {
+
+            this.servicenow = servicenow;
+            return this;
+        }
+        @CustomType.Setter
         public Builder slack(@Nullable GetTeamNotificationRulesNotificationRuleSlack slack) {
 
             this.slack = slack;
@@ -141,6 +162,7 @@ public final class GetTeamNotificationRulesNotificationRule {
             _resultValue.id = id;
             _resultValue.msTeams = msTeams;
             _resultValue.pagerduty = pagerduty;
+            _resultValue.servicenow = servicenow;
             _resultValue.slack = slack;
             return _resultValue;
         }

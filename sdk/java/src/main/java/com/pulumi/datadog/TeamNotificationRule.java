@@ -13,6 +13,7 @@ import com.pulumi.datadog.inputs.TeamNotificationRuleState;
 import com.pulumi.datadog.outputs.TeamNotificationRuleEmail;
 import com.pulumi.datadog.outputs.TeamNotificationRuleMsTeams;
 import com.pulumi.datadog.outputs.TeamNotificationRulePagerduty;
+import com.pulumi.datadog.outputs.TeamNotificationRuleServicenow;
 import com.pulumi.datadog.outputs.TeamNotificationRuleSlack;
 import java.lang.String;
 import java.util.Optional;
@@ -41,12 +42,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Create new team-notification-rule resource
  *         var foo = new Team("foo", TeamArgs.builder()
  *             .description("Example team")
@@ -58,6 +59,7 @@ import javax.annotation.Nullable;
  *             .teamId(foo.id())
  *             .email(com.pulumi.datadog.inputs.TeamNotificationRuleEmailArgs.builder()
  *                 .enabled(true)
+ *                 .recipientEmail("team-alerts}{@literal @}{@code example.com")
  *                 .build())
  *             .msTeams(com.pulumi.datadog.inputs.TeamNotificationRuleMsTeamsArgs.builder()
  *                 .connectorName("test-teams-handle")
@@ -65,14 +67,17 @@ import javax.annotation.Nullable;
  *             .pagerduty(com.pulumi.datadog.inputs.TeamNotificationRulePagerdutyArgs.builder()
  *                 .serviceName("my-service")
  *                 .build())
+ *             .servicenow(com.pulumi.datadog.inputs.TeamNotificationRuleServicenowArgs.builder()
+ *                 .templates("incident-template")
+ *                 .build())
  *             .slack(com.pulumi.datadog.inputs.TeamNotificationRuleSlackArgs.builder()
  *                 .channel("test-channel")
  *                 .workspace("Datadog")
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -130,6 +135,20 @@ public class TeamNotificationRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<TeamNotificationRulePagerduty>> pagerduty() {
         return Codegen.optional(this.pagerduty);
+    }
+    /**
+     * The ServiceNow notification settings.
+     * 
+     */
+    @Export(name="servicenow", refs={TeamNotificationRuleServicenow.class}, tree="[0]")
+    private Output</* @Nullable */ TeamNotificationRuleServicenow> servicenow;
+
+    /**
+     * @return The ServiceNow notification settings.
+     * 
+     */
+    public Output<Optional<TeamNotificationRuleServicenow>> servicenow() {
+        return Codegen.optional(this.servicenow);
     }
     /**
      * The Slack notification settings.

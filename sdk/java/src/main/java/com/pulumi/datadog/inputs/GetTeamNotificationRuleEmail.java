@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 
 
@@ -28,10 +29,26 @@ public final class GetTeamNotificationRuleEmail extends com.pulumi.resources.Inv
         return this.enabled;
     }
 
+    /**
+     * Email address notifications are sent to instead of all team members
+     * 
+     */
+    @Import(name="recipientEmail", required=true)
+    private String recipientEmail;
+
+    /**
+     * @return Email address notifications are sent to instead of all team members
+     * 
+     */
+    public String recipientEmail() {
+        return this.recipientEmail;
+    }
+
     private GetTeamNotificationRuleEmail() {}
 
     private GetTeamNotificationRuleEmail(GetTeamNotificationRuleEmail $) {
         this.enabled = $.enabled;
+        this.recipientEmail = $.recipientEmail;
     }
 
     public static Builder builder() {
@@ -63,9 +80,23 @@ public final class GetTeamNotificationRuleEmail extends com.pulumi.resources.Inv
             return this;
         }
 
+        /**
+         * @param recipientEmail Email address notifications are sent to instead of all team members
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recipientEmail(String recipientEmail) {
+            $.recipientEmail = recipientEmail;
+            return this;
+        }
+
         public GetTeamNotificationRuleEmail build() {
             if ($.enabled == null) {
                 throw new MissingRequiredPropertyException("GetTeamNotificationRuleEmail", "enabled");
+            }
+            if ($.recipientEmail == null) {
+                throw new MissingRequiredPropertyException("GetTeamNotificationRuleEmail", "recipientEmail");
             }
             return $;
         }

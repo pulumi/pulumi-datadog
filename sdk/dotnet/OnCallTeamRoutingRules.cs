@@ -128,6 +128,34 @@ namespace Pulumi.Datadog
     ///             },
     ///             new Datadog.Inputs.OnCallTeamRoutingRulesRuleArgs
     ///             {
+    ///                 Query = "tags.service:checkout",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     new Datadog.Inputs.OnCallTeamRoutingRulesRuleActionArgs
+    ///                     {
+    ///                         RerouteToTeam = new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "destinationTeamId", "00000000-aba2-0000-0000-000000000001" },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Datadog.Inputs.OnCallTeamRoutingRulesRuleActionArgs
+    ///                     {
+    ///                         SendSlackMessage = new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "workspace", "workspace" },
+    ///                                 { "channel", "channel" },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Datadog.Inputs.OnCallTeamRoutingRulesRuleArgs
+    ///             {
     ///                 EscalationPolicy = "00000000-aba2-0000-0000-000000000000",
     ///                 Urgency = "dynamic",
     ///             },

@@ -5,6 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DeploymentGateRuleOptionsMonitorIdArgs;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,6 +18,21 @@ import javax.annotation.Nullable;
 public final class DeploymentGateRuleOptionsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DeploymentGateRuleOptionsArgs Empty = new DeploymentGateRuleOptionsArgs();
+
+    /**
+     * Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+     * 
+     */
+    @Import(name="allowedResources")
+    private @Nullable Output<List<String>> allowedResources;
+
+    /**
+     * @return Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedResources() {
+        return Optional.ofNullable(this.allowedResources);
+    }
 
     /**
      * The duration for the rule.
@@ -33,14 +50,14 @@ public final class DeploymentGateRuleOptionsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Resources to exclude from faulty deployment detection.
+     * Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
      * 
      */
     @Import(name="excludedResources")
     private @Nullable Output<List<String>> excludedResources;
 
     /**
-     * @return Resources to exclude from faulty deployment detection.
+     * @return Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
      * 
      */
     public Optional<Output<List<String>>> excludedResources() {
@@ -48,26 +65,91 @@ public final class DeploymentGateRuleOptionsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The query for monitor rules.
+     * Fail if a matching monitor group is in NO DATA state (API default: true).
+     * 
+     */
+    @Import(name="failOnNoData")
+    private @Nullable Output<Boolean> failOnNoData;
+
+    /**
+     * @return Fail if a matching monitor group is in NO DATA state (API default: true).
+     * 
+     */
+    public Optional<Output<Boolean>> failOnNoData() {
+        return Optional.ofNullable(this.failOnNoData);
+    }
+
+    /**
+     * Fail if no monitor groups are found (API default: false).
+     * 
+     */
+    @Import(name="failOnNoGroupsFound")
+    private @Nullable Output<Boolean> failOnNoGroupsFound;
+
+    /**
+     * @return Fail if no monitor groups are found (API default: false).
+     * 
+     */
+    public Optional<Output<Boolean>> failOnNoGroupsFound() {
+        return Optional.ofNullable(this.failOnNoGroupsFound);
+    }
+
+    /**
+     * Specific monitors to evaluate. Mutually exclusive with query.
+     * 
+     */
+    @Import(name="monitorIds")
+    private @Nullable Output<List<DeploymentGateRuleOptionsMonitorIdArgs>> monitorIds;
+
+    /**
+     * @return Specific monitors to evaluate. Mutually exclusive with query.
+     * 
+     */
+    public Optional<Output<List<DeploymentGateRuleOptionsMonitorIdArgs>>> monitorIds() {
+        return Optional.ofNullable(this.monitorIds);
+    }
+
+    /**
+     * A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
      * 
      */
     @Import(name="query")
     private @Nullable Output<String> query;
 
     /**
-     * @return The query for monitor rules.
+     * @return A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
      * 
      */
     public Optional<Output<String>> query() {
         return Optional.ofNullable(this.query);
     }
 
+    /**
+     * Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+     * 
+     */
+    @Import(name="warmup")
+    private @Nullable Output<Integer> warmup;
+
+    /**
+     * @return Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+     * 
+     */
+    public Optional<Output<Integer>> warmup() {
+        return Optional.ofNullable(this.warmup);
+    }
+
     private DeploymentGateRuleOptionsArgs() {}
 
     private DeploymentGateRuleOptionsArgs(DeploymentGateRuleOptionsArgs $) {
+        this.allowedResources = $.allowedResources;
         this.duration = $.duration;
         this.excludedResources = $.excludedResources;
+        this.failOnNoData = $.failOnNoData;
+        this.failOnNoGroupsFound = $.failOnNoGroupsFound;
+        this.monitorIds = $.monitorIds;
         this.query = $.query;
+        this.warmup = $.warmup;
     }
 
     public static Builder builder() {
@@ -86,6 +168,37 @@ public final class DeploymentGateRuleOptionsArgs extends com.pulumi.resources.Re
 
         public Builder(DeploymentGateRuleOptionsArgs defaults) {
             $ = new DeploymentGateRuleOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowedResources Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedResources(@Nullable Output<List<String>> allowedResources) {
+            $.allowedResources = allowedResources;
+            return this;
+        }
+
+        /**
+         * @param allowedResources Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedResources(List<String> allowedResources) {
+            return allowedResources(Output.of(allowedResources));
+        }
+
+        /**
+         * @param allowedResources Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedResources(String... allowedResources) {
+            return allowedResources(List.of(allowedResources));
         }
 
         /**
@@ -110,7 +223,7 @@ public final class DeploymentGateRuleOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param excludedResources Resources to exclude from faulty deployment detection.
+         * @param excludedResources Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
          * 
          * @return builder
          * 
@@ -121,7 +234,7 @@ public final class DeploymentGateRuleOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param excludedResources Resources to exclude from faulty deployment detection.
+         * @param excludedResources Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
          * 
          * @return builder
          * 
@@ -131,7 +244,7 @@ public final class DeploymentGateRuleOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param excludedResources Resources to exclude from faulty deployment detection.
+         * @param excludedResources Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
          * 
          * @return builder
          * 
@@ -141,7 +254,80 @@ public final class DeploymentGateRuleOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param query The query for monitor rules.
+         * @param failOnNoData Fail if a matching monitor group is in NO DATA state (API default: true).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failOnNoData(@Nullable Output<Boolean> failOnNoData) {
+            $.failOnNoData = failOnNoData;
+            return this;
+        }
+
+        /**
+         * @param failOnNoData Fail if a matching monitor group is in NO DATA state (API default: true).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failOnNoData(Boolean failOnNoData) {
+            return failOnNoData(Output.of(failOnNoData));
+        }
+
+        /**
+         * @param failOnNoGroupsFound Fail if no monitor groups are found (API default: false).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failOnNoGroupsFound(@Nullable Output<Boolean> failOnNoGroupsFound) {
+            $.failOnNoGroupsFound = failOnNoGroupsFound;
+            return this;
+        }
+
+        /**
+         * @param failOnNoGroupsFound Fail if no monitor groups are found (API default: false).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failOnNoGroupsFound(Boolean failOnNoGroupsFound) {
+            return failOnNoGroupsFound(Output.of(failOnNoGroupsFound));
+        }
+
+        /**
+         * @param monitorIds Specific monitors to evaluate. Mutually exclusive with query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorIds(@Nullable Output<List<DeploymentGateRuleOptionsMonitorIdArgs>> monitorIds) {
+            $.monitorIds = monitorIds;
+            return this;
+        }
+
+        /**
+         * @param monitorIds Specific monitors to evaluate. Mutually exclusive with query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorIds(List<DeploymentGateRuleOptionsMonitorIdArgs> monitorIds) {
+            return monitorIds(Output.of(monitorIds));
+        }
+
+        /**
+         * @param monitorIds Specific monitors to evaluate. Mutually exclusive with query.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorIds(DeploymentGateRuleOptionsMonitorIdArgs... monitorIds) {
+            return monitorIds(List.of(monitorIds));
+        }
+
+        /**
+         * @param query A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
          * 
          * @return builder
          * 
@@ -152,13 +338,34 @@ public final class DeploymentGateRuleOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param query The query for monitor rules.
+         * @param query A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
          * 
          * @return builder
          * 
          */
         public Builder query(String query) {
             return query(Output.of(query));
+        }
+
+        /**
+         * @param warmup Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmup(@Nullable Output<Integer> warmup) {
+            $.warmup = warmup;
+            return this;
+        }
+
+        /**
+         * @param warmup Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmup(Integer warmup) {
+            return warmup(Output.of(warmup));
         }
 
         public DeploymentGateRuleOptionsArgs build() {

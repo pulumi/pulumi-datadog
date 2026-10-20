@@ -184,6 +184,22 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
                     }],
                 },
                 {
+                    "query": "tags.service:checkout",
+                    "actions": [
+                        {
+                            "reroute_to_team": [{
+                                "destinationTeamId": "00000000-aba2-0000-0000-000000000001",
+                            }],
+                        },
+                        {
+                            "send_slack_message": [{
+                                "workspace": "workspace",
+                                "channel": "channel",
+                            }],
+                        },
+                    ],
+                },
+                {
                     "escalation_policy": "00000000-aba2-0000-0000-000000000000",
                     "urgency": "dynamic",
                 },
@@ -286,6 +302,22 @@ class OnCallTeamRoutingRules(pulumi.CustomResource):
                             }],
                         }],
                     }],
+                },
+                {
+                    "query": "tags.service:checkout",
+                    "actions": [
+                        {
+                            "reroute_to_team": [{
+                                "destinationTeamId": "00000000-aba2-0000-0000-000000000001",
+                            }],
+                        },
+                        {
+                            "send_slack_message": [{
+                                "workspace": "workspace",
+                                "channel": "channel",
+                            }],
+                        },
+                    ],
                 },
                 {
                     "escalation_policy": "00000000-aba2-0000-0000-000000000000",

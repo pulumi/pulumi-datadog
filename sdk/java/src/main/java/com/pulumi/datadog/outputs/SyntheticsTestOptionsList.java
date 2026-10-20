@@ -31,6 +31,11 @@ public final class SyntheticsTestOptionsList {
      */
     private @Nullable Boolean allowInsecure;
     /**
+     * @return Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+     * 
+     */
+    private @Nullable Boolean bitsAiAutoInvestigate;
+    /**
      * @return Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
      * 
      */
@@ -152,6 +157,13 @@ public final class SyntheticsTestOptionsList {
      */
     public Optional<Boolean> allowInsecure() {
         return Optional.ofNullable(this.allowInsecure);
+    }
+    /**
+     * @return Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+     * 
+     */
+    public Optional<Boolean> bitsAiAutoInvestigate() {
+        return Optional.ofNullable(this.bitsAiAutoInvestigate);
     }
     /**
      * @return Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
@@ -318,6 +330,7 @@ public final class SyntheticsTestOptionsList {
     public static final class Builder {
         private @Nullable Boolean acceptSelfSigned;
         private @Nullable Boolean allowInsecure;
+        private @Nullable Boolean bitsAiAutoInvestigate;
         private @Nullable List<String> blockedRequestPatterns;
         private @Nullable Boolean captureNetworkPayloads;
         private @Nullable Boolean checkCertificateRevocation;
@@ -346,6 +359,7 @@ public final class SyntheticsTestOptionsList {
     	      Objects.requireNonNull(defaults);
     	      this.acceptSelfSigned = defaults.acceptSelfSigned;
     	      this.allowInsecure = defaults.allowInsecure;
+    	      this.bitsAiAutoInvestigate = defaults.bitsAiAutoInvestigate;
     	      this.blockedRequestPatterns = defaults.blockedRequestPatterns;
     	      this.captureNetworkPayloads = defaults.captureNetworkPayloads;
     	      this.checkCertificateRevocation = defaults.checkCertificateRevocation;
@@ -381,6 +395,12 @@ public final class SyntheticsTestOptionsList {
         public Builder allowInsecure(@Nullable Boolean allowInsecure) {
 
             this.allowInsecure = allowInsecure;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bitsAiAutoInvestigate(@Nullable Boolean bitsAiAutoInvestigate) {
+
+            this.bitsAiAutoInvestigate = bitsAiAutoInvestigate;
             return this;
         }
         @CustomType.Setter
@@ -533,6 +553,7 @@ public final class SyntheticsTestOptionsList {
             final var _resultValue = new SyntheticsTestOptionsList();
             _resultValue.acceptSelfSigned = acceptSelfSigned;
             _resultValue.allowInsecure = allowInsecure;
+            _resultValue.bitsAiAutoInvestigate = bitsAiAutoInvestigate;
             _resultValue.blockedRequestPatterns = blockedRequestPatterns;
             _resultValue.captureNetworkPayloads = captureNetworkPayloads;
             _resultValue.checkCertificateRevocation = checkCertificateRevocation;

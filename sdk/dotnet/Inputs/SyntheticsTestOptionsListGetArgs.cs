@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("allowInsecure")]
         public Input<bool>? AllowInsecure { get; set; }
 
+        /// <summary>
+        /// Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+        /// </summary>
+        [Input("bitsAiAutoInvestigate")]
+        public Input<bool>? BitsAiAutoInvestigate { get; set; }
+
         [Input("blockedRequestPatterns")]
         private InputList<string>? _blockedRequestPatterns;
 

@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorAggregate
     {
         /// <summary>
+        /// Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming? AggregationTiming;
+        /// <summary>
         /// The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
         /// </summary>
         public readonly int IntervalSecs;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private ObservabilityPipelineConfigProcessorGroupProcessorAggregate(
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming? aggregationTiming,
+
             int intervalSecs,
 
             string mode)
         {
+            AggregationTiming = aggregationTiming;
             IntervalSecs = intervalSecs;
             Mode = mode;
         }

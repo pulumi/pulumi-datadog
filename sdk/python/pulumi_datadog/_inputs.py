@@ -2961,6 +2961,8 @@ __all__ = [
     'DeploymentGateRuleArgsDict',
     'DeploymentGateRuleOptionsArgs',
     'DeploymentGateRuleOptionsArgsDict',
+    'DeploymentGateRuleOptionsMonitorIdArgs',
+    'DeploymentGateRuleOptionsMonitorIdArgsDict',
     'DowntimeRecurrenceArgs',
     'DowntimeRecurrenceArgsDict',
     'DowntimeScheduleMonitorIdentifierArgs',
@@ -3397,6 +3399,32 @@ __all__ = [
     'ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferMemoryArgsDict',
     'ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsArgs',
     'ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgsDict',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgsDict',
     'ObservabilityPipelineConfigDestinationAzureStorageArgs',
     'ObservabilityPipelineConfigDestinationAzureStorageArgsDict',
     'ObservabilityPipelineConfigDestinationAzureStorageBufferArgs',
@@ -3685,6 +3713,8 @@ __all__ = [
     'ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTagsTagArgsDict',
     'ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs',
     'ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgsDict',
+    'ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs',
+    'ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgsDict',
     'ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgs',
     'ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgsDict',
     'ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs',
@@ -3963,6 +3993,8 @@ __all__ = [
     'OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgsDict',
     'OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs',
     'OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgsDict',
+    'OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs',
+    'OnCallTeamRoutingRulesRuleActionRerouteToTeamArgsDict',
     'OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs',
     'OnCallTeamRoutingRulesRuleActionSendSlackMessageArgsDict',
     'OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs',
@@ -7419,6 +7451,8 @@ __all__ = [
     'TeamNotificationRuleMsTeamsArgsDict',
     'TeamNotificationRulePagerdutyArgs',
     'TeamNotificationRulePagerdutyArgsDict',
+    'TeamNotificationRuleServicenowArgs',
+    'TeamNotificationRuleServicenowArgsDict',
     'TeamNotificationRuleSlackArgs',
     'TeamNotificationRuleSlackArgsDict',
     'TeamSyncSelectionStateArgs',
@@ -7617,6 +7651,8 @@ __all__ = [
     'GetTeamNotificationRuleMsTeamsArgsDict',
     'GetTeamNotificationRulePagerdutyArgs',
     'GetTeamNotificationRulePagerdutyArgsDict',
+    'GetTeamNotificationRuleServicenowArgs',
+    'GetTeamNotificationRuleServicenowArgsDict',
     'GetTeamNotificationRuleSlackArgs',
     'GetTeamNotificationRuleSlackArgsDict',
     'GetTeamNotificationRulesNotificationRuleArgs',
@@ -7627,6 +7663,8 @@ __all__ = [
     'GetTeamNotificationRulesNotificationRuleMsTeamsArgsDict',
     'GetTeamNotificationRulesNotificationRulePagerdutyArgs',
     'GetTeamNotificationRulesNotificationRulePagerdutyArgsDict',
+    'GetTeamNotificationRulesNotificationRuleServicenowArgs',
+    'GetTeamNotificationRulesNotificationRuleServicenowArgsDict',
     'GetTeamNotificationRulesNotificationRuleSlackArgs',
     'GetTeamNotificationRulesNotificationRuleSlackArgsDict',
     'GetTeamsTeamArgs',
@@ -18249,7 +18287,7 @@ class DashboardV2WidgetBarChartDefinitionRequestQueryEventQueryArgsDict(TypedDic
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -18294,7 +18332,7 @@ class DashboardV2WidgetBarChartDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetBarChartDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -18335,7 +18373,7 @@ class DashboardV2WidgetBarChartDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -21160,7 +21198,7 @@ class DashboardV2WidgetChangeDefinitionRequestQueryEventQueryArgsDict(TypedDict)
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -21205,7 +21243,7 @@ class DashboardV2WidgetChangeDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetChangeDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetChangeDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -21246,7 +21284,7 @@ class DashboardV2WidgetChangeDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -26022,7 +26060,7 @@ class DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryArgs
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -26067,7 +26105,7 @@ class DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryArgs
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -26108,7 +26146,7 @@ class DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryArgs
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -26893,7 +26931,7 @@ class DashboardV2WidgetDistributionDefinitionRequestQueryEventQueryArgsDict(Type
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -26938,7 +26976,7 @@ class DashboardV2WidgetDistributionDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetDistributionDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetDistributionDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -26979,7 +27017,7 @@ class DashboardV2WidgetDistributionDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -31489,7 +31527,7 @@ class DashboardV2WidgetGeomapDefinitionRequestQueryEventQueryArgsDict(TypedDict)
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -31534,7 +31572,7 @@ class DashboardV2WidgetGeomapDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetGeomapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -31575,7 +31613,7 @@ class DashboardV2WidgetGeomapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -35704,7 +35742,7 @@ class DashboardV2WidgetHeatmapDefinitionRequestQueryEventQueryArgsDict(TypedDict
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -35749,7 +35787,7 @@ class DashboardV2WidgetHeatmapDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -35790,7 +35828,7 @@ class DashboardV2WidgetHeatmapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -38477,7 +38515,7 @@ class DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryArg
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -38522,7 +38560,7 @@ class DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryArg
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -38563,7 +38601,7 @@ class DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryArg
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -40144,7 +40182,7 @@ class DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryArgsDict
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -40189,7 +40227,7 @@ class DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -40230,7 +40268,7 @@ class DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -42117,7 +42155,7 @@ class DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQueryArgsDict(Typed
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -42162,7 +42200,7 @@ class DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -42203,7 +42241,7 @@ class DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -44675,7 +44713,7 @@ class DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryArgsDict(Typed
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -44720,7 +44758,7 @@ class DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -44761,7 +44799,7 @@ class DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -55211,7 +55249,7 @@ class DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryArgsDict(TypedD
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -55256,7 +55294,7 @@ class DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -55297,7 +55335,7 @@ class DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -58961,7 +58999,7 @@ class DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryArgsDict(TypedD
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -59006,7 +59044,7 @@ class DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -59047,7 +59085,7 @@ class DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -65920,7 +65958,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQue
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -65965,7 +66003,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQue
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -66006,7 +66044,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQue
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -67913,7 +67951,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryArgsDict(Type
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -67958,7 +67996,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -67999,7 +68037,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -69906,7 +69944,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryArgsDict(Type
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -69951,7 +69989,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -69992,7 +70030,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -76237,7 +76275,7 @@ class DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryArgsDict(TypedDic
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -76282,7 +76320,7 @@ class DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -76323,7 +76361,7 @@ class DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -80908,7 +80946,7 @@ class DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryArgsDict(TypedD
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -80953,7 +80991,7 @@ class DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -80994,7 +81032,7 @@ class DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -84299,7 +84337,7 @@ class DashboardV2WidgetToplistDefinitionRequestQueryEventQueryArgsDict(TypedDict
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -84344,7 +84382,7 @@ class DashboardV2WidgetToplistDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetToplistDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetToplistDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -84385,7 +84423,7 @@ class DashboardV2WidgetToplistDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -87962,7 +88000,7 @@ class DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryArgsDict(TypedDict
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -88007,7 +88045,7 @@ class DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -88048,7 +88086,7 @@ class DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -90917,7 +90955,7 @@ class DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEv
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -90962,7 +91000,7 @@ class DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEv
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -91003,7 +91041,7 @@ class DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEv
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -93132,7 +93170,7 @@ class DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -93177,7 +93215,7 @@ class DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -93218,7 +93256,7 @@ class DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -95386,7 +95424,7 @@ class DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryArg
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -95431,7 +95469,7 @@ class DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryArg
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -95472,7 +95510,7 @@ class DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryArg
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -140882,36 +140920,88 @@ class DeploymentGateRuleArgs:
 
 
 class DeploymentGateRuleOptionsArgsDict(TypedDict):
+    allowed_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+    """
     duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The duration for the rule.
     """
     excluded_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Resources to exclude from faulty deployment detection.
+    Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
+    """
+    fail_on_no_data: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Fail if a matching monitor group is in NO DATA state (API default: true).
+    """
+    fail_on_no_groups_found: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Fail if no monitor groups are found (API default: false).
+    """
+    monitor_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGateRuleOptionsMonitorIdArgsDict']]]]]
+    """
+    Specific monitors to evaluate. Mutually exclusive with query.
     """
     query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The query for monitor rules.
+    A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
+    """
+    warmup: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Seconds to wait after deployment starts before evaluating monitors (API default: 0).
     """
 
 @pulumi.input_type
 class DeploymentGateRuleOptionsArgs:
     def __init__(__self__, *,
+                 allowed_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  duration: pulumi.Input[Optional[_builtins.int]] = None,
                  excluded_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 query: pulumi.Input[Optional[_builtins.str]] = None):
+                 fail_on_no_data: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fail_on_no_groups_found: pulumi.Input[Optional[_builtins.bool]] = None,
+                 monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGateRuleOptionsMonitorIdArgs']]]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 warmup: pulumi.Input[Optional[_builtins.int]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_resources: Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
         :param pulumi.Input[_builtins.int] duration: The duration for the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_resources: Resources to exclude from faulty deployment detection.
-        :param pulumi.Input[_builtins.str] query: The query for monitor rules.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_resources: Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
+        :param pulumi.Input[_builtins.bool] fail_on_no_data: Fail if a matching monitor group is in NO DATA state (API default: true).
+        :param pulumi.Input[_builtins.bool] fail_on_no_groups_found: Fail if no monitor groups are found (API default: false).
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGateRuleOptionsMonitorIdArgs']]] monitor_ids: Specific monitors to evaluate. Mutually exclusive with query.
+        :param pulumi.Input[_builtins.str] query: A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
+        :param pulumi.Input[_builtins.int] warmup: Seconds to wait after deployment starts before evaluating monitors (API default: 0).
         """
+        if allowed_resources is not None:
+            pulumi.set(__self__, "allowed_resources", allowed_resources)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if excluded_resources is not None:
             pulumi.set(__self__, "excluded_resources", excluded_resources)
+        if fail_on_no_data is not None:
+            pulumi.set(__self__, "fail_on_no_data", fail_on_no_data)
+        if fail_on_no_groups_found is not None:
+            pulumi.set(__self__, "fail_on_no_groups_found", fail_on_no_groups_found)
+        if monitor_ids is not None:
+            pulumi.set(__self__, "monitor_ids", monitor_ids)
         if query is not None:
             pulumi.set(__self__, "query", query)
+        if warmup is not None:
+            pulumi.set(__self__, "warmup", warmup)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedResources")
+    def allowed_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+        """
+        return pulumi.get(self, "allowed_resources")
+
+    @allowed_resources.setter
+    def allowed_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_resources", value)
 
     @_builtins.property
     @pulumi.getter
@@ -140929,7 +141019,7 @@ class DeploymentGateRuleOptionsArgs:
     @pulumi.getter(name="excludedResources")
     def excluded_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Resources to exclude from faulty deployment detection.
+        Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
         """
         return pulumi.get(self, "excluded_resources")
 
@@ -140938,16 +141028,111 @@ class DeploymentGateRuleOptionsArgs:
         pulumi.set(self, "excluded_resources", value)
 
     @_builtins.property
+    @pulumi.getter(name="failOnNoData")
+    def fail_on_no_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Fail if a matching monitor group is in NO DATA state (API default: true).
+        """
+        return pulumi.get(self, "fail_on_no_data")
+
+    @fail_on_no_data.setter
+    def fail_on_no_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "fail_on_no_data", value)
+
+    @_builtins.property
+    @pulumi.getter(name="failOnNoGroupsFound")
+    def fail_on_no_groups_found(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Fail if no monitor groups are found (API default: false).
+        """
+        return pulumi.get(self, "fail_on_no_groups_found")
+
+    @fail_on_no_groups_found.setter
+    def fail_on_no_groups_found(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "fail_on_no_groups_found", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monitorIds")
+    def monitor_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGateRuleOptionsMonitorIdArgs']]]]:
+        """
+        Specific monitors to evaluate. Mutually exclusive with query.
+        """
+        return pulumi.get(self, "monitor_ids")
+
+    @monitor_ids.setter
+    def monitor_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGateRuleOptionsMonitorIdArgs']]]]):
+        pulumi.set(self, "monitor_ids", value)
+
+    @_builtins.property
     @pulumi.getter
     def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The query for monitor rules.
+        A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
         """
         return pulumi.get(self, "query")
 
     @query.setter
     def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def warmup(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+        """
+        return pulumi.get(self, "warmup")
+
+    @warmup.setter
+    def warmup(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "warmup", value)
+
+
+class DeploymentGateRuleOptionsMonitorIdArgsDict(TypedDict):
+    groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Exact group names to evaluate; an empty list evaluates all groups.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The monitor's decimal ID.
+    """
+
+@pulumi.input_type
+class DeploymentGateRuleOptionsMonitorIdArgs:
+    def __init__(__self__, *,
+                 groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: Exact group names to evaluate; an empty list evaluates all groups.
+        :param pulumi.Input[_builtins.str] id: The monitor's decimal ID.
+        """
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Exact group names to evaluate; an empty list evaluates all groups.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The monitor's decimal ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
 
 
 class DowntimeRecurrenceArgsDict(TypedDict):
@@ -157072,6 +157257,10 @@ class ObservabilityPipelineConfigDestinationArgsDict(TypedDict):
     """
     The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
     """
+    azure_data_explorer: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerArgsDict']]]
+    """
+    The `azure_data_explorer` destination sends log events to an Azure Data Explorer table.
+    """
     azure_storages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationAzureStorageArgsDict']]]]]
     """
     The `azure_storage` destination forwards logs to an Azure Blob Storage container.
@@ -157182,6 +157371,7 @@ class ObservabilityPipelineConfigDestinationArgs:
                  amazon_s3_generic: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonS3GenericArgs']] = None,
                  amazon_s3s: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationAmazonS3Args']]]] = None,
                  amazon_security_lakes: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs']]]] = None,
+                 azure_data_explorer: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerArgs']] = None,
                  azure_storages: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationAzureStorageArgs']]]] = None,
                  clickhouse: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationClickhouseArgs']] = None,
                  cloud_prem: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationCloudPremArgs']] = None,
@@ -157214,6 +157404,7 @@ class ObservabilityPipelineConfigDestinationArgs:
         :param pulumi.Input['ObservabilityPipelineConfigDestinationAmazonS3GenericArgs'] amazon_s3_generic: The `amazon_s3_generic` destination sends your logs to an Amazon S3 bucket.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationAmazonS3Args']]] amazon_s3s: The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs']]] amazon_security_lakes: The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerArgs'] azure_data_explorer: The `azure_data_explorer` destination sends log events to an Azure Data Explorer table.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationAzureStorageArgs']]] azure_storages: The `azure_storage` destination forwards logs to an Azure Blob Storage container.
         :param pulumi.Input['ObservabilityPipelineConfigDestinationClickhouseArgs'] clickhouse: The `clickhouse` destination forwards logs to a ClickHouse server via HTTP.
         :param pulumi.Input['ObservabilityPipelineConfigDestinationCloudPremArgs'] cloud_prem: The `cloud_prem` destination sends logs to Datadog CloudPrem.
@@ -157250,6 +157441,8 @@ class ObservabilityPipelineConfigDestinationArgs:
             pulumi.set(__self__, "amazon_s3s", amazon_s3s)
         if amazon_security_lakes is not None:
             pulumi.set(__self__, "amazon_security_lakes", amazon_security_lakes)
+        if azure_data_explorer is not None:
+            pulumi.set(__self__, "azure_data_explorer", azure_data_explorer)
         if azure_storages is not None:
             pulumi.set(__self__, "azure_storages", azure_storages)
         if clickhouse is not None:
@@ -157372,6 +157565,18 @@ class ObservabilityPipelineConfigDestinationArgs:
     @amazon_security_lakes.setter
     def amazon_security_lakes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs']]]]):
         pulumi.set(self, "amazon_security_lakes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureDataExplorer")
+    def azure_data_explorer(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerArgs']]:
+        """
+        The `azure_data_explorer` destination sends log events to an Azure Data Explorer table.
+        """
+        return pulumi.get(self, "azure_data_explorer")
+
+    @azure_data_explorer.setter
+    def azure_data_explorer(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerArgs']]):
+        pulumi.set(self, "azure_data_explorer", value)
 
     @_builtins.property
     @pulumi.getter(name="azureStorages")
@@ -159511,6 +159716,970 @@ class ObservabilityPipelineConfigDestinationAmazonSecurityLakeTlsArgs:
     @key_pass_key.setter
     def key_pass_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_pass_key", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerArgsDict(TypedDict):
+    auth: pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgsDict']
+    """
+    Authentication configuration for Azure Data Explorer. Exactly one of `azure_cli`, `client_secret`, `client_certificate`, `managed_identity`, `managed_identity_client_assertion`, or `workload_identity` must be specified.
+    """
+    database: pulumi.Input[_builtins.str]
+    """
+    The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+    """
+    table: pulumi.Input[_builtins.str]
+    """
+    The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+    """
+    batch: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgsDict']]]
+    """
+    Event batching settings for Azure Data Explorer ingestion.
+    """
+    buffer: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgsDict']]]
+    """
+    Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+    """
+    compression: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgsDict']]]
+    """
+    Compression configuration for ingested data. Only `gzip` is supported.
+    """
+    ingestion_endpoint_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+    """
+    mapping_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+    """
+    token_scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerArgs:
+    def __init__(__self__, *,
+                 auth: pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs'],
+                 database: pulumi.Input[_builtins.str],
+                 table: pulumi.Input[_builtins.str],
+                 batch: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs']] = None,
+                 buffer: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs']] = None,
+                 compression: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs']] = None,
+                 ingestion_endpoint_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_scope: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs'] auth: Authentication configuration for Azure Data Explorer. Exactly one of `azure_cli`, `client_secret`, `client_certificate`, `managed_identity`, `managed_identity_client_assertion`, or `workload_identity` must be specified.
+        :param pulumi.Input[_builtins.str] database: The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+        :param pulumi.Input[_builtins.str] table: The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs'] batch: Event batching settings for Azure Data Explorer ingestion.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs'] buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs'] compression: Compression configuration for ingested data. Only `gzip` is supported.
+        :param pulumi.Input[_builtins.str] ingestion_endpoint_key: Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+        :param pulumi.Input[_builtins.str] mapping_reference: The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+        :param pulumi.Input[_builtins.str] token_scope: The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+        """
+        pulumi.set(__self__, "auth", auth)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "table", table)
+        if batch is not None:
+            pulumi.set(__self__, "batch", batch)
+        if buffer is not None:
+            pulumi.set(__self__, "buffer", buffer)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if ingestion_endpoint_key is not None:
+            pulumi.set(__self__, "ingestion_endpoint_key", ingestion_endpoint_key)
+        if mapping_reference is not None:
+            pulumi.set(__self__, "mapping_reference", mapping_reference)
+        if token_scope is not None:
+            pulumi.set(__self__, "token_scope", token_scope)
+
+    @_builtins.property
+    @pulumi.getter
+    def auth(self) -> pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs']:
+        """
+        Authentication configuration for Azure Data Explorer. Exactly one of `azure_cli`, `client_secret`, `client_certificate`, `managed_identity`, `managed_identity_client_assertion`, or `workload_identity` must be specified.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs']):
+        pulumi.set(self, "auth", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def table(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def batch(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs']]:
+        """
+        Event batching settings for Azure Data Explorer ingestion.
+        """
+        return pulumi.get(self, "batch")
+
+    @batch.setter
+    def batch(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs']]):
+        pulumi.set(self, "batch", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def buffer(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs']]:
+        """
+        Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        """
+        return pulumi.get(self, "buffer")
+
+    @buffer.setter
+    def buffer(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs']]):
+        pulumi.set(self, "buffer", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs']]:
+        """
+        Compression configuration for ingested data. Only `gzip` is supported.
+        """
+        return pulumi.get(self, "compression")
+
+    @compression.setter
+    def compression(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs']]):
+        pulumi.set(self, "compression", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ingestionEndpointKey")
+    def ingestion_endpoint_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+        """
+        return pulumi.get(self, "ingestion_endpoint_key")
+
+    @ingestion_endpoint_key.setter
+    def ingestion_endpoint_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ingestion_endpoint_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mappingReference")
+    def mapping_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+        """
+        return pulumi.get(self, "mapping_reference")
+
+    @mapping_reference.setter
+    def mapping_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mapping_reference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenScope")
+    def token_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+        """
+        return pulumi.get(self, "token_scope")
+
+    @token_scope.setter
+    def token_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "token_scope", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgsDict(TypedDict):
+    azure_cli: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgsDict']]]
+    """
+    Authenticate using the Azure CLI credentials available in the environment.
+    """
+    client_certificate: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgsDict']]]
+    """
+    Authenticate using a Microsoft Entra application client certificate.
+    """
+    client_secret: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgsDict']]]
+    """
+    Authenticate using a Microsoft Entra application client secret.
+    """
+    managed_identity: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgsDict']]]
+    """
+    Authenticate using an Azure managed identity.
+    """
+    managed_identity_client_assertion: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgsDict']]]
+    """
+    Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+    """
+    workload_identity: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgsDict']]]
+    """
+    Authenticate using Azure Workload Identity (for example, on Kubernetes).
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs:
+    def __init__(__self__, *,
+                 azure_cli: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs']] = None,
+                 client_certificate: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs']] = None,
+                 client_secret: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs']] = None,
+                 managed_identity: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs']] = None,
+                 managed_identity_client_assertion: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs']] = None,
+                 workload_identity: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs']] = None):
+        """
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs'] azure_cli: Authenticate using the Azure CLI credentials available in the environment.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs'] client_certificate: Authenticate using a Microsoft Entra application client certificate.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs'] client_secret: Authenticate using a Microsoft Entra application client secret.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs'] managed_identity: Authenticate using an Azure managed identity.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs'] managed_identity_client_assertion: Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs'] workload_identity: Authenticate using Azure Workload Identity (for example, on Kubernetes).
+        """
+        if azure_cli is not None:
+            pulumi.set(__self__, "azure_cli", azure_cli)
+        if client_certificate is not None:
+            pulumi.set(__self__, "client_certificate", client_certificate)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if managed_identity_client_assertion is not None:
+            pulumi.set(__self__, "managed_identity_client_assertion", managed_identity_client_assertion)
+        if workload_identity is not None:
+            pulumi.set(__self__, "workload_identity", workload_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="azureCli")
+    def azure_cli(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs']]:
+        """
+        Authenticate using the Azure CLI credentials available in the environment.
+        """
+        return pulumi.get(self, "azure_cli")
+
+    @azure_cli.setter
+    def azure_cli(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs']]):
+        pulumi.set(self, "azure_cli", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificate")
+    def client_certificate(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs']]:
+        """
+        Authenticate using a Microsoft Entra application client certificate.
+        """
+        return pulumi.get(self, "client_certificate")
+
+    @client_certificate.setter
+    def client_certificate(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs']]):
+        pulumi.set(self, "client_certificate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs']]:
+        """
+        Authenticate using a Microsoft Entra application client secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs']]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs']]:
+        """
+        Authenticate using an Azure managed identity.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs']]):
+        pulumi.set(self, "managed_identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedIdentityClientAssertion")
+    def managed_identity_client_assertion(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs']]:
+        """
+        Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+        """
+        return pulumi.get(self, "managed_identity_client_assertion")
+
+    @managed_identity_client_assertion.setter
+    def managed_identity_client_assertion(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs']]):
+        pulumi.set(self, "managed_identity_client_assertion", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentity")
+    def workload_identity(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs']]:
+        """
+        Authenticate using Azure Workload Identity (for example, on Kubernetes).
+        """
+        return pulumi.get(self, "workload_identity")
+
+    @workload_identity.setter
+    def workload_identity(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs']]):
+        pulumi.set(self, "workload_identity", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs:
+    def __init__(__self__):
+        pass
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgsDict(TypedDict):
+    azure_client_id: pulumi.Input[_builtins.str]
+    """
+    The Microsoft Entra application (client) ID.
+    """
+    azure_tenant_id: pulumi.Input[_builtins.str]
+    """
+    The Microsoft Entra tenant ID.
+    """
+    certificate_path: pulumi.Input[_builtins.str]
+    """
+    Path to the `.pfx` client certificate file on the Worker.
+    """
+    certificate_password_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the password for the client certificate.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs:
+    def __init__(__self__, *,
+                 azure_client_id: pulumi.Input[_builtins.str],
+                 azure_tenant_id: pulumi.Input[_builtins.str],
+                 certificate_path: pulumi.Input[_builtins.str],
+                 certificate_password_key: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] azure_client_id: The Microsoft Entra application (client) ID.
+        :param pulumi.Input[_builtins.str] azure_tenant_id: The Microsoft Entra tenant ID.
+        :param pulumi.Input[_builtins.str] certificate_path: Path to the `.pfx` client certificate file on the Worker.
+        :param pulumi.Input[_builtins.str] certificate_password_key: Name of the environment variable or secret that holds the password for the client certificate.
+        """
+        pulumi.set(__self__, "azure_client_id", azure_client_id)
+        pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+        pulumi.set(__self__, "certificate_path", certificate_path)
+        if certificate_password_key is not None:
+            pulumi.set(__self__, "certificate_password_key", certificate_password_key)
+
+    @_builtins.property
+    @pulumi.getter(name="azureClientId")
+    def azure_client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Microsoft Entra application (client) ID.
+        """
+        return pulumi.get(self, "azure_client_id")
+
+    @azure_client_id.setter
+    def azure_client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "azure_client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureTenantId")
+    def azure_tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Microsoft Entra tenant ID.
+        """
+        return pulumi.get(self, "azure_tenant_id")
+
+    @azure_tenant_id.setter
+    def azure_tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "azure_tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificatePath")
+    def certificate_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        Path to the `.pfx` client certificate file on the Worker.
+        """
+        return pulumi.get(self, "certificate_path")
+
+    @certificate_path.setter
+    def certificate_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "certificate_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificatePasswordKey")
+    def certificate_password_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the password for the client certificate.
+        """
+        return pulumi.get(self, "certificate_password_key")
+
+    @certificate_password_key.setter
+    def certificate_password_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_password_key", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgsDict(TypedDict):
+    azure_client_id: pulumi.Input[_builtins.str]
+    """
+    The Microsoft Entra application (client) ID.
+    """
+    azure_client_secret_key: pulumi.Input[_builtins.str]
+    """
+    Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+    """
+    azure_tenant_id: pulumi.Input[_builtins.str]
+    """
+    The Microsoft Entra tenant ID.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs:
+    def __init__(__self__, *,
+                 azure_client_id: pulumi.Input[_builtins.str],
+                 azure_client_secret_key: pulumi.Input[_builtins.str],
+                 azure_tenant_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] azure_client_id: The Microsoft Entra application (client) ID.
+        :param pulumi.Input[_builtins.str] azure_client_secret_key: Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+        :param pulumi.Input[_builtins.str] azure_tenant_id: The Microsoft Entra tenant ID.
+        """
+        pulumi.set(__self__, "azure_client_id", azure_client_id)
+        pulumi.set(__self__, "azure_client_secret_key", azure_client_secret_key)
+        pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="azureClientId")
+    def azure_client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Microsoft Entra application (client) ID.
+        """
+        return pulumi.get(self, "azure_client_id")
+
+    @azure_client_id.setter
+    def azure_client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "azure_client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureClientSecretKey")
+    def azure_client_secret_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+        """
+        return pulumi.get(self, "azure_client_secret_key")
+
+    @azure_client_secret_key.setter
+    def azure_client_secret_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "azure_client_secret_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureTenantId")
+    def azure_tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Microsoft Entra tenant ID.
+        """
+        return pulumi.get(self, "azure_tenant_id")
+
+    @azure_tenant_id.setter
+    def azure_tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "azure_tenant_id", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgsDict(TypedDict):
+    user_assigned_managed_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+    """
+    user_assigned_managed_identity_id_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of the user-assigned managed identity ID. Valid values are `client_id`, `object_id`, and `resource_id`. Valid values are `client_id`, `object_id`, `resource_id`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs:
+    def __init__(__self__, *,
+                 user_assigned_managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_managed_identity_id_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] user_assigned_managed_identity_id: The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+        :param pulumi.Input[_builtins.str] user_assigned_managed_identity_id_type: The type of the user-assigned managed identity ID. Valid values are `client_id`, `object_id`, and `resource_id`. Valid values are `client_id`, `object_id`, `resource_id`.
+        """
+        if user_assigned_managed_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_id", user_assigned_managed_identity_id)
+        if user_assigned_managed_identity_id_type is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_id_type", user_assigned_managed_identity_id_type)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedManagedIdentityId")
+    def user_assigned_managed_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_id")
+
+    @user_assigned_managed_identity_id.setter
+    def user_assigned_managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_assigned_managed_identity_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedManagedIdentityIdType")
+    def user_assigned_managed_identity_id_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of the user-assigned managed identity ID. Valid values are `client_id`, `object_id`, and `resource_id`. Valid values are `client_id`, `object_id`, `resource_id`.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_id_type")
+
+    @user_assigned_managed_identity_id_type.setter
+    def user_assigned_managed_identity_id_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_assigned_managed_identity_id_type", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgsDict(TypedDict):
+    client_assertion_client_id: pulumi.Input[_builtins.str]
+    """
+    The client ID of the Microsoft Entra application that trusts the managed identity.
+    """
+    client_assertion_tenant_id: pulumi.Input[_builtins.str]
+    """
+    The tenant ID of the Microsoft Entra application that trusts the managed identity.
+    """
+    user_assigned_managed_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+    """
+    user_assigned_managed_identity_id_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of the user-assigned managed identity ID. Valid values are `client_id`, `object_id`, and `resource_id`. Valid values are `client_id`, `object_id`, `resource_id`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs:
+    def __init__(__self__, *,
+                 client_assertion_client_id: pulumi.Input[_builtins.str],
+                 client_assertion_tenant_id: pulumi.Input[_builtins.str],
+                 user_assigned_managed_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_managed_identity_id_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] client_assertion_client_id: The client ID of the Microsoft Entra application that trusts the managed identity.
+        :param pulumi.Input[_builtins.str] client_assertion_tenant_id: The tenant ID of the Microsoft Entra application that trusts the managed identity.
+        :param pulumi.Input[_builtins.str] user_assigned_managed_identity_id: The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+        :param pulumi.Input[_builtins.str] user_assigned_managed_identity_id_type: The type of the user-assigned managed identity ID. Valid values are `client_id`, `object_id`, and `resource_id`. Valid values are `client_id`, `object_id`, `resource_id`.
+        """
+        pulumi.set(__self__, "client_assertion_client_id", client_assertion_client_id)
+        pulumi.set(__self__, "client_assertion_tenant_id", client_assertion_tenant_id)
+        if user_assigned_managed_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_id", user_assigned_managed_identity_id)
+        if user_assigned_managed_identity_id_type is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_id_type", user_assigned_managed_identity_id_type)
+
+    @_builtins.property
+    @pulumi.getter(name="clientAssertionClientId")
+    def client_assertion_client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The client ID of the Microsoft Entra application that trusts the managed identity.
+        """
+        return pulumi.get(self, "client_assertion_client_id")
+
+    @client_assertion_client_id.setter
+    def client_assertion_client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_assertion_client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientAssertionTenantId")
+    def client_assertion_tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tenant ID of the Microsoft Entra application that trusts the managed identity.
+        """
+        return pulumi.get(self, "client_assertion_tenant_id")
+
+    @client_assertion_tenant_id.setter
+    def client_assertion_tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_assertion_tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedManagedIdentityId")
+    def user_assigned_managed_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_id")
+
+    @user_assigned_managed_identity_id.setter
+    def user_assigned_managed_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_assigned_managed_identity_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedManagedIdentityIdType")
+    def user_assigned_managed_identity_id_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of the user-assigned managed identity ID. Valid values are `client_id`, `object_id`, and `resource_id`. Valid values are `client_id`, `object_id`, `resource_id`.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_id_type")
+
+    @user_assigned_managed_identity_id_type.setter
+    def user_assigned_managed_identity_id_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_assigned_managed_identity_id_type", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgsDict(TypedDict):
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+    """
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+    """
+    token_file_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Path to the federated token file. If omitted, it is read from the environment.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_file_path: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] client_id: The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+        :param pulumi.Input[_builtins.str] tenant_id: The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+        :param pulumi.Input[_builtins.str] token_file_path: Path to the federated token file. If omitted, it is read from the environment.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if token_file_path is not None:
+            pulumi.set(__self__, "token_file_path", token_file_path)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenFilePath")
+    def token_file_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Path to the federated token file. If omitted, it is read from the environment.
+        """
+        return pulumi.get(self, "token_file_path")
+
+    @token_file_path.setter
+    def token_file_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "token_file_path", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgsDict(TypedDict):
+    max_bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum batch size in bytes. Value must be between 1 and 4000000.
+    """
+    max_events: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum number of events per batch before it is flushed. Value must be at least 1.
+    """
+    timeout_secs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs:
+    def __init__(__self__, *,
+                 max_bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_events: pulumi.Input[Optional[_builtins.int]] = None,
+                 timeout_secs: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_bytes: Maximum batch size in bytes. Value must be between 1 and 4000000.
+        :param pulumi.Input[_builtins.int] max_events: Maximum number of events per batch before it is flushed. Value must be at least 1.
+        :param pulumi.Input[_builtins.int] timeout_secs: Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+        """
+        if max_bytes is not None:
+            pulumi.set(__self__, "max_bytes", max_bytes)
+        if max_events is not None:
+            pulumi.set(__self__, "max_events", max_events)
+        if timeout_secs is not None:
+            pulumi.set(__self__, "timeout_secs", timeout_secs)
+
+    @_builtins.property
+    @pulumi.getter(name="maxBytes")
+    def max_bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum batch size in bytes. Value must be between 1 and 4000000.
+        """
+        return pulumi.get(self, "max_bytes")
+
+    @max_bytes.setter
+    def max_bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_bytes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEvents")
+    def max_events(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum number of events per batch before it is flushed. Value must be at least 1.
+        """
+        return pulumi.get(self, "max_events")
+
+    @max_events.setter
+    def max_events(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_events", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutSecs")
+    def timeout_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+        """
+        return pulumi.get(self, "timeout_secs")
+
+    @timeout_secs.setter
+    def timeout_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_secs", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgsDict(TypedDict):
+    disk: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgsDict']]]
+    """
+    Options for configuring a disk buffer. Cannot be used with `memory`.
+    """
+    memory: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgsDict']]]
+    """
+    Options for configuring a memory buffer. Cannot be used with `disk`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs:
+    def __init__(__self__, *,
+                 disk: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs']] = None,
+                 memory: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs']] = None):
+        """
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs'] disk: Options for configuring a disk buffer. Cannot be used with `memory`.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs'] memory: Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        if disk is not None:
+            pulumi.set(__self__, "disk", disk)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @_builtins.property
+    @pulumi.getter
+    def disk(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs']]:
+        """
+        Options for configuring a disk buffer. Cannot be used with `memory`.
+        """
+        return pulumi.get(self, "disk")
+
+    @disk.setter
+    def disk(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs']]):
+        pulumi.set(self, "disk", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def memory(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs']]:
+        """
+        Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs']]):
+        pulumi.set(self, "memory", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgsDict(TypedDict):
+    max_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum size of the disk buffer (in bytes).
+    """
+    when_full: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs:
+    def __init__(__self__, *,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 when_full: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_size: Maximum size of the disk buffer (in bytes).
+        :param pulumi.Input[_builtins.str] when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum size of the disk buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+    @when_full.setter
+    def when_full(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "when_full", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgsDict(TypedDict):
+    max_events: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum events for the memory buffer.
+    """
+    max_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum size of the memory buffer (in bytes).
+    """
+    when_full: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs:
+    def __init__(__self__, *,
+                 max_events: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 when_full: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_events: Maximum events for the memory buffer.
+        :param pulumi.Input[_builtins.int] max_size: Maximum size of the memory buffer (in bytes).
+        :param pulumi.Input[_builtins.str] when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_events is not None:
+            pulumi.set(__self__, "max_events", max_events)
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEvents")
+    def max_events(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum events for the memory buffer.
+        """
+        return pulumi.get(self, "max_events")
+
+    @max_events.setter
+    def max_events(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_events", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum size of the memory buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+    @when_full.setter
+    def when_full(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "when_full", value)
+
+
+class ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgsDict(TypedDict):
+    algorithm: pulumi.Input[_builtins.str]
+    """
+    Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+    """
+    level: pulumi.Input[_builtins.int]
+    """
+    Gzip compression level (1-9). Value must be between 1 and 9.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs:
+    def __init__(__self__, *,
+                 algorithm: pulumi.Input[_builtins.str],
+                 level: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] algorithm: Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+        :param pulumi.Input[_builtins.int] level: Gzip compression level (1-9). Value must be between 1 and 9.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "level", level)
+
+    @_builtins.property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input[_builtins.str]:
+        """
+        Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[_builtins.int]:
+        """
+        Gzip compression level (1-9). Value must be between 1 and 9.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "level", value)
 
 
 class ObservabilityPipelineConfigDestinationAzureStorageArgsDict(TypedDict):
@@ -170426,18 +171595,26 @@ class ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgsDict(TypedD
     """
     The aggregation mode. One of `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`. Valid values are `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`.
     """
+    aggregation_timing: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgsDict']]]
+    """
+    Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+    """
 
 @pulumi.input_type
 class ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs:
     def __init__(__self__, *,
                  interval_secs: pulumi.Input[_builtins.int],
-                 mode: pulumi.Input[_builtins.str]):
+                 mode: pulumi.Input[_builtins.str],
+                 aggregation_timing: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs']] = None):
         """
         :param pulumi.Input[_builtins.int] interval_secs: The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
         :param pulumi.Input[_builtins.str] mode: The aggregation mode. One of `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`. Valid values are `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`.
+        :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs'] aggregation_timing: Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
         """
         pulumi.set(__self__, "interval_secs", interval_secs)
         pulumi.set(__self__, "mode", mode)
+        if aggregation_timing is not None:
+            pulumi.set(__self__, "aggregation_timing", aggregation_timing)
 
     @_builtins.property
     @pulumi.getter(name="intervalSecs")
@@ -170462,6 +171639,66 @@ class ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs:
     @mode.setter
     def mode(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aggregationTiming")
+    def aggregation_timing(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs']]:
+        """
+        Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+        """
+        return pulumi.get(self, "aggregation_timing")
+
+    @aggregation_timing.setter
+    def aggregation_timing(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs']]):
+        pulumi.set(self, "aggregation_timing", value)
+
+
+class ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Determines whether metrics are assigned to aggregation windows based on when they are processed (`system_time`) or their timestamps (`event_time`). Valid values are `system_time`, `event_time`.
+    """
+    allowed_lateness_secs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 allowed_lateness_secs: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Determines whether metrics are assigned to aggregation windows based on when they are processed (`system_time`) or their timestamps (`event_time`). Valid values are `system_time`, `event_time`.
+        :param pulumi.Input[_builtins.int] allowed_lateness_secs: Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+        """
+        pulumi.set(__self__, "type", type)
+        if allowed_lateness_secs is not None:
+            pulumi.set(__self__, "allowed_lateness_secs", allowed_lateness_secs)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Determines whether metrics are assigned to aggregation windows based on when they are processed (`system_time`) or their timestamps (`event_time`). Valid values are `system_time`, `event_time`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedLatenessSecs")
+    def allowed_lateness_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+        """
+        return pulumi.get(self, "allowed_lateness_secs")
+
+    @allowed_lateness_secs.setter
+    def allowed_lateness_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "allowed_lateness_secs", value)
 
 
 class ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorArgsDict(TypedDict):
@@ -180492,6 +181729,10 @@ class OnCallTeamRoutingRulesRuleArgs:
 
 class OnCallTeamRoutingRulesRuleActionArgsDict(TypedDict):
     escalation_policy: NotRequired[pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionEscalationPolicyArgsDict']]]
+    reroute_to_team: NotRequired[pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionRerouteToTeamArgsDict']]]
+    """
+    Reroutes the page to another team's routing rules. Can only be combined with `send_slack_message` or `send_teams_message` actions in the same rule.
+    """
     send_slack_message: NotRequired[pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionSendSlackMessageArgsDict']]]
     send_teams_message: NotRequired[pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgsDict']]]
     trigger_workflow_automation: NotRequired[pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgsDict']]]
@@ -180500,11 +181741,17 @@ class OnCallTeamRoutingRulesRuleActionArgsDict(TypedDict):
 class OnCallTeamRoutingRulesRuleActionArgs:
     def __init__(__self__, *,
                  escalation_policy: pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs']] = None,
+                 reroute_to_team: pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs']] = None,
                  send_slack_message: pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs']] = None,
                  send_teams_message: pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs']] = None,
                  trigger_workflow_automation: pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs']] = None):
+        """
+        :param pulumi.Input['OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs'] reroute_to_team: Reroutes the page to another team's routing rules. Can only be combined with `send_slack_message` or `send_teams_message` actions in the same rule.
+        """
         if escalation_policy is not None:
             pulumi.set(__self__, "escalation_policy", escalation_policy)
+        if reroute_to_team is not None:
+            pulumi.set(__self__, "reroute_to_team", reroute_to_team)
         if send_slack_message is not None:
             pulumi.set(__self__, "send_slack_message", send_slack_message)
         if send_teams_message is not None:
@@ -180520,6 +181767,18 @@ class OnCallTeamRoutingRulesRuleActionArgs:
     @escalation_policy.setter
     def escalation_policy(self, value: pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs']]):
         pulumi.set(self, "escalation_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rerouteToTeam")
+    def reroute_to_team(self) -> pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs']]:
+        """
+        Reroutes the page to another team's routing rules. Can only be combined with `send_slack_message` or `send_teams_message` actions in the same rule.
+        """
+        return pulumi.get(self, "reroute_to_team")
+
+    @reroute_to_team.setter
+    def reroute_to_team(self, value: pulumi.Input[Optional['OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs']]):
+        pulumi.set(self, "reroute_to_team", value)
 
     @_builtins.property
     @pulumi.getter(name="sendSlackMessage")
@@ -180767,6 +182026,35 @@ class OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArg
     @start_time.setter
     def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_time", value)
+
+
+class OnCallTeamRoutingRulesRuleActionRerouteToTeamArgsDict(TypedDict):
+    destination_team_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ID of the team to reroute the page to.
+    """
+
+@pulumi.input_type
+class OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs:
+    def __init__(__self__, *,
+                 destination_team_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] destination_team_id: ID of the team to reroute the page to.
+        """
+        if destination_team_id is not None:
+            pulumi.set(__self__, "destination_team_id", destination_team_id)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTeamId")
+    def destination_team_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of the team to reroute the page to.
+        """
+        return pulumi.get(self, "destination_team_id")
+
+    @destination_team_id.setter
+    def destination_team_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_team_id", value)
 
 
 class OnCallTeamRoutingRulesRuleActionSendSlackMessageArgsDict(TypedDict):
@@ -186162,7 +187450,7 @@ class PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgsDict(TypedDic
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -186207,7 +187495,7 @@ class PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -186248,7 +187536,7 @@ class PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -189073,7 +190361,7 @@ class PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryArgsDict(TypedDict)
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -189118,7 +190406,7 @@ class PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -189159,7 +190447,7 @@ class PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -193935,7 +195223,7 @@ class PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryArgs
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -193980,7 +195268,7 @@ class PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryArgs
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -194021,7 +195309,7 @@ class PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryArgs
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -194806,7 +196094,7 @@ class PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryArgsDict(Type
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -194851,7 +196139,7 @@ class PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -194892,7 +196180,7 @@ class PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -199402,7 +200690,7 @@ class PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryArgsDict(TypedDict)
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -199447,7 +200735,7 @@ class PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -199488,7 +200776,7 @@ class PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -203617,7 +204905,7 @@ class PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryArgsDict(TypedDict
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -203662,7 +204950,7 @@ class PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -203703,7 +204991,7 @@ class PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -206390,7 +207678,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryArg
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -206435,7 +207723,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryArg
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -206476,7 +207764,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryArg
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -208057,7 +209345,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryArgsDict
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -208102,7 +209390,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -208143,7 +209431,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -210030,7 +211318,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryArgsDict(Typed
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -210075,7 +211363,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -210116,7 +211404,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -212588,7 +213876,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryArgsDict(Typed
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -212633,7 +213921,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -212674,7 +213962,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -222550,7 +223838,7 @@ class PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryArgsDict(TypedD
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -222595,7 +223883,7 @@ class PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -222636,7 +223924,7 @@ class PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -226300,7 +227588,7 @@ class PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgsDict(TypedD
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -226345,7 +227633,7 @@ class PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -226386,7 +227674,7 @@ class PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -233259,7 +234547,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQue
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -233304,7 +234592,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQue
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -233345,7 +234633,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQue
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -235252,7 +236540,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQueryArgsDict(Type
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -235297,7 +236585,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -235338,7 +236626,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -237245,7 +238533,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQueryArgsDict(Type
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -237290,7 +238578,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -237331,7 +238619,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -242747,7 +244035,7 @@ class PowerpackV2WidgetSunburstDefinitionRequestQueryEventQueryArgsDict(TypedDic
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -242792,7 +244080,7 @@ class PowerpackV2WidgetSunburstDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetSunburstDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -242833,7 +244121,7 @@ class PowerpackV2WidgetSunburstDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -247418,7 +248706,7 @@ class PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQueryArgsDict(TypedD
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -247463,7 +248751,7 @@ class PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -247504,7 +248792,7 @@ class PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -250809,7 +252097,7 @@ class PowerpackV2WidgetToplistDefinitionRequestQueryEventQueryArgsDict(TypedDict
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -250854,7 +252142,7 @@ class PowerpackV2WidgetToplistDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetToplistDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetToplistDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -250895,7 +252183,7 @@ class PowerpackV2WidgetToplistDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -254472,7 +255760,7 @@ class PowerpackV2WidgetTreemapDefinitionRequestQueryEventQueryArgsDict(TypedDict
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -254517,7 +255805,7 @@ class PowerpackV2WidgetTreemapDefinitionRequestQueryEventQueryArgs:
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetTreemapDefinitionRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -254558,7 +255846,7 @@ class PowerpackV2WidgetTreemapDefinitionRequestQueryEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -257427,7 +258715,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEv
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -257472,7 +258760,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEv
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -257513,7 +258801,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEv
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -259642,7 +260930,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -259687,7 +260975,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -259728,7 +261016,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -261896,7 +263184,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryArg
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+    The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -261941,7 +263229,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryArg
                  storage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input[_builtins.str] cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param pulumi.Input[Sequence[pulumi.Input['PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -261982,7 +263270,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryArg
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -334302,6 +335590,10 @@ class SyntheticsTestOptionsListArgsDict(TypedDict):
     """
     Allows loading insecure content for a request in an API test or in a multistep API test step.
     """
+    bits_ai_auto_investigate: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+    """
     blocked_request_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
@@ -334388,6 +335680,7 @@ class SyntheticsTestOptionsListArgs:
                  tick_every: pulumi.Input[_builtins.int],
                  accept_self_signed: pulumi.Input[Optional[_builtins.bool]] = None,
                  allow_insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bits_ai_auto_investigate: pulumi.Input[Optional[_builtins.bool]] = None,
                  blocked_request_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  capture_network_payloads: pulumi.Input[Optional[_builtins.bool]] = None,
                  check_certificate_revocation: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -334414,6 +335707,7 @@ class SyntheticsTestOptionsListArgs:
         :param pulumi.Input[_builtins.int] tick_every: How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
         :param pulumi.Input[_builtins.bool] accept_self_signed: For SSL tests, whether or not the test should allow self signed certificates.
         :param pulumi.Input[_builtins.bool] allow_insecure: Allows loading insecure content for a request in an API test or in a multistep API test step.
+        :param pulumi.Input[_builtins.bool] bits_ai_auto_investigate: Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_request_patterns: Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
         :param pulumi.Input[_builtins.bool] capture_network_payloads: Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
         :param pulumi.Input[_builtins.bool] check_certificate_revocation: For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
@@ -334439,6 +335733,8 @@ class SyntheticsTestOptionsListArgs:
             pulumi.set(__self__, "accept_self_signed", accept_self_signed)
         if allow_insecure is not None:
             pulumi.set(__self__, "allow_insecure", allow_insecure)
+        if bits_ai_auto_investigate is not None:
+            pulumi.set(__self__, "bits_ai_auto_investigate", bits_ai_auto_investigate)
         if blocked_request_patterns is not None:
             pulumi.set(__self__, "blocked_request_patterns", blocked_request_patterns)
         if capture_network_payloads is not None:
@@ -334522,6 +335818,18 @@ class SyntheticsTestOptionsListArgs:
     @allow_insecure.setter
     def allow_insecure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_insecure", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bitsAiAutoInvestigate")
+    def bits_ai_auto_investigate(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+        """
+        return pulumi.get(self, "bits_ai_auto_investigate")
+
+    @bits_ai_auto_investigate.setter
+    def bits_ai_auto_investigate(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "bits_ai_auto_investigate", value)
 
     @_builtins.property
     @pulumi.getter(name="blockedRequestPatterns")
@@ -337445,16 +338753,24 @@ class TeamNotificationRuleEmailArgsDict(TypedDict):
     """
     Whether to send email notifications to team members when alerts are triggered.
     """
+    recipient_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+    """
 
 @pulumi.input_type
 class TeamNotificationRuleEmailArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recipient_email: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether to send email notifications to team members when alerts are triggered.
+        :param pulumi.Input[_builtins.str] recipient_email: A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if recipient_email is not None:
+            pulumi.set(__self__, "recipient_email", recipient_email)
 
     @_builtins.property
     @pulumi.getter
@@ -337467,6 +338783,18 @@ class TeamNotificationRuleEmailArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recipientEmail")
+    def recipient_email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+        """
+        return pulumi.get(self, "recipient_email")
+
+    @recipient_email.setter
+    def recipient_email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "recipient_email", value)
 
 
 class TeamNotificationRuleMsTeamsArgsDict(TypedDict):
@@ -337525,6 +338853,35 @@ class TeamNotificationRulePagerdutyArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
+
+
+class TeamNotificationRuleServicenowArgsDict(TypedDict):
+    templates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    ServiceNow template handle names to use for notifications.
+    """
+
+@pulumi.input_type
+class TeamNotificationRuleServicenowArgs:
+    def __init__(__self__, *,
+                 templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] templates: ServiceNow template handle names to use for notifications.
+        """
+        if templates is not None:
+            pulumi.set(__self__, "templates", templates)
+
+    @_builtins.property
+    @pulumi.getter
+    def templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        ServiceNow template handle names to use for notifications.
+        """
+        return pulumi.get(self, "templates")
+
+    @templates.setter
+    def templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "templates", value)
 
 
 class TeamNotificationRuleSlackArgsDict(TypedDict):
@@ -342458,15 +343815,22 @@ class GetTeamNotificationRuleEmailArgsDict(TypedDict):
     """
     Flag indicating whether email notifications should be sent
     """
+    recipient_email: _builtins.str
+    """
+    Email address notifications are sent to instead of all team members
+    """
 
 @pulumi.input_type
 class GetTeamNotificationRuleEmailArgs:
     def __init__(__self__, *,
-                 enabled: _builtins.bool):
+                 enabled: _builtins.bool,
+                 recipient_email: _builtins.str):
         """
         :param _builtins.bool enabled: Flag indicating whether email notifications should be sent
+        :param _builtins.str recipient_email: Email address notifications are sent to instead of all team members
         """
         pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "recipient_email", recipient_email)
 
     @_builtins.property
     @pulumi.getter
@@ -342479,6 +343843,18 @@ class GetTeamNotificationRuleEmailArgs:
     @enabled.setter
     def enabled(self, value: _builtins.bool):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recipientEmail")
+    def recipient_email(self) -> _builtins.str:
+        """
+        Email address notifications are sent to instead of all team members
+        """
+        return pulumi.get(self, "recipient_email")
+
+    @recipient_email.setter
+    def recipient_email(self, value: _builtins.str):
+        pulumi.set(self, "recipient_email", value)
 
 
 class GetTeamNotificationRuleMsTeamsArgsDict(TypedDict):
@@ -342535,6 +343911,34 @@ class GetTeamNotificationRulePagerdutyArgs:
     @service_name.setter
     def service_name(self, value: _builtins.str):
         pulumi.set(self, "service_name", value)
+
+
+class GetTeamNotificationRuleServicenowArgsDict(TypedDict):
+    templates: Sequence[_builtins.str]
+    """
+    ServiceNow template handle names
+    """
+
+@pulumi.input_type
+class GetTeamNotificationRuleServicenowArgs:
+    def __init__(__self__, *,
+                 templates: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] templates: ServiceNow template handle names
+        """
+        pulumi.set(__self__, "templates", templates)
+
+    @_builtins.property
+    @pulumi.getter
+    def templates(self) -> Sequence[_builtins.str]:
+        """
+        ServiceNow template handle names
+        """
+        return pulumi.get(self, "templates")
+
+    @templates.setter
+    def templates(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "templates", value)
 
 
 class GetTeamNotificationRuleSlackArgsDict(TypedDict):
@@ -342601,6 +344005,10 @@ class GetTeamNotificationRulesNotificationRuleArgsDict(TypedDict):
     """
     The PagerDuty notification settings.
     """
+    servicenow: NotRequired['GetTeamNotificationRulesNotificationRuleServicenowArgsDict']
+    """
+    The ServiceNow notification settings.
+    """
     slack: NotRequired['GetTeamNotificationRulesNotificationRuleSlackArgsDict']
     """
     The Slack notification settings.
@@ -342613,12 +344021,14 @@ class GetTeamNotificationRulesNotificationRuleArgs:
                  email: Optional['GetTeamNotificationRulesNotificationRuleEmailArgs'] = None,
                  ms_teams: Optional['GetTeamNotificationRulesNotificationRuleMsTeamsArgs'] = None,
                  pagerduty: Optional['GetTeamNotificationRulesNotificationRulePagerdutyArgs'] = None,
+                 servicenow: Optional['GetTeamNotificationRulesNotificationRuleServicenowArgs'] = None,
                  slack: Optional['GetTeamNotificationRulesNotificationRuleSlackArgs'] = None):
         """
         :param _builtins.str id: The ID of the notification rule.
         :param 'GetTeamNotificationRulesNotificationRuleEmailArgs' email: The email notification settings.
         :param 'GetTeamNotificationRulesNotificationRuleMsTeamsArgs' ms_teams: The MS Teams notification settings.
         :param 'GetTeamNotificationRulesNotificationRulePagerdutyArgs' pagerduty: The PagerDuty notification settings.
+        :param 'GetTeamNotificationRulesNotificationRuleServicenowArgs' servicenow: The ServiceNow notification settings.
         :param 'GetTeamNotificationRulesNotificationRuleSlackArgs' slack: The Slack notification settings.
         """
         pulumi.set(__self__, "id", id)
@@ -342628,6 +344038,8 @@ class GetTeamNotificationRulesNotificationRuleArgs:
             pulumi.set(__self__, "ms_teams", ms_teams)
         if pagerduty is not None:
             pulumi.set(__self__, "pagerduty", pagerduty)
+        if servicenow is not None:
+            pulumi.set(__self__, "servicenow", servicenow)
         if slack is not None:
             pulumi.set(__self__, "slack", slack)
 
@@ -342681,6 +344093,18 @@ class GetTeamNotificationRulesNotificationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
+    def servicenow(self) -> Optional['GetTeamNotificationRulesNotificationRuleServicenowArgs']:
+        """
+        The ServiceNow notification settings.
+        """
+        return pulumi.get(self, "servicenow")
+
+    @servicenow.setter
+    def servicenow(self, value: Optional['GetTeamNotificationRulesNotificationRuleServicenowArgs']):
+        pulumi.set(self, "servicenow", value)
+
+    @_builtins.property
+    @pulumi.getter
     def slack(self) -> Optional['GetTeamNotificationRulesNotificationRuleSlackArgs']:
         """
         The Slack notification settings.
@@ -342697,15 +344121,22 @@ class GetTeamNotificationRulesNotificationRuleEmailArgsDict(TypedDict):
     """
     Flag indicating whether email notifications should be sent.
     """
+    recipient_email: _builtins.str
+    """
+    Email address notifications are sent to instead of all team members.
+    """
 
 @pulumi.input_type
 class GetTeamNotificationRulesNotificationRuleEmailArgs:
     def __init__(__self__, *,
-                 enabled: _builtins.bool):
+                 enabled: _builtins.bool,
+                 recipient_email: _builtins.str):
         """
         :param _builtins.bool enabled: Flag indicating whether email notifications should be sent.
+        :param _builtins.str recipient_email: Email address notifications are sent to instead of all team members.
         """
         pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "recipient_email", recipient_email)
 
     @_builtins.property
     @pulumi.getter
@@ -342718,6 +344149,18 @@ class GetTeamNotificationRulesNotificationRuleEmailArgs:
     @enabled.setter
     def enabled(self, value: _builtins.bool):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recipientEmail")
+    def recipient_email(self) -> _builtins.str:
+        """
+        Email address notifications are sent to instead of all team members.
+        """
+        return pulumi.get(self, "recipient_email")
+
+    @recipient_email.setter
+    def recipient_email(self, value: _builtins.str):
+        pulumi.set(self, "recipient_email", value)
 
 
 class GetTeamNotificationRulesNotificationRuleMsTeamsArgsDict(TypedDict):
@@ -342774,6 +344217,34 @@ class GetTeamNotificationRulesNotificationRulePagerdutyArgs:
     @service_name.setter
     def service_name(self, value: _builtins.str):
         pulumi.set(self, "service_name", value)
+
+
+class GetTeamNotificationRulesNotificationRuleServicenowArgsDict(TypedDict):
+    templates: Sequence[_builtins.str]
+    """
+    ServiceNow template handle names.
+    """
+
+@pulumi.input_type
+class GetTeamNotificationRulesNotificationRuleServicenowArgs:
+    def __init__(__self__, *,
+                 templates: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] templates: ServiceNow template handle names.
+        """
+        pulumi.set(__self__, "templates", templates)
+
+    @_builtins.property
+    @pulumi.getter
+    def templates(self) -> Sequence[_builtins.str]:
+        """
+        ServiceNow template handle names.
+        """
+        return pulumi.get(self, "templates")
+
+    @templates.setter
+    def templates(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "templates", value)
 
 
 class GetTeamNotificationRulesNotificationRuleSlackArgsDict(TypedDict):

@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,10 +31,26 @@ public final class TeamNotificationRuleEmailArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+     * 
+     */
+    @Import(name="recipientEmail")
+    private @Nullable Output<String> recipientEmail;
+
+    /**
+     * @return A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+     * 
+     */
+    public Optional<Output<String>> recipientEmail() {
+        return Optional.ofNullable(this.recipientEmail);
+    }
+
     private TeamNotificationRuleEmailArgs() {}
 
     private TeamNotificationRuleEmailArgs(TeamNotificationRuleEmailArgs $) {
         this.enabled = $.enabled;
+        this.recipientEmail = $.recipientEmail;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class TeamNotificationRuleEmailArgs extends com.pulumi.resources.Re
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param recipientEmail A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recipientEmail(@Nullable Output<String> recipientEmail) {
+            $.recipientEmail = recipientEmail;
+            return this;
+        }
+
+        /**
+         * @param recipientEmail A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recipientEmail(String recipientEmail) {
+            return recipientEmail(Output.of(recipientEmail));
         }
 
         public TeamNotificationRuleEmailArgs build() {

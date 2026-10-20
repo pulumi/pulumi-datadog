@@ -40,8 +40,9 @@ import (
 //			_, err = datadog.NewTeamNotificationRule(ctx, "foo", &datadog.TeamNotificationRuleArgs{
 //				TeamId: foo.ID().ToIDOutput().ToStringOutput(),
 //				Email: datadog.TeamNotificationRuleEmailArgs{
-//					map[string]bool{
-//						"enabled": true,
+//					map[string]interface{}{
+//						"enabled":        true,
+//						"recipientEmail": "team-alerts@example.com",
 //					},
 //				},
 //				MsTeams: datadog.TeamNotificationRuleMsTeamsArgs{
@@ -52,6 +53,13 @@ import (
 //				Pagerduty: datadog.TeamNotificationRulePagerdutyArgs{
 //					map[string]string{
 //						"serviceName": "my-service",
+//					},
+//				},
+//				Servicenow: datadog.TeamNotificationRuleServicenowArgs{
+//					map[string][]string{
+//						"templates": []string{
+//							"incident-template",
+//						},
 //					},
 //				},
 //				Slack: datadog.TeamNotificationRuleSlackArgs{
@@ -88,6 +96,8 @@ type TeamNotificationRule struct {
 	MsTeams TeamNotificationRuleMsTeamsPtrOutput `pulumi:"msTeams"`
 	// The PagerDuty notification settings.
 	Pagerduty TeamNotificationRulePagerdutyPtrOutput `pulumi:"pagerduty"`
+	// The ServiceNow notification settings.
+	Servicenow TeamNotificationRuleServicenowPtrOutput `pulumi:"servicenow"`
 	// The Slack notification settings.
 	Slack TeamNotificationRuleSlackPtrOutput `pulumi:"slack"`
 	// The ID of the team that this notification rule belongs to.
@@ -133,6 +143,8 @@ type teamNotificationRuleState struct {
 	MsTeams *TeamNotificationRuleMsTeams `pulumi:"msTeams"`
 	// The PagerDuty notification settings.
 	Pagerduty *TeamNotificationRulePagerduty `pulumi:"pagerduty"`
+	// The ServiceNow notification settings.
+	Servicenow *TeamNotificationRuleServicenow `pulumi:"servicenow"`
 	// The Slack notification settings.
 	Slack *TeamNotificationRuleSlack `pulumi:"slack"`
 	// The ID of the team that this notification rule belongs to.
@@ -146,6 +158,8 @@ type TeamNotificationRuleState struct {
 	MsTeams TeamNotificationRuleMsTeamsPtrInput
 	// The PagerDuty notification settings.
 	Pagerduty TeamNotificationRulePagerdutyPtrInput
+	// The ServiceNow notification settings.
+	Servicenow TeamNotificationRuleServicenowPtrInput
 	// The Slack notification settings.
 	Slack TeamNotificationRuleSlackPtrInput
 	// The ID of the team that this notification rule belongs to.
@@ -163,6 +177,8 @@ type teamNotificationRuleArgs struct {
 	MsTeams *TeamNotificationRuleMsTeams `pulumi:"msTeams"`
 	// The PagerDuty notification settings.
 	Pagerduty *TeamNotificationRulePagerduty `pulumi:"pagerduty"`
+	// The ServiceNow notification settings.
+	Servicenow *TeamNotificationRuleServicenow `pulumi:"servicenow"`
 	// The Slack notification settings.
 	Slack *TeamNotificationRuleSlack `pulumi:"slack"`
 	// The ID of the team that this notification rule belongs to.
@@ -177,6 +193,8 @@ type TeamNotificationRuleArgs struct {
 	MsTeams TeamNotificationRuleMsTeamsPtrInput
 	// The PagerDuty notification settings.
 	Pagerduty TeamNotificationRulePagerdutyPtrInput
+	// The ServiceNow notification settings.
+	Servicenow TeamNotificationRuleServicenowPtrInput
 	// The Slack notification settings.
 	Slack TeamNotificationRuleSlackPtrInput
 	// The ID of the team that this notification rule belongs to.
@@ -283,6 +301,11 @@ func (o TeamNotificationRuleOutput) MsTeams() TeamNotificationRuleMsTeamsPtrOutp
 // The PagerDuty notification settings.
 func (o TeamNotificationRuleOutput) Pagerduty() TeamNotificationRulePagerdutyPtrOutput {
 	return o.ApplyT(func(v *TeamNotificationRule) TeamNotificationRulePagerdutyPtrOutput { return v.Pagerduty }).(TeamNotificationRulePagerdutyPtrOutput)
+}
+
+// The ServiceNow notification settings.
+func (o TeamNotificationRuleOutput) Servicenow() TeamNotificationRuleServicenowPtrOutput {
+	return o.ApplyT(func(v *TeamNotificationRule) TeamNotificationRuleServicenowPtrOutput { return v.Servicenow }).(TeamNotificationRuleServicenowPtrOutput)
 }
 
 // The Slack notification settings.

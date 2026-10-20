@@ -2316,7 +2316,7 @@ export interface DashboardV2WidgetBarChartDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -2953,7 +2953,7 @@ export interface DashboardV2WidgetChangeDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -4020,7 +4020,7 @@ export interface DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEve
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -4207,7 +4207,7 @@ export interface DashboardV2WidgetDistributionDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -5204,7 +5204,7 @@ export interface DashboardV2WidgetGeomapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -6109,7 +6109,7 @@ export interface DashboardV2WidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -6702,7 +6702,7 @@ export interface DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEv
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -7063,7 +7063,7 @@ export interface DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQu
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -7494,7 +7494,7 @@ export interface DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -8058,7 +8058,7 @@ export interface DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -10342,7 +10342,7 @@ export interface DashboardV2WidgetQueryTableDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -11161,7 +11161,7 @@ export interface DashboardV2WidgetQueryValueDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -12689,7 +12689,7 @@ export interface DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -13124,7 +13124,7 @@ export interface DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -13559,7 +13559,7 @@ export interface DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -14936,7 +14936,7 @@ export interface DashboardV2WidgetSunburstDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -15956,7 +15956,7 @@ export interface DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -16691,7 +16691,7 @@ export interface DashboardV2WidgetToplistDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -17486,7 +17486,7 @@ export interface DashboardV2WidgetTreemapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -18129,7 +18129,7 @@ export interface DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHisto
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -18615,7 +18615,7 @@ export interface DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuer
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -19109,7 +19109,7 @@ export interface DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEv
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -28773,17 +28773,48 @@ export interface DeploymentGateRule {
 
 export interface DeploymentGateRuleOptions {
     /**
+     * Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+     */
+    allowedResources?: string[];
+    /**
      * The duration for the rule.
      */
     duration?: number;
     /**
-     * Resources to exclude from faulty deployment detection.
+     * Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
      */
     excludedResources?: string[];
     /**
-     * The query for monitor rules.
+     * Fail if a matching monitor group is in NO DATA state (API default: true).
+     */
+    failOnNoData?: boolean;
+    /**
+     * Fail if no monitor groups are found (API default: false).
+     */
+    failOnNoGroupsFound?: boolean;
+    /**
+     * Specific monitors to evaluate. Mutually exclusive with query.
+     */
+    monitorIds?: outputs.DeploymentGateRuleOptionsMonitorId[];
+    /**
+     * A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
      */
     query?: string;
+    /**
+     * Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+     */
+    warmup?: number;
+}
+
+export interface DeploymentGateRuleOptionsMonitorId {
+    /**
+     * Exact group names to evaluate; an empty list evaluates all groups.
+     */
+    groups: string[];
+    /**
+     * The monitor's decimal ID.
+     */
+    id: string;
 }
 
 export interface DowntimeRecurrence {
@@ -31179,6 +31210,10 @@ export interface GetSyntheticsTestOptionsList {
      */
     allowInsecure: boolean;
     /**
+     * Whether Bits AI automatically investigates alerts from the test monitor.
+     */
+    bitsAiAutoInvestigate: boolean;
+    /**
      * Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
      */
     blockedRequestPatterns: string[];
@@ -31488,6 +31523,10 @@ export interface GetTeamNotificationRuleEmail {
      * Flag indicating whether email notifications should be sent
      */
     enabled: boolean;
+    /**
+     * Email address notifications are sent to instead of all team members
+     */
+    recipientEmail: string;
 }
 
 export interface GetTeamNotificationRuleMsTeams {
@@ -31502,6 +31541,13 @@ export interface GetTeamNotificationRulePagerduty {
      * PagerDuty service name
      */
     serviceName: string;
+}
+
+export interface GetTeamNotificationRuleServicenow {
+    /**
+     * ServiceNow template handle names
+     */
+    templates: string[];
 }
 
 export interface GetTeamNotificationRuleSlack {
@@ -31533,6 +31579,10 @@ export interface GetTeamNotificationRulesNotificationRule {
      */
     pagerduty?: outputs.GetTeamNotificationRulesNotificationRulePagerduty;
     /**
+     * The ServiceNow notification settings.
+     */
+    servicenow?: outputs.GetTeamNotificationRulesNotificationRuleServicenow;
+    /**
      * The Slack notification settings.
      */
     slack?: outputs.GetTeamNotificationRulesNotificationRuleSlack;
@@ -31543,6 +31593,10 @@ export interface GetTeamNotificationRulesNotificationRuleEmail {
      * Flag indicating whether email notifications should be sent.
      */
     enabled: boolean;
+    /**
+     * Email address notifications are sent to instead of all team members.
+     */
+    recipientEmail: string;
 }
 
 export interface GetTeamNotificationRulesNotificationRuleMsTeams {
@@ -31557,6 +31611,13 @@ export interface GetTeamNotificationRulesNotificationRulePagerduty {
      * PagerDuty service name.
      */
     serviceName: string;
+}
+
+export interface GetTeamNotificationRulesNotificationRuleServicenow {
+    /**
+     * ServiceNow template handle names.
+     */
+    templates: string[];
 }
 
 export interface GetTeamNotificationRulesNotificationRuleSlack {
@@ -35042,6 +35103,10 @@ export interface ObservabilityPipelineConfigDestination {
      */
     amazonSecurityLakes?: outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLake[];
     /**
+     * The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+     */
+    azureDataExplorer?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorer;
+    /**
      * The `azureStorage` destination forwards logs to an Azure Blob Storage container.
      */
     azureStorages?: outputs.ObservabilityPipelineConfigDestinationAzureStorage[];
@@ -35549,6 +35614,217 @@ export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorer {
+    /**
+     * Authentication configuration for Azure Data Explorer. Exactly one of `azureCli`, `clientSecret`, `clientCertificate`, `managedIdentity`, `managedIdentityClientAssertion`, or `workloadIdentity` must be specified.
+     */
+    auth: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuth;
+    /**
+     * Event batching settings for Azure Data Explorer ingestion.
+     */
+    batch?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBatch;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer;
+    /**
+     * Compression configuration for ingested data. Only `gzip` is supported.
+     */
+    compression?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerCompression;
+    /**
+     * The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+     */
+    database: string;
+    /**
+     * Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+     */
+    ingestionEndpointKey?: string;
+    /**
+     * The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+     */
+    mappingReference?: string;
+    /**
+     * The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+     */
+    table: string;
+    /**
+     * The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+     */
+    tokenScope?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuth {
+    /**
+     * Authenticate using the Azure CLI credentials available in the environment.
+     */
+    azureCli?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli;
+    /**
+     * Authenticate using a Microsoft Entra application client certificate.
+     */
+    clientCertificate?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate;
+    /**
+     * Authenticate using a Microsoft Entra application client secret.
+     */
+    clientSecret?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret;
+    /**
+     * Authenticate using an Azure managed identity.
+     */
+    managedIdentity?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity;
+    /**
+     * Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+     */
+    managedIdentityClientAssertion?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion;
+    /**
+     * Authenticate using Azure Workload Identity (for example, on Kubernetes).
+     */
+    workloadIdentity?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli {
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate {
+    /**
+     * The Microsoft Entra application (client) ID.
+     */
+    azureClientId: string;
+    /**
+     * The Microsoft Entra tenant ID.
+     */
+    azureTenantId: string;
+    /**
+     * Name of the environment variable or secret that holds the password for the client certificate.
+     */
+    certificatePasswordKey?: string;
+    /**
+     * Path to the `.pfx` client certificate file on the Worker.
+     */
+    certificatePath: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret {
+    /**
+     * The Microsoft Entra application (client) ID.
+     */
+    azureClientId: string;
+    /**
+     * Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+     */
+    azureClientSecretKey: string;
+    /**
+     * The Microsoft Entra tenant ID.
+     */
+    azureTenantId: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity {
+    /**
+     * The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+     */
+    userAssignedManagedIdentityId?: string;
+    /**
+     * The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+     */
+    userAssignedManagedIdentityIdType?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion {
+    /**
+     * The client ID of the Microsoft Entra application that trusts the managed identity.
+     */
+    clientAssertionClientId: string;
+    /**
+     * The tenant ID of the Microsoft Entra application that trusts the managed identity.
+     */
+    clientAssertionTenantId: string;
+    /**
+     * The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+     */
+    userAssignedManagedIdentityId?: string;
+    /**
+     * The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+     */
+    userAssignedManagedIdentityIdType?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity {
+    /**
+     * The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+     */
+    clientId?: string;
+    /**
+     * The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+     */
+    tenantId?: string;
+    /**
+     * Path to the federated token file. If omitted, it is read from the environment.
+     */
+    tokenFilePath?: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerBatch {
+    /**
+     * Maximum batch size in bytes. Value must be between 1 and 4000000.
+     */
+    maxBytes?: number;
+    /**
+     * Maximum number of events per batch before it is flushed. Value must be at least 1.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+     */
+    timeoutSecs?: number;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerCompression {
+    /**
+     * Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+     */
+    algorithm: string;
+    /**
+     * Gzip compression level (1-9). Value must be between 1 and 9.
+     */
+    level: number;
 }
 
 export interface ObservabilityPipelineConfigDestinationAzureStorage {
@@ -37921,6 +38197,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTags
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorAggregate {
     /**
+     * Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+     */
+    aggregationTiming?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming;
+    /**
      * The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
      */
     intervalSecs: number;
@@ -37928,6 +38208,17 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorAggregate {
      * The aggregation mode. One of `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`. Valid values are `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`.
      */
     mode: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming {
+    /**
+     * Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+     */
+    allowedLatenessSecs?: number;
+    /**
+     * Determines whether metrics are assigned to aggregation windows based on when they are processed (`systemTime`) or their timestamps (`eventTime`). Valid values are `systemTime`, `eventTime`.
+     */
+    type: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor {
@@ -40125,6 +40416,10 @@ export interface OnCallTeamRoutingRulesRule {
 
 export interface OnCallTeamRoutingRulesRuleAction {
     escalationPolicy?: outputs.OnCallTeamRoutingRulesRuleActionEscalationPolicy;
+    /**
+     * Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+     */
+    rerouteToTeam?: outputs.OnCallTeamRoutingRulesRuleActionRerouteToTeam;
     sendSlackMessage?: outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage;
     sendTeamsMessage?: outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage;
     triggerWorkflowAutomation?: outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation;
@@ -40174,6 +40469,13 @@ export interface OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRes
      * The time of day when the restriction begins (hh:mm:ss).
      */
     startTime?: string;
+}
+
+export interface OnCallTeamRoutingRulesRuleActionRerouteToTeam {
+    /**
+     * ID of the team to reroute the page to.
+     */
+    destinationTeamId?: string;
 }
 
 export interface OnCallTeamRoutingRulesRuleActionSendSlackMessage {
@@ -41340,7 +41642,7 @@ export interface PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -41977,7 +42279,7 @@ export interface PowerpackV2WidgetChangeDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -43044,7 +43346,7 @@ export interface PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEve
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -43231,7 +43533,7 @@ export interface PowerpackV2WidgetDistributionDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -44228,7 +44530,7 @@ export interface PowerpackV2WidgetGeomapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -45133,7 +45435,7 @@ export interface PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -45726,7 +46028,7 @@ export interface PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEv
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -46087,7 +46389,7 @@ export interface PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQu
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -46518,7 +46820,7 @@ export interface PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -47082,7 +47384,7 @@ export interface PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -49241,7 +49543,7 @@ export interface PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -50060,7 +50362,7 @@ export interface PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -51588,7 +51890,7 @@ export interface PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -52023,7 +52325,7 @@ export interface PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -52458,7 +52760,7 @@ export interface PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -53656,7 +53958,7 @@ export interface PowerpackV2WidgetSunburstDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -54676,7 +54978,7 @@ export interface PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -55411,7 +55713,7 @@ export interface PowerpackV2WidgetToplistDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -56206,7 +56508,7 @@ export interface PowerpackV2WidgetTreemapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -56849,7 +57151,7 @@ export interface PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHisto
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -57335,7 +57637,7 @@ export interface PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQuer
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -57829,7 +58131,7 @@ export interface PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEv
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -73313,6 +73615,10 @@ export interface SyntheticsTestOptionsList {
      */
     allowInsecure?: boolean;
     /**
+     * Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+     */
+    bitsAiAutoInvestigate: boolean;
+    /**
      * Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
      */
     blockedRequestPatterns?: string[];
@@ -73972,6 +74278,10 @@ export interface TeamNotificationRuleEmail {
      * Whether to send email notifications to team members when alerts are triggered.
      */
     enabled?: boolean;
+    /**
+     * A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+     */
+    recipientEmail?: string;
 }
 
 export interface TeamNotificationRuleMsTeams {
@@ -73986,6 +74296,13 @@ export interface TeamNotificationRulePagerduty {
      * PagerDuty service name to send incident notifications to. The service name can be found in your PagerDuty service settings.
      */
     serviceName?: string;
+}
+
+export interface TeamNotificationRuleServicenow {
+    /**
+     * ServiceNow template handle names to use for notifications.
+     */
+    templates?: string[];
 }
 
 export interface TeamNotificationRuleSlack {

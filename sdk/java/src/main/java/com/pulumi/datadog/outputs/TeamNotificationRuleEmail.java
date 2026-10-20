@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +17,11 @@ public final class TeamNotificationRuleEmail {
      * 
      */
     private @Nullable Boolean enabled;
+    /**
+     * @return A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+     * 
+     */
+    private @Nullable String recipientEmail;
 
     private TeamNotificationRuleEmail() {}
     /**
@@ -24,6 +30,13 @@ public final class TeamNotificationRuleEmail {
      */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
+    }
+    /**
+     * @return A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+     * 
+     */
+    public Optional<String> recipientEmail() {
+        return Optional.ofNullable(this.recipientEmail);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class TeamNotificationRuleEmail {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
+        private @Nullable String recipientEmail;
         public Builder() {}
         public Builder(TeamNotificationRuleEmail defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
+    	      this.recipientEmail = defaults.recipientEmail;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class TeamNotificationRuleEmail {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
+        public Builder recipientEmail(@Nullable String recipientEmail) {
+
+            this.recipientEmail = recipientEmail;
+            return this;
+        }
         public TeamNotificationRuleEmail build() {
             final var _resultValue = new TeamNotificationRuleEmail();
             _resultValue.enabled = enabled;
+            _resultValue.recipientEmail = recipientEmail;
             return _resultValue;
         }
     }

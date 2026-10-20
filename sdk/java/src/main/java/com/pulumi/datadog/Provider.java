@@ -24,14 +24,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:datadog")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
-     * (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+     * Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
      * 
      */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
-     * @return (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+     * @return Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
      * 
      */
     public Output<Optional<String>> apiKey() {
@@ -52,14 +52,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.apiUrl);
     }
     /**
-     * (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+     * Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
      * 
      */
     @Export(name="appKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appKey;
 
     /**
-     * @return (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+     * @return Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
      * 
      */
     public Output<Optional<String>> appKey() {
@@ -164,32 +164,46 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.httpClientRetryEnabled);
     }
     /**
-     * The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     @Export(name="orgUuid", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> orgUuid;
 
     /**
-     * @return The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * @return The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     public Output<Optional<String>> orgUuid() {
         return Codegen.optional(this.orgUuid);
     }
     /**
-     * Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won&#39;t be checked.
+     * Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
      * 
      */
     @Export(name="validate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> validate;
 
     /**
-     * @return Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won&#39;t be checked.
+     * @return Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
      * 
      */
     public Output<Optional<String>> validate() {
         return Codegen.optional(this.validate);
+    }
+    /**
+     * Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloudProviderType take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
+     * 
+     */
+    @Export(name="workloadIdentityTokenTag", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> workloadIdentityTokenTag;
+
+    /**
+     * @return Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloudProviderType take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
+     * 
+     */
+    public Output<Optional<String>> workloadIdentityTokenTag() {
+        return Codegen.optional(this.workloadIdentityTokenTag);
     }
 
     /**

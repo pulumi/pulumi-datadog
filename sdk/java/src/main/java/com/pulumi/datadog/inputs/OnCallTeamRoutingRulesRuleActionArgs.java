@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs;
+import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs;
 import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs;
 import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs;
 import com.pulumi.datadog.inputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs;
@@ -23,6 +24,21 @@ public final class OnCallTeamRoutingRulesRuleActionArgs extends com.pulumi.resou
 
     public Optional<Output<OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs>> escalationPolicy() {
         return Optional.ofNullable(this.escalationPolicy);
+    }
+
+    /**
+     * Reroutes the page to another team&#39;s routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+     * 
+     */
+    @Import(name="rerouteToTeam")
+    private @Nullable Output<OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs> rerouteToTeam;
+
+    /**
+     * @return Reroutes the page to another team&#39;s routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+     * 
+     */
+    public Optional<Output<OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs>> rerouteToTeam() {
+        return Optional.ofNullable(this.rerouteToTeam);
     }
 
     @Import(name="sendSlackMessage")
@@ -50,6 +66,7 @@ public final class OnCallTeamRoutingRulesRuleActionArgs extends com.pulumi.resou
 
     private OnCallTeamRoutingRulesRuleActionArgs(OnCallTeamRoutingRulesRuleActionArgs $) {
         this.escalationPolicy = $.escalationPolicy;
+        this.rerouteToTeam = $.rerouteToTeam;
         this.sendSlackMessage = $.sendSlackMessage;
         this.sendTeamsMessage = $.sendTeamsMessage;
         this.triggerWorkflowAutomation = $.triggerWorkflowAutomation;
@@ -80,6 +97,27 @@ public final class OnCallTeamRoutingRulesRuleActionArgs extends com.pulumi.resou
 
         public Builder escalationPolicy(OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs escalationPolicy) {
             return escalationPolicy(Output.of(escalationPolicy));
+        }
+
+        /**
+         * @param rerouteToTeam Reroutes the page to another team&#39;s routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rerouteToTeam(@Nullable Output<OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs> rerouteToTeam) {
+            $.rerouteToTeam = rerouteToTeam;
+            return this;
+        }
+
+        /**
+         * @param rerouteToTeam Reroutes the page to another team&#39;s routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rerouteToTeam(OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs rerouteToTeam) {
+            return rerouteToTeam(Output.of(rerouteToTeam));
         }
 
         public Builder sendSlackMessage(@Nullable Output<OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs> sendSlackMessage) {

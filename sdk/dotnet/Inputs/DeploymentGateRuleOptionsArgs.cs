@@ -12,6 +12,18 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DeploymentGateRuleOptionsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowedResources")]
+        private InputList<string>? _allowedResources;
+
+        /// <summary>
+        /// Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+        /// </summary>
+        public InputList<string> AllowedResources
+        {
+            get => _allowedResources ?? (_allowedResources = new InputList<string>());
+            set => _allowedResources = value;
+        }
+
         /// <summary>
         /// The duration for the rule.
         /// </summary>
@@ -22,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _excludedResources;
 
         /// <summary>
-        /// Resources to exclude from faulty deployment detection.
+        /// Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
         /// </summary>
         public InputList<string> ExcludedResources
         {
@@ -31,10 +43,40 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The query for monitor rules.
+        /// Fail if a matching monitor group is in NO DATA state (API default: true).
+        /// </summary>
+        [Input("failOnNoData")]
+        public Input<bool>? FailOnNoData { get; set; }
+
+        /// <summary>
+        /// Fail if no monitor groups are found (API default: false).
+        /// </summary>
+        [Input("failOnNoGroupsFound")]
+        public Input<bool>? FailOnNoGroupsFound { get; set; }
+
+        [Input("monitorIds")]
+        private InputList<Inputs.DeploymentGateRuleOptionsMonitorIdArgs>? _monitorIds;
+
+        /// <summary>
+        /// Specific monitors to evaluate. Mutually exclusive with query.
+        /// </summary>
+        public InputList<Inputs.DeploymentGateRuleOptionsMonitorIdArgs> MonitorIds
+        {
+            get => _monitorIds ?? (_monitorIds = new InputList<Inputs.DeploymentGateRuleOptionsMonitorIdArgs>());
+            set => _monitorIds = value;
+        }
+
+        /// <summary>
+        /// A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
+
+        /// <summary>
+        /// Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+        /// </summary>
+        [Input("warmup")]
+        public Input<int>? Warmup { get; set; }
 
         public DeploymentGateRuleOptionsArgs()
         {
