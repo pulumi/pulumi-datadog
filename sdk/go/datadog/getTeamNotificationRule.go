@@ -60,6 +60,8 @@ type LookupTeamNotificationRuleArgs struct {
 	Pagerduty *GetTeamNotificationRulePagerduty `pulumi:"pagerduty"`
 	// The notification rule ID to fetch.
 	RuleId string `pulumi:"ruleId"`
+	// The ServiceNow notification settings.
+	Servicenow *GetTeamNotificationRuleServicenow `pulumi:"servicenow"`
 	// The Slack notification settings.
 	Slack *GetTeamNotificationRuleSlack `pulumi:"slack"`
 	// The team ID to fetch the notification rule for.
@@ -78,6 +80,8 @@ type LookupTeamNotificationRuleResult struct {
 	Pagerduty *GetTeamNotificationRulePagerduty `pulumi:"pagerduty"`
 	// The notification rule ID to fetch.
 	RuleId string `pulumi:"ruleId"`
+	// The ServiceNow notification settings.
+	Servicenow *GetTeamNotificationRuleServicenow `pulumi:"servicenow"`
 	// The Slack notification settings.
 	Slack *GetTeamNotificationRuleSlack `pulumi:"slack"`
 	// The team ID to fetch the notification rule for.
@@ -99,6 +103,8 @@ type LookupTeamNotificationRuleOutputArgs struct {
 	Pagerduty GetTeamNotificationRulePagerdutyPtrInput `pulumi:"pagerduty"`
 	// The notification rule ID to fetch.
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	// The ServiceNow notification settings.
+	Servicenow GetTeamNotificationRuleServicenowPtrInput `pulumi:"servicenow"`
 	// The Slack notification settings.
 	Slack GetTeamNotificationRuleSlackPtrInput `pulumi:"slack"`
 	// The team ID to fetch the notification rule for.
@@ -147,6 +153,11 @@ func (o LookupTeamNotificationRuleResultOutput) Pagerduty() GetTeamNotificationR
 // The notification rule ID to fetch.
 func (o LookupTeamNotificationRuleResultOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamNotificationRuleResult) string { return v.RuleId }).(pulumi.StringOutput)
+}
+
+// The ServiceNow notification settings.
+func (o LookupTeamNotificationRuleResultOutput) Servicenow() GetTeamNotificationRuleServicenowPtrOutput {
+	return o.ApplyT(func(v LookupTeamNotificationRuleResult) *GetTeamNotificationRuleServicenow { return v.Servicenow }).(GetTeamNotificationRuleServicenowPtrOutput)
 }
 
 // The Slack notification settings.

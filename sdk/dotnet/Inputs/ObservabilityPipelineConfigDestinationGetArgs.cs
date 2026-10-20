@@ -54,6 +54,12 @@ namespace Pulumi.Datadog.Inputs
             set => _amazonSecurityLakes = value;
         }
 
+        /// <summary>
+        /// The `AzureDataExplorer` destination sends log events to an Azure Data Explorer table.
+        /// </summary>
+        [Input("azureDataExplorer")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerGetArgs>? AzureDataExplorer { get; set; }
+
         [Input("azureStorages")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationAzureStorageGetArgs>? _azureStorages;
 

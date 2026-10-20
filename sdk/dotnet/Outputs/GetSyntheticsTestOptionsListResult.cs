@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool AllowInsecure;
         /// <summary>
+        /// Whether Bits AI automatically investigates alerts from the test monitor.
+        /// </summary>
+        public readonly bool BitsAiAutoInvestigate;
+        /// <summary>
         /// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
         /// </summary>
         public readonly ImmutableArray<string> BlockedRequestPatterns;
@@ -120,6 +124,8 @@ namespace Pulumi.Datadog.Outputs
 
             bool allowInsecure,
 
+            bool bitsAiAutoInvestigate,
+
             ImmutableArray<string> blockedRequestPatterns,
 
             bool captureNetworkPayloads,
@@ -168,6 +174,7 @@ namespace Pulumi.Datadog.Outputs
         {
             AcceptSelfSigned = acceptSelfSigned;
             AllowInsecure = allowInsecure;
+            BitsAiAutoInvestigate = bitsAiAutoInvestigate;
             BlockedRequestPatterns = blockedRequestPatterns;
             CaptureNetworkPayloads = captureNetworkPayloads;
             CheckCertificateRevocation = checkCertificateRevocation;

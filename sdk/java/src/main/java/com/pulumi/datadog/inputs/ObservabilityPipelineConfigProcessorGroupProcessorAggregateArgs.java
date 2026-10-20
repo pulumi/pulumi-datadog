@@ -5,15 +5,33 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs();
+
+    /**
+     * Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+     * 
+     */
+    @Import(name="aggregationTiming")
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs> aggregationTiming;
+
+    /**
+     * @return Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs>> aggregationTiming() {
+        return Optional.ofNullable(this.aggregationTiming);
+    }
 
     /**
      * The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
@@ -48,6 +66,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAggregateAr
     private ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs(ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs $) {
+        this.aggregationTiming = $.aggregationTiming;
         this.intervalSecs = $.intervalSecs;
         this.mode = $.mode;
     }
@@ -68,6 +87,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorAggregateAr
 
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs defaults) {
             $ = new ObservabilityPipelineConfigProcessorGroupProcessorAggregateArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param aggregationTiming Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregationTiming(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs> aggregationTiming) {
+            $.aggregationTiming = aggregationTiming;
+            return this;
+        }
+
+        /**
+         * @param aggregationTiming Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aggregationTiming(ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs aggregationTiming) {
+            return aggregationTiming(Output.of(aggregationTiming));
         }
 
         /**

@@ -29,6 +29,7 @@ export function getTeamNotificationRule(args: GetTeamNotificationRuleArgs, opts?
         "msTeams": args.msTeams,
         "pagerduty": args.pagerduty,
         "ruleId": args.ruleId,
+        "servicenow": args.servicenow,
         "slack": args.slack,
         "teamId": args.teamId,
     }, opts);
@@ -54,6 +55,10 @@ export interface GetTeamNotificationRuleArgs {
      * The notification rule ID to fetch.
      */
     ruleId: string;
+    /**
+     * The ServiceNow notification settings.
+     */
+    servicenow?: inputs.GetTeamNotificationRuleServicenow;
     /**
      * The Slack notification settings.
      */
@@ -89,6 +94,10 @@ export interface GetTeamNotificationRuleResult {
      */
     readonly ruleId: string;
     /**
+     * The ServiceNow notification settings.
+     */
+    readonly servicenow?: outputs.GetTeamNotificationRuleServicenow;
+    /**
      * The Slack notification settings.
      */
     readonly slack?: outputs.GetTeamNotificationRuleSlack;
@@ -120,6 +129,7 @@ export function getTeamNotificationRuleOutput(args: GetTeamNotificationRuleOutpu
         "msTeams": args.msTeams,
         "pagerduty": args.pagerduty,
         "ruleId": args.ruleId,
+        "servicenow": args.servicenow,
         "slack": args.slack,
         "teamId": args.teamId,
     }, opts);
@@ -145,6 +155,10 @@ export interface GetTeamNotificationRuleOutputArgs {
      * The notification rule ID to fetch.
      */
     ruleId: pulumi.Input<string>;
+    /**
+     * The ServiceNow notification settings.
+     */
+    servicenow?: pulumi.Input<inputs.GetTeamNotificationRuleServicenowArgs | undefined>;
     /**
      * The Slack notification settings.
      */

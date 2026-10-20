@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.GetTeamNotificationRulesNotificationRulePagerdutyResult? Pagerduty;
         /// <summary>
+        /// The ServiceNow notification settings.
+        /// </summary>
+        public readonly Outputs.GetTeamNotificationRulesNotificationRuleServicenowResult? Servicenow;
+        /// <summary>
         /// The Slack notification settings.
         /// </summary>
         public readonly Outputs.GetTeamNotificationRulesNotificationRuleSlackResult? Slack;
@@ -44,12 +48,15 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.GetTeamNotificationRulesNotificationRulePagerdutyResult? pagerduty,
 
+            Outputs.GetTeamNotificationRulesNotificationRuleServicenowResult? servicenow,
+
             Outputs.GetTeamNotificationRulesNotificationRuleSlackResult? slack)
         {
             Email = email;
             Id = id;
             MsTeams = msTeams;
             Pagerduty = pagerduty;
+            Servicenow = servicenow;
             Slack = slack;
         }
     }

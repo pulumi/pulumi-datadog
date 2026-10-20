@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 
 @CustomType
@@ -15,6 +16,11 @@ public final class GetTeamNotificationRulesNotificationRuleEmail {
      * 
      */
     private Boolean enabled;
+    /**
+     * @return Email address notifications are sent to instead of all team members.
+     * 
+     */
+    private String recipientEmail;
 
     private GetTeamNotificationRulesNotificationRuleEmail() {}
     /**
@@ -23,6 +29,13 @@ public final class GetTeamNotificationRulesNotificationRuleEmail {
      */
     public Boolean enabled() {
         return this.enabled;
+    }
+    /**
+     * @return Email address notifications are sent to instead of all team members.
+     * 
+     */
+    public String recipientEmail() {
+        return this.recipientEmail;
     }
 
     public static Builder builder() {
@@ -35,10 +48,12 @@ public final class GetTeamNotificationRulesNotificationRuleEmail {
     @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
+        private String recipientEmail;
         public Builder() {}
         public Builder(GetTeamNotificationRulesNotificationRuleEmail defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
+    	      this.recipientEmail = defaults.recipientEmail;
         }
 
         @CustomType.Setter
@@ -49,9 +64,18 @@ public final class GetTeamNotificationRulesNotificationRuleEmail {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
+        public Builder recipientEmail(String recipientEmail) {
+            if (recipientEmail == null) {
+              throw new MissingRequiredPropertyException("GetTeamNotificationRulesNotificationRuleEmail", "recipientEmail");
+            }
+            this.recipientEmail = recipientEmail;
+            return this;
+        }
         public GetTeamNotificationRulesNotificationRuleEmail build() {
             final var _resultValue = new GetTeamNotificationRulesNotificationRuleEmail();
             _resultValue.enabled = enabled;
+            _resultValue.recipientEmail = recipientEmail;
             return _resultValue;
         }
     }

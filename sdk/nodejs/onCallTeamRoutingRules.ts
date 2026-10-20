@@ -82,6 +82,22 @@ import * as utilities from "./utilities";
  *             }],
  *         },
  *         {
+ *             query: "tags.service:checkout",
+ *             actions: [
+ *                 {
+ *                     rerouteToTeam: [{
+ *                         destinationTeamId: "00000000-aba2-0000-0000-000000000001",
+ *                     }],
+ *                 },
+ *                 {
+ *                     sendSlackMessage: [{
+ *                         workspace: "workspace",
+ *                         channel: "channel",
+ *                     }],
+ *                 },
+ *             ],
+ *         },
+ *         {
  *             escalationPolicy: "00000000-aba2-0000-0000-000000000000",
  *             urgency: "dynamic",
  *         },

@@ -1489,6 +1489,7 @@ __all__ = [
     'DatasetProductFilter',
     'DeploymentGateRule',
     'DeploymentGateRuleOptions',
+    'DeploymentGateRuleOptionsMonitorId',
     'DowntimeRecurrence',
     'DowntimeScheduleMonitorIdentifier',
     'DowntimeScheduleOneTimeSchedule',
@@ -1707,6 +1708,19 @@ __all__ = [
     'ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferDisk',
     'ObservabilityPipelineConfigDestinationAmazonSecurityLakeBufferMemory',
     'ObservabilityPipelineConfigDestinationAmazonSecurityLakeTls',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorer',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuth',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBatch',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory',
+    'ObservabilityPipelineConfigDestinationAzureDataExplorerCompression',
     'ObservabilityPipelineConfigDestinationAzureStorage',
     'ObservabilityPipelineConfigDestinationAzureStorageBuffer',
     'ObservabilityPipelineConfigDestinationAzureStorageBufferDisk',
@@ -1851,6 +1865,7 @@ __all__ = [
     'ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTags',
     'ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTagsTag',
     'ObservabilityPipelineConfigProcessorGroupProcessorAggregate',
+    'ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming',
     'ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor',
     'ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap',
     'ObservabilityPipelineConfigProcessorGroupProcessorDatadogTags',
@@ -1990,6 +2005,7 @@ __all__ = [
     'OnCallTeamRoutingRulesRuleActionEscalationPolicy',
     'OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours',
     'OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction',
+    'OnCallTeamRoutingRulesRuleActionRerouteToTeam',
     'OnCallTeamRoutingRulesRuleActionSendSlackMessage',
     'OnCallTeamRoutingRulesRuleActionSendTeamsMessage',
     'OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation',
@@ -3717,6 +3733,7 @@ __all__ = [
     'TeamNotificationRuleEmail',
     'TeamNotificationRuleMsTeams',
     'TeamNotificationRulePagerduty',
+    'TeamNotificationRuleServicenow',
     'TeamNotificationRuleSlack',
     'TeamSyncSelectionState',
     'TeamSyncSelectionStateExternalId',
@@ -3908,11 +3925,13 @@ __all__ = [
     'GetTeamNotificationRuleEmailResult',
     'GetTeamNotificationRuleMsTeamsResult',
     'GetTeamNotificationRulePagerdutyResult',
+    'GetTeamNotificationRuleServicenowResult',
     'GetTeamNotificationRuleSlackResult',
     'GetTeamNotificationRulesNotificationRuleResult',
     'GetTeamNotificationRulesNotificationRuleEmailResult',
     'GetTeamNotificationRulesNotificationRuleMsTeamsResult',
     'GetTeamNotificationRulesNotificationRulePagerdutyResult',
+    'GetTeamNotificationRulesNotificationRuleServicenowResult',
     'GetTeamNotificationRulesNotificationRuleSlackResult',
     'GetTeamsTeamResult',
     'GetUsersUserResult',
@@ -12673,7 +12692,7 @@ class DashboardV2WidgetBarChartDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetBarChartDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -12710,7 +12729,7 @@ class DashboardV2WidgetBarChartDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -14847,7 +14866,7 @@ class DashboardV2WidgetChangeDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetChangeDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetChangeDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -14884,7 +14903,7 @@ class DashboardV2WidgetChangeDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -18516,7 +18535,7 @@ class DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEventQuery(dic
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -18553,7 +18572,7 @@ class DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEventQuery(dic
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -19128,7 +19147,7 @@ class DashboardV2WidgetDistributionDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetDistributionDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetDistributionDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -19165,7 +19184,7 @@ class DashboardV2WidgetDistributionDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -22558,7 +22577,7 @@ class DashboardV2WidgetGeomapDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetGeomapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -22595,7 +22614,7 @@ class DashboardV2WidgetGeomapDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -25720,7 +25739,7 @@ class DashboardV2WidgetHeatmapDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -25757,7 +25776,7 @@ class DashboardV2WidgetHeatmapDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -27784,7 +27803,7 @@ class DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQuery(di
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -27821,7 +27840,7 @@ class DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQuery(di
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -29023,7 +29042,7 @@ class DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -29060,7 +29079,7 @@ class DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -30490,7 +30509,7 @@ class DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -30527,7 +30546,7 @@ class DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -32411,7 +32430,7 @@ class DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -32448,7 +32467,7 @@ class DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -40204,7 +40223,7 @@ class DashboardV2WidgetQueryTableDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -40241,7 +40260,7 @@ class DashboardV2WidgetQueryTableDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -43018,7 +43037,7 @@ class DashboardV2WidgetQueryValueDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -43055,7 +43074,7 @@ class DashboardV2WidgetQueryValueDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -48234,7 +48253,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQue
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -48271,7 +48290,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQue
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -49713,7 +49732,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -49750,7 +49769,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -51192,7 +51211,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -51229,7 +51248,7 @@ class DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -55940,7 +55959,7 @@ class DashboardV2WidgetSunburstDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -55977,7 +55996,7 @@ class DashboardV2WidgetSunburstDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -59409,7 +59428,7 @@ class DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -59446,7 +59465,7 @@ class DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -61928,7 +61947,7 @@ class DashboardV2WidgetToplistDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetToplistDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetToplistDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -61965,7 +61984,7 @@ class DashboardV2WidgetToplistDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -64671,7 +64690,7 @@ class DashboardV2WidgetTreemapDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -64708,7 +64727,7 @@ class DashboardV2WidgetTreemapDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -66842,7 +66861,7 @@ class DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEv
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -66879,7 +66898,7 @@ class DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEv
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -68480,7 +68499,7 @@ class DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -68517,7 +68536,7 @@ class DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -70175,7 +70194,7 @@ class DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQuery(di
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -70212,7 +70231,7 @@ class DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQuery(di
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -104156,8 +104175,16 @@ class DeploymentGateRuleOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "excludedResources":
+        if key == "allowedResources":
+            suggest = "allowed_resources"
+        elif key == "excludedResources":
             suggest = "excluded_resources"
+        elif key == "failOnNoData":
+            suggest = "fail_on_no_data"
+        elif key == "failOnNoGroupsFound":
+            suggest = "fail_on_no_groups_found"
+        elif key == "monitorIds":
+            suggest = "monitor_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DeploymentGateRuleOptions. Access the value via the '{suggest}' property getter instead.")
@@ -104171,20 +104198,48 @@ class DeploymentGateRuleOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 allowed_resources: Optional[Sequence[_builtins.str]] = None,
                  duration: Optional[_builtins.int] = None,
                  excluded_resources: Optional[Sequence[_builtins.str]] = None,
-                 query: Optional[_builtins.str] = None):
+                 fail_on_no_data: Optional[_builtins.bool] = None,
+                 fail_on_no_groups_found: Optional[_builtins.bool] = None,
+                 monitor_ids: Optional[Sequence['outputs.DeploymentGateRuleOptionsMonitorId']] = None,
+                 query: Optional[_builtins.str] = None,
+                 warmup: Optional[_builtins.int] = None):
         """
+        :param Sequence[_builtins.str] allowed_resources: Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
         :param _builtins.int duration: The duration for the rule.
-        :param Sequence[_builtins.str] excluded_resources: Resources to exclude from faulty deployment detection.
-        :param _builtins.str query: The query for monitor rules.
+        :param Sequence[_builtins.str] excluded_resources: Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
+        :param _builtins.bool fail_on_no_data: Fail if a matching monitor group is in NO DATA state (API default: true).
+        :param _builtins.bool fail_on_no_groups_found: Fail if no monitor groups are found (API default: false).
+        :param Sequence['DeploymentGateRuleOptionsMonitorIdArgs'] monitor_ids: Specific monitors to evaluate. Mutually exclusive with query.
+        :param _builtins.str query: A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
+        :param _builtins.int warmup: Seconds to wait after deployment starts before evaluating monitors (API default: 0).
         """
+        if allowed_resources is not None:
+            pulumi.set(__self__, "allowed_resources", allowed_resources)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if excluded_resources is not None:
             pulumi.set(__self__, "excluded_resources", excluded_resources)
+        if fail_on_no_data is not None:
+            pulumi.set(__self__, "fail_on_no_data", fail_on_no_data)
+        if fail_on_no_groups_found is not None:
+            pulumi.set(__self__, "fail_on_no_groups_found", fail_on_no_groups_found)
+        if monitor_ids is not None:
+            pulumi.set(__self__, "monitor_ids", monitor_ids)
         if query is not None:
             pulumi.set(__self__, "query", query)
+        if warmup is not None:
+            pulumi.set(__self__, "warmup", warmup)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedResources")
+    def allowed_resources(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+        """
+        return pulumi.get(self, "allowed_resources")
 
     @_builtins.property
     @pulumi.getter
@@ -104198,17 +104253,78 @@ class DeploymentGateRuleOptions(dict):
     @pulumi.getter(name="excludedResources")
     def excluded_resources(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Resources to exclude from faulty deployment detection.
+        Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
         """
         return pulumi.get(self, "excluded_resources")
+
+    @_builtins.property
+    @pulumi.getter(name="failOnNoData")
+    def fail_on_no_data(self) -> Optional[_builtins.bool]:
+        """
+        Fail if a matching monitor group is in NO DATA state (API default: true).
+        """
+        return pulumi.get(self, "fail_on_no_data")
+
+    @_builtins.property
+    @pulumi.getter(name="failOnNoGroupsFound")
+    def fail_on_no_groups_found(self) -> Optional[_builtins.bool]:
+        """
+        Fail if no monitor groups are found (API default: false).
+        """
+        return pulumi.get(self, "fail_on_no_groups_found")
+
+    @_builtins.property
+    @pulumi.getter(name="monitorIds")
+    def monitor_ids(self) -> Optional[Sequence['outputs.DeploymentGateRuleOptionsMonitorId']]:
+        """
+        Specific monitors to evaluate. Mutually exclusive with query.
+        """
+        return pulumi.get(self, "monitor_ids")
 
     @_builtins.property
     @pulumi.getter
     def query(self) -> Optional[_builtins.str]:
         """
-        The query for monitor rules.
+        A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
         """
         return pulumi.get(self, "query")
+
+    @_builtins.property
+    @pulumi.getter
+    def warmup(self) -> Optional[_builtins.int]:
+        """
+        Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+        """
+        return pulumi.get(self, "warmup")
+
+
+@pulumi.output_type
+class DeploymentGateRuleOptionsMonitorId(dict):
+    def __init__(__self__, *,
+                 groups: Sequence[_builtins.str],
+                 id: _builtins.str):
+        """
+        :param Sequence[_builtins.str] groups: Exact group names to evaluate; an empty list evaluates all groups.
+        :param _builtins.str id: The monitor's decimal ID.
+        """
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Sequence[_builtins.str]:
+        """
+        Exact group names to evaluate; an empty list evaluates all groups.
+        """
+        return pulumi.get(self, "groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The monitor's decimal ID.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -116576,6 +116692,8 @@ class ObservabilityPipelineConfigDestination(dict):
             suggest = "amazon_s3s"
         elif key == "amazonSecurityLakes":
             suggest = "amazon_security_lakes"
+        elif key == "azureDataExplorer":
+            suggest = "azure_data_explorer"
         elif key == "azureStorages":
             suggest = "azure_storages"
         elif key == "cloudPrem":
@@ -116631,6 +116749,7 @@ class ObservabilityPipelineConfigDestination(dict):
                  amazon_s3_generic: Optional['outputs.ObservabilityPipelineConfigDestinationAmazonS3Generic'] = None,
                  amazon_s3s: Optional[Sequence['outputs.ObservabilityPipelineConfigDestinationAmazonS3']] = None,
                  amazon_security_lakes: Optional[Sequence['outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLake']] = None,
+                 azure_data_explorer: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorer'] = None,
                  azure_storages: Optional[Sequence['outputs.ObservabilityPipelineConfigDestinationAzureStorage']] = None,
                  clickhouse: Optional['outputs.ObservabilityPipelineConfigDestinationClickhouse'] = None,
                  cloud_prem: Optional['outputs.ObservabilityPipelineConfigDestinationCloudPrem'] = None,
@@ -116663,6 +116782,7 @@ class ObservabilityPipelineConfigDestination(dict):
         :param 'ObservabilityPipelineConfigDestinationAmazonS3GenericArgs' amazon_s3_generic: The `amazon_s3_generic` destination sends your logs to an Amazon S3 bucket.
         :param Sequence['ObservabilityPipelineConfigDestinationAmazonS3Args'] amazon_s3s: The `amazon_s3` destination sends your logs in Datadog-rehydratable format to an Amazon S3 bucket for archiving.
         :param Sequence['ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs'] amazon_security_lakes: The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerArgs' azure_data_explorer: The `azure_data_explorer` destination sends log events to an Azure Data Explorer table.
         :param Sequence['ObservabilityPipelineConfigDestinationAzureStorageArgs'] azure_storages: The `azure_storage` destination forwards logs to an Azure Blob Storage container.
         :param 'ObservabilityPipelineConfigDestinationClickhouseArgs' clickhouse: The `clickhouse` destination forwards logs to a ClickHouse server via HTTP.
         :param 'ObservabilityPipelineConfigDestinationCloudPremArgs' cloud_prem: The `cloud_prem` destination sends logs to Datadog CloudPrem.
@@ -116699,6 +116819,8 @@ class ObservabilityPipelineConfigDestination(dict):
             pulumi.set(__self__, "amazon_s3s", amazon_s3s)
         if amazon_security_lakes is not None:
             pulumi.set(__self__, "amazon_security_lakes", amazon_security_lakes)
+        if azure_data_explorer is not None:
+            pulumi.set(__self__, "azure_data_explorer", azure_data_explorer)
         if azure_storages is not None:
             pulumi.set(__self__, "azure_storages", azure_storages)
         if clickhouse is not None:
@@ -116797,6 +116919,14 @@ class ObservabilityPipelineConfigDestination(dict):
         The `amazon_security_lake` destination sends your logs to Amazon Security Lake.
         """
         return pulumi.get(self, "amazon_security_lakes")
+
+    @_builtins.property
+    @pulumi.getter(name="azureDataExplorer")
+    def azure_data_explorer(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorer']:
+        """
+        The `azure_data_explorer` destination sends log events to an Azure Data Explorer table.
+        """
+        return pulumi.get(self, "azure_data_explorer")
 
     @_builtins.property
     @pulumi.getter(name="azureStorages")
@@ -118503,6 +118633,815 @@ class ObservabilityPipelineConfigDestinationAmazonSecurityLakeTls(dict):
         Name of the environment variable or secret that holds the passphrase for the private key file.
         """
         return pulumi.get(self, "key_pass_key")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ingestionEndpointKey":
+            suggest = "ingestion_endpoint_key"
+        elif key == "mappingReference":
+            suggest = "mapping_reference"
+        elif key == "tokenScope":
+            suggest = "token_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAzureDataExplorer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth: 'outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuth',
+                 database: _builtins.str,
+                 table: _builtins.str,
+                 batch: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBatch'] = None,
+                 buffer: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer'] = None,
+                 compression: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerCompression'] = None,
+                 ingestion_endpoint_key: Optional[_builtins.str] = None,
+                 mapping_reference: Optional[_builtins.str] = None,
+                 token_scope: Optional[_builtins.str] = None):
+        """
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthArgs' auth: Authentication configuration for Azure Data Explorer. Exactly one of `azure_cli`, `client_secret`, `client_certificate`, `managed_identity`, `managed_identity_client_assertion`, or `workload_identity` must be specified.
+        :param _builtins.str database: The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+        :param _builtins.str table: The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerBatchArgs' batch: Event batching settings for Azure Data Explorer ingestion.
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferArgs' buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerCompressionArgs' compression: Compression configuration for ingested data. Only `gzip` is supported.
+        :param _builtins.str ingestion_endpoint_key: Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+        :param _builtins.str mapping_reference: The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+        :param _builtins.str token_scope: The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+        """
+        pulumi.set(__self__, "auth", auth)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "table", table)
+        if batch is not None:
+            pulumi.set(__self__, "batch", batch)
+        if buffer is not None:
+            pulumi.set(__self__, "buffer", buffer)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if ingestion_endpoint_key is not None:
+            pulumi.set(__self__, "ingestion_endpoint_key", ingestion_endpoint_key)
+        if mapping_reference is not None:
+            pulumi.set(__self__, "mapping_reference", mapping_reference)
+        if token_scope is not None:
+            pulumi.set(__self__, "token_scope", token_scope)
+
+    @_builtins.property
+    @pulumi.getter
+    def auth(self) -> 'outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuth':
+        """
+        Authentication configuration for Azure Data Explorer. Exactly one of `azure_cli`, `client_secret`, `client_certificate`, `managed_identity`, `managed_identity_client_assertion`, or `workload_identity` must be specified.
+        """
+        return pulumi.get(self, "auth")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> _builtins.str:
+        """
+        The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def table(self) -> _builtins.str:
+        """
+        The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+        """
+        return pulumi.get(self, "table")
+
+    @_builtins.property
+    @pulumi.getter
+    def batch(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBatch']:
+        """
+        Event batching settings for Azure Data Explorer ingestion.
+        """
+        return pulumi.get(self, "batch")
+
+    @_builtins.property
+    @pulumi.getter
+    def buffer(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer']:
+        """
+        Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        """
+        return pulumi.get(self, "buffer")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerCompression']:
+        """
+        Compression configuration for ingested data. Only `gzip` is supported.
+        """
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="ingestionEndpointKey")
+    def ingestion_endpoint_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+        """
+        return pulumi.get(self, "ingestion_endpoint_key")
+
+    @_builtins.property
+    @pulumi.getter(name="mappingReference")
+    def mapping_reference(self) -> Optional[_builtins.str]:
+        """
+        The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+        """
+        return pulumi.get(self, "mapping_reference")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenScope")
+    def token_scope(self) -> Optional[_builtins.str]:
+        """
+        The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+        """
+        return pulumi.get(self, "token_scope")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureCli":
+            suggest = "azure_cli"
+        elif key == "clientCertificate":
+            suggest = "client_certificate"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
+        elif key == "managedIdentityClientAssertion":
+            suggest = "managed_identity_client_assertion"
+        elif key == "workloadIdentity":
+            suggest = "workload_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAzureDataExplorerAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_cli: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli'] = None,
+                 client_certificate: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate'] = None,
+                 client_secret: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret'] = None,
+                 managed_identity: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity'] = None,
+                 managed_identity_client_assertion: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion'] = None,
+                 workload_identity: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity'] = None):
+        """
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCliArgs' azure_cli: Authenticate using the Azure CLI credentials available in the environment.
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificateArgs' client_certificate: Authenticate using a Microsoft Entra application client certificate.
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecretArgs' client_secret: Authenticate using a Microsoft Entra application client secret.
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityArgs' managed_identity: Authenticate using an Azure managed identity.
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertionArgs' managed_identity_client_assertion: Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentityArgs' workload_identity: Authenticate using Azure Workload Identity (for example, on Kubernetes).
+        """
+        if azure_cli is not None:
+            pulumi.set(__self__, "azure_cli", azure_cli)
+        if client_certificate is not None:
+            pulumi.set(__self__, "client_certificate", client_certificate)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if managed_identity_client_assertion is not None:
+            pulumi.set(__self__, "managed_identity_client_assertion", managed_identity_client_assertion)
+        if workload_identity is not None:
+            pulumi.set(__self__, "workload_identity", workload_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="azureCli")
+    def azure_cli(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli']:
+        """
+        Authenticate using the Azure CLI credentials available in the environment.
+        """
+        return pulumi.get(self, "azure_cli")
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificate")
+    def client_certificate(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate']:
+        """
+        Authenticate using a Microsoft Entra application client certificate.
+        """
+        return pulumi.get(self, "client_certificate")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret']:
+        """
+        Authenticate using a Microsoft Entra application client secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity']:
+        """
+        Authenticate using an Azure managed identity.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @_builtins.property
+    @pulumi.getter(name="managedIdentityClientAssertion")
+    def managed_identity_client_assertion(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion']:
+        """
+        Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+        """
+        return pulumi.get(self, "managed_identity_client_assertion")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentity")
+    def workload_identity(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity']:
+        """
+        Authenticate using Azure Workload Identity (for example, on Kubernetes).
+        """
+        return pulumi.get(self, "workload_identity")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureClientId":
+            suggest = "azure_client_id"
+        elif key == "azureTenantId":
+            suggest = "azure_tenant_id"
+        elif key == "certificatePath":
+            suggest = "certificate_path"
+        elif key == "certificatePasswordKey":
+            suggest = "certificate_password_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_client_id: _builtins.str,
+                 azure_tenant_id: _builtins.str,
+                 certificate_path: _builtins.str,
+                 certificate_password_key: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str azure_client_id: The Microsoft Entra application (client) ID.
+        :param _builtins.str azure_tenant_id: The Microsoft Entra tenant ID.
+        :param _builtins.str certificate_path: Path to the `.pfx` client certificate file on the Worker.
+        :param _builtins.str certificate_password_key: Name of the environment variable or secret that holds the password for the client certificate.
+        """
+        pulumi.set(__self__, "azure_client_id", azure_client_id)
+        pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+        pulumi.set(__self__, "certificate_path", certificate_path)
+        if certificate_password_key is not None:
+            pulumi.set(__self__, "certificate_password_key", certificate_password_key)
+
+    @_builtins.property
+    @pulumi.getter(name="azureClientId")
+    def azure_client_id(self) -> _builtins.str:
+        """
+        The Microsoft Entra application (client) ID.
+        """
+        return pulumi.get(self, "azure_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="azureTenantId")
+    def azure_tenant_id(self) -> _builtins.str:
+        """
+        The Microsoft Entra tenant ID.
+        """
+        return pulumi.get(self, "azure_tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="certificatePath")
+    def certificate_path(self) -> _builtins.str:
+        """
+        Path to the `.pfx` client certificate file on the Worker.
+        """
+        return pulumi.get(self, "certificate_path")
+
+    @_builtins.property
+    @pulumi.getter(name="certificatePasswordKey")
+    def certificate_password_key(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable or secret that holds the password for the client certificate.
+        """
+        return pulumi.get(self, "certificate_password_key")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureClientId":
+            suggest = "azure_client_id"
+        elif key == "azureClientSecretKey":
+            suggest = "azure_client_secret_key"
+        elif key == "azureTenantId":
+            suggest = "azure_tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_client_id: _builtins.str,
+                 azure_client_secret_key: _builtins.str,
+                 azure_tenant_id: _builtins.str):
+        """
+        :param _builtins.str azure_client_id: The Microsoft Entra application (client) ID.
+        :param _builtins.str azure_client_secret_key: Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+        :param _builtins.str azure_tenant_id: The Microsoft Entra tenant ID.
+        """
+        pulumi.set(__self__, "azure_client_id", azure_client_id)
+        pulumi.set(__self__, "azure_client_secret_key", azure_client_secret_key)
+        pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="azureClientId")
+    def azure_client_id(self) -> _builtins.str:
+        """
+        The Microsoft Entra application (client) ID.
+        """
+        return pulumi.get(self, "azure_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="azureClientSecretKey")
+    def azure_client_secret_key(self) -> _builtins.str:
+        """
+        Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+        """
+        return pulumi.get(self, "azure_client_secret_key")
+
+    @_builtins.property
+    @pulumi.getter(name="azureTenantId")
+    def azure_tenant_id(self) -> _builtins.str:
+        """
+        The Microsoft Entra tenant ID.
+        """
+        return pulumi.get(self, "azure_tenant_id")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedManagedIdentityId":
+            suggest = "user_assigned_managed_identity_id"
+        elif key == "userAssignedManagedIdentityIdType":
+            suggest = "user_assigned_managed_identity_id_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_assigned_managed_identity_id: Optional[_builtins.str] = None,
+                 user_assigned_managed_identity_id_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str user_assigned_managed_identity_id: The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+        :param _builtins.str user_assigned_managed_identity_id_type: The type of the user-assigned managed identity ID. Valid values are `client_id`, `object_id`, and `resource_id`. Valid values are `client_id`, `object_id`, `resource_id`.
+        """
+        if user_assigned_managed_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_id", user_assigned_managed_identity_id)
+        if user_assigned_managed_identity_id_type is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_id_type", user_assigned_managed_identity_id_type)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedManagedIdentityId")
+    def user_assigned_managed_identity_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedManagedIdentityIdType")
+    def user_assigned_managed_identity_id_type(self) -> Optional[_builtins.str]:
+        """
+        The type of the user-assigned managed identity ID. Valid values are `client_id`, `object_id`, and `resource_id`. Valid values are `client_id`, `object_id`, `resource_id`.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_id_type")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAssertionClientId":
+            suggest = "client_assertion_client_id"
+        elif key == "clientAssertionTenantId":
+            suggest = "client_assertion_tenant_id"
+        elif key == "userAssignedManagedIdentityId":
+            suggest = "user_assigned_managed_identity_id"
+        elif key == "userAssignedManagedIdentityIdType":
+            suggest = "user_assigned_managed_identity_id_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_assertion_client_id: _builtins.str,
+                 client_assertion_tenant_id: _builtins.str,
+                 user_assigned_managed_identity_id: Optional[_builtins.str] = None,
+                 user_assigned_managed_identity_id_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str client_assertion_client_id: The client ID of the Microsoft Entra application that trusts the managed identity.
+        :param _builtins.str client_assertion_tenant_id: The tenant ID of the Microsoft Entra application that trusts the managed identity.
+        :param _builtins.str user_assigned_managed_identity_id: The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+        :param _builtins.str user_assigned_managed_identity_id_type: The type of the user-assigned managed identity ID. Valid values are `client_id`, `object_id`, and `resource_id`. Valid values are `client_id`, `object_id`, `resource_id`.
+        """
+        pulumi.set(__self__, "client_assertion_client_id", client_assertion_client_id)
+        pulumi.set(__self__, "client_assertion_tenant_id", client_assertion_tenant_id)
+        if user_assigned_managed_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_id", user_assigned_managed_identity_id)
+        if user_assigned_managed_identity_id_type is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_id_type", user_assigned_managed_identity_id_type)
+
+    @_builtins.property
+    @pulumi.getter(name="clientAssertionClientId")
+    def client_assertion_client_id(self) -> _builtins.str:
+        """
+        The client ID of the Microsoft Entra application that trusts the managed identity.
+        """
+        return pulumi.get(self, "client_assertion_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientAssertionTenantId")
+    def client_assertion_tenant_id(self) -> _builtins.str:
+        """
+        The tenant ID of the Microsoft Entra application that trusts the managed identity.
+        """
+        return pulumi.get(self, "client_assertion_tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedManagedIdentityId")
+    def user_assigned_managed_identity_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedManagedIdentityIdType")
+    def user_assigned_managed_identity_id_type(self) -> Optional[_builtins.str]:
+        """
+        The type of the user-assigned managed identity ID. Valid values are `client_id`, `object_id`, and `resource_id`. Valid values are `client_id`, `object_id`, `resource_id`.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_id_type")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "tokenFilePath":
+            suggest = "token_file_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[_builtins.str] = None,
+                 tenant_id: Optional[_builtins.str] = None,
+                 token_file_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str client_id: The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+        :param _builtins.str tenant_id: The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+        :param _builtins.str token_file_path: Path to the federated token file. If omitted, it is read from the environment.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if token_file_path is not None:
+            pulumi.set(__self__, "token_file_path", token_file_path)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenFilePath")
+    def token_file_path(self) -> Optional[_builtins.str]:
+        """
+        Path to the federated token file. If omitted, it is read from the environment.
+        """
+        return pulumi.get(self, "token_file_path")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBatch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxBytes":
+            suggest = "max_bytes"
+        elif key == "maxEvents":
+            suggest = "max_events"
+        elif key == "timeoutSecs":
+            suggest = "timeout_secs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAzureDataExplorerBatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerBatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerBatch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_bytes: Optional[_builtins.int] = None,
+                 max_events: Optional[_builtins.int] = None,
+                 timeout_secs: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_bytes: Maximum batch size in bytes. Value must be between 1 and 4000000.
+        :param _builtins.int max_events: Maximum number of events per batch before it is flushed. Value must be at least 1.
+        :param _builtins.int timeout_secs: Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+        """
+        if max_bytes is not None:
+            pulumi.set(__self__, "max_bytes", max_bytes)
+        if max_events is not None:
+            pulumi.set(__self__, "max_events", max_events)
+        if timeout_secs is not None:
+            pulumi.set(__self__, "timeout_secs", timeout_secs)
+
+    @_builtins.property
+    @pulumi.getter(name="maxBytes")
+    def max_bytes(self) -> Optional[_builtins.int]:
+        """
+        Maximum batch size in bytes. Value must be between 1 and 4000000.
+        """
+        return pulumi.get(self, "max_bytes")
+
+    @_builtins.property
+    @pulumi.getter(name="maxEvents")
+    def max_events(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of events per batch before it is flushed. Value must be at least 1.
+        """
+        return pulumi.get(self, "max_events")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutSecs")
+    def timeout_secs(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+        """
+        return pulumi.get(self, "timeout_secs")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer(dict):
+    def __init__(__self__, *,
+                 disk: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk'] = None,
+                 memory: Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory'] = None):
+        """
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDiskArgs' disk: Options for configuring a disk buffer. Cannot be used with `memory`.
+        :param 'ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemoryArgs' memory: Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        if disk is not None:
+            pulumi.set(__self__, "disk", disk)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @_builtins.property
+    @pulumi.getter
+    def disk(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk']:
+        """
+        Options for configuring a disk buffer. Cannot be used with `memory`.
+        """
+        return pulumi.get(self, "disk")
+
+    @_builtins.property
+    @pulumi.getter
+    def memory(self) -> Optional['outputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory']:
+        """
+        Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxSize":
+            suggest = "max_size"
+        elif key == "whenFull":
+            suggest = "when_full"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_size: Optional[_builtins.int] = None,
+                 when_full: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int max_size: Maximum size of the disk buffer (in bytes).
+        :param _builtins.str when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> Optional[_builtins.int]:
+        """
+        Maximum size of the disk buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> Optional[_builtins.str]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxEvents":
+            suggest = "max_events"
+        elif key == "maxSize":
+            suggest = "max_size"
+        elif key == "whenFull":
+            suggest = "when_full"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_events: Optional[_builtins.int] = None,
+                 max_size: Optional[_builtins.int] = None,
+                 when_full: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int max_events: Maximum events for the memory buffer.
+        :param _builtins.int max_size: Maximum size of the memory buffer (in bytes).
+        :param _builtins.str when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_events is not None:
+            pulumi.set(__self__, "max_events", max_events)
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEvents")
+    def max_events(self) -> Optional[_builtins.int]:
+        """
+        Maximum events for the memory buffer.
+        """
+        return pulumi.get(self, "max_events")
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> Optional[_builtins.int]:
+        """
+        Maximum size of the memory buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> Optional[_builtins.str]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigDestinationAzureDataExplorerCompression(dict):
+    def __init__(__self__, *,
+                 algorithm: _builtins.str,
+                 level: _builtins.int):
+        """
+        :param _builtins.str algorithm: Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+        :param _builtins.int level: Gzip compression level (1-9). Value must be between 1 and 9.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "level", level)
+
+    @_builtins.property
+    @pulumi.getter
+    def algorithm(self) -> _builtins.str:
+        """
+        Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.int:
+        """
+        Gzip compression level (1-9). Value must be between 1 and 9.
+        """
+        return pulumi.get(self, "level")
 
 
 @pulumi.output_type
@@ -127325,6 +128264,8 @@ class ObservabilityPipelineConfigProcessorGroupProcessorAggregate(dict):
         suggest = None
         if key == "intervalSecs":
             suggest = "interval_secs"
+        elif key == "aggregationTiming":
+            suggest = "aggregation_timing"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigProcessorGroupProcessorAggregate. Access the value via the '{suggest}' property getter instead.")
@@ -127339,13 +128280,17 @@ class ObservabilityPipelineConfigProcessorGroupProcessorAggregate(dict):
 
     def __init__(__self__, *,
                  interval_secs: _builtins.int,
-                 mode: _builtins.str):
+                 mode: _builtins.str,
+                 aggregation_timing: Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming'] = None):
         """
         :param _builtins.int interval_secs: The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
         :param _builtins.str mode: The aggregation mode. One of `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`. Valid values are `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`.
+        :param 'ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTimingArgs' aggregation_timing: Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
         """
         pulumi.set(__self__, "interval_secs", interval_secs)
         pulumi.set(__self__, "mode", mode)
+        if aggregation_timing is not None:
+            pulumi.set(__self__, "aggregation_timing", aggregation_timing)
 
     @_builtins.property
     @pulumi.getter(name="intervalSecs")
@@ -127362,6 +128307,61 @@ class ObservabilityPipelineConfigProcessorGroupProcessorAggregate(dict):
         The aggregation mode. One of `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`. Valid values are `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`.
         """
         return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter(name="aggregationTiming")
+    def aggregation_timing(self) -> Optional['outputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming']:
+        """
+        Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+        """
+        return pulumi.get(self, "aggregation_timing")
+
+
+@pulumi.output_type
+class ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedLatenessSecs":
+            suggest = "allowed_lateness_secs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 allowed_lateness_secs: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str type: Determines whether metrics are assigned to aggregation windows based on when they are processed (`system_time`) or their timestamps (`event_time`). Valid values are `system_time`, `event_time`.
+        :param _builtins.int allowed_lateness_secs: Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+        """
+        pulumi.set(__self__, "type", type)
+        if allowed_lateness_secs is not None:
+            pulumi.set(__self__, "allowed_lateness_secs", allowed_lateness_secs)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Determines whether metrics are assigned to aggregation windows based on when they are processed (`system_time`) or their timestamps (`event_time`). Valid values are `system_time`, `event_time`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedLatenessSecs")
+    def allowed_lateness_secs(self) -> Optional[_builtins.int]:
+        """
+        Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+        """
+        return pulumi.get(self, "allowed_lateness_secs")
 
 
 @pulumi.output_type
@@ -135197,6 +136197,8 @@ class OnCallTeamRoutingRulesRuleAction(dict):
         suggest = None
         if key == "escalationPolicy":
             suggest = "escalation_policy"
+        elif key == "rerouteToTeam":
+            suggest = "reroute_to_team"
         elif key == "sendSlackMessage":
             suggest = "send_slack_message"
         elif key == "sendTeamsMessage":
@@ -135217,11 +136219,17 @@ class OnCallTeamRoutingRulesRuleAction(dict):
 
     def __init__(__self__, *,
                  escalation_policy: Optional['outputs.OnCallTeamRoutingRulesRuleActionEscalationPolicy'] = None,
+                 reroute_to_team: Optional['outputs.OnCallTeamRoutingRulesRuleActionRerouteToTeam'] = None,
                  send_slack_message: Optional['outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage'] = None,
                  send_teams_message: Optional['outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage'] = None,
                  trigger_workflow_automation: Optional['outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation'] = None):
+        """
+        :param 'OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs' reroute_to_team: Reroutes the page to another team's routing rules. Can only be combined with `send_slack_message` or `send_teams_message` actions in the same rule.
+        """
         if escalation_policy is not None:
             pulumi.set(__self__, "escalation_policy", escalation_policy)
+        if reroute_to_team is not None:
+            pulumi.set(__self__, "reroute_to_team", reroute_to_team)
         if send_slack_message is not None:
             pulumi.set(__self__, "send_slack_message", send_slack_message)
         if send_teams_message is not None:
@@ -135233,6 +136241,14 @@ class OnCallTeamRoutingRulesRuleAction(dict):
     @pulumi.getter(name="escalationPolicy")
     def escalation_policy(self) -> Optional['outputs.OnCallTeamRoutingRulesRuleActionEscalationPolicy']:
         return pulumi.get(self, "escalation_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="rerouteToTeam")
+    def reroute_to_team(self) -> Optional['outputs.OnCallTeamRoutingRulesRuleActionRerouteToTeam']:
+        """
+        Reroutes the page to another team's routing rules. Can only be combined with `send_slack_message` or `send_teams_message` actions in the same rule.
+        """
+        return pulumi.get(self, "reroute_to_team")
 
     @_builtins.property
     @pulumi.getter(name="sendSlackMessage")
@@ -135446,6 +136462,42 @@ class OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction(di
         The time of day when the restriction begins (hh:mm:ss).
         """
         return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class OnCallTeamRoutingRulesRuleActionRerouteToTeam(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationTeamId":
+            suggest = "destination_team_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnCallTeamRoutingRulesRuleActionRerouteToTeam. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnCallTeamRoutingRulesRuleActionRerouteToTeam.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnCallTeamRoutingRulesRuleActionRerouteToTeam.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_team_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str destination_team_id: ID of the team to reroute the page to.
+        """
+        if destination_team_id is not None:
+            pulumi.set(__self__, "destination_team_id", destination_team_id)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTeamId")
+    def destination_team_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the team to reroute the page to.
+        """
+        return pulumi.get(self, "destination_team_id")
 
 
 @pulumi.output_type
@@ -139445,7 +140497,7 @@ class PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetBarChartDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -139482,7 +140534,7 @@ class PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -141619,7 +142671,7 @@ class PowerpackV2WidgetChangeDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetChangeDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -141656,7 +142708,7 @@ class PowerpackV2WidgetChangeDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -145288,7 +146340,7 @@ class PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQuery(dic
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -145325,7 +146377,7 @@ class PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEventQuery(dic
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -145900,7 +146952,7 @@ class PowerpackV2WidgetDistributionDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetDistributionDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -145937,7 +146989,7 @@ class PowerpackV2WidgetDistributionDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -149330,7 +150382,7 @@ class PowerpackV2WidgetGeomapDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -149367,7 +150419,7 @@ class PowerpackV2WidgetGeomapDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -152492,7 +153544,7 @@ class PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -152529,7 +153581,7 @@ class PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -154556,7 +155608,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQuery(di
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -154593,7 +155645,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEventQuery(di
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -155795,7 +156847,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -155832,7 +156884,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -157262,7 +158314,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -157299,7 +158351,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -159183,7 +160235,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -159220,7 +160272,7 @@ class PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -166555,7 +167607,7 @@ class PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -166592,7 +167644,7 @@ class PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -169369,7 +170421,7 @@ class PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -169406,7 +170458,7 @@ class PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -174585,7 +175637,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQue
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -174622,7 +175674,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQueryEventQue
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -176064,7 +177116,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -176101,7 +177153,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -177543,7 +178595,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -177580,7 +178632,7 @@ class PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -181631,7 +182683,7 @@ class PowerpackV2WidgetSunburstDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetSunburstDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -181668,7 +182720,7 @@ class PowerpackV2WidgetSunburstDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -185100,7 +186152,7 @@ class PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -185137,7 +186189,7 @@ class PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -187619,7 +188671,7 @@ class PowerpackV2WidgetToplistDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetToplistDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetToplistDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -187656,7 +188708,7 @@ class PowerpackV2WidgetToplistDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -190362,7 +191414,7 @@ class PowerpackV2WidgetTreemapDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetTreemapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -190399,7 +191451,7 @@ class PowerpackV2WidgetTreemapDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -192533,7 +193585,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEv
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -192570,7 +193622,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHistogramQueryEv
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -194171,7 +195223,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -194208,7 +195260,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQueryEventQuery
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -195866,7 +196918,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQuery(di
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -195903,7 +196955,7 @@ class PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEventQuery(di
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -249550,6 +250602,8 @@ class SyntheticsTestOptionsList(dict):
             suggest = "accept_self_signed"
         elif key == "allowInsecure":
             suggest = "allow_insecure"
+        elif key == "bitsAiAutoInvestigate":
+            suggest = "bits_ai_auto_investigate"
         elif key == "blockedRequestPatterns":
             suggest = "blocked_request_patterns"
         elif key == "captureNetworkPayloads":
@@ -249604,6 +250658,7 @@ class SyntheticsTestOptionsList(dict):
                  tick_every: _builtins.int,
                  accept_self_signed: Optional[_builtins.bool] = None,
                  allow_insecure: Optional[_builtins.bool] = None,
+                 bits_ai_auto_investigate: Optional[_builtins.bool] = None,
                  blocked_request_patterns: Optional[Sequence[_builtins.str]] = None,
                  capture_network_payloads: Optional[_builtins.bool] = None,
                  check_certificate_revocation: Optional[_builtins.bool] = None,
@@ -249630,6 +250685,7 @@ class SyntheticsTestOptionsList(dict):
         :param _builtins.int tick_every: How often the test should run (in seconds). Valid range is `30-604800` for API tests and `60-604800` for browser tests.
         :param _builtins.bool accept_self_signed: For SSL tests, whether or not the test should allow self signed certificates.
         :param _builtins.bool allow_insecure: Allows loading insecure content for a request in an API test or in a multistep API test step.
+        :param _builtins.bool bits_ai_auto_investigate: Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
         :param Sequence[_builtins.str] blocked_request_patterns: Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
         :param _builtins.bool capture_network_payloads: Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
         :param _builtins.bool check_certificate_revocation: For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
@@ -249655,6 +250711,8 @@ class SyntheticsTestOptionsList(dict):
             pulumi.set(__self__, "accept_self_signed", accept_self_signed)
         if allow_insecure is not None:
             pulumi.set(__self__, "allow_insecure", allow_insecure)
+        if bits_ai_auto_investigate is not None:
+            pulumi.set(__self__, "bits_ai_auto_investigate", bits_ai_auto_investigate)
         if blocked_request_patterns is not None:
             pulumi.set(__self__, "blocked_request_patterns", blocked_request_patterns)
         if capture_network_payloads is not None:
@@ -249723,6 +250781,14 @@ class SyntheticsTestOptionsList(dict):
         Allows loading insecure content for a request in an API test or in a multistep API test step.
         """
         return pulumi.get(self, "allow_insecure")
+
+    @_builtins.property
+    @pulumi.getter(name="bitsAiAutoInvestigate")
+    def bits_ai_auto_investigate(self) -> Optional[_builtins.bool]:
+        """
+        Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+        """
+        return pulumi.get(self, "bits_ai_auto_investigate")
 
     @_builtins.property
     @pulumi.getter(name="blockedRequestPatterns")
@@ -251856,13 +252922,34 @@ class TeamConnectionTeam(dict):
 
 @pulumi.output_type
 class TeamNotificationRuleEmail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recipientEmail":
+            suggest = "recipient_email"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamNotificationRuleEmail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamNotificationRuleEmail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamNotificationRuleEmail.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[_builtins.bool] = None):
+                 enabled: Optional[_builtins.bool] = None,
+                 recipient_email: Optional[_builtins.str] = None):
         """
         :param _builtins.bool enabled: Whether to send email notifications to team members when alerts are triggered.
+        :param _builtins.str recipient_email: A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if recipient_email is not None:
+            pulumi.set(__self__, "recipient_email", recipient_email)
 
     @_builtins.property
     @pulumi.getter
@@ -251871,6 +252958,14 @@ class TeamNotificationRuleEmail(dict):
         Whether to send email notifications to team members when alerts are triggered.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="recipientEmail")
+    def recipient_email(self) -> Optional[_builtins.str]:
+        """
+        A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+        """
+        return pulumi.get(self, "recipient_email")
 
 
 @pulumi.output_type
@@ -251943,6 +253038,25 @@ class TeamNotificationRulePagerduty(dict):
         PagerDuty service name to send incident notifications to. The service name can be found in your PagerDuty service settings.
         """
         return pulumi.get(self, "service_name")
+
+
+@pulumi.output_type
+class TeamNotificationRuleServicenow(dict):
+    def __init__(__self__, *,
+                 templates: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] templates: ServiceNow template handle names to use for notifications.
+        """
+        if templates is not None:
+            pulumi.set(__self__, "templates", templates)
+
+    @_builtins.property
+    @pulumi.getter
+    def templates(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        ServiceNow template handle names to use for notifications.
+        """
+        return pulumi.get(self, "templates")
 
 
 @pulumi.output_type
@@ -258893,6 +260007,7 @@ class GetSyntheticsTestOptionsListResult(dict):
     def __init__(__self__, *,
                  accept_self_signed: _builtins.bool,
                  allow_insecure: _builtins.bool,
+                 bits_ai_auto_investigate: _builtins.bool,
                  blocked_request_patterns: Sequence[_builtins.str],
                  capture_network_payloads: _builtins.bool,
                  check_certificate_revocation: _builtins.bool,
@@ -258919,6 +260034,7 @@ class GetSyntheticsTestOptionsListResult(dict):
         """
         :param _builtins.bool accept_self_signed: For SSL tests, whether or not the test should allow self signed certificates.
         :param _builtins.bool allow_insecure: Allows loading insecure content for a request in an API test or in a multistep API test step.
+        :param _builtins.bool bits_ai_auto_investigate: Whether Bits AI automatically investigates alerts from the test monitor.
         :param Sequence[_builtins.str] blocked_request_patterns: Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
         :param _builtins.bool capture_network_payloads: Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
         :param _builtins.bool check_certificate_revocation: For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
@@ -258945,6 +260061,7 @@ class GetSyntheticsTestOptionsListResult(dict):
         """
         pulumi.set(__self__, "accept_self_signed", accept_self_signed)
         pulumi.set(__self__, "allow_insecure", allow_insecure)
+        pulumi.set(__self__, "bits_ai_auto_investigate", bits_ai_auto_investigate)
         pulumi.set(__self__, "blocked_request_patterns", blocked_request_patterns)
         pulumi.set(__self__, "capture_network_payloads", capture_network_payloads)
         pulumi.set(__self__, "check_certificate_revocation", check_certificate_revocation)
@@ -258984,6 +260101,14 @@ class GetSyntheticsTestOptionsListResult(dict):
         Allows loading insecure content for a request in an API test or in a multistep API test step.
         """
         return pulumi.get(self, "allow_insecure")
+
+    @_builtins.property
+    @pulumi.getter(name="bitsAiAutoInvestigate")
+    def bits_ai_auto_investigate(self) -> _builtins.bool:
+        """
+        Whether Bits AI automatically investigates alerts from the test monitor.
+        """
+        return pulumi.get(self, "bits_ai_auto_investigate")
 
     @_builtins.property
     @pulumi.getter(name="blockedRequestPatterns")
@@ -259739,11 +260864,14 @@ class GetTeamMembershipsTeamMembershipResult(dict):
 @pulumi.output_type
 class GetTeamNotificationRuleEmailResult(dict):
     def __init__(__self__, *,
-                 enabled: _builtins.bool):
+                 enabled: _builtins.bool,
+                 recipient_email: _builtins.str):
         """
         :param _builtins.bool enabled: Flag indicating whether email notifications should be sent
+        :param _builtins.str recipient_email: Email address notifications are sent to instead of all team members
         """
         pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "recipient_email", recipient_email)
 
     @_builtins.property
     @pulumi.getter
@@ -259752,6 +260880,14 @@ class GetTeamNotificationRuleEmailResult(dict):
         Flag indicating whether email notifications should be sent
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="recipientEmail")
+    def recipient_email(self) -> _builtins.str:
+        """
+        Email address notifications are sent to instead of all team members
+        """
+        return pulumi.get(self, "recipient_email")
 
 
 @pulumi.output_type
@@ -259791,6 +260927,24 @@ class GetTeamNotificationRulePagerdutyResult(dict):
 
 
 @pulumi.output_type
+class GetTeamNotificationRuleServicenowResult(dict):
+    def __init__(__self__, *,
+                 templates: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] templates: ServiceNow template handle names
+        """
+        pulumi.set(__self__, "templates", templates)
+
+    @_builtins.property
+    @pulumi.getter
+    def templates(self) -> Sequence[_builtins.str]:
+        """
+        ServiceNow template handle names
+        """
+        return pulumi.get(self, "templates")
+
+
+@pulumi.output_type
 class GetTeamNotificationRuleSlackResult(dict):
     def __init__(__self__, *,
                  channel: _builtins.str,
@@ -259826,12 +260980,14 @@ class GetTeamNotificationRulesNotificationRuleResult(dict):
                  email: Optional['outputs.GetTeamNotificationRulesNotificationRuleEmailResult'] = None,
                  ms_teams: Optional['outputs.GetTeamNotificationRulesNotificationRuleMsTeamsResult'] = None,
                  pagerduty: Optional['outputs.GetTeamNotificationRulesNotificationRulePagerdutyResult'] = None,
+                 servicenow: Optional['outputs.GetTeamNotificationRulesNotificationRuleServicenowResult'] = None,
                  slack: Optional['outputs.GetTeamNotificationRulesNotificationRuleSlackResult'] = None):
         """
         :param _builtins.str id: The ID of the notification rule.
         :param 'GetTeamNotificationRulesNotificationRuleEmailArgs' email: The email notification settings.
         :param 'GetTeamNotificationRulesNotificationRuleMsTeamsArgs' ms_teams: The MS Teams notification settings.
         :param 'GetTeamNotificationRulesNotificationRulePagerdutyArgs' pagerduty: The PagerDuty notification settings.
+        :param 'GetTeamNotificationRulesNotificationRuleServicenowArgs' servicenow: The ServiceNow notification settings.
         :param 'GetTeamNotificationRulesNotificationRuleSlackArgs' slack: The Slack notification settings.
         """
         pulumi.set(__self__, "id", id)
@@ -259841,6 +260997,8 @@ class GetTeamNotificationRulesNotificationRuleResult(dict):
             pulumi.set(__self__, "ms_teams", ms_teams)
         if pagerduty is not None:
             pulumi.set(__self__, "pagerduty", pagerduty)
+        if servicenow is not None:
+            pulumi.set(__self__, "servicenow", servicenow)
         if slack is not None:
             pulumi.set(__self__, "slack", slack)
 
@@ -259878,6 +261036,14 @@ class GetTeamNotificationRulesNotificationRuleResult(dict):
 
     @_builtins.property
     @pulumi.getter
+    def servicenow(self) -> Optional['outputs.GetTeamNotificationRulesNotificationRuleServicenowResult']:
+        """
+        The ServiceNow notification settings.
+        """
+        return pulumi.get(self, "servicenow")
+
+    @_builtins.property
+    @pulumi.getter
     def slack(self) -> Optional['outputs.GetTeamNotificationRulesNotificationRuleSlackResult']:
         """
         The Slack notification settings.
@@ -259888,11 +261054,14 @@ class GetTeamNotificationRulesNotificationRuleResult(dict):
 @pulumi.output_type
 class GetTeamNotificationRulesNotificationRuleEmailResult(dict):
     def __init__(__self__, *,
-                 enabled: _builtins.bool):
+                 enabled: _builtins.bool,
+                 recipient_email: _builtins.str):
         """
         :param _builtins.bool enabled: Flag indicating whether email notifications should be sent.
+        :param _builtins.str recipient_email: Email address notifications are sent to instead of all team members.
         """
         pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "recipient_email", recipient_email)
 
     @_builtins.property
     @pulumi.getter
@@ -259901,6 +261070,14 @@ class GetTeamNotificationRulesNotificationRuleEmailResult(dict):
         Flag indicating whether email notifications should be sent.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="recipientEmail")
+    def recipient_email(self) -> _builtins.str:
+        """
+        Email address notifications are sent to instead of all team members.
+        """
+        return pulumi.get(self, "recipient_email")
 
 
 @pulumi.output_type
@@ -259937,6 +261114,24 @@ class GetTeamNotificationRulesNotificationRulePagerdutyResult(dict):
         PagerDuty service name.
         """
         return pulumi.get(self, "service_name")
+
+
+@pulumi.output_type
+class GetTeamNotificationRulesNotificationRuleServicenowResult(dict):
+    def __init__(__self__, *,
+                 templates: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] templates: ServiceNow template handle names.
+        """
+        pulumi.set(__self__, "templates", templates)
+
+    @_builtins.property
+    @pulumi.getter
+    def templates(self) -> Sequence[_builtins.str]:
+        """
+        ServiceNow template handle names.
+        """
+        return pulumi.get(self, "templates")
 
 
 @pulumi.output_type

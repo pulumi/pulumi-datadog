@@ -29,6 +29,11 @@ public final class GetSyntheticsTestOptionsList {
      */
     private Boolean allowInsecure;
     /**
+     * @return Whether Bits AI automatically investigates alerts from the test monitor.
+     * 
+     */
+    private Boolean bitsAiAutoInvestigate;
+    /**
      * @return Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
      * 
      */
@@ -162,6 +167,13 @@ public final class GetSyntheticsTestOptionsList {
      */
     public Boolean allowInsecure() {
         return this.allowInsecure;
+    }
+    /**
+     * @return Whether Bits AI automatically investigates alerts from the test monitor.
+     * 
+     */
+    public Boolean bitsAiAutoInvestigate() {
+        return this.bitsAiAutoInvestigate;
     }
     /**
      * @return Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
@@ -340,6 +352,7 @@ public final class GetSyntheticsTestOptionsList {
     public static final class Builder {
         private Boolean acceptSelfSigned;
         private Boolean allowInsecure;
+        private Boolean bitsAiAutoInvestigate;
         private List<String> blockedRequestPatterns;
         private Boolean captureNetworkPayloads;
         private Boolean checkCertificateRevocation;
@@ -368,6 +381,7 @@ public final class GetSyntheticsTestOptionsList {
     	      Objects.requireNonNull(defaults);
     	      this.acceptSelfSigned = defaults.acceptSelfSigned;
     	      this.allowInsecure = defaults.allowInsecure;
+    	      this.bitsAiAutoInvestigate = defaults.bitsAiAutoInvestigate;
     	      this.blockedRequestPatterns = defaults.blockedRequestPatterns;
     	      this.captureNetworkPayloads = defaults.captureNetworkPayloads;
     	      this.checkCertificateRevocation = defaults.checkCertificateRevocation;
@@ -407,6 +421,14 @@ public final class GetSyntheticsTestOptionsList {
               throw new MissingRequiredPropertyException("GetSyntheticsTestOptionsList", "allowInsecure");
             }
             this.allowInsecure = allowInsecure;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bitsAiAutoInvestigate(Boolean bitsAiAutoInvestigate) {
+            if (bitsAiAutoInvestigate == null) {
+              throw new MissingRequiredPropertyException("GetSyntheticsTestOptionsList", "bitsAiAutoInvestigate");
+            }
+            this.bitsAiAutoInvestigate = bitsAiAutoInvestigate;
             return this;
         }
         @CustomType.Setter
@@ -618,6 +640,7 @@ public final class GetSyntheticsTestOptionsList {
             final var _resultValue = new GetSyntheticsTestOptionsList();
             _resultValue.acceptSelfSigned = acceptSelfSigned;
             _resultValue.allowInsecure = allowInsecure;
+            _resultValue.bitsAiAutoInvestigate = bitsAiAutoInvestigate;
             _resultValue.blockedRequestPatterns = blockedRequestPatterns;
             _resultValue.captureNetworkPayloads = captureNetworkPayloads;
             _resultValue.checkCertificateRevocation = checkCertificateRevocation;

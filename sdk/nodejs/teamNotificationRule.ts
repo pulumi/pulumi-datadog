@@ -25,12 +25,16 @@ import * as utilities from "./utilities";
  *     teamId: foo.id,
  *     email: [{
  *         enabled: true,
+ *         recipientEmail: "team-alerts@example.com",
  *     }],
  *     msTeams: [{
  *         connectorName: "test-teams-handle",
  *     }],
  *     pagerduty: [{
  *         serviceName: "my-service",
+ *     }],
+ *     servicenow: [{
+ *         templates: ["incident-template"],
  *     }],
  *     slack: [{
  *         channel: "test-channel",
@@ -90,6 +94,10 @@ export class TeamNotificationRule extends pulumi.CustomResource {
      */
     declare public readonly pagerduty: pulumi.Output<outputs.TeamNotificationRulePagerduty | undefined>;
     /**
+     * The ServiceNow notification settings.
+     */
+    declare public readonly servicenow: pulumi.Output<outputs.TeamNotificationRuleServicenow | undefined>;
+    /**
      * The Slack notification settings.
      */
     declare public readonly slack: pulumi.Output<outputs.TeamNotificationRuleSlack | undefined>;
@@ -114,6 +122,7 @@ export class TeamNotificationRule extends pulumi.CustomResource {
             resourceInputs["email"] = state?.email;
             resourceInputs["msTeams"] = state?.msTeams;
             resourceInputs["pagerduty"] = state?.pagerduty;
+            resourceInputs["servicenow"] = state?.servicenow;
             resourceInputs["slack"] = state?.slack;
             resourceInputs["teamId"] = state?.teamId;
         } else {
@@ -124,6 +133,7 @@ export class TeamNotificationRule extends pulumi.CustomResource {
             resourceInputs["email"] = args?.email;
             resourceInputs["msTeams"] = args?.msTeams;
             resourceInputs["pagerduty"] = args?.pagerduty;
+            resourceInputs["servicenow"] = args?.servicenow;
             resourceInputs["slack"] = args?.slack;
             resourceInputs["teamId"] = args?.teamId;
         }
@@ -148,6 +158,10 @@ export interface TeamNotificationRuleState {
      * The PagerDuty notification settings.
      */
     pagerduty?: pulumi.Input<inputs.TeamNotificationRulePagerduty | undefined>;
+    /**
+     * The ServiceNow notification settings.
+     */
+    servicenow?: pulumi.Input<inputs.TeamNotificationRuleServicenow | undefined>;
     /**
      * The Slack notification settings.
      */
@@ -174,6 +188,10 @@ export interface TeamNotificationRuleArgs {
      * The PagerDuty notification settings.
      */
     pagerduty?: pulumi.Input<inputs.TeamNotificationRulePagerduty | undefined>;
+    /**
+     * The ServiceNow notification settings.
+     */
+    servicenow?: pulumi.Input<inputs.TeamNotificationRuleServicenow | undefined>;
     /**
      * The Slack notification settings.
      */

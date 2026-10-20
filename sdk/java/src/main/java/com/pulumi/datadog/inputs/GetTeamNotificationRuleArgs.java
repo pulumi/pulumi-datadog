@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.GetTeamNotificationRuleEmailArgs;
 import com.pulumi.datadog.inputs.GetTeamNotificationRuleMsTeamsArgs;
 import com.pulumi.datadog.inputs.GetTeamNotificationRulePagerdutyArgs;
+import com.pulumi.datadog.inputs.GetTeamNotificationRuleServicenowArgs;
 import com.pulumi.datadog.inputs.GetTeamNotificationRuleSlackArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -81,6 +82,21 @@ public final class GetTeamNotificationRuleArgs extends com.pulumi.resources.Invo
     }
 
     /**
+     * The ServiceNow notification settings.
+     * 
+     */
+    @Import(name="servicenow")
+    private @Nullable Output<GetTeamNotificationRuleServicenowArgs> servicenow;
+
+    /**
+     * @return The ServiceNow notification settings.
+     * 
+     */
+    public Optional<Output<GetTeamNotificationRuleServicenowArgs>> servicenow() {
+        return Optional.ofNullable(this.servicenow);
+    }
+
+    /**
      * The Slack notification settings.
      * 
      */
@@ -117,6 +133,7 @@ public final class GetTeamNotificationRuleArgs extends com.pulumi.resources.Invo
         this.msTeams = $.msTeams;
         this.pagerduty = $.pagerduty;
         this.ruleId = $.ruleId;
+        this.servicenow = $.servicenow;
         this.slack = $.slack;
         this.teamId = $.teamId;
     }
@@ -221,6 +238,27 @@ public final class GetTeamNotificationRuleArgs extends com.pulumi.resources.Invo
          */
         public Builder ruleId(String ruleId) {
             return ruleId(Output.of(ruleId));
+        }
+
+        /**
+         * @param servicenow The ServiceNow notification settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicenow(@Nullable Output<GetTeamNotificationRuleServicenowArgs> servicenow) {
+            $.servicenow = servicenow;
+            return this;
+        }
+
+        /**
+         * @param servicenow The ServiceNow notification settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicenow(GetTeamNotificationRuleServicenowArgs servicenow) {
+            return servicenow(Output.of(servicenow));
         }
 
         /**

@@ -18,6 +18,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// A single email address to send notifications to instead of all team members. Requires `Enabled` to be `True`. When omitted, notifications are sent to all team members.
+        /// </summary>
+        [Input("recipientEmail")]
+        public Input<string>? RecipientEmail { get; set; }
+
         public TeamNotificationRuleEmailArgs()
         {
         }

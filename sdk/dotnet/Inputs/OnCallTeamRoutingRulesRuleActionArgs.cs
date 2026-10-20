@@ -15,6 +15,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("escalationPolicy")]
         public Input<Inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs>? EscalationPolicy { get; set; }
 
+        /// <summary>
+        /// Reroutes the page to another team's routing rules. Can only be combined with `SendSlackMessage` or `SendTeamsMessage` actions in the same rule.
+        /// </summary>
+        [Input("rerouteToTeam")]
+        public Input<Inputs.OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs>? RerouteToTeam { get; set; }
+
         [Input("sendSlackMessage")]
         public Input<Inputs.OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs>? SendSlackMessage { get; set; }
 

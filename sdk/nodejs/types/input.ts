@@ -2316,7 +2316,7 @@ export interface DashboardV2WidgetBarChartDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -2953,7 +2953,7 @@ export interface DashboardV2WidgetChangeDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -4020,7 +4020,7 @@ export interface DashboardV2WidgetDistributionDefinitionRequestHistogramQueryEve
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -4207,7 +4207,7 @@ export interface DashboardV2WidgetDistributionDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -5204,7 +5204,7 @@ export interface DashboardV2WidgetGeomapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -6109,7 +6109,7 @@ export interface DashboardV2WidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -6702,7 +6702,7 @@ export interface DashboardV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEv
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -7063,7 +7063,7 @@ export interface DashboardV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQu
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -7494,7 +7494,7 @@ export interface DashboardV2WidgetHostmapDefinitionRequestFillQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -8058,7 +8058,7 @@ export interface DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -10342,7 +10342,7 @@ export interface DashboardV2WidgetQueryTableDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -11161,7 +11161,7 @@ export interface DashboardV2WidgetQueryValueDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -12689,7 +12689,7 @@ export interface DashboardV2WidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -13124,7 +13124,7 @@ export interface DashboardV2WidgetScatterplotDefinitionRequestXQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -13559,7 +13559,7 @@ export interface DashboardV2WidgetScatterplotDefinitionRequestYQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -14936,7 +14936,7 @@ export interface DashboardV2WidgetSunburstDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -15956,7 +15956,7 @@ export interface DashboardV2WidgetTimeseriesDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -16691,7 +16691,7 @@ export interface DashboardV2WidgetToplistDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -17486,7 +17486,7 @@ export interface DashboardV2WidgetTreemapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -18129,7 +18129,7 @@ export interface DashboardV2WidgetWildcardDefinitionRequestHistogramRequestHisto
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -18615,7 +18615,7 @@ export interface DashboardV2WidgetWildcardDefinitionRequestTimeseriesRequestQuer
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -19109,7 +19109,7 @@ export interface DashboardV2WidgetWildcardDefinitionRequestTreemapRequestQueryEv
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -28773,17 +28773,48 @@ export interface DeploymentGateRule {
 
 export interface DeploymentGateRuleOptions {
     /**
+     * Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+     */
+    allowedResources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
      * The duration for the rule.
      */
     duration?: pulumi.Input<number | undefined>;
     /**
-     * Resources to exclude from faulty deployment detection.
+     * Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
      */
     excludedResources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The query for monitor rules.
+     * Fail if a matching monitor group is in NO DATA state (API default: true).
+     */
+    failOnNoData?: pulumi.Input<boolean | undefined>;
+    /**
+     * Fail if no monitor groups are found (API default: false).
+     */
+    failOnNoGroupsFound?: pulumi.Input<boolean | undefined>;
+    /**
+     * Specific monitors to evaluate. Mutually exclusive with query.
+     */
+    monitorIds?: pulumi.Input<pulumi.Input<inputs.DeploymentGateRuleOptionsMonitorId>[] | undefined>;
+    /**
+     * A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
      */
     query?: pulumi.Input<string | undefined>;
+    /**
+     * Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+     */
+    warmup?: pulumi.Input<number | undefined>;
+}
+
+export interface DeploymentGateRuleOptionsMonitorId {
+    /**
+     * Exact group names to evaluate; an empty list evaluates all groups.
+     */
+    groups: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The monitor's decimal ID.
+     */
+    id: pulumi.Input<string>;
 }
 
 export interface DowntimeRecurrence {
@@ -30998,6 +31029,10 @@ export interface GetTeamNotificationRuleEmail {
      * Flag indicating whether email notifications should be sent
      */
     enabled?: boolean;
+    /**
+     * Email address notifications are sent to instead of all team members
+     */
+    recipientEmail?: string;
 }
 
 export interface GetTeamNotificationRuleEmailArgs {
@@ -31005,6 +31040,10 @@ export interface GetTeamNotificationRuleEmailArgs {
      * Flag indicating whether email notifications should be sent
      */
     enabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Email address notifications are sent to instead of all team members
+     */
+    recipientEmail?: pulumi.Input<string | undefined>;
 }
 
 export interface GetTeamNotificationRuleMsTeams {
@@ -31033,6 +31072,20 @@ export interface GetTeamNotificationRulePagerdutyArgs {
      * PagerDuty service name
      */
     serviceName?: pulumi.Input<string | undefined>;
+}
+
+export interface GetTeamNotificationRuleServicenow {
+    /**
+     * ServiceNow template handle names
+     */
+    templates?: string[];
+}
+
+export interface GetTeamNotificationRuleServicenowArgs {
+    /**
+     * ServiceNow template handle names
+     */
+    templates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetTeamNotificationRuleSlack {
@@ -31075,6 +31128,10 @@ export interface GetTeamNotificationRulesNotificationRule {
      */
     pagerduty?: inputs.GetTeamNotificationRulesNotificationRulePagerduty;
     /**
+     * The ServiceNow notification settings.
+     */
+    servicenow?: inputs.GetTeamNotificationRulesNotificationRuleServicenow;
+    /**
      * The Slack notification settings.
      */
     slack?: inputs.GetTeamNotificationRulesNotificationRuleSlack;
@@ -31098,6 +31155,10 @@ export interface GetTeamNotificationRulesNotificationRuleArgs {
      */
     pagerduty?: pulumi.Input<inputs.GetTeamNotificationRulesNotificationRulePagerdutyArgs | undefined>;
     /**
+     * The ServiceNow notification settings.
+     */
+    servicenow?: pulumi.Input<inputs.GetTeamNotificationRulesNotificationRuleServicenowArgs | undefined>;
+    /**
      * The Slack notification settings.
      */
     slack?: pulumi.Input<inputs.GetTeamNotificationRulesNotificationRuleSlackArgs | undefined>;
@@ -31108,6 +31169,10 @@ export interface GetTeamNotificationRulesNotificationRuleEmail {
      * Flag indicating whether email notifications should be sent.
      */
     enabled?: boolean;
+    /**
+     * Email address notifications are sent to instead of all team members.
+     */
+    recipientEmail?: string;
 }
 
 export interface GetTeamNotificationRulesNotificationRuleEmailArgs {
@@ -31115,6 +31180,10 @@ export interface GetTeamNotificationRulesNotificationRuleEmailArgs {
      * Flag indicating whether email notifications should be sent.
      */
     enabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Email address notifications are sent to instead of all team members.
+     */
+    recipientEmail?: pulumi.Input<string | undefined>;
 }
 
 export interface GetTeamNotificationRulesNotificationRuleMsTeams {
@@ -31143,6 +31212,20 @@ export interface GetTeamNotificationRulesNotificationRulePagerdutyArgs {
      * PagerDuty service name.
      */
     serviceName?: pulumi.Input<string | undefined>;
+}
+
+export interface GetTeamNotificationRulesNotificationRuleServicenow {
+    /**
+     * ServiceNow template handle names.
+     */
+    templates?: string[];
+}
+
+export interface GetTeamNotificationRulesNotificationRuleServicenowArgs {
+    /**
+     * ServiceNow template handle names.
+     */
+    templates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetTeamNotificationRulesNotificationRuleSlack {
@@ -34643,6 +34726,10 @@ export interface ObservabilityPipelineConfigDestination {
      */
     amazonSecurityLakes?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLake>[] | undefined>;
     /**
+     * The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+     */
+    azureDataExplorer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorer | undefined>;
+    /**
      * The `azureStorage` destination forwards logs to an Azure Blob Storage container.
      */
     azureStorages?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureStorage>[] | undefined>;
@@ -35150,6 +35237,217 @@ export interface ObservabilityPipelineConfigDestinationAmazonSecurityLakeTls {
      * Name of the environment variable or secret that holds the passphrase for the private key file.
      */
     keyPassKey?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorer {
+    /**
+     * Authentication configuration for Azure Data Explorer. Exactly one of `azureCli`, `clientSecret`, `clientCertificate`, `managedIdentity`, `managedIdentityClientAssertion`, or `workloadIdentity` must be specified.
+     */
+    auth: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuth>;
+    /**
+     * Event batching settings for Azure Data Explorer ingestion.
+     */
+    batch?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBatch | undefined>;
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer | undefined>;
+    /**
+     * Compression configuration for ingested data. Only `gzip` is supported.
+     */
+    compression?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerCompression | undefined>;
+    /**
+     * The name of the Azure Data Explorer database to ingest into. Supports template syntax.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * Name of the environment variable or secret that holds the Azure Data Explorer ingestion endpoint URL. Defaults to `DESTINATION_AZURE_DATA_EXPLORER_INGESTION_ENDPOINT`.
+     */
+    ingestionEndpointKey?: pulumi.Input<string | undefined>;
+    /**
+     * The name of a pre-created ingestion mapping on the table used to map incoming events to columns. Supports template syntax.
+     */
+    mappingReference?: pulumi.Input<string | undefined>;
+    /**
+     * The name of the Azure Data Explorer table to ingest into. Supports template syntax.
+     */
+    table: pulumi.Input<string>;
+    /**
+     * The OAuth scope requested when acquiring an access token for Azure Data Explorer. Defaults to `https://kusto.kusto.windows.net/.default`.
+     */
+    tokenScope?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuth {
+    /**
+     * Authenticate using the Azure CLI credentials available in the environment.
+     */
+    azureCli?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli | undefined>;
+    /**
+     * Authenticate using a Microsoft Entra application client certificate.
+     */
+    clientCertificate?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate | undefined>;
+    /**
+     * Authenticate using a Microsoft Entra application client secret.
+     */
+    clientSecret?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret | undefined>;
+    /**
+     * Authenticate using an Azure managed identity.
+     */
+    managedIdentity?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity | undefined>;
+    /**
+     * Authenticate using a managed identity as a client assertion for a Microsoft Entra application.
+     */
+    managedIdentityClientAssertion?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion | undefined>;
+    /**
+     * Authenticate using Azure Workload Identity (for example, on Kubernetes).
+     */
+    workloadIdentity?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthAzureCli {
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientCertificate {
+    /**
+     * The Microsoft Entra application (client) ID.
+     */
+    azureClientId: pulumi.Input<string>;
+    /**
+     * The Microsoft Entra tenant ID.
+     */
+    azureTenantId: pulumi.Input<string>;
+    /**
+     * Name of the environment variable or secret that holds the password for the client certificate.
+     */
+    certificatePasswordKey?: pulumi.Input<string | undefined>;
+    /**
+     * Path to the `.pfx` client certificate file on the Worker.
+     */
+    certificatePath: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthClientSecret {
+    /**
+     * The Microsoft Entra application (client) ID.
+     */
+    azureClientId: pulumi.Input<string>;
+    /**
+     * Name of the environment variable or secret that holds the Microsoft Entra application client secret.
+     */
+    azureClientSecretKey: pulumi.Input<string>;
+    /**
+     * The Microsoft Entra tenant ID.
+     */
+    azureTenantId: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentity {
+    /**
+     * The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+     */
+    userAssignedManagedIdentityId?: pulumi.Input<string | undefined>;
+    /**
+     * The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+     */
+    userAssignedManagedIdentityIdType?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthManagedIdentityClientAssertion {
+    /**
+     * The client ID of the Microsoft Entra application that trusts the managed identity.
+     */
+    clientAssertionClientId: pulumi.Input<string>;
+    /**
+     * The tenant ID of the Microsoft Entra application that trusts the managed identity.
+     */
+    clientAssertionTenantId: pulumi.Input<string>;
+    /**
+     * The ID of the user-assigned managed identity. If omitted, the system-assigned managed identity is used.
+     */
+    userAssignedManagedIdentityId?: pulumi.Input<string | undefined>;
+    /**
+     * The type of the user-assigned managed identity ID. Valid values are `clientId`, `objectId`, and `resourceId`. Valid values are `clientId`, `objectId`, `resourceId`.
+     */
+    userAssignedManagedIdentityIdType?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerAuthWorkloadIdentity {
+    /**
+     * The client ID of the Microsoft Entra application. If omitted, it is read from the environment.
+     */
+    clientId?: pulumi.Input<string | undefined>;
+    /**
+     * The Microsoft Entra tenant ID. If omitted, it is read from the environment.
+     */
+    tenantId?: pulumi.Input<string | undefined>;
+    /**
+     * Path to the federated token file. If omitted, it is read from the environment.
+     */
+    tokenFilePath?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerBatch {
+    /**
+     * Maximum batch size in bytes. Value must be between 1 and 4000000.
+     */
+    maxBytes?: pulumi.Input<number | undefined>;
+    /**
+     * Maximum number of events per batch before it is flushed. Value must be at least 1.
+     */
+    maxEvents?: pulumi.Input<number | undefined>;
+    /**
+     * Maximum number of seconds to wait before flushing a partial batch. Value must be at least 1.
+     */
+    timeoutSecs?: pulumi.Input<number | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk | undefined>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number | undefined>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number | undefined>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number | undefined>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAzureDataExplorerCompression {
+    /**
+     * Compression algorithm. Must be `gzip`. Valid values are `gzip`.
+     */
+    algorithm: pulumi.Input<string>;
+    /**
+     * Gzip compression level (1-9). Value must be between 1 and 9.
+     */
+    level: pulumi.Input<number>;
 }
 
 export interface ObservabilityPipelineConfigDestinationAzureStorage {
@@ -37522,6 +37820,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorAddMetricTags
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorAggregate {
     /**
+     * Configures how metrics are assigned to aggregation windows. When omitted, metrics are grouped using system time.
+     */
+    aggregationTiming?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming | undefined>;
+    /**
      * The interval, in seconds, over which metrics are aggregated. Must be between 1 and 60. Value must be between 1 and 60.
      */
     intervalSecs: pulumi.Input<number>;
@@ -37529,6 +37831,17 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorAggregate {
      * The aggregation mode. One of `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`. Valid values are `auto`, `sum`, `latest`, `count`, `max`, `min`, `mean`.
      */
     mode: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorAggregateAggregationTiming {
+    /**
+     * Grace period, in seconds, for late-arriving metrics when using event time. Defaults to 10 seconds when omitted. Value must be between 0 and 3600.
+     */
+    allowedLatenessSecs?: pulumi.Input<number | undefined>;
+    /**
+     * Determines whether metrics are assigned to aggregation windows based on when they are processed (`systemTime`) or their timestamps (`eventTime`). Valid values are `systemTime`, `eventTime`.
+     */
+    type: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessor {
@@ -39726,6 +40039,10 @@ export interface OnCallTeamRoutingRulesRule {
 
 export interface OnCallTeamRoutingRulesRuleAction {
     escalationPolicy?: pulumi.Input<inputs.OnCallTeamRoutingRulesRuleActionEscalationPolicy | undefined>;
+    /**
+     * Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+     */
+    rerouteToTeam?: pulumi.Input<inputs.OnCallTeamRoutingRulesRuleActionRerouteToTeam | undefined>;
     sendSlackMessage?: pulumi.Input<inputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage | undefined>;
     sendTeamsMessage?: pulumi.Input<inputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage | undefined>;
     triggerWorkflowAutomation?: pulumi.Input<inputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation | undefined>;
@@ -39775,6 +40092,13 @@ export interface OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRes
      * The time of day when the restriction begins (hh:mm:ss).
      */
     startTime?: pulumi.Input<string | undefined>;
+}
+
+export interface OnCallTeamRoutingRulesRuleActionRerouteToTeam {
+    /**
+     * ID of the team to reroute the page to.
+     */
+    destinationTeamId?: pulumi.Input<string | undefined>;
 }
 
 export interface OnCallTeamRoutingRulesRuleActionSendSlackMessage {
@@ -40941,7 +41265,7 @@ export interface PowerpackV2WidgetBarChartDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -41578,7 +41902,7 @@ export interface PowerpackV2WidgetChangeDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -42645,7 +42969,7 @@ export interface PowerpackV2WidgetDistributionDefinitionRequestHistogramQueryEve
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -42832,7 +43156,7 @@ export interface PowerpackV2WidgetDistributionDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -43829,7 +44153,7 @@ export interface PowerpackV2WidgetGeomapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -44734,7 +45058,7 @@ export interface PowerpackV2WidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -45327,7 +45651,7 @@ export interface PowerpackV2WidgetHostmapDefinitionRequestChildEnrichmentQueryEv
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -45688,7 +46012,7 @@ export interface PowerpackV2WidgetHostmapDefinitionRequestEnrichmentQueryEventQu
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -46119,7 +46443,7 @@ export interface PowerpackV2WidgetHostmapDefinitionRequestFillQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -46683,7 +47007,7 @@ export interface PowerpackV2WidgetHostmapDefinitionRequestSizeQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -48842,7 +49166,7 @@ export interface PowerpackV2WidgetQueryTableDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -49661,7 +49985,7 @@ export interface PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -51189,7 +51513,7 @@ export interface PowerpackV2WidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -51624,7 +51948,7 @@ export interface PowerpackV2WidgetScatterplotDefinitionRequestXQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -52059,7 +52383,7 @@ export interface PowerpackV2WidgetScatterplotDefinitionRequestYQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -53257,7 +53581,7 @@ export interface PowerpackV2WidgetSunburstDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -54277,7 +54601,7 @@ export interface PowerpackV2WidgetTimeseriesDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -55012,7 +55336,7 @@ export interface PowerpackV2WidgetToplistDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -55807,7 +56131,7 @@ export interface PowerpackV2WidgetTreemapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -56450,7 +56774,7 @@ export interface PowerpackV2WidgetWildcardDefinitionRequestHistogramRequestHisto
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -56936,7 +57260,7 @@ export interface PowerpackV2WidgetWildcardDefinitionRequestTimeseriesRequestQuer
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -57430,7 +57754,7 @@ export interface PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestQueryEv
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -72921,6 +73245,10 @@ export interface SyntheticsTestOptionsList {
      */
     allowInsecure?: pulumi.Input<boolean | undefined>;
     /**
+     * Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+     */
+    bitsAiAutoInvestigate?: pulumi.Input<boolean | undefined>;
+    /**
      * Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
      */
     blockedRequestPatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
@@ -73580,6 +73908,10 @@ export interface TeamNotificationRuleEmail {
      * Whether to send email notifications to team members when alerts are triggered.
      */
     enabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * A single email address to send notifications to instead of all team members. Requires `enabled` to be `true`. When omitted, notifications are sent to all team members.
+     */
+    recipientEmail?: pulumi.Input<string | undefined>;
 }
 
 export interface TeamNotificationRuleMsTeams {
@@ -73594,6 +73926,13 @@ export interface TeamNotificationRulePagerduty {
      * PagerDuty service name to send incident notifications to. The service name can be found in your PagerDuty service settings.
      */
     serviceName?: pulumi.Input<string | undefined>;
+}
+
+export interface TeamNotificationRuleServicenow {
+    /**
+     * ServiceNow template handle names to use for notifications.
+     */
+    templates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface TeamNotificationRuleSlack {

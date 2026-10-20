@@ -9,6 +9,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonOpe
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3Args;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonS3GenericArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAzureDataExplorerArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAzureStorageArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationClickhouseArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCloudPremArgs;
@@ -104,6 +105,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
      */
     public Optional<Output<List<ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs>>> amazonSecurityLakes() {
         return Optional.ofNullable(this.amazonSecurityLakes);
+    }
+
+    /**
+     * The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+     * 
+     */
+    @Import(name="azureDataExplorer")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationAzureDataExplorerArgs> azureDataExplorer;
+
+    /**
+     * @return The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationAzureDataExplorerArgs>> azureDataExplorer() {
+        return Optional.ofNullable(this.azureDataExplorer);
     }
 
     /**
@@ -518,6 +534,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         this.amazonS3Generic = $.amazonS3Generic;
         this.amazonS3s = $.amazonS3s;
         this.amazonSecurityLakes = $.amazonSecurityLakes;
+        this.azureDataExplorer = $.azureDataExplorer;
         this.azureStorages = $.azureStorages;
         this.clickhouse = $.clickhouse;
         this.cloudPrem = $.cloudPrem;
@@ -677,6 +694,27 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
          */
         public Builder amazonSecurityLakes(ObservabilityPipelineConfigDestinationAmazonSecurityLakeArgs... amazonSecurityLakes) {
             return amazonSecurityLakes(List.of(amazonSecurityLakes));
+        }
+
+        /**
+         * @param azureDataExplorer The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureDataExplorer(@Nullable Output<ObservabilityPipelineConfigDestinationAzureDataExplorerArgs> azureDataExplorer) {
+            $.azureDataExplorer = azureDataExplorer;
+            return this;
+        }
+
+        /**
+         * @param azureDataExplorer The `azureDataExplorer` destination sends log events to an Azure Data Explorer table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureDataExplorer(ObservabilityPipelineConfigDestinationAzureDataExplorerArgs azureDataExplorer) {
+            return azureDataExplorer(Output.of(azureDataExplorer));
         }
 
         /**

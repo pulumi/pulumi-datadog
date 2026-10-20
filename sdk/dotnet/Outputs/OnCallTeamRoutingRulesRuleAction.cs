@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class OnCallTeamRoutingRulesRuleAction
     {
         public readonly Outputs.OnCallTeamRoutingRulesRuleActionEscalationPolicy? EscalationPolicy;
+        /// <summary>
+        /// Reroutes the page to another team's routing rules. Can only be combined with `SendSlackMessage` or `SendTeamsMessage` actions in the same rule.
+        /// </summary>
+        public readonly Outputs.OnCallTeamRoutingRulesRuleActionRerouteToTeam? RerouteToTeam;
         public readonly Outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage? SendSlackMessage;
         public readonly Outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage? SendTeamsMessage;
         public readonly Outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation? TriggerWorkflowAutomation;
@@ -22,6 +26,8 @@ namespace Pulumi.Datadog.Outputs
         private OnCallTeamRoutingRulesRuleAction(
             Outputs.OnCallTeamRoutingRulesRuleActionEscalationPolicy? escalationPolicy,
 
+            Outputs.OnCallTeamRoutingRulesRuleActionRerouteToTeam? rerouteToTeam,
+
             Outputs.OnCallTeamRoutingRulesRuleActionSendSlackMessage? sendSlackMessage,
 
             Outputs.OnCallTeamRoutingRulesRuleActionSendTeamsMessage? sendTeamsMessage,
@@ -29,6 +35,7 @@ namespace Pulumi.Datadog.Outputs
             Outputs.OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation? triggerWorkflowAutomation)
         {
             EscalationPolicy = escalationPolicy;
+            RerouteToTeam = rerouteToTeam;
             SendSlackMessage = sendSlackMessage;
             SendTeamsMessage = sendTeamsMessage;
             TriggerWorkflowAutomation = triggerWorkflowAutomation;

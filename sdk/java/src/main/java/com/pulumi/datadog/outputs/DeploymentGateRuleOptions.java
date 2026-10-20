@@ -4,6 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DeploymentGateRuleOptionsMonitorId;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -14,22 +16,54 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DeploymentGateRuleOptions {
     /**
+     * @return Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+     * 
+     */
+    private @Nullable List<String> allowedResources;
+    /**
      * @return The duration for the rule.
      * 
      */
     private @Nullable Integer duration;
     /**
-     * @return Resources to exclude from faulty deployment detection.
+     * @return Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
      * 
      */
     private @Nullable List<String> excludedResources;
     /**
-     * @return The query for monitor rules.
+     * @return Fail if a matching monitor group is in NO DATA state (API default: true).
+     * 
+     */
+    private @Nullable Boolean failOnNoData;
+    /**
+     * @return Fail if no monitor groups are found (API default: false).
+     * 
+     */
+    private @Nullable Boolean failOnNoGroupsFound;
+    /**
+     * @return Specific monitors to evaluate. Mutually exclusive with query.
+     * 
+     */
+    private @Nullable List<DeploymentGateRuleOptionsMonitorId> monitorIds;
+    /**
+     * @return A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
      * 
      */
     private @Nullable String query;
+    /**
+     * @return Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+     * 
+     */
+    private @Nullable Integer warmup;
 
     private DeploymentGateRuleOptions() {}
+    /**
+     * @return Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+     * 
+     */
+    public List<String> allowedResources() {
+        return this.allowedResources == null ? List.of() : this.allowedResources;
+    }
     /**
      * @return The duration for the rule.
      * 
@@ -38,18 +72,46 @@ public final class DeploymentGateRuleOptions {
         return Optional.ofNullable(this.duration);
     }
     /**
-     * @return Resources to exclude from faulty deployment detection.
+     * @return Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
      * 
      */
     public List<String> excludedResources() {
         return this.excludedResources == null ? List.of() : this.excludedResources;
     }
     /**
-     * @return The query for monitor rules.
+     * @return Fail if a matching monitor group is in NO DATA state (API default: true).
+     * 
+     */
+    public Optional<Boolean> failOnNoData() {
+        return Optional.ofNullable(this.failOnNoData);
+    }
+    /**
+     * @return Fail if no monitor groups are found (API default: false).
+     * 
+     */
+    public Optional<Boolean> failOnNoGroupsFound() {
+        return Optional.ofNullable(this.failOnNoGroupsFound);
+    }
+    /**
+     * @return Specific monitors to evaluate. Mutually exclusive with query.
+     * 
+     */
+    public List<DeploymentGateRuleOptionsMonitorId> monitorIds() {
+        return this.monitorIds == null ? List.of() : this.monitorIds;
+    }
+    /**
+     * @return A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
      * 
      */
     public Optional<String> query() {
         return Optional.ofNullable(this.query);
+    }
+    /**
+     * @return Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+     * 
+     */
+    public Optional<Integer> warmup() {
+        return Optional.ofNullable(this.warmup);
     }
 
     public static Builder builder() {
@@ -61,17 +123,36 @@ public final class DeploymentGateRuleOptions {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> allowedResources;
         private @Nullable Integer duration;
         private @Nullable List<String> excludedResources;
+        private @Nullable Boolean failOnNoData;
+        private @Nullable Boolean failOnNoGroupsFound;
+        private @Nullable List<DeploymentGateRuleOptionsMonitorId> monitorIds;
         private @Nullable String query;
+        private @Nullable Integer warmup;
         public Builder() {}
         public Builder(DeploymentGateRuleOptions defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allowedResources = defaults.allowedResources;
     	      this.duration = defaults.duration;
     	      this.excludedResources = defaults.excludedResources;
+    	      this.failOnNoData = defaults.failOnNoData;
+    	      this.failOnNoGroupsFound = defaults.failOnNoGroupsFound;
+    	      this.monitorIds = defaults.monitorIds;
     	      this.query = defaults.query;
+    	      this.warmup = defaults.warmup;
         }
 
+        @CustomType.Setter
+        public Builder allowedResources(@Nullable List<String> allowedResources) {
+
+            this.allowedResources = allowedResources;
+            return this;
+        }
+        public Builder allowedResources(String... allowedResources) {
+            return allowedResources(List.of(allowedResources));
+        }
         @CustomType.Setter
         public Builder duration(@Nullable Integer duration) {
 
@@ -88,16 +169,48 @@ public final class DeploymentGateRuleOptions {
             return excludedResources(List.of(excludedResources));
         }
         @CustomType.Setter
+        public Builder failOnNoData(@Nullable Boolean failOnNoData) {
+
+            this.failOnNoData = failOnNoData;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder failOnNoGroupsFound(@Nullable Boolean failOnNoGroupsFound) {
+
+            this.failOnNoGroupsFound = failOnNoGroupsFound;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder monitorIds(@Nullable List<DeploymentGateRuleOptionsMonitorId> monitorIds) {
+
+            this.monitorIds = monitorIds;
+            return this;
+        }
+        public Builder monitorIds(DeploymentGateRuleOptionsMonitorId... monitorIds) {
+            return monitorIds(List.of(monitorIds));
+        }
+        @CustomType.Setter
         public Builder query(@Nullable String query) {
 
             this.query = query;
             return this;
         }
+        @CustomType.Setter
+        public Builder warmup(@Nullable Integer warmup) {
+
+            this.warmup = warmup;
+            return this;
+        }
         public DeploymentGateRuleOptions build() {
             final var _resultValue = new DeploymentGateRuleOptions();
+            _resultValue.allowedResources = allowedResources;
             _resultValue.duration = duration;
             _resultValue.excludedResources = excludedResources;
+            _resultValue.failOnNoData = failOnNoData;
+            _resultValue.failOnNoGroupsFound = failOnNoGroupsFound;
+            _resultValue.monitorIds = monitorIds;
             _resultValue.query = query;
+            _resultValue.warmup = warmup;
             return _resultValue;
         }
     }

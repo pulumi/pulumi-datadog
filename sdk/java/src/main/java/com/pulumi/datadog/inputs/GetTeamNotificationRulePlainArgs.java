@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.GetTeamNotificationRuleEmail;
 import com.pulumi.datadog.inputs.GetTeamNotificationRuleMsTeams;
 import com.pulumi.datadog.inputs.GetTeamNotificationRulePagerduty;
+import com.pulumi.datadog.inputs.GetTeamNotificationRuleServicenow;
 import com.pulumi.datadog.inputs.GetTeamNotificationRuleSlack;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -80,6 +81,21 @@ public final class GetTeamNotificationRulePlainArgs extends com.pulumi.resources
     }
 
     /**
+     * The ServiceNow notification settings.
+     * 
+     */
+    @Import(name="servicenow")
+    private @Nullable GetTeamNotificationRuleServicenow servicenow;
+
+    /**
+     * @return The ServiceNow notification settings.
+     * 
+     */
+    public Optional<GetTeamNotificationRuleServicenow> servicenow() {
+        return Optional.ofNullable(this.servicenow);
+    }
+
+    /**
      * The Slack notification settings.
      * 
      */
@@ -116,6 +132,7 @@ public final class GetTeamNotificationRulePlainArgs extends com.pulumi.resources
         this.msTeams = $.msTeams;
         this.pagerduty = $.pagerduty;
         this.ruleId = $.ruleId;
+        this.servicenow = $.servicenow;
         this.slack = $.slack;
         this.teamId = $.teamId;
     }
@@ -179,6 +196,17 @@ public final class GetTeamNotificationRulePlainArgs extends com.pulumi.resources
          */
         public Builder ruleId(String ruleId) {
             $.ruleId = ruleId;
+            return this;
+        }
+
+        /**
+         * @param servicenow The ServiceNow notification settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicenow(@Nullable GetTeamNotificationRuleServicenow servicenow) {
+            $.servicenow = servicenow;
             return this;
         }
 

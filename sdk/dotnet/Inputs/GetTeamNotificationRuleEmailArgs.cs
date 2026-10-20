@@ -18,6 +18,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Email address notifications are sent to instead of all team members
+        /// </summary>
+        [Input("recipientEmail", required: true)]
+        public Input<string> RecipientEmail { get; set; } = null!;
+
         public GetTeamNotificationRuleEmailInputArgs()
         {
         }

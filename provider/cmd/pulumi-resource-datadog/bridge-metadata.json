@@ -43176,8 +43176,21 @@
                             "fields": {
                                 "options": {
                                     "fields": {
+                                        "allowed_resources": {
+                                            "maxItemsOne": false
+                                        },
                                         "excluded_resources": {
                                             "maxItemsOne": false
+                                        },
+                                        "monitor_ids": {
+                                            "maxItemsOne": false,
+                                            "elem": {
+                                                "fields": {
+                                                    "groups": {
+                                                        "maxItemsOne": false
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -44876,6 +44889,57 @@
                                                     }
                                                 }
                                             },
+                                            "azure_data_explorer": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "auth": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "azure_cli": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "client_certificate": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "client_secret": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "managed_identity": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "managed_identity_client_assertion": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "workload_identity": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "batch": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "compression": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
                                             "azure_storage": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -45532,7 +45596,14 @@
                                                             }
                                                         },
                                                         "aggregate": {
-                                                            "maxItemsOne": true
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "aggregation_timing": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
                                                         },
                                                         "custom_processor": {
                                                             "maxItemsOne": true,
@@ -75159,7 +75230,16 @@
             },
             "datadog_team_notification_rule": {
                 "current": "datadog:index/teamNotificationRule:TeamNotificationRule",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "servicenow": {
+                        "fields": {
+                            "templates": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
             },
             "datadog_team_permission_setting": {
                 "current": "datadog:index/teamPermissionSetting:TeamPermissionSetting",
@@ -76586,14 +76666,34 @@
             },
             "datadog_team_notification_rule": {
                 "current": "datadog:index/getTeamNotificationRule:getTeamNotificationRule",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "servicenow": {
+                        "fields": {
+                            "templates": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
             },
             "datadog_team_notification_rules": {
                 "current": "datadog:index/getTeamNotificationRules:getTeamNotificationRules",
                 "majorVersion": 5,
                 "fields": {
                     "notification_rules": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "servicenow": {
+                                    "fields": {
+                                        "templates": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },

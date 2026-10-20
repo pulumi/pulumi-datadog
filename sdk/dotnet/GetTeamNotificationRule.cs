@@ -118,6 +118,12 @@ namespace Pulumi.Datadog
         public string RuleId { get; set; } = null!;
 
         /// <summary>
+        /// The ServiceNow notification settings.
+        /// </summary>
+        [Input("servicenow")]
+        public Inputs.GetTeamNotificationRuleServicenowArgs? Servicenow { get; set; }
+
+        /// <summary>
         /// The Slack notification settings.
         /// </summary>
         [Input("slack")]
@@ -162,6 +168,12 @@ namespace Pulumi.Datadog
         public Input<string> RuleId { get; set; } = null!;
 
         /// <summary>
+        /// The ServiceNow notification settings.
+        /// </summary>
+        [Input("servicenow")]
+        public Input<Inputs.GetTeamNotificationRuleServicenowInputArgs>? Servicenow { get; set; }
+
+        /// <summary>
         /// The Slack notification settings.
         /// </summary>
         [Input("slack")]
@@ -204,6 +216,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string RuleId;
         /// <summary>
+        /// The ServiceNow notification settings.
+        /// </summary>
+        public readonly Outputs.GetTeamNotificationRuleServicenowResult? Servicenow;
+        /// <summary>
         /// The Slack notification settings.
         /// </summary>
         public readonly Outputs.GetTeamNotificationRuleSlackResult? Slack;
@@ -224,6 +240,8 @@ namespace Pulumi.Datadog
 
             string ruleId,
 
+            Outputs.GetTeamNotificationRuleServicenowResult? servicenow,
+
             Outputs.GetTeamNotificationRuleSlackResult? slack,
 
             string teamId)
@@ -233,6 +251,7 @@ namespace Pulumi.Datadog
             MsTeams = msTeams;
             Pagerduty = pagerduty;
             RuleId = ruleId;
+            Servicenow = servicenow;
             Slack = slack;
             TeamId = teamId;
         }

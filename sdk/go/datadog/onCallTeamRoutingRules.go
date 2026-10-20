@@ -109,6 +109,26 @@ import (
 //						},
 //					},
 //					&datadog.OnCallTeamRoutingRulesRuleArgs{
+//						Query: pulumi.String("tags.service:checkout"),
+//						Actions: datadog.OnCallTeamRoutingRulesRuleActionArray{
+//							&datadog.OnCallTeamRoutingRulesRuleActionArgs{
+//								RerouteToTeam: datadog.OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{
+//									map[string]string{
+//										"destinationTeamId": "00000000-aba2-0000-0000-000000000001",
+//									},
+//								},
+//							},
+//							&datadog.OnCallTeamRoutingRulesRuleActionArgs{
+//								SendSlackMessage: datadog.OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{
+//									map[string]string{
+//										"workspace": "workspace",
+//										"channel":   "channel",
+//									},
+//								},
+//							},
+//						},
+//					},
+//					&datadog.OnCallTeamRoutingRulesRuleArgs{
 //						EscalationPolicy: pulumi.String("00000000-aba2-0000-0000-000000000000"),
 //						Urgency:          pulumi.String("dynamic"),
 //					},

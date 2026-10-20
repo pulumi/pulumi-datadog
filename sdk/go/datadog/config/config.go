@@ -11,7 +11,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+// Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
 func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:apiKey")
 }
@@ -21,7 +21,7 @@ func GetApiUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:apiUrl")
 }
 
-// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+// Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
 func GetAppKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:appKey")
 }
@@ -96,12 +96,17 @@ func GetIgnoreTagKeys(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:ignoreTagKeys")
 }
 
-// The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+// The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 func GetOrgUuid(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:orgUuid")
 }
 
-// Enables validation of the provided API key during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, apiKey won't be checked.
+// Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
 func GetValidate(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:validate")
+}
+
+// Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloudProviderType take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
+func GetWorkloadIdentityTokenTag(ctx *pulumi.Context) string {
+	return config.Get(ctx, "datadog:workloadIdentityTokenTag")
 }

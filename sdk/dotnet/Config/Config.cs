@@ -34,7 +34,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _apiKey = new __Value<string?>(() => __config.Get("apiKey"));
         /// <summary>
-        /// (Required unless validate is false) Datadog API key. This can also be set via the DD_API_KEY environment variable.
+        /// Datadog API key. Required when `Validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
         /// </summary>
         public static string? ApiKey
         {
@@ -54,7 +54,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _appKey = new __Value<string?>(() => __config.Get("appKey"));
         /// <summary>
-        /// (Required unless validate is false) Datadog APP key. This can also be set via the DD_APP_KEY environment variable.
+        /// Datadog application key. Required when `Validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
         /// </summary>
         public static string? AppKey
         {
@@ -204,7 +204,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _orgUuid = new __Value<string?>(() => __config.Get("orgUuid"));
         /// <summary>
-        /// The organization UUID; used for cloud-provider-based authentication. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        /// The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         /// </summary>
         public static string? OrgUuid
         {
@@ -214,12 +214,22 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _validate = new __Value<string?>(() => __config.Get("validate"));
         /// <summary>
-        /// Enables validation of the provided API key during provider initialization. Valid values are [`True`, `False`]. Default is true. When false, ApiKey won't be checked.
+        /// Enables credential validation during provider initialization. Valid values are [`True`, `False`]. Default is true. When false, initial credential validation is skipped.
         /// </summary>
         public static string? Validate
         {
             get => _validate.Get();
             set => _validate.Set(value);
+        }
+
+        private static readonly __Value<string?> _workloadIdentityTokenTag = new __Value<string?>(() => __config.Get("workloadIdentityTokenTag"));
+        /// <summary>
+        /// Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or CloudProviderType take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
+        /// </summary>
+        public static string? WorkloadIdentityTokenTag
+        {
+            get => _workloadIdentityTokenTag.Get();
+            set => _workloadIdentityTokenTag.Set(value);
         }
 
         public static class Types

@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLake> AmazonSecurityLakes;
         /// <summary>
+        /// The `AzureDataExplorer` destination sends log events to an Azure Data Explorer table.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAzureDataExplorer? AzureDataExplorer;
+        /// <summary>
         /// The `AzureStorage` destination forwards logs to an Azure Blob Storage container.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAzureStorage> AzureStorages;
@@ -148,6 +152,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAmazonSecurityLake> amazonSecurityLakes,
 
+            Outputs.ObservabilityPipelineConfigDestinationAzureDataExplorer? azureDataExplorer,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationAzureStorage> azureStorages,
 
             Outputs.ObservabilityPipelineConfigDestinationClickhouse? clickhouse,
@@ -206,6 +212,7 @@ namespace Pulumi.Datadog.Outputs
             AmazonS3Generic = amazonS3Generic;
             AmazonS3s = amazonS3s;
             AmazonSecurityLakes = amazonSecurityLakes;
+            AzureDataExplorer = azureDataExplorer;
             AzureStorages = azureStorages;
             Clickhouse = clickhouse;
             CloudPrem = cloudPrem;

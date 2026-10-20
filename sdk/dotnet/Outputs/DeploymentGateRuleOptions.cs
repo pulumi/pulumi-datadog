@@ -14,29 +14,64 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DeploymentGateRuleOptions
     {
         /// <summary>
+        /// Resources to include in faulty deployment detection. Mutually exclusive with excluded_resources.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedResources;
+        /// <summary>
         /// The duration for the rule.
         /// </summary>
         public readonly int? Duration;
         /// <summary>
-        /// Resources to exclude from faulty deployment detection.
+        /// Resources to exclude from faulty deployment detection. Mutually exclusive with allowed_resources.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedResources;
         /// <summary>
-        /// The query for monitor rules.
+        /// Fail if a matching monitor group is in NO DATA state (API default: true).
+        /// </summary>
+        public readonly bool? FailOnNoData;
+        /// <summary>
+        /// Fail if no monitor groups are found (API default: false).
+        /// </summary>
+        public readonly bool? FailOnNoGroupsFound;
+        /// <summary>
+        /// Specific monitors to evaluate. Mutually exclusive with query.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DeploymentGateRuleOptionsMonitorId> MonitorIds;
+        /// <summary>
+        /// A query that selects the monitors to evaluate. Mutually exclusive with monitor_ids.
         /// </summary>
         public readonly string? Query;
+        /// <summary>
+        /// Seconds to wait after deployment starts before evaluating monitors (API default: 0).
+        /// </summary>
+        public readonly int? Warmup;
 
         [OutputConstructor]
         private DeploymentGateRuleOptions(
+            ImmutableArray<string> allowedResources,
+
             int? duration,
 
             ImmutableArray<string> excludedResources,
 
-            string? query)
+            bool? failOnNoData,
+
+            bool? failOnNoGroupsFound,
+
+            ImmutableArray<Outputs.DeploymentGateRuleOptionsMonitorId> monitorIds,
+
+            string? query,
+
+            int? warmup)
         {
+            AllowedResources = allowedResources;
             Duration = duration;
             ExcludedResources = excludedResources;
+            FailOnNoData = failOnNoData;
+            FailOnNoGroupsFound = failOnNoGroupsFound;
+            MonitorIds = monitorIds;
             Query = query;
+            Warmup = warmup;
         }
     }
 }

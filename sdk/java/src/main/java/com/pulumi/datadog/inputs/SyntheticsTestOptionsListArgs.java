@@ -55,6 +55,21 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+     * 
+     */
+    @Import(name="bitsAiAutoInvestigate")
+    private @Nullable Output<Boolean> bitsAiAutoInvestigate;
+
+    /**
+     * @return Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+     * 
+     */
+    public Optional<Output<Boolean>> bitsAiAutoInvestigate() {
+        return Optional.ofNullable(this.bitsAiAutoInvestigate);
+    }
+
+    /**
      * Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
      * 
      */
@@ -388,6 +403,7 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
     private SyntheticsTestOptionsListArgs(SyntheticsTestOptionsListArgs $) {
         this.acceptSelfSigned = $.acceptSelfSigned;
         this.allowInsecure = $.allowInsecure;
+        this.bitsAiAutoInvestigate = $.bitsAiAutoInvestigate;
         this.blockedRequestPatterns = $.blockedRequestPatterns;
         this.captureNetworkPayloads = $.captureNetworkPayloads;
         this.checkCertificateRevocation = $.checkCertificateRevocation;
@@ -471,6 +487,27 @@ public final class SyntheticsTestOptionsListArgs extends com.pulumi.resources.Re
          */
         public Builder allowInsecure(Boolean allowInsecure) {
             return allowInsecure(Output.of(allowInsecure));
+        }
+
+        /**
+         * @param bitsAiAutoInvestigate Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bitsAiAutoInvestigate(@Nullable Output<Boolean> bitsAiAutoInvestigate) {
+            $.bitsAiAutoInvestigate = bitsAiAutoInvestigate;
+            return this;
+        }
+
+        /**
+         * @param bitsAiAutoInvestigate Whether Bits AI automatically investigates alerts from the test monitor. When omitted, the current value is left unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bitsAiAutoInvestigate(Boolean bitsAiAutoInvestigate) {
+            return bitsAiAutoInvestigate(Output.of(bitsAiAutoInvestigate));
         }
 
         /**

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 
 
@@ -29,10 +30,26 @@ public final class GetTeamNotificationRulesNotificationRuleEmailArgs extends com
         return this.enabled;
     }
 
+    /**
+     * Email address notifications are sent to instead of all team members.
+     * 
+     */
+    @Import(name="recipientEmail", required=true)
+    private Output<String> recipientEmail;
+
+    /**
+     * @return Email address notifications are sent to instead of all team members.
+     * 
+     */
+    public Output<String> recipientEmail() {
+        return this.recipientEmail;
+    }
+
     private GetTeamNotificationRulesNotificationRuleEmailArgs() {}
 
     private GetTeamNotificationRulesNotificationRuleEmailArgs(GetTeamNotificationRulesNotificationRuleEmailArgs $) {
         this.enabled = $.enabled;
+        this.recipientEmail = $.recipientEmail;
     }
 
     public static Builder builder() {
@@ -74,9 +91,33 @@ public final class GetTeamNotificationRulesNotificationRuleEmailArgs extends com
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param recipientEmail Email address notifications are sent to instead of all team members.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recipientEmail(Output<String> recipientEmail) {
+            $.recipientEmail = recipientEmail;
+            return this;
+        }
+
+        /**
+         * @param recipientEmail Email address notifications are sent to instead of all team members.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recipientEmail(String recipientEmail) {
+            return recipientEmail(Output.of(recipientEmail));
+        }
+
         public GetTeamNotificationRulesNotificationRuleEmailArgs build() {
             if ($.enabled == null) {
                 throw new MissingRequiredPropertyException("GetTeamNotificationRulesNotificationRuleEmailArgs", "enabled");
+            }
+            if ($.recipientEmail == null) {
+                throw new MissingRequiredPropertyException("GetTeamNotificationRulesNotificationRuleEmailArgs", "recipientEmail");
             }
             return $;
         }

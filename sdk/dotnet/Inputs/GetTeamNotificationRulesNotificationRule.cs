@@ -37,6 +37,12 @@ namespace Pulumi.Datadog.Inputs
         public Inputs.GetTeamNotificationRulesNotificationRulePagerdutyArgs? Pagerduty { get; set; }
 
         /// <summary>
+        /// The ServiceNow notification settings.
+        /// </summary>
+        [Input("servicenow")]
+        public Inputs.GetTeamNotificationRulesNotificationRuleServicenowArgs? Servicenow { get; set; }
+
+        /// <summary>
         /// The Slack notification settings.
         /// </summary>
         [Input("slack")]
