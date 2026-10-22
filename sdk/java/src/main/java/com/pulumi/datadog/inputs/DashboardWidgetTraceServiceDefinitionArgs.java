@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetTraceServiceDefinitionTimeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class DashboardWidgetTraceServiceDefinitionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DashboardWidgetTraceServiceDefinitionArgs Empty = new DashboardWidgetTraceServiceDefinitionArgs();
+
+    /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
 
     /**
      * The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
@@ -213,6 +229,21 @@ public final class DashboardWidgetTraceServiceDefinitionArgs extends com.pulumi.
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetTraceServiceDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetTraceServiceDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -260,6 +291,7 @@ public final class DashboardWidgetTraceServiceDefinitionArgs extends com.pulumi.
     private DashboardWidgetTraceServiceDefinitionArgs() {}
 
     private DashboardWidgetTraceServiceDefinitionArgs(DashboardWidgetTraceServiceDefinitionArgs $) {
+        this.description = $.description;
         this.displayFormat = $.displayFormat;
         this.env = $.env;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
@@ -273,6 +305,7 @@ public final class DashboardWidgetTraceServiceDefinitionArgs extends com.pulumi.
         this.showResourceList = $.showResourceList;
         this.sizeFormat = $.sizeFormat;
         this.spanName = $.spanName;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -294,6 +327,27 @@ public final class DashboardWidgetTraceServiceDefinitionArgs extends com.pulumi.
 
         public Builder(DashboardWidgetTraceServiceDefinitionArgs defaults) {
             $ = new DashboardWidgetTraceServiceDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**
@@ -567,6 +621,27 @@ public final class DashboardWidgetTraceServiceDefinitionArgs extends com.pulumi.
          */
         public Builder spanName(String spanName) {
             return spanName(Output.of(spanName));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetTraceServiceDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetTraceServiceDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

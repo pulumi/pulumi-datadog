@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetChangeDefinitionRequest
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
@@ -25,13 +25,16 @@ namespace Pulumi.Datadog.Outputs
         /// Choose from when to compare current data to. Valid values are `HourBefore`, `DayBefore`, `WeekBefore`, `MonthBefore`.
         /// </summary>
         public readonly string? CompareTo;
+        /// <summary>
+        /// A list of formulas to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequestFormula> Formulas;
         /// <summary>
         /// A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
         /// </summary>
         public readonly bool? IncreaseGood;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
@@ -43,20 +46,23 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? OrderDir;
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetChangeDefinitionRequestProcessQuery? ProcessQuery;
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// A list of queries to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetChangeDefinitionRequestQuery> Queries;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>

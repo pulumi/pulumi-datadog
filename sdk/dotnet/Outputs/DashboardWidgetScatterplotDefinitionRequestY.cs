@@ -14,31 +14,39 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetScatterplotDefinitionRequestY
     {
         /// <summary>
-        /// Aggregator used for the request. Valid values are `Avg`, `Last`, `Max`, `Min`, `Sum`, `Percentile`.
+        /// Aggregator used for the request. Valid values are `Avg`, `Min`, `Max`, `Sum`, `Last`, `Area`, `L2norm`, `Percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// A list of formulas to use in the widget.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestYFormula> Formulas;
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequestYProcessQuery? ProcessQuery;
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly string? Q;
         /// <summary>
-        /// The query to use for this widget.
+        /// A list of queries to use in the widget.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestYQuery> Queries;
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
 
@@ -48,11 +56,15 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetApmQuery? apmQuery,
 
+            ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestYFormula> formulas,
+
             Outputs.DashboardWidgetLogQuery? logQuery,
 
             Outputs.DashboardWidgetScatterplotDefinitionRequestYProcessQuery? processQuery,
 
             string? q,
+
+            ImmutableArray<Outputs.DashboardWidgetScatterplotDefinitionRequestYQuery> queries,
 
             Outputs.DashboardWidgetRumQuery? rumQuery,
 
@@ -60,9 +72,11 @@ namespace Pulumi.Datadog.Outputs
         {
             Aggregator = aggregator;
             ApmQuery = apmQuery;
+            Formulas = formulas;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
         }

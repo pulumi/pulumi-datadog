@@ -18,14 +18,14 @@ public final class DashboardTemplateVariableArgs extends com.pulumi.resources.Re
     public static final DashboardTemplateVariableArgs Empty = new DashboardTemplateVariableArgs();
 
     /**
-     * The list of values that the template variable drop-down is be limited to
+     * The list of values that the template variable drop-down is limited to.
      * 
      */
     @Import(name="availableValues")
     private @Nullable Output<List<String>> availableValues;
 
     /**
-     * @return The list of values that the template variable drop-down is be limited to
+     * @return The list of values that the template variable drop-down is limited to.
      * 
      */
     public Optional<Output<List<String>>> availableValues() {
@@ -100,6 +100,21 @@ public final class DashboardTemplateVariableArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.prefix);
     }
 
+    /**
+     * The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+     * 
+     */
+    @Import(name="type")
+    private @Nullable Output<String> type;
+
+    /**
+     * @return The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+     * 
+     */
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
+    }
+
     private DashboardTemplateVariableArgs() {}
 
     private DashboardTemplateVariableArgs(DashboardTemplateVariableArgs $) {
@@ -108,6 +123,7 @@ public final class DashboardTemplateVariableArgs extends com.pulumi.resources.Re
         this.defaults = $.defaults;
         this.name = $.name;
         this.prefix = $.prefix;
+        this.type = $.type;
     }
 
     public static Builder builder() {
@@ -129,7 +145,7 @@ public final class DashboardTemplateVariableArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableValues The list of values that the template variable drop-down is be limited to
+         * @param availableValues The list of values that the template variable drop-down is limited to.
          * 
          * @return builder
          * 
@@ -140,7 +156,7 @@ public final class DashboardTemplateVariableArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableValues The list of values that the template variable drop-down is be limited to
+         * @param availableValues The list of values that the template variable drop-down is limited to.
          * 
          * @return builder
          * 
@@ -150,7 +166,7 @@ public final class DashboardTemplateVariableArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableValues The list of values that the template variable drop-down is be limited to
+         * @param availableValues The list of values that the template variable drop-down is limited to.
          * 
          * @return builder
          * 
@@ -259,6 +275,27 @@ public final class DashboardTemplateVariableArgs extends com.pulumi.resources.Re
          */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
+        }
+
+        /**
+         * @param type The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(@Nullable Output<String> type) {
+            $.type = type;
+            return this;
+        }
+
+        /**
+         * @param type The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(String type) {
+            return type(Output.of(type));
         }
 
         public DashboardTemplateVariableArgs build() {

@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetApmQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetLogQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionRequestAuditQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionRequestComparison;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionRequestProcessQuery;
@@ -22,74 +23,130 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetQueryValueDefinitionRequest {
     /**
-     * @return The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregator to use for time aggregation. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     private @Nullable String aggregator;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetApmQuery apmQuery;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetQueryValueDefinitionRequestAuditQuery auditQuery;
+    /**
+     * @return A change indicator that compares the current value to a historical period.
+     * 
+     */
+    private @Nullable DashboardWidgetQueryValueDefinitionRequestComparison comparison;
     /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats;
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetQueryValueDefinitionRequestFormula> formulas;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetLogQuery logQuery;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetQueryValueDefinitionRequestProcessQuery processQuery;
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable String q;
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetQueryValueDefinitionRequestQuery> queries;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetSecurityQuery securityQuery;
 
     private DashboardWidgetQueryValueDefinitionRequest() {}
     /**
-     * @return The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregator to use for time aggregation. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetQueryValueDefinitionRequestAuditQuery> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
+    }
+    /**
+     * @return A change indicator that compares the current value to a historical period.
+     * 
+     */
+    public Optional<DashboardWidgetQueryValueDefinitionRequestComparison> comparison() {
+        return Optional.ofNullable(this.comparison);
     }
     /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
@@ -98,44 +155,72 @@ public final class DashboardWidgetQueryValueDefinitionRequest {
     public List<DashboardWidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats() {
         return this.conditionalFormats == null ? List.of() : this.conditionalFormats;
     }
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     public List<DashboardWidgetQueryValueDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetQueryValueDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     public List<DashboardWidgetQueryValueDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -152,6 +237,7 @@ public final class DashboardWidgetQueryValueDefinitionRequest {
         private @Nullable String aggregator;
         private @Nullable DashboardWidgetApmQuery apmQuery;
         private @Nullable DashboardWidgetQueryValueDefinitionRequestAuditQuery auditQuery;
+        private @Nullable DashboardWidgetQueryValueDefinitionRequestComparison comparison;
         private @Nullable List<DashboardWidgetQueryValueDefinitionRequestConditionalFormat> conditionalFormats;
         private @Nullable List<DashboardWidgetQueryValueDefinitionRequestFormula> formulas;
         private @Nullable DashboardWidgetLogQuery logQuery;
@@ -166,6 +252,7 @@ public final class DashboardWidgetQueryValueDefinitionRequest {
     	      this.aggregator = defaults.aggregator;
     	      this.apmQuery = defaults.apmQuery;
     	      this.auditQuery = defaults.auditQuery;
+    	      this.comparison = defaults.comparison;
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulas = defaults.formulas;
     	      this.logQuery = defaults.logQuery;
@@ -192,6 +279,12 @@ public final class DashboardWidgetQueryValueDefinitionRequest {
         public Builder auditQuery(@Nullable DashboardWidgetQueryValueDefinitionRequestAuditQuery auditQuery) {
 
             this.auditQuery = auditQuery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder comparison(@Nullable DashboardWidgetQueryValueDefinitionRequestComparison comparison) {
+
+            this.comparison = comparison;
             return this;
         }
         @CustomType.Setter
@@ -256,6 +349,7 @@ public final class DashboardWidgetQueryValueDefinitionRequest {
             _resultValue.aggregator = aggregator;
             _resultValue.apmQuery = apmQuery;
             _resultValue.auditQuery = auditQuery;
+            _resultValue.comparison = comparison;
             _resultValue.conditionalFormats = conditionalFormats;
             _resultValue.formulas = formulas;
             _resultValue.logQuery = logQuery;

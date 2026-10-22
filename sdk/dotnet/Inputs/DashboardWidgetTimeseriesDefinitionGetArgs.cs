@@ -67,7 +67,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? LegendLayout { get; set; }
 
         /// <summary>
-        /// The size of the legend displayed in the widget.
+        /// The size of the legend displayed in the widget. Valid values are `0`, `2`, `4`, `8`, `16`, `Auto`.
         /// </summary>
         [Input("legendSize")]
         public Input<string>? LegendSize { get; set; }
@@ -113,6 +113,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("showLegend")]
         public Input<bool>? ShowLegend { get; set; }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetTimeseriesDefinitionTimeGetArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.

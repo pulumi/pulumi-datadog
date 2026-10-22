@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetQueryValueDefinitionTimeseriesBackground {
     /**
-     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `area`, `bars`.
      * 
      */
     private String type;
@@ -26,7 +26,7 @@ public final class DashboardWidgetQueryValueDefinitionTimeseriesBackground {
 
     private DashboardWidgetQueryValueDefinitionTimeseriesBackground() {}
     /**
-     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `area`, `bars`.
      * 
      */
     public String type() {

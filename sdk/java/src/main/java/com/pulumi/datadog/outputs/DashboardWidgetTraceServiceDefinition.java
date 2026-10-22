@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetTraceServiceDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetTraceServiceDefinition {
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
     /**
      * @return The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
      * 
@@ -79,6 +85,11 @@ public final class DashboardWidgetTraceServiceDefinition {
      */
     private String spanName;
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetTraceServiceDefinitionTime time;
+    /**
      * @return The title of the widget.
      * 
      */
@@ -95,6 +106,13 @@ public final class DashboardWidgetTraceServiceDefinition {
     private @Nullable String titleSize;
 
     private DashboardWidgetTraceServiceDefinition() {}
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return The number of columns to display. Valid values are `oneColumn`, `twoColumn`, `threeColumn`.
      * 
@@ -187,6 +205,13 @@ public final class DashboardWidgetTraceServiceDefinition {
         return this.spanName;
     }
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetTraceServiceDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
      * @return The title of the widget.
      * 
      */
@@ -217,6 +242,7 @@ public final class DashboardWidgetTraceServiceDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private @Nullable String displayFormat;
         private String env;
         private @Nullable Boolean hideIncompleteCostData;
@@ -230,12 +256,14 @@ public final class DashboardWidgetTraceServiceDefinition {
         private @Nullable Boolean showResourceList;
         private @Nullable String sizeFormat;
         private String spanName;
+        private @Nullable DashboardWidgetTraceServiceDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
         public Builder() {}
         public Builder(DashboardWidgetTraceServiceDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.displayFormat = defaults.displayFormat;
     	      this.env = defaults.env;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
@@ -249,11 +277,18 @@ public final class DashboardWidgetTraceServiceDefinition {
     	      this.showResourceList = defaults.showResourceList;
     	      this.sizeFormat = defaults.sizeFormat;
     	      this.spanName = defaults.spanName;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder displayFormat(@Nullable String displayFormat) {
 
@@ -339,6 +374,12 @@ public final class DashboardWidgetTraceServiceDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetTraceServiceDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -358,6 +399,7 @@ public final class DashboardWidgetTraceServiceDefinition {
         }
         public DashboardWidgetTraceServiceDefinition build() {
             final var _resultValue = new DashboardWidgetTraceServiceDefinition();
+            _resultValue.description = description;
             _resultValue.displayFormat = displayFormat;
             _resultValue.env = env;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
@@ -371,6 +413,7 @@ public final class DashboardWidgetTraceServiceDefinition {
             _resultValue.showResourceList = showResourceList;
             _resultValue.sizeFormat = sizeFormat;
             _resultValue.spanName = spanName;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

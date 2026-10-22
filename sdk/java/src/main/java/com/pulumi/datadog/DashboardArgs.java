@@ -39,6 +39,21 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A list of dashboard lists this dashboard should be removed from. Internal only.
+     * 
+     */
+    @Import(name="dashboardListsRemoveds")
+    private @Nullable Output<List<Integer>> dashboardListsRemoveds;
+
+    /**
+     * @return A list of dashboard lists this dashboard should be removed from. Internal only.
+     * 
+     */
+    public Optional<Output<List<Integer>>> dashboardListsRemoveds() {
+        return Optional.ofNullable(this.dashboardListsRemoveds);
+    }
+
+    /**
      * The description of the dashboard.
      * 
      */
@@ -122,14 +137,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * UUIDs of roles whose associated users are authorized to edit the dashboard.
+     * A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
      * 
      */
     @Import(name="restrictedRoles")
     private @Nullable Output<List<String>> restrictedRoles;
 
     /**
-     * @return UUIDs of roles whose associated users are authorized to edit the dashboard.
+     * @return A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
      * 
      */
     public Optional<Output<List<String>>> restrictedRoles() {
@@ -137,14 +152,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of tabs for organizing widgets on the dashboard.
+     * List of tabs for organizing widgets.
      * 
      */
     @Import(name="tabs")
     private @Nullable Output<List<DashboardTabArgs>> tabs;
 
     /**
-     * @return The list of tabs for organizing widgets on the dashboard.
+     * @return List of tabs for organizing widgets.
      * 
      */
     public Optional<Output<List<DashboardTabArgs>>> tabs() {
@@ -227,6 +242,21 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+     * 
+     */
+    @Import(name="validate")
+    private @Nullable Output<Boolean> validate;
+
+    /**
+     * @return Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+     * 
+     */
+    public Optional<Output<Boolean>> validate() {
+        return Optional.ofNullable(this.validate);
+    }
+
+    /**
      * The list of widgets to display on the dashboard.
      * 
      */
@@ -245,6 +275,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
 
     private DashboardArgs(DashboardArgs $) {
         this.dashboardLists = $.dashboardLists;
+        this.dashboardListsRemoveds = $.dashboardListsRemoveds;
         this.description = $.description;
         this.isReadOnly = $.isReadOnly;
         this.layoutType = $.layoutType;
@@ -257,6 +288,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         this.templateVariables = $.templateVariables;
         this.title = $.title;
         this.url = $.url;
+        this.validate = $.validate;
         this.widgets = $.widgets;
     }
 
@@ -307,6 +339,37 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dashboardLists(Integer... dashboardLists) {
             return dashboardLists(List.of(dashboardLists));
+        }
+
+        /**
+         * @param dashboardListsRemoveds A list of dashboard lists this dashboard should be removed from. Internal only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dashboardListsRemoveds(@Nullable Output<List<Integer>> dashboardListsRemoveds) {
+            $.dashboardListsRemoveds = dashboardListsRemoveds;
+            return this;
+        }
+
+        /**
+         * @param dashboardListsRemoveds A list of dashboard lists this dashboard should be removed from. Internal only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dashboardListsRemoveds(List<Integer> dashboardListsRemoveds) {
+            return dashboardListsRemoveds(Output.of(dashboardListsRemoveds));
+        }
+
+        /**
+         * @param dashboardListsRemoveds A list of dashboard lists this dashboard should be removed from. Internal only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dashboardListsRemoveds(Integer... dashboardListsRemoveds) {
+            return dashboardListsRemoveds(List.of(dashboardListsRemoveds));
         }
 
         /**
@@ -433,7 +496,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restrictedRoles UUIDs of roles whose associated users are authorized to edit the dashboard.
+         * @param restrictedRoles A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
          * 
          * @return builder
          * 
@@ -444,7 +507,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restrictedRoles UUIDs of roles whose associated users are authorized to edit the dashboard.
+         * @param restrictedRoles A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
          * 
          * @return builder
          * 
@@ -454,7 +517,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restrictedRoles UUIDs of roles whose associated users are authorized to edit the dashboard.
+         * @param restrictedRoles A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
          * 
          * @return builder
          * 
@@ -464,7 +527,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tabs The list of tabs for organizing widgets on the dashboard.
+         * @param tabs List of tabs for organizing widgets.
          * 
          * @return builder
          * 
@@ -475,7 +538,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tabs The list of tabs for organizing widgets on the dashboard.
+         * @param tabs List of tabs for organizing widgets.
          * 
          * @return builder
          * 
@@ -485,7 +548,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tabs The list of tabs for organizing widgets on the dashboard.
+         * @param tabs List of tabs for organizing widgets.
          * 
          * @return builder
          * 
@@ -627,6 +690,27 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder url(String url) {
             return url(Output.of(url));
+        }
+
+        /**
+         * @param validate Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validate(@Nullable Output<Boolean> validate) {
+            $.validate = validate;
+            return this;
+        }
+
+        /**
+         * @param validate Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `true`. Setting this to `false` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validate(Boolean validate) {
+            return validate(Output.of(validate));
         }
 
         /**

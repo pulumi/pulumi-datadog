@@ -16,6 +16,21 @@ public final class DashboardWidgetToplistDefinitionRequestStyleArgs extends com.
     public static final DashboardWidgetToplistDefinitionRequestStyleArgs Empty = new DashboardWidgetToplistDefinitionRequestStyleArgs();
 
     /**
+     * How to order series. Valid values are `tags`, `values`.
+     * 
+     */
+    @Import(name="orderBy")
+    private @Nullable Output<String> orderBy;
+
+    /**
+     * @return How to order series. Valid values are `tags`, `values`.
+     * 
+     */
+    public Optional<Output<String>> orderBy() {
+        return Optional.ofNullable(this.orderBy);
+    }
+
+    /**
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      * 
      */
@@ -33,6 +48,7 @@ public final class DashboardWidgetToplistDefinitionRequestStyleArgs extends com.
     private DashboardWidgetToplistDefinitionRequestStyleArgs() {}
 
     private DashboardWidgetToplistDefinitionRequestStyleArgs(DashboardWidgetToplistDefinitionRequestStyleArgs $) {
+        this.orderBy = $.orderBy;
         this.palette = $.palette;
     }
 
@@ -52,6 +68,27 @@ public final class DashboardWidgetToplistDefinitionRequestStyleArgs extends com.
 
         public Builder(DashboardWidgetToplistDefinitionRequestStyleArgs defaults) {
             $ = new DashboardWidgetToplistDefinitionRequestStyleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param orderBy How to order series. Valid values are `tags`, `values`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orderBy(@Nullable Output<String> orderBy) {
+            $.orderBy = orderBy;
+            return this;
+        }
+
+        /**
+         * @param orderBy How to order series. Valid values are `tags`, `values`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orderBy(String orderBy) {
+            return orderBy(Output.of(orderBy));
         }
 
         /**

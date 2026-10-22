@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetImageDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetImageDefinition {
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
     /**
      * @return Whether to display a background or not. Defaults to `true`.
      * 
@@ -24,10 +30,20 @@ public final class DashboardWidgetImageDefinition {
      */
     private @Nullable Boolean hasBorder;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
      * @return The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
      * 
      */
     private @Nullable String horizontalAlign;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
     /**
      * @return The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
      * 
@@ -39,12 +55,32 @@ public final class DashboardWidgetImageDefinition {
      */
     private @Nullable String sizing;
     /**
-     * @return The URL to use as a data source for the widget.
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetImageDefinitionTime time;
+    /**
+     * @return The title of the widget.
+     * 
+     */
+    private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    private @Nullable String titleSize;
+    /**
+     * @return URL of the image.
      * 
      */
     private String url;
     /**
-     * @return The URL in dark mode to use as a data source for the widget.
+     * @return URL of the image in dark mode.
      * 
      */
     private @Nullable String urlDarkTheme;
@@ -55,6 +91,13 @@ public final class DashboardWidgetImageDefinition {
     private @Nullable String verticalAlign;
 
     private DashboardWidgetImageDefinition() {}
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return Whether to display a background or not. Defaults to `true`.
      * 
@@ -70,11 +113,25 @@ public final class DashboardWidgetImageDefinition {
         return Optional.ofNullable(this.hasBorder);
     }
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
      * @return The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
      * 
      */
     public Optional<String> horizontalAlign() {
         return Optional.ofNullable(this.horizontalAlign);
+    }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
     }
     /**
      * @return The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
@@ -91,14 +148,42 @@ public final class DashboardWidgetImageDefinition {
         return Optional.ofNullable(this.sizing);
     }
     /**
-     * @return The URL to use as a data source for the widget.
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetImageDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
+     * @return The title of the widget.
+     * 
+     */
+    public Optional<String> title() {
+        return Optional.ofNullable(this.title);
+    }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    public Optional<String> titleAlign() {
+        return Optional.ofNullable(this.titleAlign);
+    }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    public Optional<String> titleSize() {
+        return Optional.ofNullable(this.titleSize);
+    }
+    /**
+     * @return URL of the image.
      * 
      */
     public String url() {
         return this.url;
     }
     /**
-     * @return The URL in dark mode to use as a data source for the widget.
+     * @return URL of the image in dark mode.
      * 
      */
     public Optional<String> urlDarkTheme() {
@@ -121,27 +206,47 @@ public final class DashboardWidgetImageDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private @Nullable Boolean hasBackground;
         private @Nullable Boolean hasBorder;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String horizontalAlign;
+        private @Nullable String liveSpan;
         private @Nullable String margin;
         private @Nullable String sizing;
+        private @Nullable DashboardWidgetImageDefinitionTime time;
+        private @Nullable String title;
+        private @Nullable String titleAlign;
+        private @Nullable String titleSize;
         private String url;
         private @Nullable String urlDarkTheme;
         private @Nullable String verticalAlign;
         public Builder() {}
         public Builder(DashboardWidgetImageDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.hasBackground = defaults.hasBackground;
     	      this.hasBorder = defaults.hasBorder;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.horizontalAlign = defaults.horizontalAlign;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.margin = defaults.margin;
     	      this.sizing = defaults.sizing;
+    	      this.time = defaults.time;
+    	      this.title = defaults.title;
+    	      this.titleAlign = defaults.titleAlign;
+    	      this.titleSize = defaults.titleSize;
     	      this.url = defaults.url;
     	      this.urlDarkTheme = defaults.urlDarkTheme;
     	      this.verticalAlign = defaults.verticalAlign;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder hasBackground(@Nullable Boolean hasBackground) {
 
@@ -155,9 +260,21 @@ public final class DashboardWidgetImageDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
         public Builder horizontalAlign(@Nullable String horizontalAlign) {
 
             this.horizontalAlign = horizontalAlign;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
@@ -170,6 +287,30 @@ public final class DashboardWidgetImageDefinition {
         public Builder sizing(@Nullable String sizing) {
 
             this.sizing = sizing;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetImageDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder title(@Nullable String title) {
+
+            this.title = title;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder titleAlign(@Nullable String titleAlign) {
+
+            this.titleAlign = titleAlign;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder titleSize(@Nullable String titleSize) {
+
+            this.titleSize = titleSize;
             return this;
         }
         @CustomType.Setter
@@ -194,11 +335,18 @@ public final class DashboardWidgetImageDefinition {
         }
         public DashboardWidgetImageDefinition build() {
             final var _resultValue = new DashboardWidgetImageDefinition();
+            _resultValue.description = description;
             _resultValue.hasBackground = hasBackground;
             _resultValue.hasBorder = hasBorder;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.horizontalAlign = horizontalAlign;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.margin = margin;
             _resultValue.sizing = sizing;
+            _resultValue.time = time;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
             _resultValue.url = url;
             _resultValue.urlDarkTheme = urlDarkTheme;
             _resultValue.verticalAlign = verticalAlign;

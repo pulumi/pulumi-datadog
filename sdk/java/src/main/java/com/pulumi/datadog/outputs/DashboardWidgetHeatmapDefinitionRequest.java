@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetApmQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionRequestFormula;
+import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionRequestHistogramRequest;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionRequestQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionRequestStyle;
@@ -21,36 +22,73 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetHeatmapDefinitionRequest {
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetApmQuery apmQuery;
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetHeatmapDefinitionRequestFormula> formulas;
     /**
-     * @return The query to use for this widget.
+     * @return Histogram request for distribution of point values.
      * 
      */
+    private @Nullable DashboardWidgetHeatmapDefinitionRequestHistogramRequest histogramRequest;
+    /**
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetLogQuery logQuery;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetHeatmapDefinitionRequestProcessQuery processQuery;
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable String q;
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetHeatmapDefinitionRequestQuery> queries;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetSecurityQuery securityQuery;
     /**
      * @return The style of the widget graph. One nested block is allowed using the structure below.
@@ -60,50 +98,89 @@ public final class DashboardWidgetHeatmapDefinitionRequest {
 
     private DashboardWidgetHeatmapDefinitionRequest() {}
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     public List<DashboardWidgetHeatmapDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
     /**
-     * @return The query to use for this widget.
+     * @return Histogram request for distribution of point values.
      * 
      */
+    public Optional<DashboardWidgetHeatmapDefinitionRequestHistogramRequest> histogramRequest() {
+        return Optional.ofNullable(this.histogramRequest);
+    }
+    /**
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetHeatmapDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     public List<DashboardWidgetHeatmapDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -126,6 +203,7 @@ public final class DashboardWidgetHeatmapDefinitionRequest {
     public static final class Builder {
         private @Nullable DashboardWidgetApmQuery apmQuery;
         private @Nullable List<DashboardWidgetHeatmapDefinitionRequestFormula> formulas;
+        private @Nullable DashboardWidgetHeatmapDefinitionRequestHistogramRequest histogramRequest;
         private @Nullable DashboardWidgetLogQuery logQuery;
         private @Nullable DashboardWidgetHeatmapDefinitionRequestProcessQuery processQuery;
         private @Nullable String q;
@@ -138,6 +216,7 @@ public final class DashboardWidgetHeatmapDefinitionRequest {
     	      Objects.requireNonNull(defaults);
     	      this.apmQuery = defaults.apmQuery;
     	      this.formulas = defaults.formulas;
+    	      this.histogramRequest = defaults.histogramRequest;
     	      this.logQuery = defaults.logQuery;
     	      this.processQuery = defaults.processQuery;
     	      this.q = defaults.q;
@@ -161,6 +240,12 @@ public final class DashboardWidgetHeatmapDefinitionRequest {
         }
         public Builder formulas(DashboardWidgetHeatmapDefinitionRequestFormula... formulas) {
             return formulas(List.of(formulas));
+        }
+        @CustomType.Setter
+        public Builder histogramRequest(@Nullable DashboardWidgetHeatmapDefinitionRequestHistogramRequest histogramRequest) {
+
+            this.histogramRequest = histogramRequest;
+            return this;
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetLogQuery logQuery) {
@@ -211,6 +296,7 @@ public final class DashboardWidgetHeatmapDefinitionRequest {
             final var _resultValue = new DashboardWidgetHeatmapDefinitionRequest();
             _resultValue.apmQuery = apmQuery;
             _resultValue.formulas = formulas;
+            _resultValue.histogramRequest = histogramRequest;
             _resultValue.logQuery = logQuery;
             _resultValue.processQuery = processQuery;
             _resultValue.q = q;

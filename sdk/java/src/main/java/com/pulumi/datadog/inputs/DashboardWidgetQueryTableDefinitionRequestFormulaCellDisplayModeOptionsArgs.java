@@ -16,14 +16,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayM
     public static final DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs Empty = new DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs();
 
     /**
-     * The type of trend line to display. Valid values are `area`, `line`, `bars`.
+     * The type of trend line to display. Valid values are `area`, `line`, and `bars`.
      * 
      */
     @Import(name="trendType")
     private @Nullable Output<String> trendType;
 
     /**
-     * @return The type of trend line to display. Valid values are `area`, `line`, `bars`.
+     * @return The type of trend line to display. Valid values are `area`, `line`, and `bars`.
      * 
      */
     public Optional<Output<String>> trendType() {
@@ -31,14 +31,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayM
     }
 
     /**
-     * The scale of the y-axis. Valid values are `shared`, `independent`.
+     * The scale of the y-axis. Valid values are `shared` and `independent`.
      * 
      */
     @Import(name="yScale")
     private @Nullable Output<String> yScale;
 
     /**
-     * @return The scale of the y-axis. Valid values are `shared`, `independent`.
+     * @return The scale of the y-axis. Valid values are `shared` and `independent`.
      * 
      */
     public Optional<Output<String>> yScale() {
@@ -71,7 +71,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayM
         }
 
         /**
-         * @param trendType The type of trend line to display. Valid values are `area`, `line`, `bars`.
+         * @param trendType The type of trend line to display. Valid values are `area`, `line`, and `bars`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayM
         }
 
         /**
-         * @param trendType The type of trend line to display. Valid values are `area`, `line`, `bars`.
+         * @param trendType The type of trend line to display. Valid values are `area`, `line`, and `bars`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayM
         }
 
         /**
-         * @param yScale The scale of the y-axis. Valid values are `shared`, `independent`.
+         * @param yScale The scale of the y-axis. Valid values are `shared` and `independent`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayM
         }
 
         /**
-         * @param yScale The scale of the y-axis. Valid values are `shared`, `independent`.
+         * @param yScale The scale of the y-axis. Valid values are `shared` and `independent`.
          * 
          * @return builder
          * 

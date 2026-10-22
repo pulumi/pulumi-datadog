@@ -38,14 +38,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
     }
 
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     @Import(name="cellDisplayMode")
     private @Nullable Output<String> cellDisplayMode;
 
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     public Optional<Output<String>> cellDisplayMode() {
@@ -53,14 +53,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
     }
 
     /**
-     * A list of display modes for each table cell.
+     * Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
      * 
      */
     @Import(name="cellDisplayModeOptions")
     private @Nullable Output<DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions;
 
     /**
-     * @return A list of display modes for each table cell.
+     * @return Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
      * 
      */
     public Optional<Output<DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs>> cellDisplayModeOptions() {
@@ -195,7 +195,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
         }
 
         /**
-         * @param cellDisplayModeOptions A list of display modes for each table cell.
+         * @param cellDisplayModeOptions Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormulaArgs extends
         }
 
         /**
-         * @param cellDisplayModeOptions A list of display modes for each table cell.
+         * @param cellDisplayModeOptions Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
          * 
          * @return builder
          * 

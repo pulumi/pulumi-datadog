@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTraceServiceDefinition
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The number of columns to display. Valid values are `OneColumn`, `TwoColumn`, `ThreeColumn`.
         /// </summary>
         public readonly string? DisplayFormat;
@@ -66,6 +70,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string SpanName;
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetTraceServiceDefinitionTime? Time;
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         public readonly string? Title;
@@ -80,6 +88,8 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetTraceServiceDefinition(
+            string? description,
+
             string? displayFormat,
 
             string env,
@@ -106,12 +116,15 @@ namespace Pulumi.Datadog.Outputs
 
             string spanName,
 
+            Outputs.DashboardWidgetTraceServiceDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
 
             string? titleSize)
         {
+            Description = description;
             DisplayFormat = displayFormat;
             Env = env;
             HideIncompleteCostData = hideIncompleteCostData;
@@ -125,6 +138,7 @@ namespace Pulumi.Datadog.Outputs
             ShowResourceList = showResourceList;
             SizeFormat = sizeFormat;
             SpanName = spanName;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

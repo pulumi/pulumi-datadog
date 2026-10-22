@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Column;
         /// <summary>
+        /// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Widget sorting methods. Valid values are `Asc`, `Desc`.
         /// </summary>
         public readonly string Order;
@@ -26,9 +30,12 @@ namespace Pulumi.Datadog.Outputs
         private PowerpackV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort(
             string column,
 
+            string? description,
+
             string order)
         {
             Column = column;
+            Description = description;
             Order = order;
         }
     }

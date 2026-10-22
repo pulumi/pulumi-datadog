@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? CrossOrgUuids;
         /// <summary>
-        /// The data source for event platform-based queries. Valid values are `Logs`, `Spans`, `Network`, `Rum`, `SecuritySignals`, `Profiles`, `Audit`, `Events`, `CiTests`, `CiPipelines`, `IncidentAnalytics`, `ProductAnalytics`, `OnCallEvents`, `Errors`, `LlmObservability`.
+        /// The data source for event platform-based queries. Valid values are `Logs`, `Spans`, `Network`, `NetworkDeviceFlows`, `Rum`, `SecuritySignals`, `Profiles`, `Audit`, `Events`, `CiTests`, `CiPipelines`, `IncidentAnalytics`, `ProductAnalytics`, `OnCallEvents`, `Errors`, `LlmObservability`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByFields? GroupByFields;
         /// <summary>
-        /// An array of index names to query in the stream.
+        /// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
         /// </summary>
         public readonly ImmutableArray<string> Indexes;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQuerySearch? Search;
         /// <summary>
-        /// Storage location (private beta).
+        /// Option for storage location. Feature in Private Beta.
         /// </summary>
         public readonly string? Storage;
 

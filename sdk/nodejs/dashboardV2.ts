@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * [BETA] Provides an updated version of the Datadog dashboard resource which improves compliance with Datadog's dashboard API spec. This version is currently experimental and prone to changes.
+ * `datadog.DashboardV2` is an alias for `datadog.Dashboard`. Both resource names have identical behavior and schema; prefer `datadog.Dashboard` for new configurations.
  *
  * ## Example Usage
  *

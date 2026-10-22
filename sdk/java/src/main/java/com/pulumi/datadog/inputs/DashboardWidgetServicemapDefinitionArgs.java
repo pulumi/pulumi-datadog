@@ -6,7 +6,9 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetServicemapDefinitionCustomLinkArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetServicemapDefinitionTimeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,6 +66,36 @@ public final class DashboardWidgetServicemapDefinitionArgs extends com.pulumi.re
     }
 
     /**
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    @Import(name="liveSpan")
+    private @Nullable Output<String> liveSpan;
+
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<Output<String>> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+
+    /**
      * The ID of the service to map.
      * 
      */
@@ -76,6 +108,21 @@ public final class DashboardWidgetServicemapDefinitionArgs extends com.pulumi.re
      */
     public Output<String> service() {
         return this.service;
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetServicemapDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetServicemapDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -129,7 +176,10 @@ public final class DashboardWidgetServicemapDefinitionArgs extends com.pulumi.re
         this.customLinks = $.customLinks;
         this.description = $.description;
         this.filters = $.filters;
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
+        this.liveSpan = $.liveSpan;
         this.service = $.service;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -237,6 +287,48 @@ public final class DashboardWidgetServicemapDefinitionArgs extends com.pulumi.re
         }
 
         /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
+        }
+
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveSpan(@Nullable Output<String> liveSpan) {
+            $.liveSpan = liveSpan;
+            return this;
+        }
+
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveSpan(String liveSpan) {
+            return liveSpan(Output.of(liveSpan));
+        }
+
+        /**
          * @param service The ID of the service to map.
          * 
          * @return builder
@@ -255,6 +347,27 @@ public final class DashboardWidgetServicemapDefinitionArgs extends com.pulumi.re
          */
         public Builder service(String service) {
             return service(Output.of(service));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetServicemapDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetServicemapDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

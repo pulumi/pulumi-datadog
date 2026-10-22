@@ -10,6 +10,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionEventArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionMarkerArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRightYaxisArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionTimeArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionYaxisArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -114,14 +115,14 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * The size of the legend displayed in the widget.
+     * The size of the legend displayed in the widget. Valid values are `0`, `2`, `4`, `8`, `16`, `auto`.
      * 
      */
     @Import(name="legendSize")
     private @Nullable Output<String> legendSize;
 
     /**
-     * @return The size of the legend displayed in the widget.
+     * @return The size of the legend displayed in the widget. Valid values are `0`, `2`, `4`, `8`, `16`, `auto`.
      * 
      */
     public Optional<Output<String>> legendSize() {
@@ -204,6 +205,21 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetTimeseriesDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetTimeseriesDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -278,6 +294,7 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
         this.requests = $.requests;
         this.rightYaxis = $.rightYaxis;
         this.showLegend = $.showLegend;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -459,7 +476,7 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param legendSize The size of the legend displayed in the widget.
+         * @param legendSize The size of the legend displayed in the widget. Valid values are `0`, `2`, `4`, `8`, `16`, `auto`.
          * 
          * @return builder
          * 
@@ -470,7 +487,7 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param legendSize The size of the legend displayed in the widget.
+         * @param legendSize The size of the legend displayed in the widget. Valid values are `0`, `2`, `4`, `8`, `16`, `auto`.
          * 
          * @return builder
          * 
@@ -602,6 +619,27 @@ public final class DashboardWidgetTimeseriesDefinitionArgs extends com.pulumi.re
          */
         public Builder showLegend(Boolean showLegend) {
             return showLegend(Output.of(showLegend));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetTimeseriesDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetTimeseriesDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

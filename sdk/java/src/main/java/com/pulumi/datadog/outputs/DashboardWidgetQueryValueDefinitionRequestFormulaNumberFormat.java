@@ -18,6 +18,10 @@ public final class DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat
      * 
      */
     private DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit unit;
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     private @Nullable DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale unitScale;
 
     private DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat() {}
@@ -28,6 +32,10 @@ public final class DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormat
     public DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnit unit() {
         return this.unit;
     }
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     public Optional<DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale> unitScale() {
         return Optional.ofNullable(this.unitScale);
     }

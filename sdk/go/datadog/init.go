@@ -195,6 +195,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RumExclusionFilter{}
 	case "datadog:index/rumMetric:RumMetric":
 		r = &RumMetric{}
+	case "datadog:index/rumOperation:RumOperation":
+		r = &RumOperation{}
+	case "datadog:index/rumOperationJourneyLink:RumOperationJourneyLink":
+		r = &RumOperationJourneyLink{}
 	case "datadog:index/rumRetentionFilter:RumRetentionFilter":
 		r = &RumRetentionFilter{}
 	case "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder":
@@ -785,6 +789,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/rumMetric",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/rumOperation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/rumOperationJourneyLink",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

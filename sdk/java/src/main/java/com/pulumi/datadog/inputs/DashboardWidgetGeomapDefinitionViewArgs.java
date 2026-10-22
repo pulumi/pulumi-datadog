@@ -15,14 +15,14 @@ public final class DashboardWidgetGeomapDefinitionViewArgs extends com.pulumi.re
     public static final DashboardWidgetGeomapDefinitionViewArgs Empty = new DashboardWidgetGeomapDefinitionViewArgs();
 
     /**
-     * The two-letter ISO code of a country to focus the map on (or `WORLD`).
+     * The 2-letter ISO code of a country to focus the map on, or `WORLD` for global view, or a region (`EMEA`, `APAC`, `LATAM`), or a continent (`NORTH_AMERICA`, `SOUTH_AMERICA`, `EUROPE`, `AFRICA`, `ASIA`, `OCEANIA`).
      * 
      */
     @Import(name="focus", required=true)
     private Output<String> focus;
 
     /**
-     * @return The two-letter ISO code of a country to focus the map on (or `WORLD`).
+     * @return The 2-letter ISO code of a country to focus the map on, or `WORLD` for global view, or a region (`EMEA`, `APAC`, `LATAM`), or a continent (`NORTH_AMERICA`, `SOUTH_AMERICA`, `EUROPE`, `AFRICA`, `ASIA`, `OCEANIA`).
      * 
      */
     public Output<String> focus() {
@@ -54,7 +54,7 @@ public final class DashboardWidgetGeomapDefinitionViewArgs extends com.pulumi.re
         }
 
         /**
-         * @param focus The two-letter ISO code of a country to focus the map on (or `WORLD`).
+         * @param focus The 2-letter ISO code of a country to focus the map on, or `WORLD` for global view, or a region (`EMEA`, `APAC`, `LATAM`), or a continent (`NORTH_AMERICA`, `SOUTH_AMERICA`, `EUROPE`, `AFRICA`, `ASIA`, `OCEANIA`).
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DashboardWidgetGeomapDefinitionViewArgs extends com.pulumi.re
         }
 
         /**
-         * @param focus The two-letter ISO code of a country to focus the map on (or `WORLD`).
+         * @param focus The 2-letter ISO code of a country to focus the map on, or `WORLD` for global view, or a region (`EMEA`, `APAC`, `LATAM`), or a continent (`NORTH_AMERICA`, `SOUTH_AMERICA`, `EUROPE`, `AFRICA`, `ASIA`, `OCEANIA`).
          * 
          * @return builder
          * 

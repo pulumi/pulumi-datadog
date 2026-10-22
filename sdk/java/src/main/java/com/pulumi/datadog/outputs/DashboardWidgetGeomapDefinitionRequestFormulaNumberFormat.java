@@ -18,6 +18,10 @@ public final class DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat {
      * 
      */
     private DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit unit;
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     private @Nullable DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale unitScale;
 
     private DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat() {}
@@ -28,6 +32,10 @@ public final class DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat {
     public DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit unit() {
         return this.unit;
     }
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     public Optional<DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScale> unitScale() {
         return Optional.ofNullable(this.unitScale);
     }

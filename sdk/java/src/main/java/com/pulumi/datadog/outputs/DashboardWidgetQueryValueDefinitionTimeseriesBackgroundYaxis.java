@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis {
     /**
-     * @return Always include zero or fit the axis to the data range.
+     * @return Set to `true` to include zero.
      * 
      */
     private @Nullable Boolean includeZero;
     /**
-     * @return The label of the axis to display on the graph.
+     * @return The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
      * 
      */
     private @Nullable String label;
     /**
-     * @return Specify the maximum value to show on the Y-axis.
+     * @return Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
      * 
      */
     private @Nullable String max;
     /**
-     * @return Specify the minimum value to show on the Y-axis.
+     * @return Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
      * 
      */
     private @Nullable String min;
     /**
-     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * @return Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
      * 
      */
     private @Nullable String scale;
 
     private DashboardWidgetQueryValueDefinitionTimeseriesBackgroundYaxis() {}
     /**
-     * @return Always include zero or fit the axis to the data range.
+     * @return Set to `true` to include zero.
      * 
      */
     public Optional<Boolean> includeZero() {
         return Optional.ofNullable(this.includeZero);
     }
     /**
-     * @return The label of the axis to display on the graph.
+     * @return The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
      * 
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return Specify the maximum value to show on the Y-axis.
+     * @return Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
      * 
      */
     public Optional<String> max() {
         return Optional.ofNullable(this.max);
     }
     /**
-     * @return Specify the minimum value to show on the Y-axis.
+     * @return Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
      * 
      */
     public Optional<String> min() {
         return Optional.ofNullable(this.min);
     }
     /**
-     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * @return Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
      * 
      */
     public Optional<String> scale() {

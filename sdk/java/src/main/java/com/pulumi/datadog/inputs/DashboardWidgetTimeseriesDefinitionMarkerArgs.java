@@ -17,14 +17,14 @@ public final class DashboardWidgetTimeseriesDefinitionMarkerArgs extends com.pul
     public static final DashboardWidgetTimeseriesDefinitionMarkerArgs Empty = new DashboardWidgetTimeseriesDefinitionMarkerArgs();
 
     /**
-     * How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * Combination of a severity (`error`, `warning`, `ok`, or `info`) and a line type (`dashed`, `solid`, or `bold`). For Distribution widgets, this can be set to `percentile`. Example: `error dashed`.
      * 
      */
     @Import(name="displayType")
     private @Nullable Output<String> displayType;
 
     /**
-     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * @return Combination of a severity (`error`, `warning`, `ok`, or `info`) and a line type (`dashed`, `solid`, or `bold`). For Distribution widgets, this can be set to `percentile`. Example: `error dashed`.
      * 
      */
     public Optional<Output<String>> displayType() {
@@ -32,14 +32,14 @@ public final class DashboardWidgetTimeseriesDefinitionMarkerArgs extends com.pul
     }
 
     /**
-     * A label for the line or range.
+     * Label to display over the marker.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return A label for the line or range.
+     * @return Label to display over the marker.
      * 
      */
     public Optional<Output<String>> label() {
@@ -47,14 +47,29 @@ public final class DashboardWidgetTimeseriesDefinitionMarkerArgs extends com.pul
     }
 
     /**
-     * A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
+     * Timestamp for the marker position.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<String> time;
+
+    /**
+     * @return Timestamp for the marker position.
+     * 
+     */
+    public Optional<Output<String>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
+     * Value to apply. Can be a single value `y = 15` or a range of values `0 &lt; y &lt; 10`. For Distribution widgets with `displayType` set to `percentile`, this should be a numeric percentile value (for example, `90` for P90).
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
+     * @return Value to apply. Can be a single value `y = 15` or a range of values `0 &lt; y &lt; 10`. For Distribution widgets with `displayType` set to `percentile`, this should be a numeric percentile value (for example, `90` for P90).
      * 
      */
     public Output<String> value() {
@@ -66,6 +81,7 @@ public final class DashboardWidgetTimeseriesDefinitionMarkerArgs extends com.pul
     private DashboardWidgetTimeseriesDefinitionMarkerArgs(DashboardWidgetTimeseriesDefinitionMarkerArgs $) {
         this.displayType = $.displayType;
         this.label = $.label;
+        this.time = $.time;
         this.value = $.value;
     }
 
@@ -88,7 +104,7 @@ public final class DashboardWidgetTimeseriesDefinitionMarkerArgs extends com.pul
         }
 
         /**
-         * @param displayType How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+         * @param displayType Combination of a severity (`error`, `warning`, `ok`, or `info`) and a line type (`dashed`, `solid`, or `bold`). For Distribution widgets, this can be set to `percentile`. Example: `error dashed`.
          * 
          * @return builder
          * 
@@ -99,7 +115,7 @@ public final class DashboardWidgetTimeseriesDefinitionMarkerArgs extends com.pul
         }
 
         /**
-         * @param displayType How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+         * @param displayType Combination of a severity (`error`, `warning`, `ok`, or `info`) and a line type (`dashed`, `solid`, or `bold`). For Distribution widgets, this can be set to `percentile`. Example: `error dashed`.
          * 
          * @return builder
          * 
@@ -109,7 +125,7 @@ public final class DashboardWidgetTimeseriesDefinitionMarkerArgs extends com.pul
         }
 
         /**
-         * @param label A label for the line or range.
+         * @param label Label to display over the marker.
          * 
          * @return builder
          * 
@@ -120,7 +136,7 @@ public final class DashboardWidgetTimeseriesDefinitionMarkerArgs extends com.pul
         }
 
         /**
-         * @param label A label for the line or range.
+         * @param label Label to display over the marker.
          * 
          * @return builder
          * 
@@ -130,7 +146,28 @@ public final class DashboardWidgetTimeseriesDefinitionMarkerArgs extends com.pul
         }
 
         /**
-         * @param value A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
+         * @param time Timestamp for the marker position.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<String> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time Timestamp for the marker position.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(String time) {
+            return time(Output.of(time));
+        }
+
+        /**
+         * @param value Value to apply. Can be a single value `y = 15` or a range of values `0 &lt; y &lt; 10`. For Distribution widgets with `displayType` set to `percentile`, this should be a numeric percentile value (for example, `90` for P90).
          * 
          * @return builder
          * 
@@ -141,7 +178,7 @@ public final class DashboardWidgetTimeseriesDefinitionMarkerArgs extends com.pul
         }
 
         /**
-         * @param value A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
+         * @param value Value to apply. Can be a single value `y = 15` or a range of values `0 &lt; y &lt; 10`. For Distribution widgets with `displayType` set to `percentile`, this should be a numeric percentile value (for example, `90` for P90).
          * 
          * @return builder
          * 

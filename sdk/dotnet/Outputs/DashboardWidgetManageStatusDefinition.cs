@@ -18,19 +18,31 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ColorPreference;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The display setting to use. Valid values are `Counts`, `countsAndList`, `List`.
         /// </summary>
         public readonly string? DisplayFormat;
+        /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
         /// <summary>
         /// A Boolean indicating whether to hide empty categories.
         /// </summary>
         public readonly bool? HideZeroCounts;
         /// <summary>
-        /// The query to use in the widget.
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        public readonly string? LiveSpan;
+        /// <summary>
+        /// Query to filter the monitors with.
         /// </summary>
         public readonly string Query;
         /// <summary>
-        /// A Boolean indicating whether to show when monitors/groups last triggered.
+        /// Whether to show the time that has elapsed since the monitor/group triggered.
         /// </summary>
         public readonly bool? ShowLastTriggered;
         /// <summary>
@@ -45,6 +57,10 @@ namespace Pulumi.Datadog.Outputs
         /// The summary type to use. Valid values are `Monitors`, `Groups`, `Combined`.
         /// </summary>
         public readonly string? SummaryType;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetManageStatusDefinitionTime? Time;
         /// <summary>
         /// The title of the widget.
         /// </summary>
@@ -62,9 +78,15 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetManageStatusDefinition(
             string? colorPreference,
 
+            string? description,
+
             string? displayFormat,
 
+            bool? hideIncompleteCostData,
+
             bool? hideZeroCounts,
+
+            string? liveSpan,
 
             string query,
 
@@ -76,6 +98,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? summaryType,
 
+            Outputs.DashboardWidgetManageStatusDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
@@ -83,13 +107,17 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             ColorPreference = colorPreference;
+            Description = description;
             DisplayFormat = displayFormat;
+            HideIncompleteCostData = hideIncompleteCostData;
             HideZeroCounts = hideZeroCounts;
+            LiveSpan = liveSpan;
             Query = query;
             ShowLastTriggered = showLastTriggered;
             ShowPriority = showPriority;
             Sort = sort;
             SummaryType = summaryType;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

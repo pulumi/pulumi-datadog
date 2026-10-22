@@ -6,12 +6,16 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetAlertGraphDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetAlertValueDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetBarChartDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetCheckStatusDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetCohortDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetEmbeddedAppDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetEventStreamDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetEventTimelineDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetFreeTextDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetFunnelDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinition;
@@ -22,10 +26,14 @@ import com.pulumi.datadog.outputs.DashboardWidgetListStreamDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetLogStreamDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetManageStatusDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetNoteDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetPointPlotDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetPowerpackDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetProductAnalyticsFunnelDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetRetentionCurveDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetRunWorkflowDefinition;
+import com.pulumi.datadog.outputs.DashboardWidgetSankeyDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetServiceLevelObjectiveDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetServicemapDefinition;
@@ -38,6 +46,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetTopologyMapDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetTraceServiceDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetWidgetLayout;
+import com.pulumi.datadog.outputs.DashboardWidgetWildcardDefinition;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -56,6 +65,11 @@ public final class DashboardWidget {
      */
     private @Nullable DashboardWidgetAlertValueDefinition alertValueDefinition;
     /**
+     * @return The definition for a Bar Chart widget.
+     * 
+     */
+    private @Nullable DashboardWidgetBarChartDefinition barChartDefinition;
+    /**
      * @return The definition for a Change widget.
      * 
      */
@@ -66,10 +80,20 @@ public final class DashboardWidget {
      */
     private @Nullable DashboardWidgetCheckStatusDefinition checkStatusDefinition;
     /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    private @Nullable DashboardWidgetCohortDefinition cohortDefinition;
+    /**
      * @return The definition for a Distribution widget.
      * 
      */
     private @Nullable DashboardWidgetDistributionDefinition distributionDefinition;
+    /**
+     * @return The definition for an App Builder embedded app widget.
+     * 
+     */
+    private @Nullable DashboardWidgetEmbeddedAppDefinition embeddedAppDefinition;
     /**
      * @return The definition for a Event Stream widget.
      * 
@@ -85,6 +109,11 @@ public final class DashboardWidget {
      * 
      */
     private @Nullable DashboardWidgetFreeTextDefinition freeTextDefinition;
+    /**
+     * @return The definition for a Funnel widget.
+     * 
+     */
+    private @Nullable DashboardWidgetFunnelDefinition funnelDefinition;
     /**
      * @return The definition for a Geomap widget.
      * 
@@ -141,10 +170,20 @@ public final class DashboardWidget {
      */
     private @Nullable DashboardWidgetNoteDefinition noteDefinition;
     /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    private @Nullable DashboardWidgetPointPlotDefinition pointPlotDefinition;
+    /**
      * @return The definition for a Powerpack widget.
      * 
      */
     private @Nullable DashboardWidgetPowerpackDefinition powerpackDefinition;
+    /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    private @Nullable DashboardWidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition;
     /**
      * @return The definition for a Query Table widget.
      * 
@@ -156,10 +195,20 @@ public final class DashboardWidget {
      */
     private @Nullable DashboardWidgetQueryValueDefinition queryValueDefinition;
     /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    private @Nullable DashboardWidgetRetentionCurveDefinition retentionCurveDefinition;
+    /**
      * @return The definition for a Run Workflow widget.
      * 
      */
     private @Nullable DashboardWidgetRunWorkflowDefinition runWorkflowDefinition;
+    /**
+     * @return The definition for a Sankey diagram widget.
+     * 
+     */
+    private @Nullable DashboardWidgetSankeyDefinition sankeyDefinition;
     /**
      * @return The definition for a Scatterplot widget.
      * 
@@ -220,6 +269,11 @@ public final class DashboardWidget {
      * 
      */
     private @Nullable DashboardWidgetWidgetLayout widgetLayout;
+    /**
+     * @return The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+     * 
+     */
+    private @Nullable DashboardWidgetWildcardDefinition wildcardDefinition;
 
     private DashboardWidget() {}
     /**
@@ -237,6 +291,13 @@ public final class DashboardWidget {
         return Optional.ofNullable(this.alertValueDefinition);
     }
     /**
+     * @return The definition for a Bar Chart widget.
+     * 
+     */
+    public Optional<DashboardWidgetBarChartDefinition> barChartDefinition() {
+        return Optional.ofNullable(this.barChartDefinition);
+    }
+    /**
      * @return The definition for a Change widget.
      * 
      */
@@ -251,11 +312,25 @@ public final class DashboardWidget {
         return Optional.ofNullable(this.checkStatusDefinition);
     }
     /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    public Optional<DashboardWidgetCohortDefinition> cohortDefinition() {
+        return Optional.ofNullable(this.cohortDefinition);
+    }
+    /**
      * @return The definition for a Distribution widget.
      * 
      */
     public Optional<DashboardWidgetDistributionDefinition> distributionDefinition() {
         return Optional.ofNullable(this.distributionDefinition);
+    }
+    /**
+     * @return The definition for an App Builder embedded app widget.
+     * 
+     */
+    public Optional<DashboardWidgetEmbeddedAppDefinition> embeddedAppDefinition() {
+        return Optional.ofNullable(this.embeddedAppDefinition);
     }
     /**
      * @return The definition for a Event Stream widget.
@@ -277,6 +352,13 @@ public final class DashboardWidget {
      */
     public Optional<DashboardWidgetFreeTextDefinition> freeTextDefinition() {
         return Optional.ofNullable(this.freeTextDefinition);
+    }
+    /**
+     * @return The definition for a Funnel widget.
+     * 
+     */
+    public Optional<DashboardWidgetFunnelDefinition> funnelDefinition() {
+        return Optional.ofNullable(this.funnelDefinition);
     }
     /**
      * @return The definition for a Geomap widget.
@@ -356,11 +438,25 @@ public final class DashboardWidget {
         return Optional.ofNullable(this.noteDefinition);
     }
     /**
+     * @return The definition for a Point Plot widget.
+     * 
+     */
+    public Optional<DashboardWidgetPointPlotDefinition> pointPlotDefinition() {
+        return Optional.ofNullable(this.pointPlotDefinition);
+    }
+    /**
      * @return The definition for a Powerpack widget.
      * 
      */
     public Optional<DashboardWidgetPowerpackDefinition> powerpackDefinition() {
         return Optional.ofNullable(this.powerpackDefinition);
+    }
+    /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    public Optional<DashboardWidgetProductAnalyticsFunnelDefinition> productAnalyticsFunnelDefinition() {
+        return Optional.ofNullable(this.productAnalyticsFunnelDefinition);
     }
     /**
      * @return The definition for a Query Table widget.
@@ -377,11 +473,25 @@ public final class DashboardWidget {
         return Optional.ofNullable(this.queryValueDefinition);
     }
     /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    public Optional<DashboardWidgetRetentionCurveDefinition> retentionCurveDefinition() {
+        return Optional.ofNullable(this.retentionCurveDefinition);
+    }
+    /**
      * @return The definition for a Run Workflow widget.
      * 
      */
     public Optional<DashboardWidgetRunWorkflowDefinition> runWorkflowDefinition() {
         return Optional.ofNullable(this.runWorkflowDefinition);
+    }
+    /**
+     * @return The definition for a Sankey diagram widget.
+     * 
+     */
+    public Optional<DashboardWidgetSankeyDefinition> sankeyDefinition() {
+        return Optional.ofNullable(this.sankeyDefinition);
     }
     /**
      * @return The definition for a Scatterplot widget.
@@ -467,6 +577,13 @@ public final class DashboardWidget {
     public Optional<DashboardWidgetWidgetLayout> widgetLayout() {
         return Optional.ofNullable(this.widgetLayout);
     }
+    /**
+     * @return The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+     * 
+     */
+    public Optional<DashboardWidgetWildcardDefinition> wildcardDefinition() {
+        return Optional.ofNullable(this.wildcardDefinition);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -479,12 +596,16 @@ public final class DashboardWidget {
     public static final class Builder {
         private @Nullable DashboardWidgetAlertGraphDefinition alertGraphDefinition;
         private @Nullable DashboardWidgetAlertValueDefinition alertValueDefinition;
+        private @Nullable DashboardWidgetBarChartDefinition barChartDefinition;
         private @Nullable DashboardWidgetChangeDefinition changeDefinition;
         private @Nullable DashboardWidgetCheckStatusDefinition checkStatusDefinition;
+        private @Nullable DashboardWidgetCohortDefinition cohortDefinition;
         private @Nullable DashboardWidgetDistributionDefinition distributionDefinition;
+        private @Nullable DashboardWidgetEmbeddedAppDefinition embeddedAppDefinition;
         private @Nullable DashboardWidgetEventStreamDefinition eventStreamDefinition;
         private @Nullable DashboardWidgetEventTimelineDefinition eventTimelineDefinition;
         private @Nullable DashboardWidgetFreeTextDefinition freeTextDefinition;
+        private @Nullable DashboardWidgetFunnelDefinition funnelDefinition;
         private @Nullable DashboardWidgetGeomapDefinition geomapDefinition;
         private @Nullable DashboardWidgetGroupDefinition groupDefinition;
         private @Nullable DashboardWidgetHeatmapDefinition heatmapDefinition;
@@ -496,10 +617,14 @@ public final class DashboardWidget {
         private @Nullable DashboardWidgetLogStreamDefinition logStreamDefinition;
         private @Nullable DashboardWidgetManageStatusDefinition manageStatusDefinition;
         private @Nullable DashboardWidgetNoteDefinition noteDefinition;
+        private @Nullable DashboardWidgetPointPlotDefinition pointPlotDefinition;
         private @Nullable DashboardWidgetPowerpackDefinition powerpackDefinition;
+        private @Nullable DashboardWidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition;
         private @Nullable DashboardWidgetQueryTableDefinition queryTableDefinition;
         private @Nullable DashboardWidgetQueryValueDefinition queryValueDefinition;
+        private @Nullable DashboardWidgetRetentionCurveDefinition retentionCurveDefinition;
         private @Nullable DashboardWidgetRunWorkflowDefinition runWorkflowDefinition;
+        private @Nullable DashboardWidgetSankeyDefinition sankeyDefinition;
         private @Nullable DashboardWidgetScatterplotDefinition scatterplotDefinition;
         private @Nullable DashboardWidgetServiceLevelObjectiveDefinition serviceLevelObjectiveDefinition;
         private @Nullable DashboardWidgetServicemapDefinition servicemapDefinition;
@@ -512,17 +637,22 @@ public final class DashboardWidget {
         private @Nullable DashboardWidgetTraceServiceDefinition traceServiceDefinition;
         private @Nullable DashboardWidgetTreemapDefinition treemapDefinition;
         private @Nullable DashboardWidgetWidgetLayout widgetLayout;
+        private @Nullable DashboardWidgetWildcardDefinition wildcardDefinition;
         public Builder() {}
         public Builder(DashboardWidget defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alertGraphDefinition = defaults.alertGraphDefinition;
     	      this.alertValueDefinition = defaults.alertValueDefinition;
+    	      this.barChartDefinition = defaults.barChartDefinition;
     	      this.changeDefinition = defaults.changeDefinition;
     	      this.checkStatusDefinition = defaults.checkStatusDefinition;
+    	      this.cohortDefinition = defaults.cohortDefinition;
     	      this.distributionDefinition = defaults.distributionDefinition;
+    	      this.embeddedAppDefinition = defaults.embeddedAppDefinition;
     	      this.eventStreamDefinition = defaults.eventStreamDefinition;
     	      this.eventTimelineDefinition = defaults.eventTimelineDefinition;
     	      this.freeTextDefinition = defaults.freeTextDefinition;
+    	      this.funnelDefinition = defaults.funnelDefinition;
     	      this.geomapDefinition = defaults.geomapDefinition;
     	      this.groupDefinition = defaults.groupDefinition;
     	      this.heatmapDefinition = defaults.heatmapDefinition;
@@ -534,10 +664,14 @@ public final class DashboardWidget {
     	      this.logStreamDefinition = defaults.logStreamDefinition;
     	      this.manageStatusDefinition = defaults.manageStatusDefinition;
     	      this.noteDefinition = defaults.noteDefinition;
+    	      this.pointPlotDefinition = defaults.pointPlotDefinition;
     	      this.powerpackDefinition = defaults.powerpackDefinition;
+    	      this.productAnalyticsFunnelDefinition = defaults.productAnalyticsFunnelDefinition;
     	      this.queryTableDefinition = defaults.queryTableDefinition;
     	      this.queryValueDefinition = defaults.queryValueDefinition;
+    	      this.retentionCurveDefinition = defaults.retentionCurveDefinition;
     	      this.runWorkflowDefinition = defaults.runWorkflowDefinition;
+    	      this.sankeyDefinition = defaults.sankeyDefinition;
     	      this.scatterplotDefinition = defaults.scatterplotDefinition;
     	      this.serviceLevelObjectiveDefinition = defaults.serviceLevelObjectiveDefinition;
     	      this.servicemapDefinition = defaults.servicemapDefinition;
@@ -550,6 +684,7 @@ public final class DashboardWidget {
     	      this.traceServiceDefinition = defaults.traceServiceDefinition;
     	      this.treemapDefinition = defaults.treemapDefinition;
     	      this.widgetLayout = defaults.widgetLayout;
+    	      this.wildcardDefinition = defaults.wildcardDefinition;
         }
 
         @CustomType.Setter
@@ -565,6 +700,12 @@ public final class DashboardWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder barChartDefinition(@Nullable DashboardWidgetBarChartDefinition barChartDefinition) {
+
+            this.barChartDefinition = barChartDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder changeDefinition(@Nullable DashboardWidgetChangeDefinition changeDefinition) {
 
             this.changeDefinition = changeDefinition;
@@ -577,9 +718,21 @@ public final class DashboardWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder cohortDefinition(@Nullable DashboardWidgetCohortDefinition cohortDefinition) {
+
+            this.cohortDefinition = cohortDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder distributionDefinition(@Nullable DashboardWidgetDistributionDefinition distributionDefinition) {
 
             this.distributionDefinition = distributionDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder embeddedAppDefinition(@Nullable DashboardWidgetEmbeddedAppDefinition embeddedAppDefinition) {
+
+            this.embeddedAppDefinition = embeddedAppDefinition;
             return this;
         }
         @CustomType.Setter
@@ -598,6 +751,12 @@ public final class DashboardWidget {
         public Builder freeTextDefinition(@Nullable DashboardWidgetFreeTextDefinition freeTextDefinition) {
 
             this.freeTextDefinition = freeTextDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder funnelDefinition(@Nullable DashboardWidgetFunnelDefinition funnelDefinition) {
+
+            this.funnelDefinition = funnelDefinition;
             return this;
         }
         @CustomType.Setter
@@ -667,9 +826,21 @@ public final class DashboardWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder pointPlotDefinition(@Nullable DashboardWidgetPointPlotDefinition pointPlotDefinition) {
+
+            this.pointPlotDefinition = pointPlotDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder powerpackDefinition(@Nullable DashboardWidgetPowerpackDefinition powerpackDefinition) {
 
             this.powerpackDefinition = powerpackDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder productAnalyticsFunnelDefinition(@Nullable DashboardWidgetProductAnalyticsFunnelDefinition productAnalyticsFunnelDefinition) {
+
+            this.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
             return this;
         }
         @CustomType.Setter
@@ -685,9 +856,21 @@ public final class DashboardWidget {
             return this;
         }
         @CustomType.Setter
+        public Builder retentionCurveDefinition(@Nullable DashboardWidgetRetentionCurveDefinition retentionCurveDefinition) {
+
+            this.retentionCurveDefinition = retentionCurveDefinition;
+            return this;
+        }
+        @CustomType.Setter
         public Builder runWorkflowDefinition(@Nullable DashboardWidgetRunWorkflowDefinition runWorkflowDefinition) {
 
             this.runWorkflowDefinition = runWorkflowDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sankeyDefinition(@Nullable DashboardWidgetSankeyDefinition sankeyDefinition) {
+
+            this.sankeyDefinition = sankeyDefinition;
             return this;
         }
         @CustomType.Setter
@@ -762,16 +945,26 @@ public final class DashboardWidget {
             this.widgetLayout = widgetLayout;
             return this;
         }
+        @CustomType.Setter
+        public Builder wildcardDefinition(@Nullable DashboardWidgetWildcardDefinition wildcardDefinition) {
+
+            this.wildcardDefinition = wildcardDefinition;
+            return this;
+        }
         public DashboardWidget build() {
             final var _resultValue = new DashboardWidget();
             _resultValue.alertGraphDefinition = alertGraphDefinition;
             _resultValue.alertValueDefinition = alertValueDefinition;
+            _resultValue.barChartDefinition = barChartDefinition;
             _resultValue.changeDefinition = changeDefinition;
             _resultValue.checkStatusDefinition = checkStatusDefinition;
+            _resultValue.cohortDefinition = cohortDefinition;
             _resultValue.distributionDefinition = distributionDefinition;
+            _resultValue.embeddedAppDefinition = embeddedAppDefinition;
             _resultValue.eventStreamDefinition = eventStreamDefinition;
             _resultValue.eventTimelineDefinition = eventTimelineDefinition;
             _resultValue.freeTextDefinition = freeTextDefinition;
+            _resultValue.funnelDefinition = funnelDefinition;
             _resultValue.geomapDefinition = geomapDefinition;
             _resultValue.groupDefinition = groupDefinition;
             _resultValue.heatmapDefinition = heatmapDefinition;
@@ -783,10 +976,14 @@ public final class DashboardWidget {
             _resultValue.logStreamDefinition = logStreamDefinition;
             _resultValue.manageStatusDefinition = manageStatusDefinition;
             _resultValue.noteDefinition = noteDefinition;
+            _resultValue.pointPlotDefinition = pointPlotDefinition;
             _resultValue.powerpackDefinition = powerpackDefinition;
+            _resultValue.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
             _resultValue.queryTableDefinition = queryTableDefinition;
             _resultValue.queryValueDefinition = queryValueDefinition;
+            _resultValue.retentionCurveDefinition = retentionCurveDefinition;
             _resultValue.runWorkflowDefinition = runWorkflowDefinition;
+            _resultValue.sankeyDefinition = sankeyDefinition;
             _resultValue.scatterplotDefinition = scatterplotDefinition;
             _resultValue.serviceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             _resultValue.servicemapDefinition = servicemapDefinition;
@@ -799,6 +996,7 @@ public final class DashboardWidget {
             _resultValue.traceServiceDefinition = traceServiceDefinition;
             _resultValue.treemapDefinition = treemapDefinition;
             _resultValue.widgetLayout = widgetLayout;
+            _resultValue.wildcardDefinition = wildcardDefinition;
             return _resultValue;
         }
     }

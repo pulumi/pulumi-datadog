@@ -14,6 +14,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestFormula
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestProcessQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestSortArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestStyleArgs;
 import java.lang.String;
 import java.util.List;
@@ -27,137 +28,232 @@ public final class DashboardWidgetSunburstDefinitionRequestArgs extends com.pulu
     public static final DashboardWidgetSunburstDefinitionRequestArgs Empty = new DashboardWidgetSunburstDefinitionRequestArgs();
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetApmQueryArgs> apmQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="auditQuery")
     private @Nullable Output<DashboardWidgetSunburstDefinitionRequestAuditQueryArgs> auditQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetSunburstDefinitionRequestAuditQueryArgs>> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
 
+    /**
+     * A list of formulas to use in the widget.
+     * 
+     */
     @Import(name="formulas")
     private @Nullable Output<List<DashboardWidgetSunburstDefinitionRequestFormulaArgs>> formulas;
 
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetSunburstDefinitionRequestFormulaArgs>>> formulas() {
         return Optional.ofNullable(this.formulas);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetLogQueryArgs> logQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="networkQuery")
     private @Nullable Output<DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs> networkQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs>> networkQuery() {
         return Optional.ofNullable(this.networkQuery);
     }
 
     /**
-     * The process query to use in the widget. The structure of this block is described below.
+     * The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetSunburstDefinitionRequestProcessQueryArgs> processQuery;
 
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetSunburstDefinitionRequestProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
     /**
-     * The metric query to use for this widget.
+     * The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="q")
     private @Nullable Output<String> q;
 
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
 
+    /**
+     * A list of queries to use in the widget.
+     * 
+     */
     @Import(name="queries")
     private @Nullable Output<List<DashboardWidgetSunburstDefinitionRequestQueryArgs>> queries;
 
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetSunburstDefinitionRequestQueryArgs>>> queries() {
         return Optional.ofNullable(this.queries);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetRumQueryArgs> rumQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
+    }
+
+    /**
+     * The controls for sorting the widget. Only applicable for formula-style requests.
+     * 
+     */
+    @Import(name="sort")
+    private @Nullable Output<DashboardWidgetSunburstDefinitionRequestSortArgs> sort;
+
+    /**
+     * @return The controls for sorting the widget. Only applicable for formula-style requests.
+     * 
+     */
+    public Optional<Output<DashboardWidgetSunburstDefinitionRequestSortArgs>> sort() {
+        return Optional.ofNullable(this.sort);
     }
 
     /**
@@ -188,6 +284,7 @@ public final class DashboardWidgetSunburstDefinitionRequestArgs extends com.pulu
         this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
+        this.sort = $.sort;
         this.style = $.style;
     }
 
@@ -210,197 +307,318 @@ public final class DashboardWidgetSunburstDefinitionRequestArgs extends com.pulu
         }
 
         /**
-         * @param apmQuery The query to use for this widget.
+         * @param apmQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder apmQuery(@Nullable Output<DashboardWidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
         /**
-         * @param apmQuery The query to use for this widget.
+         * @param apmQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder apmQuery(DashboardWidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
         /**
-         * @param auditQuery The query to use for this widget.
+         * @param auditQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder auditQuery(@Nullable Output<DashboardWidgetSunburstDefinitionRequestAuditQueryArgs> auditQuery) {
             $.auditQuery = auditQuery;
             return this;
         }
 
         /**
-         * @param auditQuery The query to use for this widget.
+         * @param auditQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder auditQuery(DashboardWidgetSunburstDefinitionRequestAuditQueryArgs auditQuery) {
             return auditQuery(Output.of(auditQuery));
         }
 
+        /**
+         * @param formulas A list of formulas to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(@Nullable Output<List<DashboardWidgetSunburstDefinitionRequestFormulaArgs>> formulas) {
             $.formulas = formulas;
             return this;
         }
 
+        /**
+         * @param formulas A list of formulas to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(List<DashboardWidgetSunburstDefinitionRequestFormulaArgs> formulas) {
             return formulas(Output.of(formulas));
         }
 
+        /**
+         * @param formulas A list of formulas to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(DashboardWidgetSunburstDefinitionRequestFormulaArgs... formulas) {
             return formulas(List.of(formulas));
         }
 
         /**
-         * @param logQuery The query to use for this widget.
+         * @param logQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder logQuery(@Nullable Output<DashboardWidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
         /**
-         * @param logQuery The query to use for this widget.
+         * @param logQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder logQuery(DashboardWidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
         /**
-         * @param networkQuery The query to use for this widget.
+         * @param networkQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder networkQuery(@Nullable Output<DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs> networkQuery) {
             $.networkQuery = networkQuery;
             return this;
         }
 
         /**
-         * @param networkQuery The query to use for this widget.
+         * @param networkQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder networkQuery(DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs networkQuery) {
             return networkQuery(Output.of(networkQuery));
         }
 
         /**
-         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * @param processQuery The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder processQuery(@Nullable Output<DashboardWidgetSunburstDefinitionRequestProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
         /**
-         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * @param processQuery The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder processQuery(DashboardWidgetSunburstDefinitionRequestProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
         /**
-         * @param q The metric query to use for this widget.
+         * @param q The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
         /**
-         * @param q The metric query to use for this widget.
+         * @param q The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder q(String q) {
             return q(Output.of(q));
         }
 
+        /**
+         * @param queries A list of queries to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(@Nullable Output<List<DashboardWidgetSunburstDefinitionRequestQueryArgs>> queries) {
             $.queries = queries;
             return this;
         }
 
+        /**
+         * @param queries A list of queries to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(List<DashboardWidgetSunburstDefinitionRequestQueryArgs> queries) {
             return queries(Output.of(queries));
         }
 
+        /**
+         * @param queries A list of queries to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(DashboardWidgetSunburstDefinitionRequestQueryArgs... queries) {
             return queries(List.of(queries));
         }
 
         /**
-         * @param rumQuery The query to use for this widget.
+         * @param rumQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder rumQuery(@Nullable Output<DashboardWidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
         /**
-         * @param rumQuery The query to use for this widget.
+         * @param rumQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder rumQuery(DashboardWidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
         /**
-         * @param securityQuery The query to use for this widget.
+         * @param securityQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder securityQuery(@Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
         /**
-         * @param securityQuery The query to use for this widget.
+         * @param securityQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
+         */
+        @Deprecated /* Use queries and formulas instead. */
+        public Builder securityQuery(DashboardWidgetSecurityQueryArgs securityQuery) {
+            return securityQuery(Output.of(securityQuery));
+        }
+
+        /**
+         * @param sort The controls for sorting the widget. Only applicable for formula-style requests.
          * 
          * @return builder
          * 
          */
-        public Builder securityQuery(DashboardWidgetSecurityQueryArgs securityQuery) {
-            return securityQuery(Output.of(securityQuery));
+        public Builder sort(@Nullable Output<DashboardWidgetSunburstDefinitionRequestSortArgs> sort) {
+            $.sort = sort;
+            return this;
+        }
+
+        /**
+         * @param sort The controls for sorting the widget. Only applicable for formula-style requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sort(DashboardWidgetSunburstDefinitionRequestSortArgs sort) {
+            return sort(Output.of(sort));
         }
 
         /**

@@ -14,39 +14,49 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetToplistDefinitionRequest
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestAuditQuery? AuditQuery;
         /// <summary>
         /// Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `ConditionalFormats` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestConditionalFormat> ConditionalFormats;
+        /// <summary>
+        /// A list of formulas to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestFormula> Formulas;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetToplistDefinitionRequestProcessQuery? ProcessQuery;
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// A list of queries to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionRequestQuery> Queries;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
+        /// <summary>
+        /// The controls for sorting the widget. Only applicable for formula-style requests.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetToplistDefinitionRequestSort? Sort;
         /// <summary>
         /// Define request for the widget's style.
         /// </summary>
@@ -74,6 +84,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetSecurityQuery? securityQuery,
 
+            Outputs.DashboardWidgetToplistDefinitionRequestSort? sort,
+
             Outputs.DashboardWidgetToplistDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
@@ -86,6 +98,7 @@ namespace Pulumi.Datadog.Outputs
             Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
+            Sort = sort;
             Style = style;
         }
     }

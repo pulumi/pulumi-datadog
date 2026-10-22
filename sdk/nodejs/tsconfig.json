@@ -233,6 +233,8 @@
         "rumApplication.ts",
         "rumExclusionFilter.ts",
         "rumMetric.ts",
+        "rumOperation.ts",
+        "rumOperationJourneyLink.ts",
         "rumRetentionFilter.ts",
         "rumRetentionFiltersOrder.ts",
         "rumRetentionQuota.ts",

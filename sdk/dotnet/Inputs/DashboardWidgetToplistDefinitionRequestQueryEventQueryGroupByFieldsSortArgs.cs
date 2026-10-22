@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetToplistDefinitionRequestQueryEventQueryGroupByFieldsSortArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregation method for the event platform queries. Valid values are `Count`, `Cardinality`, `Median`, `Pc75`, `Pc90`, `Pc95`, `Pc98`, `Pc99`, `Sum`, `Min`, `Max`, `Avg`.
+        /// The aggregation methods for the event platform queries. Valid values are `Count`, `Cardinality`, `Median`, `Pc75`, `Pc90`, `Pc95`, `Pc98`, `Pc99`, `Sum`, `Min`, `Max`, `Avg`.
         /// </summary>
         [Input("aggregation", required: true)]
         public Input<string> Aggregation { get; set; } = null!;

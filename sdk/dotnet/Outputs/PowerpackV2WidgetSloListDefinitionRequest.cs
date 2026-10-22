@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackV2WidgetSloListDefinitionRequest
     {
         /// <summary>
+        /// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Updated SLO List widget.
         /// </summary>
         public readonly Outputs.PowerpackV2WidgetSloListDefinitionRequestQuery Query;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private PowerpackV2WidgetSloListDefinitionRequest(
+            string? description,
+
             Outputs.PowerpackV2WidgetSloListDefinitionRequestQuery query,
 
             string requestType)
         {
+            Description = description;
             Query = query;
             RequestType = requestType;
         }

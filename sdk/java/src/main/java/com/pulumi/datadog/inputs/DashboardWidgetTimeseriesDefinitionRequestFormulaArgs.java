@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaCellDisplayModeOptionsArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimitArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatArgs;
@@ -37,18 +38,33 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaArgs extends
     }
 
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     @Import(name="cellDisplayMode")
     private @Nullable Output<String> cellDisplayMode;
 
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     public Optional<Output<String>> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
+    }
+
+    /**
+     * Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+     * 
+     */
+    @Import(name="cellDisplayModeOptions")
+    private @Nullable Output<DashboardWidgetTimeseriesDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions;
+
+    /**
+     * @return Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+     * 
+     */
+    public Optional<Output<DashboardWidgetTimeseriesDefinitionRequestFormulaCellDisplayModeOptionsArgs>> cellDisplayModeOptions() {
+        return Optional.ofNullable(this.cellDisplayModeOptions);
     }
 
     /**
@@ -131,6 +147,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaArgs extends
     private DashboardWidgetTimeseriesDefinitionRequestFormulaArgs(DashboardWidgetTimeseriesDefinitionRequestFormulaArgs $) {
         this.alias = $.alias;
         this.cellDisplayMode = $.cellDisplayMode;
+        this.cellDisplayModeOptions = $.cellDisplayModeOptions;
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
@@ -178,7 +195,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaArgs extends
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
          * 
          * @return builder
          * 
@@ -189,13 +206,34 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaArgs extends
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
          * 
          * @return builder
          * 
          */
         public Builder cellDisplayMode(String cellDisplayMode) {
             return cellDisplayMode(Output.of(cellDisplayMode));
+        }
+
+        /**
+         * @param cellDisplayModeOptions Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cellDisplayModeOptions(@Nullable Output<DashboardWidgetTimeseriesDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions) {
+            $.cellDisplayModeOptions = cellDisplayModeOptions;
+            return this;
+        }
+
+        /**
+         * @param cellDisplayModeOptions Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cellDisplayModeOptions(DashboardWidgetTimeseriesDefinitionRequestFormulaCellDisplayModeOptionsArgs cellDisplayModeOptions) {
+            return cellDisplayModeOptions(Output.of(cellDisplayModeOptions));
         }
 
         /**

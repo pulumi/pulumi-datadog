@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplitArgs>? _staticSplits;
 
         /// <summary>
-        /// The property by which the graph splits
+        /// Manual selection of tags making split graph widget static.
         /// </summary>
         public InputList<Inputs.DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplitArgs> StaticSplits
         {

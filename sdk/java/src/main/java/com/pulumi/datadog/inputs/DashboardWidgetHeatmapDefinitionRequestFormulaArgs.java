@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestFormulaCellDisplayModeOptionsArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestFormulaLimitArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatArgs;
@@ -37,18 +38,33 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
     }
 
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     @Import(name="cellDisplayMode")
     private @Nullable Output<String> cellDisplayMode;
 
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     public Optional<Output<String>> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
+    }
+
+    /**
+     * Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+     * 
+     */
+    @Import(name="cellDisplayModeOptions")
+    private @Nullable Output<DashboardWidgetHeatmapDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions;
+
+    /**
+     * @return Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+     * 
+     */
+    public Optional<Output<DashboardWidgetHeatmapDefinitionRequestFormulaCellDisplayModeOptionsArgs>> cellDisplayModeOptions() {
+        return Optional.ofNullable(this.cellDisplayModeOptions);
     }
 
     /**
@@ -131,6 +147,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
     private DashboardWidgetHeatmapDefinitionRequestFormulaArgs(DashboardWidgetHeatmapDefinitionRequestFormulaArgs $) {
         this.alias = $.alias;
         this.cellDisplayMode = $.cellDisplayMode;
+        this.cellDisplayModeOptions = $.cellDisplayModeOptions;
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
@@ -178,7 +195,7 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
          * 
          * @return builder
          * 
@@ -189,13 +206,34 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaArgs extends co
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
          * 
          * @return builder
          * 
          */
         public Builder cellDisplayMode(String cellDisplayMode) {
             return cellDisplayMode(Output.of(cellDisplayMode));
+        }
+
+        /**
+         * @param cellDisplayModeOptions Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cellDisplayModeOptions(@Nullable Output<DashboardWidgetHeatmapDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions) {
+            $.cellDisplayModeOptions = cellDisplayModeOptions;
+            return this;
+        }
+
+        /**
+         * @param cellDisplayModeOptions Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cellDisplayModeOptions(DashboardWidgetHeatmapDefinitionRequestFormulaCellDisplayModeOptionsArgs cellDisplayModeOptions) {
+            return cellDisplayModeOptions(Output.of(cellDisplayModeOptions));
         }
 
         /**

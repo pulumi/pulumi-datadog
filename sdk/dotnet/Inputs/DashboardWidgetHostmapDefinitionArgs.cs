@@ -34,7 +34,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _groups;
 
         /// <summary>
-        /// The list of tags to group nodes by.
+        /// The list of tag prefixes to group by.
         /// </summary>
         public InputList<string> Groups
         {
@@ -43,7 +43,19 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// A Boolean indicating whether to show ungrouped nodes.
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        [Input("hideIncompleteCostData")]
+        public Input<bool>? HideIncompleteCostData { get; set; }
+
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
+        /// <summary>
+        /// A Boolean indicating whether to show the hosts that don't fit in a group.
         /// </summary>
         [Input("noGroupHosts")]
         public Input<bool>? NoGroupHosts { get; set; }
@@ -61,7 +73,13 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? NodeType { get; set; }
 
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below.
+        /// Notes/description text for the host map widget.
+        /// </summary>
+        [Input("notes")]
+        public Input<string>? Notes { get; set; }
+
+        /// <summary>
+        /// A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
         /// </summary>
         [Input("request")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestArgs>? Request { get; set; }
@@ -70,7 +88,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// The list of tags to filter nodes by.
+        /// The list of tags used to filter the map.
         /// </summary>
         public InputList<string> Scopes
         {
@@ -83,6 +101,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("style")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionStyleArgs>? Style { get; set; }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetHostmapDefinitionTimeArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.

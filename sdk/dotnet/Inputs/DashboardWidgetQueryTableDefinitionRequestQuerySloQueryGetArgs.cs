@@ -49,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// ID of an SLO to query.
+        /// ID of an SLO to query measures.
         /// </summary>
         [Input("sloId", required: true)]
         public Input<string> SloId { get; set; } = null!;

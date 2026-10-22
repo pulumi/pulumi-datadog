@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetDistributionDefinitionYaxis {
     /**
-     * @return Always include zero or fit the axis to the data range.
+     * @return True includes zero.
      * 
      */
     private @Nullable Boolean includeZero;
@@ -23,24 +23,24 @@ public final class DashboardWidgetDistributionDefinitionYaxis {
      */
     private @Nullable String label;
     /**
-     * @return Specify the maximum value to show on the Y-axis.
+     * @return Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
      * 
      */
     private @Nullable String max;
     /**
-     * @return Specify the minimum value to show on the Y-axis.
+     * @return Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
      * 
      */
     private @Nullable String min;
     /**
-     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * @return Specifies the scale type. Possible values are `linear` or `log`.
      * 
      */
     private @Nullable String scale;
 
     private DashboardWidgetDistributionDefinitionYaxis() {}
     /**
-     * @return Always include zero or fit the axis to the data range.
+     * @return True includes zero.
      * 
      */
     public Optional<Boolean> includeZero() {
@@ -54,21 +54,21 @@ public final class DashboardWidgetDistributionDefinitionYaxis {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return Specify the maximum value to show on the Y-axis.
+     * @return Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
      * 
      */
     public Optional<String> max() {
         return Optional.ofNullable(this.max);
     }
     /**
-     * @return Specify the minimum value to show on the Y-axis.
+     * @return Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
      * 
      */
     public Optional<String> min() {
         return Optional.ofNullable(this.min);
     }
     /**
-     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * @return Specifies the scale type. Possible values are `linear` or `log`.
      * 
      */
     public Optional<String> scale() {

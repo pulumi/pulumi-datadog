@@ -14,9 +14,25 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSloListDefinition
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        public readonly string? LiveSpan;
+        /// <summary>
         /// A nested block describing the request to use when displaying the widget. Exactly one `Request` block is allowed.
         /// </summary>
         public readonly Outputs.DashboardWidgetSloListDefinitionRequest Request;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetSloListDefinitionTime? Time;
         /// <summary>
         /// The title of the widget.
         /// </summary>
@@ -32,7 +48,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetSloListDefinition(
+            string? description,
+
+            bool? hideIncompleteCostData,
+
+            string? liveSpan,
+
             Outputs.DashboardWidgetSloListDefinitionRequest request,
+
+            Outputs.DashboardWidgetSloListDefinitionTime? time,
 
             string? title,
 
@@ -40,7 +64,11 @@ namespace Pulumi.Datadog.Outputs
 
             string? titleSize)
         {
+            Description = description;
+            HideIncompleteCostData = hideIncompleteCostData;
+            LiveSpan = liveSpan;
             Request = request;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

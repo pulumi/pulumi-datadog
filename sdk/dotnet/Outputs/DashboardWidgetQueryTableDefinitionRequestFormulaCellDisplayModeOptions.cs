@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions
     {
         /// <summary>
-        /// The type of trend line to display. Valid values are `Area`, `Line`, `Bars`.
+        /// The type of trend line to display. Valid values are `Area`, `Line`, and `Bars`.
         /// </summary>
         public readonly string? TrendType;
         /// <summary>
-        /// The scale of the y-axis. Valid values are `Shared`, `Independent`.
+        /// The scale of the y-axis. Valid values are `Shared` and `Independent`.
         /// </summary>
         public readonly string? YScale;
 

@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? LegendLayout;
         /// <summary>
-        /// The size of the legend displayed in the widget.
+        /// The size of the legend displayed in the widget. Valid values are `0`, `2`, `4`, `8`, `16`, `Auto`.
         /// </summary>
         public readonly string? LegendSize;
         /// <summary>
@@ -61,6 +61,10 @@ namespace Pulumi.Datadog.Outputs
         /// Whether or not to show the legend on this widget.
         /// </summary>
         public readonly bool? ShowLegend;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetTimeseriesDefinitionTime? Time;
         /// <summary>
         /// The title of the widget.
         /// </summary>
@@ -104,6 +108,8 @@ namespace Pulumi.Datadog.Outputs
 
             bool? showLegend,
 
+            Outputs.DashboardWidgetTimeseriesDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
@@ -124,6 +130,7 @@ namespace Pulumi.Datadog.Outputs
             Requests = requests;
             RightYaxis = rightYaxis;
             ShowLegend = showLegend;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

@@ -13,13 +13,19 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetCheckStatusDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The check to use in the widget.
+        /// Name of the check to use in the widget.
         /// </summary>
         [Input("check", required: true)]
         public Input<string> Check { get; set; } = null!;
 
         /// <summary>
-        /// The check group to use in the widget.
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Group reporting a single check.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
@@ -58,13 +64,19 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _tags;
 
         /// <summary>
-        /// A list of tags to use in the widget.
+        /// A list of tags used to filter the groups reporting a cluster check.
         /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetCheckStatusDefinitionTimeArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.

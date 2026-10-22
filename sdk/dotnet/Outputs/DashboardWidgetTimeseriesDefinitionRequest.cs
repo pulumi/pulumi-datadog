@@ -14,20 +14,27 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequest
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQuery? AuditQuery;
         /// <summary>
         /// How to display the marker lines. Valid values are `Area`, `Bars`, `Line`, `Overlay`.
         /// </summary>
         public readonly string? DisplayType;
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestEventQuery? EventQuery;
+        /// <summary>
+        /// List of formulas that operate on queries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestFormula> Formulas;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
@@ -35,7 +42,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata> Metadatas;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery? NetworkQuery;
         /// <summary>
@@ -43,20 +50,27 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? OnRightYaxis;
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery? ProcessQuery;
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQuery? ProfileMetricsQuery;
+        /// <summary>
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// List of queries that can be returned directly or used in formulas.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestQuery> Queries;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>
@@ -72,6 +86,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? displayType,
 
+            Outputs.DashboardWidgetTimeseriesDefinitionRequestEventQuery? eventQuery,
+
             ImmutableArray<Outputs.DashboardWidgetTimeseriesDefinitionRequestFormula> formulas,
 
             Outputs.DashboardWidgetLogQuery? logQuery,
@@ -83,6 +99,8 @@ namespace Pulumi.Datadog.Outputs
             bool? onRightYaxis,
 
             Outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery? processQuery,
+
+            Outputs.DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQuery? profileMetricsQuery,
 
             string? q,
 
@@ -97,12 +115,14 @@ namespace Pulumi.Datadog.Outputs
             ApmQuery = apmQuery;
             AuditQuery = auditQuery;
             DisplayType = displayType;
+            EventQuery = eventQuery;
             Formulas = formulas;
             LogQuery = logQuery;
             Metadatas = metadatas;
             NetworkQuery = networkQuery;
             OnRightYaxis = onRightYaxis;
             ProcessQuery = processQuery;
+            ProfileMetricsQuery = profileMetricsQuery;
             Q = q;
             Queries = queries;
             RumQuery = rumQuery;

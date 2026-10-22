@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetRunWorkflowDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetRunWorkflowDefinitionInputArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetRunWorkflowDefinitionTimeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -96,6 +97,21 @@ public final class DashboardWidgetRunWorkflowDefinitionArgs extends com.pulumi.r
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetRunWorkflowDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetRunWorkflowDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -163,6 +179,7 @@ public final class DashboardWidgetRunWorkflowDefinitionArgs extends com.pulumi.r
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.inputs = $.inputs;
         this.liveSpan = $.liveSpan;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -310,6 +327,27 @@ public final class DashboardWidgetRunWorkflowDefinitionArgs extends com.pulumi.r
          */
         public Builder liveSpan(String liveSpan) {
             return liveSpan(Output.of(liveSpan));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetRunWorkflowDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetRunWorkflowDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

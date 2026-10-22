@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         [Input("hideIncompleteCostData")]
@@ -55,7 +61,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? MessageDisplay { get; set; }
 
         /// <summary>
-        /// The query to use in the widget.
+        /// Query to filter the log stream with.
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
@@ -77,6 +83,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("sort")]
         public Input<Inputs.DashboardWidgetLogStreamDefinitionSortArgs>? Sort { get; set; }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetLogStreamDefinitionTimeArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.

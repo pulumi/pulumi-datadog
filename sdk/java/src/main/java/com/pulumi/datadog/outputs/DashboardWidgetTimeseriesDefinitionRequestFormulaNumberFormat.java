@@ -18,6 +18,10 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat
      * 
      */
     private DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit unit;
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale unitScale;
 
     private DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat() {}
@@ -28,6 +32,10 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat
     public DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnit unit() {
         return this.unit;
     }
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale> unitScale() {
         return Optional.ofNullable(this.unitScale);
     }

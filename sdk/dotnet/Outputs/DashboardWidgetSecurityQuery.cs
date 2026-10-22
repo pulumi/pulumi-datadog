@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetSecurityQueryGroupBy> GroupBies;
         /// <summary>
-        /// The name of the index to query.
+        /// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
         /// </summary>
         public readonly string Index;
         /// <summary>

@@ -18,9 +18,13 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySort {
      */
     private String column;
     /**
-     * @return The description of the widget.
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
      * 
      */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
     private @Nullable String description;
     /**
      * @return Widget sorting methods. Valid values are `asc`, `desc`.
@@ -37,9 +41,13 @@ public final class DashboardWidgetSloListDefinitionRequestQuerySort {
         return this.column;
     }
     /**
-     * @return The description of the widget.
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
      * 
      */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }

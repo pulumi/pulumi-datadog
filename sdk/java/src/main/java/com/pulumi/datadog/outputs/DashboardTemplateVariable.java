@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardTemplateVariable {
     /**
-     * @return The list of values that the template variable drop-down is be limited to
+     * @return The list of values that the template variable drop-down is limited to.
      * 
      */
     private @Nullable List<String> availableValues;
@@ -42,10 +42,15 @@ public final class DashboardTemplateVariable {
      * 
      */
     private @Nullable String prefix;
+    /**
+     * @return The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+     * 
+     */
+    private @Nullable String type;
 
     private DashboardTemplateVariable() {}
     /**
-     * @return The list of values that the template variable drop-down is be limited to
+     * @return The list of values that the template variable drop-down is limited to.
      * 
      */
     public List<String> availableValues() {
@@ -83,6 +88,13 @@ public final class DashboardTemplateVariable {
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
+    /**
+     * @return The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+     * 
+     */
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -98,6 +110,7 @@ public final class DashboardTemplateVariable {
         private @Nullable List<String> defaults;
         private String name;
         private @Nullable String prefix;
+        private @Nullable String type;
         public Builder() {}
         public Builder(DashboardTemplateVariable defaults) {
     	      Objects.requireNonNull(defaults);
@@ -106,6 +119,7 @@ public final class DashboardTemplateVariable {
     	      this.defaults = defaults.defaults;
     	      this.name = defaults.name;
     	      this.prefix = defaults.prefix;
+    	      this.type = defaults.type;
         }
 
         @CustomType.Setter
@@ -146,6 +160,12 @@ public final class DashboardTemplateVariable {
             this.prefix = prefix;
             return this;
         }
+        @CustomType.Setter
+        public Builder type(@Nullable String type) {
+
+            this.type = type;
+            return this;
+        }
         public DashboardTemplateVariable build() {
             final var _resultValue = new DashboardTemplateVariable();
             _resultValue.availableValues = availableValues;
@@ -153,6 +173,7 @@ public final class DashboardTemplateVariable {
             _resultValue.defaults = defaults;
             _resultValue.name = name;
             _resultValue.prefix = prefix;
+            _resultValue.type = type;
             return _resultValue;
         }
     }

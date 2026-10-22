@@ -17,16 +17,32 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableAr
 
     public static final DashboardWidgetScatterplotDefinitionRequestScatterplotTableArgs Empty = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableArgs();
 
+    /**
+     * A list of formulas to use in the widget.
+     * 
+     */
     @Import(name="formulas")
     private @Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs>> formulas;
 
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs>>> formulas() {
         return Optional.ofNullable(this.formulas);
     }
 
+    /**
+     * A list of queries to use in the widget.
+     * 
+     */
     @Import(name="queries")
     private @Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs>> queries;
 
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs>>> queries() {
         return Optional.ofNullable(this.queries);
     }
@@ -56,28 +72,64 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableAr
             $ = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param formulas A list of formulas to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(@Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs>> formulas) {
             $.formulas = formulas;
             return this;
         }
 
+        /**
+         * @param formulas A list of formulas to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs> formulas) {
             return formulas(Output.of(formulas));
         }
 
+        /**
+         * @param formulas A list of formulas to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormulaArgs... formulas) {
             return formulas(List.of(formulas));
         }
 
+        /**
+         * @param queries A list of queries to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(@Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs>> queries) {
             $.queries = queries;
             return this;
         }
 
+        /**
+         * @param queries A list of queries to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs> queries) {
             return queries(Output.of(queries));
         }
 
+        /**
+         * @param queries A list of queries to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs... queries) {
             return queries(List.of(queries));
         }

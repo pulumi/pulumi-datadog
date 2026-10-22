@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// [BETA] Provides an updated version of the Datadog dashboard resource which improves compliance with Datadog's dashboard API spec. This version is currently experimental and prone to changes.
+// `DashboardV2` is an alias for `Dashboard`. Both resource names have identical behavior and schema; prefer `Dashboard` for new configurations.
 //
 // ## Example Usage
 //

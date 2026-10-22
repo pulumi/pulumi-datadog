@@ -26,6 +26,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        public readonly string? LiveSpan;
+        /// <summary>
         /// UUID of the associated powerpack.
         /// </summary>
         public readonly string PowerpackId;
@@ -38,9 +46,21 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetPowerpackDefinitionTemplateVariables? TemplateVariables;
         /// <summary>
-        /// Title of the powerpack.
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetPowerpackDefinitionTime? Time;
+        /// <summary>
+        /// The title of the widget.
         /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
+        /// </summary>
+        public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
+        public readonly string? TitleSize;
 
         [OutputConstructor]
         private DashboardWidgetPowerpackDefinition(
@@ -50,21 +70,36 @@ namespace Pulumi.Datadog.Outputs
 
             string? description,
 
+            bool? hideIncompleteCostData,
+
+            string? liveSpan,
+
             string powerpackId,
 
             bool? showTitle,
 
             Outputs.DashboardWidgetPowerpackDefinitionTemplateVariables? templateVariables,
 
-            string? title)
+            Outputs.DashboardWidgetPowerpackDefinitionTime? time,
+
+            string? title,
+
+            string? titleAlign,
+
+            string? titleSize)
         {
             BackgroundColor = backgroundColor;
             BannerImg = bannerImg;
             Description = description;
+            HideIncompleteCostData = hideIncompleteCostData;
+            LiveSpan = liveSpan;
             PowerpackId = powerpackId;
             ShowTitle = showTitle;
             TemplateVariables = templateVariables;
+            Time = time;
             Title = title;
+            TitleAlign = titleAlign;
+            TitleSize = titleSize;
         }
     }
 }

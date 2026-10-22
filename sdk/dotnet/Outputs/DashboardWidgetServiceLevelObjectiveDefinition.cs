@@ -26,6 +26,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? GlobalTimeTarget;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        public readonly string? LiveSpan;
+        /// <summary>
         /// Whether to show the error budget or not.
         /// </summary>
         public readonly bool? ShowErrorBudget;
@@ -33,6 +41,10 @@ namespace Pulumi.Datadog.Outputs
         /// The ID of the service level objective used by the widget.
         /// </summary>
         public readonly string SloId;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetServiceLevelObjectiveDefinitionTime? Time;
         /// <summary>
         /// A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `WeekToDate`, `PreviousWeek`, `MonthToDate`, `PreviousMonth`, `GlobalTime`.
         /// </summary>
@@ -66,9 +78,15 @@ namespace Pulumi.Datadog.Outputs
 
             string? globalTimeTarget,
 
+            bool? hideIncompleteCostData,
+
+            string? liveSpan,
+
             bool? showErrorBudget,
 
             string sloId,
+
+            Outputs.DashboardWidgetServiceLevelObjectiveDefinitionTime? time,
 
             ImmutableArray<string> timeWindows,
 
@@ -85,8 +103,11 @@ namespace Pulumi.Datadog.Outputs
             AdditionalQueryFilters = additionalQueryFilters;
             Description = description;
             GlobalTimeTarget = globalTimeTarget;
+            HideIncompleteCostData = hideIncompleteCostData;
+            LiveSpan = liveSpan;
             ShowErrorBudget = showErrorBudget;
             SloId = sloId;
+            Time = time;
             TimeWindows = timeWindows;
             Title = title;
             TitleAlign = titleAlign;

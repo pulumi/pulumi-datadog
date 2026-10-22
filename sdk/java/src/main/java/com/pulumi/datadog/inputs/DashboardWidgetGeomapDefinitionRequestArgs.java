@@ -20,61 +20,101 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
 
     public static final DashboardWidgetGeomapDefinitionRequestArgs Empty = new DashboardWidgetGeomapDefinitionRequestArgs();
 
+    /**
+     * List of formulas that operate on queries.
+     * 
+     */
     @Import(name="formulas")
     private @Nullable Output<List<DashboardWidgetGeomapDefinitionRequestFormulaArgs>> formulas;
 
+    /**
+     * @return List of formulas that operate on queries.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGeomapDefinitionRequestFormulaArgs>>> formulas() {
         return Optional.ofNullable(this.formulas);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetLogQueryArgs> logQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
     /**
-     * The metric query to use for this widget.
+     * The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="q")
     private @Nullable Output<String> q;
 
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
 
+    /**
+     * List of queries that can be returned directly or used in formulas.
+     * 
+     */
     @Import(name="queries")
     private @Nullable Output<List<DashboardWidgetGeomapDefinitionRequestQueryArgs>> queries;
 
+    /**
+     * @return List of queries that can be returned directly or used in formulas.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetGeomapDefinitionRequestQueryArgs>>> queries() {
         return Optional.ofNullable(this.queries);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetRumQueryArgs> rumQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
@@ -107,91 +147,151 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
             $ = new DashboardWidgetGeomapDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param formulas List of formulas that operate on queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(@Nullable Output<List<DashboardWidgetGeomapDefinitionRequestFormulaArgs>> formulas) {
             $.formulas = formulas;
             return this;
         }
 
+        /**
+         * @param formulas List of formulas that operate on queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(List<DashboardWidgetGeomapDefinitionRequestFormulaArgs> formulas) {
             return formulas(Output.of(formulas));
         }
 
+        /**
+         * @param formulas List of formulas that operate on queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(DashboardWidgetGeomapDefinitionRequestFormulaArgs... formulas) {
             return formulas(List.of(formulas));
         }
 
         /**
-         * @param logQuery The query to use for this widget.
+         * @param logQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder logQuery(@Nullable Output<DashboardWidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
         /**
-         * @param logQuery The query to use for this widget.
+         * @param logQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder logQuery(DashboardWidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
         /**
-         * @param q The metric query to use for this widget.
+         * @param q The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
         /**
-         * @param q The metric query to use for this widget.
+         * @param q The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder q(String q) {
             return q(Output.of(q));
         }
 
+        /**
+         * @param queries List of queries that can be returned directly or used in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(@Nullable Output<List<DashboardWidgetGeomapDefinitionRequestQueryArgs>> queries) {
             $.queries = queries;
             return this;
         }
 
+        /**
+         * @param queries List of queries that can be returned directly or used in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(List<DashboardWidgetGeomapDefinitionRequestQueryArgs> queries) {
             return queries(Output.of(queries));
         }
 
+        /**
+         * @param queries List of queries that can be returned directly or used in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(DashboardWidgetGeomapDefinitionRequestQueryArgs... queries) {
             return queries(List.of(queries));
         }
 
         /**
-         * @param rumQuery The query to use for this widget.
+         * @param rumQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder rumQuery(@Nullable Output<DashboardWidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
         /**
-         * @param rumQuery The query to use for this widget.
+         * @param rumQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder rumQuery(DashboardWidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }

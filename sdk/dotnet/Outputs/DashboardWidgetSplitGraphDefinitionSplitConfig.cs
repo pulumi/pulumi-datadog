@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetSplitGraphDefinitionSplitConfigSplitDimensions SplitDimensions;
         /// <summary>
-        /// The property by which the graph splits
+        /// Manual selection of tags making split graph widget static.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplit> StaticSplits;
 

@@ -8,9 +8,12 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetApmQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetRumQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXFormulaArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestXQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSecurityQueryArgs;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,14 +24,14 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
     public static final DashboardWidgetScatterplotDefinitionRequestXArgs Empty = new DashboardWidgetScatterplotDefinitionRequestXArgs();
 
     /**
-     * Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * Aggregator used for the request. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
     /**
-     * @return Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return Aggregator used for the request. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     public Optional<Output<String>> aggregator() {
@@ -36,91 +39,169 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetApmQueryArgs> apmQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
     /**
-     * The query to use for this widget.
+     * A list of formulas to use in the widget.
      * 
      */
+    @Import(name="formulas")
+    private @Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestXFormulaArgs>> formulas;
+
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
+    public Optional<Output<List<DashboardWidgetScatterplotDefinitionRequestXFormulaArgs>>> formulas() {
+        return Optional.ofNullable(this.formulas);
+    }
+
+    /**
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetLogQueryArgs> logQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
 
     /**
-     * The process query to use in the widget. The structure of this block is described below.
+     * The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs> processQuery;
 
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
 
     /**
-     * The metric query to use for this widget.
+     * The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="q")
     private @Nullable Output<String> q;
 
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
 
     /**
-     * The query to use for this widget.
+     * A list of queries to use in the widget.
      * 
      */
+    @Import(name="queries")
+    private @Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestXQueryArgs>> queries;
+
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
+    public Optional<Output<List<DashboardWidgetScatterplotDefinitionRequestXQueryArgs>>> queries() {
+        return Optional.ofNullable(this.queries);
+    }
+
+    /**
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetRumQueryArgs> rumQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -130,9 +211,11 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
     private DashboardWidgetScatterplotDefinitionRequestXArgs(DashboardWidgetScatterplotDefinitionRequestXArgs $) {
         this.aggregator = $.aggregator;
         this.apmQuery = $.apmQuery;
+        this.formulas = $.formulas;
         this.logQuery = $.logQuery;
         this.processQuery = $.processQuery;
         this.q = $.q;
+        this.queries = $.queries;
         this.rumQuery = $.rumQuery;
         this.securityQuery = $.securityQuery;
     }
@@ -156,7 +239,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
         }
 
         /**
-         * @param aggregator Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator Aggregator used for the request. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
          * 
          * @return builder
          * 
@@ -167,7 +250,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
         }
 
         /**
-         * @param aggregator Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator Aggregator used for the request. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
          * 
          * @return builder
          * 
@@ -177,127 +260,237 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
         }
 
         /**
-         * @param apmQuery The query to use for this widget.
+         * @param apmQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder apmQuery(@Nullable Output<DashboardWidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
         /**
-         * @param apmQuery The query to use for this widget.
+         * @param apmQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder apmQuery(DashboardWidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
         /**
-         * @param logQuery The query to use for this widget.
+         * @param formulas A list of formulas to use in the widget.
          * 
          * @return builder
          * 
          */
+        public Builder formulas(@Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestXFormulaArgs>> formulas) {
+            $.formulas = formulas;
+            return this;
+        }
+
+        /**
+         * @param formulas A list of formulas to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder formulas(List<DashboardWidgetScatterplotDefinitionRequestXFormulaArgs> formulas) {
+            return formulas(Output.of(formulas));
+        }
+
+        /**
+         * @param formulas A list of formulas to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder formulas(DashboardWidgetScatterplotDefinitionRequestXFormulaArgs... formulas) {
+            return formulas(List.of(formulas));
+        }
+
+        /**
+         * @param logQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
+         */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder logQuery(@Nullable Output<DashboardWidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
         /**
-         * @param logQuery The query to use for this widget.
+         * @param logQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder logQuery(DashboardWidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
 
         /**
-         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * @param processQuery The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder processQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
         }
 
         /**
-         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * @param processQuery The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder processQuery(DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
 
         /**
-         * @param q The metric query to use for this widget.
+         * @param q The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
         /**
-         * @param q The metric query to use for this widget.
+         * @param q The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder q(String q) {
             return q(Output.of(q));
         }
 
         /**
-         * @param rumQuery The query to use for this widget.
+         * @param queries A list of queries to use in the widget.
          * 
          * @return builder
          * 
          */
+        public Builder queries(@Nullable Output<List<DashboardWidgetScatterplotDefinitionRequestXQueryArgs>> queries) {
+            $.queries = queries;
+            return this;
+        }
+
+        /**
+         * @param queries A list of queries to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queries(List<DashboardWidgetScatterplotDefinitionRequestXQueryArgs> queries) {
+            return queries(Output.of(queries));
+        }
+
+        /**
+         * @param queries A list of queries to use in the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queries(DashboardWidgetScatterplotDefinitionRequestXQueryArgs... queries) {
+            return queries(List.of(queries));
+        }
+
+        /**
+         * @param rumQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
+         */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder rumQuery(@Nullable Output<DashboardWidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
         /**
-         * @param rumQuery The query to use for this widget.
+         * @param rumQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder rumQuery(DashboardWidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
         /**
-         * @param securityQuery The query to use for this widget.
+         * @param securityQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder securityQuery(@Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
         /**
-         * @param securityQuery The query to use for this widget.
+         * @param securityQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder securityQuery(DashboardWidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }

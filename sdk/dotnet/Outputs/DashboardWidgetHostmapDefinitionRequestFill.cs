@@ -14,27 +14,35 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetHostmapDefinitionRequestFill
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// A list of formulas to use in the widget.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestFillFormula> Formulas;
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequestFillProcessQuery? ProcessQuery;
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly string? Q;
         /// <summary>
-        /// The query to use for this widget.
+        /// A list of queries to use in the widget.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestFillQuery> Queries;
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
 
@@ -42,20 +50,26 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetHostmapDefinitionRequestFill(
             Outputs.DashboardWidgetApmQuery? apmQuery,
 
+            ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestFillFormula> formulas,
+
             Outputs.DashboardWidgetLogQuery? logQuery,
 
             Outputs.DashboardWidgetHostmapDefinitionRequestFillProcessQuery? processQuery,
 
             string? q,
 
+            ImmutableArray<Outputs.DashboardWidgetHostmapDefinitionRequestFillQuery> queries,
+
             Outputs.DashboardWidgetRumQuery? rumQuery,
 
             Outputs.DashboardWidgetSecurityQuery? securityQuery)
         {
             ApmQuery = apmQuery;
+            Formulas = formulas;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
         }

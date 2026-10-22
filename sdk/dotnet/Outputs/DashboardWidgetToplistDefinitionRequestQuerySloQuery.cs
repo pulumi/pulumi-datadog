@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// ID of an SLO to query.
+        /// ID of an SLO to query measures.
         /// </summary>
         public readonly string SloId;
         /// <summary>

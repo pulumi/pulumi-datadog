@@ -32,9 +32,17 @@ public final class DashboardWidgetChangeDefinitionRequestFormulaNumberFormatArgs
         return this.unit;
     }
 
+    /**
+     * The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     @Import(name="unitScale")
     private @Nullable Output<DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScaleArgs> unitScale;
 
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     public Optional<Output<DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScaleArgs>> unitScale() {
         return Optional.ofNullable(this.unitScale);
     }
@@ -85,11 +93,23 @@ public final class DashboardWidgetChangeDefinitionRequestFormulaNumberFormatArgs
             return unit(Output.of(unit));
         }
 
+        /**
+         * @param unitScale The definition of `NumberFormatUnitScale` object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unitScale(@Nullable Output<DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScaleArgs> unitScale) {
             $.unitScale = unitScale;
             return this;
         }
 
+        /**
+         * @param unitScale The definition of `NumberFormatUnitScale` object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unitScale(DashboardWidgetChangeDefinitionRequestFormulaNumberFormatUnitScaleArgs unitScale) {
             return unitScale(Output.of(unitScale));
         }

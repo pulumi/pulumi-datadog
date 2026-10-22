@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetTreemapDefinitionRequestFormulaArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTreemapDefinitionRequestQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTreemapDefinitionRequestSortArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTreemapDefinitionRequestStyleArgs;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,18 +19,64 @@ public final class DashboardWidgetTreemapDefinitionRequestArgs extends com.pulum
 
     public static final DashboardWidgetTreemapDefinitionRequestArgs Empty = new DashboardWidgetTreemapDefinitionRequestArgs();
 
+    /**
+     * List of formulas that operate on queries.
+     * 
+     */
     @Import(name="formulas")
     private @Nullable Output<List<DashboardWidgetTreemapDefinitionRequestFormulaArgs>> formulas;
 
+    /**
+     * @return List of formulas that operate on queries.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetTreemapDefinitionRequestFormulaArgs>>> formulas() {
         return Optional.ofNullable(this.formulas);
     }
 
+    /**
+     * List of queries that can be returned directly or used in formulas.
+     * 
+     */
     @Import(name="queries")
     private @Nullable Output<List<DashboardWidgetTreemapDefinitionRequestQueryArgs>> queries;
 
+    /**
+     * @return List of queries that can be returned directly or used in formulas.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetTreemapDefinitionRequestQueryArgs>>> queries() {
         return Optional.ofNullable(this.queries);
+    }
+
+    /**
+     * The controls for sorting the widget. Only applicable for formula-style requests.
+     * 
+     */
+    @Import(name="sort")
+    private @Nullable Output<DashboardWidgetTreemapDefinitionRequestSortArgs> sort;
+
+    /**
+     * @return The controls for sorting the widget. Only applicable for formula-style requests.
+     * 
+     */
+    public Optional<Output<DashboardWidgetTreemapDefinitionRequestSortArgs>> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+
+    /**
+     * Define style for the widget&#39;s request.
+     * 
+     */
+    @Import(name="style")
+    private @Nullable Output<DashboardWidgetTreemapDefinitionRequestStyleArgs> style;
+
+    /**
+     * @return Define style for the widget&#39;s request.
+     * 
+     */
+    public Optional<Output<DashboardWidgetTreemapDefinitionRequestStyleArgs>> style() {
+        return Optional.ofNullable(this.style);
     }
 
     private DashboardWidgetTreemapDefinitionRequestArgs() {}
@@ -36,6 +84,8 @@ public final class DashboardWidgetTreemapDefinitionRequestArgs extends com.pulum
     private DashboardWidgetTreemapDefinitionRequestArgs(DashboardWidgetTreemapDefinitionRequestArgs $) {
         this.formulas = $.formulas;
         this.queries = $.queries;
+        this.sort = $.sort;
+        this.style = $.style;
     }
 
     public static Builder builder() {
@@ -56,30 +106,108 @@ public final class DashboardWidgetTreemapDefinitionRequestArgs extends com.pulum
             $ = new DashboardWidgetTreemapDefinitionRequestArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param formulas List of formulas that operate on queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(@Nullable Output<List<DashboardWidgetTreemapDefinitionRequestFormulaArgs>> formulas) {
             $.formulas = formulas;
             return this;
         }
 
+        /**
+         * @param formulas List of formulas that operate on queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(List<DashboardWidgetTreemapDefinitionRequestFormulaArgs> formulas) {
             return formulas(Output.of(formulas));
         }
 
+        /**
+         * @param formulas List of formulas that operate on queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(DashboardWidgetTreemapDefinitionRequestFormulaArgs... formulas) {
             return formulas(List.of(formulas));
         }
 
+        /**
+         * @param queries List of queries that can be returned directly or used in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(@Nullable Output<List<DashboardWidgetTreemapDefinitionRequestQueryArgs>> queries) {
             $.queries = queries;
             return this;
         }
 
+        /**
+         * @param queries List of queries that can be returned directly or used in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(List<DashboardWidgetTreemapDefinitionRequestQueryArgs> queries) {
             return queries(Output.of(queries));
         }
 
+        /**
+         * @param queries List of queries that can be returned directly or used in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(DashboardWidgetTreemapDefinitionRequestQueryArgs... queries) {
             return queries(List.of(queries));
+        }
+
+        /**
+         * @param sort The controls for sorting the widget. Only applicable for formula-style requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sort(@Nullable Output<DashboardWidgetTreemapDefinitionRequestSortArgs> sort) {
+            $.sort = sort;
+            return this;
+        }
+
+        /**
+         * @param sort The controls for sorting the widget. Only applicable for formula-style requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sort(DashboardWidgetTreemapDefinitionRequestSortArgs sort) {
+            return sort(Output.of(sort));
+        }
+
+        /**
+         * @param style Define style for the widget&#39;s request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder style(@Nullable Output<DashboardWidgetTreemapDefinitionRequestStyleArgs> style) {
+            $.style = style;
+            return this;
+        }
+
+        /**
+         * @param style Define style for the widget&#39;s request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder style(DashboardWidgetTreemapDefinitionRequestStyleArgs style) {
+            return style(Output.of(style));
         }
 
         public DashboardWidgetTreemapDefinitionRequestArgs build() {

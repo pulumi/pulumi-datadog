@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetToplistDefinitionStyle
     {
         /// <summary>
-        /// The display mode for the widget.
+        /// The display mode for the top list widget. Use `Stacked` or `Flat` sub-block.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionStyleDisplay> Displays;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Palette;
         /// <summary>
-        /// The scaling mode for the widget. Valid values are `Absolute`, `Relative`.
+        /// The scaling mode for the widget.
         /// </summary>
         public readonly string? Scaling;
 

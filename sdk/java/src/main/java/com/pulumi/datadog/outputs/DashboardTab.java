@@ -24,7 +24,7 @@ public final class DashboardTab {
      */
     private String name;
     /**
-     * @return List of widget references for this tab. Use {@literal @}N format to reference widgets by position (1-indexed).
+     * @return List of widget references using {@literal @}N format (1-indexed).
      * 
      */
     private List<String> widgetIds;
@@ -45,7 +45,7 @@ public final class DashboardTab {
         return this.name;
     }
     /**
-     * @return List of widget references for this tab. Use {@literal @}N format to reference widgets by position (1-indexed).
+     * @return List of widget references using {@literal @}N format (1-indexed).
      * 
      */
     public List<String> widgetIds() {

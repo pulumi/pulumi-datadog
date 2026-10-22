@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,14 +18,14 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
     public static final DashboardWidgetDistributionDefinitionXaxisArgs Empty = new DashboardWidgetDistributionDefinitionXaxisArgs();
 
     /**
-     * Always include zero or fit the axis to the data range.
+     * True includes zero.
      * 
      */
     @Import(name="includeZero")
     private @Nullable Output<Boolean> includeZero;
 
     /**
-     * @return Always include zero or fit the axis to the data range.
+     * @return True includes zero.
      * 
      */
     public Optional<Output<Boolean>> includeZero() {
@@ -32,14 +33,14 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
     }
 
     /**
-     * Specify the maximum value to show on the Y-axis.
+     * Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
      * 
      */
     @Import(name="max")
     private @Nullable Output<String> max;
 
     /**
-     * @return Specify the maximum value to show on the Y-axis.
+     * @return Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
      * 
      */
     public Optional<Output<String>> max() {
@@ -47,14 +48,14 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
     }
 
     /**
-     * Specify the minimum value to show on the Y-axis.
+     * Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
      * 
      */
     @Import(name="min")
     private @Nullable Output<String> min;
 
     /**
-     * @return Specify the minimum value to show on the Y-axis.
+     * @return Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
      * 
      */
     public Optional<Output<String>> min() {
@@ -62,14 +63,29 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
     }
 
     /**
-     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * Number of value buckets to target, also known as the resolution of the value bins.
+     * 
+     */
+    @Import(name="numBuckets")
+    private @Nullable Output<Integer> numBuckets;
+
+    /**
+     * @return Number of value buckets to target, also known as the resolution of the value bins.
+     * 
+     */
+    public Optional<Output<Integer>> numBuckets() {
+        return Optional.ofNullable(this.numBuckets);
+    }
+
+    /**
+     * Specifies the scale type. Possible values are `linear`.
      * 
      */
     @Import(name="scale")
     private @Nullable Output<String> scale;
 
     /**
-     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * @return Specifies the scale type. Possible values are `linear`.
      * 
      */
     public Optional<Output<String>> scale() {
@@ -82,6 +98,7 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
         this.includeZero = $.includeZero;
         this.max = $.max;
         this.min = $.min;
+        this.numBuckets = $.numBuckets;
         this.scale = $.scale;
     }
 
@@ -104,7 +121,7 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
         }
 
         /**
-         * @param includeZero Always include zero or fit the axis to the data range.
+         * @param includeZero True includes zero.
          * 
          * @return builder
          * 
@@ -115,7 +132,7 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
         }
 
         /**
-         * @param includeZero Always include zero or fit the axis to the data range.
+         * @param includeZero True includes zero.
          * 
          * @return builder
          * 
@@ -125,7 +142,7 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
         }
 
         /**
-         * @param max Specify the maximum value to show on the Y-axis.
+         * @param max Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
          * 
          * @return builder
          * 
@@ -136,7 +153,7 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
         }
 
         /**
-         * @param max Specify the maximum value to show on the Y-axis.
+         * @param max Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
          * 
          * @return builder
          * 
@@ -146,7 +163,7 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
         }
 
         /**
-         * @param min Specify the minimum value to show on the Y-axis.
+         * @param min Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
          * 
          * @return builder
          * 
@@ -157,7 +174,7 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
         }
 
         /**
-         * @param min Specify the minimum value to show on the Y-axis.
+         * @param min Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
          * 
          * @return builder
          * 
@@ -167,7 +184,28 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
         }
 
         /**
-         * @param scale Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+         * @param numBuckets Number of value buckets to target, also known as the resolution of the value bins.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numBuckets(@Nullable Output<Integer> numBuckets) {
+            $.numBuckets = numBuckets;
+            return this;
+        }
+
+        /**
+         * @param numBuckets Number of value buckets to target, also known as the resolution of the value bins.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder numBuckets(Integer numBuckets) {
+            return numBuckets(Output.of(numBuckets));
+        }
+
+        /**
+         * @param scale Specifies the scale type. Possible values are `linear`.
          * 
          * @return builder
          * 
@@ -178,7 +216,7 @@ public final class DashboardWidgetDistributionDefinitionXaxisArgs extends com.pu
         }
 
         /**
-         * @param scale Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+         * @param scale Specifies the scale type. Possible values are `linear`.
          * 
          * @return builder
          * 

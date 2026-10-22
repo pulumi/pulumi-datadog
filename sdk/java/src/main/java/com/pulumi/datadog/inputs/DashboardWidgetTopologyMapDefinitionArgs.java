@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetTopologyMapDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTopologyMapDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTopologyMapDefinitionTimeArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -49,6 +51,36 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
     }
 
     /**
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    @Import(name="liveSpan")
+    private @Nullable Output<String> liveSpan;
+
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<Output<String>> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+
+    /**
      * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
      * 
      */
@@ -61,6 +93,21 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
      */
     public Optional<Output<List<DashboardWidgetTopologyMapDefinitionRequestArgs>>> requests() {
         return Optional.ofNullable(this.requests);
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetTopologyMapDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetTopologyMapDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -113,7 +160,10 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
     private DashboardWidgetTopologyMapDefinitionArgs(DashboardWidgetTopologyMapDefinitionArgs $) {
         this.customLinks = $.customLinks;
         this.description = $.description;
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
+        this.liveSpan = $.liveSpan;
         this.requests = $.requests;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -190,6 +240,48 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
         }
 
         /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
+        }
+
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveSpan(@Nullable Output<String> liveSpan) {
+            $.liveSpan = liveSpan;
+            return this;
+        }
+
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveSpan(String liveSpan) {
+            return liveSpan(Output.of(liveSpan));
+        }
+
+        /**
          * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
          * 
          * @return builder
@@ -218,6 +310,27 @@ public final class DashboardWidgetTopologyMapDefinitionArgs extends com.pulumi.r
          */
         public Builder requests(DashboardWidgetTopologyMapDefinitionRequestArgs... requests) {
             return requests(List.of(requests));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetTopologyMapDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetTopologyMapDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

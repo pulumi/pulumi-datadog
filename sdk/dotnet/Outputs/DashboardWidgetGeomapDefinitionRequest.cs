@@ -13,18 +13,24 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetGeomapDefinitionRequest
     {
+        /// <summary>
+        /// List of formulas that operate on queries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestFormula> Formulas;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// List of queries that can be returned directly or used in formulas.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetGeomapDefinitionRequestQuery> Queries;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
 

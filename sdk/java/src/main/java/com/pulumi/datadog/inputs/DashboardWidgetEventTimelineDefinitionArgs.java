@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetEventTimelineDefinitionTimeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -63,14 +64,14 @@ public final class DashboardWidgetEventTimelineDefinitionArgs extends com.pulumi
     }
 
     /**
-     * The query to use in the widget.
+     * Query to filter the event timeline with.
      * 
      */
     @Import(name="query", required=true)
     private Output<String> query;
 
     /**
-     * @return The query to use in the widget.
+     * @return Query to filter the event timeline with.
      * 
      */
     public Output<String> query() {
@@ -90,6 +91,21 @@ public final class DashboardWidgetEventTimelineDefinitionArgs extends com.pulumi
      */
     public Optional<Output<String>> tagsExecution() {
         return Optional.ofNullable(this.tagsExecution);
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetEventTimelineDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetEventTimelineDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -145,6 +161,7 @@ public final class DashboardWidgetEventTimelineDefinitionArgs extends com.pulumi
         this.liveSpan = $.liveSpan;
         this.query = $.query;
         this.tagsExecution = $.tagsExecution;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -232,7 +249,7 @@ public final class DashboardWidgetEventTimelineDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param query The query to use in the widget.
+         * @param query Query to filter the event timeline with.
          * 
          * @return builder
          * 
@@ -243,7 +260,7 @@ public final class DashboardWidgetEventTimelineDefinitionArgs extends com.pulumi
         }
 
         /**
-         * @param query The query to use in the widget.
+         * @param query Query to filter the event timeline with.
          * 
          * @return builder
          * 
@@ -271,6 +288,27 @@ public final class DashboardWidgetEventTimelineDefinitionArgs extends com.pulumi
          */
         public Builder tagsExecution(String tagsExecution) {
             return tagsExecution(Output.of(tagsExecution));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetEventTimelineDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetEventTimelineDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

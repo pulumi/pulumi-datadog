@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,14 +18,14 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
     public static final DashboardWidgetTopologyMapDefinitionRequestQueryArgs Empty = new DashboardWidgetTopologyMapDefinitionRequestQueryArgs();
 
     /**
-     * The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `dataStreams`, `serviceMap`.
+     * The data source for the Topology request. Valid values are `serviceMap`, `dataStreams`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `dataStreams`, `serviceMap`.
+     * @return The data source for the Topology request. Valid values are `serviceMap`, `dataStreams`.
      * 
      */
     public Output<String> dataSource() {
@@ -46,14 +48,29 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
     }
 
     /**
-     * The ID of the service to map.
+     * A search string for filtering services. When set, this replaces the `service` field.
+     * 
+     */
+    @Import(name="queryString")
+    private @Nullable Output<String> queryString;
+
+    /**
+     * @return A search string for filtering services. When set, this replaces the `service` field.
+     * 
+     */
+    public Optional<Output<String>> queryString() {
+        return Optional.ofNullable(this.queryString);
+    }
+
+    /**
+     * Name of the service. Leave this empty and use `queryString` instead.
      * 
      */
     @Import(name="service", required=true)
     private Output<String> service;
 
     /**
-     * @return The ID of the service to map.
+     * @return Name of the service. Leave this empty and use `queryString` instead.
      * 
      */
     public Output<String> service() {
@@ -65,6 +82,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
     private DashboardWidgetTopologyMapDefinitionRequestQueryArgs(DashboardWidgetTopologyMapDefinitionRequestQueryArgs $) {
         this.dataSource = $.dataSource;
         this.filters = $.filters;
+        this.queryString = $.queryString;
         this.service = $.service;
     }
 
@@ -87,7 +105,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         /**
-         * @param dataSource The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `dataStreams`, `serviceMap`.
+         * @param dataSource The data source for the Topology request. Valid values are `serviceMap`, `dataStreams`.
          * 
          * @return builder
          * 
@@ -98,7 +116,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         /**
-         * @param dataSource The data source for the Topology request (&#39;service*map&#39; or &#39;data*streams&#39;). Valid values are `dataStreams`, `serviceMap`.
+         * @param dataSource The data source for the Topology request. Valid values are `serviceMap`, `dataStreams`.
          * 
          * @return builder
          * 
@@ -139,7 +157,28 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         /**
-         * @param service The ID of the service to map.
+         * @param queryString A search string for filtering services. When set, this replaces the `service` field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryString(@Nullable Output<String> queryString) {
+            $.queryString = queryString;
+            return this;
+        }
+
+        /**
+         * @param queryString A search string for filtering services. When set, this replaces the `service` field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryString(String queryString) {
+            return queryString(Output.of(queryString));
+        }
+
+        /**
+         * @param service Name of the service. Leave this empty and use `queryString` instead.
          * 
          * @return builder
          * 
@@ -150,7 +189,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestQueryArgs extends 
         }
 
         /**
-         * @param service The ID of the service to map.
+         * @param service Name of the service. Leave this empty and use `queryString` instead.
          * 
          * @return builder
          * 

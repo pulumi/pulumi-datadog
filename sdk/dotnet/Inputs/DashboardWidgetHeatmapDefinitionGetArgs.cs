@@ -60,11 +60,23 @@ namespace Pulumi.Datadog.Inputs
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
+        [Input("markers")]
+        private InputList<Inputs.DashboardWidgetHeatmapDefinitionMarkerGetArgs>? _markers;
+
+        /// <summary>
+        /// A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `Marker` blocks are allowed within a given `HeatmapDefinition` block.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetHeatmapDefinitionMarkerGetArgs> Markers
+        {
+            get => _markers ?? (_markers = new InputList<Inputs.DashboardWidgetHeatmapDefinitionMarkerGetArgs>());
+            set => _markers = value;
+        }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestGetArgs>? _requests;
 
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
+        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestGetArgs> Requests
         {
@@ -77,6 +89,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("showLegend")]
         public Input<bool>? ShowLegend { get; set; }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetHeatmapDefinitionTimeGetArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.
@@ -95,6 +113,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }
+
+        /// <summary>
+        /// A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+        /// </summary>
+        [Input("xaxis")]
+        public Input<Inputs.DashboardWidgetHeatmapDefinitionXaxisGetArgs>? Xaxis { get; set; }
 
         /// <summary>
         /// A nested block describing the Y-Axis Controls. The structure of this block is described below.

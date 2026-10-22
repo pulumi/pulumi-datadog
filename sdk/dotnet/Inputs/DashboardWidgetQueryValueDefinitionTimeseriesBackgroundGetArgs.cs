@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the Timeseries is made using an area or bars. Valid values are `Bars`, `Area`.
+        /// Whether the Timeseries is made using an area or bars. Valid values are `Area`, `Bars`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

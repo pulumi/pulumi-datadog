@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetCheckStatusDefinitionTimeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,14 +20,14 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
     public static final DashboardWidgetCheckStatusDefinitionArgs Empty = new DashboardWidgetCheckStatusDefinitionArgs();
 
     /**
-     * The check to use in the widget.
+     * Name of the check to use in the widget.
      * 
      */
     @Import(name="check", required=true)
     private Output<String> check;
 
     /**
-     * @return The check to use in the widget.
+     * @return Name of the check to use in the widget.
      * 
      */
     public Output<String> check() {
@@ -34,14 +35,29 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
     }
 
     /**
-     * The check group to use in the widget.
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Group reporting a single check.
      * 
      */
     @Import(name="group")
     private @Nullable Output<String> group;
 
     /**
-     * @return The check group to use in the widget.
+     * @return Group reporting a single check.
      * 
      */
     public Optional<Output<String>> group() {
@@ -109,18 +125,33 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
     }
 
     /**
-     * A list of tags to use in the widget.
+     * A list of tags used to filter the groups reporting a cluster check.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<String>> tags;
 
     /**
-     * @return A list of tags to use in the widget.
+     * @return A list of tags used to filter the groups reporting a cluster check.
      * 
      */
     public Optional<Output<List<String>>> tags() {
         return Optional.ofNullable(this.tags);
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetCheckStatusDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetCheckStatusDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -172,12 +203,14 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
 
     private DashboardWidgetCheckStatusDefinitionArgs(DashboardWidgetCheckStatusDefinitionArgs $) {
         this.check = $.check;
+        this.description = $.description;
         this.group = $.group;
         this.groupBies = $.groupBies;
         this.grouping = $.grouping;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.tags = $.tags;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -202,7 +235,7 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param check The check to use in the widget.
+         * @param check Name of the check to use in the widget.
          * 
          * @return builder
          * 
@@ -213,7 +246,7 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param check The check to use in the widget.
+         * @param check Name of the check to use in the widget.
          * 
          * @return builder
          * 
@@ -223,7 +256,28 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param group The check group to use in the widget.
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
+        }
+
+        /**
+         * @param group Group reporting a single check.
          * 
          * @return builder
          * 
@@ -234,7 +288,7 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param group The check group to use in the widget.
+         * @param group Group reporting a single check.
          * 
          * @return builder
          * 
@@ -338,7 +392,7 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param tags A list of tags to use in the widget.
+         * @param tags A list of tags used to filter the groups reporting a cluster check.
          * 
          * @return builder
          * 
@@ -349,7 +403,7 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param tags A list of tags to use in the widget.
+         * @param tags A list of tags used to filter the groups reporting a cluster check.
          * 
          * @return builder
          * 
@@ -359,13 +413,34 @@ public final class DashboardWidgetCheckStatusDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param tags A list of tags to use in the widget.
+         * @param tags A list of tags used to filter the groups reporting a cluster check.
          * 
          * @return builder
          * 
          */
         public Builder tags(String... tags) {
             return tags(List.of(tags));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetCheckStatusDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetCheckStatusDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

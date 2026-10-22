@@ -25,10 +25,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? BannerImg { get; set; }
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        [Input("hideIncompleteCostData")]
+        public Input<bool>? HideIncompleteCostData { get; set; }
+
+        /// <summary>
         /// The layout type of the group. Valid values are `Ordered`.
         /// </summary>
         [Input("layoutType", required: true)]
         public Input<string> LayoutType { get; set; } = null!;
+
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
 
         /// <summary>
         /// Whether to show the title or not. Defaults to `True`.
@@ -37,10 +55,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? ShowTitle { get; set; }
 
         /// <summary>
-        /// The title of the group.
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetGroupDefinitionTimeGetArgs>? Time { get; set; }
+
+        /// <summary>
+        /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
+
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
+        /// </summary>
+        [Input("titleAlign")]
+        public Input<string>? TitleAlign { get; set; }
+
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
+        [Input("titleSize")]
+        public Input<string>? TitleSize { get; set; }
 
         [Input("widgets")]
         private InputList<Inputs.DashboardWidgetGroupDefinitionWidgetGetArgs>? _widgets;

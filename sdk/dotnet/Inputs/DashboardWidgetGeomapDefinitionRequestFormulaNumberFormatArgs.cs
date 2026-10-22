@@ -18,6 +18,9 @@ namespace Pulumi.Datadog.Inputs
         [Input("unit", required: true)]
         public Input<Inputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitArgs> Unit { get; set; } = null!;
 
+        /// <summary>
+        /// The definition of `NumberFormatUnitScale` object.
+        /// </summary>
         [Input("unitScale")]
         public Input<Inputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs>? UnitScale { get; set; }
 

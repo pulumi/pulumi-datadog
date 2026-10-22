@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetDistributionDefinitionYaxisGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Always include zero or fit the axis to the data range.
+        /// True includes zero.
         /// </summary>
         [Input("includeZero")]
         public Input<bool>? IncludeZero { get; set; }
@@ -25,19 +25,19 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Specify the maximum value to show on the Y-axis.
+        /// Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
         /// </summary>
         [Input("max")]
         public Input<string>? Max { get; set; }
 
         /// <summary>
-        /// Specify the minimum value to show on the Y-axis.
+        /// Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
         /// </summary>
         [Input("min")]
         public Input<string>? Min { get; set; }
 
         /// <summary>
-        /// Specify the scale type, options: `Linear`, `Log`, `Pow`, `Sqrt`.
+        /// Specifies the scale type. Possible values are `Linear` or `Log`.
         /// </summary>
         [Input("scale")]
         public Input<string>? Scale { get; set; }

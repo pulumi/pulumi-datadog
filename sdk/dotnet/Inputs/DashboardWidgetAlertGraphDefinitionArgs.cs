@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> AlertId { get; set; } = null!;
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         [Input("hideIncompleteCostData")]
@@ -29,6 +35,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetAlertGraphDefinitionTimeArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.
@@ -49,7 +61,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? TitleSize { get; set; }
 
         /// <summary>
-        /// Type of visualization to use when displaying the widget. Valid values are `Timeseries`, `Toplist`.
+        /// Whether to display the Alert Graph as a timeseries or a top list. Valid values are `Timeseries`, `Toplist`.
         /// </summary>
         [Input("vizType", required: true)]
         public Input<string> VizType { get; set; } = null!;

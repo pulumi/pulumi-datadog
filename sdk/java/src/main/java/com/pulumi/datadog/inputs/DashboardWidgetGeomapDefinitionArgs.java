@@ -8,8 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionRequestArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionStyleArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionTimeArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionViewArgs;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -113,6 +113,21 @@ public final class DashboardWidgetGeomapDefinitionArgs extends com.pulumi.resour
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetGeomapDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetGeomapDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -161,15 +176,15 @@ public final class DashboardWidgetGeomapDefinitionArgs extends com.pulumi.resour
      * The view of the world that the map should render.
      * 
      */
-    @Import(name="view", required=true)
-    private Output<DashboardWidgetGeomapDefinitionViewArgs> view;
+    @Import(name="view")
+    private @Nullable Output<DashboardWidgetGeomapDefinitionViewArgs> view;
 
     /**
      * @return The view of the world that the map should render.
      * 
      */
-    public Output<DashboardWidgetGeomapDefinitionViewArgs> view() {
-        return this.view;
+    public Optional<Output<DashboardWidgetGeomapDefinitionViewArgs>> view() {
+        return Optional.ofNullable(this.view);
     }
 
     private DashboardWidgetGeomapDefinitionArgs() {}
@@ -181,6 +196,7 @@ public final class DashboardWidgetGeomapDefinitionArgs extends com.pulumi.resour
         this.liveSpan = $.liveSpan;
         this.requests = $.requests;
         this.style = $.style;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -352,6 +368,27 @@ public final class DashboardWidgetGeomapDefinitionArgs extends com.pulumi.resour
         }
 
         /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetGeomapDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetGeomapDefinitionTimeArgs time) {
+            return time(Output.of(time));
+        }
+
+        /**
          * @param title The title of the widget.
          * 
          * @return builder
@@ -420,7 +457,7 @@ public final class DashboardWidgetGeomapDefinitionArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder view(Output<DashboardWidgetGeomapDefinitionViewArgs> view) {
+        public Builder view(@Nullable Output<DashboardWidgetGeomapDefinitionViewArgs> view) {
             $.view = view;
             return this;
         }
@@ -436,9 +473,6 @@ public final class DashboardWidgetGeomapDefinitionArgs extends com.pulumi.resour
         }
 
         public DashboardWidgetGeomapDefinitionArgs build() {
-            if ($.view == null) {
-                throw new MissingRequiredPropertyException("DashboardWidgetGeomapDefinitionArgs", "view");
-            }
             return $;
         }
     }

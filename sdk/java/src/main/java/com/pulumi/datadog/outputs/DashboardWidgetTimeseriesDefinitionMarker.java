@@ -13,38 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetTimeseriesDefinitionMarker {
     /**
-     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * @return Combination of a severity (`error`, `warning`, `ok`, or `info`) and a line type (`dashed`, `solid`, or `bold`). For Distribution widgets, this can be set to `percentile`. Example: `error dashed`.
      * 
      */
     private @Nullable String displayType;
     /**
-     * @return A label for the line or range.
+     * @return Label to display over the marker.
      * 
      */
     private @Nullable String label;
     /**
-     * @return A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
+     * @return Timestamp for the marker position.
+     * 
+     */
+    private @Nullable String time;
+    /**
+     * @return Value to apply. Can be a single value `y = 15` or a range of values `0 &lt; y &lt; 10`. For Distribution widgets with `displayType` set to `percentile`, this should be a numeric percentile value (for example, `90` for P90).
      * 
      */
     private String value;
 
     private DashboardWidgetTimeseriesDefinitionMarker() {}
     /**
-     * @return How the marker lines are displayed, options are one of {`error`, `warning`, `info`, `ok`} combined with one of {`dashed`, `solid`, `bold`}. Example: `error dashed`.
+     * @return Combination of a severity (`error`, `warning`, `ok`, or `info`) and a line type (`dashed`, `solid`, or `bold`). For Distribution widgets, this can be set to `percentile`. Example: `error dashed`.
      * 
      */
     public Optional<String> displayType() {
         return Optional.ofNullable(this.displayType);
     }
     /**
-     * @return A label for the line or range.
+     * @return Label to display over the marker.
      * 
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
+     * @return Timestamp for the marker position.
+     * 
+     */
+    public Optional<String> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
+     * @return Value to apply. Can be a single value `y = 15` or a range of values `0 &lt; y &lt; 10`. For Distribution widgets with `displayType` set to `percentile`, this should be a numeric percentile value (for example, `90` for P90).
      * 
      */
     public String value() {
@@ -62,12 +74,14 @@ public final class DashboardWidgetTimeseriesDefinitionMarker {
     public static final class Builder {
         private @Nullable String displayType;
         private @Nullable String label;
+        private @Nullable String time;
         private String value;
         public Builder() {}
         public Builder(DashboardWidgetTimeseriesDefinitionMarker defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayType = defaults.displayType;
     	      this.label = defaults.label;
+    	      this.time = defaults.time;
     	      this.value = defaults.value;
         }
 
@@ -84,6 +98,12 @@ public final class DashboardWidgetTimeseriesDefinitionMarker {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable String time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder value(String value) {
             if (value == null) {
               throw new MissingRequiredPropertyException("DashboardWidgetTimeseriesDefinitionMarker", "value");
@@ -95,6 +115,7 @@ public final class DashboardWidgetTimeseriesDefinitionMarker {
             final var _resultValue = new DashboardWidgetTimeseriesDefinitionMarker();
             _resultValue.displayType = displayType;
             _resultValue.label = label;
+            _resultValue.time = time;
             _resultValue.value = value;
             return _resultValue;
         }

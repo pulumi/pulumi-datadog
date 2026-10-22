@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetListStreamDefinitionRequestColumn> Columns;
         /// <summary>
-        /// The description of the widget.
+        /// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
         /// </summary>
         public readonly string? Description;
         /// <summary>

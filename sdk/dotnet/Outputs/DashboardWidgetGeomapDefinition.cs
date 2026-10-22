@@ -38,6 +38,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetGeomapDefinitionStyle? Style;
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetGeomapDefinitionTime? Time;
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         public readonly string? Title;
@@ -52,7 +56,7 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The view of the world that the map should render.
         /// </summary>
-        public readonly Outputs.DashboardWidgetGeomapDefinitionView View;
+        public readonly Outputs.DashboardWidgetGeomapDefinitionView? View;
 
         [OutputConstructor]
         private DashboardWidgetGeomapDefinition(
@@ -68,13 +72,15 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetGeomapDefinitionStyle? style,
 
+            Outputs.DashboardWidgetGeomapDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
 
             string? titleSize,
 
-            Outputs.DashboardWidgetGeomapDefinitionView view)
+            Outputs.DashboardWidgetGeomapDefinitionView? view)
         {
             CustomLinks = customLinks;
             Description = description;
@@ -82,6 +88,7 @@ namespace Pulumi.Datadog.Outputs
             LiveSpan = liveSpan;
             Requests = requests;
             Style = style;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

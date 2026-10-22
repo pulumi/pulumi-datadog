@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetDistributionDefinitionRequestStyle
     {
         /// <summary>
+        /// How to order series. Valid values are `Tags`, `Values`.
+        /// </summary>
+        public readonly string? OrderBy;
+        /// <summary>
         /// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
         /// </summary>
         public readonly string? Palette;
 
         [OutputConstructor]
-        private DashboardWidgetDistributionDefinitionRequestStyle(string? palette)
+        private DashboardWidgetDistributionDefinitionRequestStyle(
+            string? orderBy,
+
+            string? palette)
         {
+            OrderBy = orderBy;
             Palette = palette;
         }
     }

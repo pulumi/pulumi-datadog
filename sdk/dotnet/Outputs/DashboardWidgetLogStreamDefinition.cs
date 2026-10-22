@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Columns;
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
         /// </summary>
         public readonly bool? HideIncompleteCostData;
@@ -34,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? MessageDisplay;
         /// <summary>
-        /// The query to use in the widget.
+        /// Query to filter the log stream with.
         /// </summary>
         public readonly string? Query;
         /// <summary>
@@ -49,6 +53,10 @@ namespace Pulumi.Datadog.Outputs
         /// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogStreamDefinitionSort? Sort;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetLogStreamDefinitionTime? Time;
         /// <summary>
         /// The title of the widget.
         /// </summary>
@@ -66,6 +74,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetLogStreamDefinition(
             ImmutableArray<string> columns,
 
+            string? description,
+
             bool? hideIncompleteCostData,
 
             ImmutableArray<string> indexes,
@@ -82,6 +92,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetLogStreamDefinitionSort? sort,
 
+            Outputs.DashboardWidgetLogStreamDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
@@ -89,6 +101,7 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             Columns = columns;
+            Description = description;
             HideIncompleteCostData = hideIncompleteCostData;
             Indexes = indexes;
             LiveSpan = liveSpan;
@@ -97,6 +110,7 @@ namespace Pulumi.Datadog.Outputs
             ShowDateColumn = showDateColumn;
             ShowMessageColumn = showMessageColumn;
             Sort = sort;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

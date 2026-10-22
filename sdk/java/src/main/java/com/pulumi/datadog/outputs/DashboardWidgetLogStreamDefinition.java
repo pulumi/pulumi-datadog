@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetLogStreamDefinitionSort;
+import com.pulumi.datadog.outputs.DashboardWidgetLogStreamDefinitionTime;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -19,6 +20,11 @@ public final class DashboardWidgetLogStreamDefinition {
      * 
      */
     private @Nullable List<String> columns;
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
@@ -40,7 +46,7 @@ public final class DashboardWidgetLogStreamDefinition {
      */
     private @Nullable String messageDisplay;
     /**
-     * @return The query to use in the widget.
+     * @return Query to filter the log stream with.
      * 
      */
     private @Nullable String query;
@@ -59,6 +65,11 @@ public final class DashboardWidgetLogStreamDefinition {
      * 
      */
     private @Nullable DashboardWidgetLogStreamDefinitionSort sort;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetLogStreamDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -82,6 +93,13 @@ public final class DashboardWidgetLogStreamDefinition {
      */
     public List<String> columns() {
         return this.columns == null ? List.of() : this.columns;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
@@ -112,7 +130,7 @@ public final class DashboardWidgetLogStreamDefinition {
         return Optional.ofNullable(this.messageDisplay);
     }
     /**
-     * @return The query to use in the widget.
+     * @return Query to filter the log stream with.
      * 
      */
     public Optional<String> query() {
@@ -138,6 +156,13 @@ public final class DashboardWidgetLogStreamDefinition {
      */
     public Optional<DashboardWidgetLogStreamDefinitionSort> sort() {
         return Optional.ofNullable(this.sort);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetLogStreamDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -171,6 +196,7 @@ public final class DashboardWidgetLogStreamDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> columns;
+        private @Nullable String description;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable List<String> indexes;
         private @Nullable String liveSpan;
@@ -179,6 +205,7 @@ public final class DashboardWidgetLogStreamDefinition {
         private @Nullable Boolean showDateColumn;
         private @Nullable Boolean showMessageColumn;
         private @Nullable DashboardWidgetLogStreamDefinitionSort sort;
+        private @Nullable DashboardWidgetLogStreamDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -186,6 +213,7 @@ public final class DashboardWidgetLogStreamDefinition {
         public Builder(DashboardWidgetLogStreamDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.columns = defaults.columns;
+    	      this.description = defaults.description;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.indexes = defaults.indexes;
     	      this.liveSpan = defaults.liveSpan;
@@ -194,6 +222,7 @@ public final class DashboardWidgetLogStreamDefinition {
     	      this.showDateColumn = defaults.showDateColumn;
     	      this.showMessageColumn = defaults.showMessageColumn;
     	      this.sort = defaults.sort;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -207,6 +236,12 @@ public final class DashboardWidgetLogStreamDefinition {
         }
         public Builder columns(String... columns) {
             return columns(List.of(columns));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
@@ -260,6 +295,12 @@ public final class DashboardWidgetLogStreamDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetLogStreamDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -280,6 +321,7 @@ public final class DashboardWidgetLogStreamDefinition {
         public DashboardWidgetLogStreamDefinition build() {
             final var _resultValue = new DashboardWidgetLogStreamDefinition();
             _resultValue.columns = columns;
+            _resultValue.description = description;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.indexes = indexes;
             _resultValue.liveSpan = liveSpan;
@@ -288,6 +330,7 @@ public final class DashboardWidgetLogStreamDefinition {
             _resultValue.showDateColumn = showDateColumn;
             _resultValue.showMessageColumn = showMessageColumn;
             _resultValue.sort = sort;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

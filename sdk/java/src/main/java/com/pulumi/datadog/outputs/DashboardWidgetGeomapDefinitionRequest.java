@@ -16,49 +16,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetGeomapDefinitionRequest {
+    /**
+     * @return List of formulas that operate on queries.
+     * 
+     */
     private @Nullable List<DashboardWidgetGeomapDefinitionRequestFormula> formulas;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetLogQuery logQuery;
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable String q;
+    /**
+     * @return List of queries that can be returned directly or used in formulas.
+     * 
+     */
     private @Nullable List<DashboardWidgetGeomapDefinitionRequestQuery> queries;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetRumQuery rumQuery;
 
     private DashboardWidgetGeomapDefinitionRequest() {}
+    /**
+     * @return List of formulas that operate on queries.
+     * 
+     */
     public List<DashboardWidgetGeomapDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return List of queries that can be returned directly or used in formulas.
+     * 
+     */
     public List<DashboardWidgetGeomapDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }

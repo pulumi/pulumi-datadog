@@ -5,6 +5,7 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,50 +14,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetDistributionDefinitionXaxis {
     /**
-     * @return Always include zero or fit the axis to the data range.
+     * @return True includes zero.
      * 
      */
     private @Nullable Boolean includeZero;
     /**
-     * @return Specify the maximum value to show on the Y-axis.
+     * @return Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
      * 
      */
     private @Nullable String max;
     /**
-     * @return Specify the minimum value to show on the Y-axis.
+     * @return Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
      * 
      */
     private @Nullable String min;
     /**
-     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * @return Number of value buckets to target, also known as the resolution of the value bins.
+     * 
+     */
+    private @Nullable Integer numBuckets;
+    /**
+     * @return Specifies the scale type. Possible values are `linear`.
      * 
      */
     private @Nullable String scale;
 
     private DashboardWidgetDistributionDefinitionXaxis() {}
     /**
-     * @return Always include zero or fit the axis to the data range.
+     * @return True includes zero.
      * 
      */
     public Optional<Boolean> includeZero() {
         return Optional.ofNullable(this.includeZero);
     }
     /**
-     * @return Specify the maximum value to show on the Y-axis.
+     * @return Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
      * 
      */
     public Optional<String> max() {
         return Optional.ofNullable(this.max);
     }
     /**
-     * @return Specify the minimum value to show on the Y-axis.
+     * @return Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
      * 
      */
     public Optional<String> min() {
         return Optional.ofNullable(this.min);
     }
     /**
-     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * @return Number of value buckets to target, also known as the resolution of the value bins.
+     * 
+     */
+    public Optional<Integer> numBuckets() {
+        return Optional.ofNullable(this.numBuckets);
+    }
+    /**
+     * @return Specifies the scale type. Possible values are `linear`.
      * 
      */
     public Optional<String> scale() {
@@ -75,6 +88,7 @@ public final class DashboardWidgetDistributionDefinitionXaxis {
         private @Nullable Boolean includeZero;
         private @Nullable String max;
         private @Nullable String min;
+        private @Nullable Integer numBuckets;
         private @Nullable String scale;
         public Builder() {}
         public Builder(DashboardWidgetDistributionDefinitionXaxis defaults) {
@@ -82,6 +96,7 @@ public final class DashboardWidgetDistributionDefinitionXaxis {
     	      this.includeZero = defaults.includeZero;
     	      this.max = defaults.max;
     	      this.min = defaults.min;
+    	      this.numBuckets = defaults.numBuckets;
     	      this.scale = defaults.scale;
         }
 
@@ -104,6 +119,12 @@ public final class DashboardWidgetDistributionDefinitionXaxis {
             return this;
         }
         @CustomType.Setter
+        public Builder numBuckets(@Nullable Integer numBuckets) {
+
+            this.numBuckets = numBuckets;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scale(@Nullable String scale) {
 
             this.scale = scale;
@@ -114,6 +135,7 @@ public final class DashboardWidgetDistributionDefinitionXaxis {
             _resultValue.includeZero = includeZero;
             _resultValue.max = max;
             _resultValue.min = min;
+            _resultValue.numBuckets = numBuckets;
             _resultValue.scale = scale;
             return _resultValue;
         }

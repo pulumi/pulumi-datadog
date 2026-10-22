@@ -18,6 +18,10 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat {
      * 
      */
     private DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit unit;
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     private @Nullable DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale unitScale;
 
     private DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat() {}
@@ -28,6 +32,10 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaNumberFormat {
     public DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnit unit() {
         return this.unit;
     }
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     public Optional<DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScale> unitScale() {
         return Optional.ofNullable(this.unitScale);
     }

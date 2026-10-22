@@ -14,39 +14,49 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSunburstDefinitionRequest
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestAuditQuery? AuditQuery;
+        /// <summary>
+        /// A list of formulas to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequestFormula> Formulas;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestNetworkQuery? NetworkQuery;
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSunburstDefinitionRequestProcessQuery? ProcessQuery;
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// A list of queries to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequestQuery> Queries;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
+        /// <summary>
+        /// The controls for sorting the widget. Only applicable for formula-style requests.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetSunburstDefinitionRequestSort? Sort;
         /// <summary>
         /// Define style for the widget's request.
         /// </summary>
@@ -74,6 +84,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetSecurityQuery? securityQuery,
 
+            Outputs.DashboardWidgetSunburstDefinitionRequestSort? sort,
+
             Outputs.DashboardWidgetSunburstDefinitionRequestStyle? style)
         {
             ApmQuery = apmQuery;
@@ -86,6 +98,7 @@ namespace Pulumi.Datadog.Outputs
             Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
+            Sort = sort;
             Style = style;
         }
     }

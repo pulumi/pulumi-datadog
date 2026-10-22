@@ -4,25 +4,60 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionStyleDisplayFlat;
+import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionStyleDisplayStacked;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetToplistDefinitionStyleDisplay {
     /**
-     * @return The display type for the widget.
+     * @return Flat display for the top list widget.
      * 
      */
-    private String type;
+    private @Nullable DashboardWidgetToplistDefinitionStyleDisplayFlat flat;
+    /**
+     * @return Stacked display for the top list widget.
+     * 
+     */
+    private @Nullable DashboardWidgetToplistDefinitionStyleDisplayStacked stacked;
+    /**
+     * @return Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+     * 
+     * @deprecated
+     * Use the `stacked` or `flat` block instead.
+     * 
+     */
+    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    private @Nullable String type;
 
     private DashboardWidgetToplistDefinitionStyleDisplay() {}
     /**
-     * @return The display type for the widget.
+     * @return Flat display for the top list widget.
      * 
      */
-    public String type() {
-        return this.type;
+    public Optional<DashboardWidgetToplistDefinitionStyleDisplayFlat> flat() {
+        return Optional.ofNullable(this.flat);
+    }
+    /**
+     * @return Stacked display for the top list widget.
+     * 
+     */
+    public Optional<DashboardWidgetToplistDefinitionStyleDisplayStacked> stacked() {
+        return Optional.ofNullable(this.stacked);
+    }
+    /**
+     * @return Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+     * 
+     * @deprecated
+     * Use the `stacked` or `flat` block instead.
+     * 
+     */
+    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -34,23 +69,39 @@ public final class DashboardWidgetToplistDefinitionStyleDisplay {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String type;
+        private @Nullable DashboardWidgetToplistDefinitionStyleDisplayFlat flat;
+        private @Nullable DashboardWidgetToplistDefinitionStyleDisplayStacked stacked;
+        private @Nullable String type;
         public Builder() {}
         public Builder(DashboardWidgetToplistDefinitionStyleDisplay defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.flat = defaults.flat;
+    	      this.stacked = defaults.stacked;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder type(String type) {
-            if (type == null) {
-              throw new MissingRequiredPropertyException("DashboardWidgetToplistDefinitionStyleDisplay", "type");
-            }
+        public Builder flat(@Nullable DashboardWidgetToplistDefinitionStyleDisplayFlat flat) {
+
+            this.flat = flat;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder stacked(@Nullable DashboardWidgetToplistDefinitionStyleDisplayStacked stacked) {
+
+            this.stacked = stacked;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public DashboardWidgetToplistDefinitionStyleDisplay build() {
             final var _resultValue = new DashboardWidgetToplistDefinitionStyleDisplay();
+            _resultValue.flat = flat;
+            _resultValue.stacked = stacked;
             _resultValue.type = type;
             return _resultValue;
         }

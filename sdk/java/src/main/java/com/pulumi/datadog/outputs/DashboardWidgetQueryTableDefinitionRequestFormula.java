@@ -24,12 +24,12 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormula {
      */
     private @Nullable String alias;
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     private @Nullable String cellDisplayMode;
     /**
-     * @return A list of display modes for each table cell.
+     * @return Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
      * 
      */
     private @Nullable DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions cellDisplayModeOptions;
@@ -68,14 +68,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestFormula {
         return Optional.ofNullable(this.alias);
     }
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     public Optional<String> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
     }
     /**
-     * @return A list of display modes for each table cell.
+     * @return Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
      * 
      */
     public Optional<DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions> cellDisplayModeOptions() {

@@ -14,15 +14,19 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTimeseriesDefinitionMarker
     {
         /// <summary>
-        /// How the marker lines are displayed, options are one of {`Error`, `Warning`, `Info`, `Ok`} combined with one of {`Dashed`, `Solid`, `Bold`}. Example: `error dashed`.
+        /// Combination of a severity (`Error`, `Warning`, `Ok`, or `Info`) and a line type (`Dashed`, `Solid`, or `Bold`). For Distribution widgets, this can be set to `Percentile`. Example: `error dashed`.
         /// </summary>
         public readonly string? DisplayType;
         /// <summary>
-        /// A label for the line or range.
+        /// Label to display over the marker.
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// A mathematical expression describing the marker, for example: `y &gt; 1`, `-5 &lt; y &lt; 0`, `y = 19`.
+        /// Timestamp for the marker position.
+        /// </summary>
+        public readonly string? Time;
+        /// <summary>
+        /// Value to apply. Can be a single value `y = 15` or a range of values `0 &lt; y &lt; 10`. For Distribution widgets with `DisplayType` set to `Percentile`, this should be a numeric percentile value (for example, `90` for P90).
         /// </summary>
         public readonly string Value;
 
@@ -32,10 +36,13 @@ namespace Pulumi.Datadog.Outputs
 
             string? label,
 
+            string? time,
+
             string value)
         {
             DisplayType = displayType;
             Label = label;
+            Time = time;
             Value = value;
         }
     }

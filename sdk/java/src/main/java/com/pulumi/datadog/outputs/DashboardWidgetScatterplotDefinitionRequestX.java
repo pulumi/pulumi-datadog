@@ -7,9 +7,12 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetApmQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetLogQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetRumQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestXFormula;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestXProcessQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequestXQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetSecurityQuery;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,88 +20,160 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetScatterplotDefinitionRequestX {
     /**
-     * @return Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return Aggregator used for the request. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     private @Nullable String aggregator;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetApmQuery apmQuery;
     /**
-     * @return The query to use for this widget.
+     * @return A list of formulas to use in the widget.
      * 
      */
+    private @Nullable List<DashboardWidgetScatterplotDefinitionRequestXFormula> formulas;
+    /**
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetLogQuery logQuery;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetScatterplotDefinitionRequestXProcessQuery processQuery;
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable String q;
     /**
-     * @return The query to use for this widget.
+     * @return A list of queries to use in the widget.
      * 
      */
+    private @Nullable List<DashboardWidgetScatterplotDefinitionRequestXQuery> queries;
+    /**
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetSecurityQuery securityQuery;
 
     private DashboardWidgetScatterplotDefinitionRequestX() {}
     /**
-     * @return Aggregator used for the request. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return Aggregator used for the request. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     public Optional<String> aggregator() {
         return Optional.ofNullable(this.aggregator);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return A list of formulas to use in the widget.
      * 
      */
+    public List<DashboardWidgetScatterplotDefinitionRequestXFormula> formulas() {
+        return this.formulas == null ? List.of() : this.formulas;
+    }
+    /**
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetScatterplotDefinitionRequestXProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
     /**
-     * @return The query to use for this widget.
+     * @return A list of queries to use in the widget.
      * 
      */
+    public List<DashboardWidgetScatterplotDefinitionRequestXQuery> queries() {
+        return this.queries == null ? List.of() : this.queries;
+    }
+    /**
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -114,9 +189,11 @@ public final class DashboardWidgetScatterplotDefinitionRequestX {
     public static final class Builder {
         private @Nullable String aggregator;
         private @Nullable DashboardWidgetApmQuery apmQuery;
+        private @Nullable List<DashboardWidgetScatterplotDefinitionRequestXFormula> formulas;
         private @Nullable DashboardWidgetLogQuery logQuery;
         private @Nullable DashboardWidgetScatterplotDefinitionRequestXProcessQuery processQuery;
         private @Nullable String q;
+        private @Nullable List<DashboardWidgetScatterplotDefinitionRequestXQuery> queries;
         private @Nullable DashboardWidgetRumQuery rumQuery;
         private @Nullable DashboardWidgetSecurityQuery securityQuery;
         public Builder() {}
@@ -124,9 +201,11 @@ public final class DashboardWidgetScatterplotDefinitionRequestX {
     	      Objects.requireNonNull(defaults);
     	      this.aggregator = defaults.aggregator;
     	      this.apmQuery = defaults.apmQuery;
+    	      this.formulas = defaults.formulas;
     	      this.logQuery = defaults.logQuery;
     	      this.processQuery = defaults.processQuery;
     	      this.q = defaults.q;
+    	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
         }
@@ -142,6 +221,15 @@ public final class DashboardWidgetScatterplotDefinitionRequestX {
 
             this.apmQuery = apmQuery;
             return this;
+        }
+        @CustomType.Setter
+        public Builder formulas(@Nullable List<DashboardWidgetScatterplotDefinitionRequestXFormula> formulas) {
+
+            this.formulas = formulas;
+            return this;
+        }
+        public Builder formulas(DashboardWidgetScatterplotDefinitionRequestXFormula... formulas) {
+            return formulas(List.of(formulas));
         }
         @CustomType.Setter
         public Builder logQuery(@Nullable DashboardWidgetLogQuery logQuery) {
@@ -162,6 +250,15 @@ public final class DashboardWidgetScatterplotDefinitionRequestX {
             return this;
         }
         @CustomType.Setter
+        public Builder queries(@Nullable List<DashboardWidgetScatterplotDefinitionRequestXQuery> queries) {
+
+            this.queries = queries;
+            return this;
+        }
+        public Builder queries(DashboardWidgetScatterplotDefinitionRequestXQuery... queries) {
+            return queries(List.of(queries));
+        }
+        @CustomType.Setter
         public Builder rumQuery(@Nullable DashboardWidgetRumQuery rumQuery) {
 
             this.rumQuery = rumQuery;
@@ -177,9 +274,11 @@ public final class DashboardWidgetScatterplotDefinitionRequestX {
             final var _resultValue = new DashboardWidgetScatterplotDefinitionRequestX();
             _resultValue.aggregator = aggregator;
             _resultValue.apmQuery = apmQuery;
+            _resultValue.formulas = formulas;
             _resultValue.logQuery = logQuery;
             _resultValue.processQuery = processQuery;
             _resultValue.q = q;
+            _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
             return _resultValue;

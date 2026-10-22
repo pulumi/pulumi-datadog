@@ -6,12 +6,16 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmResourceStatsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryCloudCostQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryMetricQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQueryArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,6 +38,21 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
      */
     public Optional<Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQueryArgs>> apmDependencyStatsQuery() {
         return Optional.ofNullable(this.apmDependencyStatsQuery);
+    }
+
+    /**
+     * The APM metrics query using formulas and functions.
+     * 
+     */
+    @Import(name="apmMetricsQuery")
+    private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQueryArgs> apmMetricsQuery;
+
+    /**
+     * @return The APM metrics query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQueryArgs>> apmMetricsQuery() {
+        return Optional.ofNullable(this.apmMetricsQuery);
     }
 
     /**
@@ -112,6 +131,36 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
     }
 
     /**
+     * The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    @Import(name="productAnalyticsExtendedQuery")
+    private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQueryArgs> productAnalyticsExtendedQuery;
+
+    /**
+     * @return The Product Analytics Extended query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQueryArgs>> productAnalyticsExtendedQuery() {
+        return Optional.ofNullable(this.productAnalyticsExtendedQuery);
+    }
+
+    /**
+     * The retention query using formulas and functions.
+     * 
+     */
+    @Import(name="retentionQuery")
+    private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQueryArgs> retentionQuery;
+
+    /**
+     * @return The retention query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQueryArgs>> retentionQuery() {
+        return Optional.ofNullable(this.retentionQuery);
+    }
+
+    /**
      * The SLO query using formulas and functions.
      * 
      */
@@ -126,16 +175,35 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         return Optional.ofNullable(this.sloQuery);
     }
 
+    /**
+     * The User Journey query using formulas and functions.
+     * 
+     */
+    @Import(name="userJourneyQuery")
+    private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQueryArgs> userJourneyQuery;
+
+    /**
+     * @return The User Journey query using formulas and functions.
+     * 
+     */
+    public Optional<Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQueryArgs>> userJourneyQuery() {
+        return Optional.ofNullable(this.userJourneyQuery);
+    }
+
     private DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs() {}
 
     private DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs $) {
         this.apmDependencyStatsQuery = $.apmDependencyStatsQuery;
+        this.apmMetricsQuery = $.apmMetricsQuery;
         this.apmResourceStatsQuery = $.apmResourceStatsQuery;
         this.cloudCostQuery = $.cloudCostQuery;
         this.eventQuery = $.eventQuery;
         this.metricQuery = $.metricQuery;
         this.processQuery = $.processQuery;
+        this.productAnalyticsExtendedQuery = $.productAnalyticsExtendedQuery;
+        this.retentionQuery = $.retentionQuery;
         this.sloQuery = $.sloQuery;
+        this.userJourneyQuery = $.userJourneyQuery;
     }
 
     public static Builder builder() {
@@ -175,6 +243,27 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
          */
         public Builder apmDependencyStatsQuery(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmDependencyStatsQueryArgs apmDependencyStatsQuery) {
             return apmDependencyStatsQuery(Output.of(apmDependencyStatsQuery));
+        }
+
+        /**
+         * @param apmMetricsQuery The APM metrics query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQueryArgs> apmMetricsQuery) {
+            $.apmMetricsQuery = apmMetricsQuery;
+            return this;
+        }
+
+        /**
+         * @param apmMetricsQuery The APM metrics query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apmMetricsQuery(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryApmMetricsQueryArgs apmMetricsQuery) {
+            return apmMetricsQuery(Output.of(apmMetricsQuery));
         }
 
         /**
@@ -283,6 +372,48 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         }
 
         /**
+         * @param productAnalyticsExtendedQuery The Product Analytics Extended query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsExtendedQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQueryArgs> productAnalyticsExtendedQuery) {
+            $.productAnalyticsExtendedQuery = productAnalyticsExtendedQuery;
+            return this;
+        }
+
+        /**
+         * @param productAnalyticsExtendedQuery The Product Analytics Extended query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsExtendedQuery(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryProductAnalyticsExtendedQueryArgs productAnalyticsExtendedQuery) {
+            return productAnalyticsExtendedQuery(Output.of(productAnalyticsExtendedQuery));
+        }
+
+        /**
+         * @param retentionQuery The retention query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQueryArgs> retentionQuery) {
+            $.retentionQuery = retentionQuery;
+            return this;
+        }
+
+        /**
+         * @param retentionQuery The retention query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionQuery(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryRetentionQueryArgs retentionQuery) {
+            return retentionQuery(Output.of(retentionQuery));
+        }
+
+        /**
          * @param sloQuery The SLO query using formulas and functions.
          * 
          * @return builder
@@ -301,6 +432,27 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
          */
         public Builder sloQuery(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuerySloQueryArgs sloQuery) {
             return sloQuery(Output.of(sloQuery));
+        }
+
+        /**
+         * @param userJourneyQuery The User Journey query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQueryArgs> userJourneyQuery) {
+            $.userJourneyQuery = userJourneyQuery;
+            return this;
+        }
+
+        /**
+         * @param userJourneyQuery The User Journey query using formulas and functions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyQuery(DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryUserJourneyQueryArgs userJourneyQuery) {
+            return userJourneyQuery(Output.of(userJourneyQuery));
         }
 
         public DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryArgs build() {

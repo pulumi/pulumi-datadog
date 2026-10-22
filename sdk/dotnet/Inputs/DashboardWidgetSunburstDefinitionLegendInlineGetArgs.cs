@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? HideValue { get; set; }
 
         /// <summary>
-        /// The type of legend (inline or automatic). Valid values are `Inline`, `Automatic`.
+        /// The type of legend (inline or automatic).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

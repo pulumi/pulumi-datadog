@@ -12,6 +12,36 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetHostmapDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Optional child request for one level of hierarchical visualization.
+        /// </summary>
+        [Input("child")]
+        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestChildArgs>? Child { get; set; }
+
+        [Input("conditionalFormats")]
+        private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestConditionalFormatArgs>? _conditionalFormats;
+
+        /// <summary>
+        /// Conditional formatting rules applied to fill values.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestConditionalFormatArgs> ConditionalFormats
+        {
+            get => _conditionalFormats ?? (_conditionalFormats = new InputList<Inputs.DashboardWidgetHostmapDefinitionRequestConditionalFormatArgs>());
+            set => _conditionalFormats = value;
+        }
+
+        [Input("enrichments")]
+        private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestEnrichmentArgs>? _enrichments;
+
+        /// <summary>
+        /// Metric or event queries joined to the entity set.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestEnrichmentArgs> Enrichments
+        {
+            get => _enrichments ?? (_enrichments = new InputList<Inputs.DashboardWidgetHostmapDefinitionRequestEnrichmentArgs>());
+            set => _enrichments = value;
+        }
+
         [Input("fills")]
         private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillArgs>? _fills;
 
@@ -24,6 +54,66 @@ namespace Pulumi.Datadog.Inputs
             set => _fills = value;
         }
 
+        /// <summary>
+        /// Filter string for the entity set in tag format, such as `env:prod`.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        [Input("groupBies")]
+        private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestGroupByArgs>? _groupBies;
+
+        /// <summary>
+        /// Ordered grouping hierarchy for infrastructure entities.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestGroupByArgs> GroupBies
+        {
+            get => _groupBies ?? (_groupBies = new InputList<Inputs.DashboardWidgetHostmapDefinitionRequestGroupByArgs>());
+            set => _groupBies = value;
+        }
+
+        /// <summary>
+        /// Maximum number of rows to return from the DDSQL data-projection request.
+        /// </summary>
+        [Input("limit")]
+        public Input<int>? Limit { get; set; }
+
+        /// <summary>
+        /// Whether to hide entities that have no group assignment.
+        /// </summary>
+        [Input("noGroupHosts")]
+        public Input<bool>? NoGroupHosts { get; set; }
+
+        /// <summary>
+        /// Whether to hide entities that have no enrichment data.
+        /// </summary>
+        [Input("noMetricHosts")]
+        public Input<bool>? NoMetricHosts { get; set; }
+
+        /// <summary>
+        /// Infrastructure entity type to visualize. Valid values are `Host`, `Container`, `Pod`, `Cluster`.
+        /// </summary>
+        [Input("nodeType")]
+        public Input<string>? NodeType { get; set; }
+
+        /// <summary>
+        /// Mapping from published-dataset columns to host map dimensions.
+        /// </summary>
+        [Input("projection")]
+        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestProjectionArgs>? Projection { get; set; }
+
+        /// <summary>
+        /// Published-dataset query used by the DDSQL data-projection request.
+        /// </summary>
+        [Input("query")]
+        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestQueryArgs>? Query { get; set; }
+
+        /// <summary>
+        /// Identifies an infrastructure-backed or DDSQL data-projection host map request. Valid values are `InfrastructureHostmap`, `DataProjection`.
+        /// </summary>
+        [Input("requestType")]
+        public Input<string>? RequestType { get; set; }
+
         [Input("sizes")]
         private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestSizeArgs>? _sizes;
 
@@ -35,6 +125,12 @@ namespace Pulumi.Datadog.Inputs
             get => _sizes ?? (_sizes = new InputList<Inputs.DashboardWidgetHostmapDefinitionRequestSizeArgs>());
             set => _sizes = value;
         }
+
+        /// <summary>
+        /// Style configuration for the infrastructure host map.
+        /// </summary>
+        [Input("style")]
+        public Input<Inputs.DashboardWidgetHostmapDefinitionRequestStyleArgs>? Style { get; set; }
 
         public DashboardWidgetHostmapDefinitionRequestArgs()
         {

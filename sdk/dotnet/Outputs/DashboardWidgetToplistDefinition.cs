@@ -38,6 +38,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetToplistDefinitionStyle> Styles;
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetToplistDefinitionTime? Time;
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         public readonly string? Title;
@@ -64,6 +68,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetToplistDefinitionStyle> styles,
 
+            Outputs.DashboardWidgetToplistDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
@@ -76,6 +82,7 @@ namespace Pulumi.Datadog.Outputs
             LiveSpan = liveSpan;
             Requests = requests;
             Styles = styles;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

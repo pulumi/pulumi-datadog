@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequestStyleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If true, the value is displayed as a label relative to the data point.
+        /// Whether to display value labels on the timeseries.
         /// </summary>
         [Input("hasValueLabels")]
         public Input<bool>? HasValueLabels { get; set; }

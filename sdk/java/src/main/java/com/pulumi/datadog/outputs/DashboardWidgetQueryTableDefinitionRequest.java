@@ -11,6 +11,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestCond
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestSort;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryTableDefinitionRequestTextFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetRumQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetSecurityQuery;
@@ -24,7 +25,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetQueryTableDefinitionRequest {
     /**
-     * @return The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregator to use for time aggregation. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     private @Nullable String aggregator;
@@ -34,13 +35,25 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
      */
     private @Nullable String alias;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetApmQuery apmQuery;
+    /**
+     * @return The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetQueryTableDefinitionRequestApmStatsQuery apmStatsQuery;
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
      * 
      */
     private @Nullable List<String> cellDisplayModes;
@@ -49,16 +62,24 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
      * 
      */
     private @Nullable List<DashboardWidgetQueryTableDefinitionRequestConditionalFormat> conditionalFormats;
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetQueryTableDefinitionRequestFormula> formulas;
     /**
-     * @return The number of lines to show in the table.
+     * @return For metric queries, the number of lines to show in the table. Only one request should have this property.
      * 
      */
     private @Nullable Integer limit;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return The sort order for the rows. Valid values are `asc`, `desc`.
@@ -66,26 +87,51 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
      */
     private @Nullable String order;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetQueryTableDefinitionRequestProcessQuery processQuery;
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable String q;
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetQueryTableDefinitionRequestQuery> queries;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetSecurityQuery securityQuery;
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    private @Nullable DashboardWidgetQueryTableDefinitionRequestSort sort;
     /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
      * 
@@ -94,7 +140,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
 
     private DashboardWidgetQueryTableDefinitionRequest() {}
     /**
-     * @return The aggregator to use for time aggregation. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregator to use for time aggregation. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     public Optional<String> aggregator() {
@@ -108,17 +154,29 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
         return Optional.ofNullable(this.alias);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
+    /**
+     * @return The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetQueryTableDefinitionRequestApmStatsQuery> apmStatsQuery() {
         return Optional.ofNullable(this.apmStatsQuery);
     }
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`.
      * 
      */
     public List<String> cellDisplayModes() {
@@ -131,20 +189,28 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
     public List<DashboardWidgetQueryTableDefinitionRequestConditionalFormat> conditionalFormats() {
         return this.conditionalFormats == null ? List.of() : this.conditionalFormats;
     }
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     public List<DashboardWidgetQueryTableDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
     /**
-     * @return The number of lines to show in the table.
+     * @return For metric queries, the number of lines to show in the table. Only one request should have this property.
      * 
      */
     public Optional<Integer> limit() {
         return Optional.ofNullable(this.limit);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
@@ -156,35 +222,62 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
         return Optional.ofNullable(this.order);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetQueryTableDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     public List<DashboardWidgetQueryTableDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
+    }
+    /**
+     * @return The controls for sorting the widget request.
+     * 
+     */
+    public Optional<DashboardWidgetQueryTableDefinitionRequestSort> sort() {
+        return Optional.ofNullable(this.sort);
     }
     /**
      * @return Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
@@ -218,6 +311,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
         private @Nullable List<DashboardWidgetQueryTableDefinitionRequestQuery> queries;
         private @Nullable DashboardWidgetRumQuery rumQuery;
         private @Nullable DashboardWidgetSecurityQuery securityQuery;
+        private @Nullable DashboardWidgetQueryTableDefinitionRequestSort sort;
         private @Nullable List<DashboardWidgetQueryTableDefinitionRequestTextFormat> textFormats;
         public Builder() {}
         public Builder(DashboardWidgetQueryTableDefinitionRequest defaults) {
@@ -237,6 +331,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
+    	      this.sort = defaults.sort;
     	      this.textFormats = defaults.textFormats;
         }
 
@@ -343,6 +438,12 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
             return this;
         }
         @CustomType.Setter
+        public Builder sort(@Nullable DashboardWidgetQueryTableDefinitionRequestSort sort) {
+
+            this.sort = sort;
+            return this;
+        }
+        @CustomType.Setter
         public Builder textFormats(@Nullable List<DashboardWidgetQueryTableDefinitionRequestTextFormat> textFormats) {
 
             this.textFormats = textFormats;
@@ -368,6 +469,7 @@ public final class DashboardWidgetQueryTableDefinitionRequest {
             _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
+            _resultValue.sort = sort;
             _resultValue.textFormats = textFormats;
             return _resultValue;
         }

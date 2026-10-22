@@ -14,11 +14,15 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetCheckStatusDefinition
     {
         /// <summary>
-        /// The check to use in the widget.
+        /// Name of the check to use in the widget.
         /// </summary>
         public readonly string Check;
         /// <summary>
-        /// The check group to use in the widget.
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Group reporting a single check.
         /// </summary>
         public readonly string? Group;
         /// <summary>
@@ -38,9 +42,13 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? LiveSpan;
         /// <summary>
-        /// A list of tags to use in the widget.
+        /// A list of tags used to filter the groups reporting a cluster check.
         /// </summary>
         public readonly ImmutableArray<string> Tags;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetCheckStatusDefinitionTime? Time;
         /// <summary>
         /// The title of the widget.
         /// </summary>
@@ -58,6 +66,8 @@ namespace Pulumi.Datadog.Outputs
         private DashboardWidgetCheckStatusDefinition(
             string check,
 
+            string? description,
+
             string? group,
 
             ImmutableArray<string> groupBies,
@@ -70,6 +80,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> tags,
 
+            Outputs.DashboardWidgetCheckStatusDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
@@ -77,12 +89,14 @@ namespace Pulumi.Datadog.Outputs
             string? titleSize)
         {
             Check = check;
+            Description = description;
             Group = group;
             GroupBies = groupBies;
             Grouping = grouping;
             HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;
             Tags = tags;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

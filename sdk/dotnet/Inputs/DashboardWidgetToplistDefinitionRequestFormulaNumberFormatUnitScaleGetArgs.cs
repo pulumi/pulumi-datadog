@@ -12,6 +12,9 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the unit.
+        /// </summary>
         [Input("unitName", required: true)]
         public Input<string> UnitName { get; set; } = null!;
 

@@ -6,7 +6,10 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionEvent;
+import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionMarker;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionRequest;
+import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionTime;
+import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionXaxis;
 import com.pulumi.datadog.outputs.DashboardWidgetHeatmapDefinitionYaxis;
 import java.lang.Boolean;
 import java.lang.String;
@@ -48,7 +51,12 @@ public final class DashboardWidgetHeatmapDefinition {
      */
     private @Nullable String liveSpan;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `heatmapDefinition` block.
+     * 
+     */
+    private @Nullable List<DashboardWidgetHeatmapDefinitionMarker> markers;
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetHeatmapDefinitionRequest> requests;
@@ -57,6 +65,11 @@ public final class DashboardWidgetHeatmapDefinition {
      * 
      */
     private @Nullable Boolean showLegend;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetHeatmapDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -72,6 +85,11 @@ public final class DashboardWidgetHeatmapDefinition {
      * 
      */
     private @Nullable String titleSize;
+    /**
+     * @return A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    private @Nullable DashboardWidgetHeatmapDefinitionXaxis xaxis;
     /**
      * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
      * 
@@ -122,7 +140,14 @@ public final class DashboardWidgetHeatmapDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `heatmapDefinition` block.
+     * 
+     */
+    public List<DashboardWidgetHeatmapDefinitionMarker> markers() {
+        return this.markers == null ? List.of() : this.markers;
+    }
+    /**
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetHeatmapDefinitionRequest> requests() {
@@ -134,6 +159,13 @@ public final class DashboardWidgetHeatmapDefinition {
      */
     public Optional<Boolean> showLegend() {
         return Optional.ofNullable(this.showLegend);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetHeatmapDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -155,6 +187,13 @@ public final class DashboardWidgetHeatmapDefinition {
      */
     public Optional<String> titleSize() {
         return Optional.ofNullable(this.titleSize);
+    }
+    /**
+     * @return A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    public Optional<DashboardWidgetHeatmapDefinitionXaxis> xaxis() {
+        return Optional.ofNullable(this.xaxis);
     }
     /**
      * @return A nested block describing the Y-Axis Controls. The structure of this block is described below.
@@ -179,11 +218,14 @@ public final class DashboardWidgetHeatmapDefinition {
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String legendSize;
         private @Nullable String liveSpan;
+        private @Nullable List<DashboardWidgetHeatmapDefinitionMarker> markers;
         private @Nullable List<DashboardWidgetHeatmapDefinitionRequest> requests;
         private @Nullable Boolean showLegend;
+        private @Nullable DashboardWidgetHeatmapDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
+        private @Nullable DashboardWidgetHeatmapDefinitionXaxis xaxis;
         private @Nullable DashboardWidgetHeatmapDefinitionYaxis yaxis;
         public Builder() {}
         public Builder(DashboardWidgetHeatmapDefinition defaults) {
@@ -194,11 +236,14 @@ public final class DashboardWidgetHeatmapDefinition {
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.legendSize = defaults.legendSize;
     	      this.liveSpan = defaults.liveSpan;
+    	      this.markers = defaults.markers;
     	      this.requests = defaults.requests;
     	      this.showLegend = defaults.showLegend;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
+    	      this.xaxis = defaults.xaxis;
     	      this.yaxis = defaults.yaxis;
         }
 
@@ -245,6 +290,15 @@ public final class DashboardWidgetHeatmapDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder markers(@Nullable List<DashboardWidgetHeatmapDefinitionMarker> markers) {
+
+            this.markers = markers;
+            return this;
+        }
+        public Builder markers(DashboardWidgetHeatmapDefinitionMarker... markers) {
+            return markers(List.of(markers));
+        }
+        @CustomType.Setter
         public Builder requests(@Nullable List<DashboardWidgetHeatmapDefinitionRequest> requests) {
 
             this.requests = requests;
@@ -257,6 +311,12 @@ public final class DashboardWidgetHeatmapDefinition {
         public Builder showLegend(@Nullable Boolean showLegend) {
 
             this.showLegend = showLegend;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetHeatmapDefinitionTime time) {
+
+            this.time = time;
             return this;
         }
         @CustomType.Setter
@@ -278,6 +338,12 @@ public final class DashboardWidgetHeatmapDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder xaxis(@Nullable DashboardWidgetHeatmapDefinitionXaxis xaxis) {
+
+            this.xaxis = xaxis;
+            return this;
+        }
+        @CustomType.Setter
         public Builder yaxis(@Nullable DashboardWidgetHeatmapDefinitionYaxis yaxis) {
 
             this.yaxis = yaxis;
@@ -291,11 +357,14 @@ public final class DashboardWidgetHeatmapDefinition {
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.legendSize = legendSize;
             _resultValue.liveSpan = liveSpan;
+            _resultValue.markers = markers;
             _resultValue.requests = requests;
             _resultValue.showLegend = showLegend;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;
+            _resultValue.xaxis = xaxis;
             _resultValue.yaxis = yaxis;
             return _resultValue;
         }

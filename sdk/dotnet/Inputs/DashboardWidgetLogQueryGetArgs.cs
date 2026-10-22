@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The name of the index to query.
+        /// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
         /// </summary>
         [Input("index", required: true)]
         public Input<string> Index { get; set; } = null!;

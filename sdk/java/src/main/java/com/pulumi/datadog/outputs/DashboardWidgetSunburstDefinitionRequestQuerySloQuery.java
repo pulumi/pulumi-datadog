@@ -43,7 +43,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
      */
     private @Nullable String name;
     /**
-     * @return ID of an SLO to query.
+     * @return ID of an SLO to query measures.
      * 
      */
     private String sloId;
@@ -97,7 +97,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQuerySloQuery {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return ID of an SLO to query.
+     * @return ID of an SLO to query measures.
      * 
      */
     public String sloId() {

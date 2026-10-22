@@ -17,14 +17,14 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
     public static final DashboardWidgetTimeseriesDefinitionRightYaxisArgs Empty = new DashboardWidgetTimeseriesDefinitionRightYaxisArgs();
 
     /**
-     * Always include zero or fit the axis to the data range.
+     * Set to `true` to include zero.
      * 
      */
     @Import(name="includeZero")
     private @Nullable Output<Boolean> includeZero;
 
     /**
-     * @return Always include zero or fit the axis to the data range.
+     * @return Set to `true` to include zero.
      * 
      */
     public Optional<Output<Boolean>> includeZero() {
@@ -32,14 +32,14 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
     }
 
     /**
-     * The label of the axis to display on the graph.
+     * The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The label of the axis to display on the graph.
+     * @return The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
      * 
      */
     public Optional<Output<String>> label() {
@@ -47,14 +47,14 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
     }
 
     /**
-     * Specify the maximum value to show on the Y-axis.
+     * Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
      * 
      */
     @Import(name="max")
     private @Nullable Output<String> max;
 
     /**
-     * @return Specify the maximum value to show on the Y-axis.
+     * @return Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
      * 
      */
     public Optional<Output<String>> max() {
@@ -62,14 +62,14 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
     }
 
     /**
-     * Specify the minimum value to show on the Y-axis.
+     * Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
      * 
      */
     @Import(name="min")
     private @Nullable Output<String> min;
 
     /**
-     * @return Specify the minimum value to show on the Y-axis.
+     * @return Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
      * 
      */
     public Optional<Output<String>> min() {
@@ -77,14 +77,14 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
     }
 
     /**
-     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
      * 
      */
     @Import(name="scale")
     private @Nullable Output<String> scale;
 
     /**
-     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * @return Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
      * 
      */
     public Optional<Output<String>> scale() {
@@ -120,7 +120,7 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
         }
 
         /**
-         * @param includeZero Always include zero or fit the axis to the data range.
+         * @param includeZero Set to `true` to include zero.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
         }
 
         /**
-         * @param includeZero Always include zero or fit the axis to the data range.
+         * @param includeZero Set to `true` to include zero.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
         }
 
         /**
-         * @param label The label of the axis to display on the graph.
+         * @param label The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
         }
 
         /**
-         * @param label The label of the axis to display on the graph.
+         * @param label The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
         }
 
         /**
-         * @param max Specify the maximum value to show on the Y-axis.
+         * @param max Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
         }
 
         /**
-         * @param max Specify the maximum value to show on the Y-axis.
+         * @param max Specifies the maximum numeric value to show on the axis. Defaults to `auto`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
         }
 
         /**
-         * @param min Specify the minimum value to show on the Y-axis.
+         * @param min Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
         }
 
         /**
-         * @param min Specify the minimum value to show on the Y-axis.
+         * @param min Specifies the minimum numeric value to show on the axis. Defaults to `auto`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
         }
 
         /**
-         * @param scale Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+         * @param scale Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DashboardWidgetTimeseriesDefinitionRightYaxisArgs extends com
         }
 
         /**
-         * @param scale Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+         * @param scale Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
          * 
          * @return builder
          * 

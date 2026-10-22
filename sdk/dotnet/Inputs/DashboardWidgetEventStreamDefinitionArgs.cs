@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The size to use to display an event. Valid values are `S`, `L`.
+        /// Size to use to display an event. Valid values are `S`, `L`.
         /// </summary>
         [Input("eventSize")]
         public Input<string>? EventSize { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? LiveSpan { get; set; }
 
         /// <summary>
-        /// The query to use in the widget.
+        /// Query to filter the event stream with.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
@@ -47,6 +47,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("tagsExecution")]
         public Input<string>? TagsExecution { get; set; }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetEventStreamDefinitionTimeArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.

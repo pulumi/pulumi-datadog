@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetToplistDefinitionStyleDisplayArgs>? _displays;
 
         /// <summary>
-        /// The display mode for the widget.
+        /// The display mode for the top list widget. Use `Stacked` or `Flat` sub-block.
         /// </summary>
         public InputList<Inputs.DashboardWidgetToplistDefinitionStyleDisplayArgs> Displays
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Palette { get; set; }
 
         /// <summary>
-        /// The scaling mode for the widget. Valid values are `Absolute`, `Relative`.
+        /// The scaling mode for the widget.
         /// </summary>
         [Input("scaling")]
         public Input<string>? Scaling { get; set; }

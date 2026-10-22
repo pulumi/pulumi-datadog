@@ -48,14 +48,14 @@ public final class DashboardTabArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of widget references for this tab. Use {@literal @}N format to reference widgets by position (1-indexed).
+     * List of widget references using {@literal @}N format (1-indexed).
      * 
      */
     @Import(name="widgetIds", required=true)
     private Output<List<String>> widgetIds;
 
     /**
-     * @return List of widget references for this tab. Use {@literal @}N format to reference widgets by position (1-indexed).
+     * @return List of widget references using {@literal @}N format (1-indexed).
      * 
      */
     public Output<List<String>> widgetIds() {
@@ -131,7 +131,7 @@ public final class DashboardTabArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param widgetIds List of widget references for this tab. Use {@literal @}N format to reference widgets by position (1-indexed).
+         * @param widgetIds List of widget references using {@literal @}N format (1-indexed).
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class DashboardTabArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param widgetIds List of widget references for this tab. Use {@literal @}N format to reference widgets by position (1-indexed).
+         * @param widgetIds List of widget references using {@literal @}N format (1-indexed).
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class DashboardTabArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param widgetIds List of widget references for this tab. Use {@literal @}N format to reference widgets by position (1-indexed).
+         * @param widgetIds List of widget references using {@literal @}N format (1-indexed).
          * 
          * @return builder
          * 

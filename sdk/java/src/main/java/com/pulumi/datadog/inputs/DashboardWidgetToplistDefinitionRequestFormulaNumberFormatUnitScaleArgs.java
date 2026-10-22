@@ -14,9 +14,17 @@ public final class DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUni
 
     public static final DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs Empty = new DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs();
 
+    /**
+     * The name of the unit.
+     * 
+     */
     @Import(name="unitName", required=true)
     private Output<String> unitName;
 
+    /**
+     * @return The name of the unit.
+     * 
+     */
     public Output<String> unitName() {
         return this.unitName;
     }
@@ -45,11 +53,23 @@ public final class DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUni
             $ = new DashboardWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param unitName The name of the unit.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unitName(Output<String> unitName) {
             $.unitName = unitName;
             return this;
         }
 
+        /**
+         * @param unitName The name of the unit.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unitName(String unitName) {
             return unitName(Output.of(unitName));
         }

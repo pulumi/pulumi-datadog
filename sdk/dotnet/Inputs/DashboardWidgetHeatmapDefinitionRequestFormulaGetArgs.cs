@@ -19,10 +19,16 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `Number`, `Bar`, `Trend`.
+        /// A list of display modes for each table cell. Valid values are `Number`, `Bar`, and `Trend`.
         /// </summary>
         [Input("cellDisplayMode")]
         public Input<string>? CellDisplayMode { get; set; }
+
+        /// <summary>
+        /// Options for the cell display mode. Only used when `CellDisplayMode` is set to `Trend`.
+        /// </summary>
+        [Input("cellDisplayModeOptions")]
+        public Input<Inputs.DashboardWidgetHeatmapDefinitionRequestFormulaCellDisplayModeOptionsGetArgs>? CellDisplayModeOptions { get; set; }
 
         [Input("conditionalFormats")]
         private InputList<Inputs.DashboardWidgetHeatmapDefinitionRequestFormulaConditionalFormatGetArgs>? _conditionalFormats;

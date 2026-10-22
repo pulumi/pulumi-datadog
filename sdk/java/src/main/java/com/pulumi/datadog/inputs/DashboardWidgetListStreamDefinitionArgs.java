@@ -6,7 +6,9 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionTimeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +19,66 @@ import javax.annotation.Nullable;
 public final class DashboardWidgetListStreamDefinitionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DashboardWidgetListStreamDefinitionArgs Empty = new DashboardWidgetListStreamDefinitionArgs();
+
+    /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+
+    /**
+     * The size of the legend displayed in the widget.
+     * 
+     */
+    @Import(name="legendSize")
+    private @Nullable Output<String> legendSize;
+
+    /**
+     * @return The size of the legend displayed in the widget.
+     * 
+     */
+    public Optional<Output<String>> legendSize() {
+        return Optional.ofNullable(this.legendSize);
+    }
+
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    @Import(name="liveSpan")
+    private @Nullable Output<String> liveSpan;
+
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<Output<String>> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
 
     /**
      * Nested block describing the requests to use when displaying the widget. Multiple `request` blocks are allowed with the structure below.
@@ -31,6 +93,36 @@ public final class DashboardWidgetListStreamDefinitionArgs extends com.pulumi.re
      */
     public Output<List<DashboardWidgetListStreamDefinitionRequestArgs>> requests() {
         return this.requests;
+    }
+
+    /**
+     * Whether or not to show the legend on this widget.
+     * 
+     */
+    @Import(name="showLegend")
+    private @Nullable Output<Boolean> showLegend;
+
+    /**
+     * @return Whether or not to show the legend on this widget.
+     * 
+     */
+    public Optional<Output<Boolean>> showLegend() {
+        return Optional.ofNullable(this.showLegend);
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetListStreamDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetListStreamDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -64,14 +156,14 @@ public final class DashboardWidgetListStreamDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * The size of the widget&#39;s title. Default is 16.
+     * The size of the widget&#39;s title (defaults to 16).
      * 
      */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
     /**
-     * @return The size of the widget&#39;s title. Default is 16.
+     * @return The size of the widget&#39;s title (defaults to 16).
      * 
      */
     public Optional<Output<String>> titleSize() {
@@ -81,7 +173,13 @@ public final class DashboardWidgetListStreamDefinitionArgs extends com.pulumi.re
     private DashboardWidgetListStreamDefinitionArgs() {}
 
     private DashboardWidgetListStreamDefinitionArgs(DashboardWidgetListStreamDefinitionArgs $) {
+        this.description = $.description;
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
+        this.legendSize = $.legendSize;
+        this.liveSpan = $.liveSpan;
         this.requests = $.requests;
+        this.showLegend = $.showLegend;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -103,6 +201,90 @@ public final class DashboardWidgetListStreamDefinitionArgs extends com.pulumi.re
 
         public Builder(DashboardWidgetListStreamDefinitionArgs defaults) {
             $ = new DashboardWidgetListStreamDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
+        }
+
+        /**
+         * @param legendSize The size of the legend displayed in the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder legendSize(@Nullable Output<String> legendSize) {
+            $.legendSize = legendSize;
+            return this;
+        }
+
+        /**
+         * @param legendSize The size of the legend displayed in the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder legendSize(String legendSize) {
+            return legendSize(Output.of(legendSize));
+        }
+
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveSpan(@Nullable Output<String> liveSpan) {
+            $.liveSpan = liveSpan;
+            return this;
+        }
+
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveSpan(String liveSpan) {
+            return liveSpan(Output.of(liveSpan));
         }
 
         /**
@@ -134,6 +316,48 @@ public final class DashboardWidgetListStreamDefinitionArgs extends com.pulumi.re
          */
         public Builder requests(DashboardWidgetListStreamDefinitionRequestArgs... requests) {
             return requests(List.of(requests));
+        }
+
+        /**
+         * @param showLegend Whether or not to show the legend on this widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showLegend(@Nullable Output<Boolean> showLegend) {
+            $.showLegend = showLegend;
+            return this;
+        }
+
+        /**
+         * @param showLegend Whether or not to show the legend on this widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder showLegend(Boolean showLegend) {
+            return showLegend(Output.of(showLegend));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetListStreamDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetListStreamDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**
@@ -179,7 +403,7 @@ public final class DashboardWidgetListStreamDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param titleSize The size of the widget&#39;s title. Default is 16.
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
          * 
          * @return builder
          * 
@@ -190,7 +414,7 @@ public final class DashboardWidgetListStreamDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param titleSize The size of the widget&#39;s title. Default is 16.
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
          * 
          * @return builder
          * 

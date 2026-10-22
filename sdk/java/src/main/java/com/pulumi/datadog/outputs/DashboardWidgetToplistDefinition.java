@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequest;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionStyle;
+import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionTime;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -46,6 +47,11 @@ public final class DashboardWidgetToplistDefinition {
      * 
      */
     private @Nullable List<DashboardWidgetToplistDefinitionStyle> styles;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetToplistDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -106,6 +112,13 @@ public final class DashboardWidgetToplistDefinition {
         return this.styles == null ? List.of() : this.styles;
     }
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetToplistDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
      * @return The title of the widget.
      * 
      */
@@ -142,6 +155,7 @@ public final class DashboardWidgetToplistDefinition {
         private @Nullable String liveSpan;
         private @Nullable List<DashboardWidgetToplistDefinitionRequest> requests;
         private @Nullable List<DashboardWidgetToplistDefinitionStyle> styles;
+        private @Nullable DashboardWidgetToplistDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -154,6 +168,7 @@ public final class DashboardWidgetToplistDefinition {
     	      this.liveSpan = defaults.liveSpan;
     	      this.requests = defaults.requests;
     	      this.styles = defaults.styles;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -205,6 +220,12 @@ public final class DashboardWidgetToplistDefinition {
             return styles(List.of(styles));
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetToplistDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -230,6 +251,7 @@ public final class DashboardWidgetToplistDefinition {
             _resultValue.liveSpan = liveSpan;
             _resultValue.requests = requests;
             _resultValue.styles = styles;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

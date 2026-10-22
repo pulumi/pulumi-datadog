@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardTemplateVariable
     {
         /// <summary>
-        /// The list of values that the template variable drop-down is be limited to
+        /// The list of values that the template variable drop-down is limited to.
         /// </summary>
         public readonly ImmutableArray<string> AvailableValues;
         /// <summary>
@@ -33,6 +33,10 @@ namespace Pulumi.Datadog.Outputs
         /// The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
         /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
         private DashboardTemplateVariable(
@@ -44,13 +48,16 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
-            string? prefix)
+            string? prefix,
+
+            string? type)
         {
             AvailableValues = availableValues;
             Default = @default;
             Defaults = defaults;
             Name = name;
             Prefix = prefix;
+            Type = type;
         }
     }
 }

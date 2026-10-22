@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("formulas")]
         private InputList<Inputs.DashboardWidgetTreemapDefinitionRequestFormulaArgs>? _formulas;
+
+        /// <summary>
+        /// List of formulas that operate on queries.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetTreemapDefinitionRequestFormulaArgs> Formulas
         {
             get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetTreemapDefinitionRequestFormulaArgs>());
@@ -22,11 +26,27 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("queries")]
         private InputList<Inputs.DashboardWidgetTreemapDefinitionRequestQueryArgs>? _queries;
+
+        /// <summary>
+        /// List of queries that can be returned directly or used in formulas.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetTreemapDefinitionRequestQueryArgs> Queries
         {
             get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetTreemapDefinitionRequestQueryArgs>());
             set => _queries = value;
         }
+
+        /// <summary>
+        /// The controls for sorting the widget. Only applicable for formula-style requests.
+        /// </summary>
+        [Input("sort")]
+        public Input<Inputs.DashboardWidgetTreemapDefinitionRequestSortArgs>? Sort { get; set; }
+
+        /// <summary>
+        /// Define style for the widget's request.
+        /// </summary>
+        [Input("style")]
+        public Input<Inputs.DashboardWidgetTreemapDefinitionRequestStyleArgs>? Style { get; set; }
 
         public DashboardWidgetTreemapDefinitionRequestArgs()
         {

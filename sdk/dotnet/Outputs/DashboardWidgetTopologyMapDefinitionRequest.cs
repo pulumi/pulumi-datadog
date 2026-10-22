@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTopologyMapDefinitionRequestQuery> Queries;
         /// <summary>
-        /// The request type for the Topology request ('topology'). Valid values are `Topology`.
+        /// The request type for the Topology request ('topology').
         /// </summary>
         public readonly string RequestType;
 

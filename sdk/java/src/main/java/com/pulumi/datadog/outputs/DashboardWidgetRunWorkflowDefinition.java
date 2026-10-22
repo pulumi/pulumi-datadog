@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetRunWorkflowDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetRunWorkflowDefinitionInput;
+import com.pulumi.datadog.outputs.DashboardWidgetRunWorkflowDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -41,6 +42,11 @@ public final class DashboardWidgetRunWorkflowDefinition {
      * 
      */
     private @Nullable String liveSpan;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetRunWorkflowDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -99,6 +105,13 @@ public final class DashboardWidgetRunWorkflowDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetRunWorkflowDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
      * @return The title of the widget.
      * 
      */
@@ -141,6 +154,7 @@ public final class DashboardWidgetRunWorkflowDefinition {
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable List<DashboardWidgetRunWorkflowDefinitionInput> inputs;
         private @Nullable String liveSpan;
+        private @Nullable DashboardWidgetRunWorkflowDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -153,6 +167,7 @@ public final class DashboardWidgetRunWorkflowDefinition {
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.inputs = defaults.inputs;
     	      this.liveSpan = defaults.liveSpan;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -196,6 +211,12 @@ public final class DashboardWidgetRunWorkflowDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetRunWorkflowDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -228,6 +249,7 @@ public final class DashboardWidgetRunWorkflowDefinition {
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.inputs = inputs;
             _resultValue.liveSpan = liveSpan;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

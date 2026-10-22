@@ -107,14 +107,14 @@ public final class DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs exten
     }
 
     /**
-     * ID of an SLO to query.
+     * ID of an SLO to query measures.
      * 
      */
     @Import(name="sloId", required=true)
     private Output<String> sloId;
 
     /**
-     * @return ID of an SLO to query.
+     * @return ID of an SLO to query measures.
      * 
      */
     public Output<String> sloId() {
@@ -294,7 +294,7 @@ public final class DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs exten
         }
 
         /**
-         * @param sloId ID of an SLO to query.
+         * @param sloId ID of an SLO to query measures.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class DashboardWidgetChangeDefinitionRequestQuerySloQueryArgs exten
         }
 
         /**
-         * @param sloId ID of an SLO to query.
+         * @param sloId ID of an SLO to query measures.
          * 
          * @return builder
          * 

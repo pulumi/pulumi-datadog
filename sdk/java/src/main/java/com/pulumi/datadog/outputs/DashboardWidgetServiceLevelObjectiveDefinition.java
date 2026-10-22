@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetServiceLevelObjectiveDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -30,6 +31,16 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
      */
     private @Nullable String globalTimeTarget;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
+    /**
      * @return Whether to show the error budget or not.
      * 
      */
@@ -39,6 +50,11 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
      * 
      */
     private String sloId;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetServiceLevelObjectiveDefinitionTime time;
     /**
      * @return A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
      * 
@@ -93,6 +109,20 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
         return Optional.ofNullable(this.globalTimeTarget);
     }
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+    /**
      * @return Whether to show the error budget or not.
      * 
      */
@@ -105,6 +135,13 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
      */
     public String sloId() {
         return this.sloId;
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetServiceLevelObjectiveDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return A list of time windows to display in the widget. Valid values are `7d`, `30d`, `90d`, `weekToDate`, `previousWeek`, `monthToDate`, `previousMonth`, `globalTime`.
@@ -161,8 +198,11 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
         private @Nullable String additionalQueryFilters;
         private @Nullable String description;
         private @Nullable String globalTimeTarget;
+        private @Nullable Boolean hideIncompleteCostData;
+        private @Nullable String liveSpan;
         private @Nullable Boolean showErrorBudget;
         private String sloId;
+        private @Nullable DashboardWidgetServiceLevelObjectiveDefinitionTime time;
         private List<String> timeWindows;
         private @Nullable String title;
         private @Nullable String titleAlign;
@@ -175,8 +215,11 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
     	      this.additionalQueryFilters = defaults.additionalQueryFilters;
     	      this.description = defaults.description;
     	      this.globalTimeTarget = defaults.globalTimeTarget;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.showErrorBudget = defaults.showErrorBudget;
     	      this.sloId = defaults.sloId;
+    	      this.time = defaults.time;
     	      this.timeWindows = defaults.timeWindows;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
@@ -204,6 +247,18 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
+            return this;
+        }
+        @CustomType.Setter
         public Builder showErrorBudget(@Nullable Boolean showErrorBudget) {
 
             this.showErrorBudget = showErrorBudget;
@@ -215,6 +270,12 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
               throw new MissingRequiredPropertyException("DashboardWidgetServiceLevelObjectiveDefinition", "sloId");
             }
             this.sloId = sloId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetServiceLevelObjectiveDefinitionTime time) {
+
+            this.time = time;
             return this;
         }
         @CustomType.Setter
@@ -267,8 +328,11 @@ public final class DashboardWidgetServiceLevelObjectiveDefinition {
             _resultValue.additionalQueryFilters = additionalQueryFilters;
             _resultValue.description = description;
             _resultValue.globalTimeTarget = globalTimeTarget;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.showErrorBudget = showErrorBudget;
             _resultValue.sloId = sloId;
+            _resultValue.time = time;
             _resultValue.timeWindows = timeWindows;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;

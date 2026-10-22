@@ -10,6 +10,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,26 +22,26 @@ public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.p
      * The query for a Topology request.
      * 
      */
-    @Import(name="queries", required=true)
-    private Output<List<DashboardWidgetTopologyMapDefinitionRequestQueryArgs>> queries;
+    @Import(name="queries")
+    private @Nullable Output<List<DashboardWidgetTopologyMapDefinitionRequestQueryArgs>> queries;
 
     /**
      * @return The query for a Topology request.
      * 
      */
-    public Output<List<DashboardWidgetTopologyMapDefinitionRequestQueryArgs>> queries() {
-        return this.queries;
+    public Optional<Output<List<DashboardWidgetTopologyMapDefinitionRequestQueryArgs>>> queries() {
+        return Optional.ofNullable(this.queries);
     }
 
     /**
-     * The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
+     * The request type for the Topology request (&#39;topology&#39;).
      * 
      */
     @Import(name="requestType", required=true)
     private Output<String> requestType;
 
     /**
-     * @return The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
+     * @return The request type for the Topology request (&#39;topology&#39;).
      * 
      */
     public Output<String> requestType() {
@@ -77,7 +79,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.p
          * @return builder
          * 
          */
-        public Builder queries(Output<List<DashboardWidgetTopologyMapDefinitionRequestQueryArgs>> queries) {
+        public Builder queries(@Nullable Output<List<DashboardWidgetTopologyMapDefinitionRequestQueryArgs>> queries) {
             $.queries = queries;
             return this;
         }
@@ -103,7 +105,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.p
         }
 
         /**
-         * @param requestType The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
+         * @param requestType The request type for the Topology request (&#39;topology&#39;).
          * 
          * @return builder
          * 
@@ -114,7 +116,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.p
         }
 
         /**
-         * @param requestType The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
+         * @param requestType The request type for the Topology request (&#39;topology&#39;).
          * 
          * @return builder
          * 
@@ -124,9 +126,6 @@ public final class DashboardWidgetTopologyMapDefinitionRequestArgs extends com.p
         }
 
         public DashboardWidgetTopologyMapDefinitionRequestArgs build() {
-            if ($.queries == null) {
-                throw new MissingRequiredPropertyException("DashboardWidgetTopologyMapDefinitionRequestArgs", "queries");
-            }
             if ($.requestType == null) {
                 throw new MissingRequiredPropertyException("DashboardWidgetTopologyMapDefinitionRequestArgs", "requestType");
             }

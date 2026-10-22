@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The unit for the value displayed in the widget.
+        /// Display a unit of your choice on the widget.
         /// </summary>
         [Input("customUnit")]
         public Input<string>? CustomUnit { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? LiveSpan { get; set; }
 
         /// <summary>
-        /// The precision to use when displaying the tile.
+        /// Number of decimals to show. If not defined, the widget uses the raw value.
         /// </summary>
         [Input("precision")]
         public Input<int>? Precision { get; set; }
@@ -77,6 +77,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("textAlign")]
         public Input<string>? TextAlign { get; set; }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetQueryValueDefinitionTimeGetArgs>? Time { get; set; }
 
         /// <summary>
         /// Set a timeseries on the widget background.

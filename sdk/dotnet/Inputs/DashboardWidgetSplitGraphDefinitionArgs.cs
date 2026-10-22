@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetSplitGraphDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Normalize y axes across graphs.
         /// </summary>
         [Input("hasUniformYAxes")]
@@ -39,8 +45,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// The original widget we are splitting on.
         /// </summary>
-        [Input("sourceWidgetDefinition", required: true)]
-        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionArgs> SourceWidgetDefinition { get; set; } = null!;
+        [Input("sourceWidgetDefinition")]
+        public Input<Inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionArgs>? SourceWidgetDefinition { get; set; }
 
         /// <summary>
         /// Encapsulates all user choices about how to split a graph.
@@ -49,10 +55,28 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetSplitGraphDefinitionSplitConfigArgs> SplitConfig { get; set; } = null!;
 
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetSplitGraphDefinitionTimeArgs>? Time { get; set; }
+
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
+
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
+        /// </summary>
+        [Input("titleAlign")]
+        public Input<string>? TitleAlign { get; set; }
+
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
+        [Input("titleSize")]
+        public Input<string>? TitleSize { get; set; }
 
         public DashboardWidgetSplitGraphDefinitionArgs()
         {

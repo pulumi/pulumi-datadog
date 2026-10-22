@@ -4,7 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetAlertValueDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -24,6 +26,16 @@ public final class DashboardWidgetAlertValueDefinition {
      */
     private @Nullable String description;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
+    /**
      * @return The precision to use when displaying the value. Use `*` for maximum precision.
      * 
      */
@@ -33,6 +45,11 @@ public final class DashboardWidgetAlertValueDefinition {
      * 
      */
     private @Nullable String textAlign;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetAlertValueDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -70,6 +87,20 @@ public final class DashboardWidgetAlertValueDefinition {
         return Optional.ofNullable(this.description);
     }
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+    /**
      * @return The precision to use when displaying the value. Use `*` for maximum precision.
      * 
      */
@@ -82,6 +113,13 @@ public final class DashboardWidgetAlertValueDefinition {
      */
     public Optional<String> textAlign() {
         return Optional.ofNullable(this.textAlign);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetAlertValueDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -123,8 +161,11 @@ public final class DashboardWidgetAlertValueDefinition {
     public static final class Builder {
         private String alertId;
         private @Nullable String description;
+        private @Nullable Boolean hideIncompleteCostData;
+        private @Nullable String liveSpan;
         private @Nullable Integer precision;
         private @Nullable String textAlign;
+        private @Nullable DashboardWidgetAlertValueDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -134,8 +175,11 @@ public final class DashboardWidgetAlertValueDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.alertId = defaults.alertId;
     	      this.description = defaults.description;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.precision = defaults.precision;
     	      this.textAlign = defaults.textAlign;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -157,6 +201,18 @@ public final class DashboardWidgetAlertValueDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
+            return this;
+        }
+        @CustomType.Setter
         public Builder precision(@Nullable Integer precision) {
 
             this.precision = precision;
@@ -166,6 +222,12 @@ public final class DashboardWidgetAlertValueDefinition {
         public Builder textAlign(@Nullable String textAlign) {
 
             this.textAlign = textAlign;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetAlertValueDefinitionTime time) {
+
+            this.time = time;
             return this;
         }
         @CustomType.Setter
@@ -196,8 +258,11 @@ public final class DashboardWidgetAlertValueDefinition {
             final var _resultValue = new DashboardWidgetAlertValueDefinition();
             _resultValue.alertId = alertId;
             _resultValue.description = description;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.precision = precision;
             _resultValue.textAlign = textAlign;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

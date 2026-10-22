@@ -7,8 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequest;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionStyle;
+import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionTime;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionView;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -49,6 +49,11 @@ public final class DashboardWidgetGeomapDefinition {
      */
     private @Nullable DashboardWidgetGeomapDefinitionStyle style;
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetGeomapDefinitionTime time;
+    /**
      * @return The title of the widget.
      * 
      */
@@ -67,7 +72,7 @@ public final class DashboardWidgetGeomapDefinition {
      * @return The view of the world that the map should render.
      * 
      */
-    private DashboardWidgetGeomapDefinitionView view;
+    private @Nullable DashboardWidgetGeomapDefinitionView view;
 
     private DashboardWidgetGeomapDefinition() {}
     /**
@@ -113,6 +118,13 @@ public final class DashboardWidgetGeomapDefinition {
         return Optional.ofNullable(this.style);
     }
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetGeomapDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
      * @return The title of the widget.
      * 
      */
@@ -137,8 +149,8 @@ public final class DashboardWidgetGeomapDefinition {
      * @return The view of the world that the map should render.
      * 
      */
-    public DashboardWidgetGeomapDefinitionView view() {
-        return this.view;
+    public Optional<DashboardWidgetGeomapDefinitionView> view() {
+        return Optional.ofNullable(this.view);
     }
 
     public static Builder builder() {
@@ -156,10 +168,11 @@ public final class DashboardWidgetGeomapDefinition {
         private @Nullable String liveSpan;
         private @Nullable List<DashboardWidgetGeomapDefinitionRequest> requests;
         private @Nullable DashboardWidgetGeomapDefinitionStyle style;
+        private @Nullable DashboardWidgetGeomapDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
-        private DashboardWidgetGeomapDefinitionView view;
+        private @Nullable DashboardWidgetGeomapDefinitionView view;
         public Builder() {}
         public Builder(DashboardWidgetGeomapDefinition defaults) {
     	      Objects.requireNonNull(defaults);
@@ -169,6 +182,7 @@ public final class DashboardWidgetGeomapDefinition {
     	      this.liveSpan = defaults.liveSpan;
     	      this.requests = defaults.requests;
     	      this.style = defaults.style;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -218,6 +232,12 @@ public final class DashboardWidgetGeomapDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetGeomapDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -236,10 +256,8 @@ public final class DashboardWidgetGeomapDefinition {
             return this;
         }
         @CustomType.Setter
-        public Builder view(DashboardWidgetGeomapDefinitionView view) {
-            if (view == null) {
-              throw new MissingRequiredPropertyException("DashboardWidgetGeomapDefinition", "view");
-            }
+        public Builder view(@Nullable DashboardWidgetGeomapDefinitionView view) {
+
             this.view = view;
             return this;
         }
@@ -251,6 +269,7 @@ public final class DashboardWidgetGeomapDefinition {
             _resultValue.liveSpan = liveSpan;
             _resultValue.requests = requests;
             _resultValue.style = style;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

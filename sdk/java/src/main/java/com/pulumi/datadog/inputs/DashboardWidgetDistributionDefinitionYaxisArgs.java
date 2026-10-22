@@ -17,14 +17,14 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
     public static final DashboardWidgetDistributionDefinitionYaxisArgs Empty = new DashboardWidgetDistributionDefinitionYaxisArgs();
 
     /**
-     * Always include zero or fit the axis to the data range.
+     * True includes zero.
      * 
      */
     @Import(name="includeZero")
     private @Nullable Output<Boolean> includeZero;
 
     /**
-     * @return Always include zero or fit the axis to the data range.
+     * @return True includes zero.
      * 
      */
     public Optional<Output<Boolean>> includeZero() {
@@ -47,14 +47,14 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
     }
 
     /**
-     * Specify the maximum value to show on the Y-axis.
+     * Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
      * 
      */
     @Import(name="max")
     private @Nullable Output<String> max;
 
     /**
-     * @return Specify the maximum value to show on the Y-axis.
+     * @return Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
      * 
      */
     public Optional<Output<String>> max() {
@@ -62,14 +62,14 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
     }
 
     /**
-     * Specify the minimum value to show on the Y-axis.
+     * Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
      * 
      */
     @Import(name="min")
     private @Nullable Output<String> min;
 
     /**
-     * @return Specify the minimum value to show on the Y-axis.
+     * @return Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
      * 
      */
     public Optional<Output<String>> min() {
@@ -77,14 +77,14 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
     }
 
     /**
-     * Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * Specifies the scale type. Possible values are `linear` or `log`.
      * 
      */
     @Import(name="scale")
     private @Nullable Output<String> scale;
 
     /**
-     * @return Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+     * @return Specifies the scale type. Possible values are `linear` or `log`.
      * 
      */
     public Optional<Output<String>> scale() {
@@ -120,7 +120,7 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
         }
 
         /**
-         * @param includeZero Always include zero or fit the axis to the data range.
+         * @param includeZero True includes zero.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
         }
 
         /**
-         * @param includeZero Always include zero or fit the axis to the data range.
+         * @param includeZero True includes zero.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
         }
 
         /**
-         * @param max Specify the maximum value to show on the Y-axis.
+         * @param max Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
         }
 
         /**
-         * @param max Specify the maximum value to show on the Y-axis.
+         * @param max Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
         }
 
         /**
-         * @param min Specify the minimum value to show on the Y-axis.
+         * @param min Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
         }
 
         /**
-         * @param min Specify the minimum value to show on the Y-axis.
+         * @param min Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
         }
 
         /**
-         * @param scale Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+         * @param scale Specifies the scale type. Possible values are `linear` or `log`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DashboardWidgetDistributionDefinitionYaxisArgs extends com.pu
         }
 
         /**
-         * @param scale Specify the scale type, options: `linear`, `log`, `pow`, `sqrt`.
+         * @param scale Specifies the scale type. Possible values are `linear` or `log`.
          * 
          * @return builder
          * 

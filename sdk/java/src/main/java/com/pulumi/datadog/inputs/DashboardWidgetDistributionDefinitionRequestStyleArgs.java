@@ -16,6 +16,21 @@ public final class DashboardWidgetDistributionDefinitionRequestStyleArgs extends
     public static final DashboardWidgetDistributionDefinitionRequestStyleArgs Empty = new DashboardWidgetDistributionDefinitionRequestStyleArgs();
 
     /**
+     * How to order series. Valid values are `tags`, `values`.
+     * 
+     */
+    @Import(name="orderBy")
+    private @Nullable Output<String> orderBy;
+
+    /**
+     * @return How to order series. Valid values are `tags`, `values`.
+     * 
+     */
+    public Optional<Output<String>> orderBy() {
+        return Optional.ofNullable(this.orderBy);
+    }
+
+    /**
      * A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      * 
      */
@@ -33,6 +48,7 @@ public final class DashboardWidgetDistributionDefinitionRequestStyleArgs extends
     private DashboardWidgetDistributionDefinitionRequestStyleArgs() {}
 
     private DashboardWidgetDistributionDefinitionRequestStyleArgs(DashboardWidgetDistributionDefinitionRequestStyleArgs $) {
+        this.orderBy = $.orderBy;
         this.palette = $.palette;
     }
 
@@ -52,6 +68,27 @@ public final class DashboardWidgetDistributionDefinitionRequestStyleArgs extends
 
         public Builder(DashboardWidgetDistributionDefinitionRequestStyleArgs defaults) {
             $ = new DashboardWidgetDistributionDefinitionRequestStyleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param orderBy How to order series. Valid values are `tags`, `values`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orderBy(@Nullable Output<String> orderBy) {
+            $.orderBy = orderBy;
+            return this;
+        }
+
+        /**
+         * @param orderBy How to order series. Valid values are `tags`, `values`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orderBy(String orderBy) {
+            return orderBy(Output.of(orderBy));
         }
 
         /**

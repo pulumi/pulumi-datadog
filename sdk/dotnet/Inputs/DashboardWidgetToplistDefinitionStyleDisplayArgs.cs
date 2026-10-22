@@ -13,10 +13,22 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetToplistDefinitionStyleDisplayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display type for the widget.
+        /// Flat display for the top list widget.
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("flat")]
+        public Input<Inputs.DashboardWidgetToplistDefinitionStyleDisplayFlatArgs>? Flat { get; set; }
+
+        /// <summary>
+        /// Stacked display for the top list widget.
+        /// </summary>
+        [Input("stacked")]
+        public Input<Inputs.DashboardWidgetToplistDefinitionStyleDisplayStackedArgs>? Stacked { get; set; }
+
+        /// <summary>
+        /// Legacy display type for the widget. Valid values are `Stacked`, `Flat`. **Deprecated.** Use the `Stacked` or `Flat` block instead.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public DashboardWidgetToplistDefinitionStyleDisplayArgs()
         {

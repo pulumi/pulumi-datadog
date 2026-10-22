@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Substring { get; set; }
 
         /// <summary>
-        /// Table widget text format replace all type.
+        /// Table widget text format replace all type. Valid values are `All`, `Substring`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

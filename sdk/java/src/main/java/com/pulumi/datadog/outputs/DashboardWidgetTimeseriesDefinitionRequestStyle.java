@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetTimeseriesDefinitionRequestStyle {
     /**
-     * @return If true, the value is displayed as a label relative to the data point.
+     * @return Whether to display value labels on the timeseries.
      * 
      */
     private @Nullable Boolean hasValueLabels;
@@ -40,7 +40,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyle {
 
     private DashboardWidgetTimeseriesDefinitionRequestStyle() {}
     /**
-     * @return If true, the value is displayed as a label relative to the data point.
+     * @return Whether to display value labels on the timeseries.
      * 
      */
     public Optional<Boolean> hasValueLabels() {

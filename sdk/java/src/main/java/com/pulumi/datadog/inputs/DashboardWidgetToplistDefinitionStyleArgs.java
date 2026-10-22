@@ -18,14 +18,14 @@ public final class DashboardWidgetToplistDefinitionStyleArgs extends com.pulumi.
     public static final DashboardWidgetToplistDefinitionStyleArgs Empty = new DashboardWidgetToplistDefinitionStyleArgs();
 
     /**
-     * The display mode for the widget.
+     * The display mode for the top list widget. Use `stacked` or `flat` sub-block.
      * 
      */
     @Import(name="displays")
     private @Nullable Output<List<DashboardWidgetToplistDefinitionStyleDisplayArgs>> displays;
 
     /**
-     * @return The display mode for the widget.
+     * @return The display mode for the top list widget. Use `stacked` or `flat` sub-block.
      * 
      */
     public Optional<Output<List<DashboardWidgetToplistDefinitionStyleDisplayArgs>>> displays() {
@@ -48,14 +48,14 @@ public final class DashboardWidgetToplistDefinitionStyleArgs extends com.pulumi.
     }
 
     /**
-     * The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     * The scaling mode for the widget.
      * 
      */
     @Import(name="scaling")
     private @Nullable Output<String> scaling;
 
     /**
-     * @return The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     * @return The scaling mode for the widget.
      * 
      */
     public Optional<Output<String>> scaling() {
@@ -89,7 +89,7 @@ public final class DashboardWidgetToplistDefinitionStyleArgs extends com.pulumi.
         }
 
         /**
-         * @param displays The display mode for the widget.
+         * @param displays The display mode for the top list widget. Use `stacked` or `flat` sub-block.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DashboardWidgetToplistDefinitionStyleArgs extends com.pulumi.
         }
 
         /**
-         * @param displays The display mode for the widget.
+         * @param displays The display mode for the top list widget. Use `stacked` or `flat` sub-block.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class DashboardWidgetToplistDefinitionStyleArgs extends com.pulumi.
         }
 
         /**
-         * @param displays The display mode for the widget.
+         * @param displays The display mode for the top list widget. Use `stacked` or `flat` sub-block.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class DashboardWidgetToplistDefinitionStyleArgs extends com.pulumi.
         }
 
         /**
-         * @param scaling The scaling mode for the widget. Valid values are `absolute`, `relative`.
+         * @param scaling The scaling mode for the widget.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class DashboardWidgetToplistDefinitionStyleArgs extends com.pulumi.
         }
 
         /**
-         * @param scaling The scaling mode for the widget. Valid values are `absolute`, `relative`.
+         * @param scaling The scaling mode for the widget.
          * 
          * @return builder
          * 

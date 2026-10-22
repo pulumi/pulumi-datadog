@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestConditi
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestProcessQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestSort;
 import com.pulumi.datadog.outputs.DashboardWidgetToplistDefinitionRequestStyle;
 import java.lang.String;
 import java.util.List;
@@ -23,47 +24,88 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetToplistDefinitionRequest {
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetApmQuery apmQuery;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetToplistDefinitionRequestAuditQuery auditQuery;
     /**
      * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats;
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetToplistDefinitionRequestFormula> formulas;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetLogQuery logQuery;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetToplistDefinitionRequestProcessQuery processQuery;
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable String q;
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetToplistDefinitionRequestQuery> queries;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetSecurityQuery securityQuery;
+    /**
+     * @return The controls for sorting the widget. Only applicable for formula-style requests.
+     * 
+     */
+    private @Nullable DashboardWidgetToplistDefinitionRequestSort sort;
     /**
      * @return Define request for the widget&#39;s style.
      * 
@@ -72,16 +114,24 @@ public final class DashboardWidgetToplistDefinitionRequest {
 
     private DashboardWidgetToplistDefinitionRequest() {}
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetToplistDefinitionRequestAuditQuery> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
@@ -92,46 +142,81 @@ public final class DashboardWidgetToplistDefinitionRequest {
     public List<DashboardWidgetToplistDefinitionRequestConditionalFormat> conditionalFormats() {
         return this.conditionalFormats == null ? List.of() : this.conditionalFormats;
     }
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     public List<DashboardWidgetToplistDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetToplistDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     public List<DashboardWidgetToplistDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
+    }
+    /**
+     * @return The controls for sorting the widget. Only applicable for formula-style requests.
+     * 
+     */
+    public Optional<DashboardWidgetToplistDefinitionRequestSort> sort() {
+        return Optional.ofNullable(this.sort);
     }
     /**
      * @return Define request for the widget&#39;s style.
@@ -160,6 +245,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
         private @Nullable List<DashboardWidgetToplistDefinitionRequestQuery> queries;
         private @Nullable DashboardWidgetRumQuery rumQuery;
         private @Nullable DashboardWidgetSecurityQuery securityQuery;
+        private @Nullable DashboardWidgetToplistDefinitionRequestSort sort;
         private @Nullable DashboardWidgetToplistDefinitionRequestStyle style;
         public Builder() {}
         public Builder(DashboardWidgetToplistDefinitionRequest defaults) {
@@ -174,6 +260,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
     	      this.securityQuery = defaults.securityQuery;
+    	      this.sort = defaults.sort;
     	      this.style = defaults.style;
         }
 
@@ -247,6 +334,12 @@ public final class DashboardWidgetToplistDefinitionRequest {
             return this;
         }
         @CustomType.Setter
+        public Builder sort(@Nullable DashboardWidgetToplistDefinitionRequestSort sort) {
+
+            this.sort = sort;
+            return this;
+        }
+        @CustomType.Setter
         public Builder style(@Nullable DashboardWidgetToplistDefinitionRequestStyle style) {
 
             this.style = style;
@@ -264,6 +357,7 @@ public final class DashboardWidgetToplistDefinitionRequest {
             _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;
             _resultValue.securityQuery = securityQuery;
+            _resultValue.sort = sort;
             _resultValue.style = style;
             return _resultValue;
         }

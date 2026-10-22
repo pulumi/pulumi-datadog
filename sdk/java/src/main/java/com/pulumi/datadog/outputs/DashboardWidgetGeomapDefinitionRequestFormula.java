@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestFormulaCellDisplayModeOptions;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestFormulaLimit;
 import com.pulumi.datadog.outputs.DashboardWidgetGeomapDefinitionRequestFormulaNumberFormat;
@@ -23,10 +24,15 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
      */
     private @Nullable String alias;
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     private @Nullable String cellDisplayMode;
+    /**
+     * @return Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+     * 
+     */
+    private @Nullable DashboardWidgetGeomapDefinitionRequestFormulaCellDisplayModeOptions cellDisplayModeOptions;
     /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
      * 
@@ -62,11 +68,18 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
         return Optional.ofNullable(this.alias);
     }
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     public Optional<String> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
+    }
+    /**
+     * @return Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+     * 
+     */
+    public Optional<DashboardWidgetGeomapDefinitionRequestFormulaCellDisplayModeOptions> cellDisplayModeOptions() {
+        return Optional.ofNullable(this.cellDisplayModeOptions);
     }
     /**
      * @return Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
@@ -115,6 +128,7 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
     public static final class Builder {
         private @Nullable String alias;
         private @Nullable String cellDisplayMode;
+        private @Nullable DashboardWidgetGeomapDefinitionRequestFormulaCellDisplayModeOptions cellDisplayModeOptions;
         private @Nullable List<DashboardWidgetGeomapDefinitionRequestFormulaConditionalFormat> conditionalFormats;
         private String formulaExpression;
         private @Nullable DashboardWidgetGeomapDefinitionRequestFormulaLimit limit;
@@ -125,6 +139,7 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
     	      Objects.requireNonNull(defaults);
     	      this.alias = defaults.alias;
     	      this.cellDisplayMode = defaults.cellDisplayMode;
+    	      this.cellDisplayModeOptions = defaults.cellDisplayModeOptions;
     	      this.conditionalFormats = defaults.conditionalFormats;
     	      this.formulaExpression = defaults.formulaExpression;
     	      this.limit = defaults.limit;
@@ -142,6 +157,12 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
         public Builder cellDisplayMode(@Nullable String cellDisplayMode) {
 
             this.cellDisplayMode = cellDisplayMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cellDisplayModeOptions(@Nullable DashboardWidgetGeomapDefinitionRequestFormulaCellDisplayModeOptions cellDisplayModeOptions) {
+
+            this.cellDisplayModeOptions = cellDisplayModeOptions;
             return this;
         }
         @CustomType.Setter
@@ -183,6 +204,7 @@ public final class DashboardWidgetGeomapDefinitionRequestFormula {
             final var _resultValue = new DashboardWidgetGeomapDefinitionRequestFormula();
             _resultValue.alias = alias;
             _resultValue.cellDisplayMode = cellDisplayMode;
+            _resultValue.cellDisplayModeOptions = cellDisplayModeOptions;
             _resultValue.conditionalFormats = conditionalFormats;
             _resultValue.formulaExpression = formulaExpression;
             _resultValue.limit = limit;

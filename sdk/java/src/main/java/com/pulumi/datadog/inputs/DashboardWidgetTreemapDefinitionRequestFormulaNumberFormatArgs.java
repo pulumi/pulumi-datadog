@@ -32,9 +32,17 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatArg
         return this.unit;
     }
 
+    /**
+     * The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     @Import(name="unitScale")
     private @Nullable Output<DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs> unitScale;
 
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     public Optional<Output<DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs>> unitScale() {
         return Optional.ofNullable(this.unitScale);
     }
@@ -85,11 +93,23 @@ public final class DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatArg
             return unit(Output.of(unit));
         }
 
+        /**
+         * @param unitScale The definition of `NumberFormatUnitScale` object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unitScale(@Nullable Output<DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs> unitScale) {
             $.unitScale = unitScale;
             return this;
         }
 
+        /**
+         * @param unitScale The definition of `NumberFormatUnitScale` object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unitScale(DashboardWidgetTreemapDefinitionRequestFormulaNumberFormatUnitScaleArgs unitScale) {
             return unitScale(Output.of(unitScale));
         }

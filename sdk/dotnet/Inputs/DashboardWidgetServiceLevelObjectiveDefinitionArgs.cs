@@ -31,6 +31,18 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? GlobalTimeTarget { get; set; }
 
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        [Input("hideIncompleteCostData")]
+        public Input<bool>? HideIncompleteCostData { get; set; }
+
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
+        /// <summary>
         /// Whether to show the error budget or not.
         /// </summary>
         [Input("showErrorBudget")]
@@ -41,6 +53,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("sloId", required: true)]
         public Input<string> SloId { get; set; } = null!;
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetServiceLevelObjectiveDefinitionTimeArgs>? Time { get; set; }
 
         [Input("timeWindows", required: true)]
         private InputList<string>? _timeWindows;

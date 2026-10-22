@@ -31,7 +31,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? CrossOrgUuids { get; set; }
 
         /// <summary>
-        /// The data source for event platform-based queries. Valid values are `Logs`, `Spans`, `Network`, `Rum`, `SecuritySignals`, `Profiles`, `Audit`, `Events`, `CiTests`, `CiPipelines`, `IncidentAnalytics`, `ProductAnalytics`, `OnCallEvents`, `Errors`, `LlmObservability`.
+        /// The data source for event platform-based queries. Valid values are `Logs`, `Spans`, `Network`, `NetworkDeviceFlows`, `Rum`, `SecuritySignals`, `Profiles`, `Audit`, `Events`, `CiTests`, `CiPipelines`, `IncidentAnalytics`, `ProductAnalytics`, `OnCallEvents`, `Errors`, `LlmObservability`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _indexes;
 
         /// <summary>
-        /// An array of index names to query in the stream.
+        /// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
         /// </summary>
         public InputList<string> Indexes
         {
@@ -79,7 +79,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetTreemapDefinitionRequestQueryEventQuerySearchArgs>? Search { get; set; }
 
         /// <summary>
-        /// Storage location (private beta).
+        /// Option for storage location. Feature in Private Beta.
         /// </summary>
         [Input("storage")]
         public Input<string>? Storage { get; set; }

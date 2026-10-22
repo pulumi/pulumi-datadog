@@ -4,7 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionMarker;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionRequest;
+import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionTime;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionXaxis;
 import com.pulumi.datadog.outputs.DashboardWidgetDistributionDefinitionYaxis;
 import java.lang.Boolean;
@@ -37,6 +39,11 @@ public final class DashboardWidgetDistributionDefinition {
      */
     private @Nullable String liveSpan;
     /**
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `distributionDefinition` block.
+     * 
+     */
+    private @Nullable List<DashboardWidgetDistributionDefinitionMarker> markers;
+    /**
      * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
@@ -46,6 +53,11 @@ public final class DashboardWidgetDistributionDefinition {
      * 
      */
     private @Nullable Boolean showLegend;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetDistributionDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -102,6 +114,13 @@ public final class DashboardWidgetDistributionDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `distributionDefinition` block.
+     * 
+     */
+    public List<DashboardWidgetDistributionDefinitionMarker> markers() {
+        return this.markers == null ? List.of() : this.markers;
+    }
+    /**
      * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
@@ -114,6 +133,13 @@ public final class DashboardWidgetDistributionDefinition {
      */
     public Optional<Boolean> showLegend() {
         return Optional.ofNullable(this.showLegend);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetDistributionDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -164,8 +190,10 @@ public final class DashboardWidgetDistributionDefinition {
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String legendSize;
         private @Nullable String liveSpan;
+        private @Nullable List<DashboardWidgetDistributionDefinitionMarker> markers;
         private @Nullable List<DashboardWidgetDistributionDefinitionRequest> requests;
         private @Nullable Boolean showLegend;
+        private @Nullable DashboardWidgetDistributionDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -178,8 +206,10 @@ public final class DashboardWidgetDistributionDefinition {
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.legendSize = defaults.legendSize;
     	      this.liveSpan = defaults.liveSpan;
+    	      this.markers = defaults.markers;
     	      this.requests = defaults.requests;
     	      this.showLegend = defaults.showLegend;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -212,6 +242,15 @@ public final class DashboardWidgetDistributionDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder markers(@Nullable List<DashboardWidgetDistributionDefinitionMarker> markers) {
+
+            this.markers = markers;
+            return this;
+        }
+        public Builder markers(DashboardWidgetDistributionDefinitionMarker... markers) {
+            return markers(List.of(markers));
+        }
+        @CustomType.Setter
         public Builder requests(@Nullable List<DashboardWidgetDistributionDefinitionRequest> requests) {
 
             this.requests = requests;
@@ -224,6 +263,12 @@ public final class DashboardWidgetDistributionDefinition {
         public Builder showLegend(@Nullable Boolean showLegend) {
 
             this.showLegend = showLegend;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetDistributionDefinitionTime time) {
+
+            this.time = time;
             return this;
         }
         @CustomType.Setter
@@ -262,8 +307,10 @@ public final class DashboardWidgetDistributionDefinition {
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.legendSize = legendSize;
             _resultValue.liveSpan = liveSpan;
+            _resultValue.markers = markers;
             _resultValue.requests = requests;
             _resultValue.showLegend = showLegend;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

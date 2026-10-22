@@ -18,6 +18,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardV2WidgetListStreamDefinitionRequestColumn> Columns;
         /// <summary>
+        /// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Updated list stream widget.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetListStreamDefinitionRequestQuery Query;
@@ -30,11 +34,14 @@ namespace Pulumi.Datadog.Outputs
         private DashboardV2WidgetListStreamDefinitionRequest(
             ImmutableArray<Outputs.DashboardV2WidgetListStreamDefinitionRequestColumn> columns,
 
+            string? description,
+
             Outputs.DashboardV2WidgetListStreamDefinitionRequestQuery query,
 
             string responseFormat)
         {
             Columns = columns;
+            Description = description;
             Query = query;
             ResponseFormat = responseFormat;
         }

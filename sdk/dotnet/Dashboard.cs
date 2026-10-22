@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog dashboard resource. This can be used to create and manage Datadog dashboards.
-    /// 
-    /// &gt; The `IsReadOnly` field is deprecated and non-functional. Use `RestrictedRoles` instead to define which roles are required to edit the dashboard.
+    /// Provides a Datadog dashboard resource that follows the current Datadog dashboard API specification.
     /// 
     /// ## Example Usage
     /// 
@@ -34,177 +32,37 @@ namespace Pulumi.Datadog
     ///         {
     ///             new Datadog.Inputs.DashboardWidgetArgs
     ///             {
-    ///                 AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
-    ///                 {
-    ///                     AlertId = "895605",
-    ///                     VizType = "timeseries",
-    ///                     Title = "Widget Title",
-    ///                     LiveSpan = "1h",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 AlertValueDefinition = new Datadog.Inputs.DashboardWidgetAlertValueDefinitionArgs
-    ///                 {
-    ///                     AlertId = "895605",
-    ///                     Precision = 3,
-    ///                     Unit = "b",
-    ///                     TextAlign = "center",
-    ///                     Title = "Widget Title",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 AlertValueDefinition = new Datadog.Inputs.DashboardWidgetAlertValueDefinitionArgs
-    ///                 {
-    ///                     AlertId = "895605",
-    ///                     Precision = 3,
-    ///                     Unit = "b",
-    ///                     TextAlign = "center",
-    ///                     Title = "Widget Title",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 ChangeDefinition = new Datadog.Inputs.DashboardWidgetChangeDefinitionArgs
+    ///                 TimeseriesDefinition = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionArgs
     ///                 {
     ///                     Requests = new[]
     ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetChangeDefinitionRequestArgs
+    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
     ///                         {
-    ///                             Q = "avg:system.load.1{env:staging} by {account}",
-    ///                             ChangeType = "absolute",
-    ///                             CompareTo = "week_before",
-    ///                             IncreaseGood = true,
-    ///                             OrderBy = "name",
-    ///                             OrderDir = "desc",
-    ///                             ShowPresent = true,
-    ///                         },
-    ///                     },
-    ///                     Title = "Widget Title",
-    ///                     LiveSpan = "1h",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 DistributionDefinition = new Datadog.Inputs.DashboardWidgetDistributionDefinitionArgs
-    ///                 {
-    ///                     Requests = new[]
-    ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetDistributionDefinitionRequestArgs
-    ///                         {
-    ///                             Q = "avg:system.load.1{env:staging} by {account}",
-    ///                             Style = new Datadog.Inputs.DashboardWidgetDistributionDefinitionRequestStyleArgs
+    ///                             Formulas = new[]
     ///                             {
-    ///                                 Palette = "warm",
+    ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs
+    ///                                 {
+    ///                                     FormulaExpression = "my_query_1",
+    ///                                     Alias = "CPU Usage",
+    ///                                 },
+    ///                             },
+    ///                             Queries = new[]
+    ///                             {
+    ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs
+    ///                                 {
+    ///                                     MetricQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs
+    ///                                     {
+    ///                                         DataSource = "metrics",
+    ///                                         Query = "avg:system.cpu.user{*} by {env}",
+    ///                                         Name = "my_query_1",
+    ///                                         Aggregator = "avg",
+    ///                                     },
+    ///                                 },
     ///                             },
     ///                         },
     ///                     },
-    ///                     Title = "Widget Title",
+    ///                     Title = "CPU Usage by Environment",
     ///                     LiveSpan = "1h",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 CheckStatusDefinition = new Datadog.Inputs.DashboardWidgetCheckStatusDefinitionArgs
-    ///                 {
-    ///                     Check = "aws.ecs.agent_connected",
-    ///                     Grouping = "cluster",
-    ///                     GroupBies = new[]
-    ///                     {
-    ///                         "account",
-    ///                         "cluster",
-    ///                     },
-    ///                     Tags = new[]
-    ///                     {
-    ///                         "account:demo",
-    ///                         "cluster:awseb-ruthebdog-env-8-dn3m6u3gvk",
-    ///                     },
-    ///                     Title = "Widget Title",
-    ///                     LiveSpan = "1h",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 HeatmapDefinition = new Datadog.Inputs.DashboardWidgetHeatmapDefinitionArgs
-    ///                 {
-    ///                     Requests = new[]
-    ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetHeatmapDefinitionRequestArgs
-    ///                         {
-    ///                             Q = "avg:system.load.1{env:staging} by {account}",
-    ///                             Style = new Datadog.Inputs.DashboardWidgetHeatmapDefinitionRequestStyleArgs
-    ///                             {
-    ///                                 Palette = "warm",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Yaxis = new Datadog.Inputs.DashboardWidgetHeatmapDefinitionYaxisArgs
-    ///                     {
-    ///                         Min = "1",
-    ///                         Max = "2",
-    ///                         IncludeZero = true,
-    ///                         Scale = "sqrt",
-    ///                     },
-    ///                     Title = "Widget Title",
-    ///                     LiveSpan = "1h",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 HostmapDefinition = new Datadog.Inputs.DashboardWidgetHostmapDefinitionArgs
-    ///                 {
-    ///                     Request = new Datadog.Inputs.DashboardWidgetHostmapDefinitionRequestArgs
-    ///                     {
-    ///                         Fills = new[]
-    ///                         {
-    ///                             new Datadog.Inputs.DashboardWidgetHostmapDefinitionRequestFillArgs
-    ///                             {
-    ///                                 Q = "avg:system.load.1{*} by {host}",
-    ///                             },
-    ///                         },
-    ///                         Sizes = new[]
-    ///                         {
-    ///                             new Datadog.Inputs.DashboardWidgetHostmapDefinitionRequestSizeArgs
-    ///                             {
-    ///                                 Q = "avg:memcache.uptime{*} by {host}",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     NodeType = "container",
-    ///                     Groups = new[]
-    ///                     {
-    ///                         "host",
-    ///                         "region",
-    ///                     },
-    ///                     NoGroupHosts = true,
-    ///                     NoMetricHosts = true,
-    ///                     Scopes = new[]
-    ///                     {
-    ///                         "region:us-east-1",
-    ///                         "aws_account:727006795293",
-    ///                     },
-    ///                     Style = new Datadog.Inputs.DashboardWidgetHostmapDefinitionStyleArgs
-    ///                     {
-    ///                         Palette = "yellow_to_green",
-    ///                         PaletteFlip = true,
-    ///                         FillMin = "10",
-    ///                         FillMax = "20",
-    ///                     },
-    ///                     Title = "Widget Title",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 NoteDefinition = new Datadog.Inputs.DashboardWidgetNoteDefinitionArgs
-    ///                 {
-    ///                     Content = "note text",
-    ///                     BackgroundColor = "pink",
-    ///                     FontSize = "14",
-    ///                     TextAlign = "center",
-    ///                     ShowTick = true,
-    ///                     TickEdge = "left",
-    ///                     TickPos = "50%",
     ///                 },
     ///             },
     ///             new Datadog.Inputs.DashboardWidgetArgs
@@ -215,8 +73,26 @@ namespace Pulumi.Datadog
     ///                     {
     ///                         new Datadog.Inputs.DashboardWidgetQueryValueDefinitionRequestArgs
     ///                         {
-    ///                             Q = "avg:system.load.1{env:staging} by {account}",
-    ///                             Aggregator = "sum",
+    ///                             Formulas = new[]
+    ///                             {
+    ///                                 new Datadog.Inputs.DashboardWidgetQueryValueDefinitionRequestFormulaArgs
+    ///                                 {
+    ///                                     FormulaExpression = "my_query_1",
+    ///                                 },
+    ///                             },
+    ///                             Queries = new[]
+    ///                             {
+    ///                                 new Datadog.Inputs.DashboardWidgetQueryValueDefinitionRequestQueryArgs
+    ///                                 {
+    ///                                     MetricQuery = new Datadog.Inputs.DashboardWidgetQueryValueDefinitionRequestQueryMetricQueryArgs
+    ///                                     {
+    ///                                         DataSource = "metrics",
+    ///                                         Query = "avg:system.load.1{*}",
+    ///                                         Name = "my_query_1",
+    ///                                         Aggregator = "avg",
+    ///                                     },
+    ///                                 },
+    ///                             },
     ///                             ConditionalFormats = new[]
     ///                             {
     ///                                 new Datadog.Inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs
@@ -235,271 +111,10 @@ namespace Pulumi.Datadog
     ///                         },
     ///                     },
     ///                     Autoscale = true,
-    ///                     CustomUnit = "xx",
     ///                     Precision = 4,
     ///                     TextAlign = "right",
-    ///                     Title = "Widget Title",
+    ///                     Title = "System Load",
     ///                     LiveSpan = "1h",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 QueryTableDefinition = new Datadog.Inputs.DashboardWidgetQueryTableDefinitionArgs
-    ///                 {
-    ///                     Requests = new[]
-    ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetQueryTableDefinitionRequestArgs
-    ///                         {
-    ///                             Q = "avg:system.load.1{env:staging} by {account}",
-    ///                             Aggregator = "sum",
-    ///                             Limit = 10,
-    ///                             ConditionalFormats = new[]
-    ///                             {
-    ///                                 new Datadog.Inputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs
-    ///                                 {
-    ///                                     Comparator = "&lt;",
-    ///                                     Value = 2.0,
-    ///                                     Palette = "white_on_green",
-    ///                                 },
-    ///                                 new Datadog.Inputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormatArgs
-    ///                                 {
-    ///                                     Comparator = "&gt;",
-    ///                                     Value = 2.2,
-    ///                                     Palette = "white_on_red",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Title = "Widget Title",
-    ///                     LiveSpan = "1h",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 ScatterplotDefinition = new Datadog.Inputs.DashboardWidgetScatterplotDefinitionArgs
-    ///                 {
-    ///                     Request = new Datadog.Inputs.DashboardWidgetScatterplotDefinitionRequestArgs
-    ///                     {
-    ///                         Xes = new[]
-    ///                         {
-    ///                             new Datadog.Inputs.DashboardWidgetScatterplotDefinitionRequestXArgs
-    ///                             {
-    ///                                 Q = "avg:system.cpu.user{*} by {service, account}",
-    ///                                 Aggregator = "max",
-    ///                             },
-    ///                         },
-    ///                         Ys = new[]
-    ///                         {
-    ///                             new Datadog.Inputs.DashboardWidgetScatterplotDefinitionRequestYArgs
-    ///                             {
-    ///                                 Q = "avg:system.mem.used{*} by {service, account}",
-    ///                                 Aggregator = "min",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     ColorByGroups = new[]
-    ///                     {
-    ///                         "account",
-    ///                         "apm-role-group",
-    ///                     },
-    ///                     Xaxis = new Datadog.Inputs.DashboardWidgetScatterplotDefinitionXaxisArgs
-    ///                     {
-    ///                         IncludeZero = true,
-    ///                         Label = "x",
-    ///                         Min = "1",
-    ///                         Max = "2000",
-    ///                         Scale = "pow",
-    ///                     },
-    ///                     Yaxis = new Datadog.Inputs.DashboardWidgetScatterplotDefinitionYaxisArgs
-    ///                     {
-    ///                         IncludeZero = false,
-    ///                         Label = "y",
-    ///                         Min = "5",
-    ///                         Max = "2222",
-    ///                         Scale = "log",
-    ///                     },
-    ///                     Title = "Widget Title",
-    ///                     LiveSpan = "1h",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 ServicemapDefinition = new Datadog.Inputs.DashboardWidgetServicemapDefinitionArgs
-    ///                 {
-    ///                     Service = "master-db",
-    ///                     Filters = new[]
-    ///                     {
-    ///                         "env:prod",
-    ///                         "datacenter:dc1",
-    ///                     },
-    ///                     Title = "env: prod, datacenter:dc1, service: master-db",
-    ///                     TitleSize = "16",
-    ///                     TitleAlign = "left",
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 TimeseriesDefinition = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionArgs
-    ///                 {
-    ///                     Requests = new[]
-    ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
-    ///                         {
-    ///                             Q = "avg:system.cpu.user{app:general} by {env}",
-    ///                             DisplayType = "line",
-    ///                             Style = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestStyleArgs
-    ///                             {
-    ///                                 Palette = "warm",
-    ///                                 LineType = "dashed",
-    ///                                 LineWidth = "thin",
-    ///                             },
-    ///                             Metadatas = new[]
-    ///                             {
-    ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestMetadataArgs
-    ///                                 {
-    ///                                     Expression = "avg:system.cpu.user{app:general} by {env}",
-    ///                                     AliasName = "Alpha",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
-    ///                         {
-    ///                             LogQuery = new Datadog.Inputs.DashboardWidgetLogQueryArgs
-    ///                             {
-    ///                                 Index = "mcnulty",
-    ///                                 ComputeQuery = new Datadog.Inputs.DashboardWidgetLogQueryComputeQueryArgs
-    ///                                 {
-    ///                                     Aggregation = "avg",
-    ///                                     Facet = "@duration",
-    ///                                     Interval = 5000,
-    ///                                 },
-    ///                                 SearchQuery = "status:info",
-    ///                                 GroupBies = new[]
-    ///                                 {
-    ///                                     new Datadog.Inputs.DashboardWidgetLogQueryGroupByArgs
-    ///                                     {
-    ///                                         Facet = "host",
-    ///                                         Limit = 10,
-    ///                                         SortQuery = new Datadog.Inputs.DashboardWidgetLogQueryGroupBySortQueryArgs
-    ///                                         {
-    ///                                             Aggregation = "avg",
-    ///                                             Order = "desc",
-    ///                                             Facet = "@duration",
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                             DisplayType = "area",
-    ///                         },
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
-    ///                         {
-    ///                             ApmQuery = new Datadog.Inputs.DashboardWidgetApmQueryArgs
-    ///                             {
-    ///                                 Index = "apm-search",
-    ///                                 ComputeQuery = new Datadog.Inputs.DashboardWidgetApmQueryComputeQueryArgs
-    ///                                 {
-    ///                                     Aggregation = "avg",
-    ///                                     Facet = "@duration",
-    ///                                     Interval = 5000,
-    ///                                 },
-    ///                                 SearchQuery = "type:web",
-    ///                                 GroupBies = new[]
-    ///                                 {
-    ///                                     new Datadog.Inputs.DashboardWidgetApmQueryGroupByArgs
-    ///                                     {
-    ///                                         Facet = "resource_name",
-    ///                                         Limit = 50,
-    ///                                         SortQuery = new Datadog.Inputs.DashboardWidgetApmQueryGroupBySortQueryArgs
-    ///                                         {
-    ///                                             Aggregation = "avg",
-    ///                                             Order = "desc",
-    ///                                             Facet = "@string_query.interval",
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                             DisplayType = "bars",
-    ///                         },
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
-    ///                         {
-    ///                             ProcessQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs
-    ///                             {
-    ///                                 Metric = "process.stat.cpu.total_pct",
-    ///                                 SearchBy = "error",
-    ///                                 FilterBies = new[]
-    ///                                 {
-    ///                                     "active",
-    ///                                 },
-    ///                                 Limit = 50,
-    ///                             },
-    ///                             DisplayType = "area",
-    ///                         },
-    ///                     },
-    ///                     Markers = new[]
-    ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionMarkerArgs
-    ///                         {
-    ///                             DisplayType = "error dashed",
-    ///                             Label = " z=6 ",
-    ///                             Value = "y = 4",
-    ///                         },
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionMarkerArgs
-    ///                         {
-    ///                             DisplayType = "ok solid",
-    ///                             Value = "10 &lt; y &lt; 999",
-    ///                             Label = " x=8 ",
-    ///                         },
-    ///                     },
-    ///                     Title = "Widget Title",
-    ///                     ShowLegend = true,
-    ///                     LegendSize = "2",
-    ///                     LiveSpan = "1h",
-    ///                     Events = new[]
-    ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionEventArgs
-    ///                         {
-    ///                             Q = "sources:test tags:1",
-    ///                         },
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionEventArgs
-    ///                         {
-    ///                             Q = "sources:test tags:2",
-    ///                         },
-    ///                     },
-    ///                     Yaxis = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionYaxisArgs
-    ///                     {
-    ///                         Scale = "log",
-    ///                         IncludeZero = false,
-    ///                         Max = "100",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 ToplistDefinition = new Datadog.Inputs.DashboardWidgetToplistDefinitionArgs
-    ///                 {
-    ///                     Requests = new[]
-    ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetToplistDefinitionRequestArgs
-    ///                         {
-    ///                             Q = "avg:system.cpu.user{app:general} by {env}",
-    ///                             ConditionalFormats = new[]
-    ///                             {
-    ///                                 new Datadog.Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatArgs
-    ///                                 {
-    ///                                     Comparator = "&lt;",
-    ///                                     Value = 2.0,
-    ///                                     Palette = "white_on_green",
-    ///                                 },
-    ///                                 new Datadog.Inputs.DashboardWidgetToplistDefinitionRequestConditionalFormatArgs
-    ///                                 {
-    ///                                     Comparator = "&gt;",
-    ///                                     Value = 2.2,
-    ///                                     Palette = "white_on_red",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Title = "Widget Title",
     ///                 },
     ///             },
     ///             new Datadog.Inputs.DashboardWidgetArgs
@@ -523,32 +138,6 @@ namespace Pulumi.Datadog
     ///                                 TickPos = "50%",
     ///                             },
     ///                         },
-    ///                         new Datadog.Inputs.DashboardWidgetGroupDefinitionWidgetArgs
-    ///                         {
-    ///                             AlertGraphDefinition = new Datadog.Inputs.DashboardWidgetAlertGraphDefinitionArgs
-    ///                             {
-    ///                                 AlertId = "123",
-    ///                                 VizType = "toplist",
-    ///                                 Title = "Alert Graph",
-    ///                                 LiveSpan = "1h",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 ServiceLevelObjectiveDefinition = new Datadog.Inputs.DashboardWidgetServiceLevelObjectiveDefinitionArgs
-    ///                 {
-    ///                     Title = "Widget Title",
-    ///                     ViewType = "detail",
-    ///                     SloId = "56789",
-    ///                     ShowErrorBudget = true,
-    ///                     ViewMode = "overall",
-    ///                     TimeWindows = new[]
-    ///                     {
-    ///                         "7d",
-    ///                         "previous_week",
     ///                     },
     ///                 },
     ///             },
@@ -560,32 +149,6 @@ namespace Pulumi.Datadog
     ///                 Name = "var_1",
     ///                 Prefix = "host",
     ///                 Default = "aws",
-    ///             },
-    ///             new Datadog.Inputs.DashboardTemplateVariableArgs
-    ///             {
-    ///                 Name = "var_2",
-    ///                 Prefix = "service_name",
-    ///                 Default = "autoscaling",
-    ///             },
-    ///         },
-    ///         TemplateVariablePresets = new[]
-    ///         {
-    ///             new Datadog.Inputs.DashboardTemplateVariablePresetArgs
-    ///             {
-    ///                 Name = "preset_1",
-    ///                 TemplateVariables = new[]
-    ///                 {
-    ///                     new Datadog.Inputs.DashboardTemplateVariablePresetTemplateVariableArgs
-    ///                     {
-    ///                         Name = "var_1",
-    ///                         Value = "host.dc",
-    ///                     },
-    ///                     new Datadog.Inputs.DashboardTemplateVariablePresetTemplateVariableArgs
-    ///                     {
-    ///                         Name = "var_2",
-    ///                         Value = "my_service",
-    ///                     },
-    ///                 },
     ///             },
     ///         },
     ///     });
@@ -600,173 +163,6 @@ namespace Pulumi.Datadog
     ///         {
     ///             new Datadog.Inputs.DashboardWidgetArgs
     ///             {
-    ///                 EventStreamDefinition = new Datadog.Inputs.DashboardWidgetEventStreamDefinitionArgs
-    ///                 {
-    ///                     Query = "*",
-    ///                     EventSize = "l",
-    ///                     Title = "Widget Title",
-    ///                     TitleSize = "16",
-    ///                     TitleAlign = "left",
-    ///                     LiveSpan = "1h",
-    ///                 },
-    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                 {
-    ///                     Height = 43,
-    ///                     Width = 32,
-    ///                     X = 0,
-    ///                     Y = 0,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 EventTimelineDefinition = new Datadog.Inputs.DashboardWidgetEventTimelineDefinitionArgs
-    ///                 {
-    ///                     Query = "*",
-    ///                     Title = "Widget Title",
-    ///                     TitleSize = "16",
-    ///                     TitleAlign = "left",
-    ///                     LiveSpan = "1h",
-    ///                 },
-    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                 {
-    ///                     Height = 9,
-    ///                     Width = 66,
-    ///                     X = 33,
-    ///                     Y = 60,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 FreeTextDefinition = new Datadog.Inputs.DashboardWidgetFreeTextDefinitionArgs
-    ///                 {
-    ///                     Text = "free text content",
-    ///                     Color = "#d00",
-    ///                     FontSize = "36",
-    ///                     TextAlign = "left",
-    ///                 },
-    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                 {
-    ///                     Height = 20,
-    ///                     Width = 34,
-    ///                     X = 33,
-    ///                     Y = 0,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 IframeDefinition = new Datadog.Inputs.DashboardWidgetIframeDefinitionArgs
-    ///                 {
-    ///                     Url = "http://google.com",
-    ///                 },
-    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                 {
-    ///                     Height = 46,
-    ///                     Width = 39,
-    ///                     X = 101,
-    ///                     Y = 0,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 ImageDefinition = new Datadog.Inputs.DashboardWidgetImageDefinitionArgs
-    ///                 {
-    ///                     Url = "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=350",
-    ///                     Sizing = "fit",
-    ///                     Margin = "small",
-    ///                 },
-    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                 {
-    ///                     Height = 20,
-    ///                     Width = 30,
-    ///                     X = 69,
-    ///                     Y = 0,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 LogStreamDefinition = new Datadog.Inputs.DashboardWidgetLogStreamDefinitionArgs
-    ///                 {
-    ///                     Indexes = new[]
-    ///                     {
-    ///                         "main",
-    ///                     },
-    ///                     Query = "error",
-    ///                     Columns = new[]
-    ///                     {
-    ///                         "core_host",
-    ///                         "core_service",
-    ///                         "tag_source",
-    ///                     },
-    ///                     ShowDateColumn = true,
-    ///                     ShowMessageColumn = true,
-    ///                     MessageDisplay = "expanded-md",
-    ///                     Sort = new Datadog.Inputs.DashboardWidgetLogStreamDefinitionSortArgs
-    ///                     {
-    ///                         Column = "time",
-    ///                         Order = "desc",
-    ///                     },
-    ///                 },
-    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                 {
-    ///                     Height = 36,
-    ///                     Width = 32,
-    ///                     X = 0,
-    ///                     Y = 45,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 ManageStatusDefinition = new Datadog.Inputs.DashboardWidgetManageStatusDefinitionArgs
-    ///                 {
-    ///                     ColorPreference = "text",
-    ///                     DisplayFormat = "countsAndList",
-    ///                     HideZeroCounts = true,
-    ///                     Query = "type:metric",
-    ///                     ShowLastTriggered = false,
-    ///                     Sort = "status,asc",
-    ///                     SummaryType = "monitors",
-    ///                     Title = "Widget Title",
-    ///                     TitleSize = "16",
-    ///                     TitleAlign = "left",
-    ///                 },
-    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                 {
-    ///                     Height = 40,
-    ///                     Width = 30,
-    ///                     X = 101,
-    ///                     Y = 48,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 TraceServiceDefinition = new Datadog.Inputs.DashboardWidgetTraceServiceDefinitionArgs
-    ///                 {
-    ///                     DisplayFormat = "three_column",
-    ///                     Env = "datadog.com",
-    ///                     Service = "alerting-cassandra",
-    ///                     ShowBreakdown = true,
-    ///                     ShowDistribution = true,
-    ///                     ShowErrors = true,
-    ///                     ShowHits = true,
-    ///                     ShowLatency = false,
-    ///                     ShowResourceList = false,
-    ///                     SizeFormat = "large",
-    ///                     SpanName = "cassandra.query",
-    ///                     Title = "alerting-cassandra #env:datadog.com",
-    ///                     TitleAlign = "center",
-    ///                     TitleSize = "13",
-    ///                     LiveSpan = "1h",
-    ///                 },
-    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                 {
-    ///                     Height = 38,
-    ///                     Width = 66,
-    ///                     X = 33,
-    ///                     Y = 21,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
     ///                 TimeseriesDefinition = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionArgs
     ///                 {
     ///                     Requests = new[]
@@ -777,18 +173,7 @@ namespace Pulumi.Datadog
     ///                             {
     ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs
     ///                                 {
-    ///                                     FormulaExpression = "my_query_1 + my_query_2",
-    ///                                     Alias = "my ff query",
-    ///                                 },
-    ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs
-    ///                                 {
-    ///                                     FormulaExpression = "my_query_1 * my_query_2",
-    ///                                     Limit = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaLimitArgs
-    ///                                     {
-    ///                                         Count = 5,
-    ///                                         Order = "desc",
-    ///                                     },
-    ///                                     Alias = "my second ff query",
+    ///                                     FormulaExpression = "my_query_1",
     ///                                 },
     ///                             },
     ///                             Queries = new[]
@@ -798,17 +183,8 @@ namespace Pulumi.Datadog
     ///                                     MetricQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs
     ///                                     {
     ///                                         DataSource = "metrics",
-    ///                                         Query = "avg:system.cpu.user{app:general} by {env}",
+    ///                                         Query = "avg:system.cpu.user{*} by {env}",
     ///                                         Name = "my_query_1",
-    ///                                         Aggregator = "sum",
-    ///                                     },
-    ///                                 },
-    ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs
-    ///                                 {
-    ///                                     MetricQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs
-    ///                                     {
-    ///                                         Query = "avg:system.cpu.user{app:general} by {env}",
-    ///                                         Name = "my_query_2",
     ///                                         Aggregator = "sum",
     ///                                     },
     ///                                 },
@@ -820,191 +196,8 @@ namespace Pulumi.Datadog
     ///                 {
     ///                     Height = 16,
     ///                     Width = 25,
-    ///                     X = 58,
-    ///                     Y = 83,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 TimeseriesDefinition = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionArgs
-    ///                 {
-    ///                     Requests = new[]
-    ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
-    ///                         {
-    ///                             Queries = new[]
-    ///                             {
-    ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs
-    ///                                 {
-    ///                                     EventQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryArgs
-    ///                                     {
-    ///                                         Name = "my-query",
-    ///                                         DataSource = "logs",
-    ///                                         Indexes = new[]
-    ///                                         {
-    ///                                             "days-3",
-    ///                                         },
-    ///                                         Computes = new[]
-    ///                                         {
-    ///                                             new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs
-    ///                                             {
-    ///                                                 Aggregation = "count",
-    ///                                             },
-    ///                                         },
-    ///                                         GroupBies = new[]
-    ///                                         {
-    ///                                             new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs
-    ///                                             {
-    ///                                                 Facet = "host",
-    ///                                                 Sort = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryEventQueryGroupBySortArgs
-    ///                                                 {
-    ///                                                     Metric = "@lambda.max_memory_used",
-    ///                                                     Aggregation = "avg",
-    ///                                                 },
-    ///                                                 Limit = 10,
-    ///                                             },
-    ///                                         },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
-    ///                         {
-    ///                             DisplayType = "overlay",
-    ///                             Queries = new[]
-    ///                             {
-    ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs
-    ///                                 {
-    ///                                     MetricQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryMetricQueryArgs
-    ///                                     {
-    ///                                         Name = "MyOverlay",
-    ///                                         DataSource = "metrics",
-    ///                                         Query = "avg:system.cpu.user{host:COMP-QJWVM2FYT4}",
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                 {
-    ///                     Height = 16,
-    ///                     Width = 28,
-    ///                     X = 29,
-    ///                     Y = 83,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 TimeseriesDefinition = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionArgs
-    ///                 {
-    ///                     Requests = new[]
-    ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
-    ///                         {
-    ///                             Queries = new[]
-    ///                             {
-    ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs
-    ///                                 {
-    ///                                     ProcessQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryProcessQueryArgs
-    ///                                     {
-    ///                                         DataSource = "process",
-    ///                                         TextFilter = "abc",
-    ///                                         Metric = "process.stat.cpu.total_pct",
-    ///                                         Limit = 10,
-    ///                                         TagFilters = new[]
-    ///                                         {
-    ///                                             "some_filter",
-    ///                                         },
-    ///                                         Name = "my_process_query",
-    ///                                         Sort = "asc",
-    ///                                         IsNormalizedCpu = true,
-    ///                                         Aggregator = "sum",
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 WidgetLayout = new Datadog.Inputs.DashboardWidgetWidgetLayoutArgs
-    ///                 {
-    ///                     Height = 16,
-    ///                     Width = 28,
     ///                     X = 0,
-    ///                     Y = 83,
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 TimeseriesDefinition = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionArgs
-    ///                 {
-    ///                     Requests = new[]
-    ///                     {
-    ///                         new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestArgs
-    ///                         {
-    ///                             Formulas = new[]
-    ///                             {
-    ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs
-    ///                                 {
-    ///                                     FormulaExpression = "query1",
-    ///                                     Alias = "my cloud cost query",
-    ///                                 },
-    ///                             },
-    ///                             Queries = new[]
-    ///                             {
-    ///                                 new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs
-    ///                                 {
-    ///                                     CloudCostQuery = new Datadog.Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryCloudCostQueryArgs
-    ///                                     {
-    ///                                         DataSource = "cloud_cost",
-    ///                                         Query = "sum:aws.cost.amortized{*}",
-    ///                                         Name = "query1",
-    ///                                         Aggregator = "sum",
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Datadog.Inputs.DashboardWidgetArgs
-    ///             {
-    ///                 PowerpackDefinition = new Datadog.Inputs.DashboardWidgetPowerpackDefinitionArgs
-    ///                 {
-    ///                     PowerpackId = "00000000-0000-0000-0000-000000000000",
-    ///                     BackgroundColor = "blue",
-    ///                     BannerImg = "https://example.org/example.png",
-    ///                     ShowTitle = true,
-    ///                     Title = "Powerpack Widget",
-    ///                     TemplateVariables = new Datadog.Inputs.DashboardWidgetPowerpackDefinitionTemplateVariablesArgs
-    ///                     {
-    ///                         ControlledExternallies = new[]
-    ///                         {
-    ///                             new Datadog.Inputs.DashboardWidgetPowerpackDefinitionTemplateVariablesControlledExternallyArgs
-    ///                             {
-    ///                                 Name = "var_2",
-    ///                                 Values = new[]
-    ///                                 {
-    ///                                     "autoscaling",
-    ///                                 },
-    ///                                 Prefix = "service_name",
-    ///                             },
-    ///                         },
-    ///                         ControlledByPowerpacks = new[]
-    ///                         {
-    ///                             new Datadog.Inputs.DashboardWidgetPowerpackDefinitionTemplateVariablesControlledByPowerpackArgs
-    ///                             {
-    ///                                 Name = "var_3",
-    ///                                 Prefix = "timeframe",
-    ///                                 Values = new[]
-    ///                                 {
-    ///                                     "default",
-    ///                                     "values",
-    ///                                     "here",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
+    ///                     Y = 0,
     ///                 },
     ///             },
     ///         },
@@ -1015,32 +208,6 @@ namespace Pulumi.Datadog
     ///                 Name = "var_1",
     ///                 Prefix = "host",
     ///                 Default = "aws",
-    ///             },
-    ///             new Datadog.Inputs.DashboardTemplateVariableArgs
-    ///             {
-    ///                 Name = "var_2",
-    ///                 Prefix = "service_name",
-    ///                 Default = "autoscaling",
-    ///             },
-    ///         },
-    ///         TemplateVariablePresets = new[]
-    ///         {
-    ///             new Datadog.Inputs.DashboardTemplateVariablePresetArgs
-    ///             {
-    ///                 Name = "preset_1",
-    ///                 TemplateVariables = new[]
-    ///                 {
-    ///                     new Datadog.Inputs.DashboardTemplateVariablePresetTemplateVariableArgs
-    ///                     {
-    ///                         Name = "var_1",
-    ///                         Value = "host.dc",
-    ///                     },
-    ///                     new Datadog.Inputs.DashboardTemplateVariablePresetTemplateVariableArgs
-    ///                     {
-    ///                         Name = "var_2",
-    ///                         Value = "my_service",
-    ///                     },
-    ///                 },
     ///             },
     ///         },
     ///     });
@@ -1102,13 +269,13 @@ namespace Pulumi.Datadog
         public Output<string?> ReflowType { get; private set; } = null!;
 
         /// <summary>
-        /// UUIDs of roles whose associated users are authorized to edit the dashboard.
+        /// A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
         /// </summary>
         [Output("restrictedRoles")]
         public Output<ImmutableArray<string>> RestrictedRoles { get; private set; } = null!;
 
         /// <summary>
-        /// The list of tabs for organizing widgets on the dashboard.
+        /// List of tabs for organizing widgets.
         /// </summary>
         [Output("tabs")]
         public Output<ImmutableArray<Outputs.DashboardTab>> Tabs { get; private set; } = null!;
@@ -1142,6 +309,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `True`. Setting this to `False` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        /// </summary>
+        [Output("validate")]
+        public Output<bool?> Validate { get; private set; } = null!;
 
         /// <summary>
         /// The list of widgets to display on the dashboard.
@@ -1207,6 +380,18 @@ namespace Pulumi.Datadog
             set => _dashboardLists = value;
         }
 
+        [Input("dashboardListsRemoveds")]
+        private InputList<int>? _dashboardListsRemoveds;
+
+        /// <summary>
+        /// A list of dashboard lists this dashboard should be removed from. Internal only.
+        /// </summary>
+        public InputList<int> DashboardListsRemoveds
+        {
+            get => _dashboardListsRemoveds ?? (_dashboardListsRemoveds = new InputList<int>());
+            set => _dashboardListsRemoveds = value;
+        }
+
         /// <summary>
         /// The description of the dashboard.
         /// </summary>
@@ -1247,7 +432,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _restrictedRoles;
 
         /// <summary>
-        /// UUIDs of roles whose associated users are authorized to edit the dashboard.
+        /// A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
         /// </summary>
         public InputList<string> RestrictedRoles
         {
@@ -1259,7 +444,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardTabArgs>? _tabs;
 
         /// <summary>
-        /// The list of tabs for organizing widgets on the dashboard.
+        /// List of tabs for organizing widgets.
         /// </summary>
         public InputList<Inputs.DashboardTabArgs> Tabs
         {
@@ -1314,6 +499,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
+
+        /// <summary>
+        /// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `True`. Setting this to `False` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        /// </summary>
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
 
         [Input("widgets")]
         private InputList<Inputs.DashboardWidgetArgs>? _widgets;
@@ -1399,7 +590,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _restrictedRoles;
 
         /// <summary>
-        /// UUIDs of roles whose associated users are authorized to edit the dashboard.
+        /// A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
         /// </summary>
         public InputList<string> RestrictedRoles
         {
@@ -1411,7 +602,7 @@ namespace Pulumi.Datadog
         private InputList<Inputs.DashboardTabGetArgs>? _tabs;
 
         /// <summary>
-        /// The list of tabs for organizing widgets on the dashboard.
+        /// List of tabs for organizing widgets.
         /// </summary>
         public InputList<Inputs.DashboardTabGetArgs> Tabs
         {
@@ -1466,6 +657,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
+
+        /// <summary>
+        /// Whether to send widgets to the Datadog API to validate widget configuration and query values during `pulumi preview`. Defaults to `True`. Setting this to `False` skips only the Datadog API validation; local Terraform schema and checks for conflicting fields still run.
+        /// </summary>
+        [Input("validate")]
+        public Input<bool>? Validate { get; set; }
 
         [Input("widgets")]
         private InputList<Inputs.DashboardWidgetGetArgs>? _widgets;

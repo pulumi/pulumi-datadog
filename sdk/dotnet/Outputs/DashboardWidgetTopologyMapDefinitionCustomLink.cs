@@ -18,15 +18,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? IsHidden;
         /// <summary>
-        /// The label for the custom link URL.
+        /// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// The URL of the custom link.
+        /// The URL of the custom link. URL must include `Http` or `Https`. A relative URL must start with `/`.
         /// </summary>
         public readonly string? Link;
         /// <summary>
-        /// The label ID that refers to a context menu link item. When `OverrideLabel` is provided, the client request omits the label field.
+        /// The label ID that refers to a context menu link. Can be `Logs`, `Hosts`, `Traces`, `Profiles`, `Processes`, `Containers`, or `Rum`.
         /// </summary>
         public readonly string? OverrideLabel;
 
