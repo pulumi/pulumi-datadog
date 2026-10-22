@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetManageStatusDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,22 +20,37 @@ public final class DashboardWidgetManageStatusDefinition {
      */
     private @Nullable String colorPreference;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
      * 
      */
     private @Nullable String displayFormat;
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
     /**
      * @return A Boolean indicating whether to hide empty categories.
      * 
      */
     private @Nullable Boolean hideZeroCounts;
     /**
-     * @return The query to use in the widget.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
+    /**
+     * @return Query to filter the monitors with.
      * 
      */
     private String query;
     /**
-     * @return A Boolean indicating whether to show when monitors/groups last triggered.
+     * @return Whether to show the time that has elapsed since the monitor/group triggered.
      * 
      */
     private @Nullable Boolean showLastTriggered;
@@ -53,6 +69,11 @@ public final class DashboardWidgetManageStatusDefinition {
      * 
      */
     private @Nullable String summaryType;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetManageStatusDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -78,11 +99,25 @@ public final class DashboardWidgetManageStatusDefinition {
         return Optional.ofNullable(this.colorPreference);
     }
     /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
+    /**
      * @return The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
      * 
      */
     public Optional<String> displayFormat() {
         return Optional.ofNullable(this.displayFormat);
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
     }
     /**
      * @return A Boolean indicating whether to hide empty categories.
@@ -92,14 +127,21 @@ public final class DashboardWidgetManageStatusDefinition {
         return Optional.ofNullable(this.hideZeroCounts);
     }
     /**
-     * @return The query to use in the widget.
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+    /**
+     * @return Query to filter the monitors with.
      * 
      */
     public String query() {
         return this.query;
     }
     /**
-     * @return A Boolean indicating whether to show when monitors/groups last triggered.
+     * @return Whether to show the time that has elapsed since the monitor/group triggered.
      * 
      */
     public Optional<Boolean> showLastTriggered() {
@@ -125,6 +167,13 @@ public final class DashboardWidgetManageStatusDefinition {
      */
     public Optional<String> summaryType() {
         return Optional.ofNullable(this.summaryType);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetManageStatusDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -158,13 +207,17 @@ public final class DashboardWidgetManageStatusDefinition {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String colorPreference;
+        private @Nullable String description;
         private @Nullable String displayFormat;
+        private @Nullable Boolean hideIncompleteCostData;
         private @Nullable Boolean hideZeroCounts;
+        private @Nullable String liveSpan;
         private String query;
         private @Nullable Boolean showLastTriggered;
         private @Nullable Boolean showPriority;
         private @Nullable String sort;
         private @Nullable String summaryType;
+        private @Nullable DashboardWidgetManageStatusDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -172,13 +225,17 @@ public final class DashboardWidgetManageStatusDefinition {
         public Builder(DashboardWidgetManageStatusDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.colorPreference = defaults.colorPreference;
+    	      this.description = defaults.description;
     	      this.displayFormat = defaults.displayFormat;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.hideZeroCounts = defaults.hideZeroCounts;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.query = defaults.query;
     	      this.showLastTriggered = defaults.showLastTriggered;
     	      this.showPriority = defaults.showPriority;
     	      this.sort = defaults.sort;
     	      this.summaryType = defaults.summaryType;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -191,15 +248,33 @@ public final class DashboardWidgetManageStatusDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
+        @CustomType.Setter
         public Builder displayFormat(@Nullable String displayFormat) {
 
             this.displayFormat = displayFormat;
             return this;
         }
         @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
         public Builder hideZeroCounts(@Nullable Boolean hideZeroCounts) {
 
             this.hideZeroCounts = hideZeroCounts;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
@@ -235,6 +310,12 @@ public final class DashboardWidgetManageStatusDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetManageStatusDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -255,13 +336,17 @@ public final class DashboardWidgetManageStatusDefinition {
         public DashboardWidgetManageStatusDefinition build() {
             final var _resultValue = new DashboardWidgetManageStatusDefinition();
             _resultValue.colorPreference = colorPreference;
+            _resultValue.description = description;
             _resultValue.displayFormat = displayFormat;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.hideZeroCounts = hideZeroCounts;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.query = query;
             _resultValue.showLastTriggered = showLastTriggered;
             _resultValue.showPriority = showPriority;
             _resultValue.sort = sort;
             _resultValue.summaryType = summaryType;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

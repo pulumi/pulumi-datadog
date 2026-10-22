@@ -4,7 +4,6 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,7 +20,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat
      * @return Unit name. It should be in singular form (&#39;megabyte&#39; and not &#39;megabytes&#39;)
      * 
      */
-    private String unitName;
+    private @Nullable String unitName;
 
     private DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical() {}
     /**
@@ -35,8 +34,8 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat
      * @return Unit name. It should be in singular form (&#39;megabyte&#39; and not &#39;megabytes&#39;)
      * 
      */
-    public String unitName() {
-        return this.unitName;
+    public Optional<String> unitName() {
+        return Optional.ofNullable(this.unitName);
     }
 
     public static Builder builder() {
@@ -49,7 +48,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String perUnitName;
-        private String unitName;
+        private @Nullable String unitName;
         public Builder() {}
         public Builder(DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,10 +63,8 @@ public final class DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormat
             return this;
         }
         @CustomType.Setter
-        public Builder unitName(String unitName) {
-            if (unitName == null) {
-              throw new MissingRequiredPropertyException("DashboardWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical", "unitName");
-            }
+        public Builder unitName(@Nullable String unitName) {
+
             this.unitName = unitName;
             return this;
         }

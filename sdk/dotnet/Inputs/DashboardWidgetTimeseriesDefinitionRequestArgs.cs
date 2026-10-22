@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetApmQueryArgs>? ApmQuery { get; set; }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("auditQuery")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs>? AuditQuery { get; set; }
@@ -30,8 +30,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("displayType")]
         public Input<string>? DisplayType { get; set; }
 
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+        /// </summary>
+        [Input("eventQuery")]
+        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestEventQueryArgs>? EventQuery { get; set; }
+
         [Input("formulas")]
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs>? _formulas;
+
+        /// <summary>
+        /// List of formulas that operate on queries.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs> Formulas
         {
             get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs>());
@@ -39,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetLogQueryArgs>? LogQuery { get; set; }
@@ -57,7 +67,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("networkQuery")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs>? NetworkQuery { get; set; }
@@ -69,19 +79,29 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? OnRightYaxis { get; set; }
 
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget.
         /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs>? ProcessQuery { get; set; }
 
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+        /// </summary>
+        [Input("profileMetricsQuery")]
+        public Input<Inputs.DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQueryArgs>? ProfileMetricsQuery { get; set; }
+
+        /// <summary>
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
         [Input("queries")]
         private InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs>? _queries;
+
+        /// <summary>
+        /// List of queries that can be returned directly or used in formulas.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs> Queries
         {
             get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs>());
@@ -89,13 +109,13 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetRumQueryArgs>? RumQuery { get; set; }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetSecurityQueryArgs>? SecurityQuery { get; set; }

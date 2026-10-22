@@ -46022,6 +46022,10 @@ func (o DashboardV2WidgetSloListDefinitionPtrOutput) TitleSize() pulumi.StringPt
 }
 
 type DashboardV2WidgetSloListDefinitionRequest struct {
+	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+	//
+	// Deprecated: This field has no effect and will be removed in a future release.
+	Description *string `pulumi:"description"`
 	// Updated SLO List widget.
 	Query DashboardV2WidgetSloListDefinitionRequestQuery `pulumi:"query"`
 	// The request type for the SLO List request. Valid values are `sloList`.
@@ -46040,6 +46044,10 @@ type DashboardV2WidgetSloListDefinitionRequestInput interface {
 }
 
 type DashboardV2WidgetSloListDefinitionRequestArgs struct {
+	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+	//
+	// Deprecated: This field has no effect and will be removed in a future release.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Updated SLO List widget.
 	Query DashboardV2WidgetSloListDefinitionRequestQueryInput `pulumi:"query"`
 	// The request type for the SLO List request. Valid values are `sloList`.
@@ -46097,6 +46105,13 @@ func (o DashboardV2WidgetSloListDefinitionRequestOutput) ToDashboardV2WidgetSloL
 	return o
 }
 
+// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+//
+// Deprecated: This field has no effect and will be removed in a future release.
+func (o DashboardV2WidgetSloListDefinitionRequestOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetSloListDefinitionRequest) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Updated SLO List widget.
 func (o DashboardV2WidgetSloListDefinitionRequestOutput) Query() DashboardV2WidgetSloListDefinitionRequestQueryOutput {
 	return o.ApplyT(func(v DashboardV2WidgetSloListDefinitionRequest) DashboardV2WidgetSloListDefinitionRequestQuery {
@@ -46130,7 +46145,7 @@ func (o DashboardV2WidgetSloListDefinitionRequestArrayOutput) Index(i pulumi.Int
 }
 
 type DashboardV2WidgetSloListDefinitionRequestQuery struct {
-	// Maximum number of results to display in the table.
+	// Maximum number of results to display in the table. Defaults to `100`.
 	Limit *int `pulumi:"limit"`
 	// Widget query.
 	QueryString string `pulumi:"queryString"`
@@ -46150,7 +46165,7 @@ type DashboardV2WidgetSloListDefinitionRequestQueryInput interface {
 }
 
 type DashboardV2WidgetSloListDefinitionRequestQueryArgs struct {
-	// Maximum number of results to display in the table.
+	// Maximum number of results to display in the table. Defaults to `100`.
 	Limit pulumi.IntPtrInput `pulumi:"limit"`
 	// Widget query.
 	QueryString pulumi.StringInput `pulumi:"queryString"`
@@ -46184,7 +46199,7 @@ func (o DashboardV2WidgetSloListDefinitionRequestQueryOutput) ToDashboardV2Widge
 	return o
 }
 
-// Maximum number of results to display in the table.
+// Maximum number of results to display in the table. Defaults to `100`.
 func (o DashboardV2WidgetSloListDefinitionRequestQueryOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DashboardV2WidgetSloListDefinitionRequestQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
@@ -46204,6 +46219,10 @@ func (o DashboardV2WidgetSloListDefinitionRequestQueryOutput) Sorts() DashboardV
 type DashboardV2WidgetSloListDefinitionRequestQuerySort struct {
 	// The facet path for the column.
 	Column string `pulumi:"column"`
+	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+	//
+	// Deprecated: This field has no effect and will be removed in a future release.
+	Description *string `pulumi:"description"`
 	// Widget sorting methods. Valid values are `asc`, `desc`.
 	Order string `pulumi:"order"`
 }
@@ -46222,6 +46241,10 @@ type DashboardV2WidgetSloListDefinitionRequestQuerySortInput interface {
 type DashboardV2WidgetSloListDefinitionRequestQuerySortArgs struct {
 	// The facet path for the column.
 	Column pulumi.StringInput `pulumi:"column"`
+	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+	//
+	// Deprecated: This field has no effect and will be removed in a future release.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Widget sorting methods. Valid values are `asc`, `desc`.
 	Order pulumi.StringInput `pulumi:"order"`
 }
@@ -46280,6 +46303,13 @@ func (o DashboardV2WidgetSloListDefinitionRequestQuerySortOutput) ToDashboardV2W
 // The facet path for the column.
 func (o DashboardV2WidgetSloListDefinitionRequestQuerySortOutput) Column() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetSloListDefinitionRequestQuerySort) string { return v.Column }).(pulumi.StringOutput)
+}
+
+// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+//
+// Deprecated: This field has no effect and will be removed in a future release.
+func (o DashboardV2WidgetSloListDefinitionRequestQuerySortOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetSloListDefinitionRequestQuerySort) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Widget sorting methods. Valid values are `asc`, `desc`.
@@ -71460,6 +71490,10 @@ type DashboardV2WidgetToplistDefinitionStyleDisplay struct {
 	Flat *DashboardV2WidgetToplistDefinitionStyleDisplayFlat `pulumi:"flat"`
 	// Stacked display for the top list widget.
 	Stacked *DashboardV2WidgetToplistDefinitionStyleDisplayStacked `pulumi:"stacked"`
+	// Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+	//
+	// Deprecated: Use the `stacked` or `flat` block instead.
+	Type *string `pulumi:"type"`
 }
 
 // DashboardV2WidgetToplistDefinitionStyleDisplayInput is an input type that accepts DashboardV2WidgetToplistDefinitionStyleDisplayArgs and DashboardV2WidgetToplistDefinitionStyleDisplayOutput values.
@@ -71478,6 +71512,10 @@ type DashboardV2WidgetToplistDefinitionStyleDisplayArgs struct {
 	Flat DashboardV2WidgetToplistDefinitionStyleDisplayFlatPtrInput `pulumi:"flat"`
 	// Stacked display for the top list widget.
 	Stacked DashboardV2WidgetToplistDefinitionStyleDisplayStackedPtrInput `pulumi:"stacked"`
+	// Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+	//
+	// Deprecated: Use the `stacked` or `flat` block instead.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (DashboardV2WidgetToplistDefinitionStyleDisplayArgs) ElementType() reflect.Type {
@@ -71571,6 +71609,13 @@ func (o DashboardV2WidgetToplistDefinitionStyleDisplayOutput) Stacked() Dashboar
 	}).(DashboardV2WidgetToplistDefinitionStyleDisplayStackedPtrOutput)
 }
 
+// Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+//
+// Deprecated: Use the `stacked` or `flat` block instead.
+func (o DashboardV2WidgetToplistDefinitionStyleDisplayOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetToplistDefinitionStyleDisplay) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 type DashboardV2WidgetToplistDefinitionStyleDisplayPtrOutput struct{ *pulumi.OutputState }
 
 func (DashboardV2WidgetToplistDefinitionStyleDisplayPtrOutput) ElementType() reflect.Type {
@@ -71613,6 +71658,18 @@ func (o DashboardV2WidgetToplistDefinitionStyleDisplayPtrOutput) Stacked() Dashb
 		}
 		return v.Stacked
 	}).(DashboardV2WidgetToplistDefinitionStyleDisplayStackedPtrOutput)
+}
+
+// Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+//
+// Deprecated: Use the `stacked` or `flat` block instead.
+func (o DashboardV2WidgetToplistDefinitionStyleDisplayPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetToplistDefinitionStyleDisplay) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type DashboardV2WidgetToplistDefinitionStyleDisplayFlat struct {

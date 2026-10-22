@@ -13,17 +13,37 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetTreemapDefinitionRequest
     {
+        /// <summary>
+        /// List of formulas that operate on queries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequestFormula> Formulas;
+        /// <summary>
+        /// List of queries that can be returned directly or used in formulas.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequestQuery> Queries;
+        /// <summary>
+        /// The controls for sorting the widget. Only applicable for formula-style requests.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetTreemapDefinitionRequestSort? Sort;
+        /// <summary>
+        /// Define style for the widget's request.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetTreemapDefinitionRequestStyle? Style;
 
         [OutputConstructor]
         private DashboardWidgetTreemapDefinitionRequest(
             ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequestFormula> formulas,
 
-            ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequestQuery> queries)
+            ImmutableArray<Outputs.DashboardWidgetTreemapDefinitionRequestQuery> queries,
+
+            Outputs.DashboardWidgetTreemapDefinitionRequestSort? sort,
+
+            Outputs.DashboardWidgetTreemapDefinitionRequestStyle? style)
         {
             Formulas = formulas;
             Queries = queries;
+            Sort = sort;
+            Style = style;
         }
     }
 }

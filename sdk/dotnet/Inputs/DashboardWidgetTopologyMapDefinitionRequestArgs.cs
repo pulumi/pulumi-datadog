@@ -12,7 +12,7 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetTopologyMapDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
-        [Input("queries", required: true)]
+        [Input("queries")]
         private InputList<Inputs.DashboardWidgetTopologyMapDefinitionRequestQueryArgs>? _queries;
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The request type for the Topology request ('topology'). Valid values are `Topology`.
+        /// The request type for the Topology request ('topology').
         /// </summary>
         [Input("requestType", required: true)]
         public Input<string> RequestType { get; set; } = null!;

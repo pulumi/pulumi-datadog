@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetQueryValueDefinitionRequestQueryCloudCostQuery
     {
         /// <summary>
-        /// The aggregation methods available for cloud cost queries. Valid values are `Avg`, `Last`, `Max`, `Min`, `Sum`, `Percentile`.
+        /// The aggregation methods available for cloud cost queries. Valid values are `Avg`, `Min`, `Max`, `Sum`, `Last`, `Area`, `L2norm`, `Percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The cloud cost query definition.
+        /// Query for Cloud Cost data.
         /// </summary>
         public readonly string Query;
 

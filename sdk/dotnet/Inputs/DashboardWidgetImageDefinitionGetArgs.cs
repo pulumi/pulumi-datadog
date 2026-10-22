@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetImageDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Whether to display a background or not. Defaults to `True`.
         /// </summary>
         [Input("hasBackground")]
@@ -25,10 +31,22 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? HasBorder { get; set; }
 
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        [Input("hideIncompleteCostData")]
+        public Input<bool>? HideIncompleteCostData { get; set; }
+
+        /// <summary>
         /// The horizontal alignment for the widget. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("horizontalAlign")]
         public Input<string>? HorizontalAlign { get; set; }
+
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
 
         /// <summary>
         /// The margins to use around the image. Note: `Small` and `Large` values are deprecated. Valid values are `Sm`, `Md`, `Lg`, `Small`, `Large`.
@@ -43,13 +61,37 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? Sizing { get; set; }
 
         /// <summary>
-        /// The URL to use as a data source for the widget.
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetImageDefinitionTimeGetArgs>? Time { get; set; }
+
+        /// <summary>
+        /// The title of the widget.
+        /// </summary>
+        [Input("title")]
+        public Input<string>? Title { get; set; }
+
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
+        /// </summary>
+        [Input("titleAlign")]
+        public Input<string>? TitleAlign { get; set; }
+
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
+        [Input("titleSize")]
+        public Input<string>? TitleSize { get; set; }
+
+        /// <summary>
+        /// URL of the image.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
         /// <summary>
-        /// The URL in dark mode to use as a data source for the widget.
+        /// URL of the image in dark mode.
         /// </summary>
         [Input("urlDarkTheme")]
         public Input<string>? UrlDarkTheme { get; set; }

@@ -178,6 +178,8 @@ from .role import *
 from .rum_application import *
 from .rum_exclusion_filter import *
 from .rum_metric import *
+from .rum_operation import *
+from .rum_operation_journey_link import *
 from .rum_retention_filter import *
 from .rum_retention_filters_order import *
 from .rum_retention_quota import *
@@ -1102,6 +1104,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/rumMetric:RumMetric": "RumMetric"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/rumOperation",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/rumOperation:RumOperation": "RumOperation"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/rumOperationJourneyLink",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/rumOperationJourneyLink:RumOperationJourneyLink": "RumOperationJourneyLink"
   }
  },
  {

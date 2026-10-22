@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardV2WidgetSloListDefinitionRequest
     {
         /// <summary>
+        /// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Updated SLO List widget.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetSloListDefinitionRequestQuery Query;
@@ -24,10 +28,13 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardV2WidgetSloListDefinitionRequest(
+            string? description,
+
             Outputs.DashboardV2WidgetSloListDefinitionRequestQuery query,
 
             string requestType)
         {
+            Description = description;
             Query = query;
             RequestType = requestType;
         }

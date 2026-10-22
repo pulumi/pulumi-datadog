@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetToplistDefinitionRequestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("auditQuery")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestAuditQueryGetArgs>? AuditQuery { get; set; }
@@ -38,6 +38,10 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("formulas")]
         private InputList<Inputs.DashboardWidgetToplistDefinitionRequestFormulaGetArgs>? _formulas;
+
+        /// <summary>
+        /// A list of formulas to use in the widget.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetToplistDefinitionRequestFormulaGetArgs> Formulas
         {
             get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetToplistDefinitionRequestFormulaGetArgs>());
@@ -45,25 +49,29 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetToplistDefinitionRequestProcessQueryGetArgs>? ProcessQuery { get; set; }
 
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
         [Input("queries")]
         private InputList<Inputs.DashboardWidgetToplistDefinitionRequestQueryGetArgs>? _queries;
+
+        /// <summary>
+        /// A list of queries to use in the widget.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetToplistDefinitionRequestQueryGetArgs> Queries
         {
             get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetToplistDefinitionRequestQueryGetArgs>());
@@ -71,16 +79,22 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }
+
+        /// <summary>
+        /// The controls for sorting the widget. Only applicable for formula-style requests.
+        /// </summary>
+        [Input("sort")]
+        public Input<Inputs.DashboardWidgetToplistDefinitionRequestSortGetArgs>? Sort { get; set; }
 
         /// <summary>
         /// Define request for the widget's style.

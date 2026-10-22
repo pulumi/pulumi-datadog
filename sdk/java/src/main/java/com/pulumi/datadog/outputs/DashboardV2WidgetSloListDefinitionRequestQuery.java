@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardV2WidgetSloListDefinitionRequestQuery {
     /**
-     * @return Maximum number of results to display in the table.
+     * @return Maximum number of results to display in the table. Defaults to `100`.
      * 
      */
     private @Nullable Integer limit;
@@ -33,7 +33,7 @@ public final class DashboardV2WidgetSloListDefinitionRequestQuery {
 
     private DashboardV2WidgetSloListDefinitionRequestQuery() {}
     /**
-     * @return Maximum number of results to display in the table.
+     * @return Maximum number of results to display in the table. Defaults to `100`.
      * 
      */
     public Optional<Integer> limit() {

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetEventStreamDefinitionTimeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -33,14 +34,14 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
     }
 
     /**
-     * The size to use to display an event. Valid values are `s`, `l`.
+     * Size to use to display an event. Valid values are `s`, `l`.
      * 
      */
     @Import(name="eventSize")
     private @Nullable Output<String> eventSize;
 
     /**
-     * @return The size to use to display an event. Valid values are `s`, `l`.
+     * @return Size to use to display an event. Valid values are `s`, `l`.
      * 
      */
     public Optional<Output<String>> eventSize() {
@@ -78,14 +79,14 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
     }
 
     /**
-     * The query to use in the widget.
+     * Query to filter the event stream with.
      * 
      */
     @Import(name="query", required=true)
     private Output<String> query;
 
     /**
-     * @return The query to use in the widget.
+     * @return Query to filter the event stream with.
      * 
      */
     public Output<String> query() {
@@ -105,6 +106,21 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
      */
     public Optional<Output<String>> tagsExecution() {
         return Optional.ofNullable(this.tagsExecution);
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetEventStreamDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetEventStreamDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -161,6 +177,7 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
         this.liveSpan = $.liveSpan;
         this.query = $.query;
         this.tagsExecution = $.tagsExecution;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -206,7 +223,7 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param eventSize The size to use to display an event. Valid values are `s`, `l`.
+         * @param eventSize Size to use to display an event. Valid values are `s`, `l`.
          * 
          * @return builder
          * 
@@ -217,7 +234,7 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param eventSize The size to use to display an event. Valid values are `s`, `l`.
+         * @param eventSize Size to use to display an event. Valid values are `s`, `l`.
          * 
          * @return builder
          * 
@@ -269,7 +286,7 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param query The query to use in the widget.
+         * @param query Query to filter the event stream with.
          * 
          * @return builder
          * 
@@ -280,7 +297,7 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
         }
 
         /**
-         * @param query The query to use in the widget.
+         * @param query Query to filter the event stream with.
          * 
          * @return builder
          * 
@@ -308,6 +325,27 @@ public final class DashboardWidgetEventStreamDefinitionArgs extends com.pulumi.r
          */
         public Builder tagsExecution(String tagsExecution) {
             return tagsExecution(Output.of(tagsExecution));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetEventStreamDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetEventStreamDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

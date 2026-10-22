@@ -21,15 +21,22 @@ namespace Pulumi.Datadog.Outputs
         /// Stacked display for the top list widget.
         /// </summary>
         public readonly Outputs.DashboardV2WidgetToplistDefinitionStyleDisplayStacked? Stacked;
+        /// <summary>
+        /// Legacy display type for the widget. Valid values are `Stacked`, `Flat`. **Deprecated.** Use the `Stacked` or `Flat` block instead.
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
         private DashboardV2WidgetToplistDefinitionStyleDisplay(
             Outputs.DashboardV2WidgetToplistDefinitionStyleDisplayFlat? flat,
 
-            Outputs.DashboardV2WidgetToplistDefinitionStyleDisplayStacked? stacked)
+            Outputs.DashboardV2WidgetToplistDefinitionStyleDisplayStacked? stacked,
+
+            string? type)
         {
             Flat = flat;
             Stacked = stacked;
+            Type = type;
         }
     }
 }

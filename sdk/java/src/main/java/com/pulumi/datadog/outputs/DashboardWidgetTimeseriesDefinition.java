@@ -9,6 +9,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionEvent;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionMarker;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequest;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRightYaxis;
+import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionTime;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionYaxis;
 import java.lang.Boolean;
 import java.lang.String;
@@ -50,7 +51,7 @@ public final class DashboardWidgetTimeseriesDefinition {
      */
     private @Nullable String legendLayout;
     /**
-     * @return The size of the legend displayed in the widget.
+     * @return The size of the legend displayed in the widget. Valid values are `0`, `2`, `4`, `8`, `16`, `auto`.
      * 
      */
     private @Nullable String legendSize;
@@ -79,6 +80,11 @@ public final class DashboardWidgetTimeseriesDefinition {
      * 
      */
     private @Nullable Boolean showLegend;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetTimeseriesDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -144,7 +150,7 @@ public final class DashboardWidgetTimeseriesDefinition {
         return Optional.ofNullable(this.legendLayout);
     }
     /**
-     * @return The size of the legend displayed in the widget.
+     * @return The size of the legend displayed in the widget. Valid values are `0`, `2`, `4`, `8`, `16`, `auto`.
      * 
      */
     public Optional<String> legendSize() {
@@ -184,6 +190,13 @@ public final class DashboardWidgetTimeseriesDefinition {
      */
     public Optional<Boolean> showLegend() {
         return Optional.ofNullable(this.showLegend);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetTimeseriesDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -235,6 +248,7 @@ public final class DashboardWidgetTimeseriesDefinition {
         private @Nullable List<DashboardWidgetTimeseriesDefinitionRequest> requests;
         private @Nullable DashboardWidgetTimeseriesDefinitionRightYaxis rightYaxis;
         private @Nullable Boolean showLegend;
+        private @Nullable DashboardWidgetTimeseriesDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -254,6 +268,7 @@ public final class DashboardWidgetTimeseriesDefinition {
     	      this.requests = defaults.requests;
     	      this.rightYaxis = defaults.rightYaxis;
     	      this.showLegend = defaults.showLegend;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -348,6 +363,12 @@ public final class DashboardWidgetTimeseriesDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetTimeseriesDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -385,6 +406,7 @@ public final class DashboardWidgetTimeseriesDefinition {
             _resultValue.requests = requests;
             _resultValue.rightYaxis = rightYaxis;
             _resultValue.showLegend = showLegend;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

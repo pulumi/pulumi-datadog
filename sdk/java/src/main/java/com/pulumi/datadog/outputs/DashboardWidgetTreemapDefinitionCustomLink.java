@@ -18,17 +18,17 @@ public final class DashboardWidgetTreemapDefinitionCustomLink {
      */
     private @Nullable Boolean isHidden;
     /**
-     * @return The label for the custom link URL.
+     * @return The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
      * 
      */
     private @Nullable String label;
     /**
-     * @return The URL of the custom link.
+     * @return The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
      * 
      */
     private @Nullable String link;
     /**
-     * @return The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     * @return The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
      * 
      */
     private @Nullable String overrideLabel;
@@ -42,21 +42,21 @@ public final class DashboardWidgetTreemapDefinitionCustomLink {
         return Optional.ofNullable(this.isHidden);
     }
     /**
-     * @return The label for the custom link URL.
+     * @return The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
      * 
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return The URL of the custom link.
+     * @return The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
      * 
      */
     public Optional<String> link() {
         return Optional.ofNullable(this.link);
     }
     /**
-     * @return The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     * @return The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
      * 
      */
     public Optional<String> overrideLabel() {

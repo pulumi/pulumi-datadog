@@ -6,21 +6,64 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestSort;
+import com.pulumi.datadog.outputs.DashboardWidgetTreemapDefinitionRequestStyle;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetTreemapDefinitionRequest {
+    /**
+     * @return List of formulas that operate on queries.
+     * 
+     */
     private @Nullable List<DashboardWidgetTreemapDefinitionRequestFormula> formulas;
+    /**
+     * @return List of queries that can be returned directly or used in formulas.
+     * 
+     */
     private @Nullable List<DashboardWidgetTreemapDefinitionRequestQuery> queries;
+    /**
+     * @return The controls for sorting the widget. Only applicable for formula-style requests.
+     * 
+     */
+    private @Nullable DashboardWidgetTreemapDefinitionRequestSort sort;
+    /**
+     * @return Define style for the widget&#39;s request.
+     * 
+     */
+    private @Nullable DashboardWidgetTreemapDefinitionRequestStyle style;
 
     private DashboardWidgetTreemapDefinitionRequest() {}
+    /**
+     * @return List of formulas that operate on queries.
+     * 
+     */
     public List<DashboardWidgetTreemapDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
+    /**
+     * @return List of queries that can be returned directly or used in formulas.
+     * 
+     */
     public List<DashboardWidgetTreemapDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
+    }
+    /**
+     * @return The controls for sorting the widget. Only applicable for formula-style requests.
+     * 
+     */
+    public Optional<DashboardWidgetTreemapDefinitionRequestSort> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+    /**
+     * @return Define style for the widget&#39;s request.
+     * 
+     */
+    public Optional<DashboardWidgetTreemapDefinitionRequestStyle> style() {
+        return Optional.ofNullable(this.style);
     }
 
     public static Builder builder() {
@@ -34,11 +77,15 @@ public final class DashboardWidgetTreemapDefinitionRequest {
     public static final class Builder {
         private @Nullable List<DashboardWidgetTreemapDefinitionRequestFormula> formulas;
         private @Nullable List<DashboardWidgetTreemapDefinitionRequestQuery> queries;
+        private @Nullable DashboardWidgetTreemapDefinitionRequestSort sort;
+        private @Nullable DashboardWidgetTreemapDefinitionRequestStyle style;
         public Builder() {}
         public Builder(DashboardWidgetTreemapDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.formulas = defaults.formulas;
     	      this.queries = defaults.queries;
+    	      this.sort = defaults.sort;
+    	      this.style = defaults.style;
         }
 
         @CustomType.Setter
@@ -59,10 +106,24 @@ public final class DashboardWidgetTreemapDefinitionRequest {
         public Builder queries(DashboardWidgetTreemapDefinitionRequestQuery... queries) {
             return queries(List.of(queries));
         }
+        @CustomType.Setter
+        public Builder sort(@Nullable DashboardWidgetTreemapDefinitionRequestSort sort) {
+
+            this.sort = sort;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder style(@Nullable DashboardWidgetTreemapDefinitionRequestStyle style) {
+
+            this.style = style;
+            return this;
+        }
         public DashboardWidgetTreemapDefinitionRequest build() {
             final var _resultValue = new DashboardWidgetTreemapDefinitionRequest();
             _resultValue.formulas = formulas;
             _resultValue.queries = queries;
+            _resultValue.sort = sort;
+            _resultValue.style = style;
             return _resultValue;
         }
     }

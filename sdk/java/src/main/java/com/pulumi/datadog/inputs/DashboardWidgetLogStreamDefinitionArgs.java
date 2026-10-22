@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetLogStreamDefinitionSortArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetLogStreamDefinitionTimeArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -31,6 +32,21 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
      */
     public Optional<Output<List<String>>> columns() {
         return Optional.ofNullable(this.columns);
+    }
+
+    /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
     }
 
     /**
@@ -94,14 +110,14 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
     }
 
     /**
-     * The query to use in the widget.
+     * Query to filter the log stream with.
      * 
      */
     @Import(name="query")
     private @Nullable Output<String> query;
 
     /**
-     * @return The query to use in the widget.
+     * @return Query to filter the log stream with.
      * 
      */
     public Optional<Output<String>> query() {
@@ -154,6 +170,21 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetLogStreamDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetLogStreamDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -202,6 +233,7 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
 
     private DashboardWidgetLogStreamDefinitionArgs(DashboardWidgetLogStreamDefinitionArgs $) {
         this.columns = $.columns;
+        this.description = $.description;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.indexes = $.indexes;
         this.liveSpan = $.liveSpan;
@@ -210,6 +242,7 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         this.showDateColumn = $.showDateColumn;
         this.showMessageColumn = $.showMessageColumn;
         this.sort = $.sort;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -262,6 +295,27 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
          */
         public Builder columns(String... columns) {
             return columns(List.of(columns));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**
@@ -359,7 +413,7 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param query The query to use in the widget.
+         * @param query Query to filter the log stream with.
          * 
          * @return builder
          * 
@@ -370,7 +424,7 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
         }
 
         /**
-         * @param query The query to use in the widget.
+         * @param query Query to filter the log stream with.
          * 
          * @return builder
          * 
@@ -440,6 +494,27 @@ public final class DashboardWidgetLogStreamDefinitionArgs extends com.pulumi.res
          */
         public Builder sort(DashboardWidgetLogStreamDefinitionSortArgs sort) {
             return sort(Output.of(sort));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetLogStreamDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetLogStreamDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

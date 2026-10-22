@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetQueryTableDefinitionRequest
     {
         /// <summary>
-        /// The aggregator to use for time aggregation. Valid values are `Avg`, `Last`, `Max`, `Min`, `Sum`, `Percentile`.
+        /// The aggregator to use for time aggregation. Valid values are `Avg`, `Min`, `Max`, `Sum`, `Last`, `Area`, `L2norm`, `Percentile`.
         /// </summary>
         public readonly string? Aggregator;
         /// <summary>
@@ -22,25 +22,31 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Alias;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
+        /// <summary>
+        /// The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
+        /// </summary>
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestApmStatsQuery? ApmStatsQuery;
         /// <summary>
-        /// A list of display modes for each table cell. Valid values are `Number`, `Bar`, `Trend`.
+        /// A list of display modes for each table cell. Valid values are `Number`, `Bar`.
         /// </summary>
         public readonly ImmutableArray<string> CellDisplayModes;
         /// <summary>
         /// Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `ConditionalFormats` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestConditionalFormat> ConditionalFormats;
+        /// <summary>
+        /// A list of formulas to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestFormula> Formulas;
         /// <summary>
-        /// The number of lines to show in the table.
+        /// For metric queries, the number of lines to show in the table. Only one request should have this property.
         /// </summary>
         public readonly int? Limit;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
@@ -48,22 +54,29 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Order;
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestProcessQuery? ProcessQuery;
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// A list of queries to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestQuery> Queries;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
+        /// <summary>
+        /// The controls for sorting the widget request.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetQueryTableDefinitionRequestSort? Sort;
         /// <summary>
         /// Text formats define how to format text in table widget content. Multiple `TextFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
         /// </summary>
@@ -101,6 +114,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetSecurityQuery? securityQuery,
 
+            Outputs.DashboardWidgetQueryTableDefinitionRequestSort? sort,
+
             ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequestTextFormat> textFormats)
         {
             Aggregator = aggregator;
@@ -118,6 +133,7 @@ namespace Pulumi.Datadog.Outputs
             Queries = queries;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
+            Sort = sort;
             TextFormats = textFormats;
         }
     }

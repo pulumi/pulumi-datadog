@@ -25,6 +25,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetAlertValueDefinitionGetArgs>? AlertValueDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Bar Chart widget.
+        /// </summary>
+        [Input("barChartDefinition")]
+        public Input<Inputs.DashboardWidgetBarChartDefinitionGetArgs>? BarChartDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Change widget.
         /// </summary>
         [Input("changeDefinition")]
@@ -37,10 +43,22 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetCheckStatusDefinitionGetArgs>? CheckStatusDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Cohort retention-grid widget.
+        /// </summary>
+        [Input("cohortDefinition")]
+        public Input<Inputs.DashboardWidgetCohortDefinitionGetArgs>? CohortDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Distribution widget.
         /// </summary>
         [Input("distributionDefinition")]
         public Input<Inputs.DashboardWidgetDistributionDefinitionGetArgs>? DistributionDefinition { get; set; }
+
+        /// <summary>
+        /// The definition for an App Builder embedded app widget.
+        /// </summary>
+        [Input("embeddedAppDefinition")]
+        public Input<Inputs.DashboardWidgetEmbeddedAppDefinitionGetArgs>? EmbeddedAppDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Event Stream widget.
@@ -59,6 +77,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("freeTextDefinition")]
         public Input<Inputs.DashboardWidgetFreeTextDefinitionGetArgs>? FreeTextDefinition { get; set; }
+
+        /// <summary>
+        /// The definition for a Funnel widget.
+        /// </summary>
+        [Input("funnelDefinition")]
+        public Input<Inputs.DashboardWidgetFunnelDefinitionGetArgs>? FunnelDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Geomap widget.
@@ -127,10 +151,22 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetNoteDefinitionGetArgs>? NoteDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Point Plot widget.
+        /// </summary>
+        [Input("pointPlotDefinition")]
+        public Input<Inputs.DashboardWidgetPointPlotDefinitionGetArgs>? PointPlotDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Powerpack widget.
         /// </summary>
         [Input("powerpackDefinition")]
         public Input<Inputs.DashboardWidgetPowerpackDefinitionGetArgs>? PowerpackDefinition { get; set; }
+
+        /// <summary>
+        /// The definition for a Product Analytics user journey funnel widget.
+        /// </summary>
+        [Input("productAnalyticsFunnelDefinition")]
+        public Input<Inputs.DashboardWidgetProductAnalyticsFunnelDefinitionGetArgs>? ProductAnalyticsFunnelDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Query Table widget.
@@ -145,10 +181,22 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetQueryValueDefinitionGetArgs>? QueryValueDefinition { get; set; }
 
         /// <summary>
+        /// The definition for a Retention Curve widget.
+        /// </summary>
+        [Input("retentionCurveDefinition")]
+        public Input<Inputs.DashboardWidgetRetentionCurveDefinitionGetArgs>? RetentionCurveDefinition { get; set; }
+
+        /// <summary>
         /// The definition for a Run Workflow widget.
         /// </summary>
         [Input("runWorkflowDefinition")]
         public Input<Inputs.DashboardWidgetRunWorkflowDefinitionGetArgs>? RunWorkflowDefinition { get; set; }
+
+        /// <summary>
+        /// The definition for a Sankey diagram widget.
+        /// </summary>
+        [Input("sankeyDefinition")]
+        public Input<Inputs.DashboardWidgetSankeyDefinitionGetArgs>? SankeyDefinition { get; set; }
 
         /// <summary>
         /// The definition for a Scatterplot widget.
@@ -221,6 +269,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("widgetLayout")]
         public Input<Inputs.DashboardWidgetWidgetLayoutGetArgs>? WidgetLayout { get; set; }
+
+        /// <summary>
+        /// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+        /// </summary>
+        [Input("wildcardDefinition")]
+        public Input<Inputs.DashboardWidgetWildcardDefinitionGetArgs>? WildcardDefinition { get; set; }
 
         public DashboardWidgetGetArgs()
         {

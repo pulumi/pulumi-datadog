@@ -32,7 +32,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfig {
      */
     private DashboardWidgetSplitGraphDefinitionSplitConfigSplitDimensions splitDimensions;
     /**
-     * @return The property by which the graph splits
+     * @return Manual selection of tags making split graph widget static.
      * 
      */
     private @Nullable List<DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplit> staticSplits;
@@ -60,7 +60,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfig {
         return this.splitDimensions;
     }
     /**
-     * @return The property by which the graph splits
+     * @return Manual selection of tags making split graph widget static.
      * 
      */
     public List<DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplit> staticSplits() {

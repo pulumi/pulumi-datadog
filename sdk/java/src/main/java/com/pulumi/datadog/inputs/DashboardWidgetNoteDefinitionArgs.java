@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetNoteDefinitionTimeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -93,6 +94,36 @@ public final class DashboardWidgetNoteDefinitionArgs extends com.pulumi.resource
     }
 
     /**
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    @Import(name="liveSpan")
+    private @Nullable Output<String> liveSpan;
+
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<Output<String>> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+
+    /**
      * Whether to show a tick or not.
      * 
      */
@@ -153,6 +184,66 @@ public final class DashboardWidgetNoteDefinitionArgs extends com.pulumi.resource
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetNoteDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetNoteDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
+     * The title of the widget.
+     * 
+     */
+    @Import(name="title")
+    private @Nullable Output<String> title;
+
+    /**
+     * @return The title of the widget.
+     * 
+     */
+    public Optional<Output<String>> title() {
+        return Optional.ofNullable(this.title);
+    }
+
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    @Import(name="titleAlign")
+    private @Nullable Output<String> titleAlign;
+
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    public Optional<Output<String>> titleAlign() {
+        return Optional.ofNullable(this.titleAlign);
+    }
+
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    @Import(name="titleSize")
+    private @Nullable Output<String> titleSize;
+
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    public Optional<Output<String>> titleSize() {
+        return Optional.ofNullable(this.titleSize);
+    }
+
+    /**
      * The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
      * 
      */
@@ -175,10 +266,16 @@ public final class DashboardWidgetNoteDefinitionArgs extends com.pulumi.resource
         this.description = $.description;
         this.fontSize = $.fontSize;
         this.hasPadding = $.hasPadding;
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
+        this.liveSpan = $.liveSpan;
         this.showTick = $.showTick;
         this.textAlign = $.textAlign;
         this.tickEdge = $.tickEdge;
         this.tickPos = $.tickPos;
+        this.time = $.time;
+        this.title = $.title;
+        this.titleAlign = $.titleAlign;
+        this.titleSize = $.titleSize;
         this.verticalAlign = $.verticalAlign;
     }
 
@@ -306,6 +403,48 @@ public final class DashboardWidgetNoteDefinitionArgs extends com.pulumi.resource
         }
 
         /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
+        }
+
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveSpan(@Nullable Output<String> liveSpan) {
+            $.liveSpan = liveSpan;
+            return this;
+        }
+
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveSpan(String liveSpan) {
+            return liveSpan(Output.of(liveSpan));
+        }
+
+        /**
          * @param showTick Whether to show a tick or not.
          * 
          * @return builder
@@ -387,6 +526,90 @@ public final class DashboardWidgetNoteDefinitionArgs extends com.pulumi.resource
          */
         public Builder tickPos(String tickPos) {
             return tickPos(Output.of(tickPos));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetNoteDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetNoteDefinitionTimeArgs time) {
+            return time(Output.of(time));
+        }
+
+        /**
+         * @param title The title of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder title(@Nullable Output<String> title) {
+            $.title = title;
+            return this;
+        }
+
+        /**
+         * @param title The title of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder title(String title) {
+            return title(Output.of(title));
+        }
+
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleAlign(@Nullable Output<String> titleAlign) {
+            $.titleAlign = titleAlign;
+            return this;
+        }
+
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleAlign(String titleAlign) {
+            return titleAlign(Output.of(titleAlign));
+        }
+
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleSize(@Nullable Output<String> titleSize) {
+            $.titleSize = titleSize;
+            return this;
+        }
+
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleSize(String titleSize) {
+            return titleSize(Output.of(titleSize));
         }
 
         /**

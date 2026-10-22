@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetCheckStatusDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -15,12 +16,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetCheckStatusDefinition {
     /**
-     * @return The check to use in the widget.
+     * @return Name of the check to use in the widget.
      * 
      */
     private String check;
     /**
-     * @return The check group to use in the widget.
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
+     * @return Group reporting a single check.
      * 
      */
     private @Nullable String group;
@@ -45,10 +51,15 @@ public final class DashboardWidgetCheckStatusDefinition {
      */
     private @Nullable String liveSpan;
     /**
-     * @return A list of tags to use in the widget.
+     * @return A list of tags used to filter the groups reporting a cluster check.
      * 
      */
     private @Nullable List<String> tags;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetCheckStatusDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -67,14 +78,21 @@ public final class DashboardWidgetCheckStatusDefinition {
 
     private DashboardWidgetCheckStatusDefinition() {}
     /**
-     * @return The check to use in the widget.
+     * @return Name of the check to use in the widget.
      * 
      */
     public String check() {
         return this.check;
     }
     /**
-     * @return The check group to use in the widget.
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
+    /**
+     * @return Group reporting a single check.
      * 
      */
     public Optional<String> group() {
@@ -109,11 +127,18 @@ public final class DashboardWidgetCheckStatusDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return A list of tags to use in the widget.
+     * @return A list of tags used to filter the groups reporting a cluster check.
      * 
      */
     public List<String> tags() {
         return this.tags == null ? List.of() : this.tags;
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetCheckStatusDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -147,12 +172,14 @@ public final class DashboardWidgetCheckStatusDefinition {
     @CustomType.Builder
     public static final class Builder {
         private String check;
+        private @Nullable String description;
         private @Nullable String group;
         private @Nullable List<String> groupBies;
         private String grouping;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable List<String> tags;
+        private @Nullable DashboardWidgetCheckStatusDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -160,12 +187,14 @@ public final class DashboardWidgetCheckStatusDefinition {
         public Builder(DashboardWidgetCheckStatusDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.check = defaults.check;
+    	      this.description = defaults.description;
     	      this.group = defaults.group;
     	      this.groupBies = defaults.groupBies;
     	      this.grouping = defaults.grouping;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.tags = defaults.tags;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -177,6 +206,12 @@ public final class DashboardWidgetCheckStatusDefinition {
               throw new MissingRequiredPropertyException("DashboardWidgetCheckStatusDefinition", "check");
             }
             this.check = check;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -224,6 +259,12 @@ public final class DashboardWidgetCheckStatusDefinition {
             return tags(List.of(tags));
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetCheckStatusDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -244,12 +285,14 @@ public final class DashboardWidgetCheckStatusDefinition {
         public DashboardWidgetCheckStatusDefinition build() {
             final var _resultValue = new DashboardWidgetCheckStatusDefinition();
             _resultValue.check = check;
+            _resultValue.description = description;
             _resultValue.group = group;
             _resultValue.groupBies = groupBies;
             _resultValue.grouping = grouping;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.tags = tags;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

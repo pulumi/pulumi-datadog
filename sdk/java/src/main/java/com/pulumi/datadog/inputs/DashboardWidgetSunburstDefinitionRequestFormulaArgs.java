@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestFormulaCellDisplayModeOptionsArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestFormulaConditionalFormatArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestFormulaLimitArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatArgs;
@@ -37,18 +38,33 @@ public final class DashboardWidgetSunburstDefinitionRequestFormulaArgs extends c
     }
 
     /**
-     * A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     @Import(name="cellDisplayMode")
     private @Nullable Output<String> cellDisplayMode;
 
     /**
-     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+     * @return A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
      * 
      */
     public Optional<Output<String>> cellDisplayMode() {
         return Optional.ofNullable(this.cellDisplayMode);
+    }
+
+    /**
+     * Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+     * 
+     */
+    @Import(name="cellDisplayModeOptions")
+    private @Nullable Output<DashboardWidgetSunburstDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions;
+
+    /**
+     * @return Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+     * 
+     */
+    public Optional<Output<DashboardWidgetSunburstDefinitionRequestFormulaCellDisplayModeOptionsArgs>> cellDisplayModeOptions() {
+        return Optional.ofNullable(this.cellDisplayModeOptions);
     }
 
     /**
@@ -131,6 +147,7 @@ public final class DashboardWidgetSunburstDefinitionRequestFormulaArgs extends c
     private DashboardWidgetSunburstDefinitionRequestFormulaArgs(DashboardWidgetSunburstDefinitionRequestFormulaArgs $) {
         this.alias = $.alias;
         this.cellDisplayMode = $.cellDisplayMode;
+        this.cellDisplayModeOptions = $.cellDisplayModeOptions;
         this.conditionalFormats = $.conditionalFormats;
         this.formulaExpression = $.formulaExpression;
         this.limit = $.limit;
@@ -178,7 +195,7 @@ public final class DashboardWidgetSunburstDefinitionRequestFormulaArgs extends c
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
          * 
          * @return builder
          * 
@@ -189,13 +206,34 @@ public final class DashboardWidgetSunburstDefinitionRequestFormulaArgs extends c
         }
 
         /**
-         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
+         * @param cellDisplayMode A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
          * 
          * @return builder
          * 
          */
         public Builder cellDisplayMode(String cellDisplayMode) {
             return cellDisplayMode(Output.of(cellDisplayMode));
+        }
+
+        /**
+         * @param cellDisplayModeOptions Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cellDisplayModeOptions(@Nullable Output<DashboardWidgetSunburstDefinitionRequestFormulaCellDisplayModeOptionsArgs> cellDisplayModeOptions) {
+            $.cellDisplayModeOptions = cellDisplayModeOptions;
+            return this;
+        }
+
+        /**
+         * @param cellDisplayModeOptions Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cellDisplayModeOptions(DashboardWidgetSunburstDefinitionRequestFormulaCellDisplayModeOptionsArgs cellDisplayModeOptions) {
+            return cellDisplayModeOptions(Output.of(cellDisplayModeOptions));
         }
 
         /**

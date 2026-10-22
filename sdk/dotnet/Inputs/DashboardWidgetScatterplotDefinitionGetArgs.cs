@@ -61,6 +61,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.DashboardWidgetScatterplotDefinitionRequestGetArgs>? Request { get; set; }
 
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetScatterplotDefinitionTimeGetArgs>? Time { get; set; }
+
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         [Input("title")]

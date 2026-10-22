@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetTopologyMapDefinitionRequest {
@@ -16,9 +17,9 @@ public final class DashboardWidgetTopologyMapDefinitionRequest {
      * @return The query for a Topology request.
      * 
      */
-    private List<DashboardWidgetTopologyMapDefinitionRequestQuery> queries;
+    private @Nullable List<DashboardWidgetTopologyMapDefinitionRequestQuery> queries;
     /**
-     * @return The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
+     * @return The request type for the Topology request (&#39;topology&#39;).
      * 
      */
     private String requestType;
@@ -29,10 +30,10 @@ public final class DashboardWidgetTopologyMapDefinitionRequest {
      * 
      */
     public List<DashboardWidgetTopologyMapDefinitionRequestQuery> queries() {
-        return this.queries;
+        return this.queries == null ? List.of() : this.queries;
     }
     /**
-     * @return The request type for the Topology request (&#39;topology&#39;). Valid values are `topology`.
+     * @return The request type for the Topology request (&#39;topology&#39;).
      * 
      */
     public String requestType() {
@@ -48,7 +49,7 @@ public final class DashboardWidgetTopologyMapDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<DashboardWidgetTopologyMapDefinitionRequestQuery> queries;
+        private @Nullable List<DashboardWidgetTopologyMapDefinitionRequestQuery> queries;
         private String requestType;
         public Builder() {}
         public Builder(DashboardWidgetTopologyMapDefinitionRequest defaults) {
@@ -58,10 +59,8 @@ public final class DashboardWidgetTopologyMapDefinitionRequest {
         }
 
         @CustomType.Setter
-        public Builder queries(List<DashboardWidgetTopologyMapDefinitionRequestQuery> queries) {
-            if (queries == null) {
-              throw new MissingRequiredPropertyException("DashboardWidgetTopologyMapDefinitionRequest", "queries");
-            }
+        public Builder queries(@Nullable List<DashboardWidgetTopologyMapDefinitionRequestQuery> queries) {
+
             this.queries = queries;
             return this;
         }

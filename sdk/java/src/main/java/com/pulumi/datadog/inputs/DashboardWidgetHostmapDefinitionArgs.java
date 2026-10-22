@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionRequestArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionStyleArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetHostmapDefinitionTimeArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -51,14 +52,14 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
-     * The list of tags to group nodes by.
+     * The list of tag prefixes to group by.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
     /**
-     * @return The list of tags to group nodes by.
+     * @return The list of tag prefixes to group by.
      * 
      */
     public Optional<Output<List<String>>> groups() {
@@ -66,14 +67,44 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
-     * A Boolean indicating whether to show ungrouped nodes.
+     * Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    @Import(name="hideIncompleteCostData")
+    private @Nullable Output<Boolean> hideIncompleteCostData;
+
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Output<Boolean>> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+
+    /**
+     * The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    @Import(name="liveSpan")
+    private @Nullable Output<String> liveSpan;
+
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<Output<String>> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+
+    /**
+     * A Boolean indicating whether to show the hosts that don&#39;t fit in a group.
      * 
      */
     @Import(name="noGroupHosts")
     private @Nullable Output<Boolean> noGroupHosts;
 
     /**
-     * @return A Boolean indicating whether to show ungrouped nodes.
+     * @return A Boolean indicating whether to show the hosts that don&#39;t fit in a group.
      * 
      */
     public Optional<Output<Boolean>> noGroupHosts() {
@@ -111,14 +142,29 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+     * Notes/description text for the host map widget.
+     * 
+     */
+    @Import(name="notes")
+    private @Nullable Output<String> notes;
+
+    /**
+     * @return Notes/description text for the host map widget.
+     * 
+     */
+    public Optional<Output<String>> notes() {
+        return Optional.ofNullable(this.notes);
+    }
+
+    /**
+     * A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
      * 
      */
     @Import(name="request")
     private @Nullable Output<DashboardWidgetHostmapDefinitionRequestArgs> request;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+     * @return A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
      * 
      */
     public Optional<Output<DashboardWidgetHostmapDefinitionRequestArgs>> request() {
@@ -126,14 +172,14 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
-     * The list of tags to filter nodes by.
+     * The list of tags used to filter the map.
      * 
      */
     @Import(name="scopes")
     private @Nullable Output<List<String>> scopes;
 
     /**
-     * @return The list of tags to filter nodes by.
+     * @return The list of tags used to filter the map.
      * 
      */
     public Optional<Output<List<String>>> scopes() {
@@ -153,6 +199,21 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
      */
     public Optional<Output<DashboardWidgetHostmapDefinitionStyleArgs>> style() {
         return Optional.ofNullable(this.style);
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetHostmapDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetHostmapDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -206,12 +267,16 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         this.customLinks = $.customLinks;
         this.description = $.description;
         this.groups = $.groups;
+        this.hideIncompleteCostData = $.hideIncompleteCostData;
+        this.liveSpan = $.liveSpan;
         this.noGroupHosts = $.noGroupHosts;
         this.noMetricHosts = $.noMetricHosts;
         this.nodeType = $.nodeType;
+        this.notes = $.notes;
         this.request = $.request;
         this.scopes = $.scopes;
         this.style = $.style;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -288,7 +353,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param groups The list of tags to group nodes by.
+         * @param groups The list of tag prefixes to group by.
          * 
          * @return builder
          * 
@@ -299,7 +364,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param groups The list of tags to group nodes by.
+         * @param groups The list of tag prefixes to group by.
          * 
          * @return builder
          * 
@@ -309,7 +374,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param groups The list of tags to group nodes by.
+         * @param groups The list of tag prefixes to group by.
          * 
          * @return builder
          * 
@@ -319,7 +384,49 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param noGroupHosts A Boolean indicating whether to show ungrouped nodes.
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(@Nullable Output<Boolean> hideIncompleteCostData) {
+            $.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+
+        /**
+         * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hideIncompleteCostData(Boolean hideIncompleteCostData) {
+            return hideIncompleteCostData(Output.of(hideIncompleteCostData));
+        }
+
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveSpan(@Nullable Output<String> liveSpan) {
+            $.liveSpan = liveSpan;
+            return this;
+        }
+
+        /**
+         * @param liveSpan The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder liveSpan(String liveSpan) {
+            return liveSpan(Output.of(liveSpan));
+        }
+
+        /**
+         * @param noGroupHosts A Boolean indicating whether to show the hosts that don&#39;t fit in a group.
          * 
          * @return builder
          * 
@@ -330,7 +437,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param noGroupHosts A Boolean indicating whether to show ungrouped nodes.
+         * @param noGroupHosts A Boolean indicating whether to show the hosts that don&#39;t fit in a group.
          * 
          * @return builder
          * 
@@ -382,7 +489,28 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param request A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+         * @param notes Notes/description text for the host map widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notes(@Nullable Output<String> notes) {
+            $.notes = notes;
+            return this;
+        }
+
+        /**
+         * @param notes Notes/description text for the host map widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notes(String notes) {
+            return notes(Output.of(notes));
+        }
+
+        /**
+         * @param request A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
          * 
          * @return builder
          * 
@@ -393,7 +521,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param request A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+         * @param request A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
          * 
          * @return builder
          * 
@@ -403,7 +531,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scopes The list of tags to filter nodes by.
+         * @param scopes The list of tags used to filter the map.
          * 
          * @return builder
          * 
@@ -414,7 +542,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scopes The list of tags to filter nodes by.
+         * @param scopes The list of tags used to filter the map.
          * 
          * @return builder
          * 
@@ -424,7 +552,7 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param scopes The list of tags to filter nodes by.
+         * @param scopes The list of tags used to filter the map.
          * 
          * @return builder
          * 
@@ -452,6 +580,27 @@ public final class DashboardWidgetHostmapDefinitionArgs extends com.pulumi.resou
          */
         public Builder style(DashboardWidgetHostmapDefinitionStyleArgs style) {
             return style(Output.of(style));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetHostmapDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetHostmapDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

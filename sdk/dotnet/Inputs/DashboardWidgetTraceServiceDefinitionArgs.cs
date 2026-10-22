@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetTraceServiceDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The number of columns to display. Valid values are `OneColumn`, `TwoColumn`, `ThreeColumn`.
         /// </summary>
         [Input("displayFormat")]
@@ -89,6 +95,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("spanName", required: true)]
         public Input<string> SpanName { get; set; } = null!;
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetTraceServiceDefinitionTimeArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.

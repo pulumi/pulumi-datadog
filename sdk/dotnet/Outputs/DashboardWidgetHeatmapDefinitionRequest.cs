@@ -14,29 +14,39 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetHeatmapDefinitionRequest
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
+        /// <summary>
+        /// A list of formulas to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestFormula> Formulas;
         /// <summary>
-        /// The query to use for this widget.
+        /// Histogram request for distribution of point values.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestHistogramRequest? HistogramRequest;
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestProcessQuery? ProcessQuery;
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly string? Q;
+        /// <summary>
+        /// A list of queries to use in the widget.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestQuery> Queries;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>
@@ -49,6 +59,8 @@ namespace Pulumi.Datadog.Outputs
             Outputs.DashboardWidgetApmQuery? apmQuery,
 
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequestFormula> formulas,
+
+            Outputs.DashboardWidgetHeatmapDefinitionRequestHistogramRequest? histogramRequest,
 
             Outputs.DashboardWidgetLogQuery? logQuery,
 
@@ -66,6 +78,7 @@ namespace Pulumi.Datadog.Outputs
         {
             ApmQuery = apmQuery;
             Formulas = formulas;
+            HistogramRequest = histogramRequest;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;

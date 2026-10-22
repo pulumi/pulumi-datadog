@@ -8,9 +8,20 @@ import com.pulumi.datadog.outputs.DashboardV2WidgetSloListDefinitionRequestQuery
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardV2WidgetSloListDefinitionRequest {
+    /**
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
+    private @Nullable String description;
     /**
      * @return Updated SLO List widget.
      * 
@@ -23,6 +34,17 @@ public final class DashboardV2WidgetSloListDefinitionRequest {
     private String requestType;
 
     private DashboardV2WidgetSloListDefinitionRequest() {}
+    /**
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return Updated SLO List widget.
      * 
@@ -47,15 +69,23 @@ public final class DashboardV2WidgetSloListDefinitionRequest {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private DashboardV2WidgetSloListDefinitionRequestQuery query;
         private String requestType;
         public Builder() {}
         public Builder(DashboardV2WidgetSloListDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.query = defaults.query;
     	      this.requestType = defaults.requestType;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder query(DashboardV2WidgetSloListDefinitionRequestQuery query) {
             if (query == null) {
@@ -74,6 +104,7 @@ public final class DashboardV2WidgetSloListDefinitionRequest {
         }
         public DashboardV2WidgetSloListDefinitionRequest build() {
             final var _resultValue = new DashboardV2WidgetSloListDefinitionRequest();
+            _resultValue.description = description;
             _resultValue.query = query;
             _resultValue.requestType = requestType;
             return _resultValue;

@@ -14,28 +14,47 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetDistributionDefinitionRequest
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetApmQuery? ApmQuery;
+        /// <summary>
+        /// The APM stats query to use in the widget.
+        /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery? ApmStatsQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// A list of formulas to use in the widget.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequestFormula> Formulas;
+        /// <summary>
+        /// Singular query block for histogram-mode distribution requests.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetDistributionDefinitionRequestHistogramQuery? HistogramQuery;
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetLogQuery? LogQuery;
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery? ProcessQuery;
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly string? Q;
         /// <summary>
-        /// The query to use for this widget.
+        /// A list of queries to use in the widget.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequestQuery> Queries;
+        /// <summary>
+        /// Set to 'histogram' for distribution-of-point-values requests. Valid values are `Histogram`.
+        /// </summary>
+        public readonly string? RequestType;
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetRumQuery? RumQuery;
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         public readonly Outputs.DashboardWidgetSecurityQuery? SecurityQuery;
         /// <summary>
@@ -49,11 +68,19 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetDistributionDefinitionRequestApmStatsQuery? apmStatsQuery,
 
+            ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequestFormula> formulas,
+
+            Outputs.DashboardWidgetDistributionDefinitionRequestHistogramQuery? histogramQuery,
+
             Outputs.DashboardWidgetLogQuery? logQuery,
 
             Outputs.DashboardWidgetDistributionDefinitionRequestProcessQuery? processQuery,
 
             string? q,
+
+            ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequestQuery> queries,
+
+            string? requestType,
 
             Outputs.DashboardWidgetRumQuery? rumQuery,
 
@@ -63,9 +90,13 @@ namespace Pulumi.Datadog.Outputs
         {
             ApmQuery = apmQuery;
             ApmStatsQuery = apmStatsQuery;
+            Formulas = formulas;
+            HistogramQuery = histogramQuery;
             LogQuery = logQuery;
             ProcessQuery = processQuery;
             Q = q;
+            Queries = queries;
+            RequestType = requestType;
             RumQuery = rumQuery;
             SecurityQuery = securityQuery;
             Style = style;

@@ -10,10 +10,12 @@ import com.pulumi.datadog.inputs.DashboardWidgetLogQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetRumQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSecurityQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestEventQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestFormulaArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestMetadataArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestQueryArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionRequestStyleArgs;
 import java.lang.Boolean;
@@ -29,31 +31,47 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
     public static final DashboardWidgetTimeseriesDefinitionRequestArgs Empty = new DashboardWidgetTimeseriesDefinitionRequestArgs();
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetApmQueryArgs> apmQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="auditQuery")
     private @Nullable Output<DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs> auditQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs>> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
@@ -73,24 +91,63 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
         return Optional.ofNullable(this.displayType);
     }
 
+    /**
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
+    @Import(name="eventQuery")
+    private @Nullable Output<DashboardWidgetTimeseriesDefinitionRequestEventQueryArgs> eventQuery;
+
+    /**
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
+    public Optional<Output<DashboardWidgetTimeseriesDefinitionRequestEventQueryArgs>> eventQuery() {
+        return Optional.ofNullable(this.eventQuery);
+    }
+
+    /**
+     * List of formulas that operate on queries.
+     * 
+     */
     @Import(name="formulas")
     private @Nullable Output<List<DashboardWidgetTimeseriesDefinitionRequestFormulaArgs>> formulas;
 
+    /**
+     * @return List of formulas that operate on queries.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetTimeseriesDefinitionRequestFormulaArgs>>> formulas() {
         return Optional.ofNullable(this.formulas);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetLogQueryArgs> logQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
@@ -111,16 +168,24 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="networkQuery")
     private @Nullable Output<DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs> networkQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs>> networkQuery() {
         return Optional.ofNullable(this.networkQuery);
     }
@@ -141,14 +206,14 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * The process query to use in the widget. The structure of this block is described below.
+     * The process query to use in the widget.
      * 
      */
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs> processQuery;
 
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget.
      * 
      */
     public Optional<Output<DashboardWidgetTimeseriesDefinitionRequestProcessQueryArgs>> processQuery() {
@@ -156,53 +221,108 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * The metric query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
+    @Import(name="profileMetricsQuery")
+    private @Nullable Output<DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQueryArgs> profileMetricsQuery;
+
+    /**
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
+    public Optional<Output<DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQueryArgs>> profileMetricsQuery() {
+        return Optional.ofNullable(this.profileMetricsQuery);
+    }
+
+    /**
+     * The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="q")
     private @Nullable Output<String> q;
 
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
 
+    /**
+     * List of queries that can be returned directly or used in formulas.
+     * 
+     */
     @Import(name="queries")
     private @Nullable Output<List<DashboardWidgetTimeseriesDefinitionRequestQueryArgs>> queries;
 
+    /**
+     * @return List of queries that can be returned directly or used in formulas.
+     * 
+     */
     public Optional<Output<List<DashboardWidgetTimeseriesDefinitionRequestQueryArgs>>> queries() {
         return Optional.ofNullable(this.queries);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetRumQueryArgs> rumQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
 
     /**
-     * The query to use for this widget.
+     * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery;
 
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<Output<DashboardWidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -228,12 +348,14 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
         this.apmQuery = $.apmQuery;
         this.auditQuery = $.auditQuery;
         this.displayType = $.displayType;
+        this.eventQuery = $.eventQuery;
         this.formulas = $.formulas;
         this.logQuery = $.logQuery;
         this.metadatas = $.metadatas;
         this.networkQuery = $.networkQuery;
         this.onRightYaxis = $.onRightYaxis;
         this.processQuery = $.processQuery;
+        this.profileMetricsQuery = $.profileMetricsQuery;
         this.q = $.q;
         this.queries = $.queries;
         this.rumQuery = $.rumQuery;
@@ -260,43 +382,59 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param apmQuery The query to use for this widget.
+         * @param apmQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder apmQuery(@Nullable Output<DashboardWidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
         }
 
         /**
-         * @param apmQuery The query to use for this widget.
+         * @param apmQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder apmQuery(DashboardWidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
 
         /**
-         * @param auditQuery The query to use for this widget.
+         * @param auditQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder auditQuery(@Nullable Output<DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs> auditQuery) {
             $.auditQuery = auditQuery;
             return this;
         }
 
         /**
-         * @param auditQuery The query to use for this widget.
+         * @param auditQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder auditQuery(DashboardWidgetTimeseriesDefinitionRequestAuditQueryArgs auditQuery) {
             return auditQuery(Output.of(auditQuery));
         }
@@ -322,36 +460,91 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
             return displayType(Output.of(displayType));
         }
 
+        /**
+         * @param eventQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
+         */
+        @Deprecated /* Use queries and formulas instead. */
+        public Builder eventQuery(@Nullable Output<DashboardWidgetTimeseriesDefinitionRequestEventQueryArgs> eventQuery) {
+            $.eventQuery = eventQuery;
+            return this;
+        }
+
+        /**
+         * @param eventQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
+         */
+        @Deprecated /* Use queries and formulas instead. */
+        public Builder eventQuery(DashboardWidgetTimeseriesDefinitionRequestEventQueryArgs eventQuery) {
+            return eventQuery(Output.of(eventQuery));
+        }
+
+        /**
+         * @param formulas List of formulas that operate on queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(@Nullable Output<List<DashboardWidgetTimeseriesDefinitionRequestFormulaArgs>> formulas) {
             $.formulas = formulas;
             return this;
         }
 
+        /**
+         * @param formulas List of formulas that operate on queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(List<DashboardWidgetTimeseriesDefinitionRequestFormulaArgs> formulas) {
             return formulas(Output.of(formulas));
         }
 
+        /**
+         * @param formulas List of formulas that operate on queries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder formulas(DashboardWidgetTimeseriesDefinitionRequestFormulaArgs... formulas) {
             return formulas(List.of(formulas));
         }
 
         /**
-         * @param logQuery The query to use for this widget.
+         * @param logQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder logQuery(@Nullable Output<DashboardWidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
         }
 
         /**
-         * @param logQuery The query to use for this widget.
+         * @param logQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder logQuery(DashboardWidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
@@ -388,22 +581,30 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param networkQuery The query to use for this widget.
+         * @param networkQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder networkQuery(@Nullable Output<DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs> networkQuery) {
             $.networkQuery = networkQuery;
             return this;
         }
 
         /**
-         * @param networkQuery The query to use for this widget.
+         * @param networkQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder networkQuery(DashboardWidgetTimeseriesDefinitionRequestNetworkQueryArgs networkQuery) {
             return networkQuery(Output.of(networkQuery));
         }
@@ -430,7 +631,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * @param processQuery The process query to use in the widget.
          * 
          * @return builder
          * 
@@ -441,7 +642,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param processQuery The process query to use in the widget. The structure of this block is described below.
+         * @param processQuery The process query to use in the widget.
          * 
          * @return builder
          * 
@@ -451,77 +652,148 @@ public final class DashboardWidgetTimeseriesDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param q The metric query to use for this widget.
+         * @param profileMetricsQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
+        public Builder profileMetricsQuery(@Nullable Output<DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQueryArgs> profileMetricsQuery) {
+            $.profileMetricsQuery = profileMetricsQuery;
+            return this;
+        }
+
+        /**
+         * @param profileMetricsQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
+         */
+        @Deprecated /* Use queries and formulas instead. */
+        public Builder profileMetricsQuery(DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQueryArgs profileMetricsQuery) {
+            return profileMetricsQuery(Output.of(profileMetricsQuery));
+        }
+
+        /**
+         * @param q The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
+         */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
         }
 
         /**
-         * @param q The metric query to use for this widget.
+         * @param q The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder q(String q) {
             return q(Output.of(q));
         }
 
+        /**
+         * @param queries List of queries that can be returned directly or used in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(@Nullable Output<List<DashboardWidgetTimeseriesDefinitionRequestQueryArgs>> queries) {
             $.queries = queries;
             return this;
         }
 
+        /**
+         * @param queries List of queries that can be returned directly or used in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(List<DashboardWidgetTimeseriesDefinitionRequestQueryArgs> queries) {
             return queries(Output.of(queries));
         }
 
+        /**
+         * @param queries List of queries that can be returned directly or used in formulas.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queries(DashboardWidgetTimeseriesDefinitionRequestQueryArgs... queries) {
             return queries(List.of(queries));
         }
 
         /**
-         * @param rumQuery The query to use for this widget.
+         * @param rumQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder rumQuery(@Nullable Output<DashboardWidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
         }
 
         /**
-         * @param rumQuery The query to use for this widget.
+         * @param rumQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder rumQuery(DashboardWidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
 
         /**
-         * @param securityQuery The query to use for this widget.
+         * @param securityQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder securityQuery(@Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
         }
 
         /**
-         * @param securityQuery The query to use for this widget.
+         * @param securityQuery The query to use for this widget. **Deprecated.** Use queries and formulas instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use queries and formulas instead.
+         * 
          */
+        @Deprecated /* Use queries and formulas instead. */
         public Builder securityQuery(DashboardWidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }

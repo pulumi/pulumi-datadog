@@ -15,14 +15,14 @@ public final class DashboardWidgetSunburstDefinitionLegendTableArgs extends com.
     public static final DashboardWidgetSunburstDefinitionLegendTableArgs Empty = new DashboardWidgetSunburstDefinitionLegendTableArgs();
 
     /**
-     * The type of legend (table or none). Valid values are `table`, `none`.
+     * The type of legend (table or none).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of legend (table or none). Valid values are `table`, `none`.
+     * @return The type of legend (table or none).
      * 
      */
     public Output<String> type() {
@@ -54,7 +54,7 @@ public final class DashboardWidgetSunburstDefinitionLegendTableArgs extends com.
         }
 
         /**
-         * @param type The type of legend (table or none). Valid values are `table`, `none`.
+         * @param type The type of legend (table or none).
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DashboardWidgetSunburstDefinitionLegendTableArgs extends com.
         }
 
         /**
-         * @param type The type of legend (table or none). Valid values are `table`, `none`.
+         * @param type The type of legend (table or none).
          * 
          * @return builder
          * 

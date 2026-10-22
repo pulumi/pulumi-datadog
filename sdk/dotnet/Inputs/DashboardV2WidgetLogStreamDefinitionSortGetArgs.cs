@@ -19,6 +19,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Column { get; set; } = null!;
 
         /// <summary>
+        /// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Widget sorting methods. Valid values are `Asc`, `Desc`.
         /// </summary>
         [Input("order", required: true)]

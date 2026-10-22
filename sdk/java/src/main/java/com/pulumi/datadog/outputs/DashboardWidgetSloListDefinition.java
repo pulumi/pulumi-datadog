@@ -5,7 +5,9 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetSloListDefinitionRequest;
+import com.pulumi.datadog.outputs.DashboardWidgetSloListDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,10 +16,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSloListDefinition {
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
+    /**
      * @return A nested block describing the request to use when displaying the widget. Exactly one `request` block is allowed.
      * 
      */
     private DashboardWidgetSloListDefinitionRequest request;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetSloListDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -36,11 +58,39 @@ public final class DashboardWidgetSloListDefinition {
 
     private DashboardWidgetSloListDefinition() {}
     /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+    /**
      * @return A nested block describing the request to use when displaying the widget. Exactly one `request` block is allowed.
      * 
      */
     public DashboardWidgetSloListDefinitionRequest request() {
         return this.request;
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetSloListDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -73,25 +123,57 @@ public final class DashboardWidgetSloListDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
+        private @Nullable Boolean hideIncompleteCostData;
+        private @Nullable String liveSpan;
         private DashboardWidgetSloListDefinitionRequest request;
+        private @Nullable DashboardWidgetSloListDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
         public Builder() {}
         public Builder(DashboardWidgetSloListDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.request = defaults.request;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
         }
 
         @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
+            return this;
+        }
+        @CustomType.Setter
         public Builder request(DashboardWidgetSloListDefinitionRequest request) {
             if (request == null) {
               throw new MissingRequiredPropertyException("DashboardWidgetSloListDefinition", "request");
             }
             this.request = request;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetSloListDefinitionTime time) {
+
+            this.time = time;
             return this;
         }
         @CustomType.Setter
@@ -114,7 +196,11 @@ public final class DashboardWidgetSloListDefinition {
         }
         public DashboardWidgetSloListDefinition build() {
             final var _resultValue = new DashboardWidgetSloListDefinition();
+            _resultValue.description = description;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.request = request;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

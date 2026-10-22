@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale {
+    /**
+     * @return The name of the unit.
+     * 
+     */
     private String unitName;
 
     private DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale() {}
+    /**
+     * @return The name of the unit.
+     * 
+     */
     public String unitName() {
         return this.unitName;
     }

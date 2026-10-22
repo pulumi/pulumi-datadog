@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionTimeArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -52,14 +53,14 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * The unit for the value displayed in the widget.
+     * Display a unit of your choice on the widget.
      * 
      */
     @Import(name="customUnit")
     private @Nullable Output<String> customUnit;
 
     /**
-     * @return The unit for the value displayed in the widget.
+     * @return Display a unit of your choice on the widget.
      * 
      */
     public Optional<Output<String>> customUnit() {
@@ -112,14 +113,14 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * The precision to use when displaying the tile.
+     * Number of decimals to show. If not defined, the widget uses the raw value.
      * 
      */
     @Import(name="precision")
     private @Nullable Output<Integer> precision;
 
     /**
-     * @return The precision to use when displaying the tile.
+     * @return Number of decimals to show. If not defined, the widget uses the raw value.
      * 
      */
     public Optional<Output<Integer>> precision() {
@@ -154,6 +155,21 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
      */
     public Optional<Output<String>> textAlign() {
         return Optional.ofNullable(this.textAlign);
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetQueryValueDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetQueryValueDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -228,6 +244,7 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
         this.precision = $.precision;
         this.requests = $.requests;
         this.textAlign = $.textAlign;
+        this.time = $.time;
         this.timeseriesBackground = $.timeseriesBackground;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
@@ -305,7 +322,7 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param customUnit The unit for the value displayed in the widget.
+         * @param customUnit Display a unit of your choice on the widget.
          * 
          * @return builder
          * 
@@ -316,7 +333,7 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param customUnit The unit for the value displayed in the widget.
+         * @param customUnit Display a unit of your choice on the widget.
          * 
          * @return builder
          * 
@@ -389,7 +406,7 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param precision The precision to use when displaying the tile.
+         * @param precision Number of decimals to show. If not defined, the widget uses the raw value.
          * 
          * @return builder
          * 
@@ -400,7 +417,7 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param precision The precision to use when displaying the tile.
+         * @param precision Number of decimals to show. If not defined, the widget uses the raw value.
          * 
          * @return builder
          * 
@@ -459,6 +476,27 @@ public final class DashboardWidgetQueryValueDefinitionArgs extends com.pulumi.re
          */
         public Builder textAlign(String textAlign) {
             return textAlign(Output.of(textAlign));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetQueryValueDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetQueryValueDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

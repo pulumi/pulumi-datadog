@@ -51,14 +51,14 @@ public final class DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs exte
     }
 
     /**
-     * The name of the index to query.
+     * A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
      * 
      */
     @Import(name="index", required=true)
     private Output<String> index;
 
     /**
-     * @return The name of the index to query.
+     * @return A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
      * 
      */
     public Output<String> index() {
@@ -176,7 +176,7 @@ public final class DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs exte
         }
 
         /**
-         * @param index The name of the index to query.
+         * @param index A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class DashboardWidgetSunburstDefinitionRequestNetworkQueryArgs exte
         }
 
         /**
-         * @param index The name of the index to query.
+         * @param index A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
          * 
          * @return builder
          * 

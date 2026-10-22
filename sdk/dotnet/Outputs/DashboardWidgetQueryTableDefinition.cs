@@ -38,6 +38,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequest> Requests;
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetQueryTableDefinitionTime? Time;
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         public readonly string? Title;
@@ -64,6 +68,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetQueryTableDefinitionRequest> requests,
 
+            Outputs.DashboardWidgetQueryTableDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
@@ -76,6 +82,7 @@ namespace Pulumi.Datadog.Outputs
             HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;
             Requests = requests;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

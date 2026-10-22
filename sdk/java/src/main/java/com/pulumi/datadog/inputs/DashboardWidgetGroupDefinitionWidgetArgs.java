@@ -7,12 +7,16 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetAlertValueDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetBarChartDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetChangeDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetCheckStatusDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetCohortDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetEmbeddedAppDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetEventStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetEventTimelineDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetFreeTextDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetFunnelDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGeomapDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionArgs;
@@ -23,21 +27,24 @@ import com.pulumi.datadog.inputs.DashboardWidgetListStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetLogStreamDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetManageStatusDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetNoteDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetPowerpackDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetPointPlotDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetProductAnalyticsFunnelDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryValueDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetRetentionCurveDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetRunWorkflowDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSankeyDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetServiceLevelObjectiveDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetServicemapDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSloListDefinitionArgs;
-import com.pulumi.datadog.inputs.DashboardWidgetSplitGraphDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTimeseriesDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTopologyMapDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTraceServiceDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetTreemapDefinitionArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetWildcardDefinitionArgs;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -79,6 +86,21 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
     }
 
     /**
+     * The definition for a Bar Chart widget.
+     * 
+     */
+    @Import(name="barChartDefinition")
+    private @Nullable Output<DashboardWidgetBarChartDefinitionArgs> barChartDefinition;
+
+    /**
+     * @return The definition for a Bar Chart widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetBarChartDefinitionArgs>> barChartDefinition() {
+        return Optional.ofNullable(this.barChartDefinition);
+    }
+
+    /**
      * The definition for a Change widget.
      * 
      */
@@ -109,6 +131,21 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
     }
 
     /**
+     * The definition for a Cohort retention-grid widget.
+     * 
+     */
+    @Import(name="cohortDefinition")
+    private @Nullable Output<DashboardWidgetCohortDefinitionArgs> cohortDefinition;
+
+    /**
+     * @return The definition for a Cohort retention-grid widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetCohortDefinitionArgs>> cohortDefinition() {
+        return Optional.ofNullable(this.cohortDefinition);
+    }
+
+    /**
      * The definition for a Distribution widget.
      * 
      */
@@ -121,6 +158,21 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      */
     public Optional<Output<DashboardWidgetDistributionDefinitionArgs>> distributionDefinition() {
         return Optional.ofNullable(this.distributionDefinition);
+    }
+
+    /**
+     * The definition for an App Builder embedded app widget.
+     * 
+     */
+    @Import(name="embeddedAppDefinition")
+    private @Nullable Output<DashboardWidgetEmbeddedAppDefinitionArgs> embeddedAppDefinition;
+
+    /**
+     * @return The definition for an App Builder embedded app widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetEmbeddedAppDefinitionArgs>> embeddedAppDefinition() {
+        return Optional.ofNullable(this.embeddedAppDefinition);
     }
 
     /**
@@ -166,6 +218,21 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      */
     public Optional<Output<DashboardWidgetFreeTextDefinitionArgs>> freeTextDefinition() {
         return Optional.ofNullable(this.freeTextDefinition);
+    }
+
+    /**
+     * The definition for a Funnel widget.
+     * 
+     */
+    @Import(name="funnelDefinition")
+    private @Nullable Output<DashboardWidgetFunnelDefinitionArgs> funnelDefinition;
+
+    /**
+     * @return The definition for a Funnel widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetFunnelDefinitionArgs>> funnelDefinition() {
+        return Optional.ofNullable(this.funnelDefinition);
     }
 
     /**
@@ -319,18 +386,33 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
     }
 
     /**
-     * The definition for a Powerpack widget.
+     * The definition for a Point Plot widget.
      * 
      */
-    @Import(name="powerpackDefinition")
-    private @Nullable Output<DashboardWidgetPowerpackDefinitionArgs> powerpackDefinition;
+    @Import(name="pointPlotDefinition")
+    private @Nullable Output<DashboardWidgetPointPlotDefinitionArgs> pointPlotDefinition;
 
     /**
-     * @return The definition for a Powerpack widget.
+     * @return The definition for a Point Plot widget.
      * 
      */
-    public Optional<Output<DashboardWidgetPowerpackDefinitionArgs>> powerpackDefinition() {
-        return Optional.ofNullable(this.powerpackDefinition);
+    public Optional<Output<DashboardWidgetPointPlotDefinitionArgs>> pointPlotDefinition() {
+        return Optional.ofNullable(this.pointPlotDefinition);
+    }
+
+    /**
+     * The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    @Import(name="productAnalyticsFunnelDefinition")
+    private @Nullable Output<DashboardWidgetProductAnalyticsFunnelDefinitionArgs> productAnalyticsFunnelDefinition;
+
+    /**
+     * @return The definition for a Product Analytics user journey funnel widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetProductAnalyticsFunnelDefinitionArgs>> productAnalyticsFunnelDefinition() {
+        return Optional.ofNullable(this.productAnalyticsFunnelDefinition);
     }
 
     /**
@@ -364,6 +446,21 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
     }
 
     /**
+     * The definition for a Retention Curve widget.
+     * 
+     */
+    @Import(name="retentionCurveDefinition")
+    private @Nullable Output<DashboardWidgetRetentionCurveDefinitionArgs> retentionCurveDefinition;
+
+    /**
+     * @return The definition for a Retention Curve widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetRetentionCurveDefinitionArgs>> retentionCurveDefinition() {
+        return Optional.ofNullable(this.retentionCurveDefinition);
+    }
+
+    /**
      * The definition for a Run Workflow widget.
      * 
      */
@@ -376,6 +473,21 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      */
     public Optional<Output<DashboardWidgetRunWorkflowDefinitionArgs>> runWorkflowDefinition() {
         return Optional.ofNullable(this.runWorkflowDefinition);
+    }
+
+    /**
+     * The definition for a Sankey diagram widget.
+     * 
+     */
+    @Import(name="sankeyDefinition")
+    private @Nullable Output<DashboardWidgetSankeyDefinitionArgs> sankeyDefinition;
+
+    /**
+     * @return The definition for a Sankey diagram widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetSankeyDefinitionArgs>> sankeyDefinition() {
+        return Optional.ofNullable(this.sankeyDefinition);
     }
 
     /**
@@ -436,21 +548,6 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
      */
     public Optional<Output<DashboardWidgetSloListDefinitionArgs>> sloListDefinition() {
         return Optional.ofNullable(this.sloListDefinition);
-    }
-
-    /**
-     * The definition for a Split Graph widget.
-     * 
-     */
-    @Import(name="splitGraphDefinition")
-    private @Nullable Output<DashboardWidgetSplitGraphDefinitionArgs> splitGraphDefinition;
-
-    /**
-     * @return The definition for a Split Graph widget.
-     * 
-     */
-    public Optional<Output<DashboardWidgetSplitGraphDefinitionArgs>> splitGraphDefinition() {
-        return Optional.ofNullable(this.splitGraphDefinition);
     }
 
     /**
@@ -558,17 +655,36 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         return Optional.ofNullable(this.widgetLayout);
     }
 
+    /**
+     * The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+     * 
+     */
+    @Import(name="wildcardDefinition")
+    private @Nullable Output<DashboardWidgetWildcardDefinitionArgs> wildcardDefinition;
+
+    /**
+     * @return The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+     * 
+     */
+    public Optional<Output<DashboardWidgetWildcardDefinitionArgs>> wildcardDefinition() {
+        return Optional.ofNullable(this.wildcardDefinition);
+    }
+
     private DashboardWidgetGroupDefinitionWidgetArgs() {}
 
     private DashboardWidgetGroupDefinitionWidgetArgs(DashboardWidgetGroupDefinitionWidgetArgs $) {
         this.alertGraphDefinition = $.alertGraphDefinition;
         this.alertValueDefinition = $.alertValueDefinition;
+        this.barChartDefinition = $.barChartDefinition;
         this.changeDefinition = $.changeDefinition;
         this.checkStatusDefinition = $.checkStatusDefinition;
+        this.cohortDefinition = $.cohortDefinition;
         this.distributionDefinition = $.distributionDefinition;
+        this.embeddedAppDefinition = $.embeddedAppDefinition;
         this.eventStreamDefinition = $.eventStreamDefinition;
         this.eventTimelineDefinition = $.eventTimelineDefinition;
         this.freeTextDefinition = $.freeTextDefinition;
+        this.funnelDefinition = $.funnelDefinition;
         this.geomapDefinition = $.geomapDefinition;
         this.heatmapDefinition = $.heatmapDefinition;
         this.hostmapDefinition = $.hostmapDefinition;
@@ -579,15 +695,17 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         this.logStreamDefinition = $.logStreamDefinition;
         this.manageStatusDefinition = $.manageStatusDefinition;
         this.noteDefinition = $.noteDefinition;
-        this.powerpackDefinition = $.powerpackDefinition;
+        this.pointPlotDefinition = $.pointPlotDefinition;
+        this.productAnalyticsFunnelDefinition = $.productAnalyticsFunnelDefinition;
         this.queryTableDefinition = $.queryTableDefinition;
         this.queryValueDefinition = $.queryValueDefinition;
+        this.retentionCurveDefinition = $.retentionCurveDefinition;
         this.runWorkflowDefinition = $.runWorkflowDefinition;
+        this.sankeyDefinition = $.sankeyDefinition;
         this.scatterplotDefinition = $.scatterplotDefinition;
         this.serviceLevelObjectiveDefinition = $.serviceLevelObjectiveDefinition;
         this.servicemapDefinition = $.servicemapDefinition;
         this.sloListDefinition = $.sloListDefinition;
-        this.splitGraphDefinition = $.splitGraphDefinition;
         this.sunburstDefinition = $.sunburstDefinition;
         this.timeseriesDefinition = $.timeseriesDefinition;
         this.toplistDefinition = $.toplistDefinition;
@@ -595,6 +713,7 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         this.traceServiceDefinition = $.traceServiceDefinition;
         this.treemapDefinition = $.treemapDefinition;
         this.widgetLayout = $.widgetLayout;
+        this.wildcardDefinition = $.wildcardDefinition;
     }
 
     public static Builder builder() {
@@ -658,6 +777,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         }
 
         /**
+         * @param barChartDefinition The definition for a Bar Chart widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder barChartDefinition(@Nullable Output<DashboardWidgetBarChartDefinitionArgs> barChartDefinition) {
+            $.barChartDefinition = barChartDefinition;
+            return this;
+        }
+
+        /**
+         * @param barChartDefinition The definition for a Bar Chart widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder barChartDefinition(DashboardWidgetBarChartDefinitionArgs barChartDefinition) {
+            return barChartDefinition(Output.of(barChartDefinition));
+        }
+
+        /**
          * @param changeDefinition The definition for a Change widget.
          * 
          * @return builder
@@ -700,6 +840,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         }
 
         /**
+         * @param cohortDefinition The definition for a Cohort retention-grid widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cohortDefinition(@Nullable Output<DashboardWidgetCohortDefinitionArgs> cohortDefinition) {
+            $.cohortDefinition = cohortDefinition;
+            return this;
+        }
+
+        /**
+         * @param cohortDefinition The definition for a Cohort retention-grid widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cohortDefinition(DashboardWidgetCohortDefinitionArgs cohortDefinition) {
+            return cohortDefinition(Output.of(cohortDefinition));
+        }
+
+        /**
          * @param distributionDefinition The definition for a Distribution widget.
          * 
          * @return builder
@@ -718,6 +879,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          */
         public Builder distributionDefinition(DashboardWidgetDistributionDefinitionArgs distributionDefinition) {
             return distributionDefinition(Output.of(distributionDefinition));
+        }
+
+        /**
+         * @param embeddedAppDefinition The definition for an App Builder embedded app widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder embeddedAppDefinition(@Nullable Output<DashboardWidgetEmbeddedAppDefinitionArgs> embeddedAppDefinition) {
+            $.embeddedAppDefinition = embeddedAppDefinition;
+            return this;
+        }
+
+        /**
+         * @param embeddedAppDefinition The definition for an App Builder embedded app widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder embeddedAppDefinition(DashboardWidgetEmbeddedAppDefinitionArgs embeddedAppDefinition) {
+            return embeddedAppDefinition(Output.of(embeddedAppDefinition));
         }
 
         /**
@@ -781,6 +963,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          */
         public Builder freeTextDefinition(DashboardWidgetFreeTextDefinitionArgs freeTextDefinition) {
             return freeTextDefinition(Output.of(freeTextDefinition));
+        }
+
+        /**
+         * @param funnelDefinition The definition for a Funnel widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder funnelDefinition(@Nullable Output<DashboardWidgetFunnelDefinitionArgs> funnelDefinition) {
+            $.funnelDefinition = funnelDefinition;
+            return this;
+        }
+
+        /**
+         * @param funnelDefinition The definition for a Funnel widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder funnelDefinition(DashboardWidgetFunnelDefinitionArgs funnelDefinition) {
+            return funnelDefinition(Output.of(funnelDefinition));
         }
 
         /**
@@ -994,24 +1197,45 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         }
 
         /**
-         * @param powerpackDefinition The definition for a Powerpack widget.
+         * @param pointPlotDefinition The definition for a Point Plot widget.
          * 
          * @return builder
          * 
          */
-        public Builder powerpackDefinition(@Nullable Output<DashboardWidgetPowerpackDefinitionArgs> powerpackDefinition) {
-            $.powerpackDefinition = powerpackDefinition;
+        public Builder pointPlotDefinition(@Nullable Output<DashboardWidgetPointPlotDefinitionArgs> pointPlotDefinition) {
+            $.pointPlotDefinition = pointPlotDefinition;
             return this;
         }
 
         /**
-         * @param powerpackDefinition The definition for a Powerpack widget.
+         * @param pointPlotDefinition The definition for a Point Plot widget.
          * 
          * @return builder
          * 
          */
-        public Builder powerpackDefinition(DashboardWidgetPowerpackDefinitionArgs powerpackDefinition) {
-            return powerpackDefinition(Output.of(powerpackDefinition));
+        public Builder pointPlotDefinition(DashboardWidgetPointPlotDefinitionArgs pointPlotDefinition) {
+            return pointPlotDefinition(Output.of(pointPlotDefinition));
+        }
+
+        /**
+         * @param productAnalyticsFunnelDefinition The definition for a Product Analytics user journey funnel widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsFunnelDefinition(@Nullable Output<DashboardWidgetProductAnalyticsFunnelDefinitionArgs> productAnalyticsFunnelDefinition) {
+            $.productAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
+            return this;
+        }
+
+        /**
+         * @param productAnalyticsFunnelDefinition The definition for a Product Analytics user journey funnel widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder productAnalyticsFunnelDefinition(DashboardWidgetProductAnalyticsFunnelDefinitionArgs productAnalyticsFunnelDefinition) {
+            return productAnalyticsFunnelDefinition(Output.of(productAnalyticsFunnelDefinition));
         }
 
         /**
@@ -1057,6 +1281,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
         }
 
         /**
+         * @param retentionCurveDefinition The definition for a Retention Curve widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionCurveDefinition(@Nullable Output<DashboardWidgetRetentionCurveDefinitionArgs> retentionCurveDefinition) {
+            $.retentionCurveDefinition = retentionCurveDefinition;
+            return this;
+        }
+
+        /**
+         * @param retentionCurveDefinition The definition for a Retention Curve widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionCurveDefinition(DashboardWidgetRetentionCurveDefinitionArgs retentionCurveDefinition) {
+            return retentionCurveDefinition(Output.of(retentionCurveDefinition));
+        }
+
+        /**
          * @param runWorkflowDefinition The definition for a Run Workflow widget.
          * 
          * @return builder
@@ -1075,6 +1320,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          */
         public Builder runWorkflowDefinition(DashboardWidgetRunWorkflowDefinitionArgs runWorkflowDefinition) {
             return runWorkflowDefinition(Output.of(runWorkflowDefinition));
+        }
+
+        /**
+         * @param sankeyDefinition The definition for a Sankey diagram widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sankeyDefinition(@Nullable Output<DashboardWidgetSankeyDefinitionArgs> sankeyDefinition) {
+            $.sankeyDefinition = sankeyDefinition;
+            return this;
+        }
+
+        /**
+         * @param sankeyDefinition The definition for a Sankey diagram widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sankeyDefinition(DashboardWidgetSankeyDefinitionArgs sankeyDefinition) {
+            return sankeyDefinition(Output.of(sankeyDefinition));
         }
 
         /**
@@ -1159,27 +1425,6 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          */
         public Builder sloListDefinition(DashboardWidgetSloListDefinitionArgs sloListDefinition) {
             return sloListDefinition(Output.of(sloListDefinition));
-        }
-
-        /**
-         * @param splitGraphDefinition The definition for a Split Graph widget.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder splitGraphDefinition(@Nullable Output<DashboardWidgetSplitGraphDefinitionArgs> splitGraphDefinition) {
-            $.splitGraphDefinition = splitGraphDefinition;
-            return this;
-        }
-
-        /**
-         * @param splitGraphDefinition The definition for a Split Graph widget.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder splitGraphDefinition(DashboardWidgetSplitGraphDefinitionArgs splitGraphDefinition) {
-            return splitGraphDefinition(Output.of(splitGraphDefinition));
         }
 
         /**
@@ -1327,6 +1572,27 @@ public final class DashboardWidgetGroupDefinitionWidgetArgs extends com.pulumi.r
          */
         public Builder widgetLayout(DashboardWidgetGroupDefinitionWidgetWidgetLayoutArgs widgetLayout) {
             return widgetLayout(Output.of(widgetLayout));
+        }
+
+        /**
+         * @param wildcardDefinition The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wildcardDefinition(@Nullable Output<DashboardWidgetWildcardDefinitionArgs> wildcardDefinition) {
+            $.wildcardDefinition = wildcardDefinition;
+            return this;
+        }
+
+        /**
+         * @param wildcardDefinition The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wildcardDefinition(DashboardWidgetWildcardDefinitionArgs wildcardDefinition) {
+            return wildcardDefinition(Output.of(wildcardDefinition));
         }
 
         public DashboardWidgetGroupDefinitionWidgetArgs build() {

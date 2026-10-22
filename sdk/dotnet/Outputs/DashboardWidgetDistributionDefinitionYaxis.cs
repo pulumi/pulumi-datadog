@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetDistributionDefinitionYaxis
     {
         /// <summary>
-        /// Always include zero or fit the axis to the data range.
+        /// True includes zero.
         /// </summary>
         public readonly bool? IncludeZero;
         /// <summary>
@@ -22,15 +22,15 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// Specify the maximum value to show on the Y-axis.
+        /// Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
         /// </summary>
         public readonly string? Max;
         /// <summary>
-        /// Specify the minimum value to show on the Y-axis.
+        /// Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
         /// </summary>
         public readonly string? Min;
         /// <summary>
-        /// Specify the scale type, options: `Linear`, `Log`, `Pow`, `Sqrt`.
+        /// Specifies the scale type. Possible values are `Linear` or `Log`.
         /// </summary>
         public readonly string? Scale;
 

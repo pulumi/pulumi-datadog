@@ -10,6 +10,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardV2WidgetListStreamDefinitionRequest {
@@ -18,6 +20,15 @@ public final class DashboardV2WidgetListStreamDefinitionRequest {
      * 
      */
     private List<DashboardV2WidgetListStreamDefinitionRequestColumn> columns;
+    /**
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
+    private @Nullable String description;
     /**
      * @return Updated list stream widget.
      * 
@@ -36,6 +47,17 @@ public final class DashboardV2WidgetListStreamDefinitionRequest {
      */
     public List<DashboardV2WidgetListStreamDefinitionRequestColumn> columns() {
         return this.columns;
+    }
+    /**
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Updated list stream widget.
@@ -62,12 +84,14 @@ public final class DashboardV2WidgetListStreamDefinitionRequest {
     @CustomType.Builder
     public static final class Builder {
         private List<DashboardV2WidgetListStreamDefinitionRequestColumn> columns;
+        private @Nullable String description;
         private DashboardV2WidgetListStreamDefinitionRequestQuery query;
         private String responseFormat;
         public Builder() {}
         public Builder(DashboardV2WidgetListStreamDefinitionRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.columns = defaults.columns;
+    	      this.description = defaults.description;
     	      this.query = defaults.query;
     	      this.responseFormat = defaults.responseFormat;
         }
@@ -82,6 +106,12 @@ public final class DashboardV2WidgetListStreamDefinitionRequest {
         }
         public Builder columns(DashboardV2WidgetListStreamDefinitionRequestColumn... columns) {
             return columns(List.of(columns));
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
         }
         @CustomType.Setter
         public Builder query(DashboardV2WidgetListStreamDefinitionRequestQuery query) {
@@ -102,6 +132,7 @@ public final class DashboardV2WidgetListStreamDefinitionRequest {
         public DashboardV2WidgetListStreamDefinitionRequest build() {
             final var _resultValue = new DashboardV2WidgetListStreamDefinitionRequest();
             _resultValue.columns = columns;
+            _resultValue.description = description;
             _resultValue.query = query;
             _resultValue.responseFormat = responseFormat;
             return _resultValue;

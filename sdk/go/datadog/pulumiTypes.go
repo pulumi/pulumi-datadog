@@ -15348,7 +15348,7 @@ type DashboardTab struct {
 	Id *string `pulumi:"id"`
 	// The name of the tab.
 	Name string `pulumi:"name"`
-	// List of widget references for this tab. Use @N format to reference widgets by position (1-indexed).
+	// List of widget references using @N format (1-indexed).
 	WidgetIds []string `pulumi:"widgetIds"`
 }
 
@@ -15368,7 +15368,7 @@ type DashboardTabArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the tab.
 	Name pulumi.StringInput `pulumi:"name"`
-	// List of widget references for this tab. Use @N format to reference widgets by position (1-indexed).
+	// List of widget references using @N format (1-indexed).
 	WidgetIds pulumi.StringArrayInput `pulumi:"widgetIds"`
 }
 
@@ -15433,7 +15433,7 @@ func (o DashboardTabOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardTab) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// List of widget references for this tab. Use @N format to reference widgets by position (1-indexed).
+// List of widget references using @N format (1-indexed).
 func (o DashboardTabOutput) WidgetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardTab) []string { return v.WidgetIds }).(pulumi.StringArrayOutput)
 }
@@ -15459,7 +15459,7 @@ func (o DashboardTabArrayOutput) Index(i pulumi.IntInput) DashboardTabOutput {
 }
 
 type DashboardTemplateVariable struct {
-	// The list of values that the template variable drop-down is be limited to
+	// The list of values that the template variable drop-down is limited to.
 	AvailableValues []string `pulumi:"availableValues"`
 	// The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
 	//
@@ -15471,6 +15471,8 @@ type DashboardTemplateVariable struct {
 	Name string `pulumi:"name"`
 	// The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
 	Prefix *string `pulumi:"prefix"`
+	// The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+	Type *string `pulumi:"type"`
 }
 
 // DashboardTemplateVariableInput is an input type that accepts DashboardTemplateVariableArgs and DashboardTemplateVariableOutput values.
@@ -15485,7 +15487,7 @@ type DashboardTemplateVariableInput interface {
 }
 
 type DashboardTemplateVariableArgs struct {
-	// The list of values that the template variable drop-down is be limited to
+	// The list of values that the template variable drop-down is limited to.
 	AvailableValues pulumi.StringArrayInput `pulumi:"availableValues"`
 	// The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
 	//
@@ -15497,6 +15499,8 @@ type DashboardTemplateVariableArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (DashboardTemplateVariableArgs) ElementType() reflect.Type {
@@ -15550,7 +15554,7 @@ func (o DashboardTemplateVariableOutput) ToDashboardTemplateVariableOutputWithCo
 	return o
 }
 
-// The list of values that the template variable drop-down is be limited to
+// The list of values that the template variable drop-down is limited to.
 func (o DashboardTemplateVariableOutput) AvailableValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardTemplateVariable) []string { return v.AvailableValues }).(pulumi.StringArrayOutput)
 }
@@ -15575,6 +15579,11 @@ func (o DashboardTemplateVariableOutput) Name() pulumi.StringOutput {
 // The tag prefix associated with the variable. Only tags with this prefix appear in the variable dropdown.
 func (o DashboardTemplateVariableOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardTemplateVariable) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+func (o DashboardTemplateVariableOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardTemplateVariable) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type DashboardTemplateVariableArrayOutput struct{ *pulumi.OutputState }
@@ -79181,6 +79190,10 @@ func (o DashboardV2WidgetListStreamDefinitionPtrOutput) TitleSize() pulumi.Strin
 type DashboardV2WidgetListStreamDefinitionRequest struct {
 	// Widget columns.
 	Columns []DashboardV2WidgetListStreamDefinitionRequestColumn `pulumi:"columns"`
+	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+	//
+	// Deprecated: This field has no effect and will be removed in a future release.
+	Description *string `pulumi:"description"`
 	// Updated list stream widget.
 	Query DashboardV2WidgetListStreamDefinitionRequestQuery `pulumi:"query"`
 	// Widget response format. Valid values are `eventList`.
@@ -79201,6 +79214,10 @@ type DashboardV2WidgetListStreamDefinitionRequestInput interface {
 type DashboardV2WidgetListStreamDefinitionRequestArgs struct {
 	// Widget columns.
 	Columns DashboardV2WidgetListStreamDefinitionRequestColumnArrayInput `pulumi:"columns"`
+	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+	//
+	// Deprecated: This field has no effect and will be removed in a future release.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Updated list stream widget.
 	Query DashboardV2WidgetListStreamDefinitionRequestQueryInput `pulumi:"query"`
 	// Widget response format. Valid values are `eventList`.
@@ -79263,6 +79280,13 @@ func (o DashboardV2WidgetListStreamDefinitionRequestOutput) Columns() DashboardV
 	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequest) []DashboardV2WidgetListStreamDefinitionRequestColumn {
 		return v.Columns
 	}).(DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput)
+}
+
+// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+//
+// Deprecated: This field has no effect and will be removed in a future release.
+func (o DashboardV2WidgetListStreamDefinitionRequestOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequest) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Updated list stream widget.
@@ -79622,6 +79646,10 @@ func (o DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput) Ind
 type DashboardV2WidgetListStreamDefinitionRequestQuerySort struct {
 	// The facet path for the column.
 	Column string `pulumi:"column"`
+	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+	//
+	// Deprecated: This field has no effect and will be removed in a future release.
+	Description *string `pulumi:"description"`
 	// Widget sorting methods. Valid values are `asc`, `desc`.
 	Order string `pulumi:"order"`
 }
@@ -79640,6 +79668,10 @@ type DashboardV2WidgetListStreamDefinitionRequestQuerySortInput interface {
 type DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs struct {
 	// The facet path for the column.
 	Column pulumi.StringInput `pulumi:"column"`
+	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+	//
+	// Deprecated: This field has no effect and will be removed in a future release.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Widget sorting methods. Valid values are `asc`, `desc`.
 	Order pulumi.StringInput `pulumi:"order"`
 }
@@ -79726,6 +79758,13 @@ func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) Column() pu
 	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuerySort) string { return v.Column }).(pulumi.StringOutput)
 }
 
+// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+//
+// Deprecated: This field has no effect and will be removed in a future release.
+func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuerySort) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) Order() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuerySort) string { return v.Order }).(pulumi.StringOutput)
@@ -79762,6 +79801,18 @@ func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput) Column()
 			return nil
 		}
 		return &v.Column
+	}).(pulumi.StringPtrOutput)
+}
+
+// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+//
+// Deprecated: This field has no effect and will be removed in a future release.
+func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionRequestQuerySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -81429,6 +81480,10 @@ func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) TitleSize() pulumi.String
 type DashboardV2WidgetLogStreamDefinitionSort struct {
 	// The facet path for the column.
 	Column string `pulumi:"column"`
+	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+	//
+	// Deprecated: This field has no effect and will be removed in a future release.
+	Description *string `pulumi:"description"`
 	// Widget sorting methods. Valid values are `asc`, `desc`.
 	Order string `pulumi:"order"`
 }
@@ -81447,6 +81502,10 @@ type DashboardV2WidgetLogStreamDefinitionSortInput interface {
 type DashboardV2WidgetLogStreamDefinitionSortArgs struct {
 	// The facet path for the column.
 	Column pulumi.StringInput `pulumi:"column"`
+	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+	//
+	// Deprecated: This field has no effect and will be removed in a future release.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Widget sorting methods. Valid values are `asc`, `desc`.
 	Order pulumi.StringInput `pulumi:"order"`
 }
@@ -81533,6 +81592,13 @@ func (o DashboardV2WidgetLogStreamDefinitionSortOutput) Column() pulumi.StringOu
 	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionSort) string { return v.Column }).(pulumi.StringOutput)
 }
 
+// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+//
+// Deprecated: This field has no effect and will be removed in a future release.
+func (o DashboardV2WidgetLogStreamDefinitionSortOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionSort) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // Widget sorting methods. Valid values are `asc`, `desc`.
 func (o DashboardV2WidgetLogStreamDefinitionSortOutput) Order() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionSort) string { return v.Order }).(pulumi.StringOutput)
@@ -81569,6 +81635,18 @@ func (o DashboardV2WidgetLogStreamDefinitionSortPtrOutput) Column() pulumi.Strin
 			return nil
 		}
 		return &v.Column
+	}).(pulumi.StringPtrOutput)
+}
+
+// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+//
+// Deprecated: This field has no effect and will be removed in a future release.
+func (o DashboardV2WidgetLogStreamDefinitionSortPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionSort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 

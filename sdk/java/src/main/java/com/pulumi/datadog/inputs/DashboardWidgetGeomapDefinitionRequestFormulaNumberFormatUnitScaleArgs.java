@@ -14,9 +14,17 @@ public final class DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit
 
     public static final DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs Empty = new DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs();
 
+    /**
+     * The name of the unit.
+     * 
+     */
     @Import(name="unitName", required=true)
     private Output<String> unitName;
 
+    /**
+     * @return The name of the unit.
+     * 
+     */
     public Output<String> unitName() {
         return this.unitName;
     }
@@ -45,11 +53,23 @@ public final class DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnit
             $ = new DashboardWidgetGeomapDefinitionRequestFormulaNumberFormatUnitScaleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param unitName The name of the unit.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unitName(Output<String> unitName) {
             $.unitName = unitName;
             return this;
         }
 
+        /**
+         * @param unitName The name of the unit.
+         * 
+         * @return builder
+         * 
+         */
         public Builder unitName(String unitName) {
             return unitName(Output.of(unitName));
         }

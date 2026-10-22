@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetAlertGraphDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,6 +20,11 @@ public final class DashboardWidgetAlertGraphDefinition {
      */
     private String alertId;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
      * 
      */
@@ -28,6 +34,11 @@ public final class DashboardWidgetAlertGraphDefinition {
      * 
      */
     private @Nullable String liveSpan;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetAlertGraphDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -44,7 +55,7 @@ public final class DashboardWidgetAlertGraphDefinition {
      */
     private @Nullable String titleSize;
     /**
-     * @return Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+     * @return Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
      * 
      */
     private String vizType;
@@ -56,6 +67,13 @@ public final class DashboardWidgetAlertGraphDefinition {
      */
     public String alertId() {
         return this.alertId;
+    }
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
@@ -70,6 +88,13 @@ public final class DashboardWidgetAlertGraphDefinition {
      */
     public Optional<String> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetAlertGraphDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -93,7 +118,7 @@ public final class DashboardWidgetAlertGraphDefinition {
         return Optional.ofNullable(this.titleSize);
     }
     /**
-     * @return Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+     * @return Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
      * 
      */
     public String vizType() {
@@ -110,8 +135,10 @@ public final class DashboardWidgetAlertGraphDefinition {
     @CustomType.Builder
     public static final class Builder {
         private String alertId;
+        private @Nullable String description;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
+        private @Nullable DashboardWidgetAlertGraphDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -120,8 +147,10 @@ public final class DashboardWidgetAlertGraphDefinition {
         public Builder(DashboardWidgetAlertGraphDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alertId = defaults.alertId;
+    	      this.description = defaults.description;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -137,6 +166,12 @@ public final class DashboardWidgetAlertGraphDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
+        @CustomType.Setter
         public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
 
             this.hideIncompleteCostData = hideIncompleteCostData;
@@ -146,6 +181,12 @@ public final class DashboardWidgetAlertGraphDefinition {
         public Builder liveSpan(@Nullable String liveSpan) {
 
             this.liveSpan = liveSpan;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetAlertGraphDefinitionTime time) {
+
+            this.time = time;
             return this;
         }
         @CustomType.Setter
@@ -177,8 +218,10 @@ public final class DashboardWidgetAlertGraphDefinition {
         public DashboardWidgetAlertGraphDefinition build() {
             final var _resultValue = new DashboardWidgetAlertGraphDefinition();
             _resultValue.alertId = alertId;
+            _resultValue.description = description;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

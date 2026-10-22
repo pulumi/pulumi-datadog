@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinitionRequest;
+import com.pulumi.datadog.outputs.DashboardWidgetChangeDefinitionTime;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -40,6 +41,11 @@ public final class DashboardWidgetChangeDefinition {
      * 
      */
     private @Nullable List<DashboardWidgetChangeDefinitionRequest> requests;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetChangeDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -93,6 +99,13 @@ public final class DashboardWidgetChangeDefinition {
         return this.requests == null ? List.of() : this.requests;
     }
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetChangeDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
      * @return The title of the widget.
      * 
      */
@@ -128,6 +141,7 @@ public final class DashboardWidgetChangeDefinition {
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable List<DashboardWidgetChangeDefinitionRequest> requests;
+        private @Nullable DashboardWidgetChangeDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -139,6 +153,7 @@ public final class DashboardWidgetChangeDefinition {
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.requests = defaults.requests;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -181,6 +196,12 @@ public final class DashboardWidgetChangeDefinition {
             return requests(List.of(requests));
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetChangeDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -205,6 +226,7 @@ public final class DashboardWidgetChangeDefinition {
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.requests = requests;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

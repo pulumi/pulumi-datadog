@@ -32,14 +32,14 @@ public final class DashboardWidgetQueryTableDefinitionCustomLinkArgs extends com
     }
 
     /**
-     * The label for the custom link URL.
+     * The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The label for the custom link URL.
+     * @return The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
      * 
      */
     public Optional<Output<String>> label() {
@@ -47,14 +47,14 @@ public final class DashboardWidgetQueryTableDefinitionCustomLinkArgs extends com
     }
 
     /**
-     * The URL of the custom link.
+     * The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
      * 
      */
     @Import(name="link")
     private @Nullable Output<String> link;
 
     /**
-     * @return The URL of the custom link.
+     * @return The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
      * 
      */
     public Optional<Output<String>> link() {
@@ -62,14 +62,14 @@ public final class DashboardWidgetQueryTableDefinitionCustomLinkArgs extends com
     }
 
     /**
-     * The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     * The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
      * 
      */
     @Import(name="overrideLabel")
     private @Nullable Output<String> overrideLabel;
 
     /**
-     * @return The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+     * @return The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
      * 
      */
     public Optional<Output<String>> overrideLabel() {
@@ -125,7 +125,7 @@ public final class DashboardWidgetQueryTableDefinitionCustomLinkArgs extends com
         }
 
         /**
-         * @param label The label for the custom link URL.
+         * @param label The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class DashboardWidgetQueryTableDefinitionCustomLinkArgs extends com
         }
 
         /**
-         * @param label The label for the custom link URL.
+         * @param label The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class DashboardWidgetQueryTableDefinitionCustomLinkArgs extends com
         }
 
         /**
-         * @param link The URL of the custom link.
+         * @param link The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class DashboardWidgetQueryTableDefinitionCustomLinkArgs extends com
         }
 
         /**
-         * @param link The URL of the custom link.
+         * @param link The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class DashboardWidgetQueryTableDefinitionCustomLinkArgs extends com
         }
 
         /**
-         * @param overrideLabel The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+         * @param overrideLabel The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class DashboardWidgetQueryTableDefinitionCustomLinkArgs extends com
         }
 
         /**
-         * @param overrideLabel The label ID that refers to a context menu link item. When `overrideLabel` is provided, the client request omits the label field.
+         * @param overrideLabel The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetGeomapDefinitionViewGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The two-letter ISO code of a country to focus the map on (or `WORLD`).
+        /// The 2-letter ISO code of a country to focus the map on, or `WORLD` for global view, or a region (`EMEA`, `APAC`, `LATAM`), or a continent (`NORTH_AMERICA`, `SOUTH_AMERICA`, `EUROPE`, `AFRICA`, `ASIA`, `OCEANIA`).
         /// </summary>
         [Input("focus", required: true)]
         public Input<string> Focus { get; set; } = null!;

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery {
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     private @Nullable String aggregator;
@@ -33,14 +33,14 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery {
      */
     private String name;
     /**
-     * @return The cloud cost query definition.
+     * @return Query for Cloud Cost data.
      * 
      */
     private String query;
 
     private DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery() {}
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     public Optional<String> aggregator() {
@@ -68,7 +68,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryCloudCostQuery {
         return this.name;
     }
     /**
-     * @return The cloud cost query definition.
+     * @return Query for Cloud Cost data.
      * 
      */
     public String query() {

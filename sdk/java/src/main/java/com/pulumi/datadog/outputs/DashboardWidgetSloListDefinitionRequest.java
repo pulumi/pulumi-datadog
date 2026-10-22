@@ -14,9 +14,13 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSloListDefinitionRequest {
     /**
-     * @return The description of the widget.
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
      * 
      */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
     private @Nullable String description;
     /**
      * @return Updated SLO List widget.
@@ -31,9 +35,13 @@ public final class DashboardWidgetSloListDefinitionRequest {
 
     private DashboardWidgetSloListDefinitionRequest() {}
     /**
-     * @return The description of the widget.
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
      * 
      */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }

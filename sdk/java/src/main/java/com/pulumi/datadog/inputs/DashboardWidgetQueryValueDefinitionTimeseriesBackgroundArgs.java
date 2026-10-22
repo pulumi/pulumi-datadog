@@ -18,14 +18,14 @@ public final class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs e
     public static final DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs Empty = new DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs();
 
     /**
-     * Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * Whether the Timeseries is made using an area or bars. Valid values are `area`, `bars`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+     * @return Whether the Timeseries is made using an area or bars. Valid values are `area`, `bars`.
      * 
      */
     public Output<String> type() {
@@ -73,7 +73,7 @@ public final class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs e
         }
 
         /**
-         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * @param type Whether the Timeseries is made using an area or bars. Valid values are `area`, `bars`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DashboardWidgetQueryValueDefinitionTimeseriesBackgroundArgs e
         }
 
         /**
-         * @param type Whether the Timeseries is made using an area or bars. Valid values are `bars`, `area`.
+         * @param type Whether the Timeseries is made using an area or bars. Valid values are `area`, `bars`.
          * 
          * @return builder
          * 

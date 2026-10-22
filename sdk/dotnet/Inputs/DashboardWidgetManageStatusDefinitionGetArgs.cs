@@ -19,10 +19,22 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? ColorPreference { get; set; }
 
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The display setting to use. Valid values are `Counts`, `countsAndList`, `List`.
         /// </summary>
         [Input("displayFormat")]
         public Input<string>? DisplayFormat { get; set; }
+
+        /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        [Input("hideIncompleteCostData")]
+        public Input<bool>? HideIncompleteCostData { get; set; }
 
         /// <summary>
         /// A Boolean indicating whether to hide empty categories.
@@ -31,13 +43,19 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? HideZeroCounts { get; set; }
 
         /// <summary>
-        /// The query to use in the widget.
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
+        /// <summary>
+        /// Query to filter the monitors with.
         /// </summary>
         [Input("query", required: true)]
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
-        /// A Boolean indicating whether to show when monitors/groups last triggered.
+        /// Whether to show the time that has elapsed since the monitor/group triggered.
         /// </summary>
         [Input("showLastTriggered")]
         public Input<bool>? ShowLastTriggered { get; set; }
@@ -59,6 +77,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("summaryType")]
         public Input<string>? SummaryType { get; set; }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetManageStatusDefinitionTimeGetArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.

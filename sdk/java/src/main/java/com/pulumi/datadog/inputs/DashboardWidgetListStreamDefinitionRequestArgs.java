@@ -35,16 +35,24 @@ public final class DashboardWidgetListStreamDefinitionRequestArgs extends com.pu
     }
 
     /**
-     * The description of the widget.
+     * This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
      * 
      */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the widget.
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
      * 
      */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -138,22 +146,30 @@ public final class DashboardWidgetListStreamDefinitionRequestArgs extends com.pu
         }
 
         /**
-         * @param description The description of the widget.
+         * @param description This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field has no effect and will be removed in a future release.
+         * 
          */
+        @Deprecated /* This field has no effect and will be removed in a future release. */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
         /**
-         * @param description The description of the widget.
+         * @param description This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This field has no effect and will be removed in a future release.
+         * 
          */
+        @Deprecated /* This field has no effect and will be removed in a future release. */
         public Builder description(String description) {
             return description(Output.of(description));
         }

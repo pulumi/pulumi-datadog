@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetAlertGraphDefinitionTimeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -30,6 +31,21 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
      */
     public Output<String> alertId() {
         return this.alertId;
+    }
+
+    /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
     }
 
     /**
@@ -60,6 +76,21 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
      */
     public Optional<Output<String>> liveSpan() {
         return Optional.ofNullable(this.liveSpan);
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetAlertGraphDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetAlertGraphDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -108,14 +139,14 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
     }
 
     /**
-     * Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+     * Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
      * 
      */
     @Import(name="vizType", required=true)
     private Output<String> vizType;
 
     /**
-     * @return Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+     * @return Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
      * 
      */
     public Output<String> vizType() {
@@ -126,8 +157,10 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
 
     private DashboardWidgetAlertGraphDefinitionArgs(DashboardWidgetAlertGraphDefinitionArgs $) {
         this.alertId = $.alertId;
+        this.description = $.description;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -174,6 +207,27 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
         }
 
         /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
+        }
+
+        /**
          * @param hideIncompleteCostData Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
          * 
          * @return builder
@@ -213,6 +267,27 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
          */
         public Builder liveSpan(String liveSpan) {
             return liveSpan(Output.of(liveSpan));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetAlertGraphDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetAlertGraphDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**
@@ -279,7 +354,7 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param vizType Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+         * @param vizType Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
          * 
          * @return builder
          * 
@@ -290,7 +365,7 @@ public final class DashboardWidgetAlertGraphDefinitionArgs extends com.pulumi.re
         }
 
         /**
-         * @param vizType Type of visualization to use when displaying the widget. Valid values are `timeseries`, `toplist`.
+         * @param vizType Whether to display the Alert Graph as a timeseries or a top list. Valid values are `timeseries`, `toplist`.
          * 
          * @return builder
          * 

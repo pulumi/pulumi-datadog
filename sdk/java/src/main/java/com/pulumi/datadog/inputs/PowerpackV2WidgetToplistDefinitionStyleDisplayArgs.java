@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetToplistDefinitionStyleDisplayFlatArgs;
 import com.pulumi.datadog.inputs.PowerpackV2WidgetToplistDefinitionStyleDisplayStackedArgs;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,11 +47,35 @@ public final class PowerpackV2WidgetToplistDefinitionStyleDisplayArgs extends co
         return Optional.ofNullable(this.stacked);
     }
 
+    /**
+     * Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+     * 
+     * @deprecated
+     * Use the `stacked` or `flat` block instead.
+     * 
+     */
+    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    @Import(name="type")
+    private @Nullable Output<String> type;
+
+    /**
+     * @return Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+     * 
+     * @deprecated
+     * Use the `stacked` or `flat` block instead.
+     * 
+     */
+    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
+    }
+
     private PowerpackV2WidgetToplistDefinitionStyleDisplayArgs() {}
 
     private PowerpackV2WidgetToplistDefinitionStyleDisplayArgs(PowerpackV2WidgetToplistDefinitionStyleDisplayArgs $) {
         this.flat = $.flat;
         this.stacked = $.stacked;
+        this.type = $.type;
     }
 
     public static Builder builder() {
@@ -111,6 +136,35 @@ public final class PowerpackV2WidgetToplistDefinitionStyleDisplayArgs extends co
          */
         public Builder stacked(PowerpackV2WidgetToplistDefinitionStyleDisplayStackedArgs stacked) {
             return stacked(Output.of(stacked));
+        }
+
+        /**
+         * @param type Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use the `stacked` or `flat` block instead.
+         * 
+         */
+        @Deprecated /* Use the `stacked` or `flat` block instead. */
+        public Builder type(@Nullable Output<String> type) {
+            $.type = type;
+            return this;
+        }
+
+        /**
+         * @param type Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use the `stacked` or `flat` block instead.
+         * 
+         */
+        @Deprecated /* Use the `stacked` or `flat` block instead. */
+        public Builder type(String type) {
+            return type(Output.of(type));
         }
 
         public PowerpackV2WidgetToplistDefinitionStyleDisplayArgs build() {

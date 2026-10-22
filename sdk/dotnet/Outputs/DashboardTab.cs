@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of widget references for this tab. Use @N format to reference widgets by position (1-indexed).
+        /// List of widget references using @N format (1-indexed).
         /// </summary>
         public readonly ImmutableArray<string> WidgetIds;
 

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionTimeArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionXaxisArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetScatterplotDefinitionYaxisArgs;
 import java.lang.Boolean;
@@ -112,6 +113,21 @@ public final class DashboardWidgetScatterplotDefinitionArgs extends com.pulumi.r
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetScatterplotDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetScatterplotDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -195,6 +211,7 @@ public final class DashboardWidgetScatterplotDefinitionArgs extends com.pulumi.r
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.request = $.request;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -364,6 +381,27 @@ public final class DashboardWidgetScatterplotDefinitionArgs extends com.pulumi.r
          */
         public Builder request(DashboardWidgetScatterplotDefinitionRequestArgs request) {
             return request(Output.of(request));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetScatterplotDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetScatterplotDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

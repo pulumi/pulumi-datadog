@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetToplistDefinitionStyle {
     /**
-     * @return The display mode for the widget.
+     * @return The display mode for the top list widget. Use `stacked` or `flat` sub-block.
      * 
      */
     private @Nullable List<DashboardWidgetToplistDefinitionStyleDisplay> displays;
@@ -24,14 +24,14 @@ public final class DashboardWidgetToplistDefinitionStyle {
      */
     private @Nullable String palette;
     /**
-     * @return The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     * @return The scaling mode for the widget.
      * 
      */
     private @Nullable String scaling;
 
     private DashboardWidgetToplistDefinitionStyle() {}
     /**
-     * @return The display mode for the widget.
+     * @return The display mode for the top list widget. Use `stacked` or `flat` sub-block.
      * 
      */
     public List<DashboardWidgetToplistDefinitionStyleDisplay> displays() {
@@ -45,7 +45,7 @@ public final class DashboardWidgetToplistDefinitionStyle {
         return Optional.ofNullable(this.palette);
     }
     /**
-     * @return The scaling mode for the widget. Valid values are `absolute`, `relative`.
+     * @return The scaling mode for the widget.
      * 
      */
     public Optional<String> scaling() {

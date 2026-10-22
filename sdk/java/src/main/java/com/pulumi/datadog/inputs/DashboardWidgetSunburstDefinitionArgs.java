@@ -9,6 +9,7 @@ import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionCustomLinkArgs
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionLegendInlineArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionLegendTableArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSunburstDefinitionTimeArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -22,14 +23,14 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
     public static final DashboardWidgetSunburstDefinitionArgs Empty = new DashboardWidgetSunburstDefinitionArgs();
 
     /**
-     * Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
+     * A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     @Import(name="customLinks")
     private @Nullable Output<List<DashboardWidgetSunburstDefinitionCustomLinkArgs>> customLinks;
 
     /**
-     * @return Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<DashboardWidgetSunburstDefinitionCustomLinkArgs>>> customLinks() {
@@ -142,6 +143,21 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetSunburstDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetSunburstDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -157,14 +173,14 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
     }
 
     /**
-     * The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
      * 
      */
     @Import(name="titleAlign")
     private @Nullable Output<String> titleAlign;
 
     /**
-     * @return The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
      * 
      */
     public Optional<Output<String>> titleAlign() {
@@ -172,14 +188,14 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
     }
 
     /**
-     * The size of the widget&#39;s title. Default is 16.
+     * The size of the widget&#39;s title (defaults to 16).
      * 
      */
     @Import(name="titleSize")
     private @Nullable Output<String> titleSize;
 
     /**
-     * @return The size of the widget&#39;s title. Default is 16.
+     * @return The size of the widget&#39;s title (defaults to 16).
      * 
      */
     public Optional<Output<String>> titleSize() {
@@ -197,6 +213,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         this.legendTable = $.legendTable;
         this.liveSpan = $.liveSpan;
         this.requests = $.requests;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -221,7 +238,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customLinks Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -232,7 +249,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customLinks Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -242,7 +259,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param customLinks Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
+         * @param customLinks A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -409,6 +426,27 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetSunburstDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetSunburstDefinitionTimeArgs time) {
+            return time(Output.of(time));
+        }
+
+        /**
          * @param title The title of the widget.
          * 
          * @return builder
@@ -430,7 +468,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param titleAlign The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
          * 
          * @return builder
          * 
@@ -441,7 +479,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param titleAlign The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
          * 
          * @return builder
          * 
@@ -451,7 +489,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param titleSize The size of the widget&#39;s title. Default is 16.
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
          * 
          * @return builder
          * 
@@ -462,7 +500,7 @@ public final class DashboardWidgetSunburstDefinitionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param titleSize The size of the widget&#39;s title. Default is 16.
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
          * 
          * @return builder
          * 

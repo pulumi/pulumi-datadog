@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("formulas")]
         private InputList<Inputs.DashboardWidgetGeomapDefinitionRequestFormulaGetArgs>? _formulas;
+
+        /// <summary>
+        /// List of formulas that operate on queries.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGeomapDefinitionRequestFormulaGetArgs> Formulas
         {
             get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetGeomapDefinitionRequestFormulaGetArgs>());
@@ -21,19 +25,23 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
         [Input("queries")]
         private InputList<Inputs.DashboardWidgetGeomapDefinitionRequestQueryGetArgs>? _queries;
+
+        /// <summary>
+        /// List of queries that can be returned directly or used in formulas.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetGeomapDefinitionRequestQueryGetArgs> Queries
         {
             get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetGeomapDefinitionRequestQueryGetArgs>());
@@ -41,7 +49,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetRumQueryGetArgs>? RumQuery { get; set; }

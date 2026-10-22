@@ -578,7 +578,7 @@ class DashboardV2(pulumi.CustomResource):
                  widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardV2WidgetArgs', 'DashboardV2WidgetArgsDict', 'outputs.DashboardV2Widget']]]]] = None,
                  __props__=None):
         """
-        [BETA] Provides an updated version of the Datadog dashboard resource which improves compliance with Datadog's dashboard API spec. This version is currently experimental and prone to changes.
+        `DashboardV2` is an alias for `Dashboard`. Both resource names have identical behavior and schema; prefer `Dashboard` for new configurations.
 
         ## Example Usage
 
@@ -739,7 +739,7 @@ class DashboardV2(pulumi.CustomResource):
                  args: DashboardV2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [BETA] Provides an updated version of the Datadog dashboard resource which improves compliance with Datadog's dashboard API spec. This version is currently experimental and prone to changes.
+        `DashboardV2` is an alias for `Dashboard`. Both resource names have identical behavior and schema; prefer `Dashboard` for new configurations.
 
         ## Example Usage
 

@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetTimeseriesDefinitionRequestStyle
     {
         /// <summary>
-        /// If true, the value is displayed as a label relative to the data point.
+        /// Whether to display value labels on the timeseries.
         /// </summary>
         public readonly bool? HasValueLabels;
         /// <summary>

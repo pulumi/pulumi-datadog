@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSunburstDefinitionRequestQueryEventQueryGroupByFieldsSort
     {
         /// <summary>
-        /// The aggregation method for the event platform queries. Valid values are `Count`, `Cardinality`, `Median`, `Pc75`, `Pc90`, `Pc95`, `Pc98`, `Pc99`, `Sum`, `Min`, `Max`, `Avg`.
+        /// The aggregation methods for the event platform queries. Valid values are `Count`, `Cardinality`, `Median`, `Pc75`, `Pc90`, `Pc95`, `Pc98`, `Pc99`, `Sum`, `Min`, `Max`, `Avg`.
         /// </summary>
         public readonly string Aggregation;
         /// <summary>

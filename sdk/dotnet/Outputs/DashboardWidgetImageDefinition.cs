@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetImageDefinition
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Whether to display a background or not. Defaults to `True`.
         /// </summary>
         public readonly bool? HasBackground;
@@ -22,9 +26,17 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? HasBorder;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
         /// The horizontal alignment for the widget. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? HorizontalAlign;
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        public readonly string? LiveSpan;
         /// <summary>
         /// The margins to use around the image. Note: `Small` and `Large` values are deprecated. Valid values are `Sm`, `Md`, `Lg`, `Small`, `Large`.
         /// </summary>
@@ -34,11 +46,27 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Sizing;
         /// <summary>
-        /// The URL to use as a data source for the widget.
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetImageDefinitionTime? Time;
+        /// <summary>
+        /// The title of the widget.
+        /// </summary>
+        public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
+        /// </summary>
+        public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
+        public readonly string? TitleSize;
+        /// <summary>
+        /// URL of the image.
         /// </summary>
         public readonly string Url;
         /// <summary>
-        /// The URL in dark mode to use as a data source for the widget.
+        /// URL of the image in dark mode.
         /// </summary>
         public readonly string? UrlDarkTheme;
         /// <summary>
@@ -48,15 +76,29 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private DashboardWidgetImageDefinition(
+            string? description,
+
             bool? hasBackground,
 
             bool? hasBorder,
 
+            bool? hideIncompleteCostData,
+
             string? horizontalAlign,
+
+            string? liveSpan,
 
             string? margin,
 
             string? sizing,
+
+            Outputs.DashboardWidgetImageDefinitionTime? time,
+
+            string? title,
+
+            string? titleAlign,
+
+            string? titleSize,
 
             string url,
 
@@ -64,11 +106,18 @@ namespace Pulumi.Datadog.Outputs
 
             string? verticalAlign)
         {
+            Description = description;
             HasBackground = hasBackground;
             HasBorder = hasBorder;
+            HideIncompleteCostData = hideIncompleteCostData;
             HorizontalAlign = horizontalAlign;
+            LiveSpan = liveSpan;
             Margin = margin;
             Sizing = sizing;
+            Time = time;
+            Title = title;
+            TitleAlign = titleAlign;
+            TitleSize = titleSize;
             Url = url;
             UrlDarkTheme = urlDarkTheme;
             VerticalAlign = verticalAlign;

@@ -38,13 +38,21 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? LiveSpan;
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
+        /// A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `Marker` blocks are allowed within a given `HeatmapDefinition` block.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionMarker> Markers;
+        /// <summary>
+        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequest> Requests;
         /// <summary>
         /// Whether or not to show the legend on this widget.
         /// </summary>
         public readonly bool? ShowLegend;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetHeatmapDefinitionTime? Time;
         /// <summary>
         /// The title of the widget.
         /// </summary>
@@ -57,6 +65,10 @@ namespace Pulumi.Datadog.Outputs
         /// The size of the widget's title (defaults to 16).
         /// </summary>
         public readonly string? TitleSize;
+        /// <summary>
+        /// A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetHeatmapDefinitionXaxis? Xaxis;
         /// <summary>
         /// A nested block describing the Y-Axis Controls. The structure of this block is described below.
         /// </summary>
@@ -76,15 +88,21 @@ namespace Pulumi.Datadog.Outputs
 
             string? liveSpan,
 
+            ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionMarker> markers,
+
             ImmutableArray<Outputs.DashboardWidgetHeatmapDefinitionRequest> requests,
 
             bool? showLegend,
+
+            Outputs.DashboardWidgetHeatmapDefinitionTime? time,
 
             string? title,
 
             string? titleAlign,
 
             string? titleSize,
+
+            Outputs.DashboardWidgetHeatmapDefinitionXaxis? xaxis,
 
             Outputs.DashboardWidgetHeatmapDefinitionYaxis? yaxis)
         {
@@ -94,11 +112,14 @@ namespace Pulumi.Datadog.Outputs
             HideIncompleteCostData = hideIncompleteCostData;
             LegendSize = legendSize;
             LiveSpan = liveSpan;
+            Markers = markers;
             Requests = requests;
             ShowLegend = showLegend;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;
+            Xaxis = xaxis;
             Yaxis = yaxis;
         }
     }

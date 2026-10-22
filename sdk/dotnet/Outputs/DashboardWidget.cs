@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetAlertValueDefinition? AlertValueDefinition;
         /// <summary>
+        /// The definition for a Bar Chart widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetBarChartDefinition? BarChartDefinition;
+        /// <summary>
         /// The definition for a Change widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetChangeDefinition? ChangeDefinition;
@@ -30,9 +34,17 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetCheckStatusDefinition? CheckStatusDefinition;
         /// <summary>
+        /// The definition for a Cohort retention-grid widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetCohortDefinition? CohortDefinition;
+        /// <summary>
         /// The definition for a Distribution widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetDistributionDefinition? DistributionDefinition;
+        /// <summary>
+        /// The definition for an App Builder embedded app widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetEmbeddedAppDefinition? EmbeddedAppDefinition;
         /// <summary>
         /// The definition for a Event Stream widget.
         /// </summary>
@@ -45,6 +57,10 @@ namespace Pulumi.Datadog.Outputs
         /// The definition for a Free Text widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetFreeTextDefinition? FreeTextDefinition;
+        /// <summary>
+        /// The definition for a Funnel widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetFunnelDefinition? FunnelDefinition;
         /// <summary>
         /// The definition for a Geomap widget.
         /// </summary>
@@ -90,9 +106,17 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetNoteDefinition? NoteDefinition;
         /// <summary>
+        /// The definition for a Point Plot widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetPointPlotDefinition? PointPlotDefinition;
+        /// <summary>
         /// The definition for a Powerpack widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetPowerpackDefinition? PowerpackDefinition;
+        /// <summary>
+        /// The definition for a Product Analytics user journey funnel widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetProductAnalyticsFunnelDefinition? ProductAnalyticsFunnelDefinition;
         /// <summary>
         /// The definition for a Query Table widget.
         /// </summary>
@@ -102,9 +126,17 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetQueryValueDefinition? QueryValueDefinition;
         /// <summary>
+        /// The definition for a Retention Curve widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetRetentionCurveDefinition? RetentionCurveDefinition;
+        /// <summary>
         /// The definition for a Run Workflow widget.
         /// </summary>
         public readonly Outputs.DashboardWidgetRunWorkflowDefinition? RunWorkflowDefinition;
+        /// <summary>
+        /// The definition for a Sankey diagram widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetSankeyDefinition? SankeyDefinition;
         /// <summary>
         /// The definition for a Scatterplot widget.
         /// </summary>
@@ -153,6 +185,10 @@ namespace Pulumi.Datadog.Outputs
         /// The layout of the widget on a 'free' dashboard.
         /// </summary>
         public readonly Outputs.DashboardWidgetWidgetLayout? WidgetLayout;
+        /// <summary>
+        /// The definition for a Wildcard (custom visualization) widget using Vega or Vega-Lite specifications.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetWildcardDefinition? WildcardDefinition;
 
         [OutputConstructor]
         private DashboardWidget(
@@ -160,17 +196,25 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetAlertValueDefinition? alertValueDefinition,
 
+            Outputs.DashboardWidgetBarChartDefinition? barChartDefinition,
+
             Outputs.DashboardWidgetChangeDefinition? changeDefinition,
 
             Outputs.DashboardWidgetCheckStatusDefinition? checkStatusDefinition,
 
+            Outputs.DashboardWidgetCohortDefinition? cohortDefinition,
+
             Outputs.DashboardWidgetDistributionDefinition? distributionDefinition,
+
+            Outputs.DashboardWidgetEmbeddedAppDefinition? embeddedAppDefinition,
 
             Outputs.DashboardWidgetEventStreamDefinition? eventStreamDefinition,
 
             Outputs.DashboardWidgetEventTimelineDefinition? eventTimelineDefinition,
 
             Outputs.DashboardWidgetFreeTextDefinition? freeTextDefinition,
+
+            Outputs.DashboardWidgetFunnelDefinition? funnelDefinition,
 
             Outputs.DashboardWidgetGeomapDefinition? geomapDefinition,
 
@@ -194,13 +238,21 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetNoteDefinition? noteDefinition,
 
+            Outputs.DashboardWidgetPointPlotDefinition? pointPlotDefinition,
+
             Outputs.DashboardWidgetPowerpackDefinition? powerpackDefinition,
+
+            Outputs.DashboardWidgetProductAnalyticsFunnelDefinition? productAnalyticsFunnelDefinition,
 
             Outputs.DashboardWidgetQueryTableDefinition? queryTableDefinition,
 
             Outputs.DashboardWidgetQueryValueDefinition? queryValueDefinition,
 
+            Outputs.DashboardWidgetRetentionCurveDefinition? retentionCurveDefinition,
+
             Outputs.DashboardWidgetRunWorkflowDefinition? runWorkflowDefinition,
+
+            Outputs.DashboardWidgetSankeyDefinition? sankeyDefinition,
 
             Outputs.DashboardWidgetScatterplotDefinition? scatterplotDefinition,
 
@@ -224,16 +276,22 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetTreemapDefinition? treemapDefinition,
 
-            Outputs.DashboardWidgetWidgetLayout? widgetLayout)
+            Outputs.DashboardWidgetWidgetLayout? widgetLayout,
+
+            Outputs.DashboardWidgetWildcardDefinition? wildcardDefinition)
         {
             AlertGraphDefinition = alertGraphDefinition;
             AlertValueDefinition = alertValueDefinition;
+            BarChartDefinition = barChartDefinition;
             ChangeDefinition = changeDefinition;
             CheckStatusDefinition = checkStatusDefinition;
+            CohortDefinition = cohortDefinition;
             DistributionDefinition = distributionDefinition;
+            EmbeddedAppDefinition = embeddedAppDefinition;
             EventStreamDefinition = eventStreamDefinition;
             EventTimelineDefinition = eventTimelineDefinition;
             FreeTextDefinition = freeTextDefinition;
+            FunnelDefinition = funnelDefinition;
             GeomapDefinition = geomapDefinition;
             GroupDefinition = groupDefinition;
             HeatmapDefinition = heatmapDefinition;
@@ -245,10 +303,14 @@ namespace Pulumi.Datadog.Outputs
             LogStreamDefinition = logStreamDefinition;
             ManageStatusDefinition = manageStatusDefinition;
             NoteDefinition = noteDefinition;
+            PointPlotDefinition = pointPlotDefinition;
             PowerpackDefinition = powerpackDefinition;
+            ProductAnalyticsFunnelDefinition = productAnalyticsFunnelDefinition;
             QueryTableDefinition = queryTableDefinition;
             QueryValueDefinition = queryValueDefinition;
+            RetentionCurveDefinition = retentionCurveDefinition;
             RunWorkflowDefinition = runWorkflowDefinition;
+            SankeyDefinition = sankeyDefinition;
             ScatterplotDefinition = scatterplotDefinition;
             ServiceLevelObjectiveDefinition = serviceLevelObjectiveDefinition;
             ServicemapDefinition = servicemapDefinition;
@@ -261,6 +323,7 @@ namespace Pulumi.Datadog.Outputs
             TraceServiceDefinition = traceServiceDefinition;
             TreemapDefinition = treemapDefinition;
             WidgetLayout = widgetLayout;
+            WildcardDefinition = wildcardDefinition;
         }
     }
 }

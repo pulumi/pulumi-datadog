@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionRequestArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionStyleArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionTimeArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -111,6 +112,21 @@ public final class DashboardWidgetToplistDefinitionArgs extends com.pulumi.resou
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetToplistDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetToplistDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -164,6 +180,7 @@ public final class DashboardWidgetToplistDefinitionArgs extends com.pulumi.resou
         this.liveSpan = $.liveSpan;
         this.requests = $.requests;
         this.styles = $.styles;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -341,6 +358,27 @@ public final class DashboardWidgetToplistDefinitionArgs extends com.pulumi.resou
          */
         public Builder styles(DashboardWidgetToplistDefinitionStyleArgs... styles) {
             return styles(List.of(styles));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetToplistDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetToplistDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

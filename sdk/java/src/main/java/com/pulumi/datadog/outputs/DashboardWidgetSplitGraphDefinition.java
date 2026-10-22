@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition;
 import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionSplitConfig;
+import com.pulumi.datadog.outputs.DashboardWidgetSplitGraphDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetSplitGraphDefinition {
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
     /**
      * @return Normalize y axes across graphs.
      * 
@@ -39,19 +45,41 @@ public final class DashboardWidgetSplitGraphDefinition {
      * @return The original widget we are splitting on.
      * 
      */
-    private DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition sourceWidgetDefinition;
+    private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition sourceWidgetDefinition;
     /**
      * @return Encapsulates all user choices about how to split a graph.
      * 
      */
     private DashboardWidgetSplitGraphDefinitionSplitConfig splitConfig;
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetSplitGraphDefinitionTime time;
+    /**
      * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    private @Nullable String titleSize;
 
     private DashboardWidgetSplitGraphDefinition() {}
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
     /**
      * @return Normalize y axes across graphs.
      * 
@@ -84,8 +112,8 @@ public final class DashboardWidgetSplitGraphDefinition {
      * @return The original widget we are splitting on.
      * 
      */
-    public DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition sourceWidgetDefinition() {
-        return this.sourceWidgetDefinition;
+    public Optional<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition> sourceWidgetDefinition() {
+        return Optional.ofNullable(this.sourceWidgetDefinition);
     }
     /**
      * @return Encapsulates all user choices about how to split a graph.
@@ -95,11 +123,32 @@ public final class DashboardWidgetSplitGraphDefinition {
         return this.splitConfig;
     }
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetSplitGraphDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
      * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
+    }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    public Optional<String> titleAlign() {
+        return Optional.ofNullable(this.titleAlign);
+    }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    public Optional<String> titleSize() {
+        return Optional.ofNullable(this.titleSize);
     }
 
     public static Builder builder() {
@@ -111,25 +160,39 @@ public final class DashboardWidgetSplitGraphDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String description;
         private @Nullable Boolean hasUniformYAxes;
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private String size;
-        private DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition sourceWidgetDefinition;
+        private @Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition sourceWidgetDefinition;
         private DashboardWidgetSplitGraphDefinitionSplitConfig splitConfig;
+        private @Nullable DashboardWidgetSplitGraphDefinitionTime time;
         private @Nullable String title;
+        private @Nullable String titleAlign;
+        private @Nullable String titleSize;
         public Builder() {}
         public Builder(DashboardWidgetSplitGraphDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.description = defaults.description;
     	      this.hasUniformYAxes = defaults.hasUniformYAxes;
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.size = defaults.size;
     	      this.sourceWidgetDefinition = defaults.sourceWidgetDefinition;
     	      this.splitConfig = defaults.splitConfig;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
+    	      this.titleAlign = defaults.titleAlign;
+    	      this.titleSize = defaults.titleSize;
         }
 
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
         @CustomType.Setter
         public Builder hasUniformYAxes(@Nullable Boolean hasUniformYAxes) {
 
@@ -157,10 +220,8 @@ public final class DashboardWidgetSplitGraphDefinition {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceWidgetDefinition(DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition sourceWidgetDefinition) {
-            if (sourceWidgetDefinition == null) {
-              throw new MissingRequiredPropertyException("DashboardWidgetSplitGraphDefinition", "sourceWidgetDefinition");
-            }
+        public Builder sourceWidgetDefinition(@Nullable DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition sourceWidgetDefinition) {
+
             this.sourceWidgetDefinition = sourceWidgetDefinition;
             return this;
         }
@@ -173,20 +234,42 @@ public final class DashboardWidgetSplitGraphDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetSplitGraphDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
             return this;
         }
+        @CustomType.Setter
+        public Builder titleAlign(@Nullable String titleAlign) {
+
+            this.titleAlign = titleAlign;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder titleSize(@Nullable String titleSize) {
+
+            this.titleSize = titleSize;
+            return this;
+        }
         public DashboardWidgetSplitGraphDefinition build() {
             final var _resultValue = new DashboardWidgetSplitGraphDefinition();
+            _resultValue.description = description;
             _resultValue.hasUniformYAxes = hasUniformYAxes;
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.size = size;
             _resultValue.sourceWidgetDefinition = sourceWidgetDefinition;
             _resultValue.splitConfig = splitConfig;
+            _resultValue.time = time;
             _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
             return _resultValue;
         }
     }

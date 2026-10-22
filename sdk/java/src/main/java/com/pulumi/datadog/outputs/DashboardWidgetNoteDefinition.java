@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetNoteDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -39,6 +40,16 @@ public final class DashboardWidgetNoteDefinition {
      */
     private @Nullable Boolean hasPadding;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
+    /**
      * @return Whether to show a tick or not.
      * 
      */
@@ -58,6 +69,26 @@ public final class DashboardWidgetNoteDefinition {
      * 
      */
     private @Nullable String tickPos;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetNoteDefinitionTime time;
+    /**
+     * @return The title of the widget.
+     * 
+     */
+    private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    private @Nullable String titleSize;
     /**
      * @return The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
      * 
@@ -101,6 +132,20 @@ public final class DashboardWidgetNoteDefinition {
         return Optional.ofNullable(this.hasPadding);
     }
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+    /**
      * @return Whether to show a tick or not.
      * 
      */
@@ -129,6 +174,34 @@ public final class DashboardWidgetNoteDefinition {
         return Optional.ofNullable(this.tickPos);
     }
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetNoteDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
+     * @return The title of the widget.
+     * 
+     */
+    public Optional<String> title() {
+        return Optional.ofNullable(this.title);
+    }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    public Optional<String> titleAlign() {
+        return Optional.ofNullable(this.titleAlign);
+    }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    public Optional<String> titleSize() {
+        return Optional.ofNullable(this.titleSize);
+    }
+    /**
      * @return The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
      * 
      */
@@ -150,10 +223,16 @@ public final class DashboardWidgetNoteDefinition {
         private @Nullable String description;
         private @Nullable String fontSize;
         private @Nullable Boolean hasPadding;
+        private @Nullable Boolean hideIncompleteCostData;
+        private @Nullable String liveSpan;
         private @Nullable Boolean showTick;
         private @Nullable String textAlign;
         private @Nullable String tickEdge;
         private @Nullable String tickPos;
+        private @Nullable DashboardWidgetNoteDefinitionTime time;
+        private @Nullable String title;
+        private @Nullable String titleAlign;
+        private @Nullable String titleSize;
         private @Nullable String verticalAlign;
         public Builder() {}
         public Builder(DashboardWidgetNoteDefinition defaults) {
@@ -163,10 +242,16 @@ public final class DashboardWidgetNoteDefinition {
     	      this.description = defaults.description;
     	      this.fontSize = defaults.fontSize;
     	      this.hasPadding = defaults.hasPadding;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.showTick = defaults.showTick;
     	      this.textAlign = defaults.textAlign;
     	      this.tickEdge = defaults.tickEdge;
     	      this.tickPos = defaults.tickPos;
+    	      this.time = defaults.time;
+    	      this.title = defaults.title;
+    	      this.titleAlign = defaults.titleAlign;
+    	      this.titleSize = defaults.titleSize;
     	      this.verticalAlign = defaults.verticalAlign;
         }
 
@@ -203,6 +288,18 @@ public final class DashboardWidgetNoteDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
+            return this;
+        }
+        @CustomType.Setter
         public Builder showTick(@Nullable Boolean showTick) {
 
             this.showTick = showTick;
@@ -227,6 +324,30 @@ public final class DashboardWidgetNoteDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetNoteDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder title(@Nullable String title) {
+
+            this.title = title;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder titleAlign(@Nullable String titleAlign) {
+
+            this.titleAlign = titleAlign;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder titleSize(@Nullable String titleSize) {
+
+            this.titleSize = titleSize;
+            return this;
+        }
+        @CustomType.Setter
         public Builder verticalAlign(@Nullable String verticalAlign) {
 
             this.verticalAlign = verticalAlign;
@@ -239,10 +360,16 @@ public final class DashboardWidgetNoteDefinition {
             _resultValue.description = description;
             _resultValue.fontSize = fontSize;
             _resultValue.hasPadding = hasPadding;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.showTick = showTick;
             _resultValue.textAlign = textAlign;
             _resultValue.tickEdge = tickEdge;
             _resultValue.tickPos = tickPos;
+            _resultValue.time = time;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
             _resultValue.verticalAlign = verticalAlign;
             return _resultValue;
         }

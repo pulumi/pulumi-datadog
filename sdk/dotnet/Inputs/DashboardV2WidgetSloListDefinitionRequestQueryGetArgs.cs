@@ -13,7 +13,7 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardV2WidgetSloListDefinitionRequestQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Maximum number of results to display in the table.
+        /// Maximum number of results to display in the table. Defaults to `100`.
         /// </summary>
         [Input("limit")]
         public Input<int>? Limit { get; set; }

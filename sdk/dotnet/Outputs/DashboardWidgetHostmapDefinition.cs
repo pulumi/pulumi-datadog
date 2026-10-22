@@ -22,11 +22,19 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The list of tags to group nodes by.
+        /// The list of tag prefixes to group by.
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
-        /// A Boolean indicating whether to show ungrouped nodes.
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        public readonly string? LiveSpan;
+        /// <summary>
+        /// A Boolean indicating whether to show the hosts that don't fit in a group.
         /// </summary>
         public readonly bool? NoGroupHosts;
         /// <summary>
@@ -38,17 +46,25 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? NodeType;
         /// <summary>
-        /// A nested block describing the request to use when displaying the widget. Multiple `Request` blocks are allowed using the structure below.
+        /// Notes/description text for the host map widget.
+        /// </summary>
+        public readonly string? Notes;
+        /// <summary>
+        /// A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
         /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionRequest? Request;
         /// <summary>
-        /// The list of tags to filter nodes by.
+        /// The list of tags used to filter the map.
         /// </summary>
         public readonly ImmutableArray<string> Scopes;
         /// <summary>
         /// The style of the widget graph. One nested block is allowed using the structure below.
         /// </summary>
         public readonly Outputs.DashboardWidgetHostmapDefinitionStyle? Style;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetHostmapDefinitionTime? Time;
         /// <summary>
         /// The title of the widget.
         /// </summary>
@@ -70,17 +86,25 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<string> groups,
 
+            bool? hideIncompleteCostData,
+
+            string? liveSpan,
+
             bool? noGroupHosts,
 
             bool? noMetricHosts,
 
             string? nodeType,
 
+            string? notes,
+
             Outputs.DashboardWidgetHostmapDefinitionRequest? request,
 
             ImmutableArray<string> scopes,
 
             Outputs.DashboardWidgetHostmapDefinitionStyle? style,
+
+            Outputs.DashboardWidgetHostmapDefinitionTime? time,
 
             string? title,
 
@@ -91,12 +115,16 @@ namespace Pulumi.Datadog.Outputs
             CustomLinks = customLinks;
             Description = description;
             Groups = groups;
+            HideIncompleteCostData = hideIncompleteCostData;
+            LiveSpan = liveSpan;
             NoGroupHosts = noGroupHosts;
             NoMetricHosts = noMetricHosts;
             NodeType = nodeType;
+            Notes = notes;
             Request = request;
             Scopes = scopes;
             Style = style;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

@@ -36,6 +36,18 @@ namespace Pulumi.Datadog.Inputs
         [Input("liveSpan")]
         public Input<string>? LiveSpan { get; set; }
 
+        [Input("markers")]
+        private InputList<Inputs.DashboardWidgetDistributionDefinitionMarkerGetArgs>? _markers;
+
+        /// <summary>
+        /// A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `Marker` blocks are allowed within a given `DistributionDefinition` block.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetDistributionDefinitionMarkerGetArgs> Markers
+        {
+            get => _markers ?? (_markers = new InputList<Inputs.DashboardWidgetDistributionDefinitionMarkerGetArgs>());
+            set => _markers = value;
+        }
+
         [Input("requests")]
         private InputList<Inputs.DashboardWidgetDistributionDefinitionRequestGetArgs>? _requests;
 
@@ -53,6 +65,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("showLegend")]
         public Input<bool>? ShowLegend { get; set; }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetDistributionDefinitionTimeGetArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.

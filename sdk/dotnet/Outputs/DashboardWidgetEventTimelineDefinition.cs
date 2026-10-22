@@ -26,13 +26,17 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? LiveSpan;
         /// <summary>
-        /// The query to use in the widget.
+        /// Query to filter the event timeline with.
         /// </summary>
         public readonly string Query;
         /// <summary>
         /// The execution method for multi-value filters, options: `And` or `Or`.
         /// </summary>
         public readonly string? TagsExecution;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetEventTimelineDefinitionTime? Time;
         /// <summary>
         /// The title of the widget.
         /// </summary>
@@ -58,6 +62,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? tagsExecution,
 
+            Outputs.DashboardWidgetEventTimelineDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
@@ -69,6 +75,7 @@ namespace Pulumi.Datadog.Outputs
             LiveSpan = liveSpan;
             Query = query;
             TagsExecution = tagsExecution;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

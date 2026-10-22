@@ -4,7 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetFreeTextDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetFreeTextDefinition {
+    /**
+     * @return The background color of the text widget.
+     * 
+     */
+    private @Nullable String backgroundColor;
     /**
      * @return The color of the text in the widget.
      * 
@@ -28,6 +35,16 @@ public final class DashboardWidgetFreeTextDefinition {
      */
     private @Nullable String fontSize;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
+    /**
      * @return The text to display in the widget.
      * 
      */
@@ -37,8 +54,35 @@ public final class DashboardWidgetFreeTextDefinition {
      * 
      */
     private @Nullable String textAlign;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetFreeTextDefinitionTime time;
+    /**
+     * @return The title of the widget.
+     * 
+     */
+    private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    private @Nullable String titleSize;
 
     private DashboardWidgetFreeTextDefinition() {}
+    /**
+     * @return The background color of the text widget.
+     * 
+     */
+    public Optional<String> backgroundColor() {
+        return Optional.ofNullable(this.backgroundColor);
+    }
     /**
      * @return The color of the text in the widget.
      * 
@@ -61,6 +105,20 @@ public final class DashboardWidgetFreeTextDefinition {
         return Optional.ofNullable(this.fontSize);
     }
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+    /**
      * @return The text to display in the widget.
      * 
      */
@@ -74,6 +132,34 @@ public final class DashboardWidgetFreeTextDefinition {
     public Optional<String> textAlign() {
         return Optional.ofNullable(this.textAlign);
     }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetFreeTextDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
+     * @return The title of the widget.
+     * 
+     */
+    public Optional<String> title() {
+        return Optional.ofNullable(this.title);
+    }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    public Optional<String> titleAlign() {
+        return Optional.ofNullable(this.titleAlign);
+    }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    public Optional<String> titleSize() {
+        return Optional.ofNullable(this.titleSize);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -84,21 +170,41 @@ public final class DashboardWidgetFreeTextDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String backgroundColor;
         private @Nullable String color;
         private @Nullable String description;
         private @Nullable String fontSize;
+        private @Nullable Boolean hideIncompleteCostData;
+        private @Nullable String liveSpan;
         private String text;
         private @Nullable String textAlign;
+        private @Nullable DashboardWidgetFreeTextDefinitionTime time;
+        private @Nullable String title;
+        private @Nullable String titleAlign;
+        private @Nullable String titleSize;
         public Builder() {}
         public Builder(DashboardWidgetFreeTextDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.backgroundColor = defaults.backgroundColor;
     	      this.color = defaults.color;
     	      this.description = defaults.description;
     	      this.fontSize = defaults.fontSize;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.text = defaults.text;
     	      this.textAlign = defaults.textAlign;
+    	      this.time = defaults.time;
+    	      this.title = defaults.title;
+    	      this.titleAlign = defaults.titleAlign;
+    	      this.titleSize = defaults.titleSize;
         }
 
+        @CustomType.Setter
+        public Builder backgroundColor(@Nullable String backgroundColor) {
+
+            this.backgroundColor = backgroundColor;
+            return this;
+        }
         @CustomType.Setter
         public Builder color(@Nullable String color) {
 
@@ -118,6 +224,18 @@ public final class DashboardWidgetFreeTextDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
+            return this;
+        }
+        @CustomType.Setter
         public Builder text(String text) {
             if (text == null) {
               throw new MissingRequiredPropertyException("DashboardWidgetFreeTextDefinition", "text");
@@ -131,13 +249,44 @@ public final class DashboardWidgetFreeTextDefinition {
             this.textAlign = textAlign;
             return this;
         }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetFreeTextDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder title(@Nullable String title) {
+
+            this.title = title;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder titleAlign(@Nullable String titleAlign) {
+
+            this.titleAlign = titleAlign;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder titleSize(@Nullable String titleSize) {
+
+            this.titleSize = titleSize;
+            return this;
+        }
         public DashboardWidgetFreeTextDefinition build() {
             final var _resultValue = new DashboardWidgetFreeTextDefinition();
+            _resultValue.backgroundColor = backgroundColor;
             _resultValue.color = color;
             _resultValue.description = description;
             _resultValue.fontSize = fontSize;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.text = text;
             _resultValue.textAlign = textAlign;
+            _resultValue.time = time;
+            _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
             return _resultValue;
         }
     }

@@ -52,14 +52,14 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
     }
 
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      * 
      */
     public Output<String> dataSource() {
@@ -97,14 +97,14 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
     }
 
     /**
-     * An array of index names to query in the stream.
+     * An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
      * 
      */
     @Import(name="indexes")
     private @Nullable Output<List<String>> indexes;
 
     /**
-     * @return An array of index names to query in the stream.
+     * @return An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
      * 
      */
     public Optional<Output<List<String>>> indexes() {
@@ -142,14 +142,14 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
     }
 
     /**
-     * Storage location (private beta).
+     * Option for storage location. Feature in Private Beta.
      * 
      */
     @Import(name="storage")
     private @Nullable Output<String> storage;
 
     /**
-     * @return Storage location (private beta).
+     * @return Option for storage location. Feature in Private Beta.
      * 
      */
     public Optional<Output<String>> storage() {
@@ -241,7 +241,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
         }
 
         /**
-         * @param dataSource The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+         * @param dataSource The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
         }
 
         /**
-         * @param dataSource The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+         * @param dataSource The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
         }
 
         /**
-         * @param indexes An array of index names to query in the stream.
+         * @param indexes An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
         }
 
         /**
-         * @param indexes An array of index names to query in the stream.
+         * @param indexes An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
         }
 
         /**
-         * @param indexes An array of index names to query in the stream.
+         * @param indexes An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
         }
 
         /**
-         * @param storage Storage location (private beta).
+         * @param storage Option for storage location. Feature in Private Beta.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class DashboardWidgetSunburstDefinitionRequestQueryEventQueryArgs e
         }
 
         /**
-         * @param storage Storage location (private beta).
+         * @param storage Option for storage location. Feature in Private Beta.
          * 
          * @return builder
          * 

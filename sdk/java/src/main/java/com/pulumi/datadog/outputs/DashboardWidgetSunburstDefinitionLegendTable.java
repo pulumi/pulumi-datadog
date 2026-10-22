@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DashboardWidgetSunburstDefinitionLegendTable {
     /**
-     * @return The type of legend (table or none). Valid values are `table`, `none`.
+     * @return The type of legend (table or none).
      * 
      */
     private String type;
 
     private DashboardWidgetSunburstDefinitionLegendTable() {}
     /**
-     * @return The type of legend (table or none). Valid values are `table`, `none`.
+     * @return The type of legend (table or none).
      * 
      */
     public String type() {

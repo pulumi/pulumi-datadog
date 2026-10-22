@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetQueryValueDefinitionTimeseriesBackground
     {
         /// <summary>
-        /// Whether the Timeseries is made using an area or bars. Valid values are `Bars`, `Area`.
+        /// Whether the Timeseries is made using an area or bars. Valid values are `Area`, `Bars`.
         /// </summary>
         public readonly string Type;
         /// <summary>

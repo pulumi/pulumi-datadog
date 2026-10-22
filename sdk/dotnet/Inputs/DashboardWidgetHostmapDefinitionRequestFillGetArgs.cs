@@ -13,37 +13,61 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetHostmapDefinitionRequestFillGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
+        [Input("formulas")]
+        private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillFormulaGetArgs>? _formulas;
+
         /// <summary>
-        /// The query to use for this widget.
+        /// A list of formulas to use in the widget.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillFormulaGetArgs> Formulas
+        {
+            get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillFormulaGetArgs>());
+            set => _formulas = value;
+        }
+
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetHostmapDefinitionRequestFillProcessQueryGetArgs>? ProcessQuery { get; set; }
 
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
+        [Input("queries")]
+        private InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillQueryGetArgs>? _queries;
+
         /// <summary>
-        /// The query to use for this widget.
+        /// A list of queries to use in the widget.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillQueryGetArgs> Queries
+        {
+            get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetHostmapDefinitionRequestFillQueryGetArgs>());
+            set => _queries = value;
+        }
+
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }

@@ -17,14 +17,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery
     public static final DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs Empty = new DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs();
 
     /**
-     * The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * The aggregation methods available for cloud cost queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     @Import(name="aggregator")
     private @Nullable Output<String> aggregator;
 
     /**
-     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+     * @return The aggregation methods available for cloud cost queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
      * 
      */
     public Optional<Output<String>> aggregator() {
@@ -77,14 +77,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery
     }
 
     /**
-     * The cloud cost query definition.
+     * Query for Cloud Cost data.
      * 
      */
     @Import(name="query", required=true)
     private Output<String> query;
 
     /**
-     * @return The cloud cost query definition.
+     * @return Query for Cloud Cost data.
      * 
      */
     public Output<String> query() {
@@ -120,7 +120,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery
         }
 
         /**
-         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `last`, `max`, `min`, `sum`, `percentile`.
+         * @param aggregator The aggregation methods available for cloud cost queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery
         }
 
         /**
-         * @param query The cloud cost query definition.
+         * @param query Query for Cloud Cost data.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery
         }
 
         /**
-         * @param query The cloud cost query definition.
+         * @param query Query for Cloud Cost data.
          * 
          * @return builder
          * 

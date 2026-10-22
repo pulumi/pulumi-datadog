@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Substring;
         /// <summary>
-        /// Table widget text format replace all type.
+        /// Table widget text format replace all type. Valid values are `All`, `Substring`.
         /// </summary>
         public readonly string Type;
         /// <summary>

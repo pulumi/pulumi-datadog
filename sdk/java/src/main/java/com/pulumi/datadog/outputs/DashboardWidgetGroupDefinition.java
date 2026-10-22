@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionTime;
 import com.pulumi.datadog.outputs.DashboardWidgetGroupDefinitionWidget;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -26,20 +27,50 @@ public final class DashboardWidgetGroupDefinition {
      */
     private @Nullable String bannerImg;
     /**
+     * @return The description of the widget.
+     * 
+     */
+    private @Nullable String description;
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
      * @return The layout type of the group. Valid values are `ordered`.
      * 
      */
     private String layoutType;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
     /**
      * @return Whether to show the title or not. Defaults to `true`.
      * 
      */
     private @Nullable Boolean showTitle;
     /**
-     * @return The title of the group.
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetGroupDefinitionTime time;
+    /**
+     * @return The title of the widget.
      * 
      */
     private @Nullable String title;
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    private @Nullable String titleAlign;
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    private @Nullable String titleSize;
     /**
      * @return The list of widgets in this group.
      * 
@@ -62,11 +93,32 @@ public final class DashboardWidgetGroupDefinition {
         return Optional.ofNullable(this.bannerImg);
     }
     /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
+    /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
      * @return The layout type of the group. Valid values are `ordered`.
      * 
      */
     public String layoutType() {
         return this.layoutType;
+    }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
     }
     /**
      * @return Whether to show the title or not. Defaults to `true`.
@@ -76,11 +128,32 @@ public final class DashboardWidgetGroupDefinition {
         return Optional.ofNullable(this.showTitle);
     }
     /**
-     * @return The title of the group.
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetGroupDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
+     * @return The title of the widget.
      * 
      */
     public Optional<String> title() {
         return Optional.ofNullable(this.title);
+    }
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    public Optional<String> titleAlign() {
+        return Optional.ofNullable(this.titleAlign);
+    }
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    public Optional<String> titleSize() {
+        return Optional.ofNullable(this.titleSize);
     }
     /**
      * @return The list of widgets in this group.
@@ -101,18 +174,30 @@ public final class DashboardWidgetGroupDefinition {
     public static final class Builder {
         private @Nullable String backgroundColor;
         private @Nullable String bannerImg;
+        private @Nullable String description;
+        private @Nullable Boolean hideIncompleteCostData;
         private String layoutType;
+        private @Nullable String liveSpan;
         private @Nullable Boolean showTitle;
+        private @Nullable DashboardWidgetGroupDefinitionTime time;
         private @Nullable String title;
+        private @Nullable String titleAlign;
+        private @Nullable String titleSize;
         private @Nullable List<DashboardWidgetGroupDefinitionWidget> widgets;
         public Builder() {}
         public Builder(DashboardWidgetGroupDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backgroundColor = defaults.backgroundColor;
     	      this.bannerImg = defaults.bannerImg;
+    	      this.description = defaults.description;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.layoutType = defaults.layoutType;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.showTitle = defaults.showTitle;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
+    	      this.titleAlign = defaults.titleAlign;
+    	      this.titleSize = defaults.titleSize;
     	      this.widgets = defaults.widgets;
         }
 
@@ -129,11 +214,29 @@ public final class DashboardWidgetGroupDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
         public Builder layoutType(String layoutType) {
             if (layoutType == null) {
               throw new MissingRequiredPropertyException("DashboardWidgetGroupDefinition", "layoutType");
             }
             this.layoutType = layoutType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
             return this;
         }
         @CustomType.Setter
@@ -143,9 +246,27 @@ public final class DashboardWidgetGroupDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetGroupDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder titleAlign(@Nullable String titleAlign) {
+
+            this.titleAlign = titleAlign;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder titleSize(@Nullable String titleSize) {
+
+            this.titleSize = titleSize;
             return this;
         }
         @CustomType.Setter
@@ -161,9 +282,15 @@ public final class DashboardWidgetGroupDefinition {
             final var _resultValue = new DashboardWidgetGroupDefinition();
             _resultValue.backgroundColor = backgroundColor;
             _resultValue.bannerImg = bannerImg;
+            _resultValue.description = description;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.layoutType = layoutType;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.showTitle = showTitle;
+            _resultValue.time = time;
             _resultValue.title = title;
+            _resultValue.titleAlign = titleAlign;
+            _resultValue.titleSize = titleSize;
             _resultValue.widgets = widgets;
             return _resultValue;
         }

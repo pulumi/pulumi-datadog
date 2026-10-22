@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions {
     /**
-     * @return The type of trend line to display. Valid values are `area`, `line`, `bars`.
+     * @return The type of trend line to display. Valid values are `area`, `line`, and `bars`.
      * 
      */
     private @Nullable String trendType;
     /**
-     * @return The scale of the y-axis. Valid values are `shared`, `independent`.
+     * @return The scale of the y-axis. Valid values are `shared` and `independent`.
      * 
      */
     private @Nullable String yScale;
 
     private DashboardWidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions() {}
     /**
-     * @return The type of trend line to display. Valid values are `area`, `line`, `bars`.
+     * @return The type of trend line to display. Valid values are `area`, `line`, and `bars`.
      * 
      */
     public Optional<String> trendType() {
         return Optional.ofNullable(this.trendType);
     }
     /**
-     * @return The scale of the y-axis. Valid values are `shared`, `independent`.
+     * @return The scale of the y-axis. Valid values are `shared` and `independent`.
      * 
      */
     public Optional<String> yScale() {

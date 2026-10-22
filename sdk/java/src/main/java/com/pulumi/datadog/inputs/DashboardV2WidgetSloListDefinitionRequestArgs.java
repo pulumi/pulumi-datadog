@@ -9,11 +9,36 @@ import com.pulumi.datadog.inputs.DashboardV2WidgetSloListDefinitionRequestQueryA
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DashboardV2WidgetSloListDefinitionRequestArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DashboardV2WidgetSloListDefinitionRequestArgs Empty = new DashboardV2WidgetSloListDefinitionRequestArgs();
+
+    /**
+     * This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
 
     /**
      * Updated SLO List widget.
@@ -48,6 +73,7 @@ public final class DashboardV2WidgetSloListDefinitionRequestArgs extends com.pul
     private DashboardV2WidgetSloListDefinitionRequestArgs() {}
 
     private DashboardV2WidgetSloListDefinitionRequestArgs(DashboardV2WidgetSloListDefinitionRequestArgs $) {
+        this.description = $.description;
         this.query = $.query;
         this.requestType = $.requestType;
     }
@@ -68,6 +94,35 @@ public final class DashboardV2WidgetSloListDefinitionRequestArgs extends com.pul
 
         public Builder(DashboardV2WidgetSloListDefinitionRequestArgs defaults) {
             $ = new DashboardV2WidgetSloListDefinitionRequestArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This field has no effect and will be removed in a future release.
+         * 
+         */
+        @Deprecated /* This field has no effect and will be removed in a future release. */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This field has no effect and will be removed in a future release.
+         * 
+         */
+        @Deprecated /* This field has no effect and will be removed in a future release. */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

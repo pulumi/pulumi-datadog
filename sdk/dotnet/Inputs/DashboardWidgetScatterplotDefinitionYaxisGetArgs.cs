@@ -13,31 +13,31 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetScatterplotDefinitionYaxisGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Always include zero or fit the axis to the data range.
+        /// Set to `True` to include zero.
         /// </summary>
         [Input("includeZero")]
         public Input<bool>? IncludeZero { get; set; }
 
         /// <summary>
-        /// The label of the axis to display on the graph.
+        /// The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Specify the maximum value to show on the Y-axis.
+        /// Specifies the maximum numeric value to show on the axis. Defaults to `Auto`.
         /// </summary>
         [Input("max")]
         public Input<string>? Max { get; set; }
 
         /// <summary>
-        /// Specify the minimum value to show on the Y-axis.
+        /// Specifies the minimum numeric value to show on the axis. Defaults to `Auto`.
         /// </summary>
         [Input("min")]
         public Input<string>? Min { get; set; }
 
         /// <summary>
-        /// Specify the scale type, options: `Linear`, `Log`, `Pow`, `Sqrt`.
+        /// Specifies the scale type. Possible values are `Linear`, `Log`, `Sqrt`, and `pow##` (for example `Pow2` or `pow0.5`).
         /// </summary>
         [Input("scale")]
         public Input<string>? Scale { get; set; }

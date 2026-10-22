@@ -24,7 +24,7 @@ public final class DashboardWidgetSunburstDefinitionLegendInline {
      */
     private @Nullable Boolean hideValue;
     /**
-     * @return The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
+     * @return The type of legend (inline or automatic).
      * 
      */
     private String type;
@@ -45,7 +45,7 @@ public final class DashboardWidgetSunburstDefinitionLegendInline {
         return Optional.ofNullable(this.hideValue);
     }
     /**
-     * @return The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
+     * @return The type of legend (inline or automatic).
      * 
      */
     public String type() {

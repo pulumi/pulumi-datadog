@@ -18,6 +18,10 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat {
      * 
      */
     private DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit unit;
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     private @Nullable DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale unitScale;
 
     private DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat() {}
@@ -28,6 +32,10 @@ public final class DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormat {
     public DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit unit() {
         return this.unit;
     }
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     public Optional<DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale> unitScale() {
         return Optional.ofNullable(this.unitScale);
     }

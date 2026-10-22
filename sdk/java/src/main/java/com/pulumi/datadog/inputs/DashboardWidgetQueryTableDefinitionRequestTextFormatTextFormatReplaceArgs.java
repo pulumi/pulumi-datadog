@@ -32,14 +32,14 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
     }
 
     /**
-     * Table widget text format replace all type.
+     * Table widget text format replace all type. Valid values are `all`, `substring`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Table widget text format replace all type.
+     * @return Table widget text format replace all type. Valid values are `all`, `substring`.
      * 
      */
     public Output<String> type() {
@@ -109,7 +109,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
         }
 
         /**
-         * @param type Table widget text format replace all type.
+         * @param type Table widget text format replace all type. Valid values are `all`, `substring`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
         }
 
         /**
-         * @param type Table widget text format replace all type.
+         * @param type Table widget text format replace all type. Valid values are `all`, `substring`.
          * 
          * @return builder
          * 

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort {
@@ -15,6 +17,15 @@ public final class DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQu
      * 
      */
     private String column;
+    /**
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
+    private @Nullable String description;
     /**
      * @return Widget sorting methods. Valid values are `asc`, `desc`.
      * 
@@ -28,6 +39,17 @@ public final class DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQu
      */
     public String column() {
         return this.column;
+    }
+    /**
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return Widget sorting methods. Valid values are `asc`, `desc`.
@@ -47,11 +69,13 @@ public final class DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQu
     @CustomType.Builder
     public static final class Builder {
         private String column;
+        private @Nullable String description;
         private String order;
         public Builder() {}
         public Builder(DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.column = defaults.column;
+    	      this.description = defaults.description;
     	      this.order = defaults.order;
         }
 
@@ -61,6 +85,12 @@ public final class DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQu
               throw new MissingRequiredPropertyException("DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort", "column");
             }
             this.column = column;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -74,6 +104,7 @@ public final class DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQu
         public DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort build() {
             final var _resultValue = new DashboardV2WidgetWildcardDefinitionRequestListstreamRequestQuerySort();
             _resultValue.column = column;
+            _resultValue.description = description;
             _resultValue.order = order;
             return _resultValue;
         }

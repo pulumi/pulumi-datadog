@@ -14,13 +14,28 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetToplistDefinitionStyleDisplay
     {
         /// <summary>
-        /// The display type for the widget.
+        /// Flat display for the top list widget.
         /// </summary>
-        public readonly string Type;
+        public readonly Outputs.DashboardWidgetToplistDefinitionStyleDisplayFlat? Flat;
+        /// <summary>
+        /// Stacked display for the top list widget.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetToplistDefinitionStyleDisplayStacked? Stacked;
+        /// <summary>
+        /// Legacy display type for the widget. Valid values are `Stacked`, `Flat`. **Deprecated.** Use the `Stacked` or `Flat` block instead.
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
-        private DashboardWidgetToplistDefinitionStyleDisplay(string type)
+        private DashboardWidgetToplistDefinitionStyleDisplay(
+            Outputs.DashboardWidgetToplistDefinitionStyleDisplayFlat? flat,
+
+            Outputs.DashboardWidgetToplistDefinitionStyleDisplayStacked? stacked,
+
+            string? type)
         {
+            Flat = flat;
+            Stacked = stacked;
             Type = type;
         }
     }

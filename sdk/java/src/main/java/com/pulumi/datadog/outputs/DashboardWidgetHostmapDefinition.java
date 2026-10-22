@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetHostmapDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetHostmapDefinitionRequest;
 import com.pulumi.datadog.outputs.DashboardWidgetHostmapDefinitionStyle;
+import com.pulumi.datadog.outputs.DashboardWidgetHostmapDefinitionTime;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -27,12 +28,22 @@ public final class DashboardWidgetHostmapDefinition {
      */
     private @Nullable String description;
     /**
-     * @return The list of tags to group nodes by.
+     * @return The list of tag prefixes to group by.
      * 
      */
     private @Nullable List<String> groups;
     /**
-     * @return A Boolean indicating whether to show ungrouped nodes.
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
+    /**
+     * @return A Boolean indicating whether to show the hosts that don&#39;t fit in a group.
      * 
      */
     private @Nullable Boolean noGroupHosts;
@@ -47,12 +58,17 @@ public final class DashboardWidgetHostmapDefinition {
      */
     private @Nullable String nodeType;
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+     * @return Notes/description text for the host map widget.
+     * 
+     */
+    private @Nullable String notes;
+    /**
+     * @return A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
      * 
      */
     private @Nullable DashboardWidgetHostmapDefinitionRequest request;
     /**
-     * @return The list of tags to filter nodes by.
+     * @return The list of tags used to filter the map.
      * 
      */
     private @Nullable List<String> scopes;
@@ -61,6 +77,11 @@ public final class DashboardWidgetHostmapDefinition {
      * 
      */
     private @Nullable DashboardWidgetHostmapDefinitionStyle style;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetHostmapDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -93,14 +114,28 @@ public final class DashboardWidgetHostmapDefinition {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return The list of tags to group nodes by.
+     * @return The list of tag prefixes to group by.
      * 
      */
     public List<String> groups() {
         return this.groups == null ? List.of() : this.groups;
     }
     /**
-     * @return A Boolean indicating whether to show ungrouped nodes.
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+    /**
+     * @return A Boolean indicating whether to show the hosts that don&#39;t fit in a group.
      * 
      */
     public Optional<Boolean> noGroupHosts() {
@@ -121,14 +156,21 @@ public final class DashboardWidgetHostmapDefinition {
         return Optional.ofNullable(this.nodeType);
     }
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
+     * @return Notes/description text for the host map widget.
+     * 
+     */
+    public Optional<String> notes() {
+        return Optional.ofNullable(this.notes);
+    }
+    /**
+     * @return A request using the legacy metric format, the infrastructure-backed format, or the DDSQL data-projection format.
      * 
      */
     public Optional<DashboardWidgetHostmapDefinitionRequest> request() {
         return Optional.ofNullable(this.request);
     }
     /**
-     * @return The list of tags to filter nodes by.
+     * @return The list of tags used to filter the map.
      * 
      */
     public List<String> scopes() {
@@ -140,6 +182,13 @@ public final class DashboardWidgetHostmapDefinition {
      */
     public Optional<DashboardWidgetHostmapDefinitionStyle> style() {
         return Optional.ofNullable(this.style);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetHostmapDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -175,12 +224,16 @@ public final class DashboardWidgetHostmapDefinition {
         private @Nullable List<DashboardWidgetHostmapDefinitionCustomLink> customLinks;
         private @Nullable String description;
         private @Nullable List<String> groups;
+        private @Nullable Boolean hideIncompleteCostData;
+        private @Nullable String liveSpan;
         private @Nullable Boolean noGroupHosts;
         private @Nullable Boolean noMetricHosts;
         private @Nullable String nodeType;
+        private @Nullable String notes;
         private @Nullable DashboardWidgetHostmapDefinitionRequest request;
         private @Nullable List<String> scopes;
         private @Nullable DashboardWidgetHostmapDefinitionStyle style;
+        private @Nullable DashboardWidgetHostmapDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -190,12 +243,16 @@ public final class DashboardWidgetHostmapDefinition {
     	      this.customLinks = defaults.customLinks;
     	      this.description = defaults.description;
     	      this.groups = defaults.groups;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.noGroupHosts = defaults.noGroupHosts;
     	      this.noMetricHosts = defaults.noMetricHosts;
     	      this.nodeType = defaults.nodeType;
+    	      this.notes = defaults.notes;
     	      this.request = defaults.request;
     	      this.scopes = defaults.scopes;
     	      this.style = defaults.style;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -226,6 +283,18 @@ public final class DashboardWidgetHostmapDefinition {
             return groups(List.of(groups));
         }
         @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
+            return this;
+        }
+        @CustomType.Setter
         public Builder noGroupHosts(@Nullable Boolean noGroupHosts) {
 
             this.noGroupHosts = noGroupHosts;
@@ -241,6 +310,12 @@ public final class DashboardWidgetHostmapDefinition {
         public Builder nodeType(@Nullable String nodeType) {
 
             this.nodeType = nodeType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder notes(@Nullable String notes) {
+
+            this.notes = notes;
             return this;
         }
         @CustomType.Setter
@@ -262,6 +337,12 @@ public final class DashboardWidgetHostmapDefinition {
         public Builder style(@Nullable DashboardWidgetHostmapDefinitionStyle style) {
 
             this.style = style;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetHostmapDefinitionTime time) {
+
+            this.time = time;
             return this;
         }
         @CustomType.Setter
@@ -287,12 +368,16 @@ public final class DashboardWidgetHostmapDefinition {
             _resultValue.customLinks = customLinks;
             _resultValue.description = description;
             _resultValue.groups = groups;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.noGroupHosts = noGroupHosts;
             _resultValue.noMetricHosts = noMetricHosts;
             _resultValue.nodeType = nodeType;
+            _resultValue.notes = notes;
             _resultValue.request = request;
             _resultValue.scopes = scopes;
             _resultValue.style = style;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

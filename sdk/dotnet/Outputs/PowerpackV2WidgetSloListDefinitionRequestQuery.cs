@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class PowerpackV2WidgetSloListDefinitionRequestQuery
     {
         /// <summary>
-        /// Maximum number of results to display in the table.
+        /// Maximum number of results to display in the table. Defaults to `100`.
         /// </summary>
         public readonly int? Limit;
         /// <summary>

@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSplitGraphDefinition
     {
         /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Normalize y axes across graphs.
         /// </summary>
         public readonly bool? HasUniformYAxes;
@@ -32,18 +36,32 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// The original widget we are splitting on.
         /// </summary>
-        public readonly Outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition SourceWidgetDefinition;
+        public readonly Outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition? SourceWidgetDefinition;
         /// <summary>
         /// Encapsulates all user choices about how to split a graph.
         /// </summary>
         public readonly Outputs.DashboardWidgetSplitGraphDefinitionSplitConfig SplitConfig;
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetSplitGraphDefinitionTime? Time;
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
+        /// </summary>
+        public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
+        public readonly string? TitleSize;
 
         [OutputConstructor]
         private DashboardWidgetSplitGraphDefinition(
+            string? description,
+
             bool? hasUniformYAxes,
 
             bool? hideIncompleteCostData,
@@ -52,19 +70,29 @@ namespace Pulumi.Datadog.Outputs
 
             string size,
 
-            Outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition sourceWidgetDefinition,
+            Outputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinition? sourceWidgetDefinition,
 
             Outputs.DashboardWidgetSplitGraphDefinitionSplitConfig splitConfig,
 
-            string? title)
+            Outputs.DashboardWidgetSplitGraphDefinitionTime? time,
+
+            string? title,
+
+            string? titleAlign,
+
+            string? titleSize)
         {
+            Description = description;
             HasUniformYAxes = hasUniformYAxes;
             HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;
             Size = size;
             SourceWidgetDefinition = sourceWidgetDefinition;
             SplitConfig = splitConfig;
+            Time = time;
             Title = title;
+            TitleAlign = titleAlign;
+            TitleSize = titleSize;
         }
     }
 }

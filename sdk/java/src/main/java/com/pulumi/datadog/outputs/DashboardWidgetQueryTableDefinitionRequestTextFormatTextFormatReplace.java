@@ -18,7 +18,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
      */
     private @Nullable String substring;
     /**
-     * @return Table widget text format replace all type.
+     * @return Table widget text format replace all type. Valid values are `all`, `substring`.
      * 
      */
     private String type;
@@ -37,7 +37,7 @@ public final class DashboardWidgetQueryTableDefinitionRequestTextFormatTextForma
         return Optional.ofNullable(this.substring);
     }
     /**
-     * @return Table widget text format replace all type.
+     * @return Table widget text format replace all type. Valid values are `all`, `substring`.
      * 
      */
     public String type() {

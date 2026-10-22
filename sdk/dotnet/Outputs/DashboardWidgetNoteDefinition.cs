@@ -34,6 +34,14 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly bool? HasPadding;
         /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        public readonly bool? HideIncompleteCostData;
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        public readonly string? LiveSpan;
+        /// <summary>
         /// Whether to show a tick or not.
         /// </summary>
         public readonly bool? ShowTick;
@@ -49,6 +57,22 @@ namespace Pulumi.Datadog.Outputs
         /// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `TickPos = "50%"` is centered alignment.
         /// </summary>
         public readonly string? TickPos;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetNoteDefinitionTime? Time;
+        /// <summary>
+        /// The title of the widget.
+        /// </summary>
+        public readonly string? Title;
+        /// <summary>
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
+        /// </summary>
+        public readonly string? TitleAlign;
+        /// <summary>
+        /// The size of the widget's title (defaults to 16).
+        /// </summary>
+        public readonly string? TitleSize;
         /// <summary>
         /// The vertical alignment for the widget. Valid values are `Center`, `Top`, `Bottom`.
         /// </summary>
@@ -66,6 +90,10 @@ namespace Pulumi.Datadog.Outputs
 
             bool? hasPadding,
 
+            bool? hideIncompleteCostData,
+
+            string? liveSpan,
+
             bool? showTick,
 
             string? textAlign,
@@ -74,6 +102,14 @@ namespace Pulumi.Datadog.Outputs
 
             string? tickPos,
 
+            Outputs.DashboardWidgetNoteDefinitionTime? time,
+
+            string? title,
+
+            string? titleAlign,
+
+            string? titleSize,
+
             string? verticalAlign)
         {
             BackgroundColor = backgroundColor;
@@ -81,10 +117,16 @@ namespace Pulumi.Datadog.Outputs
             Description = description;
             FontSize = fontSize;
             HasPadding = hasPadding;
+            HideIncompleteCostData = hideIncompleteCostData;
+            LiveSpan = liveSpan;
             ShowTick = showTick;
             TextAlign = textAlign;
             TickEdge = tickEdge;
             TickPos = tickPos;
+            Time = time;
+            Title = title;
+            TitleAlign = titleAlign;
+            TitleSize = titleSize;
             VerticalAlign = verticalAlign;
         }
     }

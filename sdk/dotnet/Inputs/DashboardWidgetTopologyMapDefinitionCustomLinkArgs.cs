@@ -19,19 +19,19 @@ namespace Pulumi.Datadog.Inputs
         public Input<bool>? IsHidden { get; set; }
 
         /// <summary>
-        /// The label for the custom link URL.
+        /// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
         /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// The URL of the custom link.
+        /// The URL of the custom link. URL must include `Http` or `Https`. A relative URL must start with `/`.
         /// </summary>
         [Input("link")]
         public Input<string>? Link { get; set; }
 
         /// <summary>
-        /// The label ID that refers to a context menu link item. When `OverrideLabel` is provided, the client request omits the label field.
+        /// The label ID that refers to a context menu link. Can be `Logs`, `Hosts`, `Traces`, `Profiles`, `Processes`, `Containers`, or `Rum`.
         /// </summary>
         [Input("overrideLabel")]
         public Input<string>? OverrideLabel { get; set; }

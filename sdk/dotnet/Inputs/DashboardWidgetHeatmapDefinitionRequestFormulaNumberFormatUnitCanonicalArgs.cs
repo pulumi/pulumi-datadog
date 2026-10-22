@@ -21,8 +21,8 @@ namespace Pulumi.Datadog.Inputs
         /// <summary>
         /// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
         /// </summary>
-        [Input("unitName", required: true)]
-        public Input<string> UnitName { get; set; } = null!;
+        [Input("unitName")]
+        public Input<string>? UnitName { get; set; }
 
         public DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonicalArgs()
         {

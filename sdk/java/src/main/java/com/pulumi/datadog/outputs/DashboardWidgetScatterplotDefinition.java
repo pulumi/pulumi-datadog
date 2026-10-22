@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionRequest;
+import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionTime;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionXaxis;
 import com.pulumi.datadog.outputs.DashboardWidgetScatterplotDefinitionYaxis;
 import java.lang.Boolean;
@@ -47,6 +48,11 @@ public final class DashboardWidgetScatterplotDefinition {
      * 
      */
     private @Nullable DashboardWidgetScatterplotDefinitionRequest request;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetScatterplotDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -117,6 +123,13 @@ public final class DashboardWidgetScatterplotDefinition {
         return Optional.ofNullable(this.request);
     }
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetScatterplotDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
      * @return The title of the widget.
      * 
      */
@@ -167,6 +180,7 @@ public final class DashboardWidgetScatterplotDefinition {
         private @Nullable Boolean hideIncompleteCostData;
         private @Nullable String liveSpan;
         private @Nullable DashboardWidgetScatterplotDefinitionRequest request;
+        private @Nullable DashboardWidgetScatterplotDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -181,6 +195,7 @@ public final class DashboardWidgetScatterplotDefinition {
     	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
     	      this.liveSpan = defaults.liveSpan;
     	      this.request = defaults.request;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -231,6 +246,12 @@ public final class DashboardWidgetScatterplotDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetScatterplotDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -268,6 +289,7 @@ public final class DashboardWidgetScatterplotDefinition {
             _resultValue.hideIncompleteCostData = hideIncompleteCostData;
             _resultValue.liveSpan = liveSpan;
             _resultValue.request = request;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetSplitGraphDefinitionSplitConfigArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetSplitGraphDefinitionTimeArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class DashboardWidgetSplitGraphDefinitionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DashboardWidgetSplitGraphDefinitionArgs Empty = new DashboardWidgetSplitGraphDefinitionArgs();
+
+    /**
+     * The description of the widget.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The description of the widget.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
 
     /**
      * Normalize y axes across graphs.
@@ -83,15 +99,15 @@ public final class DashboardWidgetSplitGraphDefinitionArgs extends com.pulumi.re
      * The original widget we are splitting on.
      * 
      */
-    @Import(name="sourceWidgetDefinition", required=true)
-    private Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionArgs> sourceWidgetDefinition;
+    @Import(name="sourceWidgetDefinition")
+    private @Nullable Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionArgs> sourceWidgetDefinition;
 
     /**
      * @return The original widget we are splitting on.
      * 
      */
-    public Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionArgs> sourceWidgetDefinition() {
-        return this.sourceWidgetDefinition;
+    public Optional<Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionArgs>> sourceWidgetDefinition() {
+        return Optional.ofNullable(this.sourceWidgetDefinition);
     }
 
     /**
@@ -110,6 +126,21 @@ public final class DashboardWidgetSplitGraphDefinitionArgs extends com.pulumi.re
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetSplitGraphDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetSplitGraphDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -124,16 +155,50 @@ public final class DashboardWidgetSplitGraphDefinitionArgs extends com.pulumi.re
         return Optional.ofNullable(this.title);
     }
 
+    /**
+     * The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    @Import(name="titleAlign")
+    private @Nullable Output<String> titleAlign;
+
+    /**
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+     * 
+     */
+    public Optional<Output<String>> titleAlign() {
+        return Optional.ofNullable(this.titleAlign);
+    }
+
+    /**
+     * The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    @Import(name="titleSize")
+    private @Nullable Output<String> titleSize;
+
+    /**
+     * @return The size of the widget&#39;s title (defaults to 16).
+     * 
+     */
+    public Optional<Output<String>> titleSize() {
+        return Optional.ofNullable(this.titleSize);
+    }
+
     private DashboardWidgetSplitGraphDefinitionArgs() {}
 
     private DashboardWidgetSplitGraphDefinitionArgs(DashboardWidgetSplitGraphDefinitionArgs $) {
+        this.description = $.description;
         this.hasUniformYAxes = $.hasUniformYAxes;
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.size = $.size;
         this.sourceWidgetDefinition = $.sourceWidgetDefinition;
         this.splitConfig = $.splitConfig;
+        this.time = $.time;
         this.title = $.title;
+        this.titleAlign = $.titleAlign;
+        this.titleSize = $.titleSize;
     }
 
     public static Builder builder() {
@@ -152,6 +217,27 @@ public final class DashboardWidgetSplitGraphDefinitionArgs extends com.pulumi.re
 
         public Builder(DashboardWidgetSplitGraphDefinitionArgs defaults) {
             $ = new DashboardWidgetSplitGraphDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The description of the widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**
@@ -244,7 +330,7 @@ public final class DashboardWidgetSplitGraphDefinitionArgs extends com.pulumi.re
          * @return builder
          * 
          */
-        public Builder sourceWidgetDefinition(Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionArgs> sourceWidgetDefinition) {
+        public Builder sourceWidgetDefinition(@Nullable Output<DashboardWidgetSplitGraphDefinitionSourceWidgetDefinitionArgs> sourceWidgetDefinition) {
             $.sourceWidgetDefinition = sourceWidgetDefinition;
             return this;
         }
@@ -281,6 +367,27 @@ public final class DashboardWidgetSplitGraphDefinitionArgs extends com.pulumi.re
         }
 
         /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetSplitGraphDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetSplitGraphDefinitionTimeArgs time) {
+            return time(Output.of(time));
+        }
+
+        /**
          * @param title The title of the widget.
          * 
          * @return builder
@@ -301,12 +408,51 @@ public final class DashboardWidgetSplitGraphDefinitionArgs extends com.pulumi.re
             return title(Output.of(title));
         }
 
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleAlign(@Nullable Output<String> titleAlign) {
+            $.titleAlign = titleAlign;
+            return this;
+        }
+
+        /**
+         * @param titleAlign The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleAlign(String titleAlign) {
+            return titleAlign(Output.of(titleAlign));
+        }
+
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleSize(@Nullable Output<String> titleSize) {
+            $.titleSize = titleSize;
+            return this;
+        }
+
+        /**
+         * @param titleSize The size of the widget&#39;s title (defaults to 16).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder titleSize(String titleSize) {
+            return titleSize(Output.of(titleSize));
+        }
+
         public DashboardWidgetSplitGraphDefinitionArgs build() {
             if ($.size == null) {
                 throw new MissingRequiredPropertyException("DashboardWidgetSplitGraphDefinitionArgs", "size");
-            }
-            if ($.sourceWidgetDefinition == null) {
-                throw new MissingRequiredPropertyException("DashboardWidgetSplitGraphDefinitionArgs", "sourceWidgetDefinition");
             }
             if ($.splitConfig == null) {
                 throw new MissingRequiredPropertyException("DashboardWidgetSplitGraphDefinitionArgs", "splitConfig");

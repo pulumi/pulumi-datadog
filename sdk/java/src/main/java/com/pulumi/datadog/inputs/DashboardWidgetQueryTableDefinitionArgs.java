@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetQueryTableDefinitionTimeArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -110,6 +111,21 @@ public final class DashboardWidgetQueryTableDefinitionArgs extends com.pulumi.re
     }
 
     /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetQueryTableDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetQueryTableDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
+    }
+
+    /**
      * The title of the widget.
      * 
      */
@@ -163,6 +179,7 @@ public final class DashboardWidgetQueryTableDefinitionArgs extends com.pulumi.re
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.liveSpan = $.liveSpan;
         this.requests = $.requests;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -330,6 +347,27 @@ public final class DashboardWidgetQueryTableDefinitionArgs extends com.pulumi.re
          */
         public Builder requests(DashboardWidgetQueryTableDefinitionRequestArgs... requests) {
             return requests(List.of(requests));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetQueryTableDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetQueryTableDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

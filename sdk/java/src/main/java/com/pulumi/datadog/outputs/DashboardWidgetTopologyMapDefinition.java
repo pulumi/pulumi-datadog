@@ -6,6 +6,8 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetTopologyMapDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetTopologyMapDefinitionRequest;
+import com.pulumi.datadog.outputs.DashboardWidgetTopologyMapDefinitionTime;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -25,10 +27,25 @@ public final class DashboardWidgetTopologyMapDefinition {
      */
     private @Nullable String description;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
+    /**
      * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
      * 
      */
     private @Nullable List<DashboardWidgetTopologyMapDefinitionRequest> requests;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetTopologyMapDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -61,11 +78,32 @@ public final class DashboardWidgetTopologyMapDefinition {
         return Optional.ofNullable(this.description);
     }
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+    /**
      * @return A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (`query` and `requestType` are required within the request).
      * 
      */
     public List<DashboardWidgetTopologyMapDefinitionRequest> requests() {
         return this.requests == null ? List.of() : this.requests;
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetTopologyMapDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -100,7 +138,10 @@ public final class DashboardWidgetTopologyMapDefinition {
     public static final class Builder {
         private @Nullable List<DashboardWidgetTopologyMapDefinitionCustomLink> customLinks;
         private @Nullable String description;
+        private @Nullable Boolean hideIncompleteCostData;
+        private @Nullable String liveSpan;
         private @Nullable List<DashboardWidgetTopologyMapDefinitionRequest> requests;
+        private @Nullable DashboardWidgetTopologyMapDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -109,7 +150,10 @@ public final class DashboardWidgetTopologyMapDefinition {
     	      Objects.requireNonNull(defaults);
     	      this.customLinks = defaults.customLinks;
     	      this.description = defaults.description;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.requests = defaults.requests;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -131,6 +175,18 @@ public final class DashboardWidgetTopologyMapDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requests(@Nullable List<DashboardWidgetTopologyMapDefinitionRequest> requests) {
 
             this.requests = requests;
@@ -138,6 +194,12 @@ public final class DashboardWidgetTopologyMapDefinition {
         }
         public Builder requests(DashboardWidgetTopologyMapDefinitionRequest... requests) {
             return requests(List.of(requests));
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetTopologyMapDefinitionTime time) {
+
+            this.time = time;
+            return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
@@ -161,7 +223,10 @@ public final class DashboardWidgetTopologyMapDefinition {
             final var _resultValue = new DashboardWidgetTopologyMapDefinition();
             _resultValue.customLinks = customLinks;
             _resultValue.description = description;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.requests = requests;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

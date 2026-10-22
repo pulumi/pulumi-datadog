@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetEventStreamDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,7 +20,7 @@ public final class DashboardWidgetEventStreamDefinition {
      */
     private @Nullable String description;
     /**
-     * @return The size to use to display an event. Valid values are `s`, `l`.
+     * @return Size to use to display an event. Valid values are `s`, `l`.
      * 
      */
     private @Nullable String eventSize;
@@ -34,7 +35,7 @@ public final class DashboardWidgetEventStreamDefinition {
      */
     private @Nullable String liveSpan;
     /**
-     * @return The query to use in the widget.
+     * @return Query to filter the event stream with.
      * 
      */
     private String query;
@@ -43,6 +44,11 @@ public final class DashboardWidgetEventStreamDefinition {
      * 
      */
     private @Nullable String tagsExecution;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetEventStreamDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -68,7 +74,7 @@ public final class DashboardWidgetEventStreamDefinition {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return The size to use to display an event. Valid values are `s`, `l`.
+     * @return Size to use to display an event. Valid values are `s`, `l`.
      * 
      */
     public Optional<String> eventSize() {
@@ -89,7 +95,7 @@ public final class DashboardWidgetEventStreamDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return The query to use in the widget.
+     * @return Query to filter the event stream with.
      * 
      */
     public String query() {
@@ -101,6 +107,13 @@ public final class DashboardWidgetEventStreamDefinition {
      */
     public Optional<String> tagsExecution() {
         return Optional.ofNullable(this.tagsExecution);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetEventStreamDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -139,6 +152,7 @@ public final class DashboardWidgetEventStreamDefinition {
         private @Nullable String liveSpan;
         private String query;
         private @Nullable String tagsExecution;
+        private @Nullable DashboardWidgetEventStreamDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -151,6 +165,7 @@ public final class DashboardWidgetEventStreamDefinition {
     	      this.liveSpan = defaults.liveSpan;
     	      this.query = defaults.query;
     	      this.tagsExecution = defaults.tagsExecution;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -195,6 +210,12 @@ public final class DashboardWidgetEventStreamDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetEventStreamDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -220,6 +241,7 @@ public final class DashboardWidgetEventStreamDefinition {
             _resultValue.liveSpan = liveSpan;
             _resultValue.query = query;
             _resultValue.tagsExecution = tagsExecution;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

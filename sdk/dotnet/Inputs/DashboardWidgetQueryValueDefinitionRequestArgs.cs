@@ -13,22 +13,28 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetQueryValueDefinitionRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregator to use for time aggregation. Valid values are `Avg`, `Last`, `Max`, `Min`, `Sum`, `Percentile`.
+        /// The aggregator to use for time aggregation. Valid values are `Avg`, `Min`, `Max`, `Sum`, `Last`, `Area`, `L2norm`, `Percentile`.
         /// </summary>
         [Input("aggregator")]
         public Input<string>? Aggregator { get; set; }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetApmQueryArgs>? ApmQuery { get; set; }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("auditQuery")]
         public Input<Inputs.DashboardWidgetQueryValueDefinitionRequestAuditQueryArgs>? AuditQuery { get; set; }
+
+        /// <summary>
+        /// A change indicator that compares the current value to a historical period.
+        /// </summary>
+        [Input("comparison")]
+        public Input<Inputs.DashboardWidgetQueryValueDefinitionRequestComparisonArgs>? Comparison { get; set; }
 
         [Input("conditionalFormats")]
         private InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestConditionalFormatArgs>? _conditionalFormats;
@@ -44,6 +50,10 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("formulas")]
         private InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestFormulaArgs>? _formulas;
+
+        /// <summary>
+        /// A list of formulas to use in the widget.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestFormulaArgs> Formulas
         {
             get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestFormulaArgs>());
@@ -51,25 +61,29 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetLogQueryArgs>? LogQuery { get; set; }
 
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetQueryValueDefinitionRequestProcessQueryArgs>? ProcessQuery { get; set; }
 
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
         [Input("queries")]
         private InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestQueryArgs>? _queries;
+
+        /// <summary>
+        /// A list of queries to use in the widget.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestQueryArgs> Queries
         {
             get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetQueryValueDefinitionRequestQueryArgs>());
@@ -77,13 +91,13 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetRumQueryArgs>? RumQuery { get; set; }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetSecurityQueryArgs>? SecurityQuery { get; set; }

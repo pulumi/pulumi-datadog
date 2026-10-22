@@ -5,7 +5,9 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetServicemapDefinitionCustomLink;
+import com.pulumi.datadog.outputs.DashboardWidgetServicemapDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -30,10 +32,25 @@ public final class DashboardWidgetServicemapDefinition {
      */
     private List<String> filters;
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    private @Nullable Boolean hideIncompleteCostData;
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    private @Nullable String liveSpan;
+    /**
      * @return The ID of the service to map.
      * 
      */
     private String service;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetServicemapDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -73,11 +90,32 @@ public final class DashboardWidgetServicemapDefinition {
         return this.filters;
     }
     /**
+     * @return Hide any portion of the widget&#39;s timeframe that is incomplete due to cost data not being available.
+     * 
+     */
+    public Optional<Boolean> hideIncompleteCostData() {
+        return Optional.ofNullable(this.hideIncompleteCostData);
+    }
+    /**
+     * @return The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
+     * 
+     */
+    public Optional<String> liveSpan() {
+        return Optional.ofNullable(this.liveSpan);
+    }
+    /**
      * @return The ID of the service to map.
      * 
      */
     public String service() {
         return this.service;
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetServicemapDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -113,7 +151,10 @@ public final class DashboardWidgetServicemapDefinition {
         private @Nullable List<DashboardWidgetServicemapDefinitionCustomLink> customLinks;
         private @Nullable String description;
         private List<String> filters;
+        private @Nullable Boolean hideIncompleteCostData;
+        private @Nullable String liveSpan;
         private String service;
+        private @Nullable DashboardWidgetServicemapDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -123,7 +164,10 @@ public final class DashboardWidgetServicemapDefinition {
     	      this.customLinks = defaults.customLinks;
     	      this.description = defaults.description;
     	      this.filters = defaults.filters;
+    	      this.hideIncompleteCostData = defaults.hideIncompleteCostData;
+    	      this.liveSpan = defaults.liveSpan;
     	      this.service = defaults.service;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -156,11 +200,29 @@ public final class DashboardWidgetServicemapDefinition {
             return filters(List.of(filters));
         }
         @CustomType.Setter
+        public Builder hideIncompleteCostData(@Nullable Boolean hideIncompleteCostData) {
+
+            this.hideIncompleteCostData = hideIncompleteCostData;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder liveSpan(@Nullable String liveSpan) {
+
+            this.liveSpan = liveSpan;
+            return this;
+        }
+        @CustomType.Setter
         public Builder service(String service) {
             if (service == null) {
               throw new MissingRequiredPropertyException("DashboardWidgetServicemapDefinition", "service");
             }
             this.service = service;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetServicemapDefinitionTime time) {
+
+            this.time = time;
             return this;
         }
         @CustomType.Setter
@@ -186,7 +248,10 @@ public final class DashboardWidgetServicemapDefinition {
             _resultValue.customLinks = customLinks;
             _resultValue.description = description;
             _resultValue.filters = filters;
+            _resultValue.hideIncompleteCostData = hideIncompleteCostData;
+            _resultValue.liveSpan = liveSpan;
             _resultValue.service = service;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

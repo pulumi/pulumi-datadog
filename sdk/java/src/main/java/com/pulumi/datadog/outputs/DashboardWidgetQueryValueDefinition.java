@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionRequest;
+import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionTime;
 import com.pulumi.datadog.outputs.DashboardWidgetQueryValueDefinitionTimeseriesBackground;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -28,7 +29,7 @@ public final class DashboardWidgetQueryValueDefinition {
      */
     private @Nullable List<DashboardWidgetQueryValueDefinitionCustomLink> customLinks;
     /**
-     * @return The unit for the value displayed in the widget.
+     * @return Display a unit of your choice on the widget.
      * 
      */
     private @Nullable String customUnit;
@@ -48,7 +49,7 @@ public final class DashboardWidgetQueryValueDefinition {
      */
     private @Nullable String liveSpan;
     /**
-     * @return The precision to use when displaying the tile.
+     * @return Number of decimals to show. If not defined, the widget uses the raw value.
      * 
      */
     private @Nullable Integer precision;
@@ -62,6 +63,11 @@ public final class DashboardWidgetQueryValueDefinition {
      * 
      */
     private @Nullable String textAlign;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetQueryValueDefinitionTime time;
     /**
      * @return Set a timeseries on the widget background.
      * 
@@ -99,7 +105,7 @@ public final class DashboardWidgetQueryValueDefinition {
         return this.customLinks == null ? List.of() : this.customLinks;
     }
     /**
-     * @return The unit for the value displayed in the widget.
+     * @return Display a unit of your choice on the widget.
      * 
      */
     public Optional<String> customUnit() {
@@ -127,7 +133,7 @@ public final class DashboardWidgetQueryValueDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return The precision to use when displaying the tile.
+     * @return Number of decimals to show. If not defined, the widget uses the raw value.
      * 
      */
     public Optional<Integer> precision() {
@@ -146,6 +152,13 @@ public final class DashboardWidgetQueryValueDefinition {
      */
     public Optional<String> textAlign() {
         return Optional.ofNullable(this.textAlign);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetQueryValueDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return Set a timeseries on the widget background.
@@ -194,6 +207,7 @@ public final class DashboardWidgetQueryValueDefinition {
         private @Nullable Integer precision;
         private @Nullable List<DashboardWidgetQueryValueDefinitionRequest> requests;
         private @Nullable String textAlign;
+        private @Nullable DashboardWidgetQueryValueDefinitionTime time;
         private @Nullable DashboardWidgetQueryValueDefinitionTimeseriesBackground timeseriesBackground;
         private @Nullable String title;
         private @Nullable String titleAlign;
@@ -210,6 +224,7 @@ public final class DashboardWidgetQueryValueDefinition {
     	      this.precision = defaults.precision;
     	      this.requests = defaults.requests;
     	      this.textAlign = defaults.textAlign;
+    	      this.time = defaults.time;
     	      this.timeseriesBackground = defaults.timeseriesBackground;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
@@ -277,6 +292,12 @@ public final class DashboardWidgetQueryValueDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetQueryValueDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timeseriesBackground(@Nullable DashboardWidgetQueryValueDefinitionTimeseriesBackground timeseriesBackground) {
 
             this.timeseriesBackground = timeseriesBackground;
@@ -311,6 +332,7 @@ public final class DashboardWidgetQueryValueDefinition {
             _resultValue.precision = precision;
             _resultValue.requests = requests;
             _resultValue.textAlign = textAlign;
+            _resultValue.time = time;
             _resultValue.timeseriesBackground = timeseriesBackground;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;

@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetQueryValueDefinitionCustomLink> CustomLinks;
         /// <summary>
-        /// The unit for the value displayed in the widget.
+        /// Display a unit of your choice on the widget.
         /// </summary>
         public readonly string? CustomUnit;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? LiveSpan;
         /// <summary>
-        /// The precision to use when displaying the tile.
+        /// Number of decimals to show. If not defined, the widget uses the raw value.
         /// </summary>
         public readonly int? Precision;
         /// <summary>
@@ -49,6 +49,10 @@ namespace Pulumi.Datadog.Outputs
         /// The alignment of the widget's text. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TextAlign;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetQueryValueDefinitionTime? Time;
         /// <summary>
         /// Set a timeseries on the widget background.
         /// </summary>
@@ -86,6 +90,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? textAlign,
 
+            Outputs.DashboardWidgetQueryValueDefinitionTime? time,
+
             Outputs.DashboardWidgetQueryValueDefinitionTimeseriesBackground? timeseriesBackground,
 
             string? title,
@@ -103,6 +109,7 @@ namespace Pulumi.Datadog.Outputs
             Precision = precision;
             Requests = requests;
             TextAlign = textAlign;
+            Time = time;
             TimeseriesBackground = timeseriesBackground;
             Title = title;
             TitleAlign = titleAlign;

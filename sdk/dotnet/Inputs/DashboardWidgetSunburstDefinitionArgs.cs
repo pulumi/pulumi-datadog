@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<Inputs.DashboardWidgetSunburstDefinitionCustomLinkArgs>? _customLinks;
 
         /// <summary>
-        /// Nested block describing a custom link. Multiple `CustomLink` blocks are allowed with the structure below.
+        /// A nested block describing a custom link. Multiple `CustomLink` blocks are allowed using the structure below.
         /// </summary>
         public InputList<Inputs.DashboardWidgetSunburstDefinitionCustomLinkArgs> CustomLinks
         {
@@ -73,19 +73,25 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetSunburstDefinitionTimeArgs>? Time { get; set; }
+
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The alignment of the widget's title. One of `Left`, `Center`, or `Right`. Valid values are `Center`, `Left`, `Right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         [Input("titleAlign")]
         public Input<string>? TitleAlign { get; set; }
 
         /// <summary>
-        /// The size of the widget's title. Default is 16.
+        /// The size of the widget's title (defaults to 16).
         /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }

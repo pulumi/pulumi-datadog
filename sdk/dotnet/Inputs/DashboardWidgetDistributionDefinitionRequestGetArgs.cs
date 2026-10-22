@@ -13,40 +13,79 @@ namespace Pulumi.Datadog.Inputs
     public sealed class DashboardWidgetDistributionDefinitionRequestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("apmQuery")]
         public Input<Inputs.DashboardWidgetApmQueryGetArgs>? ApmQuery { get; set; }
 
+        /// <summary>
+        /// The APM stats query to use in the widget.
+        /// </summary>
         [Input("apmStatsQuery")]
         public Input<Inputs.DashboardWidgetDistributionDefinitionRequestApmStatsQueryGetArgs>? ApmStatsQuery { get; set; }
 
+        [Input("formulas")]
+        private InputList<Inputs.DashboardWidgetDistributionDefinitionRequestFormulaGetArgs>? _formulas;
+
         /// <summary>
-        /// The query to use for this widget.
+        /// A list of formulas to use in the widget.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetDistributionDefinitionRequestFormulaGetArgs> Formulas
+        {
+            get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetDistributionDefinitionRequestFormulaGetArgs>());
+            set => _formulas = value;
+        }
+
+        /// <summary>
+        /// Singular query block for histogram-mode distribution requests.
+        /// </summary>
+        [Input("histogramQuery")]
+        public Input<Inputs.DashboardWidgetDistributionDefinitionRequestHistogramQueryGetArgs>? HistogramQuery { get; set; }
+
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("logQuery")]
         public Input<Inputs.DashboardWidgetLogQueryGetArgs>? LogQuery { get; set; }
 
         /// <summary>
-        /// The process query to use in the widget. The structure of this block is described below.
+        /// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("processQuery")]
         public Input<Inputs.DashboardWidgetDistributionDefinitionRequestProcessQueryGetArgs>? ProcessQuery { get; set; }
 
         /// <summary>
-        /// The metric query to use for this widget.
+        /// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
 
+        [Input("queries")]
+        private InputList<Inputs.DashboardWidgetDistributionDefinitionRequestQueryGetArgs>? _queries;
+
         /// <summary>
-        /// The query to use for this widget.
+        /// A list of queries to use in the widget.
+        /// </summary>
+        public InputList<Inputs.DashboardWidgetDistributionDefinitionRequestQueryGetArgs> Queries
+        {
+            get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetDistributionDefinitionRequestQueryGetArgs>());
+            set => _queries = value;
+        }
+
+        /// <summary>
+        /// Set to 'histogram' for distribution-of-point-values requests. Valid values are `Histogram`.
+        /// </summary>
+        [Input("requestType")]
+        public Input<string>? RequestType { get; set; }
+
+        /// <summary>
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("rumQuery")]
         public Input<Inputs.DashboardWidgetRumQueryGetArgs>? RumQuery { get; set; }
 
         /// <summary>
-        /// The query to use for this widget.
+        /// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
         /// </summary>
         [Input("securityQuery")]
         public Input<Inputs.DashboardWidgetSecurityQueryGetArgs>? SecurityQuery { get; set; }

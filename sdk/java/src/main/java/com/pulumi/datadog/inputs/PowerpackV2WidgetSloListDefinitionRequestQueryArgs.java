@@ -20,14 +20,14 @@ public final class PowerpackV2WidgetSloListDefinitionRequestQueryArgs extends co
     public static final PowerpackV2WidgetSloListDefinitionRequestQueryArgs Empty = new PowerpackV2WidgetSloListDefinitionRequestQueryArgs();
 
     /**
-     * Maximum number of results to display in the table.
+     * Maximum number of results to display in the table. Defaults to `100`.
      * 
      */
     @Import(name="limit")
     private @Nullable Output<Integer> limit;
 
     /**
-     * @return Maximum number of results to display in the table.
+     * @return Maximum number of results to display in the table. Defaults to `100`.
      * 
      */
     public Optional<Output<Integer>> limit() {
@@ -91,7 +91,7 @@ public final class PowerpackV2WidgetSloListDefinitionRequestQueryArgs extends co
         }
 
         /**
-         * @param limit Maximum number of results to display in the table.
+         * @param limit Maximum number of results to display in the table. Defaults to `100`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class PowerpackV2WidgetSloListDefinitionRequestQueryArgs extends co
         }
 
         /**
-         * @param limit Maximum number of results to display in the table.
+         * @param limit Maximum number of results to display in the table. Defaults to `100`.
          * 
          * @return builder
          * 

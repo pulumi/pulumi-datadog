@@ -14,19 +14,23 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetDistributionDefinitionXaxis
     {
         /// <summary>
-        /// Always include zero or fit the axis to the data range.
+        /// True includes zero.
         /// </summary>
         public readonly bool? IncludeZero;
         /// <summary>
-        /// Specify the maximum value to show on the Y-axis.
+        /// Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
         /// </summary>
         public readonly string? Max;
         /// <summary>
-        /// Specify the minimum value to show on the Y-axis.
+        /// Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.
         /// </summary>
         public readonly string? Min;
         /// <summary>
-        /// Specify the scale type, options: `Linear`, `Log`, `Pow`, `Sqrt`.
+        /// Number of value buckets to target, also known as the resolution of the value bins.
+        /// </summary>
+        public readonly int? NumBuckets;
+        /// <summary>
+        /// Specifies the scale type. Possible values are `Linear`.
         /// </summary>
         public readonly string? Scale;
 
@@ -38,11 +42,14 @@ namespace Pulumi.Datadog.Outputs
 
             string? min,
 
+            int? numBuckets,
+
             string? scale)
         {
             IncludeZero = includeZero;
             Max = max;
             Min = min;
+            NumBuckets = numBuckets;
             Scale = scale;
         }
     }

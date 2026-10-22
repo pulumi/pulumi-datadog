@@ -5,9 +5,12 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionStyleDisplayFlatArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetToplistDefinitionStyleDisplayStackedArgs;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DashboardWidgetToplistDefinitionStyleDisplayArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,23 +18,63 @@ public final class DashboardWidgetToplistDefinitionStyleDisplayArgs extends com.
     public static final DashboardWidgetToplistDefinitionStyleDisplayArgs Empty = new DashboardWidgetToplistDefinitionStyleDisplayArgs();
 
     /**
-     * The display type for the widget.
+     * Flat display for the top list widget.
      * 
      */
-    @Import(name="type", required=true)
-    private Output<String> type;
+    @Import(name="flat")
+    private @Nullable Output<DashboardWidgetToplistDefinitionStyleDisplayFlatArgs> flat;
 
     /**
-     * @return The display type for the widget.
+     * @return Flat display for the top list widget.
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Optional<Output<DashboardWidgetToplistDefinitionStyleDisplayFlatArgs>> flat() {
+        return Optional.ofNullable(this.flat);
+    }
+
+    /**
+     * Stacked display for the top list widget.
+     * 
+     */
+    @Import(name="stacked")
+    private @Nullable Output<DashboardWidgetToplistDefinitionStyleDisplayStackedArgs> stacked;
+
+    /**
+     * @return Stacked display for the top list widget.
+     * 
+     */
+    public Optional<Output<DashboardWidgetToplistDefinitionStyleDisplayStackedArgs>> stacked() {
+        return Optional.ofNullable(this.stacked);
+    }
+
+    /**
+     * Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+     * 
+     * @deprecated
+     * Use the `stacked` or `flat` block instead.
+     * 
+     */
+    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    @Import(name="type")
+    private @Nullable Output<String> type;
+
+    /**
+     * @return Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+     * 
+     * @deprecated
+     * Use the `stacked` or `flat` block instead.
+     * 
+     */
+    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
     }
 
     private DashboardWidgetToplistDefinitionStyleDisplayArgs() {}
 
     private DashboardWidgetToplistDefinitionStyleDisplayArgs(DashboardWidgetToplistDefinitionStyleDisplayArgs $) {
+        this.flat = $.flat;
+        this.stacked = $.stacked;
         this.type = $.type;
     }
 
@@ -54,30 +97,77 @@ public final class DashboardWidgetToplistDefinitionStyleDisplayArgs extends com.
         }
 
         /**
-         * @param type The display type for the widget.
+         * @param flat Flat display for the top list widget.
          * 
          * @return builder
          * 
          */
-        public Builder type(Output<String> type) {
+        public Builder flat(@Nullable Output<DashboardWidgetToplistDefinitionStyleDisplayFlatArgs> flat) {
+            $.flat = flat;
+            return this;
+        }
+
+        /**
+         * @param flat Flat display for the top list widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flat(DashboardWidgetToplistDefinitionStyleDisplayFlatArgs flat) {
+            return flat(Output.of(flat));
+        }
+
+        /**
+         * @param stacked Stacked display for the top list widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stacked(@Nullable Output<DashboardWidgetToplistDefinitionStyleDisplayStackedArgs> stacked) {
+            $.stacked = stacked;
+            return this;
+        }
+
+        /**
+         * @param stacked Stacked display for the top list widget.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stacked(DashboardWidgetToplistDefinitionStyleDisplayStackedArgs stacked) {
+            return stacked(Output.of(stacked));
+        }
+
+        /**
+         * @param type Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use the `stacked` or `flat` block instead.
+         * 
+         */
+        @Deprecated /* Use the `stacked` or `flat` block instead. */
+        public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
         /**
-         * @param type The display type for the widget.
+         * @param type Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use the `stacked` or `flat` block instead.
+         * 
          */
+        @Deprecated /* Use the `stacked` or `flat` block instead. */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
         public DashboardWidgetToplistDefinitionStyleDisplayArgs build() {
-            if ($.type == null) {
-                throw new MissingRequiredPropertyException("DashboardWidgetToplistDefinitionStyleDisplayArgs", "type");
-            }
             return $;
         }
     }

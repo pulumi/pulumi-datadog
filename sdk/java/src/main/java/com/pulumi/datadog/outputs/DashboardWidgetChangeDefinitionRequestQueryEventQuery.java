@@ -28,7 +28,7 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQuery {
      */
     private @Nullable String crossOrgUuids;
     /**
-     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      * 
      */
     private String dataSource;
@@ -43,7 +43,7 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQuery {
      */
     private @Nullable DashboardWidgetChangeDefinitionRequestQueryEventQueryGroupByFields groupByFields;
     /**
-     * @return An array of index names to query in the stream.
+     * @return An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
      * 
      */
     private @Nullable List<String> indexes;
@@ -58,7 +58,7 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQuery {
      */
     private @Nullable DashboardWidgetChangeDefinitionRequestQueryEventQuerySearch search;
     /**
-     * @return Storage location (private beta).
+     * @return Option for storage location. Feature in Private Beta.
      * 
      */
     private @Nullable String storage;
@@ -79,7 +79,7 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQuery {
         return Optional.ofNullable(this.crossOrgUuids);
     }
     /**
-     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * @return The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      * 
      */
     public String dataSource() {
@@ -100,7 +100,7 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQuery {
         return Optional.ofNullable(this.groupByFields);
     }
     /**
-     * @return An array of index names to query in the stream.
+     * @return An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
      * 
      */
     public List<String> indexes() {
@@ -121,7 +121,7 @@ public final class DashboardWidgetChangeDefinitionRequestQueryEventQuery {
         return Optional.ofNullable(this.search);
     }
     /**
-     * @return Storage location (private beta).
+     * @return Option for storage location. Feature in Private Beta.
      * 
      */
     public Optional<String> storage() {

@@ -38,6 +38,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.DashboardWidgetScatterplotDefinitionRequest? Request;
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetScatterplotDefinitionTime? Time;
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         public readonly string? Title;
@@ -72,6 +76,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.DashboardWidgetScatterplotDefinitionRequest? request,
 
+            Outputs.DashboardWidgetScatterplotDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
@@ -88,6 +94,7 @@ namespace Pulumi.Datadog.Outputs
             HideIncompleteCostData = hideIncompleteCostData;
             LiveSpan = liveSpan;
             Request = request;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

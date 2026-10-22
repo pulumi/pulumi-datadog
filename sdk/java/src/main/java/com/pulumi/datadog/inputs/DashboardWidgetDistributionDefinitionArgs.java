@@ -5,7 +5,9 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionMarkerArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionTimeArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionXaxisArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetDistributionDefinitionYaxisArgs;
 import java.lang.Boolean;
@@ -81,6 +83,21 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
     }
 
     /**
+     * A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `distributionDefinition` block.
+     * 
+     */
+    @Import(name="markers")
+    private @Nullable Output<List<DashboardWidgetDistributionDefinitionMarkerArgs>> markers;
+
+    /**
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `distributionDefinition` block.
+     * 
+     */
+    public Optional<Output<List<DashboardWidgetDistributionDefinitionMarkerArgs>>> markers() {
+        return Optional.ofNullable(this.markers);
+    }
+
+    /**
      * A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
      * 
      */
@@ -108,6 +125,21 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
      */
     public Optional<Output<Boolean>> showLegend() {
         return Optional.ofNullable(this.showLegend);
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetDistributionDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetDistributionDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -192,8 +224,10 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.legendSize = $.legendSize;
         this.liveSpan = $.liveSpan;
+        this.markers = $.markers;
         this.requests = $.requests;
         this.showLegend = $.showLegend;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
@@ -304,6 +338,37 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
         }
 
         /**
+         * @param markers A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `distributionDefinition` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder markers(@Nullable Output<List<DashboardWidgetDistributionDefinitionMarkerArgs>> markers) {
+            $.markers = markers;
+            return this;
+        }
+
+        /**
+         * @param markers A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `distributionDefinition` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder markers(List<DashboardWidgetDistributionDefinitionMarkerArgs> markers) {
+            return markers(Output.of(markers));
+        }
+
+        /**
+         * @param markers A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `distributionDefinition` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder markers(DashboardWidgetDistributionDefinitionMarkerArgs... markers) {
+            return markers(List.of(markers));
+        }
+
+        /**
          * @param requests A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
          * 
          * @return builder
@@ -353,6 +418,27 @@ public final class DashboardWidgetDistributionDefinitionArgs extends com.pulumi.
          */
         public Builder showLegend(Boolean showLegend) {
             return showLegend(Output.of(showLegend));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetDistributionDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetDistributionDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**

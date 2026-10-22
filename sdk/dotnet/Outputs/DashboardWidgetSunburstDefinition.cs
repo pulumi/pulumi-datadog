@@ -14,7 +14,7 @@ namespace Pulumi.Datadog.Outputs
     public sealed class DashboardWidgetSunburstDefinition
     {
         /// <summary>
-        /// Nested block describing a custom link. Multiple `CustomLink` blocks are allowed with the structure below.
+        /// A nested block describing a custom link. Multiple `CustomLink` blocks are allowed using the structure below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionCustomLink> CustomLinks;
         /// <summary>
@@ -46,15 +46,19 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequest> Requests;
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetSunburstDefinitionTime? Time;
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// The alignment of the widget's title. One of `Left`, `Center`, or `Right`. Valid values are `Center`, `Left`, `Right`.
+        /// The alignment of the widget's title. Valid values are `Center`, `Left`, `Right`.
         /// </summary>
         public readonly string? TitleAlign;
         /// <summary>
-        /// The size of the widget's title. Default is 16.
+        /// The size of the widget's title (defaults to 16).
         /// </summary>
         public readonly string? TitleSize;
 
@@ -76,6 +80,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.DashboardWidgetSunburstDefinitionRequest> requests,
 
+            Outputs.DashboardWidgetSunburstDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
@@ -90,6 +96,7 @@ namespace Pulumi.Datadog.Outputs
             LegendTable = legendTable;
             LiveSpan = liveSpan;
             Requests = requests;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

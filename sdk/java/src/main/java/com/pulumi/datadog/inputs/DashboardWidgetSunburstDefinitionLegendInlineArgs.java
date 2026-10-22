@@ -48,14 +48,14 @@ public final class DashboardWidgetSunburstDefinitionLegendInlineArgs extends com
     }
 
     /**
-     * The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
+     * The type of legend (inline or automatic).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
+     * @return The type of legend (inline or automatic).
      * 
      */
     public Output<String> type() {
@@ -131,7 +131,7 @@ public final class DashboardWidgetSunburstDefinitionLegendInlineArgs extends com
         }
 
         /**
-         * @param type The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
+         * @param type The type of legend (inline or automatic).
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class DashboardWidgetSunburstDefinitionLegendInlineArgs extends com
         }
 
         /**
-         * @param type The type of legend (inline or automatic). Valid values are `inline`, `automatic`.
+         * @param type The type of legend (inline or automatic).
          * 
          * @return builder
          * 

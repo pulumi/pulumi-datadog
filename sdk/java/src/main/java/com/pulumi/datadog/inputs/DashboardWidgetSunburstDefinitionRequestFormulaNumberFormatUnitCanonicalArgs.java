@@ -5,7 +5,6 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,15 +34,15 @@ public final class DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUn
      * Unit name. It should be in singular form (&#39;megabyte&#39; and not &#39;megabytes&#39;)
      * 
      */
-    @Import(name="unitName", required=true)
-    private Output<String> unitName;
+    @Import(name="unitName")
+    private @Nullable Output<String> unitName;
 
     /**
      * @return Unit name. It should be in singular form (&#39;megabyte&#39; and not &#39;megabytes&#39;)
      * 
      */
-    public Output<String> unitName() {
-        return this.unitName;
+    public Optional<Output<String>> unitName() {
+        return Optional.ofNullable(this.unitName);
     }
 
     private DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonicalArgs() {}
@@ -98,7 +97,7 @@ public final class DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUn
          * @return builder
          * 
          */
-        public Builder unitName(Output<String> unitName) {
+        public Builder unitName(@Nullable Output<String> unitName) {
             $.unitName = unitName;
             return this;
         }
@@ -114,9 +113,6 @@ public final class DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUn
         }
 
         public DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonicalArgs build() {
-            if ($.unitName == null) {
-                throw new MissingRequiredPropertyException("DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitCanonicalArgs", "unitName");
-            }
             return $;
         }
     }

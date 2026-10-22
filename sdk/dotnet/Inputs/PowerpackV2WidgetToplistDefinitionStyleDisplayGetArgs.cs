@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("stacked")]
         public Input<Inputs.PowerpackV2WidgetToplistDefinitionStyleDisplayStackedGetArgs>? Stacked { get; set; }
 
+        /// <summary>
+        /// Legacy display type for the widget. Valid values are `Stacked`, `Flat`. **Deprecated.** Use the `Stacked` or `Flat` block instead.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public PowerpackV2WidgetToplistDefinitionStyleDisplayGetArgs()
         {
         }

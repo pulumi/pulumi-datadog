@@ -8,6 +8,7 @@ import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionCustomLink;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionLegendInline;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionLegendTable;
 import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionRequest;
+import com.pulumi.datadog.outputs.DashboardWidgetSunburstDefinitionTime;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -18,7 +19,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetSunburstDefinition {
     /**
-     * @return Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     private @Nullable List<DashboardWidgetSunburstDefinitionCustomLink> customLinks;
@@ -58,24 +59,29 @@ public final class DashboardWidgetSunburstDefinition {
      */
     private @Nullable List<DashboardWidgetSunburstDefinitionRequest> requests;
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetSunburstDefinitionTime time;
+    /**
      * @return The title of the widget.
      * 
      */
     private @Nullable String title;
     /**
-     * @return The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
      * 
      */
     private @Nullable String titleAlign;
     /**
-     * @return The size of the widget&#39;s title. Default is 16.
+     * @return The size of the widget&#39;s title (defaults to 16).
      * 
      */
     private @Nullable String titleSize;
 
     private DashboardWidgetSunburstDefinition() {}
     /**
-     * @return Nested block describing a custom link. Multiple `customLink` blocks are allowed with the structure below.
+     * @return A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
      * 
      */
     public List<DashboardWidgetSunburstDefinitionCustomLink> customLinks() {
@@ -131,6 +137,13 @@ public final class DashboardWidgetSunburstDefinition {
         return this.requests == null ? List.of() : this.requests;
     }
     /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetSunburstDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
+    }
+    /**
      * @return The title of the widget.
      * 
      */
@@ -138,14 +151,14 @@ public final class DashboardWidgetSunburstDefinition {
         return Optional.ofNullable(this.title);
     }
     /**
-     * @return The alignment of the widget&#39;s title. One of `left`, `center`, or `right`. Valid values are `center`, `left`, `right`.
+     * @return The alignment of the widget&#39;s title. Valid values are `center`, `left`, `right`.
      * 
      */
     public Optional<String> titleAlign() {
         return Optional.ofNullable(this.titleAlign);
     }
     /**
-     * @return The size of the widget&#39;s title. Default is 16.
+     * @return The size of the widget&#39;s title (defaults to 16).
      * 
      */
     public Optional<String> titleSize() {
@@ -169,6 +182,7 @@ public final class DashboardWidgetSunburstDefinition {
         private @Nullable DashboardWidgetSunburstDefinitionLegendTable legendTable;
         private @Nullable String liveSpan;
         private @Nullable List<DashboardWidgetSunburstDefinitionRequest> requests;
+        private @Nullable DashboardWidgetSunburstDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -183,6 +197,7 @@ public final class DashboardWidgetSunburstDefinition {
     	      this.legendTable = defaults.legendTable;
     	      this.liveSpan = defaults.liveSpan;
     	      this.requests = defaults.requests;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -243,6 +258,12 @@ public final class DashboardWidgetSunburstDefinition {
             return requests(List.of(requests));
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetSunburstDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -270,6 +291,7 @@ public final class DashboardWidgetSunburstDefinition {
             _resultValue.legendTable = legendTable;
             _resultValue.liveSpan = liveSpan;
             _resultValue.requests = requests;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

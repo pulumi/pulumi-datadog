@@ -21,9 +21,13 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetChangeDefinitionRequest {
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetApmQuery apmQuery;
     /**
      * @return Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
@@ -35,6 +39,10 @@ public final class DashboardWidgetChangeDefinitionRequest {
      * 
      */
     private @Nullable String compareTo;
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetChangeDefinitionRequestFormula> formulas;
     /**
      * @return A Boolean indicating whether an increase in the value is good (displayed in green) or not (displayed in red).
@@ -42,9 +50,13 @@ public final class DashboardWidgetChangeDefinitionRequest {
      */
     private @Nullable Boolean increaseGood;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return What to order by. Valid values are `change`, `name`, `present`, `past`.
@@ -57,25 +69,45 @@ public final class DashboardWidgetChangeDefinitionRequest {
      */
     private @Nullable String orderDir;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetChangeDefinitionRequestProcessQuery processQuery;
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable String q;
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetChangeDefinitionRequestQuery> queries;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetSecurityQuery securityQuery;
     /**
      * @return If set to `true`, displays the current value.
@@ -85,9 +117,13 @@ public final class DashboardWidgetChangeDefinitionRequest {
 
     private DashboardWidgetChangeDefinitionRequest() {}
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
@@ -105,6 +141,10 @@ public final class DashboardWidgetChangeDefinitionRequest {
     public Optional<String> compareTo() {
         return Optional.ofNullable(this.compareTo);
     }
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     public List<DashboardWidgetChangeDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
@@ -116,9 +156,13 @@ public final class DashboardWidgetChangeDefinitionRequest {
         return Optional.ofNullable(this.increaseGood);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
@@ -137,33 +181,53 @@ public final class DashboardWidgetChangeDefinitionRequest {
         return Optional.ofNullable(this.orderDir);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetChangeDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The metric query to use for this widget.
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     public List<DashboardWidgetChangeDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }

@@ -9,10 +9,12 @@ import com.pulumi.datadog.outputs.DashboardWidgetLogQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetRumQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetSecurityQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestAuditQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestEventQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestFormula;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestMetadata;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestNetworkQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestProcessQuery;
+import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestQuery;
 import com.pulumi.datadog.outputs.DashboardWidgetTimeseriesDefinitionRequestStyle;
 import java.lang.Boolean;
@@ -25,25 +27,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetTimeseriesDefinitionRequest {
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetApmQuery apmQuery;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestAuditQuery auditQuery;
     /**
      * @return How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
      * 
      */
     private @Nullable String displayType;
-    private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestFormula> formulas;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
+    private @Nullable DashboardWidgetTimeseriesDefinitionRequestEventQuery eventQuery;
+    /**
+     * @return List of formulas that operate on queries.
+     * 
+     */
+    private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestFormula> formulas;
+    /**
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
@@ -51,9 +78,13 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
      */
     private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestMetadata> metadatas;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestNetworkQuery networkQuery;
     /**
      * @return A Boolean indicating whether the request uses the right or left Y-Axis.
@@ -61,25 +92,50 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
      */
     private @Nullable Boolean onRightYaxis;
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget.
      * 
      */
     private @Nullable DashboardWidgetTimeseriesDefinitionRequestProcessQuery processQuery;
     /**
-     * @return The metric query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
+    private @Nullable DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQuery profileMetricsQuery;
+    /**
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable String q;
+    /**
+     * @return List of queries that can be returned directly or used in formulas.
+     * 
+     */
     private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestQuery> queries;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     private @Nullable DashboardWidgetSecurityQuery securityQuery;
     /**
      * @return The style of the widget graph. Exactly one `style` block is allowed using the structure below.
@@ -89,16 +145,24 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
 
     private DashboardWidgetTimeseriesDefinitionRequest() {}
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestAuditQuery> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
@@ -109,13 +173,32 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
     public Optional<String> displayType() {
         return Optional.ofNullable(this.displayType);
     }
+    /**
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
+    public Optional<DashboardWidgetTimeseriesDefinitionRequestEventQuery> eventQuery() {
+        return Optional.ofNullable(this.eventQuery);
+    }
+    /**
+     * @return List of formulas that operate on queries.
+     * 
+     */
     public List<DashboardWidgetTimeseriesDefinitionRequestFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
@@ -127,9 +210,13 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
         return this.metadatas == null ? List.of() : this.metadatas;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestNetworkQuery> networkQuery() {
         return Optional.ofNullable(this.networkQuery);
     }
@@ -141,33 +228,60 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
         return Optional.ofNullable(this.onRightYaxis);
     }
     /**
-     * @return The process query to use in the widget. The structure of this block is described below.
+     * @return The process query to use in the widget.
      * 
      */
     public Optional<DashboardWidgetTimeseriesDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
     /**
-     * @return The metric query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
+    public Optional<DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQuery> profileMetricsQuery() {
+        return Optional.ofNullable(this.profileMetricsQuery);
+    }
+    /**
+     * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
+     * 
+     */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
+    /**
+     * @return List of queries that can be returned directly or used in formulas.
+     * 
+     */
     public List<DashboardWidgetTimeseriesDefinitionRequestQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
-     * @return The query to use for this widget.
+     * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
+     * 
+     * @deprecated
+     * Use queries and formulas instead.
      * 
      */
+    @Deprecated /* Use queries and formulas instead. */
     public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -191,12 +305,14 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
         private @Nullable DashboardWidgetApmQuery apmQuery;
         private @Nullable DashboardWidgetTimeseriesDefinitionRequestAuditQuery auditQuery;
         private @Nullable String displayType;
+        private @Nullable DashboardWidgetTimeseriesDefinitionRequestEventQuery eventQuery;
         private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestFormula> formulas;
         private @Nullable DashboardWidgetLogQuery logQuery;
         private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestMetadata> metadatas;
         private @Nullable DashboardWidgetTimeseriesDefinitionRequestNetworkQuery networkQuery;
         private @Nullable Boolean onRightYaxis;
         private @Nullable DashboardWidgetTimeseriesDefinitionRequestProcessQuery processQuery;
+        private @Nullable DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQuery profileMetricsQuery;
         private @Nullable String q;
         private @Nullable List<DashboardWidgetTimeseriesDefinitionRequestQuery> queries;
         private @Nullable DashboardWidgetRumQuery rumQuery;
@@ -208,12 +324,14 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
     	      this.apmQuery = defaults.apmQuery;
     	      this.auditQuery = defaults.auditQuery;
     	      this.displayType = defaults.displayType;
+    	      this.eventQuery = defaults.eventQuery;
     	      this.formulas = defaults.formulas;
     	      this.logQuery = defaults.logQuery;
     	      this.metadatas = defaults.metadatas;
     	      this.networkQuery = defaults.networkQuery;
     	      this.onRightYaxis = defaults.onRightYaxis;
     	      this.processQuery = defaults.processQuery;
+    	      this.profileMetricsQuery = defaults.profileMetricsQuery;
     	      this.q = defaults.q;
     	      this.queries = defaults.queries;
     	      this.rumQuery = defaults.rumQuery;
@@ -237,6 +355,12 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
         public Builder displayType(@Nullable String displayType) {
 
             this.displayType = displayType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder eventQuery(@Nullable DashboardWidgetTimeseriesDefinitionRequestEventQuery eventQuery) {
+
+            this.eventQuery = eventQuery;
             return this;
         }
         @CustomType.Setter
@@ -282,6 +406,12 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
             return this;
         }
         @CustomType.Setter
+        public Builder profileMetricsQuery(@Nullable DashboardWidgetTimeseriesDefinitionRequestProfileMetricsQuery profileMetricsQuery) {
+
+            this.profileMetricsQuery = profileMetricsQuery;
+            return this;
+        }
+        @CustomType.Setter
         public Builder q(@Nullable String q) {
 
             this.q = q;
@@ -319,12 +449,14 @@ public final class DashboardWidgetTimeseriesDefinitionRequest {
             _resultValue.apmQuery = apmQuery;
             _resultValue.auditQuery = auditQuery;
             _resultValue.displayType = displayType;
+            _resultValue.eventQuery = eventQuery;
             _resultValue.formulas = formulas;
             _resultValue.logQuery = logQuery;
             _resultValue.metadatas = metadatas;
             _resultValue.networkQuery = networkQuery;
             _resultValue.onRightYaxis = onRightYaxis;
             _resultValue.processQuery = processQuery;
+            _resultValue.profileMetricsQuery = profileMetricsQuery;
             _resultValue.q = q;
             _resultValue.queries = queries;
             _resultValue.rumQuery = rumQuery;

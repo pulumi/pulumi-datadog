@@ -6,6 +6,7 @@ package com.pulumi.datadog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.DashboardV2WidgetToplistDefinitionStyleDisplayFlat;
 import com.pulumi.datadog.outputs.DashboardV2WidgetToplistDefinitionStyleDisplayStacked;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +23,15 @@ public final class DashboardV2WidgetToplistDefinitionStyleDisplay {
      * 
      */
     private @Nullable DashboardV2WidgetToplistDefinitionStyleDisplayStacked stacked;
+    /**
+     * @return Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+     * 
+     * @deprecated
+     * Use the `stacked` or `flat` block instead.
+     * 
+     */
+    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    private @Nullable String type;
 
     private DashboardV2WidgetToplistDefinitionStyleDisplay() {}
     /**
@@ -38,6 +48,17 @@ public final class DashboardV2WidgetToplistDefinitionStyleDisplay {
     public Optional<DashboardV2WidgetToplistDefinitionStyleDisplayStacked> stacked() {
         return Optional.ofNullable(this.stacked);
     }
+    /**
+     * @return Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
+     * 
+     * @deprecated
+     * Use the `stacked` or `flat` block instead.
+     * 
+     */
+    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +71,13 @@ public final class DashboardV2WidgetToplistDefinitionStyleDisplay {
     public static final class Builder {
         private @Nullable DashboardV2WidgetToplistDefinitionStyleDisplayFlat flat;
         private @Nullable DashboardV2WidgetToplistDefinitionStyleDisplayStacked stacked;
+        private @Nullable String type;
         public Builder() {}
         public Builder(DashboardV2WidgetToplistDefinitionStyleDisplay defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.flat = defaults.flat;
     	      this.stacked = defaults.stacked;
+    	      this.type = defaults.type;
         }
 
         @CustomType.Setter
@@ -69,10 +92,17 @@ public final class DashboardV2WidgetToplistDefinitionStyleDisplay {
             this.stacked = stacked;
             return this;
         }
+        @CustomType.Setter
+        public Builder type(@Nullable String type) {
+
+            this.type = type;
+            return this;
+        }
         public DashboardV2WidgetToplistDefinitionStyleDisplay build() {
             final var _resultValue = new DashboardV2WidgetToplistDefinitionStyleDisplay();
             _resultValue.flat = flat;
             _resultValue.stacked = stacked;
+            _resultValue.type = type;
             return _resultValue;
         }
     }

@@ -13,6 +13,9 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class DashboardWidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale
     {
+        /// <summary>
+        /// The name of the unit.
+        /// </summary>
         public readonly string UnitName;
 
         [OutputConstructor]

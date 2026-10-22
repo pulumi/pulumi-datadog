@@ -7,7 +7,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionCustomLinkArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionEventArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionMarkerArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionRequestArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionTimeArgs;
+import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionXaxisArgs;
 import com.pulumi.datadog.inputs.DashboardWidgetHeatmapDefinitionYaxisArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -112,14 +115,29 @@ public final class DashboardWidgetHeatmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
-     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     * A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `heatmapDefinition` block.
+     * 
+     */
+    @Import(name="markers")
+    private @Nullable Output<List<DashboardWidgetHeatmapDefinitionMarkerArgs>> markers;
+
+    /**
+     * @return A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `heatmapDefinition` block.
+     * 
+     */
+    public Optional<Output<List<DashboardWidgetHeatmapDefinitionMarkerArgs>>> markers() {
+        return Optional.ofNullable(this.markers);
+    }
+
+    /**
+     * A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     @Import(name="requests")
     private @Nullable Output<List<DashboardWidgetHeatmapDefinitionRequestArgs>> requests;
 
     /**
-     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+     * @return A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
      * 
      */
     public Optional<Output<List<DashboardWidgetHeatmapDefinitionRequestArgs>>> requests() {
@@ -139,6 +157,21 @@ public final class DashboardWidgetHeatmapDefinitionArgs extends com.pulumi.resou
      */
     public Optional<Output<Boolean>> showLegend() {
         return Optional.ofNullable(this.showLegend);
+    }
+
+    /**
+     * A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    @Import(name="time")
+    private @Nullable Output<DashboardWidgetHeatmapDefinitionTimeArgs> time;
+
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<Output<DashboardWidgetHeatmapDefinitionTimeArgs>> time() {
+        return Optional.ofNullable(this.time);
     }
 
     /**
@@ -187,6 +220,21 @@ public final class DashboardWidgetHeatmapDefinitionArgs extends com.pulumi.resou
     }
 
     /**
+     * A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    @Import(name="xaxis")
+    private @Nullable Output<DashboardWidgetHeatmapDefinitionXaxisArgs> xaxis;
+
+    /**
+     * @return A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+     * 
+     */
+    public Optional<Output<DashboardWidgetHeatmapDefinitionXaxisArgs>> xaxis() {
+        return Optional.ofNullable(this.xaxis);
+    }
+
+    /**
      * A nested block describing the Y-Axis Controls. The structure of this block is described below.
      * 
      */
@@ -210,11 +258,14 @@ public final class DashboardWidgetHeatmapDefinitionArgs extends com.pulumi.resou
         this.hideIncompleteCostData = $.hideIncompleteCostData;
         this.legendSize = $.legendSize;
         this.liveSpan = $.liveSpan;
+        this.markers = $.markers;
         this.requests = $.requests;
         this.showLegend = $.showLegend;
+        this.time = $.time;
         this.title = $.title;
         this.titleAlign = $.titleAlign;
         this.titleSize = $.titleSize;
+        this.xaxis = $.xaxis;
         this.yaxis = $.yaxis;
     }
 
@@ -383,7 +434,38 @@ public final class DashboardWidgetHeatmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+         * @param markers A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `heatmapDefinition` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder markers(@Nullable Output<List<DashboardWidgetHeatmapDefinitionMarkerArgs>> markers) {
+            $.markers = markers;
+            return this;
+        }
+
+        /**
+         * @param markers A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `heatmapDefinition` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder markers(List<DashboardWidgetHeatmapDefinitionMarkerArgs> markers) {
+            return markers(Output.of(markers));
+        }
+
+        /**
+         * @param markers A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `marker` blocks are allowed within a given `heatmapDefinition` block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder markers(DashboardWidgetHeatmapDefinitionMarkerArgs... markers) {
+            return markers(List.of(markers));
+        }
+
+        /**
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -394,7 +476,7 @@ public final class DashboardWidgetHeatmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -404,7 +486,7 @@ public final class DashboardWidgetHeatmapDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery` or `processQuery` is required within the request block).
+         * @param requests A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below.
          * 
          * @return builder
          * 
@@ -432,6 +514,27 @@ public final class DashboardWidgetHeatmapDefinitionArgs extends com.pulumi.resou
          */
         public Builder showLegend(Boolean showLegend) {
             return showLegend(Output.of(showLegend));
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(@Nullable Output<DashboardWidgetHeatmapDefinitionTimeArgs> time) {
+            $.time = time;
+            return this;
+        }
+
+        /**
+         * @param time A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder time(DashboardWidgetHeatmapDefinitionTimeArgs time) {
+            return time(Output.of(time));
         }
 
         /**
@@ -495,6 +598,27 @@ public final class DashboardWidgetHeatmapDefinitionArgs extends com.pulumi.resou
          */
         public Builder titleSize(String titleSize) {
             return titleSize(Output.of(titleSize));
+        }
+
+        /**
+         * @param xaxis A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder xaxis(@Nullable Output<DashboardWidgetHeatmapDefinitionXaxisArgs> xaxis) {
+            $.xaxis = xaxis;
+            return this;
+        }
+
+        /**
+         * @param xaxis A nested block describing the X-Axis Controls. Exactly one nested block is allowed using the structure below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder xaxis(DashboardWidgetHeatmapDefinitionXaxisArgs xaxis) {
+            return xaxis(Output.of(xaxis));
         }
 
         /**

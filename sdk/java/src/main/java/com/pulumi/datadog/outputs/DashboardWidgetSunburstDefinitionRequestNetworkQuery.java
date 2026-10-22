@@ -27,7 +27,7 @@ public final class DashboardWidgetSunburstDefinitionRequestNetworkQuery {
      */
     private @Nullable List<DashboardWidgetSunburstDefinitionRequestNetworkQueryGroupBy> groupBies;
     /**
-     * @return The name of the index to query.
+     * @return A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
      * 
      */
     private String index;
@@ -58,7 +58,7 @@ public final class DashboardWidgetSunburstDefinitionRequestNetworkQuery {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
-     * @return The name of the index to query.
+     * @return A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
      * 
      */
     public String index() {

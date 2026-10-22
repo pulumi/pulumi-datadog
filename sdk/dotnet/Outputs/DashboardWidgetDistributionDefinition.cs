@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? LiveSpan;
         /// <summary>
+        /// A nested block describing the marker to use when displaying the widget. The structure of this block is described below. Multiple `Marker` blocks are allowed within a given `DistributionDefinition` block.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionMarker> Markers;
+        /// <summary>
         /// A nested block describing the request to use when displaying the widget. Multiple request blocks are allowed using the structure below (exactly one of `Q`, `ApmQuery`, `LogQuery`, `RumQuery`, `SecurityQuery` or `ProcessQuery` is required within the request block).
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequest> Requests;
@@ -37,6 +41,10 @@ namespace Pulumi.Datadog.Outputs
         /// Whether or not to show the legend on this widget.
         /// </summary>
         public readonly bool? ShowLegend;
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetDistributionDefinitionTime? Time;
         /// <summary>
         /// The title of the widget.
         /// </summary>
@@ -68,9 +76,13 @@ namespace Pulumi.Datadog.Outputs
 
             string? liveSpan,
 
+            ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionMarker> markers,
+
             ImmutableArray<Outputs.DashboardWidgetDistributionDefinitionRequest> requests,
 
             bool? showLegend,
+
+            Outputs.DashboardWidgetDistributionDefinitionTime? time,
 
             string? title,
 
@@ -86,8 +98,10 @@ namespace Pulumi.Datadog.Outputs
             HideIncompleteCostData = hideIncompleteCostData;
             LegendSize = legendSize;
             LiveSpan = liveSpan;
+            Markers = markers;
             Requests = requests;
             ShowLegend = showLegend;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

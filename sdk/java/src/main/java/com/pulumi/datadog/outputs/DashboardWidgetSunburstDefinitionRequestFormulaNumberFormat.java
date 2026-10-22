@@ -18,6 +18,10 @@ public final class DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat {
      * 
      */
     private DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit unit;
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     private @Nullable DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale unitScale;
 
     private DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat() {}
@@ -28,6 +32,10 @@ public final class DashboardWidgetSunburstDefinitionRequestFormulaNumberFormat {
     public DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnit unit() {
         return this.unit;
     }
+    /**
+     * @return The definition of `NumberFormatUnitScale` object.
+     * 
+     */
     public Optional<DashboardWidgetSunburstDefinitionRequestFormulaNumberFormatUnitScale> unitScale() {
         return Optional.ofNullable(this.unitScale);
     }

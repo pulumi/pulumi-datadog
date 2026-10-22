@@ -17,14 +17,14 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyleArgs extends c
     public static final DashboardWidgetTimeseriesDefinitionRequestStyleArgs Empty = new DashboardWidgetTimeseriesDefinitionRequestStyleArgs();
 
     /**
-     * If true, the value is displayed as a label relative to the data point.
+     * Whether to display value labels on the timeseries.
      * 
      */
     @Import(name="hasValueLabels")
     private @Nullable Output<Boolean> hasValueLabels;
 
     /**
-     * @return If true, the value is displayed as a label relative to the data point.
+     * @return Whether to display value labels on the timeseries.
      * 
      */
     public Optional<Output<Boolean>> hasValueLabels() {
@@ -120,7 +120,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyleArgs extends c
         }
 
         /**
-         * @param hasValueLabels If true, the value is displayed as a label relative to the data point.
+         * @param hasValueLabels Whether to display value labels on the timeseries.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DashboardWidgetTimeseriesDefinitionRequestStyleArgs extends c
         }
 
         /**
-         * @param hasValueLabels If true, the value is displayed as a label relative to the data point.
+         * @param hasValueLabels Whether to display value labels on the timeseries.
          * 
          * @return builder
          * 

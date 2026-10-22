@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.DashboardWidgetEventTimelineDefinitionTime;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
@@ -29,7 +30,7 @@ public final class DashboardWidgetEventTimelineDefinition {
      */
     private @Nullable String liveSpan;
     /**
-     * @return The query to use in the widget.
+     * @return Query to filter the event timeline with.
      * 
      */
     private String query;
@@ -38,6 +39,11 @@ public final class DashboardWidgetEventTimelineDefinition {
      * 
      */
     private @Nullable String tagsExecution;
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    private @Nullable DashboardWidgetEventTimelineDefinitionTime time;
     /**
      * @return The title of the widget.
      * 
@@ -77,7 +83,7 @@ public final class DashboardWidgetEventTimelineDefinition {
         return Optional.ofNullable(this.liveSpan);
     }
     /**
-     * @return The query to use in the widget.
+     * @return Query to filter the event timeline with.
      * 
      */
     public String query() {
@@ -89,6 +95,13 @@ public final class DashboardWidgetEventTimelineDefinition {
      */
     public Optional<String> tagsExecution() {
         return Optional.ofNullable(this.tagsExecution);
+    }
+    /**
+     * @return A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
+     * 
+     */
+    public Optional<DashboardWidgetEventTimelineDefinitionTime> time() {
+        return Optional.ofNullable(this.time);
     }
     /**
      * @return The title of the widget.
@@ -126,6 +139,7 @@ public final class DashboardWidgetEventTimelineDefinition {
         private @Nullable String liveSpan;
         private String query;
         private @Nullable String tagsExecution;
+        private @Nullable DashboardWidgetEventTimelineDefinitionTime time;
         private @Nullable String title;
         private @Nullable String titleAlign;
         private @Nullable String titleSize;
@@ -137,6 +151,7 @@ public final class DashboardWidgetEventTimelineDefinition {
     	      this.liveSpan = defaults.liveSpan;
     	      this.query = defaults.query;
     	      this.tagsExecution = defaults.tagsExecution;
+    	      this.time = defaults.time;
     	      this.title = defaults.title;
     	      this.titleAlign = defaults.titleAlign;
     	      this.titleSize = defaults.titleSize;
@@ -175,6 +190,12 @@ public final class DashboardWidgetEventTimelineDefinition {
             return this;
         }
         @CustomType.Setter
+        public Builder time(@Nullable DashboardWidgetEventTimelineDefinitionTime time) {
+
+            this.time = time;
+            return this;
+        }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
 
             this.title = title;
@@ -199,6 +220,7 @@ public final class DashboardWidgetEventTimelineDefinition {
             _resultValue.liveSpan = liveSpan;
             _resultValue.query = query;
             _resultValue.tagsExecution = tagsExecution;
+            _resultValue.time = time;
             _resultValue.title = title;
             _resultValue.titleAlign = titleAlign;
             _resultValue.titleSize = titleSize;

@@ -12,6 +12,30 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class DashboardWidgetListStreamDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the widget.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
+        /// </summary>
+        [Input("hideIncompleteCostData")]
+        public Input<bool>? HideIncompleteCostData { get; set; }
+
+        /// <summary>
+        /// The size of the legend displayed in the widget.
+        /// </summary>
+        [Input("legendSize")]
+        public Input<string>? LegendSize { get; set; }
+
+        /// <summary>
+        /// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `WeekToDate`, `MonthToDate`, `1y`, `Alert`.
+        /// </summary>
+        [Input("liveSpan")]
+        public Input<string>? LiveSpan { get; set; }
+
         [Input("requests", required: true)]
         private InputList<Inputs.DashboardWidgetListStreamDefinitionRequestArgs>? _requests;
 
@@ -23,6 +47,18 @@ namespace Pulumi.Datadog.Inputs
             get => _requests ?? (_requests = new InputList<Inputs.DashboardWidgetListStreamDefinitionRequestArgs>());
             set => _requests = value;
         }
+
+        /// <summary>
+        /// Whether or not to show the legend on this widget.
+        /// </summary>
+        [Input("showLegend")]
+        public Input<bool>? ShowLegend { get; set; }
+
+        /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        [Input("time")]
+        public Input<Inputs.DashboardWidgetListStreamDefinitionTimeArgs>? Time { get; set; }
 
         /// <summary>
         /// The title of the widget.
@@ -37,7 +73,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? TitleAlign { get; set; }
 
         /// <summary>
-        /// The size of the widget's title. Default is 16.
+        /// The size of the widget's title (defaults to 16).
         /// </summary>
         [Input("titleSize")]
         public Input<string>? TitleSize { get; set; }

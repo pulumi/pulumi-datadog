@@ -34,6 +34,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? LiveSpan;
         /// <summary>
+        /// A nested block used to specify a time span for the widget. Use this or `LiveSpan`, not both.
+        /// </summary>
+        public readonly Outputs.DashboardWidgetRunWorkflowDefinitionTime? Time;
+        /// <summary>
         /// The title of the widget.
         /// </summary>
         public readonly string? Title;
@@ -62,6 +66,8 @@ namespace Pulumi.Datadog.Outputs
 
             string? liveSpan,
 
+            Outputs.DashboardWidgetRunWorkflowDefinitionTime? time,
+
             string? title,
 
             string? titleAlign,
@@ -75,6 +81,7 @@ namespace Pulumi.Datadog.Outputs
             HideIncompleteCostData = hideIncompleteCostData;
             Inputs = inputs;
             LiveSpan = liveSpan;
+            Time = time;
             Title = title;
             TitleAlign = titleAlign;
             TitleSize = titleSize;

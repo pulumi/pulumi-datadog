@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTable {
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula> formulas;
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     private @Nullable List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery> queries;
 
     private DashboardWidgetScatterplotDefinitionRequestScatterplotTable() {}
+    /**
+     * @return A list of formulas to use in the widget.
+     * 
+     */
     public List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormula> formulas() {
         return this.formulas == null ? List.of() : this.formulas;
     }
+    /**
+     * @return A list of queries to use in the widget.
+     * 
+     */
     public List<DashboardWidgetScatterplotDefinitionRequestScatterplotTableQuery> queries() {
         return this.queries == null ? List.of() : this.queries;
     }

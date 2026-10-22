@@ -17,14 +17,14 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
     public static final DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByFieldsSortArgs Empty = new DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByFieldsSortArgs();
 
     /**
-     * The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     @Import(name="aggregation", required=true)
     private Output<String> aggregation;
 
     /**
-     * @return The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+     * @return The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
      * 
      */
     public Output<String> aggregation() {
@@ -88,7 +88,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         }
 
         /**
-         * @param aggregation The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+         * @param aggregation The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class DashboardWidgetScatterplotDefinitionRequestScatterplotTableQu
         }
 
         /**
-         * @param aggregation The aggregation method for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+         * @param aggregation The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
          * 
          * @return builder
          * 

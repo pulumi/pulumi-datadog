@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Inputs
     {
         [Input("formulas")]
         private InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormulaGetArgs>? _formulas;
+
+        /// <summary>
+        /// A list of formulas to use in the widget.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormulaGetArgs> Formulas
         {
             get => _formulas ?? (_formulas = new InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableFormulaGetArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.Datadog.Inputs
 
         [Input("queries")]
         private InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryGetArgs>? _queries;
+
+        /// <summary>
+        /// A list of queries to use in the widget.
+        /// </summary>
         public InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryGetArgs> Queries
         {
             get => _queries ?? (_queries = new InputList<Inputs.DashboardWidgetScatterplotDefinitionRequestScatterplotTableQueryGetArgs>());

@@ -12,12 +12,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DashboardWidgetToplistDefinitionRequestStyle {
     /**
+     * @return How to order series. Valid values are `tags`, `values`.
+     * 
+     */
+    private @Nullable String orderBy;
+    /**
      * @return A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      * 
      */
     private @Nullable String palette;
 
     private DashboardWidgetToplistDefinitionRequestStyle() {}
+    /**
+     * @return How to order series. Valid values are `tags`, `values`.
+     * 
+     */
+    public Optional<String> orderBy() {
+        return Optional.ofNullable(this.orderBy);
+    }
     /**
      * @return A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
      * 
@@ -35,13 +47,21 @@ public final class DashboardWidgetToplistDefinitionRequestStyle {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String orderBy;
         private @Nullable String palette;
         public Builder() {}
         public Builder(DashboardWidgetToplistDefinitionRequestStyle defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.orderBy = defaults.orderBy;
     	      this.palette = defaults.palette;
         }
 
+        @CustomType.Setter
+        public Builder orderBy(@Nullable String orderBy) {
+
+            this.orderBy = orderBy;
+            return this;
+        }
         @CustomType.Setter
         public Builder palette(@Nullable String palette) {
 
@@ -50,6 +70,7 @@ public final class DashboardWidgetToplistDefinitionRequestStyle {
         }
         public DashboardWidgetToplistDefinitionRequestStyle build() {
             final var _resultValue = new DashboardWidgetToplistDefinitionRequestStyle();
+            _resultValue.orderBy = orderBy;
             _resultValue.palette = palette;
             return _resultValue;
         }

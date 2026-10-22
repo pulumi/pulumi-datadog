@@ -20,13 +20,13 @@ namespace Pulumi.Datadog.Outputs
         /// <summary>
         /// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
         /// </summary>
-        public readonly string UnitName;
+        public readonly string? UnitName;
 
         [OutputConstructor]
         private DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitCanonical(
             string? perUnitName,
 
-            string unitName)
+            string? unitName)
         {
             PerUnitName = perUnitName;
             UnitName = unitName;

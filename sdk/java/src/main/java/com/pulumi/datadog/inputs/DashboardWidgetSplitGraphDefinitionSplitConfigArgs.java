@@ -66,14 +66,14 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigArgs extends co
     }
 
     /**
-     * The property by which the graph splits
+     * Manual selection of tags making split graph widget static.
      * 
      */
     @Import(name="staticSplits")
     private @Nullable Output<List<DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplitArgs>> staticSplits;
 
     /**
-     * @return The property by which the graph splits
+     * @return Manual selection of tags making split graph widget static.
      * 
      */
     public Optional<Output<List<DashboardWidgetSplitGraphDefinitionSplitConfigStaticSplitArgs>>> staticSplits() {
@@ -171,7 +171,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigArgs extends co
         }
 
         /**
-         * @param staticSplits The property by which the graph splits
+         * @param staticSplits Manual selection of tags making split graph widget static.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigArgs extends co
         }
 
         /**
-         * @param staticSplits The property by which the graph splits
+         * @param staticSplits Manual selection of tags making split graph widget static.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class DashboardWidgetSplitGraphDefinitionSplitConfigArgs extends co
         }
 
         /**
-         * @param staticSplits The property by which the graph splits
+         * @param staticSplits Manual selection of tags making split graph widget static.
          * 
          * @return builder
          * 

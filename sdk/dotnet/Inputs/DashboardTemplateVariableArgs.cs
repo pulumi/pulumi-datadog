@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _availableValues;
 
         /// <summary>
-        /// The list of values that the template variable drop-down is be limited to
+        /// The list of values that the template variable drop-down is limited to.
         /// </summary>
         public InputList<string> AvailableValues
         {
@@ -53,6 +53,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
+
+        /// <summary>
+        /// The type of variable. This is to differentiate between filter variables (interpolated in query) and group by variables (interpolated into group by).
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public DashboardTemplateVariableArgs()
         {

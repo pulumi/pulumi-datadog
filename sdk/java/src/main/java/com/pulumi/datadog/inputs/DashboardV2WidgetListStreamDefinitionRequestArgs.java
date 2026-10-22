@@ -11,6 +11,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DashboardV2WidgetListStreamDefinitionRequestArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,6 +32,29 @@ public final class DashboardV2WidgetListStreamDefinitionRequestArgs extends com.
      */
     public Output<List<DashboardV2WidgetListStreamDefinitionRequestColumnArgs>> columns() {
         return this.columns;
+    }
+
+    /**
+     * This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+     * 
+     * @deprecated
+     * This field has no effect and will be removed in a future release.
+     * 
+     */
+    @Deprecated /* This field has no effect and will be removed in a future release. */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
     }
 
     /**
@@ -66,6 +91,7 @@ public final class DashboardV2WidgetListStreamDefinitionRequestArgs extends com.
 
     private DashboardV2WidgetListStreamDefinitionRequestArgs(DashboardV2WidgetListStreamDefinitionRequestArgs $) {
         this.columns = $.columns;
+        this.description = $.description;
         this.query = $.query;
         this.responseFormat = $.responseFormat;
     }
@@ -117,6 +143,35 @@ public final class DashboardV2WidgetListStreamDefinitionRequestArgs extends com.
          */
         public Builder columns(DashboardV2WidgetListStreamDefinitionRequestColumnArgs... columns) {
             return columns(List.of(columns));
+        }
+
+        /**
+         * @param description This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This field has no effect and will be removed in a future release.
+         * 
+         */
+        @Deprecated /* This field has no effect and will be removed in a future release. */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This field has no effect and will be removed in a future release.
+         * 
+         */
+        @Deprecated /* This field has no effect and will be removed in a future release. */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

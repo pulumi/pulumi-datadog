@@ -863,6 +863,16 @@ export type RumMetric = import("./rumMetric").RumMetric;
 export const RumMetric: typeof import("./rumMetric").RumMetric = null as any;
 utilities.lazyLoad(exports, ["RumMetric"], () => require("./rumMetric"));
 
+export { RumOperationArgs, RumOperationState } from "./rumOperation";
+export type RumOperation = import("./rumOperation").RumOperation;
+export const RumOperation: typeof import("./rumOperation").RumOperation = null as any;
+utilities.lazyLoad(exports, ["RumOperation"], () => require("./rumOperation"));
+
+export { RumOperationJourneyLinkArgs, RumOperationJourneyLinkState } from "./rumOperationJourneyLink";
+export type RumOperationJourneyLink = import("./rumOperationJourneyLink").RumOperationJourneyLink;
+export const RumOperationJourneyLink: typeof import("./rumOperationJourneyLink").RumOperationJourneyLink = null as any;
+utilities.lazyLoad(exports, ["RumOperationJourneyLink"], () => require("./rumOperationJourneyLink"));
+
 export { RumRetentionFilterArgs, RumRetentionFilterState } from "./rumRetentionFilter";
 export type RumRetentionFilter = import("./rumRetentionFilter").RumRetentionFilter;
 export const RumRetentionFilter: typeof import("./rumRetentionFilter").RumRetentionFilter = null as any;
@@ -1394,6 +1404,10 @@ const _module = {
                 return new RumExclusionFilter(name, <any>undefined, { urn })
             case "datadog:index/rumMetric:RumMetric":
                 return new RumMetric(name, <any>undefined, { urn })
+            case "datadog:index/rumOperation:RumOperation":
+                return new RumOperation(name, <any>undefined, { urn })
+            case "datadog:index/rumOperationJourneyLink:RumOperationJourneyLink":
+                return new RumOperationJourneyLink(name, <any>undefined, { urn })
             case "datadog:index/rumRetentionFilter:RumRetentionFilter":
                 return new RumRetentionFilter(name, <any>undefined, { urn })
             case "datadog:index/rumRetentionFiltersOrder:RumRetentionFiltersOrder":
@@ -1612,6 +1626,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/role", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumApplication", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumExclusionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumMetric", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/rumOperation", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/rumOperationJourneyLink", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionFiltersOrder", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/rumRetentionQuota", _module)

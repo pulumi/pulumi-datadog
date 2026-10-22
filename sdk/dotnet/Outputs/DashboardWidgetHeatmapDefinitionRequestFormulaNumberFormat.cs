@@ -17,6 +17,9 @@ namespace Pulumi.Datadog.Outputs
         /// Unit of the number format.
         /// </summary>
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnit Unit;
+        /// <summary>
+        /// The definition of `NumberFormatUnitScale` object.
+        /// </summary>
         public readonly Outputs.DashboardWidgetHeatmapDefinitionRequestFormulaNumberFormatUnitScale? UnitScale;
 
         [OutputConstructor]
