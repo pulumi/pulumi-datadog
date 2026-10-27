@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewAwsWifIdentityMapping(ctx, "terraform", &datadog.AwsWifIdentityMappingArgs{
-//				AccountIdentifier: terraform.ID().ToIDOutput().ToStringOutput(),
+//				AccountIdentifier: terraform.ID(),
 //				ArnPattern:        pulumi.Sprintf("arn:aws:sts::%v:assumed-role/terraform-runner/*", current.AccountId),
 //			})
 //			if err != nil {

@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewTeamNotificationRule(ctx, "foo", &datadog.TeamNotificationRuleArgs{
-//				TeamId: foo.ID().ToIDOutput().ToStringOutput(),
+//				TeamId: foo.ID(),
 //				Email: datadog.TeamNotificationRuleEmailArgs{
 //					map[string]interface{}{
 //						"enabled":        true,

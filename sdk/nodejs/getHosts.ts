@@ -10,6 +10,16 @@ import * as utilities from "./utilities";
  * Use this data source to retrieve information about your live hosts in Datadog.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getHosts({
+ *     includeMutedHostsData: true,
+ *     includeHostsMetadata: true,
+ * });
+ * ```
  */
 export function getHosts(args?: GetHostsArgs, opts?: pulumi.InvokeOptions): Promise<GetHostsResult> {
     args = args || {};
@@ -94,6 +104,16 @@ export interface GetHostsResult {
  * Use this data source to retrieve information about your live hosts in Datadog.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const foo = datadog.getHosts({
+ *     includeMutedHostsData: true,
+ *     includeHostsMetadata: true,
+ * });
+ * ```
  */
 export function getHostsOutput(args?: GetHostsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostsResult> {
     args = args || {};

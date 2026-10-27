@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewStatusPageComponent(ctx, "acme_api", &datadog.StatusPageComponentArgs{
-//				PageId:   acmeStatusPage.ID().ToIDOutput().ToStringOutput(),
+//				PageId:   acmeStatusPage.ID(),
 //				Name:     pulumi.String("API"),
 //				Type:     pulumi.String("component"),
 //				Position: pulumi.Int(0),
@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewStatusPageComponent(ctx, "acme_infrastructure", &datadog.StatusPageComponentArgs{
-//				PageId:   acmeStatusPage.ID().ToIDOutput().ToStringOutput(),
+//				PageId:   acmeStatusPage.ID(),
 //				Name:     pulumi.String("Infrastructure"),
 //				Type:     pulumi.String("group"),
 //				Position: pulumi.Int(1),

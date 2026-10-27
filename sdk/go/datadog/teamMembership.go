@@ -44,8 +44,8 @@ import (
 //			}
 //			// Create new team_membership resource
 //			_, err = datadog.NewTeamMembership(ctx, "foo", &datadog.TeamMembershipArgs{
-//				TeamId: foo.ID().ToIDOutput().ToStringOutput(),
-//				UserId: fooUser.ID().ToIDOutput().ToStringOutput(),
+//				TeamId: foo.ID(),
+//				UserId: fooUser.ID(),
 //				Role:   pulumi.String("admin"),
 //			})
 //			if err != nil {

@@ -38,7 +38,7 @@ import (
 //			}
 //			// Create new team_link resource
 //			_, err = datadog.NewTeamLink(ctx, "foo", &datadog.TeamLinkArgs{
-//				TeamId:   foo.ID().ToIDOutput().ToStringOutput(),
+//				TeamId:   foo.ID(),
 //				Label:    pulumi.String("Link label"),
 //				Position: pulumi.Int(0),
 //				Url:      pulumi.String("https://example.com"),
