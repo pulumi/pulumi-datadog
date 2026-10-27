@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewTeamPermissionSetting(ctx, "foo", &datadog.TeamPermissionSettingArgs{
-//				TeamId: foo.ID().ToIDOutput().ToStringOutput(),
+//				TeamId: foo.ID(),
 //				Action: pulumi.String("manage_membership"),
 //				Value:  pulumi.String("organization"),
 //			})

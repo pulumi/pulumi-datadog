@@ -47,7 +47,7 @@ import (
 //			// enforcement_tier = "OVERRIDE_ALLOWED" means member orgs can still override the value;
 //			// use "GROUP_MANAGED" to make the value immutable for members.
 //			_, err = datadog.NewOrgGroupPolicy(ctx, "example", &datadog.OrgGroupPolicyArgs{
-//				OrgGroupId:      prod.ID().ToIDOutput().ToStringOutput(),
+//				OrgGroupId:      prod.ID(),
 //				PolicyName:      pulumi.String("is_widget_copy_paste_enabled"),
 //				Content:         pulumi.String(json0),
 //				EnforcementTier: pulumi.String("OVERRIDE_ALLOWED"),
@@ -68,7 +68,7 @@ import (
 //			// role policies only support GROUP_MANAGED/DELEGATE; DELEGATE disables the
 //			// shared role and cannot be reversed.
 //			_, err = datadog.NewOrgGroupPolicy(ctx, "role_example", &datadog.OrgGroupPolicyArgs{
-//				OrgGroupId:      prod.ID().ToIDOutput().ToStringOutput(),
+//				OrgGroupId:      prod.ID(),
 //				PolicyName:      pulumi.String("finance_read_only"),
 //				PolicyType:      pulumi.String("role"),
 //				Content:         pulumi.String(json1),

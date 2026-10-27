@@ -15,6 +15,23 @@ namespace Pulumi.Datadog
         /// Use this data source to retrieve information about your live hosts in Datadog.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Datadog.GetHosts.Invoke(new()
+        ///     {
+        ///         IncludeMutedHostsData = true,
+        ///         IncludeHostsMetadata = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetHostsResult> InvokeAsync(GetHostsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostsResult>("datadog:index/getHosts:getHosts", args ?? new GetHostsArgs(), options.WithDefaults());
@@ -23,6 +40,23 @@ namespace Pulumi.Datadog
         /// Use this data source to retrieve information about your live hosts in Datadog.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Datadog.GetHosts.Invoke(new()
+        ///     {
+        ///         IncludeMutedHostsData = true,
+        ///         IncludeHostsMetadata = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetHostsResult> Invoke(GetHostsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostsResult>("datadog:index/getHosts:getHosts", args ?? new GetHostsInvokeArgs(), options.WithDefaults());
@@ -31,6 +65,23 @@ namespace Pulumi.Datadog
         /// Use this data source to retrieve information about your live hosts in Datadog.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Datadog = Pulumi.Datadog;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Datadog.GetHosts.Invoke(new()
+        ///     {
+        ///         IncludeMutedHostsData = true,
+        ///         IncludeHostsMetadata = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetHostsResult> Invoke(GetHostsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostsResult>("datadog:index/getHosts:getHosts", args ?? new GetHostsInvokeArgs(), options.WithDefaults());

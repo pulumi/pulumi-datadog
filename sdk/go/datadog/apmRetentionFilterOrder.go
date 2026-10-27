@@ -46,7 +46,7 @@ import (
 //			// Create APM retention filter order
 //			_, err = datadog.NewApmRetentionFilterOrder(ctx, "bar", &datadog.ApmRetentionFilterOrderArgs{
 //				FilterIds: pulumi.StringArray{
-//					foo.ID().ToIDOutput().ToStringOutput(),
+//					foo.ID(),
 //				},
 //			})
 //			if err != nil {

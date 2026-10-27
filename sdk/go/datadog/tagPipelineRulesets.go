@@ -115,9 +115,9 @@ import (
 //			// UI-defined rulesets not in this list will be preserved at the end
 //			_, err = datadog.NewTagPipelineRulesets(ctx, "order", &datadog.TagPipelineRulesetsArgs{
 //				RulesetIds: pulumi.StringArray{
-//					first.ID().ToIDOutput().ToStringOutput(),
-//					second.ID().ToIDOutput().ToStringOutput(),
-//					third.ID().ToIDOutput().ToStringOutput(),
+//					first.ID(),
+//					second.ID(),
+//					third.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -181,8 +181,8 @@ import (
 //			_, err = datadog.NewTagPipelineRulesets(ctx, "order_override", &datadog.TagPipelineRulesetsArgs{
 //				OverrideUiDefinedResources: pulumi.Bool(true),
 //				RulesetIds: pulumi.StringArray{
-//					managedFirst.ID().ToIDOutput().ToStringOutput(),
-//					managedSecond.ID().ToIDOutput().ToStringOutput(),
+//					managedFirst.ID(),
+//					managedSecond.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -252,8 +252,8 @@ import (
 //			_, err = datadog.NewTagPipelineRulesets(ctx, "order_preserve", &datadog.TagPipelineRulesetsArgs{
 //				OverrideUiDefinedResources: pulumi.Bool(false),
 //				RulesetIds: pulumi.StringArray{
-//					preserveFirst.ID().ToIDOutput().ToStringOutput(),
-//					preserveSecond.ID().ToIDOutput().ToStringOutput(),
+//					preserveFirst.ID(),
+//					preserveSecond.ID(),
 //				},
 //			})
 //			if err != nil {

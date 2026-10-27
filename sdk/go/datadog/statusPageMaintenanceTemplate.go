@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			acmeApi, err := datadog.NewStatusPageComponent(ctx, "acme_api", &datadog.StatusPageComponentArgs{
-//				PageId:   acmeStatusPage.ID().ToIDOutput().ToStringOutput(),
+//				PageId:   acmeStatusPage.ID(),
 //				Name:     pulumi.String("API"),
 //				Type:     pulumi.String("component"),
 //				Position: pulumi.Int(0),
@@ -48,11 +48,11 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewStatusPageMaintenanceTemplate(ctx, "acme_maintenance_template", &datadog.StatusPageMaintenanceTemplateArgs{
-//				PageId:           acmeStatusPage.ID().ToIDOutput().ToStringOutput(),
+//				PageId:           acmeStatusPage.ID(),
 //				Name:             pulumi.String("Scheduled Acme API maintenance"),
 //				MaintenanceTitle: pulumi.String("Acme API maintenance"),
 //				ComponentIds: pulumi.StringArray{
-//					acmeApi.ID().ToIDOutput().ToStringOutput(),
+//					acmeApi.ID(),
 //				},
 //				ScheduledDescription:  pulumi.String("Maintenance has been scheduled for the Acme API."),
 //				InProgressDescription: pulumi.String("Maintenance is in progress for the Acme API."),

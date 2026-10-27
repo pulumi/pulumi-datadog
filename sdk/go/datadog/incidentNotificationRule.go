@@ -48,7 +48,7 @@ import (
 // `),
 //
 //				Category:     pulumi.String("alert"),
-//				IncidentType: example.ID().ToIDOutput().ToStringOutput(),
+//				IncidentType: example.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -83,8 +83,8 @@ import (
 //					pulumi.String("status"),
 //					pulumi.String("severity"),
 //				},
-//				IncidentType:         example.ID().ToIDOutput().ToStringOutput(),
-//				NotificationTemplate: exampleIncidentNotificationTemplate.ID().ToIDOutput().ToStringOutput(),
+//				IncidentType:         example.ID(),
+//				NotificationTemplate: exampleIncidentNotificationTemplate.ID(),
 //			})
 //			if err != nil {
 //				return err

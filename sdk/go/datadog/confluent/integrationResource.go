@@ -41,7 +41,7 @@ import (
 //			}
 //			// Create new integration_confluent_resource resource
 //			_, err = confluent.NewIntegrationResource(ctx, "foo", &confluent.IntegrationResourceArgs{
-//				AccountId:    foo.ID().ToIDOutput().ToStringOutput(),
+//				AccountId:    foo.ID(),
 //				ResourceId:   pulumi.String("123456"),
 //				ResourceType: pulumi.String("kafka"),
 //				Tags: pulumi.StringArray{

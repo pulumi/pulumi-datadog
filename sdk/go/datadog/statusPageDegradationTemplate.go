@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			acmeApi, err := datadog.NewStatusPageComponent(ctx, "acme_api", &datadog.StatusPageComponentArgs{
-//				PageId:   acmeStatusPage.ID().ToIDOutput().ToStringOutput(),
+//				PageId:   acmeStatusPage.ID(),
 //				Name:     pulumi.String("API"),
 //				Type:     pulumi.String("component"),
 //				Position: pulumi.Int(0),
@@ -48,12 +48,12 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewStatusPageDegradationTemplate(ctx, "acme_degradation_template", &datadog.StatusPageDegradationTemplateArgs{
-//				PageId:           acmeStatusPage.ID().ToIDOutput().ToStringOutput(),
+//				PageId:           acmeStatusPage.ID(),
 //				Name:             pulumi.String("Acme API Degradation"),
 //				DegradationTitle: pulumi.String("Acme API is degraded"),
 //				ComponentsAffecteds: datadog.StatusPageDegradationTemplateComponentsAffectedArray{
 //					&datadog.StatusPageDegradationTemplateComponentsAffectedArgs{
-//						Id:     acmeApi.ID().ToIDOutput().ToStringOutput(),
+//						Id:     acmeApi.ID(),
 //						Status: pulumi.String("degraded"),
 //					},
 //				},

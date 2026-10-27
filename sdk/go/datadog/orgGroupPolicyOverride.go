@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			exemptOrg, err := datadog.NewOrgGroupMembership(ctx, "exempt_org", &datadog.OrgGroupMembershipArgs{
-//				OrgGroupId: prod.ID().ToIDOutput().ToStringOutput(),
+//				OrgGroupId: prod.ID(),
 //				OrgUuid:    pulumi.String("ff4a8255-6931-58d1-add0-a6b3602d5421"),
 //			})
 //			if err != nil {
@@ -51,7 +51,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			widgetCopyPaste, err := datadog.NewOrgGroupPolicy(ctx, "widget_copy_paste", &datadog.OrgGroupPolicyArgs{
-//				OrgGroupId:      prod.ID().ToIDOutput().ToStringOutput(),
+//				OrgGroupId:      prod.ID(),
 //				PolicyName:      pulumi.String("is_widget_copy_paste_enabled"),
 //				Content:         pulumi.String(json0),
 //				EnforcementTier: pulumi.String("OVERRIDE_ALLOWED"),
@@ -63,8 +63,8 @@ import (
 //			// The org keeps its current value for is_widget_copy_paste_enabled regardless
 //			// of the policy. The resource must target a policy whose tier is not GROUP_MANAGED.
 //			_, err = datadog.NewOrgGroupPolicyOverride(ctx, "example", &datadog.OrgGroupPolicyOverrideArgs{
-//				OrgGroupId: prod.ID().ToIDOutput().ToStringOutput(),
-//				PolicyId:   widgetCopyPaste.ID().ToIDOutput().ToStringOutput(),
+//				OrgGroupId: prod.ID(),
+//				PolicyId:   widgetCopyPaste.ID(),
 //				OrgUuid:    pulumi.String("ff4a8255-6931-58d1-add0-a6b3602d5421"),
 //				OrgSite:    pulumi.String("us1"),
 //			}, pulumi.DependsOn([]pulumi.Resource{

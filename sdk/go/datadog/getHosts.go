@@ -14,6 +14,31 @@ import (
 // Use this data source to retrieve information about your live hosts in Datadog.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.GetHosts(ctx, &datadog.GetHostsArgs{
+//				IncludeMutedHostsData: pulumi.BoolRef(true),
+//				IncludeHostsMetadata:  true,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetHosts(ctx *pulumi.Context, args *GetHostsArgs, opts ...pulumi.InvokeOption) (*GetHostsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetHostsResult

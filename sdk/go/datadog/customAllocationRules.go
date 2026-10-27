@@ -128,9 +128,9 @@ import (
 //			// This will preserve any existing rules created outside of Pulumi as long as they are at the end
 //			_, err = datadog.NewCustomAllocationRules(ctx, "preserve_order", &datadog.CustomAllocationRulesArgs{
 //				RuleIds: pulumi.StringArray{
-//					rule1.ID().ToIDOutput().ToStringOutput(),
-//					rule2.ID().ToIDOutput().ToStringOutput(),
-//					rule3.ID().ToIDOutput().ToStringOutput(),
+//					rule1.ID(),
+//					rule2.ID(),
+//					rule3.ID(),
 //				},
 //			})
 //			if err != nil {
@@ -141,9 +141,9 @@ import (
 //			_, err = datadog.NewCustomAllocationRules(ctx, "override_order", &datadog.CustomAllocationRulesArgs{
 //				OverrideUiDefinedResources: pulumi.Bool(true),
 //				RuleIds: pulumi.StringArray{
-//					rule1.ID().ToIDOutput().ToStringOutput(),
-//					rule2.ID().ToIDOutput().ToStringOutput(),
-//					rule3.ID().ToIDOutput().ToStringOutput(),
+//					rule1.ID(),
+//					rule2.ID(),
+//					rule3.ID(),
 //				},
 //			})
 //			if err != nil {
