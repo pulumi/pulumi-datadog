@@ -31,8 +31,23 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountB
     }
 
     /**
+     * Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    @Import(name="token")
+    private @Nullable Output<String> token;
+
+    /**
+     * @return Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    public Optional<Output<String>> token() {
+        return Optional.ofNullable(this.token);
+    }
+
+    /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+     * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
     @Import(name="tokenWo")
@@ -40,7 +55,7 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountB
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+     * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
     public Optional<Output<String>> tokenWo() {
@@ -66,6 +81,7 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountB
 
     private IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuthArgs(IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuthArgs $) {
         this.authType = $.authType;
+        this.token = $.token;
         this.tokenWo = $.tokenWo;
         this.tokenWoVersion = $.tokenWoVersion;
     }
@@ -110,8 +126,29 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountB
         }
 
         /**
+         * @param token Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder token(@Nullable Output<String> token) {
+            $.token = token;
+            return this;
+        }
+
+        /**
+         * @param token Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder token(String token) {
+            return token(Output.of(token));
+        }
+
+        /**
          * @param tokenWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+         * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          * 
          * @return builder
          * 
@@ -123,7 +160,7 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountB
 
         /**
          * @param tokenWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+         * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          * 
          * @return builder
          * 

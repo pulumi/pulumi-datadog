@@ -18,12 +18,28 @@ namespace Pulumi.Datadog.Elastic.Inputs
         [Input("authType")]
         public Input<string>? AuthType { get; set; }
 
-        [Input("passwordWo", required: true)]
+        [Input("password")]
+        private Input<string>? _password;
+
+        /// <summary>
+        /// Secret password or private key. Exactly one of `Password` or `PasswordWo` must be set. Prefer `PasswordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        /// </summary>
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("passwordWo")]
         private Input<string>? _passwordWo;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Secret password or private key. This write-only value is not stored in Terraform state.
+        /// Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         /// </summary>
         public Input<string>? PasswordWo
         {
@@ -38,8 +54,8 @@ namespace Pulumi.Datadog.Elastic.Inputs
         /// <summary>
         /// Version trigger for PasswordWo rotation. String length must be at least 1.
         /// </summary>
-        [Input("passwordWoVersion", required: true)]
-        public Input<string> PasswordWoVersion { get; set; } = null!;
+        [Input("passwordWoVersion")]
+        public Input<string>? PasswordWoVersion { get; set; }
 
         /// <summary>
         /// Non-secret username or public identifier for the credential pair.

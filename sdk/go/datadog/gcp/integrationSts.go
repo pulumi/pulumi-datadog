@@ -40,7 +40,7 @@ type IntegrationSts struct {
 	//
 	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters pulumi.StringArrayOutput `pulumi:"hostFilters"`
-	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolOutput `pulumi:"isCspmEnabled"`
 	// When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
 	IsGlobalLocationEnabled pulumi.BoolOutput `pulumi:"isGlobalLocationEnabled"`
@@ -111,7 +111,7 @@ type integrationStsState struct {
 	//
 	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters []string `pulumi:"hostFilters"`
-	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled *bool `pulumi:"isCspmEnabled"`
 	// When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
 	IsGlobalLocationEnabled *bool `pulumi:"isGlobalLocationEnabled"`
@@ -150,7 +150,7 @@ type IntegrationStsState struct {
 	//
 	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters pulumi.StringArrayInput
-	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolPtrInput
 	// When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
 	IsGlobalLocationEnabled pulumi.BoolPtrInput
@@ -191,7 +191,7 @@ type integrationStsArgs struct {
 	//
 	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters []string `pulumi:"hostFilters"`
-	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled *bool `pulumi:"isCspmEnabled"`
 	// When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
 	IsGlobalLocationEnabled *bool `pulumi:"isGlobalLocationEnabled"`
@@ -229,7 +229,7 @@ type IntegrationStsArgs struct {
 	//
 	// Deprecated: **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
 	HostFilters pulumi.StringArrayInput
-	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+	// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
 	IsCspmEnabled pulumi.BoolPtrInput
 	// When enabled, Datadog collects metrics where location is explicitly stated as 'global' or where location information cannot be deduced from GCP.
 	IsGlobalLocationEnabled pulumi.BoolPtrInput
@@ -372,7 +372,7 @@ func (o IntegrationStsOutput) HostFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.StringArrayOutput { return v.HostFilters }).(pulumi.StringArrayOutput)
 }
 
-// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
 func (o IntegrationStsOutput) IsCspmEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IntegrationSts) pulumi.BoolOutput { return v.IsCspmEnabled }).(pulumi.BoolOutput)
 }

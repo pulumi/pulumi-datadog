@@ -14,13 +14,21 @@ namespace Pulumi.Datadog.Outputs
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics
     {
         /// <summary>
+        /// [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `WorkerUuid` tag before being sent to the metric destination.
+        /// </summary>
+        public readonly bool? EnabledMetricAggregation;
+        /// <summary>
         /// Configuration for generating individual metrics.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric> Metrics;
 
         [OutputConstructor]
-        private ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics(ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric> metrics)
+        private ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics(
+            bool? enabledMetricAggregation,
+
+            ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric> metrics)
         {
+            EnabledMetricAggregation = enabledMetricAggregation;
             Metrics = metrics;
         }
     }

@@ -125,14 +125,14 @@ public class IntegrationSts extends com.pulumi.resources.CustomResource {
         return this.hostFilters;
     }
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
      * 
      */
     @Export(name="isCspmEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isCspmEnabled;
 
     /**
-     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
      * 
      */
     public Output<Boolean> isCspmEnabled() {

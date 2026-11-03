@@ -18,12 +18,28 @@ namespace Pulumi.Datadog.Databricks.Inputs
         [Input("authType")]
         public Input<string>? AuthType { get; set; }
 
+        [Input("token")]
+        private Input<string>? _token;
+
+        /// <summary>
+        /// Secret token used to authenticate with Databricks. Conflicts with `TokenWo`. Prefer `TokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        /// </summary>
+        public Input<string>? Token
+        {
+            get => _token;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _token = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         [Input("tokenWo")]
         private Input<string>? _tokenWo;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+        /// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         /// </summary>
         public Input<string>? TokenWo
         {

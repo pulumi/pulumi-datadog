@@ -13,6 +13,506 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type LogsArchiveS3Archive struct {
+	// Your AWS access key id, used as an alternative to `accountId`/`roleName`.
+	AccessKeyId *string `pulumi:"accessKeyId"`
+	// Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
+	AccountId *string `pulumi:"accountId"`
+	// Name of your s3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// The AWS KMS encryption key.
+	EncryptionKey *string `pulumi:"encryptionKey"`
+	// The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
+	EncryptionType *string `pulumi:"encryptionType"`
+	// Path where the archive is stored.
+	Path *string `pulumi:"path"`
+	// Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
+	RoleName *string `pulumi:"roleName"`
+	// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
+	StorageClass *string `pulumi:"storageClass"`
+}
+
+// LogsArchiveS3ArchiveInput is an input type that accepts LogsArchiveS3ArchiveArgs and LogsArchiveS3ArchiveOutput values.
+// You can construct a concrete instance of `LogsArchiveS3ArchiveInput` via:
+//
+//	LogsArchiveS3ArchiveArgs{...}
+type LogsArchiveS3ArchiveInput interface {
+	pulumi.Input
+
+	ToLogsArchiveS3ArchiveOutput() LogsArchiveS3ArchiveOutput
+	ToLogsArchiveS3ArchiveOutputWithContext(context.Context) LogsArchiveS3ArchiveOutput
+}
+
+type LogsArchiveS3ArchiveArgs struct {
+	// Your AWS access key id, used as an alternative to `accountId`/`roleName`.
+	AccessKeyId pulumi.StringPtrInput `pulumi:"accessKeyId"`
+	// Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Name of your s3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The AWS KMS encryption key.
+	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
+	// The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
+	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
+	// Path where the archive is stored.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
+	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
+	// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
+	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
+}
+
+func (LogsArchiveS3ArchiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchiveS3Archive)(nil)).Elem()
+}
+
+func (i LogsArchiveS3ArchiveArgs) ToLogsArchiveS3ArchiveOutput() LogsArchiveS3ArchiveOutput {
+	return i.ToLogsArchiveS3ArchiveOutputWithContext(context.Background())
+}
+
+func (i LogsArchiveS3ArchiveArgs) ToLogsArchiveS3ArchiveOutputWithContext(ctx context.Context) LogsArchiveS3ArchiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveS3ArchiveOutput)
+}
+
+func (i LogsArchiveS3ArchiveArgs) ToLogsArchiveS3ArchivePtrOutput() LogsArchiveS3ArchivePtrOutput {
+	return i.ToLogsArchiveS3ArchivePtrOutputWithContext(context.Background())
+}
+
+func (i LogsArchiveS3ArchiveArgs) ToLogsArchiveS3ArchivePtrOutputWithContext(ctx context.Context) LogsArchiveS3ArchivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveS3ArchiveOutput).ToLogsArchiveS3ArchivePtrOutputWithContext(ctx)
+}
+
+// LogsArchiveS3ArchivePtrInput is an input type that accepts LogsArchiveS3ArchiveArgs, LogsArchiveS3ArchivePtr and LogsArchiveS3ArchivePtrOutput values.
+// You can construct a concrete instance of `LogsArchiveS3ArchivePtrInput` via:
+//
+//	        LogsArchiveS3ArchiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsArchiveS3ArchivePtrInput interface {
+	pulumi.Input
+
+	ToLogsArchiveS3ArchivePtrOutput() LogsArchiveS3ArchivePtrOutput
+	ToLogsArchiveS3ArchivePtrOutputWithContext(context.Context) LogsArchiveS3ArchivePtrOutput
+}
+
+type logsArchiveS3ArchivePtrType LogsArchiveS3ArchiveArgs
+
+func LogsArchiveS3ArchivePtr(v *LogsArchiveS3ArchiveArgs) LogsArchiveS3ArchivePtrInput {
+	return (*logsArchiveS3ArchivePtrType)(v)
+}
+
+func (*logsArchiveS3ArchivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsArchiveS3Archive)(nil)).Elem()
+}
+
+func (i *logsArchiveS3ArchivePtrType) ToLogsArchiveS3ArchivePtrOutput() LogsArchiveS3ArchivePtrOutput {
+	return i.ToLogsArchiveS3ArchivePtrOutputWithContext(context.Background())
+}
+
+func (i *logsArchiveS3ArchivePtrType) ToLogsArchiveS3ArchivePtrOutputWithContext(ctx context.Context) LogsArchiveS3ArchivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveS3ArchivePtrOutput)
+}
+
+type LogsArchiveS3ArchiveOutput struct{ *pulumi.OutputState }
+
+func (LogsArchiveS3ArchiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchiveS3Archive)(nil)).Elem()
+}
+
+func (o LogsArchiveS3ArchiveOutput) ToLogsArchiveS3ArchiveOutput() LogsArchiveS3ArchiveOutput {
+	return o
+}
+
+func (o LogsArchiveS3ArchiveOutput) ToLogsArchiveS3ArchiveOutputWithContext(ctx context.Context) LogsArchiveS3ArchiveOutput {
+	return o
+}
+
+func (o LogsArchiveS3ArchiveOutput) ToLogsArchiveS3ArchivePtrOutput() LogsArchiveS3ArchivePtrOutput {
+	return o.ToLogsArchiveS3ArchivePtrOutputWithContext(context.Background())
+}
+
+func (o LogsArchiveS3ArchiveOutput) ToLogsArchiveS3ArchivePtrOutputWithContext(ctx context.Context) LogsArchiveS3ArchivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsArchiveS3Archive) *LogsArchiveS3Archive {
+		return &v
+	}).(LogsArchiveS3ArchivePtrOutput)
+}
+
+// Your AWS access key id, used as an alternative to `accountId`/`roleName`.
+func (o LogsArchiveS3ArchiveOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.AccessKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
+func (o LogsArchiveS3ArchiveOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Name of your s3 bucket.
+func (o LogsArchiveS3ArchiveOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsArchiveS3Archive) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The AWS KMS encryption key.
+func (o LogsArchiveS3ArchiveOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.EncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
+func (o LogsArchiveS3ArchiveOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+// Path where the archive is stored.
+func (o LogsArchiveS3ArchiveOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
+func (o LogsArchiveS3ArchiveOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
+func (o LogsArchiveS3ArchiveOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
+}
+
+type LogsArchiveS3ArchivePtrOutput struct{ *pulumi.OutputState }
+
+func (LogsArchiveS3ArchivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsArchiveS3Archive)(nil)).Elem()
+}
+
+func (o LogsArchiveS3ArchivePtrOutput) ToLogsArchiveS3ArchivePtrOutput() LogsArchiveS3ArchivePtrOutput {
+	return o
+}
+
+func (o LogsArchiveS3ArchivePtrOutput) ToLogsArchiveS3ArchivePtrOutputWithContext(ctx context.Context) LogsArchiveS3ArchivePtrOutput {
+	return o
+}
+
+func (o LogsArchiveS3ArchivePtrOutput) Elem() LogsArchiveS3ArchiveOutput {
+	return o.ApplyT(func(v *LogsArchiveS3Archive) LogsArchiveS3Archive {
+		if v != nil {
+			return *v
+		}
+		var ret LogsArchiveS3Archive
+		return ret
+	}).(LogsArchiveS3ArchiveOutput)
+}
+
+// Your AWS access key id, used as an alternative to `accountId`/`roleName`.
+func (o LogsArchiveS3ArchivePtrOutput) AccessKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
+func (o LogsArchiveS3ArchivePtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of your s3 bucket.
+func (o LogsArchiveS3ArchivePtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS KMS encryption key.
+func (o LogsArchiveS3ArchivePtrOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
+func (o LogsArchiveS3ArchivePtrOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path where the archive is stored.
+func (o LogsArchiveS3ArchivePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
+func (o LogsArchiveS3ArchivePtrOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
+func (o LogsArchiveS3ArchivePtrOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageClass
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogsCustomDestinationElasticsearchDestination struct {
+	// Basic access authentication.
+	BasicAuth *LogsCustomDestinationElasticsearchDestinationBasicAuth `pulumi:"basicAuth"`
+	// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+	Endpoint string `pulumi:"endpoint"`
+	// Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
+	IndexName string `pulumi:"indexName"`
+	// Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
+	// 						(that is, '${index_name}-${indexPattern}').
+	// 						You can customize the index rotation naming pattern by choosing one of these options:
+	// 						- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
+	// 						- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
+	// 						- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
+	// 						- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
+	// 						If this field is missing or is blank, it means that the index name will always be the same
+	// 						(that is, no rotation).
+	IndexRotation *string `pulumi:"indexRotation"`
+}
+
+// LogsCustomDestinationElasticsearchDestinationInput is an input type that accepts LogsCustomDestinationElasticsearchDestinationArgs and LogsCustomDestinationElasticsearchDestinationOutput values.
+// You can construct a concrete instance of `LogsCustomDestinationElasticsearchDestinationInput` via:
+//
+//	LogsCustomDestinationElasticsearchDestinationArgs{...}
+type LogsCustomDestinationElasticsearchDestinationInput interface {
+	pulumi.Input
+
+	ToLogsCustomDestinationElasticsearchDestinationOutput() LogsCustomDestinationElasticsearchDestinationOutput
+	ToLogsCustomDestinationElasticsearchDestinationOutputWithContext(context.Context) LogsCustomDestinationElasticsearchDestinationOutput
+}
+
+type LogsCustomDestinationElasticsearchDestinationArgs struct {
+	// Basic access authentication.
+	BasicAuth LogsCustomDestinationElasticsearchDestinationBasicAuthPtrInput `pulumi:"basicAuth"`
+	// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
+	// 						(that is, '${index_name}-${indexPattern}').
+	// 						You can customize the index rotation naming pattern by choosing one of these options:
+	// 						- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
+	// 						- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
+	// 						- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
+	// 						- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
+	// 						If this field is missing or is blank, it means that the index name will always be the same
+	// 						(that is, no rotation).
+	IndexRotation pulumi.StringPtrInput `pulumi:"indexRotation"`
+}
+
+func (LogsCustomDestinationElasticsearchDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomDestinationElasticsearchDestination)(nil)).Elem()
+}
+
+func (i LogsCustomDestinationElasticsearchDestinationArgs) ToLogsCustomDestinationElasticsearchDestinationOutput() LogsCustomDestinationElasticsearchDestinationOutput {
+	return i.ToLogsCustomDestinationElasticsearchDestinationOutputWithContext(context.Background())
+}
+
+func (i LogsCustomDestinationElasticsearchDestinationArgs) ToLogsCustomDestinationElasticsearchDestinationOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationElasticsearchDestinationOutput)
+}
+
+func (i LogsCustomDestinationElasticsearchDestinationArgs) ToLogsCustomDestinationElasticsearchDestinationPtrOutput() LogsCustomDestinationElasticsearchDestinationPtrOutput {
+	return i.ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i LogsCustomDestinationElasticsearchDestinationArgs) ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationElasticsearchDestinationOutput).ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(ctx)
+}
+
+// LogsCustomDestinationElasticsearchDestinationPtrInput is an input type that accepts LogsCustomDestinationElasticsearchDestinationArgs, LogsCustomDestinationElasticsearchDestinationPtr and LogsCustomDestinationElasticsearchDestinationPtrOutput values.
+// You can construct a concrete instance of `LogsCustomDestinationElasticsearchDestinationPtrInput` via:
+//
+//	        LogsCustomDestinationElasticsearchDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsCustomDestinationElasticsearchDestinationPtrInput interface {
+	pulumi.Input
+
+	ToLogsCustomDestinationElasticsearchDestinationPtrOutput() LogsCustomDestinationElasticsearchDestinationPtrOutput
+	ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(context.Context) LogsCustomDestinationElasticsearchDestinationPtrOutput
+}
+
+type logsCustomDestinationElasticsearchDestinationPtrType LogsCustomDestinationElasticsearchDestinationArgs
+
+func LogsCustomDestinationElasticsearchDestinationPtr(v *LogsCustomDestinationElasticsearchDestinationArgs) LogsCustomDestinationElasticsearchDestinationPtrInput {
+	return (*logsCustomDestinationElasticsearchDestinationPtrType)(v)
+}
+
+func (*logsCustomDestinationElasticsearchDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomDestinationElasticsearchDestination)(nil)).Elem()
+}
+
+func (i *logsCustomDestinationElasticsearchDestinationPtrType) ToLogsCustomDestinationElasticsearchDestinationPtrOutput() LogsCustomDestinationElasticsearchDestinationPtrOutput {
+	return i.ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *logsCustomDestinationElasticsearchDestinationPtrType) ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationElasticsearchDestinationPtrOutput)
+}
+
+type LogsCustomDestinationElasticsearchDestinationOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomDestinationElasticsearchDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsCustomDestinationElasticsearchDestination)(nil)).Elem()
+}
+
+func (o LogsCustomDestinationElasticsearchDestinationOutput) ToLogsCustomDestinationElasticsearchDestinationOutput() LogsCustomDestinationElasticsearchDestinationOutput {
+	return o
+}
+
+func (o LogsCustomDestinationElasticsearchDestinationOutput) ToLogsCustomDestinationElasticsearchDestinationOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationOutput {
+	return o
+}
+
+func (o LogsCustomDestinationElasticsearchDestinationOutput) ToLogsCustomDestinationElasticsearchDestinationPtrOutput() LogsCustomDestinationElasticsearchDestinationPtrOutput {
+	return o.ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o LogsCustomDestinationElasticsearchDestinationOutput) ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomDestinationElasticsearchDestination) *LogsCustomDestinationElasticsearchDestination {
+		return &v
+	}).(LogsCustomDestinationElasticsearchDestinationPtrOutput)
+}
+
+// Basic access authentication.
+func (o LogsCustomDestinationElasticsearchDestinationOutput) BasicAuth() LogsCustomDestinationElasticsearchDestinationBasicAuthPtrOutput {
+	return o.ApplyT(func(v LogsCustomDestinationElasticsearchDestination) *LogsCustomDestinationElasticsearchDestinationBasicAuth {
+		return v.BasicAuth
+	}).(LogsCustomDestinationElasticsearchDestinationBasicAuthPtrOutput)
+}
+
+// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+func (o LogsCustomDestinationElasticsearchDestinationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomDestinationElasticsearchDestination) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
+func (o LogsCustomDestinationElasticsearchDestinationOutput) IndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsCustomDestinationElasticsearchDestination) string { return v.IndexName }).(pulumi.StringOutput)
+}
+
+// Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
+//
+//	(that is, '${index_name}-${indexPattern}').
+//	You can customize the index rotation naming pattern by choosing one of these options:
+//	- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
+//	- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
+//	- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
+//	- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
+//	If this field is missing or is blank, it means that the index name will always be the same
+//	(that is, no rotation).
+func (o LogsCustomDestinationElasticsearchDestinationOutput) IndexRotation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsCustomDestinationElasticsearchDestination) *string { return v.IndexRotation }).(pulumi.StringPtrOutput)
+}
+
+type LogsCustomDestinationElasticsearchDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogsCustomDestinationElasticsearchDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsCustomDestinationElasticsearchDestination)(nil)).Elem()
+}
+
+func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) ToLogsCustomDestinationElasticsearchDestinationPtrOutput() LogsCustomDestinationElasticsearchDestinationPtrOutput {
+	return o
+}
+
+func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationPtrOutput {
+	return o
+}
+
+func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) Elem() LogsCustomDestinationElasticsearchDestinationOutput {
+	return o.ApplyT(func(v *LogsCustomDestinationElasticsearchDestination) LogsCustomDestinationElasticsearchDestination {
+		if v != nil {
+			return *v
+		}
+		var ret LogsCustomDestinationElasticsearchDestination
+		return ret
+	}).(LogsCustomDestinationElasticsearchDestinationOutput)
+}
+
+// Basic access authentication.
+func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) BasicAuth() LogsCustomDestinationElasticsearchDestinationBasicAuthPtrOutput {
+	return o.ApplyT(func(v *LogsCustomDestinationElasticsearchDestination) *LogsCustomDestinationElasticsearchDestinationBasicAuth {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuth
+	}).(LogsCustomDestinationElasticsearchDestinationBasicAuthPtrOutput)
+}
+
+// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
+func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomDestinationElasticsearchDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
+func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomDestinationElasticsearchDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
+//
+//	(that is, '${index_name}-${indexPattern}').
+//	You can customize the index rotation naming pattern by choosing one of these options:
+//	- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
+//	- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
+//	- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
+//	- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
+//	If this field is missing or is blank, it means that the index name will always be the same
+//	(that is, no rotation).
+func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) IndexRotation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsCustomDestinationElasticsearchDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexRotation
+	}).(pulumi.StringPtrOutput)
+}
+
 type LogsCustomDestinationElasticsearchDestinationBasicAuth struct {
 	// The password of the authentication. This field is not returned by the API.
 	Password string `pulumi:"password"`
@@ -62362,6 +62862,8 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics
 }
 
 type ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics struct {
+	// [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+	EnabledMetricAggregation *bool `pulumi:"enabledMetricAggregation"`
 	// Configuration for generating individual metrics.
 	Metrics []ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric `pulumi:"metrics"`
 }
@@ -62378,6 +62880,8 @@ type ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsInput inte
 }
 
 type ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs struct {
+	// [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+	EnabledMetricAggregation pulumi.BoolPtrInput `pulumi:"enabledMetricAggregation"`
 	// Configuration for generating individual metrics.
 	Metrics ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricArrayInput `pulumi:"metrics"`
 }
@@ -62459,6 +62963,13 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsOutput)
 	}).(ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsPtrOutput)
 }
 
+// [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsOutput) EnabledMetricAggregation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics) *bool {
+		return v.EnabledMetricAggregation
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Configuration for generating individual metrics.
 func (o ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsOutput) Metrics() ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricArrayOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics) []ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric {
@@ -62488,6 +62999,16 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsPtrOutp
 		var ret ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics
 		return ret
 	}).(ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsOutput)
+}
+
+// [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsPtrOutput) EnabledMetricAggregation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledMetricAggregation
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Configuration for generating individual metrics.
@@ -81834,302 +82355,11 @@ func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) Tenant() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-type OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation struct {
-	// The handle of the Workflow Automation to trigger.
-	Handle *string `pulumi:"handle"`
-}
-
-// OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationInput is an input type that accepts OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs and OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationInput` via:
-//
-//	OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs{...}
-type OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput
-	ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput
-}
-
-type OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs struct {
-	// The handle of the Workflow Automation to trigger.
-	Handle pulumi.StringPtrInput `pulumi:"handle"`
-}
-
-func (OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput)
-}
-
-func (i OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput).ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutputWithContext(ctx)
-}
-
-// OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs, OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtr and OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrInput` via:
-//
-//	        OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs{...}
-//
-//	or:
-//
-//	        nil
-type OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput
-	ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput
-}
-
-type onCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrType OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs
-
-func OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtr(v *OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs) OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrInput {
-	return (*onCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrType)(v)
-}
-
-func (*onCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation)(nil)).Elem()
-}
-
-func (i *onCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrType) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutputWithContext(context.Background())
-}
-
-func (i *onCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrType) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput {
-	return o.ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutputWithContext(context.Background())
-}
-
-func (o OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation) *OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation {
-		return &v
-	}).(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput)
-}
-
-// The handle of the Workflow Automation to trigger.
-func (o OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput) Handle() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation) *string { return v.Handle }).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput) ToOnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput) Elem() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation) OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation {
-		if v != nil {
-			return *v
-		}
-		var ret OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation
-		return ret
-	}).(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput)
-}
-
-// The handle of the Workflow Automation to trigger.
-func (o OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput) Handle() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Handle
-	}).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleTimeRestrictions struct {
-	// List of restrictions for the rule.
-	Restrictions []OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction `pulumi:"restrictions"`
-	// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
-	TimeZone *string `pulumi:"timeZone"`
-}
-
-// OnCallTeamRoutingRulesRuleTimeRestrictionsInput is an input type that accepts OnCallTeamRoutingRulesRuleTimeRestrictionsArgs and OnCallTeamRoutingRulesRuleTimeRestrictionsOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleTimeRestrictionsInput` via:
-//
-//	OnCallTeamRoutingRulesRuleTimeRestrictionsArgs{...}
-type OnCallTeamRoutingRulesRuleTimeRestrictionsInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleTimeRestrictionsOutput() OnCallTeamRoutingRulesRuleTimeRestrictionsOutput
-	ToOnCallTeamRoutingRulesRuleTimeRestrictionsOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleTimeRestrictionsOutput
-}
-
-type OnCallTeamRoutingRulesRuleTimeRestrictionsArgs struct {
-	// List of restrictions for the rule.
-	Restrictions OnCallTeamRoutingRulesRuleTimeRestrictionsRestrictionArrayInput `pulumi:"restrictions"`
-	// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
-}
-
-func (OnCallTeamRoutingRulesRuleTimeRestrictionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleTimeRestrictions)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleTimeRestrictionsArgs) ToOnCallTeamRoutingRulesRuleTimeRestrictionsOutput() OnCallTeamRoutingRulesRuleTimeRestrictionsOutput {
-	return i.ToOnCallTeamRoutingRulesRuleTimeRestrictionsOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleTimeRestrictionsArgs) ToOnCallTeamRoutingRulesRuleTimeRestrictionsOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleTimeRestrictionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleTimeRestrictionsOutput)
-}
-
-func (i OnCallTeamRoutingRulesRuleTimeRestrictionsArgs) ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput() OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleTimeRestrictionsArgs) ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleTimeRestrictionsOutput).ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutputWithContext(ctx)
-}
-
-// OnCallTeamRoutingRulesRuleTimeRestrictionsPtrInput is an input type that accepts OnCallTeamRoutingRulesRuleTimeRestrictionsArgs, OnCallTeamRoutingRulesRuleTimeRestrictionsPtr and OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleTimeRestrictionsPtrInput` via:
-//
-//	        OnCallTeamRoutingRulesRuleTimeRestrictionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type OnCallTeamRoutingRulesRuleTimeRestrictionsPtrInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput() OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput
-	ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput
-}
-
-type onCallTeamRoutingRulesRuleTimeRestrictionsPtrType OnCallTeamRoutingRulesRuleTimeRestrictionsArgs
-
-func OnCallTeamRoutingRulesRuleTimeRestrictionsPtr(v *OnCallTeamRoutingRulesRuleTimeRestrictionsArgs) OnCallTeamRoutingRulesRuleTimeRestrictionsPtrInput {
-	return (*onCallTeamRoutingRulesRuleTimeRestrictionsPtrType)(v)
-}
-
-func (*onCallTeamRoutingRulesRuleTimeRestrictionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleTimeRestrictions)(nil)).Elem()
-}
-
-func (i *onCallTeamRoutingRulesRuleTimeRestrictionsPtrType) ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput() OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutputWithContext(context.Background())
-}
-
-func (i *onCallTeamRoutingRulesRuleTimeRestrictionsPtrType) ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleTimeRestrictionsOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleTimeRestrictionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleTimeRestrictions)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsOutput) ToOnCallTeamRoutingRulesRuleTimeRestrictionsOutput() OnCallTeamRoutingRulesRuleTimeRestrictionsOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsOutput) ToOnCallTeamRoutingRulesRuleTimeRestrictionsOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleTimeRestrictionsOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsOutput) ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput() OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput {
-	return o.ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutputWithContext(context.Background())
-}
-
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsOutput) ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleTimeRestrictions) *OnCallTeamRoutingRulesRuleTimeRestrictions {
-		return &v
-	}).(OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput)
-}
-
-// List of restrictions for the rule.
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsOutput) Restrictions() OnCallTeamRoutingRulesRuleTimeRestrictionsRestrictionArrayOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleTimeRestrictions) []OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction {
-		return v.Restrictions
-	}).(OnCallTeamRoutingRulesRuleTimeRestrictionsRestrictionArrayOutput)
-}
-
-// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleTimeRestrictions) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleTimeRestrictions)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput) ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput() OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput) ToOnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput) Elem() OnCallTeamRoutingRulesRuleTimeRestrictionsOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleTimeRestrictions) OnCallTeamRoutingRulesRuleTimeRestrictions {
-		if v != nil {
-			return *v
-		}
-		var ret OnCallTeamRoutingRulesRuleTimeRestrictions
-		return ret
-	}).(OnCallTeamRoutingRulesRuleTimeRestrictionsOutput)
-}
-
-// List of restrictions for the rule.
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput) Restrictions() OnCallTeamRoutingRulesRuleTimeRestrictionsRestrictionArrayOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleTimeRestrictions) []OnCallTeamRoutingRulesRuleTimeRestrictionsRestriction {
-		if v == nil {
-			return nil
-		}
-		return v.Restrictions
-	}).(OnCallTeamRoutingRulesRuleTimeRestrictionsRestrictionArrayOutput)
-}
-
-// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
-func (o OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleTimeRestrictions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeZone
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveS3ArchiveInput)(nil)).Elem(), LogsArchiveS3ArchiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveS3ArchivePtrInput)(nil)).Elem(), LogsArchiveS3ArchiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationElasticsearchDestinationInput)(nil)).Elem(), LogsCustomDestinationElasticsearchDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationElasticsearchDestinationPtrInput)(nil)).Elem(), LogsCustomDestinationElasticsearchDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationElasticsearchDestinationBasicAuthInput)(nil)).Elem(), LogsCustomDestinationElasticsearchDestinationBasicAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationElasticsearchDestinationBasicAuthPtrInput)(nil)).Elem(), LogsCustomDestinationElasticsearchDestinationBasicAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationHttpDestinationInput)(nil)).Elem(), LogsCustomDestinationHttpDestinationArgs{})
@@ -83107,10 +83337,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessageInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleTimeRestrictionsInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleTimeRestrictionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleTimeRestrictionsPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleTimeRestrictionsArgs{})
+	pulumi.RegisterOutputType(LogsArchiveS3ArchiveOutput{})
+	pulumi.RegisterOutputType(LogsArchiveS3ArchivePtrOutput{})
+	pulumi.RegisterOutputType(LogsCustomDestinationElasticsearchDestinationOutput{})
+	pulumi.RegisterOutputType(LogsCustomDestinationElasticsearchDestinationPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomDestinationElasticsearchDestinationBasicAuthOutput{})
 	pulumi.RegisterOutputType(LogsCustomDestinationElasticsearchDestinationBasicAuthPtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomDestinationHttpDestinationOutput{})
@@ -84088,8 +84318,4 @@ func init() {
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleTimeRestrictionsOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleTimeRestrictionsPtrOutput{})
 }

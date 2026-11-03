@@ -81,16 +81,20 @@ class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth(
         suggest = None
         if key == "privateKeyName":
             suggest = "private_key_name"
-        elif key == "privateKeyWo":
-            suggest = "private_key_wo"
-        elif key == "privateKeyWoVersion":
-            suggest = "private_key_wo_version"
         elif key == "authType":
             suggest = "auth_type"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "privateKeyPassphrase":
+            suggest = "private_key_passphrase"
         elif key == "privateKeyPassphraseWo":
             suggest = "private_key_passphrase_wo"
         elif key == "privateKeyPassphraseWoVersion":
             suggest = "private_key_passphrase_wo_version"
+        elif key == "privateKeyWo":
+            suggest = "private_key_wo"
+        elif key == "privateKeyWoVersion":
+            suggest = "private_key_wo_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth. Access the value via the '{suggest}' property getter instead.")
@@ -105,30 +109,40 @@ class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth(
 
     def __init__(__self__, *,
                  private_key_name: _builtins.str,
-                 private_key_wo: _builtins.str,
-                 private_key_wo_version: _builtins.str,
                  auth_type: Optional[_builtins.str] = None,
+                 private_key: Optional[_builtins.str] = None,
+                 private_key_passphrase: Optional[_builtins.str] = None,
                  private_key_passphrase_wo: Optional[_builtins.str] = None,
-                 private_key_passphrase_wo_version: Optional[_builtins.str] = None):
+                 private_key_passphrase_wo_version: Optional[_builtins.str] = None,
+                 private_key_wo: Optional[_builtins.str] = None,
+                 private_key_wo_version: Optional[_builtins.str] = None):
         """
         :param _builtins.str private_key_name: Name that distinguishes this private key from other keys in Datadog.
-        :param _builtins.str private_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               The private key, in PEM format. This write-only value is not stored in Terraform state.
-        :param _builtins.str private_key_wo_version: Version trigger for private*key*wo rotation. String length must be at least 1.
         :param _builtins.str auth_type: The authentication method type. Valid values are `snowflake_private_key`. Defaults to `"snowflake_private_key"`.
+        :param _builtins.str private_key: The private key, in PEM format. Exactly one of `private_key` or `private_key_wo` must be set. Prefer `private_key_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        :param _builtins.str private_key_passphrase: Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `private_key_passphrase_wo`. Prefer `private_key_passphrase_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
         :param _builtins.str private_key_passphrase_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+               Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         :param _builtins.str private_key_passphrase_wo_version: Version trigger for private*key*passphrase_wo rotation. String length must be at least 1.
+        :param _builtins.str private_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+        :param _builtins.str private_key_wo_version: Version trigger for private*key*wo rotation. String length must be at least 1.
         """
         pulumi.set(__self__, "private_key_name", private_key_name)
-        pulumi.set(__self__, "private_key_wo", private_key_wo)
-        pulumi.set(__self__, "private_key_wo_version", private_key_wo_version)
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if private_key_passphrase is not None:
+            pulumi.set(__self__, "private_key_passphrase", private_key_passphrase)
         if private_key_passphrase_wo is not None:
             pulumi.set(__self__, "private_key_passphrase_wo", private_key_passphrase_wo)
         if private_key_passphrase_wo_version is not None:
             pulumi.set(__self__, "private_key_passphrase_wo_version", private_key_passphrase_wo_version)
+        if private_key_wo is not None:
+            pulumi.set(__self__, "private_key_wo", private_key_wo)
+        if private_key_wo_version is not None:
+            pulumi.set(__self__, "private_key_wo_version", private_key_wo_version)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyName")
@@ -139,23 +153,6 @@ class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth(
         return pulumi.get(self, "private_key_name")
 
     @_builtins.property
-    @pulumi.getter(name="privateKeyWo")
-    def private_key_wo(self) -> _builtins.str:
-        """
-        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        The private key, in PEM format. This write-only value is not stored in Terraform state.
-        """
-        return pulumi.get(self, "private_key_wo")
-
-    @_builtins.property
-    @pulumi.getter(name="privateKeyWoVersion")
-    def private_key_wo_version(self) -> _builtins.str:
-        """
-        Version trigger for private*key*wo rotation. String length must be at least 1.
-        """
-        return pulumi.get(self, "private_key_wo_version")
-
-    @_builtins.property
     @pulumi.getter(name="authType")
     def auth_type(self) -> Optional[_builtins.str]:
         """
@@ -164,11 +161,27 @@ class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth(
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[_builtins.str]:
+        """
+        The private key, in PEM format. Exactly one of `private_key` or `private_key_wo` must be set. Prefer `private_key_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        """
+        return pulumi.get(self, "private_key")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyPassphrase")
+    def private_key_passphrase(self) -> Optional[_builtins.str]:
+        """
+        Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `private_key_passphrase_wo`. Prefer `private_key_passphrase_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        """
+        return pulumi.get(self, "private_key_passphrase")
+
+    @_builtins.property
     @pulumi.getter(name="privateKeyPassphraseWo")
     def private_key_passphrase_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+        Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         """
         return pulumi.get(self, "private_key_passphrase_wo")
 
@@ -179,6 +192,23 @@ class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth(
         Version trigger for private*key*passphrase_wo rotation. String length must be at least 1.
         """
         return pulumi.get(self, "private_key_passphrase_wo_version")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyWo")
+    def private_key_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+        """
+        return pulumi.get(self, "private_key_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyWoVersion")
+    def private_key_wo_version(self) -> Optional[_builtins.str]:
+        """
+        Version trigger for private*key*wo rotation. String length must be at least 1.
+        """
+        return pulumi.get(self, "private_key_wo_version")
 
 
 @pulumi.output_type

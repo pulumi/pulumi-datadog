@@ -79,6 +79,7 @@ import javax.annotation.Nullable;
  *                 .automuteEnabled(true)
  *                 .collectCloudwatchAlarms(true)
  *                 .collectCustomMetrics(true)
+ *                 .collectServiceQuotas(true)
  *                 .enabled(true)
  *                 .namespaceFilters(com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigNamespaceFiltersArgs.builder()
  *                     .excludeOnlies(                    

@@ -81,6 +81,7 @@ import (
 //						"automuteEnabled":         true,
 //						"collectCloudwatchAlarms": true,
 //						"collectCustomMetrics":    true,
+//						"collectServiceQuotas":    true,
 //						"enabled":                 true,
 //						"namespaceFilters": []map[string][]string{
 //							{

@@ -635,6 +635,16 @@ export const getWorkflowAutomation: typeof import("./getWorkflowAutomation").get
 export const getWorkflowAutomationOutput: typeof import("./getWorkflowAutomation").getWorkflowAutomationOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflowAutomation","getWorkflowAutomationOutput"], () => require("./getWorkflowAutomation"));
 
+export { GithubOidcIdentityMappingArgs, GithubOidcIdentityMappingState } from "./githubOidcIdentityMapping";
+export type GithubOidcIdentityMapping = import("./githubOidcIdentityMapping").GithubOidcIdentityMapping;
+export const GithubOidcIdentityMapping: typeof import("./githubOidcIdentityMapping").GithubOidcIdentityMapping = null as any;
+utilities.lazyLoad(exports, ["GithubOidcIdentityMapping"], () => require("./githubOidcIdentityMapping"));
+
+export { GithubOidcIntakeMappingArgs, GithubOidcIntakeMappingState } from "./githubOidcIntakeMapping";
+export type GithubOidcIntakeMapping = import("./githubOidcIntakeMapping").GithubOidcIntakeMapping;
+export const GithubOidcIntakeMapping: typeof import("./githubOidcIntakeMapping").GithubOidcIntakeMapping = null as any;
+utilities.lazyLoad(exports, ["GithubOidcIntakeMapping"], () => require("./githubOidcIntakeMapping"));
+
 export { GovernanceControlArgs, GovernanceControlState } from "./governanceControl";
 export type GovernanceControl = import("./governanceControl").GovernanceControl;
 export const GovernanceControl: typeof import("./governanceControl").GovernanceControl = null as any;
@@ -1314,6 +1324,10 @@ const _module = {
                 return new FleetSchedule(name, <any>undefined, { urn })
             case "datadog:index/gcpUcConfig:GcpUcConfig":
                 return new GcpUcConfig(name, <any>undefined, { urn })
+            case "datadog:index/githubOidcIdentityMapping:GithubOidcIdentityMapping":
+                return new GithubOidcIdentityMapping(name, <any>undefined, { urn })
+            case "datadog:index/githubOidcIntakeMapping:GithubOidcIntakeMapping":
+                return new GithubOidcIntakeMapping(name, <any>undefined, { urn })
             case "datadog:index/governanceControl:GovernanceControl":
                 return new GovernanceControl(name, <any>undefined, { urn })
             case "datadog:index/incidentNotificationRule:IncidentNotificationRule":
@@ -1581,6 +1595,8 @@ pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/fleetSchedule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/gcpUcConfig", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/githubOidcIdentityMapping", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/githubOidcIntakeMapping", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/governanceControl", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/incidentNotificationTemplate", _module)

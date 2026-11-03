@@ -26,14 +26,18 @@ namespace Pulumi.Datadog.Databricks.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state.
+        /// Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. Exactly one of `ClientSecret` or `ClientSecretWo` must be set. Prefer `ClientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
         /// </summary>
-        public readonly string ClientSecretWo;
+        public readonly string? ClientSecret;
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+        /// </summary>
+        public readonly string? ClientSecretWo;
         /// <summary>
         /// Version trigger for client*secret*wo rotation. String length must be at least 1.
         /// </summary>
-        public readonly string ClientSecretWoVersion;
+        public readonly string? ClientSecretWoVersion;
 
         [OutputConstructor]
         private IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth(
@@ -43,13 +47,16 @@ namespace Pulumi.Datadog.Databricks.Outputs
 
             string clientId,
 
-            string clientSecretWo,
+            string? clientSecret,
 
-            string clientSecretWoVersion)
+            string? clientSecretWo,
+
+            string? clientSecretWoVersion)
         {
             AuthType = authType;
             AzureTenantId = azureTenantId;
             ClientId = clientId;
+            ClientSecret = clientSecret;
             ClientSecretWo = clientSecretWo;
             ClientSecretWoVersion = clientSecretWoVersion;
         }

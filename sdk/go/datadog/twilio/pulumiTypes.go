@@ -155,11 +155,13 @@ func (o IntegrationAccountAuthenticationPtrOutput) TwilioIntegrationAccountBasic
 type IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth struct {
 	// The authentication method type. Valid values are `basic`. Defaults to `"basic"`.
 	AuthType *string `pulumi:"authType"`
+	// Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	Password *string `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Secret password or private key. This write-only value is not stored in Terraform state.
-	PasswordWo string `pulumi:"passwordWo"`
+	// Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+	PasswordWo *string `pulumi:"passwordWo"`
 	// Version trigger for passwordWo rotation. String length must be at least 1.
-	PasswordWoVersion string `pulumi:"passwordWoVersion"`
+	PasswordWoVersion *string `pulumi:"passwordWoVersion"`
 	// Non-secret username or public identifier for the credential pair.
 	Username string `pulumi:"username"`
 }
@@ -178,11 +180,13 @@ type IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthInput inte
 type IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthArgs struct {
 	// The authentication method type. Valid values are `basic`. Defaults to `"basic"`.
 	AuthType pulumi.StringPtrInput `pulumi:"authType"`
+	// Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	Password pulumi.StringPtrInput `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Secret password or private key. This write-only value is not stored in Terraform state.
-	PasswordWo pulumi.StringInput `pulumi:"passwordWo"`
+	// Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+	PasswordWo pulumi.StringPtrInput `pulumi:"passwordWo"`
 	// Version trigger for passwordWo rotation. String length must be at least 1.
-	PasswordWoVersion pulumi.StringInput `pulumi:"passwordWoVersion"`
+	PasswordWoVersion pulumi.StringPtrInput `pulumi:"passwordWoVersion"`
 	// Non-secret username or public identifier for the credential pair.
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -269,17 +273,22 @@ func (o IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthOutput)
 	return o.ApplyT(func(v IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth) *string { return v.AuthType }).(pulumi.StringPtrOutput)
 }
 
+// Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Secret password or private key. This write-only value is not stored in Terraform state.
-func (o IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthOutput) PasswordWo() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth) string { return v.PasswordWo }).(pulumi.StringOutput)
+// Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+func (o IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthOutput) PasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth) *string { return v.PasswordWo }).(pulumi.StringPtrOutput)
 }
 
 // Version trigger for passwordWo rotation. String length must be at least 1.
-func (o IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthOutput) PasswordWoVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth) string {
+func (o IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthOutput) PasswordWoVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth) *string {
 		return v.PasswordWoVersion
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Non-secret username or public identifier for the credential pair.
@@ -321,14 +330,24 @@ func (o IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Secret password or private key. This write-only value is not stored in Terraform state.
+// Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 func (o IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthPtrOutput) PasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.PasswordWo
+		return v.PasswordWo
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -338,7 +357,7 @@ func (o IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthPtrOutp
 		if v == nil {
 			return nil
 		}
-		return &v.PasswordWoVersion
+		return v.PasswordWoVersion
 	}).(pulumi.StringPtrOutput)
 }
 

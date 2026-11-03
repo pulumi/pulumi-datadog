@@ -18,13 +18,23 @@ public final class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPr
      */
     private @Nullable String authType;
     /**
+     * @return The private key, in PEM format. Exactly one of `privateKey` or `privateKeyWo` must be set. Prefer `privateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    private @Nullable String privateKey;
+    /**
      * @return Name that distinguishes this private key from other keys in Datadog.
      * 
      */
     private String privateKeyName;
     /**
+     * @return Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `privateKeyPassphraseWo`. Prefer `privateKeyPassphraseWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    private @Nullable String privateKeyPassphrase;
+    /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+     * Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
     private @Nullable String privateKeyPassphraseWo;
@@ -35,15 +45,15 @@ public final class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPr
     private @Nullable String privateKeyPassphraseWoVersion;
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The private key, in PEM format. This write-only value is not stored in Terraform state.
+     * The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
-    private String privateKeyWo;
+    private @Nullable String privateKeyWo;
     /**
      * @return Version trigger for private*key*wo rotation. String length must be at least 1.
      * 
      */
-    private String privateKeyWoVersion;
+    private @Nullable String privateKeyWoVersion;
 
     private IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth() {}
     /**
@@ -54,6 +64,13 @@ public final class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPr
         return Optional.ofNullable(this.authType);
     }
     /**
+     * @return The private key, in PEM format. Exactly one of `privateKey` or `privateKeyWo` must be set. Prefer `privateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    public Optional<String> privateKey() {
+        return Optional.ofNullable(this.privateKey);
+    }
+    /**
      * @return Name that distinguishes this private key from other keys in Datadog.
      * 
      */
@@ -61,8 +78,15 @@ public final class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPr
         return this.privateKeyName;
     }
     /**
+     * @return Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `privateKeyPassphraseWo`. Prefer `privateKeyPassphraseWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    public Optional<String> privateKeyPassphrase() {
+        return Optional.ofNullable(this.privateKeyPassphrase);
+    }
+    /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+     * Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
     public Optional<String> privateKeyPassphraseWo() {
@@ -77,18 +101,18 @@ public final class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPr
     }
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The private key, in PEM format. This write-only value is not stored in Terraform state.
+     * The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
-    public String privateKeyWo() {
-        return this.privateKeyWo;
+    public Optional<String> privateKeyWo() {
+        return Optional.ofNullable(this.privateKeyWo);
     }
     /**
      * @return Version trigger for private*key*wo rotation. String length must be at least 1.
      * 
      */
-    public String privateKeyWoVersion() {
-        return this.privateKeyWoVersion;
+    public Optional<String> privateKeyWoVersion() {
+        return Optional.ofNullable(this.privateKeyWoVersion);
     }
 
     public static Builder builder() {
@@ -101,16 +125,20 @@ public final class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPr
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String authType;
+        private @Nullable String privateKey;
         private String privateKeyName;
+        private @Nullable String privateKeyPassphrase;
         private @Nullable String privateKeyPassphraseWo;
         private @Nullable String privateKeyPassphraseWoVersion;
-        private String privateKeyWo;
-        private String privateKeyWoVersion;
+        private @Nullable String privateKeyWo;
+        private @Nullable String privateKeyWoVersion;
         public Builder() {}
         public Builder(IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authType = defaults.authType;
+    	      this.privateKey = defaults.privateKey;
     	      this.privateKeyName = defaults.privateKeyName;
+    	      this.privateKeyPassphrase = defaults.privateKeyPassphrase;
     	      this.privateKeyPassphraseWo = defaults.privateKeyPassphraseWo;
     	      this.privateKeyPassphraseWoVersion = defaults.privateKeyPassphraseWoVersion;
     	      this.privateKeyWo = defaults.privateKeyWo;
@@ -124,11 +152,23 @@ public final class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPr
             return this;
         }
         @CustomType.Setter
+        public Builder privateKey(@Nullable String privateKey) {
+
+            this.privateKey = privateKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder privateKeyName(String privateKeyName) {
             if (privateKeyName == null) {
               throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth", "privateKeyName");
             }
             this.privateKeyName = privateKeyName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privateKeyPassphrase(@Nullable String privateKeyPassphrase) {
+
+            this.privateKeyPassphrase = privateKeyPassphrase;
             return this;
         }
         @CustomType.Setter
@@ -144,25 +184,23 @@ public final class IntegrationAccountAuthenticationSnowflakeIntegrationAccountPr
             return this;
         }
         @CustomType.Setter
-        public Builder privateKeyWo(String privateKeyWo) {
-            if (privateKeyWo == null) {
-              throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth", "privateKeyWo");
-            }
+        public Builder privateKeyWo(@Nullable String privateKeyWo) {
+
             this.privateKeyWo = privateKeyWo;
             return this;
         }
         @CustomType.Setter
-        public Builder privateKeyWoVersion(String privateKeyWoVersion) {
-            if (privateKeyWoVersion == null) {
-              throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth", "privateKeyWoVersion");
-            }
+        public Builder privateKeyWoVersion(@Nullable String privateKeyWoVersion) {
+
             this.privateKeyWoVersion = privateKeyWoVersion;
             return this;
         }
         public IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth build() {
             final var _resultValue = new IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth();
             _resultValue.authType = authType;
+            _resultValue.privateKey = privateKey;
             _resultValue.privateKeyName = privateKeyName;
+            _resultValue.privateKeyPassphrase = privateKeyPassphrase;
             _resultValue.privateKeyPassphraseWo = privateKeyPassphraseWo;
             _resultValue.privateKeyPassphraseWoVersion = privateKeyPassphraseWoVersion;
             _resultValue.privateKeyWo = privateKeyWo;

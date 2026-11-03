@@ -32,8 +32,23 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
     }
 
     /**
+     * Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    @Import(name="ddApiKeySecret")
+    private @Nullable Output<String> ddApiKeySecret;
+
+    /**
+     * @return Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    public Optional<Output<String>> ddApiKeySecret() {
+        return Optional.ofNullable(this.ddApiKeySecret);
+    }
+
+    /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+     * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
     @Import(name="ddApiKeySecretWo")
@@ -41,7 +56,7 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+     * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
     public Optional<Output<String>> ddApiKeySecretWo() {
@@ -127,6 +142,7 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
 
     private IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettingsArgs(IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettingsArgs $) {
         this.ddApiKeyId = $.ddApiKeyId;
+        this.ddApiKeySecret = $.ddApiKeySecret;
         this.ddApiKeySecretWo = $.ddApiKeySecretWo;
         this.ddApiKeySecretWoVersion = $.ddApiKeySecretWoVersion;
         this.djmGlobalInitScriptEnabled = $.djmGlobalInitScriptEnabled;
@@ -175,8 +191,29 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
         }
 
         /**
+         * @param ddApiKeySecret Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ddApiKeySecret(@Nullable Output<String> ddApiKeySecret) {
+            $.ddApiKeySecret = ddApiKeySecret;
+            return this;
+        }
+
+        /**
+         * @param ddApiKeySecret Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ddApiKeySecret(String ddApiKeySecret) {
+            return ddApiKeySecret(Output.of(ddApiKeySecret));
+        }
+
+        /**
          * @param ddApiKeySecretWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+         * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          * 
          * @return builder
          * 
@@ -188,7 +225,7 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
 
         /**
          * @param ddApiKeySecretWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+         * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          * 
          * @return builder
          * 

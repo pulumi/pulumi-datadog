@@ -178,6 +178,8 @@
         "getUser.ts",
         "getUsers.ts",
         "getWorkflowAutomation.ts",
+        "githubOidcIdentityMapping.ts",
+        "githubOidcIntakeMapping.ts",
         "governanceControl.ts",
         "incidentNotificationRule.ts",
         "incidentNotificationTemplate.ts",

@@ -68,7 +68,7 @@ export class LogsArchive extends pulumi.CustomResource {
      */
     declare public readonly azureArchive: pulumi.Output<outputs.LogsArchiveAzureArchive | undefined>;
     /**
-     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
      */
     declare public readonly compressionMethod: pulumi.Output<string | undefined>;
     /**
@@ -166,7 +166,7 @@ export interface LogsArchiveState {
      */
     azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive | undefined>;
     /**
-     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
      */
     compressionMethod?: pulumi.Input<string | undefined>;
     /**
@@ -216,7 +216,7 @@ export interface LogsArchiveArgs {
      */
     azureArchive?: pulumi.Input<inputs.LogsArchiveAzureArchive | undefined>;
     /**
-     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
      */
     compressionMethod?: pulumi.Input<string | undefined>;
     /**

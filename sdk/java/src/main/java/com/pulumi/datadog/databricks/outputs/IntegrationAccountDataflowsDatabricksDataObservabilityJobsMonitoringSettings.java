@@ -18,8 +18,13 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
      */
     private @Nullable String ddApiKeyId;
     /**
+     * @return Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    private @Nullable String ddApiKeySecret;
+    /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+     * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
     private @Nullable String ddApiKeySecretWo;
@@ -58,8 +63,15 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
         return Optional.ofNullable(this.ddApiKeyId);
     }
     /**
+     * @return Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    public Optional<String> ddApiKeySecret() {
+        return Optional.ofNullable(this.ddApiKeySecret);
+    }
+    /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+     * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
     public Optional<String> ddApiKeySecretWo() {
@@ -111,6 +123,7 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String ddApiKeyId;
+        private @Nullable String ddApiKeySecret;
         private @Nullable String ddApiKeySecretWo;
         private @Nullable String ddApiKeySecretWoVersion;
         private @Nullable Boolean djmGlobalInitScriptEnabled;
@@ -121,6 +134,7 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
         public Builder(IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ddApiKeyId = defaults.ddApiKeyId;
+    	      this.ddApiKeySecret = defaults.ddApiKeySecret;
     	      this.ddApiKeySecretWo = defaults.ddApiKeySecretWo;
     	      this.ddApiKeySecretWoVersion = defaults.ddApiKeySecretWoVersion;
     	      this.djmGlobalInitScriptEnabled = defaults.djmGlobalInitScriptEnabled;
@@ -133,6 +147,12 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
         public Builder ddApiKeyId(@Nullable String ddApiKeyId) {
 
             this.ddApiKeyId = ddApiKeyId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ddApiKeySecret(@Nullable String ddApiKeySecret) {
+
+            this.ddApiKeySecret = ddApiKeySecret;
             return this;
         }
         @CustomType.Setter
@@ -174,6 +194,7 @@ public final class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMon
         public IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings build() {
             final var _resultValue = new IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings();
             _resultValue.ddApiKeyId = ddApiKeyId;
+            _resultValue.ddApiKeySecret = ddApiKeySecret;
             _resultValue.ddApiKeySecretWo = ddApiKeySecretWo;
             _resultValue.ddApiKeySecretWoVersion = ddApiKeySecretWoVersion;
             _resultValue.djmGlobalInitScriptEnabled = djmGlobalInitScriptEnabled;

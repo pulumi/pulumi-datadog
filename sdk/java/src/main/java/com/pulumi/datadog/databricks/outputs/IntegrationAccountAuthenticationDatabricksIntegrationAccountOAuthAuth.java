@@ -28,16 +28,21 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountO
      */
     private String clientId;
     /**
-     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state.
+     * @return Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
      * 
      */
-    private String clientSecretWo;
+    private @Nullable String clientSecret;
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+     * 
+     */
+    private @Nullable String clientSecretWo;
     /**
      * @return Version trigger for client*secret*wo rotation. String length must be at least 1.
      * 
      */
-    private String clientSecretWoVersion;
+    private @Nullable String clientSecretWoVersion;
 
     private IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth() {}
     /**
@@ -62,19 +67,26 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountO
         return this.clientId;
     }
     /**
-     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state.
+     * @return Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
      * 
      */
-    public String clientSecretWo() {
-        return this.clientSecretWo;
+    public Optional<String> clientSecret() {
+        return Optional.ofNullable(this.clientSecret);
+    }
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+     * 
+     */
+    public Optional<String> clientSecretWo() {
+        return Optional.ofNullable(this.clientSecretWo);
     }
     /**
      * @return Version trigger for client*secret*wo rotation. String length must be at least 1.
      * 
      */
-    public String clientSecretWoVersion() {
-        return this.clientSecretWoVersion;
+    public Optional<String> clientSecretWoVersion() {
+        return Optional.ofNullable(this.clientSecretWoVersion);
     }
 
     public static Builder builder() {
@@ -89,14 +101,16 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountO
         private @Nullable String authType;
         private @Nullable String azureTenantId;
         private String clientId;
-        private String clientSecretWo;
-        private String clientSecretWoVersion;
+        private @Nullable String clientSecret;
+        private @Nullable String clientSecretWo;
+        private @Nullable String clientSecretWoVersion;
         public Builder() {}
         public Builder(IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authType = defaults.authType;
     	      this.azureTenantId = defaults.azureTenantId;
     	      this.clientId = defaults.clientId;
+    	      this.clientSecret = defaults.clientSecret;
     	      this.clientSecretWo = defaults.clientSecretWo;
     	      this.clientSecretWoVersion = defaults.clientSecretWoVersion;
         }
@@ -122,18 +136,20 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountO
             return this;
         }
         @CustomType.Setter
-        public Builder clientSecretWo(String clientSecretWo) {
-            if (clientSecretWo == null) {
-              throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth", "clientSecretWo");
-            }
+        public Builder clientSecret(@Nullable String clientSecret) {
+
+            this.clientSecret = clientSecret;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientSecretWo(@Nullable String clientSecretWo) {
+
             this.clientSecretWo = clientSecretWo;
             return this;
         }
         @CustomType.Setter
-        public Builder clientSecretWoVersion(String clientSecretWoVersion) {
-            if (clientSecretWoVersion == null) {
-              throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth", "clientSecretWoVersion");
-            }
+        public Builder clientSecretWoVersion(@Nullable String clientSecretWoVersion) {
+
             this.clientSecretWoVersion = clientSecretWoVersion;
             return this;
         }
@@ -142,6 +158,7 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountO
             _resultValue.authType = authType;
             _resultValue.azureTenantId = azureTenantId;
             _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
             _resultValue.clientSecretWo = clientSecretWo;
             _resultValue.clientSecretWoVersion = clientSecretWoVersion;
             return _resultValue;

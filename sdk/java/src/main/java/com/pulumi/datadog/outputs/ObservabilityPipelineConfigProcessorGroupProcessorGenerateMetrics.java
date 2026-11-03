@@ -5,12 +5,19 @@ package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric;
+import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics {
+    /**
+     * @return [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+     * 
+     */
+    private @Nullable Boolean enabledMetricAggregation;
     /**
      * @return Configuration for generating individual metrics.
      * 
@@ -18,6 +25,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMet
     private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric> metrics;
 
     private ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics() {}
+    /**
+     * @return [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+     * 
+     */
+    public Optional<Boolean> enabledMetricAggregation() {
+        return Optional.ofNullable(this.enabledMetricAggregation);
+    }
     /**
      * @return Configuration for generating individual metrics.
      * 
@@ -35,13 +49,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMet
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean enabledMetricAggregation;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric> metrics;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.enabledMetricAggregation = defaults.enabledMetricAggregation;
     	      this.metrics = defaults.metrics;
         }
 
+        @CustomType.Setter
+        public Builder enabledMetricAggregation(@Nullable Boolean enabledMetricAggregation) {
+
+            this.enabledMetricAggregation = enabledMetricAggregation;
+            return this;
+        }
         @CustomType.Setter
         public Builder metrics(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric> metrics) {
 
@@ -53,6 +75,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMet
         }
         public ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics build() {
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics();
+            _resultValue.enabledMetricAggregation = enabledMetricAggregation;
             _resultValue.metrics = metrics;
             return _resultValue;
         }

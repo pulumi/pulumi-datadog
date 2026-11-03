@@ -18,8 +18,12 @@ namespace Pulumi.Datadog.Databricks.Outputs
         /// </summary>
         public readonly string? DdApiKeyId;
         /// <summary>
+        /// Secret value of the Datadog API key identified by `DdApiKeyId`. Conflicts with `DdApiKeySecretWo`. Prefer `DdApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        /// </summary>
+        public readonly string? DdApiKeySecret;
+        /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Secret value of the Datadog API key identified by `DdApiKeyId`. This write-only value is not stored in Terraform state.
+        /// Secret value of the Datadog API key identified by `DdApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         /// </summary>
         public readonly string? DdApiKeySecretWo;
         /// <summary>
@@ -47,6 +51,8 @@ namespace Pulumi.Datadog.Databricks.Outputs
         private IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings(
             string? ddApiKeyId,
 
+            string? ddApiKeySecret,
+
             string? ddApiKeySecretWo,
 
             string? ddApiKeySecretWoVersion,
@@ -60,6 +66,7 @@ namespace Pulumi.Datadog.Databricks.Outputs
             bool? serverlessJobsEnabled)
         {
             DdApiKeyId = ddApiKeyId;
+            DdApiKeySecret = ddApiKeySecret;
             DdApiKeySecretWo = ddApiKeySecretWo;
             DdApiKeySecretWoVersion = ddApiKeySecretWoVersion;
             DjmGlobalInitScriptEnabled = djmGlobalInitScriptEnabled;

@@ -31,6 +31,11 @@ public final class IntegrationAccountMetricsConfig {
      */
     private @Nullable Boolean collectCustomMetrics;
     /**
+     * @return Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean collectServiceQuotas;
+    /**
      * @return Enable AWS metrics collection Defaults to `true`.
      * 
      */
@@ -74,6 +79,13 @@ public final class IntegrationAccountMetricsConfig {
         return Optional.ofNullable(this.collectCustomMetrics);
     }
     /**
+     * @return Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> collectServiceQuotas() {
+        return Optional.ofNullable(this.collectServiceQuotas);
+    }
+    /**
      * @return Enable AWS metrics collection Defaults to `true`.
      * 
      */
@@ -114,6 +126,7 @@ public final class IntegrationAccountMetricsConfig {
         private @Nullable Boolean automuteEnabled;
         private @Nullable Boolean collectCloudwatchAlarms;
         private @Nullable Boolean collectCustomMetrics;
+        private @Nullable Boolean collectServiceQuotas;
         private @Nullable Boolean enabled;
         private @Nullable List<IntegrationAccountMetricsConfigMetricNameFilter> metricNameFilters;
         private @Nullable IntegrationAccountMetricsConfigNamespaceFilters namespaceFilters;
@@ -124,6 +137,7 @@ public final class IntegrationAccountMetricsConfig {
     	      this.automuteEnabled = defaults.automuteEnabled;
     	      this.collectCloudwatchAlarms = defaults.collectCloudwatchAlarms;
     	      this.collectCustomMetrics = defaults.collectCustomMetrics;
+    	      this.collectServiceQuotas = defaults.collectServiceQuotas;
     	      this.enabled = defaults.enabled;
     	      this.metricNameFilters = defaults.metricNameFilters;
     	      this.namespaceFilters = defaults.namespaceFilters;
@@ -146,6 +160,12 @@ public final class IntegrationAccountMetricsConfig {
         public Builder collectCustomMetrics(@Nullable Boolean collectCustomMetrics) {
 
             this.collectCustomMetrics = collectCustomMetrics;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder collectServiceQuotas(@Nullable Boolean collectServiceQuotas) {
+
+            this.collectServiceQuotas = collectServiceQuotas;
             return this;
         }
         @CustomType.Setter
@@ -183,6 +203,7 @@ public final class IntegrationAccountMetricsConfig {
             _resultValue.automuteEnabled = automuteEnabled;
             _resultValue.collectCloudwatchAlarms = collectCloudwatchAlarms;
             _resultValue.collectCustomMetrics = collectCustomMetrics;
+            _resultValue.collectServiceQuotas = collectServiceQuotas;
             _resultValue.enabled = enabled;
             _resultValue.metricNameFilters = metricNameFilters;
             _resultValue.namespaceFilters = namespaceFilters;

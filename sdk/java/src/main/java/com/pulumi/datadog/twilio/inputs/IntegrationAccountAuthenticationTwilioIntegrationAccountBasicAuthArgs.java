@@ -32,35 +32,50 @@ public final class IntegrationAccountAuthenticationTwilioIntegrationAccountBasic
     }
 
     /**
-     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret password or private key. This write-only value is not stored in Terraform state.
+     * Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
      * 
      */
-    @Import(name="passwordWo", required=true)
-    private Output<String> passwordWo;
+    @Import(name="password")
+    private @Nullable Output<String> password;
+
+    /**
+     * @return Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+     * 
+     */
+    @Import(name="passwordWo")
+    private @Nullable Output<String> passwordWo;
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret password or private key. This write-only value is not stored in Terraform state.
+     * Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
-    public Output<String> passwordWo() {
-        return this.passwordWo;
+    public Optional<Output<String>> passwordWo() {
+        return Optional.ofNullable(this.passwordWo);
     }
 
     /**
      * Version trigger for passwordWo rotation. String length must be at least 1.
      * 
      */
-    @Import(name="passwordWoVersion", required=true)
-    private Output<String> passwordWoVersion;
+    @Import(name="passwordWoVersion")
+    private @Nullable Output<String> passwordWoVersion;
 
     /**
      * @return Version trigger for passwordWo rotation. String length must be at least 1.
      * 
      */
-    public Output<String> passwordWoVersion() {
-        return this.passwordWoVersion;
+    public Optional<Output<String>> passwordWoVersion() {
+        return Optional.ofNullable(this.passwordWoVersion);
     }
 
     /**
@@ -82,6 +97,7 @@ public final class IntegrationAccountAuthenticationTwilioIntegrationAccountBasic
 
     private IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthArgs(IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthArgs $) {
         this.authType = $.authType;
+        this.password = $.password;
         this.passwordWo = $.passwordWo;
         this.passwordWoVersion = $.passwordWoVersion;
         this.username = $.username;
@@ -127,20 +143,41 @@ public final class IntegrationAccountAuthenticationTwilioIntegrationAccountBasic
         }
 
         /**
-         * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret password or private key. This write-only value is not stored in Terraform state.
+         * @param password Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
          * 
          * @return builder
          * 
          */
-        public Builder passwordWo(Output<String> passwordWo) {
+        public Builder password(@Nullable Output<String> password) {
+            $.password = password;
+            return this;
+        }
+
+        /**
+         * @param password Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder password(String password) {
+            return password(Output.of(password));
+        }
+
+        /**
+         * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordWo(@Nullable Output<String> passwordWo) {
             $.passwordWo = passwordWo;
             return this;
         }
 
         /**
          * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret password or private key. This write-only value is not stored in Terraform state.
+         * Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          * 
          * @return builder
          * 
@@ -155,7 +192,7 @@ public final class IntegrationAccountAuthenticationTwilioIntegrationAccountBasic
          * @return builder
          * 
          */
-        public Builder passwordWoVersion(Output<String> passwordWoVersion) {
+        public Builder passwordWoVersion(@Nullable Output<String> passwordWoVersion) {
             $.passwordWoVersion = passwordWoVersion;
             return this;
         }
@@ -192,12 +229,6 @@ public final class IntegrationAccountAuthenticationTwilioIntegrationAccountBasic
         }
 
         public IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthArgs build() {
-            if ($.passwordWo == null) {
-                throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthArgs", "passwordWo");
-            }
-            if ($.passwordWoVersion == null) {
-                throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthArgs", "passwordWoVersion");
-            }
             if ($.username == null) {
                 throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuthArgs", "username");
             }

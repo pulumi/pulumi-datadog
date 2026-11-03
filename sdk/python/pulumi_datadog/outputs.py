@@ -3002,6 +3002,8 @@ __all__ = [
     'DowntimeScheduleRecurringSchedule',
     'DowntimeScheduleRecurringScheduleRecurrence',
     'FleetScheduleRule',
+    'GithubOidcIdentityMappingClaimMatchers',
+    'GithubOidcIntakeMappingClaimMatchers',
     'GovernanceControlNotificationSetting',
     'GovernanceControlNotificationSettingTarget',
     'IncidentNotificationRuleCondition',
@@ -195411,6 +195413,524 @@ class FleetScheduleRule(dict):
 
 
 @pulumi.output_type
+class GithubOidcIdentityMappingClaimMatchers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actorId":
+            suggest = "actor_id"
+        elif key == "enterpriseId":
+            suggest = "enterprise_id"
+        elif key == "eventName":
+            suggest = "event_name"
+        elif key == "jobWorkflowRef":
+            suggest = "job_workflow_ref"
+        elif key == "refType":
+            suggest = "ref_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryOwner":
+            suggest = "repository_owner"
+        elif key == "repositoryOwnerId":
+            suggest = "repository_owner_id"
+        elif key == "repositoryVisibility":
+            suggest = "repository_visibility"
+        elif key == "runnerEnvironment":
+            suggest = "runner_environment"
+        elif key == "workflowRef":
+            suggest = "workflow_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GithubOidcIdentityMappingClaimMatchers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GithubOidcIdentityMappingClaimMatchers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GithubOidcIdentityMappingClaimMatchers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sub: _builtins.str,
+                 actor: Optional[_builtins.str] = None,
+                 actor_id: Optional[_builtins.str] = None,
+                 enterprise: Optional[_builtins.str] = None,
+                 enterprise_id: Optional[_builtins.str] = None,
+                 environment: Optional[_builtins.str] = None,
+                 event_name: Optional[_builtins.str] = None,
+                 job_workflow_ref: Optional[_builtins.str] = None,
+                 ref: Optional[_builtins.str] = None,
+                 ref_type: Optional[_builtins.str] = None,
+                 repository: Optional[_builtins.str] = None,
+                 repository_id: Optional[_builtins.str] = None,
+                 repository_owner: Optional[_builtins.str] = None,
+                 repository_owner_id: Optional[_builtins.str] = None,
+                 repository_visibility: Optional[_builtins.str] = None,
+                 runner_environment: Optional[_builtins.str] = None,
+                 workflow: Optional[_builtins.str] = None,
+                 workflow_ref: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str sub: Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+        :param _builtins.str actor: Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str actor_id: Regular expression matched against the `actor_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str enterprise: Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str enterprise_id: Regular expression matched against the `enterprise_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str environment: Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str event_name: Regular expression matched against the `event_name` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str job_workflow_ref: Regular expression matched against the `job_workflow_ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str ref: Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str ref_type: Regular expression matched against the `ref_type` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str repository: Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str repository_id: Regular expression matched against the `repository_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str repository_owner: Regular expression matched against the `repository_owner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str repository_owner_id: Regular expression matched against the `repository_owner_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str repository_visibility: Regular expression matched against the `repository_visibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str runner_environment: Regular expression matched against the `runner_environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str workflow: Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str workflow_ref: Regular expression matched against the `workflow_ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        pulumi.set(__self__, "sub", sub)
+        if actor is not None:
+            pulumi.set(__self__, "actor", actor)
+        if actor_id is not None:
+            pulumi.set(__self__, "actor_id", actor_id)
+        if enterprise is not None:
+            pulumi.set(__self__, "enterprise", enterprise)
+        if enterprise_id is not None:
+            pulumi.set(__self__, "enterprise_id", enterprise_id)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if event_name is not None:
+            pulumi.set(__self__, "event_name", event_name)
+        if job_workflow_ref is not None:
+            pulumi.set(__self__, "job_workflow_ref", job_workflow_ref)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
+        if ref_type is not None:
+            pulumi.set(__self__, "ref_type", ref_type)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+        if repository_owner is not None:
+            pulumi.set(__self__, "repository_owner", repository_owner)
+        if repository_owner_id is not None:
+            pulumi.set(__self__, "repository_owner_id", repository_owner_id)
+        if repository_visibility is not None:
+            pulumi.set(__self__, "repository_visibility", repository_visibility)
+        if runner_environment is not None:
+            pulumi.set(__self__, "runner_environment", runner_environment)
+        if workflow is not None:
+            pulumi.set(__self__, "workflow", workflow)
+        if workflow_ref is not None:
+            pulumi.set(__self__, "workflow_ref", workflow_ref)
+
+    @_builtins.property
+    @pulumi.getter
+    def sub(self) -> _builtins.str:
+        """
+        Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+        """
+        return pulumi.get(self, "sub")
+
+    @_builtins.property
+    @pulumi.getter
+    def actor(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "actor")
+
+    @_builtins.property
+    @pulumi.getter(name="actorId")
+    def actor_id(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `actor_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "actor_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def enterprise(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "enterprise")
+
+    @_builtins.property
+    @pulumi.getter(name="enterpriseId")
+    def enterprise_id(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `enterprise_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "enterprise_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="eventName")
+    def event_name(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `event_name` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "event_name")
+
+    @_builtins.property
+    @pulumi.getter(name="jobWorkflowRef")
+    def job_workflow_ref(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `job_workflow_ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "job_workflow_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def ref(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "ref")
+
+    @_builtins.property
+    @pulumi.getter(name="refType")
+    def ref_type(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `ref_type` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "ref_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def repository(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "repository")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `repository_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryOwner")
+    def repository_owner(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `repository_owner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "repository_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryOwnerId")
+    def repository_owner_id(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `repository_owner_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "repository_owner_id")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryVisibility")
+    def repository_visibility(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `repository_visibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "repository_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="runnerEnvironment")
+    def runner_environment(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `runner_environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "runner_environment")
+
+    @_builtins.property
+    @pulumi.getter
+    def workflow(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "workflow")
+
+    @_builtins.property
+    @pulumi.getter(name="workflowRef")
+    def workflow_ref(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `workflow_ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "workflow_ref")
+
+
+@pulumi.output_type
+class GithubOidcIntakeMappingClaimMatchers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actorId":
+            suggest = "actor_id"
+        elif key == "enterpriseId":
+            suggest = "enterprise_id"
+        elif key == "eventName":
+            suggest = "event_name"
+        elif key == "jobWorkflowRef":
+            suggest = "job_workflow_ref"
+        elif key == "refType":
+            suggest = "ref_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryOwner":
+            suggest = "repository_owner"
+        elif key == "repositoryOwnerId":
+            suggest = "repository_owner_id"
+        elif key == "repositoryVisibility":
+            suggest = "repository_visibility"
+        elif key == "runnerEnvironment":
+            suggest = "runner_environment"
+        elif key == "workflowRef":
+            suggest = "workflow_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GithubOidcIntakeMappingClaimMatchers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GithubOidcIntakeMappingClaimMatchers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GithubOidcIntakeMappingClaimMatchers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sub: _builtins.str,
+                 actor: Optional[_builtins.str] = None,
+                 actor_id: Optional[_builtins.str] = None,
+                 enterprise: Optional[_builtins.str] = None,
+                 enterprise_id: Optional[_builtins.str] = None,
+                 environment: Optional[_builtins.str] = None,
+                 event_name: Optional[_builtins.str] = None,
+                 job_workflow_ref: Optional[_builtins.str] = None,
+                 ref: Optional[_builtins.str] = None,
+                 ref_type: Optional[_builtins.str] = None,
+                 repository: Optional[_builtins.str] = None,
+                 repository_id: Optional[_builtins.str] = None,
+                 repository_owner: Optional[_builtins.str] = None,
+                 repository_owner_id: Optional[_builtins.str] = None,
+                 repository_visibility: Optional[_builtins.str] = None,
+                 runner_environment: Optional[_builtins.str] = None,
+                 workflow: Optional[_builtins.str] = None,
+                 workflow_ref: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str sub: Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+        :param _builtins.str actor: Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str actor_id: Regular expression matched against the `actor_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str enterprise: Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str enterprise_id: Regular expression matched against the `enterprise_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str environment: Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str event_name: Regular expression matched against the `event_name` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str job_workflow_ref: Regular expression matched against the `job_workflow_ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str ref: Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str ref_type: Regular expression matched against the `ref_type` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str repository: Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str repository_id: Regular expression matched against the `repository_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str repository_owner: Regular expression matched against the `repository_owner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str repository_owner_id: Regular expression matched against the `repository_owner_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str repository_visibility: Regular expression matched against the `repository_visibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str runner_environment: Regular expression matched against the `runner_environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str workflow: Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        :param _builtins.str workflow_ref: Regular expression matched against the `workflow_ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        pulumi.set(__self__, "sub", sub)
+        if actor is not None:
+            pulumi.set(__self__, "actor", actor)
+        if actor_id is not None:
+            pulumi.set(__self__, "actor_id", actor_id)
+        if enterprise is not None:
+            pulumi.set(__self__, "enterprise", enterprise)
+        if enterprise_id is not None:
+            pulumi.set(__self__, "enterprise_id", enterprise_id)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if event_name is not None:
+            pulumi.set(__self__, "event_name", event_name)
+        if job_workflow_ref is not None:
+            pulumi.set(__self__, "job_workflow_ref", job_workflow_ref)
+        if ref is not None:
+            pulumi.set(__self__, "ref", ref)
+        if ref_type is not None:
+            pulumi.set(__self__, "ref_type", ref_type)
+        if repository is not None:
+            pulumi.set(__self__, "repository", repository)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+        if repository_owner is not None:
+            pulumi.set(__self__, "repository_owner", repository_owner)
+        if repository_owner_id is not None:
+            pulumi.set(__self__, "repository_owner_id", repository_owner_id)
+        if repository_visibility is not None:
+            pulumi.set(__self__, "repository_visibility", repository_visibility)
+        if runner_environment is not None:
+            pulumi.set(__self__, "runner_environment", runner_environment)
+        if workflow is not None:
+            pulumi.set(__self__, "workflow", workflow)
+        if workflow_ref is not None:
+            pulumi.set(__self__, "workflow_ref", workflow_ref)
+
+    @_builtins.property
+    @pulumi.getter
+    def sub(self) -> _builtins.str:
+        """
+        Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+        """
+        return pulumi.get(self, "sub")
+
+    @_builtins.property
+    @pulumi.getter
+    def actor(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "actor")
+
+    @_builtins.property
+    @pulumi.getter(name="actorId")
+    def actor_id(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `actor_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "actor_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def enterprise(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "enterprise")
+
+    @_builtins.property
+    @pulumi.getter(name="enterpriseId")
+    def enterprise_id(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `enterprise_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "enterprise_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="eventName")
+    def event_name(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `event_name` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "event_name")
+
+    @_builtins.property
+    @pulumi.getter(name="jobWorkflowRef")
+    def job_workflow_ref(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `job_workflow_ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "job_workflow_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def ref(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "ref")
+
+    @_builtins.property
+    @pulumi.getter(name="refType")
+    def ref_type(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `ref_type` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "ref_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def repository(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "repository")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `repository_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryOwner")
+    def repository_owner(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `repository_owner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "repository_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryOwnerId")
+    def repository_owner_id(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `repository_owner_id` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "repository_owner_id")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryVisibility")
+    def repository_visibility(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `repository_visibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "repository_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="runnerEnvironment")
+    def runner_environment(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `runner_environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "runner_environment")
+
+    @_builtins.property
+    @pulumi.getter
+    def workflow(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "workflow")
+
+    @_builtins.property
+    @pulumi.getter(name="workflowRef")
+    def workflow_ref(self) -> Optional[_builtins.str]:
+        """
+        Regular expression matched against the `workflow_ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+        """
+        return pulumi.get(self, "workflow_ref")
+
+
+@pulumi.output_type
 class GovernanceControlNotificationSetting(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -219844,13 +220364,42 @@ class ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsMe
 
 @pulumi.output_type
 class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledMetricAggregation":
+            suggest = "enabled_metric_aggregation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 enabled_metric_aggregation: Optional[_builtins.bool] = None,
                  metrics: Optional[Sequence['outputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetric']] = None):
         """
+        :param _builtins.bool enabled_metric_aggregation: [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `worker_uuid` tag before being sent to the metric destination.
         :param Sequence['ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricArgs'] metrics: Configuration for generating individual metrics.
         """
+        if enabled_metric_aggregation is not None:
+            pulumi.set(__self__, "enabled_metric_aggregation", enabled_metric_aggregation)
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
+
+    @_builtins.property
+    @pulumi.getter(name="enabledMetricAggregation")
+    def enabled_metric_aggregation(self) -> Optional[_builtins.bool]:
+        """
+        [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `worker_uuid` tag before being sent to the metric destination.
+        """
+        return pulumi.get(self, "enabled_metric_aggregation")
 
     @_builtins.property
     @pulumi.getter
@@ -291383,7 +291932,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackWidgetChangeDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -291420,7 +291969,7 @@ class PowerpackWidgetChangeDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -296584,7 +297133,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackWidgetGeomapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetGeomapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -296621,7 +297170,7 @@ class PowerpackWidgetGeomapDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -299737,7 +300286,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetHeatmapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -299774,7 +300323,7 @@ class PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -307537,7 +308086,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -307574,7 +308123,7 @@ class PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -311512,7 +312061,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -311549,7 +312098,7 @@ class PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -314061,7 +314610,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -314098,7 +314647,7 @@ class PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQueryEventQuery
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -320795,7 +321344,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackWidgetSunburstDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetSunburstDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -320832,7 +321381,7 @@ class PowerpackWidgetSunburstDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -324953,7 +325502,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetTimeseriesDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -324990,7 +325539,7 @@ class PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -328924,7 +329473,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -328961,7 +329510,7 @@ class PowerpackWidgetToplistDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -331994,7 +332543,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryEventQuery(dict):
                  storage: Optional[_builtins.str] = None):
         """
         :param Sequence['PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArgs'] computes: The compute options.
-        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        :param _builtins.str data_source: The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         :param _builtins.str name: The name of query for use in formulas.
         :param _builtins.str cross_org_uuids: The source organization UUID for cross organization queries. Feature in Private Beta.
         :param Sequence['PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArgs'] group_bies: Group by options.
@@ -332031,7 +332580,7 @@ class PowerpackWidgetTreemapDefinitionRequestQueryEventQuery(dict):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> _builtins.str:
         """
-        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
+        The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `network_device_flows`, `rum`, `security_signals`, `profiles`, `audit`, `events`, `ci_tests`, `ci_pipelines`, `incident_analytics`, `product_analytics`, `on_call_events`, `errors`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 

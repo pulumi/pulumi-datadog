@@ -37,14 +37,14 @@ public final class LogsArchiveState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;GZIP&#34;`.
+     * The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;ZSTD&#34;`.
      * 
      */
     @Import(name="compressionMethod")
     private @Nullable Output<String> compressionMethod;
 
     /**
-     * @return The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;GZIP&#34;`.
+     * @return The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;ZSTD&#34;`.
      * 
      */
     public Optional<Output<String>> compressionMethod() {
@@ -242,7 +242,7 @@ public final class LogsArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param compressionMethod The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;GZIP&#34;`.
+         * @param compressionMethod The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;ZSTD&#34;`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class LogsArchiveState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param compressionMethod The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;GZIP&#34;`.
+         * @param compressionMethod The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `&#34;ZSTD&#34;`.
          * 
          * @return builder
          * 

@@ -18,12 +18,28 @@ namespace Pulumi.Datadog.Databricks.Inputs
         [Input("ddApiKeyId")]
         public Input<string>? DdApiKeyId { get; set; }
 
+        [Input("ddApiKeySecret")]
+        private Input<string>? _ddApiKeySecret;
+
+        /// <summary>
+        /// Secret value of the Datadog API key identified by `DdApiKeyId`. Conflicts with `DdApiKeySecretWo`. Prefer `DdApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        /// </summary>
+        public Input<string>? DdApiKeySecret
+        {
+            get => _ddApiKeySecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _ddApiKeySecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         [Input("ddApiKeySecretWo")]
         private Input<string>? _ddApiKeySecretWo;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Secret value of the Datadog API key identified by `DdApiKeyId`. This write-only value is not stored in Terraform state.
+        /// Secret value of the Datadog API key identified by `DdApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         /// </summary>
         public Input<string>? DdApiKeySecretWo
         {

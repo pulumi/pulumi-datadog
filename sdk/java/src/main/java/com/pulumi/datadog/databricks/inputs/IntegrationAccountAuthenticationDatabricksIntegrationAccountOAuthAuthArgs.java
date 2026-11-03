@@ -62,35 +62,50 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountO
     }
 
     /**
-     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state.
+     * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
      * 
      */
-    @Import(name="clientSecretWo", required=true)
-    private Output<String> clientSecretWo;
+    @Import(name="clientSecret")
+    private @Nullable Output<String> clientSecret;
+
+    /**
+     * @return Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    public Optional<Output<String>> clientSecret() {
+        return Optional.ofNullable(this.clientSecret);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+     * 
+     */
+    @Import(name="clientSecretWo")
+    private @Nullable Output<String> clientSecretWo;
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state.
+     * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
-    public Output<String> clientSecretWo() {
-        return this.clientSecretWo;
+    public Optional<Output<String>> clientSecretWo() {
+        return Optional.ofNullable(this.clientSecretWo);
     }
 
     /**
      * Version trigger for client*secret*wo rotation. String length must be at least 1.
      * 
      */
-    @Import(name="clientSecretWoVersion", required=true)
-    private Output<String> clientSecretWoVersion;
+    @Import(name="clientSecretWoVersion")
+    private @Nullable Output<String> clientSecretWoVersion;
 
     /**
      * @return Version trigger for client*secret*wo rotation. String length must be at least 1.
      * 
      */
-    public Output<String> clientSecretWoVersion() {
-        return this.clientSecretWoVersion;
+    public Optional<Output<String>> clientSecretWoVersion() {
+        return Optional.ofNullable(this.clientSecretWoVersion);
     }
 
     private IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthArgs() {}
@@ -99,6 +114,7 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountO
         this.authType = $.authType;
         this.azureTenantId = $.azureTenantId;
         this.clientId = $.clientId;
+        this.clientSecret = $.clientSecret;
         this.clientSecretWo = $.clientSecretWo;
         this.clientSecretWoVersion = $.clientSecretWoVersion;
     }
@@ -185,20 +201,41 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountO
         }
 
         /**
-         * @param clientSecretWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state.
+         * @param clientSecret Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
          * 
          * @return builder
          * 
          */
-        public Builder clientSecretWo(Output<String> clientSecretWo) {
+        public Builder clientSecret(@Nullable Output<String> clientSecret) {
+            $.clientSecret = clientSecret;
+            return this;
+        }
+
+        /**
+         * @param clientSecret Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecret(String clientSecret) {
+            return clientSecret(Output.of(clientSecret));
+        }
+
+        /**
+         * @param clientSecretWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretWo(@Nullable Output<String> clientSecretWo) {
             $.clientSecretWo = clientSecretWo;
             return this;
         }
 
         /**
          * @param clientSecretWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state.
+         * Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          * 
          * @return builder
          * 
@@ -213,7 +250,7 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountO
          * @return builder
          * 
          */
-        public Builder clientSecretWoVersion(Output<String> clientSecretWoVersion) {
+        public Builder clientSecretWoVersion(@Nullable Output<String> clientSecretWoVersion) {
             $.clientSecretWoVersion = clientSecretWoVersion;
             return this;
         }
@@ -231,12 +268,6 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountO
         public IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthArgs build() {
             if ($.clientId == null) {
                 throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthArgs", "clientId");
-            }
-            if ($.clientSecretWo == null) {
-                throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthArgs", "clientSecretWo");
-            }
-            if ($.clientSecretWoVersion == null) {
-                throw new MissingRequiredPropertyException("IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthArgs", "clientSecretWoVersion");
             }
             return $;
         }

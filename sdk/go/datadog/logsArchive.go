@@ -59,7 +59,7 @@ type LogsArchive struct {
 
 	// Definition of an azure archive.
 	AzureArchive LogsArchiveAzureArchivePtrOutput `pulumi:"azureArchive"`
-	// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+	// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
 	CompressionMethod pulumi.StringPtrOutput `pulumi:"compressionMethod"`
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrOutput `pulumi:"gcsArchive"`
@@ -119,7 +119,7 @@ func GetLogsArchive(ctx *pulumi.Context,
 type logsArchiveState struct {
 	// Definition of an azure archive.
 	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`
-	// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+	// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
 	CompressionMethod *string `pulumi:"compressionMethod"`
 	// Definition of a GCS archive.
 	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
@@ -144,7 +144,7 @@ type logsArchiveState struct {
 type LogsArchiveState struct {
 	// Definition of an azure archive.
 	AzureArchive LogsArchiveAzureArchivePtrInput
-	// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+	// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
 	CompressionMethod pulumi.StringPtrInput
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrInput
@@ -173,7 +173,7 @@ func (LogsArchiveState) ElementType() reflect.Type {
 type logsArchiveArgs struct {
 	// Definition of an azure archive.
 	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`
-	// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+	// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
 	CompressionMethod *string `pulumi:"compressionMethod"`
 	// Definition of a GCS archive.
 	GcsArchive *LogsArchiveGcsArchive `pulumi:"gcsArchive"`
@@ -199,7 +199,7 @@ type logsArchiveArgs struct {
 type LogsArchiveArgs struct {
 	// Definition of an azure archive.
 	AzureArchive LogsArchiveAzureArchivePtrInput
-	// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+	// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
 	CompressionMethod pulumi.StringPtrInput
 	// Definition of a GCS archive.
 	GcsArchive LogsArchiveGcsArchivePtrInput
@@ -313,7 +313,7 @@ func (o LogsArchiveOutput) AzureArchive() LogsArchiveAzureArchivePtrOutput {
 	return o.ApplyT(func(v *LogsArchive) LogsArchiveAzureArchivePtrOutput { return v.AzureArchive }).(LogsArchiveAzureArchivePtrOutput)
 }
 
-// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+// The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
 func (o LogsArchiveOutput) CompressionMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogsArchive) pulumi.StringPtrOutput { return v.CompressionMethod }).(pulumi.StringPtrOutput)
 }

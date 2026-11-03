@@ -47,6 +47,7 @@ import * as utilities from "../utilities";
  *         automuteEnabled: true,
  *         collectCloudwatchAlarms: true,
  *         collectCustomMetrics: true,
+ *         collectServiceQuotas: true,
  *         enabled: true,
  *         namespaceFilters: [{
  *             excludeOnlies: [

@@ -60937,6 +60937,14 @@
                     }
                 }
             },
+            "datadog_github_oidc_identity_mapping": {
+                "current": "datadog:index/githubOidcIdentityMapping:GithubOidcIdentityMapping",
+                "majorVersion": 5
+            },
+            "datadog_github_oidc_intake_mapping": {
+                "current": "datadog:index/githubOidcIntakeMapping:GithubOidcIntakeMapping",
+                "majorVersion": 5
+            },
             "datadog_governance_control": {
                 "current": "datadog:index/governanceControl:GovernanceControl",
                 "majorVersion": 5,
@@ -94503,6 +94511,8 @@
             "datadog_downtime_schedule": {},
             "datadog_fleet_schedule": {},
             "datadog_gcp_uc_config": {},
+            "datadog_github_oidc_identity_mapping": {},
+            "datadog_github_oidc_intake_mapping": {},
             "datadog_governance_control": {},
             "datadog_incident_notification_rule": {},
             "datadog_incident_notification_template": {},
@@ -94673,6 +94683,8 @@
             "datadog:index/downtimeSchedule:DowntimeSchedule": 1,
             "datadog:index/fleetSchedule:FleetSchedule": 1,
             "datadog:index/gcpUcConfig:GcpUcConfig": 1,
+            "datadog:index/githubOidcIdentityMapping:GithubOidcIdentityMapping": 1,
+            "datadog:index/githubOidcIntakeMapping:GithubOidcIntakeMapping": 1,
             "datadog:index/governanceControl:GovernanceControl": 1,
             "datadog:index/incidentNotificationRule:IncidentNotificationRule": 1,
             "datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate": 1,

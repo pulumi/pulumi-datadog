@@ -556,6 +556,10 @@ class IntegrationAccountMetricsConfigArgsDict(TypedDict):
     """
     Enable custom metrics collection Defaults to `false`.
     """
+    collect_service_quotas: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+    """
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable AWS metrics collection Defaults to `true`.
@@ -579,6 +583,7 @@ class IntegrationAccountMetricsConfigArgs:
                  automute_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  collect_cloudwatch_alarms: pulumi.Input[Optional[_builtins.bool]] = None,
                  collect_custom_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 collect_service_quotas: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  metric_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigMetricNameFilterArgs']]]] = None,
                  namespace_filters: pulumi.Input[Optional['IntegrationAccountMetricsConfigNamespaceFiltersArgs']] = None,
@@ -587,6 +592,7 @@ class IntegrationAccountMetricsConfigArgs:
         :param pulumi.Input[_builtins.bool] automute_enabled: Enable EC2 automute for AWS metrics Defaults to `true`.
         :param pulumi.Input[_builtins.bool] collect_cloudwatch_alarms: Enable CloudWatch alarms collection Defaults to `false`.
         :param pulumi.Input[_builtins.bool] collect_custom_metrics: Enable custom metrics collection Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] collect_service_quotas: Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enabled: Enable AWS metrics collection Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountMetricsConfigMetricNameFilterArgs']]] metric_name_filters: AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `include_only` or `exclude_only`.
         :param pulumi.Input['IntegrationAccountMetricsConfigNamespaceFiltersArgs'] namespace_filters: AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
@@ -598,6 +604,8 @@ class IntegrationAccountMetricsConfigArgs:
             pulumi.set(__self__, "collect_cloudwatch_alarms", collect_cloudwatch_alarms)
         if collect_custom_metrics is not None:
             pulumi.set(__self__, "collect_custom_metrics", collect_custom_metrics)
+        if collect_service_quotas is not None:
+            pulumi.set(__self__, "collect_service_quotas", collect_service_quotas)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if metric_name_filters is not None:
@@ -642,6 +650,18 @@ class IntegrationAccountMetricsConfigArgs:
     @collect_custom_metrics.setter
     def collect_custom_metrics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "collect_custom_metrics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="collectServiceQuotas")
+    def collect_service_quotas(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+        """
+        return pulumi.get(self, "collect_service_quotas")
+
+    @collect_service_quotas.setter
+    def collect_service_quotas(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "collect_service_quotas", value)
 
     @_builtins.property
     @pulumi.getter
