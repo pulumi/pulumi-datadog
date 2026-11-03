@@ -112,14 +112,14 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
      * 
      */
     @Import(name="isCspmEnabled")
     private @Nullable Output<Boolean> isCspmEnabled;
 
     /**
-     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+     * @return Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
      * 
      */
     public Optional<Output<Boolean>> isCspmEnabled() {
@@ -459,7 +459,7 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param isCspmEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+         * @param isCspmEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class IntegrationStsArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param isCspmEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+         * @param isCspmEnabled Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
          * 
          * @return builder
          * 

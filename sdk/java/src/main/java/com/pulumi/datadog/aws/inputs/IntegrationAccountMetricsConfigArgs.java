@@ -65,6 +65,21 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
     }
 
     /**
+     * Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+     * 
+     */
+    @Import(name="collectServiceQuotas")
+    private @Nullable Output<Boolean> collectServiceQuotas;
+
+    /**
+     * @return Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> collectServiceQuotas() {
+        return Optional.ofNullable(this.collectServiceQuotas);
+    }
+
+    /**
      * Enable AWS metrics collection Defaults to `true`.
      * 
      */
@@ -130,6 +145,7 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
         this.automuteEnabled = $.automuteEnabled;
         this.collectCloudwatchAlarms = $.collectCloudwatchAlarms;
         this.collectCustomMetrics = $.collectCustomMetrics;
+        this.collectServiceQuotas = $.collectServiceQuotas;
         this.enabled = $.enabled;
         this.metricNameFilters = $.metricNameFilters;
         this.namespaceFilters = $.namespaceFilters;
@@ -215,6 +231,27 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
          */
         public Builder collectCustomMetrics(Boolean collectCustomMetrics) {
             return collectCustomMetrics(Output.of(collectCustomMetrics));
+        }
+
+        /**
+         * @param collectServiceQuotas Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder collectServiceQuotas(@Nullable Output<Boolean> collectServiceQuotas) {
+            $.collectServiceQuotas = collectServiceQuotas;
+            return this;
+        }
+
+        /**
+         * @param collectServiceQuotas Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder collectServiceQuotas(Boolean collectServiceQuotas) {
+            return collectServiceQuotas(Output.of(collectServiceQuotas));
         }
 
         /**

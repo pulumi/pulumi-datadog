@@ -58173,6 +58173,156 @@ export interface GetWorkflowAutomationRunAs {
     type: string;
 }
 
+export interface GithubOidcIdentityMappingClaimMatchers {
+    /**
+     * Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    actor?: string;
+    /**
+     * Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    actorId?: string;
+    /**
+     * Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    enterprise?: string;
+    /**
+     * Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    enterpriseId?: string;
+    /**
+     * Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    environment?: string;
+    /**
+     * Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    eventName?: string;
+    /**
+     * Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    jobWorkflowRef?: string;
+    /**
+     * Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    ref?: string;
+    /**
+     * Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    refType?: string;
+    /**
+     * Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repository?: string;
+    /**
+     * Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryId?: string;
+    /**
+     * Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryOwner?: string;
+    /**
+     * Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryOwnerId?: string;
+    /**
+     * Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryVisibility?: string;
+    /**
+     * Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    runnerEnvironment?: string;
+    /**
+     * Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+     */
+    sub: string;
+    /**
+     * Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    workflow?: string;
+    /**
+     * Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    workflowRef?: string;
+}
+
+export interface GithubOidcIntakeMappingClaimMatchers {
+    /**
+     * Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    actor?: string;
+    /**
+     * Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    actorId?: string;
+    /**
+     * Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    enterprise?: string;
+    /**
+     * Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    enterpriseId?: string;
+    /**
+     * Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    environment?: string;
+    /**
+     * Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    eventName?: string;
+    /**
+     * Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    jobWorkflowRef?: string;
+    /**
+     * Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    ref?: string;
+    /**
+     * Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    refType?: string;
+    /**
+     * Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repository?: string;
+    /**
+     * Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryId?: string;
+    /**
+     * Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryOwner?: string;
+    /**
+     * Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryOwnerId?: string;
+    /**
+     * Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryVisibility?: string;
+    /**
+     * Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    runnerEnvironment?: string;
+    /**
+     * Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+     */
+    sub: string;
+    /**
+     * Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    workflow?: string;
+    /**
+     * Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    workflowRef?: string;
+}
+
 export interface GovernanceControlNotificationSetting {
     /**
      * Whether notifications are enabled for this event type.
@@ -64917,6 +65067,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatad
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics {
+    /**
+     * [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+     */
+    enabledMetricAggregation?: boolean;
     /**
      * Configuration for generating individual metrics.
      */
@@ -85690,7 +85844,7 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -87194,7 +87348,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -88101,7 +88255,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -90369,7 +90523,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -91520,7 +91674,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -92264,7 +92418,7 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -94222,7 +94376,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -95429,7 +95583,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -96577,7 +96731,7 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -97461,7 +97615,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: string;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -101057,6 +101211,10 @@ export namespace aws {
          */
         collectCustomMetrics: boolean;
         /**
+         * Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+         */
+        collectServiceQuotas: boolean;
+        /**
          * Enable AWS metrics collection Defaults to `true`.
          */
         enabled: boolean;
@@ -101182,8 +101340,12 @@ export namespace databricks {
          */
         authType: string;
         /**
+         * Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        token?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+         * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          */
         tokenWo?: string;
         /**
@@ -101206,14 +101368,18 @@ export namespace databricks {
          */
         clientId: string;
         /**
-         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state.
+         * Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
          */
-        clientSecretWo: string;
+        clientSecret?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        clientSecretWo?: string;
         /**
          * Version trigger for client*secret*wo rotation. String length must be at least 1.
          */
-        clientSecretWoVersion: string;
+        clientSecretWoVersion?: string;
     }
 
     export interface IntegrationAccountAuthenticationDatabricksIntegrationAccountPrivateActionRunnerAuth {
@@ -101289,8 +101455,12 @@ export namespace databricks {
          */
         ddApiKeyId: string;
         /**
+         * Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        ddApiKeySecret?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+         * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          */
         ddApiKeySecretWo?: string;
         /**
@@ -101371,14 +101541,18 @@ export namespace elastic {
          */
         authType: string;
         /**
-         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret password or private key. This write-only value is not stored in Terraform state.
+         * Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
          */
-        passwordWo: string;
+        password?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        passwordWo?: string;
         /**
          * Version trigger for passwordWo rotation. String length must be at least 1.
          */
-        passwordWoVersion: string;
+        passwordWoVersion?: string;
         /**
          * Non-secret username or public identifier for the credential pair.
          */
@@ -101700,12 +101874,20 @@ export namespace snowflake {
          */
         authType: string;
         /**
+         * The private key, in PEM format. Exactly one of `privateKey` or `privateKeyWo` must be set. Prefer `privateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        privateKey?: string;
+        /**
          * Name that distinguishes this private key from other keys in Datadog.
          */
         privateKeyName: string;
         /**
+         * Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `privateKeyPassphraseWo`. Prefer `privateKeyPassphraseWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        privateKeyPassphrase?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+         * Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          */
         privateKeyPassphraseWo?: string;
         /**
@@ -101714,13 +101896,13 @@ export namespace snowflake {
         privateKeyPassphraseWoVersion?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * The private key, in PEM format. This write-only value is not stored in Terraform state.
+         * The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          */
-        privateKeyWo: string;
+        privateKeyWo?: string;
         /**
          * Version trigger for private*key*wo rotation. String length must be at least 1.
          */
-        privateKeyWoVersion: string;
+        privateKeyWoVersion?: string;
     }
 
     export interface IntegrationAccountDataflows {
@@ -101953,14 +102135,18 @@ export namespace twilio {
          */
         authType: string;
         /**
-         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret password or private key. This write-only value is not stored in Terraform state.
+         * Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
          */
-        passwordWo: string;
+        password?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        passwordWo?: string;
         /**
          * Version trigger for passwordWo rotation. String length must be at least 1.
          */
-        passwordWoVersion: string;
+        passwordWoVersion?: string;
         /**
          * Non-secret username or public identifier for the credential pair.
          */

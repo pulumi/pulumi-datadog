@@ -57796,6 +57796,156 @@ export interface GetTeamsTeamArgs {
     userCount?: pulumi.Input<number | undefined>;
 }
 
+export interface GithubOidcIdentityMappingClaimMatchers {
+    /**
+     * Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    actor?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    actorId?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    enterprise?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    enterpriseId?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    environment?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    eventName?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    jobWorkflowRef?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    ref?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    refType?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repository?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryId?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryOwner?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryOwnerId?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryVisibility?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    runnerEnvironment?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+     */
+    sub: pulumi.Input<string>;
+    /**
+     * Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    workflow?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    workflowRef?: pulumi.Input<string | undefined>;
+}
+
+export interface GithubOidcIntakeMappingClaimMatchers {
+    /**
+     * Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    actor?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    actorId?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    enterprise?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    enterpriseId?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    environment?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    eventName?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    jobWorkflowRef?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    ref?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    refType?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repository?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryId?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryOwner?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryOwnerId?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    repositoryVisibility?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    runnerEnvironment?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+     */
+    sub: pulumi.Input<string>;
+    /**
+     * Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    workflow?: pulumi.Input<string | undefined>;
+    /**
+     * Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+     */
+    workflowRef?: pulumi.Input<string | undefined>;
+}
+
 export interface GovernanceControlNotificationSetting {
     /**
      * Whether notifications are enabled for this event type.
@@ -64540,6 +64690,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatad
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetrics {
+    /**
+     * [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+     */
+    enabledMetricAggregation?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration for generating individual metrics.
      */
@@ -85313,7 +85467,7 @@ export interface PowerpackWidgetChangeDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -86817,7 +86971,7 @@ export interface PowerpackWidgetGeomapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -87724,7 +87878,7 @@ export interface PowerpackWidgetHeatmapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -89992,7 +90146,7 @@ export interface PowerpackWidgetQueryTableDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -91143,7 +91297,7 @@ export interface PowerpackWidgetQueryValueDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -91887,7 +92041,7 @@ export interface PowerpackWidgetScatterplotDefinitionRequestScatterplotTableQuer
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -93845,7 +93999,7 @@ export interface PowerpackWidgetSunburstDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -95052,7 +95206,7 @@ export interface PowerpackWidgetTimeseriesDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -96200,7 +96354,7 @@ export interface PowerpackWidgetToplistDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -97084,7 +97238,7 @@ export interface PowerpackWidgetTreemapDefinitionRequestQueryEventQuery {
      */
     crossOrgUuids?: pulumi.Input<string | undefined>;
     /**
-     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+     * The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -100675,6 +100829,10 @@ export namespace aws {
          */
         collectCustomMetrics?: pulumi.Input<boolean | undefined>;
         /**
+         * Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+         */
+        collectServiceQuotas?: pulumi.Input<boolean | undefined>;
+        /**
          * Enable AWS metrics collection Defaults to `true`.
          */
         enabled?: pulumi.Input<boolean | undefined>;
@@ -100791,8 +100949,12 @@ export namespace databricks {
          */
         authType?: pulumi.Input<string | undefined>;
         /**
+         * Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        token?: pulumi.Input<string | undefined>;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+         * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          */
         tokenWo?: pulumi.Input<string | undefined>;
         /**
@@ -100815,14 +100977,18 @@ export namespace databricks {
          */
         clientId: pulumi.Input<string>;
         /**
-         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state.
+         * Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
          */
-        clientSecretWo: pulumi.Input<string>;
+        clientSecret?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        clientSecretWo?: pulumi.Input<string | undefined>;
         /**
          * Version trigger for client*secret*wo rotation. String length must be at least 1.
          */
-        clientSecretWoVersion: pulumi.Input<string>;
+        clientSecretWoVersion?: pulumi.Input<string | undefined>;
     }
 
     export interface IntegrationAccountAuthenticationDatabricksIntegrationAccountPrivateActionRunnerAuth {
@@ -100898,8 +101064,12 @@ export namespace databricks {
          */
         ddApiKeyId?: pulumi.Input<string | undefined>;
         /**
+         * Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        ddApiKeySecret?: pulumi.Input<string | undefined>;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+         * Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          */
         ddApiKeySecretWo?: pulumi.Input<string | undefined>;
         /**
@@ -100979,14 +101149,18 @@ export namespace elastic {
          */
         authType?: pulumi.Input<string | undefined>;
         /**
-         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret password or private key. This write-only value is not stored in Terraform state.
+         * Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
          */
-        passwordWo: pulumi.Input<string>;
+        password?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        passwordWo?: pulumi.Input<string | undefined>;
         /**
          * Version trigger for passwordWo rotation. String length must be at least 1.
          */
-        passwordWoVersion: pulumi.Input<string>;
+        passwordWoVersion?: pulumi.Input<string | undefined>;
         /**
          * Non-secret username or public identifier for the credential pair.
          */
@@ -101305,12 +101479,20 @@ export namespace snowflake {
          */
         authType?: pulumi.Input<string | undefined>;
         /**
+         * The private key, in PEM format. Exactly one of `privateKey` or `privateKeyWo` must be set. Prefer `privateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        privateKey?: pulumi.Input<string | undefined>;
+        /**
          * Name that distinguishes this private key from other keys in Datadog.
          */
         privateKeyName: pulumi.Input<string>;
         /**
+         * Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `privateKeyPassphraseWo`. Prefer `privateKeyPassphraseWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        privateKeyPassphrase?: pulumi.Input<string | undefined>;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+         * Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          */
         privateKeyPassphraseWo?: pulumi.Input<string | undefined>;
         /**
@@ -101319,13 +101501,13 @@ export namespace snowflake {
         privateKeyPassphraseWoVersion?: pulumi.Input<string | undefined>;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * The private key, in PEM format. This write-only value is not stored in Terraform state.
+         * The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
          */
-        privateKeyWo: pulumi.Input<string>;
+        privateKeyWo?: pulumi.Input<string | undefined>;
         /**
          * Version trigger for private*key*wo rotation. String length must be at least 1.
          */
-        privateKeyWoVersion: pulumi.Input<string>;
+        privateKeyWoVersion?: pulumi.Input<string | undefined>;
     }
 
     export interface IntegrationAccountDataflows {
@@ -101557,14 +101739,18 @@ export namespace twilio {
          */
         authType?: pulumi.Input<string | undefined>;
         /**
-         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Secret password or private key. This write-only value is not stored in Terraform state.
+         * Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
          */
-        passwordWo: pulumi.Input<string>;
+        password?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        passwordWo?: pulumi.Input<string | undefined>;
         /**
          * Version trigger for passwordWo rotation. String length must be at least 1.
          */
-        passwordWoVersion: pulumi.Input<string>;
+        passwordWoVersion?: pulumi.Input<string | undefined>;
         /**
          * Non-secret username or public identifier for the credential pair.
          */

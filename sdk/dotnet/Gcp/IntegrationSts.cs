@@ -60,7 +60,7 @@ namespace Pulumi.Datadog.Gcp
         public Output<ImmutableArray<string>> HostFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `ResourceCollectionEnabled` to also be enabled.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `ResourceCollectionEnabled` or `IsOrgFolderResourceCollectionEnabled` to also be enabled.
         /// </summary>
         [Output("isCspmEnabled")]
         public Output<bool> IsCspmEnabled { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Datadog.Gcp
         }
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `ResourceCollectionEnabled` to also be enabled.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `ResourceCollectionEnabled` or `IsOrgFolderResourceCollectionEnabled` to also be enabled.
         /// </summary>
         [Input("isCspmEnabled")]
         public Input<bool>? IsCspmEnabled { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Datadog.Gcp
         }
 
         /// <summary>
-        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `ResourceCollectionEnabled` to also be enabled.
+        /// Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `ResourceCollectionEnabled` or `IsOrgFolderResourceCollectionEnabled` to also be enabled.
         /// </summary>
         [Input("isCspmEnabled")]
         public Input<bool>? IsCspmEnabled { get; set; }

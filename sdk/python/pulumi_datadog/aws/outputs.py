@@ -526,6 +526,8 @@ class IntegrationAccountMetricsConfig(dict):
             suggest = "collect_cloudwatch_alarms"
         elif key == "collectCustomMetrics":
             suggest = "collect_custom_metrics"
+        elif key == "collectServiceQuotas":
+            suggest = "collect_service_quotas"
         elif key == "metricNameFilters":
             suggest = "metric_name_filters"
         elif key == "namespaceFilters":
@@ -548,6 +550,7 @@ class IntegrationAccountMetricsConfig(dict):
                  automute_enabled: Optional[_builtins.bool] = None,
                  collect_cloudwatch_alarms: Optional[_builtins.bool] = None,
                  collect_custom_metrics: Optional[_builtins.bool] = None,
+                 collect_service_quotas: Optional[_builtins.bool] = None,
                  enabled: Optional[_builtins.bool] = None,
                  metric_name_filters: Optional[Sequence['outputs.IntegrationAccountMetricsConfigMetricNameFilter']] = None,
                  namespace_filters: Optional['outputs.IntegrationAccountMetricsConfigNamespaceFilters'] = None,
@@ -556,6 +559,7 @@ class IntegrationAccountMetricsConfig(dict):
         :param _builtins.bool automute_enabled: Enable EC2 automute for AWS metrics Defaults to `true`.
         :param _builtins.bool collect_cloudwatch_alarms: Enable CloudWatch alarms collection Defaults to `false`.
         :param _builtins.bool collect_custom_metrics: Enable custom metrics collection Defaults to `false`.
+        :param _builtins.bool collect_service_quotas: Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
         :param _builtins.bool enabled: Enable AWS metrics collection Defaults to `true`.
         :param Sequence['IntegrationAccountMetricsConfigMetricNameFilterArgs'] metric_name_filters: AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `include_only` or `exclude_only`.
         :param 'IntegrationAccountMetricsConfigNamespaceFiltersArgs' namespace_filters: AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
@@ -567,6 +571,8 @@ class IntegrationAccountMetricsConfig(dict):
             pulumi.set(__self__, "collect_cloudwatch_alarms", collect_cloudwatch_alarms)
         if collect_custom_metrics is not None:
             pulumi.set(__self__, "collect_custom_metrics", collect_custom_metrics)
+        if collect_service_quotas is not None:
+            pulumi.set(__self__, "collect_service_quotas", collect_service_quotas)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if metric_name_filters is not None:
@@ -599,6 +605,14 @@ class IntegrationAccountMetricsConfig(dict):
         Enable custom metrics collection Defaults to `false`.
         """
         return pulumi.get(self, "collect_custom_metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="collectServiceQuotas")
+    def collect_service_quotas(self) -> Optional[_builtins.bool]:
+        """
+        Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+        """
+        return pulumi.get(self, "collect_service_quotas")
 
     @_builtins.property
     @pulumi.getter

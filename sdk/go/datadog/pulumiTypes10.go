@@ -13,6 +13,298 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs and PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput).ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs, PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtr and PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrType PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtr(v *PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs) PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery) *PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery) PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestLogQueryGroupByInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArgs and PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestLogQueryGroupByInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArgs{...}
+type PowerpackWidgetToplistDefinitionRequestLogQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArgs) ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArgs) ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput)
+}
+
+// PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArray and PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArray{ PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArgs{...} }
+type PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArray []PowerpackWidgetToplistDefinitionRequestLogQueryGroupByInput
+
+func (PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArray) ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArray) ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput) SortQuery() PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy) *PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy {
+		return vs[0].([]PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput)
+}
+
 type PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQuery struct {
 	// The aggregation method.
 	Aggregation string `pulumi:"aggregation"`
@@ -1556,7 +1848,7 @@ type PowerpackWidgetToplistDefinitionRequestQueryEventQuery struct {
 	Computes []PowerpackWidgetToplistDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -1588,7 +1880,7 @@ type PowerpackWidgetToplistDefinitionRequestQueryEventQueryArgs struct {
 	Computes PowerpackWidgetToplistDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackWidgetToplistDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -1693,7 +1985,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryOutput) CrossOrgUu
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -1778,7 +2070,7 @@ func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) CrossOr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackWidgetToplistDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -9393,7 +9685,7 @@ type PowerpackWidgetTreemapDefinitionRequestQueryEventQuery struct {
 	Computes []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -9425,7 +9717,7 @@ type PowerpackWidgetTreemapDefinitionRequestQueryEventQueryArgs struct {
 	Computes PowerpackWidgetTreemapDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackWidgetTreemapDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -9530,7 +9822,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) CrossOrgUu
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -9615,7 +9907,7 @@ func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) CrossOr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackWidgetTreemapDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetTreemapDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -67500,6 +67792,10 @@ func (o GetWorkflowAutomationRunAsOutput) Type() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryGroupByInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryMultiComputeArgs{})
@@ -68346,6 +68642,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowAutomationRunAsInput)(nil)).Elem(), GetWorkflowAutomationRunAsArgs{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQueryOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryGroupBySortQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryMultiComputeOutput{})

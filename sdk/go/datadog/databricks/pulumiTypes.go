@@ -197,8 +197,10 @@ func (o IntegrationAccountAuthenticationPtrOutput) DatabricksIntegrationAccountP
 type IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth struct {
 	// The authentication method type. Valid values are `bearerToken`.
 	AuthType *string `pulumi:"authType"`
+	// Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	Token *string `pulumi:"token"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+	// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 	TokenWo *string `pulumi:"tokenWo"`
 	// Version trigger for tokenWo rotation. String length must be at least 1.
 	TokenWoVersion *string `pulumi:"tokenWoVersion"`
@@ -218,8 +220,10 @@ type IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth
 type IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuthArgs struct {
 	// The authentication method type. Valid values are `bearerToken`.
 	AuthType pulumi.StringPtrInput `pulumi:"authType"`
+	// Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	Token pulumi.StringPtrInput `pulumi:"token"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+	// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 	TokenWo pulumi.StringPtrInput `pulumi:"tokenWo"`
 	// Version trigger for tokenWo rotation. String length must be at least 1.
 	TokenWoVersion pulumi.StringPtrInput `pulumi:"tokenWoVersion"`
@@ -309,8 +313,15 @@ func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenA
 	}).(pulumi.StringPtrOutput)
 }
 
+// Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuthOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth) *string {
+		return v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuthOutput) TokenWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth) *string {
 		return v.TokenWo
@@ -358,8 +369,18 @@ func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenA
 	}).(pulumi.StringPtrOutput)
 }
 
+// Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuthPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuthPtrOutput) TokenWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth) *string {
 		if v == nil {
@@ -386,11 +407,13 @@ type IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth struc
 	AzureTenantId *string `pulumi:"azureTenantId"`
 	// Client ID of the Databricks service principal.
 	ClientId string `pulumi:"clientId"`
+	// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	ClientSecret *string `pulumi:"clientSecret"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state.
-	ClientSecretWo string `pulumi:"clientSecretWo"`
+	// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+	ClientSecretWo *string `pulumi:"clientSecretWo"`
 	// Version trigger for client*secret*wo rotation. String length must be at least 1.
-	ClientSecretWoVersion string `pulumi:"clientSecretWoVersion"`
+	ClientSecretWoVersion *string `pulumi:"clientSecretWoVersion"`
 }
 
 // IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthInput is an input type that accepts IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthArgs and IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthOutput values.
@@ -411,11 +434,13 @@ type IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthArgs s
 	AzureTenantId pulumi.StringPtrInput `pulumi:"azureTenantId"`
 	// Client ID of the Databricks service principal.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state.
-	ClientSecretWo pulumi.StringInput `pulumi:"clientSecretWo"`
+	// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+	ClientSecretWo pulumi.StringPtrInput `pulumi:"clientSecretWo"`
 	// Version trigger for client*secret*wo rotation. String length must be at least 1.
-	ClientSecretWoVersion pulumi.StringInput `pulumi:"clientSecretWoVersion"`
+	ClientSecretWoVersion pulumi.StringPtrInput `pulumi:"clientSecretWoVersion"`
 }
 
 func (IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthArgs) ElementType() reflect.Type {
@@ -516,19 +541,26 @@ func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthOut
 	}).(pulumi.StringOutput)
 }
 
+// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth) *string {
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state.
-func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthOutput) ClientSecretWo() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth) string {
+// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth) *string {
 		return v.ClientSecretWo
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Version trigger for client*secret*wo rotation. String length must be at least 1.
-func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthOutput) ClientSecretWoVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth) string {
+func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthOutput) ClientSecretWoVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth) *string {
 		return v.ClientSecretWoVersion
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthPtrOutput struct{ *pulumi.OutputState }
@@ -585,14 +617,24 @@ func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. Exactly one of `clientSecret` or `clientSecretWo` must be set. Prefer `clientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state.
+// Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthPtrOutput) ClientSecretWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecretWo
+		return v.ClientSecretWo
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -602,7 +644,7 @@ func (o IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthPtr
 		if v == nil {
 			return nil
 		}
-		return &v.ClientSecretWoVersion
+		return v.ClientSecretWoVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1468,8 +1510,10 @@ func (o IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringPtrO
 type IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings struct {
 	// ID of the Datadog API key the global init script uses to submit data.
 	DdApiKeyId *string `pulumi:"ddApiKeyId"`
+	// Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	DdApiKeySecret *string `pulumi:"ddApiKeySecret"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+	// Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 	DdApiKeySecretWo *string `pulumi:"ddApiKeySecretWo"`
 	// Version trigger for dd*api*key*secret*wo rotation. String length must be at least 1.
 	DdApiKeySecretWoVersion *string `pulumi:"ddApiKeySecretWoVersion"`
@@ -1497,8 +1541,10 @@ type IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSetting
 type IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettingsArgs struct {
 	// ID of the Datadog API key the global init script uses to submit data.
 	DdApiKeyId pulumi.StringPtrInput `pulumi:"ddApiKeyId"`
+	// Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	DdApiKeySecret pulumi.StringPtrInput `pulumi:"ddApiKeySecret"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+	// Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 	DdApiKeySecretWo pulumi.StringPtrInput `pulumi:"ddApiKeySecretWo"`
 	// Version trigger for dd*api*key*secret*wo rotation. String length must be at least 1.
 	DdApiKeySecretWoVersion pulumi.StringPtrInput `pulumi:"ddApiKeySecretWoVersion"`
@@ -1596,8 +1642,15 @@ func (o IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSett
 	}).(pulumi.StringPtrOutput)
 }
 
+// Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettingsOutput) DdApiKeySecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings) *string {
+		return v.DdApiKeySecret
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+// Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 func (o IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettingsOutput) DdApiKeySecretWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings) *string {
 		return v.DdApiKeySecretWo
@@ -1673,8 +1726,18 @@ func (o IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSett
 	}).(pulumi.StringPtrOutput)
 }
 
+// Secret value of the Datadog API key identified by `ddApiKeyId`. Conflicts with `ddApiKeySecretWo`. Prefer `ddApiKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettingsPtrOutput) DdApiKeySecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DdApiKeySecret
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state.
+// Secret value of the Datadog API key identified by `ddApiKeyId`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 func (o IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettingsPtrOutput) DdApiKeySecretWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettings) *string {
 		if v == nil {

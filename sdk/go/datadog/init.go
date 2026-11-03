@@ -105,6 +105,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FleetSchedule{}
 	case "datadog:index/gcpUcConfig:GcpUcConfig":
 		r = &GcpUcConfig{}
+	case "datadog:index/githubOidcIdentityMapping:GithubOidcIdentityMapping":
+		r = &GithubOidcIdentityMapping{}
+	case "datadog:index/githubOidcIntakeMapping:GithubOidcIntakeMapping":
+		r = &GithubOidcIntakeMapping{}
 	case "datadog:index/governanceControl:GovernanceControl":
 		r = &GovernanceControl{}
 	case "datadog:index/incidentNotificationRule:IncidentNotificationRule":
@@ -564,6 +568,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/gcpUcConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/githubOidcIdentityMapping",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/githubOidcIntakeMapping",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

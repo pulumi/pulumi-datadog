@@ -120,16 +120,20 @@ class IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAut
 
     def __init__(__self__, *,
                  auth_type: Optional[_builtins.str] = None,
+                 token: Optional[_builtins.str] = None,
                  token_wo: Optional[_builtins.str] = None,
                  token_wo_version: Optional[_builtins.str] = None):
         """
         :param _builtins.str auth_type: The authentication method type. Valid values are `bearer_token`.
+        :param _builtins.str token: Secret token used to authenticate with Databricks. Conflicts with `token_wo`. Prefer `token_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
         :param _builtins.str token_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+               Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         :param _builtins.str token_wo_version: Version trigger for token_wo rotation. String length must be at least 1.
         """
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
         if token_wo is not None:
             pulumi.set(__self__, "token_wo", token_wo)
         if token_wo_version is not None:
@@ -144,11 +148,19 @@ class IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAut
         return pulumi.get(self, "auth_type")
 
     @_builtins.property
+    @pulumi.getter
+    def token(self) -> Optional[_builtins.str]:
+        """
+        Secret token used to authenticate with Databricks. Conflicts with `token_wo`. Prefer `token_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        """
+        return pulumi.get(self, "token")
+
+    @_builtins.property
     @pulumi.getter(name="tokenWo")
     def token_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+        Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         """
         return pulumi.get(self, "token_wo")
 
@@ -168,14 +180,16 @@ class IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth(dict
         suggest = None
         if key == "clientId":
             suggest = "client_id"
-        elif key == "clientSecretWo":
-            suggest = "client_secret_wo"
-        elif key == "clientSecretWoVersion":
-            suggest = "client_secret_wo_version"
         elif key == "authType":
             suggest = "auth_type"
         elif key == "azureTenantId":
             suggest = "azure_tenant_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretWo":
+            suggest = "client_secret_wo"
+        elif key == "clientSecretWoVersion":
+            suggest = "client_secret_wo_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth. Access the value via the '{suggest}' property getter instead.")
@@ -190,25 +204,31 @@ class IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth(dict
 
     def __init__(__self__, *,
                  client_id: _builtins.str,
-                 client_secret_wo: _builtins.str,
-                 client_secret_wo_version: _builtins.str,
                  auth_type: Optional[_builtins.str] = None,
-                 azure_tenant_id: Optional[_builtins.str] = None):
+                 azure_tenant_id: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_wo: Optional[_builtins.str] = None,
+                 client_secret_wo_version: Optional[_builtins.str] = None):
         """
         :param _builtins.str client_id: Client ID of the Databricks service principal.
-        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state.
-        :param _builtins.str client_secret_wo_version: Version trigger for client*secret*wo rotation. String length must be at least 1.
         :param _builtins.str auth_type: The authentication method type. Valid values are `databricks_oauth`. Defaults to `"databricks_oauth"`.
         :param _builtins.str azure_tenant_id: Microsoft Entra ID tenant of the service principal, for Azure Databricks workspaces.
+        :param _builtins.str client_secret: Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. Exactly one of `client_secret` or `client_secret_wo` must be set. Prefer `client_secret_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+        :param _builtins.str client_secret_wo_version: Version trigger for client*secret*wo rotation. String length must be at least 1.
         """
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret_wo", client_secret_wo)
-        pulumi.set(__self__, "client_secret_wo_version", client_secret_wo_version)
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
         if azure_tenant_id is not None:
             pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if client_secret_wo_version is not None:
+            pulumi.set(__self__, "client_secret_wo_version", client_secret_wo_version)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -217,23 +237,6 @@ class IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth(dict
         Client ID of the Databricks service principal.
         """
         return pulumi.get(self, "client_id")
-
-    @_builtins.property
-    @pulumi.getter(name="clientSecretWo")
-    def client_secret_wo(self) -> _builtins.str:
-        """
-        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state.
-        """
-        return pulumi.get(self, "client_secret_wo")
-
-    @_builtins.property
-    @pulumi.getter(name="clientSecretWoVersion")
-    def client_secret_wo_version(self) -> _builtins.str:
-        """
-        Version trigger for client*secret*wo rotation. String length must be at least 1.
-        """
-        return pulumi.get(self, "client_secret_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="authType")
@@ -250,6 +253,31 @@ class IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuth(dict
         Microsoft Entra ID tenant of the service principal, for Azure Databricks workspaces.
         """
         return pulumi.get(self, "azure_tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        """
+        Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. Exactly one of `client_secret` or `client_secret_wo` must be set. Prefer `client_secret_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Secret of the Databricks service principal. Generate it under User management > Service principals > Credentials & secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWoVersion")
+    def client_secret_wo_version(self) -> Optional[_builtins.str]:
+        """
+        Version trigger for client*secret*wo rotation. String length must be at least 1.
+        """
+        return pulumi.get(self, "client_secret_wo_version")
 
 
 @pulumi.output_type
@@ -511,6 +539,8 @@ class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettin
         suggest = None
         if key == "ddApiKeyId":
             suggest = "dd_api_key_id"
+        elif key == "ddApiKeySecret":
+            suggest = "dd_api_key_secret"
         elif key == "ddApiKeySecretWo":
             suggest = "dd_api_key_secret_wo"
         elif key == "ddApiKeySecretWoVersion":
@@ -537,6 +567,7 @@ class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettin
 
     def __init__(__self__, *,
                  dd_api_key_id: Optional[_builtins.str] = None,
+                 dd_api_key_secret: Optional[_builtins.str] = None,
                  dd_api_key_secret_wo: Optional[_builtins.str] = None,
                  dd_api_key_secret_wo_version: Optional[_builtins.str] = None,
                  djm_global_init_script_enabled: Optional[_builtins.bool] = None,
@@ -545,8 +576,9 @@ class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettin
                  serverless_jobs_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str dd_api_key_id: ID of the Datadog API key the global init script uses to submit data.
+        :param _builtins.str dd_api_key_secret: Secret value of the Datadog API key identified by `dd_api_key_id`. Conflicts with `dd_api_key_secret_wo`. Prefer `dd_api_key_secret_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
         :param _builtins.str dd_api_key_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Secret value of the Datadog API key identified by `dd_api_key_id`. This write-only value is not stored in Terraform state.
+               Secret value of the Datadog API key identified by `dd_api_key_id`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         :param _builtins.str dd_api_key_secret_wo_version: Version trigger for dd*api*key*secret*wo rotation. String length must be at least 1.
         :param _builtins.bool djm_global_init_script_enabled: Whether Datadog installs and manages the Agent on your Databricks clusters through a global init script. The script does not apply to clusters in Standard access mode. When `false`, the Agent is installed manually.
         :param _builtins.bool script_gpum_enabled: Whether GPU metrics are collected from your Databricks clusters. The Agent installed by the global init script performs the collection, so this requires the dataflow to be enabled with `djm_global_init_script_enabled` set to `true`.
@@ -555,6 +587,8 @@ class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettin
         """
         if dd_api_key_id is not None:
             pulumi.set(__self__, "dd_api_key_id", dd_api_key_id)
+        if dd_api_key_secret is not None:
+            pulumi.set(__self__, "dd_api_key_secret", dd_api_key_secret)
         if dd_api_key_secret_wo is not None:
             pulumi.set(__self__, "dd_api_key_secret_wo", dd_api_key_secret_wo)
         if dd_api_key_secret_wo_version is not None:
@@ -577,11 +611,19 @@ class IntegrationAccountDataflowsDatabricksDataObservabilityJobsMonitoringSettin
         return pulumi.get(self, "dd_api_key_id")
 
     @_builtins.property
+    @pulumi.getter(name="ddApiKeySecret")
+    def dd_api_key_secret(self) -> Optional[_builtins.str]:
+        """
+        Secret value of the Datadog API key identified by `dd_api_key_id`. Conflicts with `dd_api_key_secret_wo`. Prefer `dd_api_key_secret_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        """
+        return pulumi.get(self, "dd_api_key_secret")
+
+    @_builtins.property
     @pulumi.getter(name="ddApiKeySecretWo")
     def dd_api_key_secret_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Secret value of the Datadog API key identified by `dd_api_key_id`. This write-only value is not stored in Terraform state.
+        Secret value of the Datadog API key identified by `dd_api_key_id`. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         """
         return pulumi.get(self, "dd_api_key_secret_wo")
 

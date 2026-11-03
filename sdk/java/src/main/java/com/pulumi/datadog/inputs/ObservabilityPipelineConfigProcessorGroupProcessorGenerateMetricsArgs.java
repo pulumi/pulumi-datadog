@@ -6,6 +6,7 @@ package com.pulumi.datadog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricArgs;
+import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs Empty = new ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs();
+
+    /**
+     * [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+     * 
+     */
+    @Import(name="enabledMetricAggregation")
+    private @Nullable Output<Boolean> enabledMetricAggregation;
+
+    /**
+     * @return [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+     * 
+     */
+    public Optional<Output<Boolean>> enabledMetricAggregation() {
+        return Optional.ofNullable(this.enabledMetricAggregation);
+    }
 
     /**
      * Configuration for generating individual metrics.
@@ -34,6 +50,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMet
     private ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs() {}
 
     private ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs(ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs $) {
+        this.enabledMetricAggregation = $.enabledMetricAggregation;
         this.metrics = $.metrics;
     }
 
@@ -53,6 +70,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMet
 
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs defaults) {
             $ = new ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param enabledMetricAggregation [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledMetricAggregation(@Nullable Output<Boolean> enabledMetricAggregation) {
+            $.enabledMetricAggregation = enabledMetricAggregation;
+            return this;
+        }
+
+        /**
+         * @param enabledMetricAggregation [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `workerUuid` tag before being sent to the metric destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enabledMetricAggregation(Boolean enabledMetricAggregation) {
+            return enabledMetricAggregation(Output.of(enabledMetricAggregation));
         }
 
         /**

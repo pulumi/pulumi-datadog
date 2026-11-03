@@ -74,7 +74,7 @@ export class IntegrationSts extends pulumi.CustomResource {
      */
     declare public readonly hostFilters: pulumi.Output<string[]>;
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
      */
     declare public readonly isCspmEnabled: pulumi.Output<boolean>;
     /**
@@ -203,7 +203,7 @@ export interface IntegrationStsState {
      */
     hostFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
      */
     isCspmEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -273,7 +273,7 @@ export interface IntegrationStsArgs {
      */
     hostFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` to also be enabled.
+     * Whether Datadog collects cloud security posture management resources from your GCP project. If enabled, requires `resourceCollectionEnabled` or `isOrgFolderResourceCollectionEnabled` to also be enabled.
      */
     isCspmEnabled?: pulumi.Input<boolean | undefined>;
     /**

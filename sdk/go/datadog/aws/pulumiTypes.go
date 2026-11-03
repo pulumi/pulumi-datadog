@@ -1473,6 +1473,8 @@ type IntegrationAccountMetricsConfig struct {
 	CollectCloudwatchAlarms *bool `pulumi:"collectCloudwatchAlarms"`
 	// Enable custom metrics collection Defaults to `false`.
 	CollectCustomMetrics *bool `pulumi:"collectCustomMetrics"`
+	// Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+	CollectServiceQuotas *bool `pulumi:"collectServiceQuotas"`
 	// Enable AWS metrics collection Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
@@ -1501,6 +1503,8 @@ type IntegrationAccountMetricsConfigArgs struct {
 	CollectCloudwatchAlarms pulumi.BoolPtrInput `pulumi:"collectCloudwatchAlarms"`
 	// Enable custom metrics collection Defaults to `false`.
 	CollectCustomMetrics pulumi.BoolPtrInput `pulumi:"collectCustomMetrics"`
+	// Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+	CollectServiceQuotas pulumi.BoolPtrInput `pulumi:"collectServiceQuotas"`
 	// Enable AWS metrics collection Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `includeOnly` or `excludeOnly`.
@@ -1603,6 +1607,11 @@ func (o IntegrationAccountMetricsConfigOutput) CollectCustomMetrics() pulumi.Boo
 	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *bool { return v.CollectCustomMetrics }).(pulumi.BoolPtrOutput)
 }
 
+// Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+func (o IntegrationAccountMetricsConfigOutput) CollectServiceQuotas() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *bool { return v.CollectServiceQuotas }).(pulumi.BoolPtrOutput)
+}
+
 // Enable AWS metrics collection Defaults to `true`.
 func (o IntegrationAccountMetricsConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountMetricsConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -1680,6 +1689,16 @@ func (o IntegrationAccountMetricsConfigPtrOutput) CollectCustomMetrics() pulumi.
 			return nil
 		}
 		return v.CollectCustomMetrics
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `true`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `false`.
+func (o IntegrationAccountMetricsConfigPtrOutput) CollectServiceQuotas() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CollectServiceQuotas
 	}).(pulumi.BoolPtrOutput)
 }
 

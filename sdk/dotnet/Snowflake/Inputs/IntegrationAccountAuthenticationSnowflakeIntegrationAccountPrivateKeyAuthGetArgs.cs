@@ -18,18 +18,50 @@ namespace Pulumi.Datadog.Snowflake.Inputs
         [Input("authType")]
         public Input<string>? AuthType { get; set; }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
+        /// <summary>
+        /// The private key, in PEM format. Exactly one of `PrivateKey` or `PrivateKeyWo` must be set. Prefer `PrivateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        /// </summary>
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         /// <summary>
         /// Name that distinguishes this private key from other keys in Datadog.
         /// </summary>
         [Input("privateKeyName", required: true)]
         public Input<string> PrivateKeyName { get; set; } = null!;
 
+        [Input("privateKeyPassphrase")]
+        private Input<string>? _privateKeyPassphrase;
+
+        /// <summary>
+        /// Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `PrivateKeyPassphraseWo`. Prefer `PrivateKeyPassphraseWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        /// </summary>
+        public Input<string>? PrivateKeyPassphrase
+        {
+            get => _privateKeyPassphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyPassphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         [Input("privateKeyPassphraseWo")]
         private Input<string>? _privateKeyPassphraseWo;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+        /// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         /// </summary>
         public Input<string>? PrivateKeyPassphraseWo
         {
@@ -47,12 +79,12 @@ namespace Pulumi.Datadog.Snowflake.Inputs
         [Input("privateKeyPassphraseWoVersion")]
         public Input<string>? PrivateKeyPassphraseWoVersion { get; set; }
 
-        [Input("privateKeyWo", required: true)]
+        [Input("privateKeyWo")]
         private Input<string>? _privateKeyWo;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// The private key, in PEM format. This write-only value is not stored in Terraform state.
+        /// The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         /// </summary>
         public Input<string>? PrivateKeyWo
         {
@@ -67,8 +99,8 @@ namespace Pulumi.Datadog.Snowflake.Inputs
         /// <summary>
         /// Version trigger for private*key*wo rotation. String length must be at least 1.
         /// </summary>
-        [Input("privateKeyWoVersion", required: true)]
-        public Input<string> PrivateKeyWoVersion { get; set; } = null!;
+        [Input("privateKeyWoVersion")]
+        public Input<string>? PrivateKeyWoVersion { get; set; }
 
         public IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthGetArgs()
         {

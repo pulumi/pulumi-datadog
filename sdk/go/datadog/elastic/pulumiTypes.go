@@ -155,11 +155,13 @@ func (o IntegrationCloudAccountAuthenticationPtrOutput) ElasticCloudIntegrationA
 type IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth struct {
 	// The authentication method type. Valid values are `basic`. Defaults to `"basic"`.
 	AuthType *string `pulumi:"authType"`
+	// Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	Password *string `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Secret password or private key. This write-only value is not stored in Terraform state.
-	PasswordWo string `pulumi:"passwordWo"`
+	// Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+	PasswordWo *string `pulumi:"passwordWo"`
 	// Version trigger for passwordWo rotation. String length must be at least 1.
-	PasswordWoVersion string `pulumi:"passwordWoVersion"`
+	PasswordWoVersion *string `pulumi:"passwordWoVersion"`
 	// Non-secret username or public identifier for the credential pair.
 	Username string `pulumi:"username"`
 }
@@ -178,11 +180,13 @@ type IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAut
 type IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuthArgs struct {
 	// The authentication method type. Valid values are `basic`. Defaults to `"basic"`.
 	AuthType pulumi.StringPtrInput `pulumi:"authType"`
+	// Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	Password pulumi.StringPtrInput `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Secret password or private key. This write-only value is not stored in Terraform state.
-	PasswordWo pulumi.StringInput `pulumi:"passwordWo"`
+	// Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+	PasswordWo pulumi.StringPtrInput `pulumi:"passwordWo"`
 	// Version trigger for passwordWo rotation. String length must be at least 1.
-	PasswordWoVersion pulumi.StringInput `pulumi:"passwordWoVersion"`
+	PasswordWoVersion pulumi.StringPtrInput `pulumi:"passwordWoVersion"`
 	// Non-secret username or public identifier for the credential pair.
 	Username pulumi.StringInput `pulumi:"username"`
 }
@@ -271,19 +275,26 @@ func (o IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasic
 	}).(pulumi.StringPtrOutput)
 }
 
+// Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuthOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth) *string {
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Secret password or private key. This write-only value is not stored in Terraform state.
-func (o IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuthOutput) PasswordWo() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth) string {
+// Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+func (o IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuthOutput) PasswordWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth) *string {
 		return v.PasswordWo
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Version trigger for passwordWo rotation. String length must be at least 1.
-func (o IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuthOutput) PasswordWoVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth) string {
+func (o IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuthOutput) PasswordWoVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth) *string {
 		return v.PasswordWoVersion
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Non-secret username or public identifier for the credential pair.
@@ -327,14 +338,24 @@ func (o IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasic
 	}).(pulumi.StringPtrOutput)
 }
 
+// Secret password or private key. Exactly one of `password` or `passwordWo` must be set. Prefer `passwordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuthPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Secret password or private key. This write-only value is not stored in Terraform state.
+// Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 func (o IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuthPtrOutput) PasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.PasswordWo
+		return v.PasswordWo
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -344,7 +365,7 @@ func (o IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasic
 		if v == nil {
 			return nil
 		}
-		return &v.PasswordWoVersion
+		return v.PasswordWoVersion
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -13,6 +13,302 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy struct {
+	// The event facet.
+	Facet string `pulumi:"facet"`
+	// The number of groups to return.
+	Limit *int `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
+}
+
+// PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs and PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByInput` via:
+//
+//	PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs{...}
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput
+	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput
+}
+
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs struct {
+	// The event facet.
+	Facet pulumi.StringInput `pulumi:"facet"`
+	// The number of groups to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
+}
+
+func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput {
+	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput)
+}
+
+// PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArray and PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayInput` via:
+//
+//	PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArray{ PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs{...} }
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput
+	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput
+}
+
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArray []PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByInput
+
+func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArray) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArray) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput)
+}
+
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput {
+	return o
+}
+
+// The event facet.
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput) Facet() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
+}
+
+// The number of groups to return.
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// The options for sorting group by results.
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput) Sort() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy) *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBySort {
+		return v.Sort
+	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
+}
+
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
+		return vs[0].([]PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput)
+}
+
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields struct {
+	// List of event facets to group by.
+	Fields []string `pulumi:"fields"`
+	// The number of groups to return.
+	Limit *int `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSort `pulumi:"sort"`
+}
+
+// PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs and PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsInput` via:
+//
+//	PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs{...}
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput
+	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput
+}
+
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs struct {
+	// List of event facets to group by.
+	Fields pulumi.StringArrayInput `pulumi:"fields"`
+	// The number of groups to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// The options for sorting group by results.
+	Sort PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput `pulumi:"sort"`
+}
+
+func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput)
+}
+
+func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput).ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs, PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtr and PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrInput` via:
+//
+//	        PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput
+	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput
+}
+
+type powerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrType PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs
+
+func PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtr(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrInput {
+	return (*powerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrType)(v)
+}
+
+func (*powerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
+}
+
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields) *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields {
+		return &v
+	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
+}
+
+// List of event facets to group by.
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields) []string {
+		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+// The number of groups to return.
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// The options for sorting group by results.
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput) Sort() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields) *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSort {
+		return v.Sort
+	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
+}
+
+type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Elem() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields
+		return ret
+	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput)
+}
+
+// List of event facets to group by.
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Fields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(pulumi.StringArrayOutput)
+}
+
+// The number of groups to return.
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// The options for sorting group by results.
+func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Sort() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields) *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSort {
+		if v == nil {
+			return nil
+		}
+		return v.Sort
+	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
+}
+
 type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSort struct {
 	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
 	Aggregation string `pulumi:"aggregation"`
@@ -80650,7 +80946,7 @@ type PowerpackWidgetChangeDefinitionRequestQueryEventQuery struct {
 	Computes []PowerpackWidgetChangeDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
@@ -80682,7 +80978,7 @@ type PowerpackWidgetChangeDefinitionRequestQueryEventQueryArgs struct {
 	Computes PowerpackWidgetChangeDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
 	// The source organization UUID for cross organization queries. Feature in Private Beta.
 	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies PowerpackWidgetChangeDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -80787,7 +81083,7 @@ func (o PowerpackWidgetChangeDefinitionRequestQueryEventQueryOutput) CrossOrgUui
 	return o.ApplyT(func(v PowerpackWidgetChangeDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackWidgetChangeDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerpackWidgetChangeDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -80872,7 +81168,7 @@ func (o PowerpackWidgetChangeDefinitionRequestQueryEventQueryPtrOutput) CrossOrg
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
+// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
 func (o PowerpackWidgetChangeDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PowerpackWidgetChangeDefinitionRequestQueryEventQuery) *string {
 		if v == nil {
@@ -86644,301 +86940,11 @@ func (o PowerpackWidgetDistributionDefinitionRequestLogQueryComputeQueryPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBy struct {
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// The maximum number of items in the group.
-	Limit *int `pulumi:"limit"`
-	// A list of exactly one element describing the sort query to use.
-	SortQuery *PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery `pulumi:"sortQuery"`
-}
-
-// PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByInput is an input type that accepts PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArgs and PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput values.
-// You can construct a concrete instance of `PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByInput` via:
-//
-//	PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArgs{...}
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput
-	ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutputWithContext(context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput
-}
-
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArgs struct {
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// The maximum number of items in the group.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// A list of exactly one element describing the sort query to use.
-	SortQuery PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
-}
-
-func (PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBy)(nil)).Elem()
-}
-
-func (i PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArgs) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput {
-	return i.ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArgs) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput)
-}
-
-// PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayInput is an input type that accepts PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArray and PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput values.
-// You can construct a concrete instance of `PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayInput` via:
-//
-//	PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArray{ PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArgs{...} }
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput
-	ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput
-}
-
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArray []PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByInput
-
-func (PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBy)(nil)).Elem()
-}
-
-func (i PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArray) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput {
-	return i.ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArray) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput)
-}
-
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBy)(nil)).Elem()
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput {
-	return o
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput {
-	return o
-}
-
-// The facet name.
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of items in the group.
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// A list of exactly one element describing the sort query to use.
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput) SortQuery() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBy) *PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery {
-		return v.SortQuery
-	}).(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
-}
-
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBy)(nil)).Elem()
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput {
-	return o
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput {
-	return o
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBy {
-		return vs[0].([]PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBy)[vs[1].(int)]
-	}).(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput)
-}
-
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery struct {
-	// The aggregation method.
-	Aggregation string `pulumi:"aggregation"`
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order string `pulumi:"order"`
-}
-
-// PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs and PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput values.
-// You can construct a concrete instance of `PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryInput` via:
-//
-//	PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs{...}
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput
-	ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput
-}
-
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs struct {
-	// The aggregation method.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order pulumi.StringInput `pulumi:"order"`
-}
-
-func (PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (i PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput {
-	return i.ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput)
-}
-
-func (i PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return i.ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput).ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs, PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtr and PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrInput` via:
-//
-//	        PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput
-	ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput
-}
-
-type powerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrType PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs
-
-func PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtr(v *PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrInput {
-	return (*powerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrType)(v)
-}
-
-func (*powerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (i *powerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrType) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return i.ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrType) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
-}
-
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput {
-	return o
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput {
-	return o
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return o.ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery) *PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery {
-		return &v
-	}).(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
-}
-
-// The aggregation method.
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery) string {
-		return v.Aggregation
-	}).(pulumi.StringOutput)
-}
-
-// The facet name.
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
-}
-
-type PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput {
-	return o.ApplyT(func(v *PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery) PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery
-		return ret
-	}).(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput)
-}
-
-// The aggregation method.
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Aggregation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The facet name.
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Facet
-	}).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortArgs{})
@@ -87926,10 +87932,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryPtrInput)(nil)).Elem(), PowerpackWidgetDistributionDefinitionRequestLogQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetDistributionDefinitionRequestLogQueryComputeQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetDistributionDefinitionRequestLogQueryComputeQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByInput)(nil)).Elem(), PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryArgs{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBySortOutput{})
@@ -88917,8 +88923,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackWidgetDistributionDefinitionRequestLogQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetDistributionDefinitionRequestLogQueryComputeQueryOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetDistributionDefinitionRequestLogQueryComputeQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupByArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetDistributionDefinitionRequestLogQueryGroupBySortQueryPtrOutput{})
 }

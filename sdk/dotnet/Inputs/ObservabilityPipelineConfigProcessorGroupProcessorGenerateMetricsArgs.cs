@@ -12,6 +12,12 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// [Recommended] Indicates whether generated metrics are automatically aggregated and enriched with the `WorkerUuid` tag before being sent to the metric destination.
+        /// </summary>
+        [Input("enabledMetricAggregation")]
+        public Input<bool>? EnabledMetricAggregation { get; set; }
+
         [Input("metrics")]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorGenerateMetricsMetricArgs>? _metrics;
 

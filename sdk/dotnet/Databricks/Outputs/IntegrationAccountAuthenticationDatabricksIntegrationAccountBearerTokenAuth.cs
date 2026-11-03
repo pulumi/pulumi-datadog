@@ -18,8 +18,12 @@ namespace Pulumi.Datadog.Databricks.Outputs
         /// </summary>
         public readonly string? AuthType;
         /// <summary>
+        /// Secret token used to authenticate with Databricks. Conflicts with `TokenWo`. Prefer `TokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        /// </summary>
+        public readonly string? Token;
+        /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+        /// Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         /// </summary>
         public readonly string? TokenWo;
         /// <summary>
@@ -31,11 +35,14 @@ namespace Pulumi.Datadog.Databricks.Outputs
         private IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth(
             string? authType,
 
+            string? token,
+
             string? tokenWo,
 
             string? tokenWoVersion)
         {
             AuthType = authType;
+            Token = token;
             TokenWo = tokenWo;
             TokenWoVersion = tokenWoVersion;
         }

@@ -132,6 +132,8 @@ from .get_teams import *
 from .get_user import *
 from .get_users import *
 from .get_workflow_automation import *
+from .github_oidc_identity_mapping import *
+from .github_oidc_intake_mapping import *
 from .governance_control import *
 from .incident_notification_rule import *
 from .incident_notification_template import *
@@ -744,6 +746,22 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/gcpUcConfig:GcpUcConfig": "GcpUcConfig"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/githubOidcIdentityMapping",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/githubOidcIdentityMapping:GithubOidcIdentityMapping": "GithubOidcIdentityMapping"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/githubOidcIntakeMapping",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/githubOidcIntakeMapping:GithubOidcIntakeMapping": "GithubOidcIntakeMapping"
   }
  },
  {

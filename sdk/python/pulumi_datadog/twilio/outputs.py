@@ -73,12 +73,12 @@ class IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "passwordWo":
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "passwordWo":
             suggest = "password_wo"
         elif key == "passwordWoVersion":
             suggest = "password_wo_version"
-        elif key == "authType":
-            suggest = "auth_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth. Access the value via the '{suggest}' property getter instead.")
@@ -92,39 +92,28 @@ class IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 password_wo: _builtins.str,
-                 password_wo_version: _builtins.str,
                  username: _builtins.str,
-                 auth_type: Optional[_builtins.str] = None):
+                 auth_type: Optional[_builtins.str] = None,
+                 password: Optional[_builtins.str] = None,
+                 password_wo: Optional[_builtins.str] = None,
+                 password_wo_version: Optional[_builtins.str] = None):
         """
-        :param _builtins.str password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Secret password or private key. This write-only value is not stored in Terraform state.
-        :param _builtins.str password_wo_version: Version trigger for password_wo rotation. String length must be at least 1.
         :param _builtins.str username: Non-secret username or public identifier for the credential pair.
         :param _builtins.str auth_type: The authentication method type. Valid values are `basic`. Defaults to `"basic"`.
+        :param _builtins.str password: Secret password or private key. Exactly one of `password` or `password_wo` must be set. Prefer `password_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        :param _builtins.str password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+        :param _builtins.str password_wo_version: Version trigger for password_wo rotation. String length must be at least 1.
         """
-        pulumi.set(__self__, "password_wo", password_wo)
-        pulumi.set(__self__, "password_wo_version", password_wo_version)
         pulumi.set(__self__, "username", username)
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
-
-    @_builtins.property
-    @pulumi.getter(name="passwordWo")
-    def password_wo(self) -> _builtins.str:
-        """
-        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Secret password or private key. This write-only value is not stored in Terraform state.
-        """
-        return pulumi.get(self, "password_wo")
-
-    @_builtins.property
-    @pulumi.getter(name="passwordWoVersion")
-    def password_wo_version(self) -> _builtins.str:
-        """
-        Version trigger for password_wo rotation. String length must be at least 1.
-        """
-        return pulumi.get(self, "password_wo_version")
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if password_wo is not None:
+            pulumi.set(__self__, "password_wo", password_wo)
+        if password_wo_version is not None:
+            pulumi.set(__self__, "password_wo_version", password_wo_version)
 
     @_builtins.property
     @pulumi.getter
@@ -141,6 +130,31 @@ class IntegrationAccountAuthenticationTwilioIntegrationAccountBasicAuth(dict):
         The authentication method type. Valid values are `basic`. Defaults to `"basic"`.
         """
         return pulumi.get(self, "auth_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional[_builtins.str]:
+        """
+        Secret password or private key. Exactly one of `password` or `password_wo` must be set. Prefer `password_wo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordWo")
+    def password_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+        """
+        return pulumi.get(self, "password_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordWoVersion")
+    def password_wo_version(self) -> Optional[_builtins.str]:
+        """
+        Version trigger for password_wo rotation. String length must be at least 1.
+        """
+        return pulumi.get(self, "password_wo_version")
 
 
 @pulumi.output_type

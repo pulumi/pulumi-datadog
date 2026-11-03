@@ -18,14 +18,18 @@ namespace Pulumi.Datadog.Elastic.Outputs
         /// </summary>
         public readonly string? AuthType;
         /// <summary>
-        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Secret password or private key. This write-only value is not stored in Terraform state.
+        /// Secret password or private key. Exactly one of `Password` or `PasswordWo` must be set. Prefer `PasswordWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
         /// </summary>
-        public readonly string PasswordWo;
+        public readonly string? Password;
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Secret password or private key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+        /// </summary>
+        public readonly string? PasswordWo;
         /// <summary>
         /// Version trigger for PasswordWo rotation. String length must be at least 1.
         /// </summary>
-        public readonly string PasswordWoVersion;
+        public readonly string? PasswordWoVersion;
         /// <summary>
         /// Non-secret username or public identifier for the credential pair.
         /// </summary>
@@ -35,13 +39,16 @@ namespace Pulumi.Datadog.Elastic.Outputs
         private IntegrationCloudAccountAuthenticationElasticCloudIntegrationAccountBasicAuth(
             string? authType,
 
-            string passwordWo,
+            string? password,
 
-            string passwordWoVersion,
+            string? passwordWo,
+
+            string? passwordWoVersion,
 
             string username)
         {
             AuthType = authType;
+            Password = password;
             PasswordWo = passwordWo;
             PasswordWoVersion = passwordWoVersion;
             Username = username;

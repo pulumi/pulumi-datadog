@@ -96,6 +96,7 @@ namespace Pulumi.Datadog.Aws
     ///                 { "automuteEnabled", true },
     ///                 { "collectCloudwatchAlarms", true },
     ///                 { "collectCustomMetrics", true },
+    ///                 { "collectServiceQuotas", true },
     ///                 { "enabled", true },
     ///                 { "namespaceFilters", new[]
     ///                 {

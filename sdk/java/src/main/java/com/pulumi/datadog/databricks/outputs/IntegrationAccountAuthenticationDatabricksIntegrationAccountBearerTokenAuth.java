@@ -17,8 +17,13 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountB
      */
     private @Nullable String authType;
     /**
+     * @return Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    private @Nullable String token;
+    /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+     * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
     private @Nullable String tokenWo;
@@ -37,8 +42,15 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountB
         return Optional.ofNullable(this.authType);
     }
     /**
+     * @return Secret token used to authenticate with Databricks. Conflicts with `tokenWo`. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+     * 
+     */
+    public Optional<String> token() {
+        return Optional.ofNullable(this.token);
+    }
+    /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state.
+     * Secret token used to authenticate with Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
      * 
      */
     public Optional<String> tokenWo() {
@@ -62,12 +74,14 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountB
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String authType;
+        private @Nullable String token;
         private @Nullable String tokenWo;
         private @Nullable String tokenWoVersion;
         public Builder() {}
         public Builder(IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authType = defaults.authType;
+    	      this.token = defaults.token;
     	      this.tokenWo = defaults.tokenWo;
     	      this.tokenWoVersion = defaults.tokenWoVersion;
         }
@@ -76,6 +90,12 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountB
         public Builder authType(@Nullable String authType) {
 
             this.authType = authType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder token(@Nullable String token) {
+
+            this.token = token;
             return this;
         }
         @CustomType.Setter
@@ -93,6 +113,7 @@ public final class IntegrationAccountAuthenticationDatabricksIntegrationAccountB
         public IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth build() {
             final var _resultValue = new IntegrationAccountAuthenticationDatabricksIntegrationAccountBearerTokenAuth();
             _resultValue.authType = authType;
+            _resultValue.token = token;
             _resultValue.tokenWo = tokenWo;
             _resultValue.tokenWoVersion = tokenWoVersion;
             return _resultValue;

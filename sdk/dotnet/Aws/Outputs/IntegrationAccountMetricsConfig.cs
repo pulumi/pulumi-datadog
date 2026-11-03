@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Aws.Outputs
         /// </summary>
         public readonly bool? CollectCustomMetrics;
         /// <summary>
+        /// Enable Service Quotas collection. Incurs CloudWatch `GetMetricData` charges on your AWS bill. Requires `resources_config.extended_collection` to be set to `True`, and the Datadog AWS integration role must allow `servicequotas:ListServices`, `servicequotas:ListServiceQuotas` and `servicequotas:ListRequestedServiceQuotaChangeHistory`. Defaults to `False`.
+        /// </summary>
+        public readonly bool? CollectServiceQuotas;
+        /// <summary>
         /// Enable AWS metrics collection Defaults to `True`.
         /// </summary>
         public readonly bool? Enabled;
@@ -50,6 +54,8 @@ namespace Pulumi.Datadog.Aws.Outputs
 
             bool? collectCustomMetrics,
 
+            bool? collectServiceQuotas,
+
             bool? enabled,
 
             ImmutableArray<Outputs.IntegrationAccountMetricsConfigMetricNameFilter> metricNameFilters,
@@ -61,6 +67,7 @@ namespace Pulumi.Datadog.Aws.Outputs
             AutomuteEnabled = automuteEnabled;
             CollectCloudwatchAlarms = collectCloudwatchAlarms;
             CollectCustomMetrics = collectCustomMetrics;
+            CollectServiceQuotas = collectServiceQuotas;
             Enabled = enabled;
             MetricNameFilters = metricNameFilters;
             NamespaceFilters = namespaceFilters;

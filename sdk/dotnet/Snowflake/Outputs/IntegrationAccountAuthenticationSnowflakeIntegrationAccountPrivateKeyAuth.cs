@@ -18,12 +18,20 @@ namespace Pulumi.Datadog.Snowflake.Outputs
         /// </summary>
         public readonly string? AuthType;
         /// <summary>
+        /// The private key, in PEM format. Exactly one of `PrivateKey` or `PrivateKeyWo` must be set. Prefer `PrivateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        /// </summary>
+        public readonly string? PrivateKey;
+        /// <summary>
         /// Name that distinguishes this private key from other keys in Datadog.
         /// </summary>
         public readonly string PrivateKeyName;
         /// <summary>
+        /// Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `PrivateKeyPassphraseWo`. Prefer `PrivateKeyPassphraseWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        /// </summary>
+        public readonly string? PrivateKeyPassphrase;
+        /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+        /// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         /// </summary>
         public readonly string? PrivateKeyPassphraseWo;
         /// <summary>
@@ -32,30 +40,36 @@ namespace Pulumi.Datadog.Snowflake.Outputs
         public readonly string? PrivateKeyPassphraseWoVersion;
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// The private key, in PEM format. This write-only value is not stored in Terraform state.
+        /// The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         /// </summary>
-        public readonly string PrivateKeyWo;
+        public readonly string? PrivateKeyWo;
         /// <summary>
         /// Version trigger for private*key*wo rotation. String length must be at least 1.
         /// </summary>
-        public readonly string PrivateKeyWoVersion;
+        public readonly string? PrivateKeyWoVersion;
 
         [OutputConstructor]
         private IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth(
             string? authType,
 
+            string? privateKey,
+
             string privateKeyName,
+
+            string? privateKeyPassphrase,
 
             string? privateKeyPassphraseWo,
 
             string? privateKeyPassphraseWoVersion,
 
-            string privateKeyWo,
+            string? privateKeyWo,
 
-            string privateKeyWoVersion)
+            string? privateKeyWoVersion)
         {
             AuthType = authType;
+            PrivateKey = privateKey;
             PrivateKeyName = privateKeyName;
+            PrivateKeyPassphrase = privateKeyPassphrase;
             PrivateKeyPassphraseWo = privateKeyPassphraseWo;
             PrivateKeyPassphraseWoVersion = privateKeyPassphraseWoVersion;
             PrivateKeyWo = privateKeyWo;

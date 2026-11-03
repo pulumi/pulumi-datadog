@@ -379,6 +379,7 @@ class IntegrationAccount(pulumi.CustomResource):
                 "automuteEnabled": True,
                 "collectCloudwatchAlarms": True,
                 "collectCustomMetrics": True,
+                "collectServiceQuotas": True,
                 "enabled": True,
                 "namespaceFilters": [{
                     "excludeOnlies": [
@@ -510,6 +511,7 @@ class IntegrationAccount(pulumi.CustomResource):
                 "automuteEnabled": True,
                 "collectCloudwatchAlarms": True,
                 "collectCustomMetrics": True,
+                "collectServiceQuotas": True,
                 "enabled": True,
                 "namespaceFilters": [{
                     "excludeOnlies": [

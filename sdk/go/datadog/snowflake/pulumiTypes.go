@@ -155,18 +155,22 @@ func (o IntegrationAccountAuthenticationPtrOutput) SnowflakeIntegrationAccountPr
 type IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth struct {
 	// The authentication method type. Valid values are `snowflakePrivateKey`. Defaults to `"snowflakePrivateKey"`.
 	AuthType *string `pulumi:"authType"`
+	// The private key, in PEM format. Exactly one of `privateKey` or `privateKeyWo` must be set. Prefer `privateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	PrivateKey *string `pulumi:"privateKey"`
 	// Name that distinguishes this private key from other keys in Datadog.
 	PrivateKeyName string `pulumi:"privateKeyName"`
+	// Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `privateKeyPassphraseWo`. Prefer `privateKeyPassphraseWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	PrivateKeyPassphrase *string `pulumi:"privateKeyPassphrase"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+	// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 	PrivateKeyPassphraseWo *string `pulumi:"privateKeyPassphraseWo"`
 	// Version trigger for private*key*passphrase_wo rotation. String length must be at least 1.
 	PrivateKeyPassphraseWoVersion *string `pulumi:"privateKeyPassphraseWoVersion"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// The private key, in PEM format. This write-only value is not stored in Terraform state.
-	PrivateKeyWo string `pulumi:"privateKeyWo"`
+	// The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+	PrivateKeyWo *string `pulumi:"privateKeyWo"`
 	// Version trigger for private*key*wo rotation. String length must be at least 1.
-	PrivateKeyWoVersion string `pulumi:"privateKeyWoVersion"`
+	PrivateKeyWoVersion *string `pulumi:"privateKeyWoVersion"`
 }
 
 // IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthInput is an input type that accepts IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthArgs and IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthOutput values.
@@ -183,18 +187,22 @@ type IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthIn
 type IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthArgs struct {
 	// The authentication method type. Valid values are `snowflakePrivateKey`. Defaults to `"snowflakePrivateKey"`.
 	AuthType pulumi.StringPtrInput `pulumi:"authType"`
+	// The private key, in PEM format. Exactly one of `privateKey` or `privateKeyWo` must be set. Prefer `privateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
 	// Name that distinguishes this private key from other keys in Datadog.
 	PrivateKeyName pulumi.StringInput `pulumi:"privateKeyName"`
+	// Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `privateKeyPassphraseWo`. Prefer `privateKeyPassphraseWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+	PrivateKeyPassphrase pulumi.StringPtrInput `pulumi:"privateKeyPassphrase"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+	// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 	PrivateKeyPassphraseWo pulumi.StringPtrInput `pulumi:"privateKeyPassphraseWo"`
 	// Version trigger for private*key*passphrase_wo rotation. String length must be at least 1.
 	PrivateKeyPassphraseWoVersion pulumi.StringPtrInput `pulumi:"privateKeyPassphraseWoVersion"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// The private key, in PEM format. This write-only value is not stored in Terraform state.
-	PrivateKeyWo pulumi.StringInput `pulumi:"privateKeyWo"`
+	// The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+	PrivateKeyWo pulumi.StringPtrInput `pulumi:"privateKeyWo"`
 	// Version trigger for private*key*wo rotation. String length must be at least 1.
-	PrivateKeyWoVersion pulumi.StringInput `pulumi:"privateKeyWoVersion"`
+	PrivateKeyWoVersion pulumi.StringPtrInput `pulumi:"privateKeyWoVersion"`
 }
 
 func (IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthArgs) ElementType() reflect.Type {
@@ -281,6 +289,13 @@ func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The private key, in PEM format. Exactly one of `privateKey` or `privateKeyWo` must be set. Prefer `privateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) *string {
+		return v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
 // Name that distinguishes this private key from other keys in Datadog.
 func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthOutput) PrivateKeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) string {
@@ -288,8 +303,15 @@ func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAut
 	}).(pulumi.StringOutput)
 }
 
+// Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `privateKeyPassphraseWo`. Prefer `privateKeyPassphraseWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthOutput) PrivateKeyPassphrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) *string {
+		return v.PrivateKeyPassphrase
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthOutput) PrivateKeyPassphraseWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) *string {
 		return v.PrivateKeyPassphraseWo
@@ -304,18 +326,18 @@ func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAut
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// The private key, in PEM format. This write-only value is not stored in Terraform state.
-func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthOutput) PrivateKeyWo() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) string {
+// The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthOutput) PrivateKeyWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) *string {
 		return v.PrivateKeyWo
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Version trigger for private*key*wo rotation. String length must be at least 1.
-func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthOutput) PrivateKeyWoVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) string {
+func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthOutput) PrivateKeyWoVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) *string {
 		return v.PrivateKeyWoVersion
-	}).(pulumi.StringOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthPtrOutput struct{ *pulumi.OutputState }
@@ -352,6 +374,16 @@ func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The private key, in PEM format. Exactly one of `privateKey` or `privateKeyWo` must be set. Prefer `privateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthPtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
 // Name that distinguishes this private key from other keys in Datadog.
 func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthPtrOutput) PrivateKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) *string {
@@ -362,8 +394,18 @@ func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Passphrase that decrypts the private key. Provide it only when the key is encrypted. Conflicts with `privateKeyPassphraseWo`. Prefer `privateKeyPassphraseWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthPtrOutput) PrivateKeyPassphrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateKeyPassphrase
+	}).(pulumi.StringPtrOutput)
+}
+
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state.
+// Passphrase that decrypts the private key. Provide it only when the key is encrypted. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthPtrOutput) PrivateKeyPassphraseWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) *string {
 		if v == nil {
@@ -384,13 +426,13 @@ func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAut
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// The private key, in PEM format. This write-only value is not stored in Terraform state.
+// The private key, in PEM format. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
 func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuthPtrOutput) PrivateKeyWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAuth) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.PrivateKeyWo
+		return v.PrivateKeyWo
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -400,7 +442,7 @@ func (o IntegrationAccountAuthenticationSnowflakeIntegrationAccountPrivateKeyAut
 		if v == nil {
 			return nil
 		}
-		return &v.PrivateKeyWoVersion
+		return v.PrivateKeyWoVersion
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -86389,6 +86389,926 @@ func (o FleetScheduleRulePtrOutput) Timezone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GithubOidcIdentityMappingClaimMatchers struct {
+	// Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Actor *string `pulumi:"actor"`
+	// Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	ActorId *string `pulumi:"actorId"`
+	// Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Enterprise *string `pulumi:"enterprise"`
+	// Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	EnterpriseId *string `pulumi:"enterpriseId"`
+	// Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Environment *string `pulumi:"environment"`
+	// Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	EventName *string `pulumi:"eventName"`
+	// Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	JobWorkflowRef *string `pulumi:"jobWorkflowRef"`
+	// Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Ref *string `pulumi:"ref"`
+	// Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RefType *string `pulumi:"refType"`
+	// Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Repository *string `pulumi:"repository"`
+	// Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryOwner *string `pulumi:"repositoryOwner"`
+	// Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryOwnerId *string `pulumi:"repositoryOwnerId"`
+	// Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryVisibility *string `pulumi:"repositoryVisibility"`
+	// Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RunnerEnvironment *string `pulumi:"runnerEnvironment"`
+	// Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+	Sub string `pulumi:"sub"`
+	// Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Workflow *string `pulumi:"workflow"`
+	// Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	WorkflowRef *string `pulumi:"workflowRef"`
+}
+
+// GithubOidcIdentityMappingClaimMatchersInput is an input type that accepts GithubOidcIdentityMappingClaimMatchersArgs and GithubOidcIdentityMappingClaimMatchersOutput values.
+// You can construct a concrete instance of `GithubOidcIdentityMappingClaimMatchersInput` via:
+//
+//	GithubOidcIdentityMappingClaimMatchersArgs{...}
+type GithubOidcIdentityMappingClaimMatchersInput interface {
+	pulumi.Input
+
+	ToGithubOidcIdentityMappingClaimMatchersOutput() GithubOidcIdentityMappingClaimMatchersOutput
+	ToGithubOidcIdentityMappingClaimMatchersOutputWithContext(context.Context) GithubOidcIdentityMappingClaimMatchersOutput
+}
+
+type GithubOidcIdentityMappingClaimMatchersArgs struct {
+	// Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Actor pulumi.StringPtrInput `pulumi:"actor"`
+	// Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	ActorId pulumi.StringPtrInput `pulumi:"actorId"`
+	// Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Enterprise pulumi.StringPtrInput `pulumi:"enterprise"`
+	// Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	EnterpriseId pulumi.StringPtrInput `pulumi:"enterpriseId"`
+	// Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Environment pulumi.StringPtrInput `pulumi:"environment"`
+	// Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	EventName pulumi.StringPtrInput `pulumi:"eventName"`
+	// Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	JobWorkflowRef pulumi.StringPtrInput `pulumi:"jobWorkflowRef"`
+	// Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Ref pulumi.StringPtrInput `pulumi:"ref"`
+	// Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RefType pulumi.StringPtrInput `pulumi:"refType"`
+	// Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Repository pulumi.StringPtrInput `pulumi:"repository"`
+	// Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+	// Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryOwner pulumi.StringPtrInput `pulumi:"repositoryOwner"`
+	// Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryOwnerId pulumi.StringPtrInput `pulumi:"repositoryOwnerId"`
+	// Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryVisibility pulumi.StringPtrInput `pulumi:"repositoryVisibility"`
+	// Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RunnerEnvironment pulumi.StringPtrInput `pulumi:"runnerEnvironment"`
+	// Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+	Sub pulumi.StringInput `pulumi:"sub"`
+	// Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Workflow pulumi.StringPtrInput `pulumi:"workflow"`
+	// Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	WorkflowRef pulumi.StringPtrInput `pulumi:"workflowRef"`
+}
+
+func (GithubOidcIdentityMappingClaimMatchersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GithubOidcIdentityMappingClaimMatchers)(nil)).Elem()
+}
+
+func (i GithubOidcIdentityMappingClaimMatchersArgs) ToGithubOidcIdentityMappingClaimMatchersOutput() GithubOidcIdentityMappingClaimMatchersOutput {
+	return i.ToGithubOidcIdentityMappingClaimMatchersOutputWithContext(context.Background())
+}
+
+func (i GithubOidcIdentityMappingClaimMatchersArgs) ToGithubOidcIdentityMappingClaimMatchersOutputWithContext(ctx context.Context) GithubOidcIdentityMappingClaimMatchersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GithubOidcIdentityMappingClaimMatchersOutput)
+}
+
+func (i GithubOidcIdentityMappingClaimMatchersArgs) ToGithubOidcIdentityMappingClaimMatchersPtrOutput() GithubOidcIdentityMappingClaimMatchersPtrOutput {
+	return i.ToGithubOidcIdentityMappingClaimMatchersPtrOutputWithContext(context.Background())
+}
+
+func (i GithubOidcIdentityMappingClaimMatchersArgs) ToGithubOidcIdentityMappingClaimMatchersPtrOutputWithContext(ctx context.Context) GithubOidcIdentityMappingClaimMatchersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GithubOidcIdentityMappingClaimMatchersOutput).ToGithubOidcIdentityMappingClaimMatchersPtrOutputWithContext(ctx)
+}
+
+// GithubOidcIdentityMappingClaimMatchersPtrInput is an input type that accepts GithubOidcIdentityMappingClaimMatchersArgs, GithubOidcIdentityMappingClaimMatchersPtr and GithubOidcIdentityMappingClaimMatchersPtrOutput values.
+// You can construct a concrete instance of `GithubOidcIdentityMappingClaimMatchersPtrInput` via:
+//
+//	        GithubOidcIdentityMappingClaimMatchersArgs{...}
+//
+//	or:
+//
+//	        nil
+type GithubOidcIdentityMappingClaimMatchersPtrInput interface {
+	pulumi.Input
+
+	ToGithubOidcIdentityMappingClaimMatchersPtrOutput() GithubOidcIdentityMappingClaimMatchersPtrOutput
+	ToGithubOidcIdentityMappingClaimMatchersPtrOutputWithContext(context.Context) GithubOidcIdentityMappingClaimMatchersPtrOutput
+}
+
+type githubOidcIdentityMappingClaimMatchersPtrType GithubOidcIdentityMappingClaimMatchersArgs
+
+func GithubOidcIdentityMappingClaimMatchersPtr(v *GithubOidcIdentityMappingClaimMatchersArgs) GithubOidcIdentityMappingClaimMatchersPtrInput {
+	return (*githubOidcIdentityMappingClaimMatchersPtrType)(v)
+}
+
+func (*githubOidcIdentityMappingClaimMatchersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GithubOidcIdentityMappingClaimMatchers)(nil)).Elem()
+}
+
+func (i *githubOidcIdentityMappingClaimMatchersPtrType) ToGithubOidcIdentityMappingClaimMatchersPtrOutput() GithubOidcIdentityMappingClaimMatchersPtrOutput {
+	return i.ToGithubOidcIdentityMappingClaimMatchersPtrOutputWithContext(context.Background())
+}
+
+func (i *githubOidcIdentityMappingClaimMatchersPtrType) ToGithubOidcIdentityMappingClaimMatchersPtrOutputWithContext(ctx context.Context) GithubOidcIdentityMappingClaimMatchersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GithubOidcIdentityMappingClaimMatchersPtrOutput)
+}
+
+type GithubOidcIdentityMappingClaimMatchersOutput struct{ *pulumi.OutputState }
+
+func (GithubOidcIdentityMappingClaimMatchersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GithubOidcIdentityMappingClaimMatchers)(nil)).Elem()
+}
+
+func (o GithubOidcIdentityMappingClaimMatchersOutput) ToGithubOidcIdentityMappingClaimMatchersOutput() GithubOidcIdentityMappingClaimMatchersOutput {
+	return o
+}
+
+func (o GithubOidcIdentityMappingClaimMatchersOutput) ToGithubOidcIdentityMappingClaimMatchersOutputWithContext(ctx context.Context) GithubOidcIdentityMappingClaimMatchersOutput {
+	return o
+}
+
+func (o GithubOidcIdentityMappingClaimMatchersOutput) ToGithubOidcIdentityMappingClaimMatchersPtrOutput() GithubOidcIdentityMappingClaimMatchersPtrOutput {
+	return o.ToGithubOidcIdentityMappingClaimMatchersPtrOutputWithContext(context.Background())
+}
+
+func (o GithubOidcIdentityMappingClaimMatchersOutput) ToGithubOidcIdentityMappingClaimMatchersPtrOutputWithContext(ctx context.Context) GithubOidcIdentityMappingClaimMatchersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GithubOidcIdentityMappingClaimMatchers) *GithubOidcIdentityMappingClaimMatchers {
+		return &v
+	}).(GithubOidcIdentityMappingClaimMatchersPtrOutput)
+}
+
+// Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) Actor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.Actor }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) ActorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.ActorId }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) Enterprise() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.Enterprise }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) EnterpriseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.EnterpriseId }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) Environment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.Environment }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) EventName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.EventName }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) JobWorkflowRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.JobWorkflowRef }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.Ref }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) RefType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.RefType }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.Repository }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) RepositoryOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.RepositoryOwner }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) RepositoryOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.RepositoryOwnerId }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) RepositoryVisibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.RepositoryVisibility }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) RunnerEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.RunnerEnvironment }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) Sub() pulumi.StringOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) string { return v.Sub }).(pulumi.StringOutput)
+}
+
+// Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) Workflow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.Workflow }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersOutput) WorkflowRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIdentityMappingClaimMatchers) *string { return v.WorkflowRef }).(pulumi.StringPtrOutput)
+}
+
+type GithubOidcIdentityMappingClaimMatchersPtrOutput struct{ *pulumi.OutputState }
+
+func (GithubOidcIdentityMappingClaimMatchersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GithubOidcIdentityMappingClaimMatchers)(nil)).Elem()
+}
+
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) ToGithubOidcIdentityMappingClaimMatchersPtrOutput() GithubOidcIdentityMappingClaimMatchersPtrOutput {
+	return o
+}
+
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) ToGithubOidcIdentityMappingClaimMatchersPtrOutputWithContext(ctx context.Context) GithubOidcIdentityMappingClaimMatchersPtrOutput {
+	return o
+}
+
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) Elem() GithubOidcIdentityMappingClaimMatchersOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) GithubOidcIdentityMappingClaimMatchers {
+		if v != nil {
+			return *v
+		}
+		var ret GithubOidcIdentityMappingClaimMatchers
+		return ret
+	}).(GithubOidcIdentityMappingClaimMatchersOutput)
+}
+
+// Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) Actor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Actor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) ActorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActorId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) Enterprise() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enterprise
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) EnterpriseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnterpriseId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) Environment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) EventName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) JobWorkflowRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JobWorkflowRef
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ref
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) RefType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Repository
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) RepositoryOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) RepositoryOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryOwnerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) RepositoryVisibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryVisibility
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) RunnerEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunnerEnvironment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) Sub() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sub
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) Workflow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Workflow
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIdentityMappingClaimMatchersPtrOutput) WorkflowRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIdentityMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkflowRef
+	}).(pulumi.StringPtrOutput)
+}
+
+type GithubOidcIntakeMappingClaimMatchers struct {
+	// Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Actor *string `pulumi:"actor"`
+	// Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	ActorId *string `pulumi:"actorId"`
+	// Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Enterprise *string `pulumi:"enterprise"`
+	// Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	EnterpriseId *string `pulumi:"enterpriseId"`
+	// Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Environment *string `pulumi:"environment"`
+	// Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	EventName *string `pulumi:"eventName"`
+	// Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	JobWorkflowRef *string `pulumi:"jobWorkflowRef"`
+	// Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Ref *string `pulumi:"ref"`
+	// Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RefType *string `pulumi:"refType"`
+	// Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Repository *string `pulumi:"repository"`
+	// Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryOwner *string `pulumi:"repositoryOwner"`
+	// Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryOwnerId *string `pulumi:"repositoryOwnerId"`
+	// Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryVisibility *string `pulumi:"repositoryVisibility"`
+	// Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RunnerEnvironment *string `pulumi:"runnerEnvironment"`
+	// Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+	Sub string `pulumi:"sub"`
+	// Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Workflow *string `pulumi:"workflow"`
+	// Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	WorkflowRef *string `pulumi:"workflowRef"`
+}
+
+// GithubOidcIntakeMappingClaimMatchersInput is an input type that accepts GithubOidcIntakeMappingClaimMatchersArgs and GithubOidcIntakeMappingClaimMatchersOutput values.
+// You can construct a concrete instance of `GithubOidcIntakeMappingClaimMatchersInput` via:
+//
+//	GithubOidcIntakeMappingClaimMatchersArgs{...}
+type GithubOidcIntakeMappingClaimMatchersInput interface {
+	pulumi.Input
+
+	ToGithubOidcIntakeMappingClaimMatchersOutput() GithubOidcIntakeMappingClaimMatchersOutput
+	ToGithubOidcIntakeMappingClaimMatchersOutputWithContext(context.Context) GithubOidcIntakeMappingClaimMatchersOutput
+}
+
+type GithubOidcIntakeMappingClaimMatchersArgs struct {
+	// Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Actor pulumi.StringPtrInput `pulumi:"actor"`
+	// Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	ActorId pulumi.StringPtrInput `pulumi:"actorId"`
+	// Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Enterprise pulumi.StringPtrInput `pulumi:"enterprise"`
+	// Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	EnterpriseId pulumi.StringPtrInput `pulumi:"enterpriseId"`
+	// Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Environment pulumi.StringPtrInput `pulumi:"environment"`
+	// Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	EventName pulumi.StringPtrInput `pulumi:"eventName"`
+	// Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	JobWorkflowRef pulumi.StringPtrInput `pulumi:"jobWorkflowRef"`
+	// Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Ref pulumi.StringPtrInput `pulumi:"ref"`
+	// Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RefType pulumi.StringPtrInput `pulumi:"refType"`
+	// Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Repository pulumi.StringPtrInput `pulumi:"repository"`
+	// Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+	// Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryOwner pulumi.StringPtrInput `pulumi:"repositoryOwner"`
+	// Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryOwnerId pulumi.StringPtrInput `pulumi:"repositoryOwnerId"`
+	// Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RepositoryVisibility pulumi.StringPtrInput `pulumi:"repositoryVisibility"`
+	// Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	RunnerEnvironment pulumi.StringPtrInput `pulumi:"runnerEnvironment"`
+	// Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+	Sub pulumi.StringInput `pulumi:"sub"`
+	// Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	Workflow pulumi.StringPtrInput `pulumi:"workflow"`
+	// Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+	WorkflowRef pulumi.StringPtrInput `pulumi:"workflowRef"`
+}
+
+func (GithubOidcIntakeMappingClaimMatchersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GithubOidcIntakeMappingClaimMatchers)(nil)).Elem()
+}
+
+func (i GithubOidcIntakeMappingClaimMatchersArgs) ToGithubOidcIntakeMappingClaimMatchersOutput() GithubOidcIntakeMappingClaimMatchersOutput {
+	return i.ToGithubOidcIntakeMappingClaimMatchersOutputWithContext(context.Background())
+}
+
+func (i GithubOidcIntakeMappingClaimMatchersArgs) ToGithubOidcIntakeMappingClaimMatchersOutputWithContext(ctx context.Context) GithubOidcIntakeMappingClaimMatchersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GithubOidcIntakeMappingClaimMatchersOutput)
+}
+
+func (i GithubOidcIntakeMappingClaimMatchersArgs) ToGithubOidcIntakeMappingClaimMatchersPtrOutput() GithubOidcIntakeMappingClaimMatchersPtrOutput {
+	return i.ToGithubOidcIntakeMappingClaimMatchersPtrOutputWithContext(context.Background())
+}
+
+func (i GithubOidcIntakeMappingClaimMatchersArgs) ToGithubOidcIntakeMappingClaimMatchersPtrOutputWithContext(ctx context.Context) GithubOidcIntakeMappingClaimMatchersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GithubOidcIntakeMappingClaimMatchersOutput).ToGithubOidcIntakeMappingClaimMatchersPtrOutputWithContext(ctx)
+}
+
+// GithubOidcIntakeMappingClaimMatchersPtrInput is an input type that accepts GithubOidcIntakeMappingClaimMatchersArgs, GithubOidcIntakeMappingClaimMatchersPtr and GithubOidcIntakeMappingClaimMatchersPtrOutput values.
+// You can construct a concrete instance of `GithubOidcIntakeMappingClaimMatchersPtrInput` via:
+//
+//	        GithubOidcIntakeMappingClaimMatchersArgs{...}
+//
+//	or:
+//
+//	        nil
+type GithubOidcIntakeMappingClaimMatchersPtrInput interface {
+	pulumi.Input
+
+	ToGithubOidcIntakeMappingClaimMatchersPtrOutput() GithubOidcIntakeMappingClaimMatchersPtrOutput
+	ToGithubOidcIntakeMappingClaimMatchersPtrOutputWithContext(context.Context) GithubOidcIntakeMappingClaimMatchersPtrOutput
+}
+
+type githubOidcIntakeMappingClaimMatchersPtrType GithubOidcIntakeMappingClaimMatchersArgs
+
+func GithubOidcIntakeMappingClaimMatchersPtr(v *GithubOidcIntakeMappingClaimMatchersArgs) GithubOidcIntakeMappingClaimMatchersPtrInput {
+	return (*githubOidcIntakeMappingClaimMatchersPtrType)(v)
+}
+
+func (*githubOidcIntakeMappingClaimMatchersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GithubOidcIntakeMappingClaimMatchers)(nil)).Elem()
+}
+
+func (i *githubOidcIntakeMappingClaimMatchersPtrType) ToGithubOidcIntakeMappingClaimMatchersPtrOutput() GithubOidcIntakeMappingClaimMatchersPtrOutput {
+	return i.ToGithubOidcIntakeMappingClaimMatchersPtrOutputWithContext(context.Background())
+}
+
+func (i *githubOidcIntakeMappingClaimMatchersPtrType) ToGithubOidcIntakeMappingClaimMatchersPtrOutputWithContext(ctx context.Context) GithubOidcIntakeMappingClaimMatchersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GithubOidcIntakeMappingClaimMatchersPtrOutput)
+}
+
+type GithubOidcIntakeMappingClaimMatchersOutput struct{ *pulumi.OutputState }
+
+func (GithubOidcIntakeMappingClaimMatchersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GithubOidcIntakeMappingClaimMatchers)(nil)).Elem()
+}
+
+func (o GithubOidcIntakeMappingClaimMatchersOutput) ToGithubOidcIntakeMappingClaimMatchersOutput() GithubOidcIntakeMappingClaimMatchersOutput {
+	return o
+}
+
+func (o GithubOidcIntakeMappingClaimMatchersOutput) ToGithubOidcIntakeMappingClaimMatchersOutputWithContext(ctx context.Context) GithubOidcIntakeMappingClaimMatchersOutput {
+	return o
+}
+
+func (o GithubOidcIntakeMappingClaimMatchersOutput) ToGithubOidcIntakeMappingClaimMatchersPtrOutput() GithubOidcIntakeMappingClaimMatchersPtrOutput {
+	return o.ToGithubOidcIntakeMappingClaimMatchersPtrOutputWithContext(context.Background())
+}
+
+func (o GithubOidcIntakeMappingClaimMatchersOutput) ToGithubOidcIntakeMappingClaimMatchersPtrOutputWithContext(ctx context.Context) GithubOidcIntakeMappingClaimMatchersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GithubOidcIntakeMappingClaimMatchers) *GithubOidcIntakeMappingClaimMatchers {
+		return &v
+	}).(GithubOidcIntakeMappingClaimMatchersPtrOutput)
+}
+
+// Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) Actor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.Actor }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) ActorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.ActorId }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) Enterprise() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.Enterprise }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) EnterpriseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.EnterpriseId }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) Environment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.Environment }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) EventName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.EventName }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) JobWorkflowRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.JobWorkflowRef }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.Ref }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) RefType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.RefType }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.Repository }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) RepositoryOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.RepositoryOwner }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) RepositoryOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.RepositoryOwnerId }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) RepositoryVisibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.RepositoryVisibility }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) RunnerEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.RunnerEnvironment }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) Sub() pulumi.StringOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) string { return v.Sub }).(pulumi.StringOutput)
+}
+
+// Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) Workflow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.Workflow }).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersOutput) WorkflowRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubOidcIntakeMappingClaimMatchers) *string { return v.WorkflowRef }).(pulumi.StringPtrOutput)
+}
+
+type GithubOidcIntakeMappingClaimMatchersPtrOutput struct{ *pulumi.OutputState }
+
+func (GithubOidcIntakeMappingClaimMatchersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GithubOidcIntakeMappingClaimMatchers)(nil)).Elem()
+}
+
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) ToGithubOidcIntakeMappingClaimMatchersPtrOutput() GithubOidcIntakeMappingClaimMatchersPtrOutput {
+	return o
+}
+
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) ToGithubOidcIntakeMappingClaimMatchersPtrOutputWithContext(ctx context.Context) GithubOidcIntakeMappingClaimMatchersPtrOutput {
+	return o
+}
+
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) Elem() GithubOidcIntakeMappingClaimMatchersOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) GithubOidcIntakeMappingClaimMatchers {
+		if v != nil {
+			return *v
+		}
+		var ret GithubOidcIntakeMappingClaimMatchers
+		return ret
+	}).(GithubOidcIntakeMappingClaimMatchersOutput)
+}
+
+// Regular expression matched against the `actor` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) Actor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Actor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `actorId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) ActorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActorId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `enterprise` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) Enterprise() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enterprise
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `enterpriseId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) EnterpriseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnterpriseId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `environment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) Environment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `eventName` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) EventName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `jobWorkflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) JobWorkflowRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JobWorkflowRef
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `ref` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ref
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `refType` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) RefType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repository` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Repository
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryOwner` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) RepositoryOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryOwnerId` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) RepositoryOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryOwnerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `repositoryVisibility` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) RepositoryVisibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryVisibility
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `runnerEnvironment` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) RunnerEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunnerEnvironment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the required `sub` claim of the GitHub Actions OIDC token. It must start with the literal `repo:<OWNER>/` prefix; the owner cannot be a regex. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) Sub() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sub
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `workflow` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) Workflow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Workflow
+	}).(pulumi.StringPtrOutput)
+}
+
+// Regular expression matched against the `workflowRef` claim of the GitHub Actions OIDC token. String length must be at least 1.
+func (o GithubOidcIntakeMappingClaimMatchersPtrOutput) WorkflowRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubOidcIntakeMappingClaimMatchers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkflowRef
+	}).(pulumi.StringPtrOutput)
+}
+
 type GovernanceControlNotificationSetting struct {
 	// Whether notifications are enabled for this event type.
 	Enabled bool `pulumi:"enabled"`
@@ -88325,506 +89245,6 @@ func (o LogsArchiveGcsArchivePtrOutput) ProjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type LogsArchiveS3Archive struct {
-	// Your AWS access key id, used as an alternative to `accountId`/`roleName`.
-	AccessKeyId *string `pulumi:"accessKeyId"`
-	// Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
-	AccountId *string `pulumi:"accountId"`
-	// Name of your s3 bucket.
-	Bucket string `pulumi:"bucket"`
-	// The AWS KMS encryption key.
-	EncryptionKey *string `pulumi:"encryptionKey"`
-	// The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
-	EncryptionType *string `pulumi:"encryptionType"`
-	// Path where the archive is stored.
-	Path *string `pulumi:"path"`
-	// Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
-	RoleName *string `pulumi:"roleName"`
-	// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
-	StorageClass *string `pulumi:"storageClass"`
-}
-
-// LogsArchiveS3ArchiveInput is an input type that accepts LogsArchiveS3ArchiveArgs and LogsArchiveS3ArchiveOutput values.
-// You can construct a concrete instance of `LogsArchiveS3ArchiveInput` via:
-//
-//	LogsArchiveS3ArchiveArgs{...}
-type LogsArchiveS3ArchiveInput interface {
-	pulumi.Input
-
-	ToLogsArchiveS3ArchiveOutput() LogsArchiveS3ArchiveOutput
-	ToLogsArchiveS3ArchiveOutputWithContext(context.Context) LogsArchiveS3ArchiveOutput
-}
-
-type LogsArchiveS3ArchiveArgs struct {
-	// Your AWS access key id, used as an alternative to `accountId`/`roleName`.
-	AccessKeyId pulumi.StringPtrInput `pulumi:"accessKeyId"`
-	// Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// Name of your s3 bucket.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The AWS KMS encryption key.
-	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
-	// The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
-	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
-	// Path where the archive is stored.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
-	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
-	// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
-	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
-}
-
-func (LogsArchiveS3ArchiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchiveS3Archive)(nil)).Elem()
-}
-
-func (i LogsArchiveS3ArchiveArgs) ToLogsArchiveS3ArchiveOutput() LogsArchiveS3ArchiveOutput {
-	return i.ToLogsArchiveS3ArchiveOutputWithContext(context.Background())
-}
-
-func (i LogsArchiveS3ArchiveArgs) ToLogsArchiveS3ArchiveOutputWithContext(ctx context.Context) LogsArchiveS3ArchiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveS3ArchiveOutput)
-}
-
-func (i LogsArchiveS3ArchiveArgs) ToLogsArchiveS3ArchivePtrOutput() LogsArchiveS3ArchivePtrOutput {
-	return i.ToLogsArchiveS3ArchivePtrOutputWithContext(context.Background())
-}
-
-func (i LogsArchiveS3ArchiveArgs) ToLogsArchiveS3ArchivePtrOutputWithContext(ctx context.Context) LogsArchiveS3ArchivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveS3ArchiveOutput).ToLogsArchiveS3ArchivePtrOutputWithContext(ctx)
-}
-
-// LogsArchiveS3ArchivePtrInput is an input type that accepts LogsArchiveS3ArchiveArgs, LogsArchiveS3ArchivePtr and LogsArchiveS3ArchivePtrOutput values.
-// You can construct a concrete instance of `LogsArchiveS3ArchivePtrInput` via:
-//
-//	        LogsArchiveS3ArchiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type LogsArchiveS3ArchivePtrInput interface {
-	pulumi.Input
-
-	ToLogsArchiveS3ArchivePtrOutput() LogsArchiveS3ArchivePtrOutput
-	ToLogsArchiveS3ArchivePtrOutputWithContext(context.Context) LogsArchiveS3ArchivePtrOutput
-}
-
-type logsArchiveS3ArchivePtrType LogsArchiveS3ArchiveArgs
-
-func LogsArchiveS3ArchivePtr(v *LogsArchiveS3ArchiveArgs) LogsArchiveS3ArchivePtrInput {
-	return (*logsArchiveS3ArchivePtrType)(v)
-}
-
-func (*logsArchiveS3ArchivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsArchiveS3Archive)(nil)).Elem()
-}
-
-func (i *logsArchiveS3ArchivePtrType) ToLogsArchiveS3ArchivePtrOutput() LogsArchiveS3ArchivePtrOutput {
-	return i.ToLogsArchiveS3ArchivePtrOutputWithContext(context.Background())
-}
-
-func (i *logsArchiveS3ArchivePtrType) ToLogsArchiveS3ArchivePtrOutputWithContext(ctx context.Context) LogsArchiveS3ArchivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveS3ArchivePtrOutput)
-}
-
-type LogsArchiveS3ArchiveOutput struct{ *pulumi.OutputState }
-
-func (LogsArchiveS3ArchiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchiveS3Archive)(nil)).Elem()
-}
-
-func (o LogsArchiveS3ArchiveOutput) ToLogsArchiveS3ArchiveOutput() LogsArchiveS3ArchiveOutput {
-	return o
-}
-
-func (o LogsArchiveS3ArchiveOutput) ToLogsArchiveS3ArchiveOutputWithContext(ctx context.Context) LogsArchiveS3ArchiveOutput {
-	return o
-}
-
-func (o LogsArchiveS3ArchiveOutput) ToLogsArchiveS3ArchivePtrOutput() LogsArchiveS3ArchivePtrOutput {
-	return o.ToLogsArchiveS3ArchivePtrOutputWithContext(context.Background())
-}
-
-func (o LogsArchiveS3ArchiveOutput) ToLogsArchiveS3ArchivePtrOutputWithContext(ctx context.Context) LogsArchiveS3ArchivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsArchiveS3Archive) *LogsArchiveS3Archive {
-		return &v
-	}).(LogsArchiveS3ArchivePtrOutput)
-}
-
-// Your AWS access key id, used as an alternative to `accountId`/`roleName`.
-func (o LogsArchiveS3ArchiveOutput) AccessKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.AccessKeyId }).(pulumi.StringPtrOutput)
-}
-
-// Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
-func (o LogsArchiveS3ArchiveOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.AccountId }).(pulumi.StringPtrOutput)
-}
-
-// Name of your s3 bucket.
-func (o LogsArchiveS3ArchiveOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsArchiveS3Archive) string { return v.Bucket }).(pulumi.StringOutput)
-}
-
-// The AWS KMS encryption key.
-func (o LogsArchiveS3ArchiveOutput) EncryptionKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.EncryptionKey }).(pulumi.StringPtrOutput)
-}
-
-// The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
-func (o LogsArchiveS3ArchiveOutput) EncryptionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
-}
-
-// Path where the archive is stored.
-func (o LogsArchiveS3ArchiveOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
-func (o LogsArchiveS3ArchiveOutput) RoleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.RoleName }).(pulumi.StringPtrOutput)
-}
-
-// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
-func (o LogsArchiveS3ArchiveOutput) StorageClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsArchiveS3Archive) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
-}
-
-type LogsArchiveS3ArchivePtrOutput struct{ *pulumi.OutputState }
-
-func (LogsArchiveS3ArchivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsArchiveS3Archive)(nil)).Elem()
-}
-
-func (o LogsArchiveS3ArchivePtrOutput) ToLogsArchiveS3ArchivePtrOutput() LogsArchiveS3ArchivePtrOutput {
-	return o
-}
-
-func (o LogsArchiveS3ArchivePtrOutput) ToLogsArchiveS3ArchivePtrOutputWithContext(ctx context.Context) LogsArchiveS3ArchivePtrOutput {
-	return o
-}
-
-func (o LogsArchiveS3ArchivePtrOutput) Elem() LogsArchiveS3ArchiveOutput {
-	return o.ApplyT(func(v *LogsArchiveS3Archive) LogsArchiveS3Archive {
-		if v != nil {
-			return *v
-		}
-		var ret LogsArchiveS3Archive
-		return ret
-	}).(LogsArchiveS3ArchiveOutput)
-}
-
-// Your AWS access key id, used as an alternative to `accountId`/`roleName`.
-func (o LogsArchiveS3ArchivePtrOutput) AccessKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccessKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Your AWS account id. Required with `roleName`; mutually exclusive with `accessKeyId`.
-func (o LogsArchiveS3ArchivePtrOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccountId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of your s3 bucket.
-func (o LogsArchiveS3ArchivePtrOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Bucket
-	}).(pulumi.StringPtrOutput)
-}
-
-// The AWS KMS encryption key.
-func (o LogsArchiveS3ArchivePtrOutput) EncryptionKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of encryption on your archive. Valid values are `NO_OVERRIDE`, `SSE_S3`, `SSE_KMS`. Defaults to `"NO_OVERRIDE"`.
-func (o LogsArchiveS3ArchivePtrOutput) EncryptionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path where the archive is stored.
-func (o LogsArchiveS3ArchivePtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// Your AWS role name. Required with `accountId`; mutually exclusive with `accessKeyId`.
-func (o LogsArchiveS3ArchivePtrOutput) RoleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RoleName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The AWS S3 storage class used to upload the logs. Valid values are `STANDARD`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER_IR`. Defaults to `"STANDARD"`.
-func (o LogsArchiveS3ArchivePtrOutput) StorageClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveS3Archive) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageClass
-	}).(pulumi.StringPtrOutput)
-}
-
-type LogsCustomDestinationElasticsearchDestination struct {
-	// Basic access authentication.
-	BasicAuth *LogsCustomDestinationElasticsearchDestinationBasicAuth `pulumi:"basicAuth"`
-	// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
-	Endpoint string `pulumi:"endpoint"`
-	// Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
-	IndexName string `pulumi:"indexName"`
-	// Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
-	// 						(that is, '${index_name}-${indexPattern}').
-	// 						You can customize the index rotation naming pattern by choosing one of these options:
-	// 						- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
-	// 						- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
-	// 						- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
-	// 						- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
-	// 						If this field is missing or is blank, it means that the index name will always be the same
-	// 						(that is, no rotation).
-	IndexRotation *string `pulumi:"indexRotation"`
-}
-
-// LogsCustomDestinationElasticsearchDestinationInput is an input type that accepts LogsCustomDestinationElasticsearchDestinationArgs and LogsCustomDestinationElasticsearchDestinationOutput values.
-// You can construct a concrete instance of `LogsCustomDestinationElasticsearchDestinationInput` via:
-//
-//	LogsCustomDestinationElasticsearchDestinationArgs{...}
-type LogsCustomDestinationElasticsearchDestinationInput interface {
-	pulumi.Input
-
-	ToLogsCustomDestinationElasticsearchDestinationOutput() LogsCustomDestinationElasticsearchDestinationOutput
-	ToLogsCustomDestinationElasticsearchDestinationOutputWithContext(context.Context) LogsCustomDestinationElasticsearchDestinationOutput
-}
-
-type LogsCustomDestinationElasticsearchDestinationArgs struct {
-	// Basic access authentication.
-	BasicAuth LogsCustomDestinationElasticsearchDestinationBasicAuthPtrInput `pulumi:"basicAuth"`
-	// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
-	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
-	// 						(that is, '${index_name}-${indexPattern}').
-	// 						You can customize the index rotation naming pattern by choosing one of these options:
-	// 						- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
-	// 						- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
-	// 						- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
-	// 						- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
-	// 						If this field is missing or is blank, it means that the index name will always be the same
-	// 						(that is, no rotation).
-	IndexRotation pulumi.StringPtrInput `pulumi:"indexRotation"`
-}
-
-func (LogsCustomDestinationElasticsearchDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomDestinationElasticsearchDestination)(nil)).Elem()
-}
-
-func (i LogsCustomDestinationElasticsearchDestinationArgs) ToLogsCustomDestinationElasticsearchDestinationOutput() LogsCustomDestinationElasticsearchDestinationOutput {
-	return i.ToLogsCustomDestinationElasticsearchDestinationOutputWithContext(context.Background())
-}
-
-func (i LogsCustomDestinationElasticsearchDestinationArgs) ToLogsCustomDestinationElasticsearchDestinationOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationElasticsearchDestinationOutput)
-}
-
-func (i LogsCustomDestinationElasticsearchDestinationArgs) ToLogsCustomDestinationElasticsearchDestinationPtrOutput() LogsCustomDestinationElasticsearchDestinationPtrOutput {
-	return i.ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i LogsCustomDestinationElasticsearchDestinationArgs) ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationElasticsearchDestinationOutput).ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(ctx)
-}
-
-// LogsCustomDestinationElasticsearchDestinationPtrInput is an input type that accepts LogsCustomDestinationElasticsearchDestinationArgs, LogsCustomDestinationElasticsearchDestinationPtr and LogsCustomDestinationElasticsearchDestinationPtrOutput values.
-// You can construct a concrete instance of `LogsCustomDestinationElasticsearchDestinationPtrInput` via:
-//
-//	        LogsCustomDestinationElasticsearchDestinationArgs{...}
-//
-//	or:
-//
-//	        nil
-type LogsCustomDestinationElasticsearchDestinationPtrInput interface {
-	pulumi.Input
-
-	ToLogsCustomDestinationElasticsearchDestinationPtrOutput() LogsCustomDestinationElasticsearchDestinationPtrOutput
-	ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(context.Context) LogsCustomDestinationElasticsearchDestinationPtrOutput
-}
-
-type logsCustomDestinationElasticsearchDestinationPtrType LogsCustomDestinationElasticsearchDestinationArgs
-
-func LogsCustomDestinationElasticsearchDestinationPtr(v *LogsCustomDestinationElasticsearchDestinationArgs) LogsCustomDestinationElasticsearchDestinationPtrInput {
-	return (*logsCustomDestinationElasticsearchDestinationPtrType)(v)
-}
-
-func (*logsCustomDestinationElasticsearchDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomDestinationElasticsearchDestination)(nil)).Elem()
-}
-
-func (i *logsCustomDestinationElasticsearchDestinationPtrType) ToLogsCustomDestinationElasticsearchDestinationPtrOutput() LogsCustomDestinationElasticsearchDestinationPtrOutput {
-	return i.ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *logsCustomDestinationElasticsearchDestinationPtrType) ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsCustomDestinationElasticsearchDestinationPtrOutput)
-}
-
-type LogsCustomDestinationElasticsearchDestinationOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomDestinationElasticsearchDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsCustomDestinationElasticsearchDestination)(nil)).Elem()
-}
-
-func (o LogsCustomDestinationElasticsearchDestinationOutput) ToLogsCustomDestinationElasticsearchDestinationOutput() LogsCustomDestinationElasticsearchDestinationOutput {
-	return o
-}
-
-func (o LogsCustomDestinationElasticsearchDestinationOutput) ToLogsCustomDestinationElasticsearchDestinationOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationOutput {
-	return o
-}
-
-func (o LogsCustomDestinationElasticsearchDestinationOutput) ToLogsCustomDestinationElasticsearchDestinationPtrOutput() LogsCustomDestinationElasticsearchDestinationPtrOutput {
-	return o.ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o LogsCustomDestinationElasticsearchDestinationOutput) ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsCustomDestinationElasticsearchDestination) *LogsCustomDestinationElasticsearchDestination {
-		return &v
-	}).(LogsCustomDestinationElasticsearchDestinationPtrOutput)
-}
-
-// Basic access authentication.
-func (o LogsCustomDestinationElasticsearchDestinationOutput) BasicAuth() LogsCustomDestinationElasticsearchDestinationBasicAuthPtrOutput {
-	return o.ApplyT(func(v LogsCustomDestinationElasticsearchDestination) *LogsCustomDestinationElasticsearchDestinationBasicAuth {
-		return v.BasicAuth
-	}).(LogsCustomDestinationElasticsearchDestinationBasicAuthPtrOutput)
-}
-
-// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
-func (o LogsCustomDestinationElasticsearchDestinationOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsCustomDestinationElasticsearchDestination) string { return v.Endpoint }).(pulumi.StringOutput)
-}
-
-// Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
-func (o LogsCustomDestinationElasticsearchDestinationOutput) IndexName() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsCustomDestinationElasticsearchDestination) string { return v.IndexName }).(pulumi.StringOutput)
-}
-
-// Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
-//
-//	(that is, '${index_name}-${indexPattern}').
-//	You can customize the index rotation naming pattern by choosing one of these options:
-//	- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
-//	- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
-//	- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
-//	- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
-//	If this field is missing or is blank, it means that the index name will always be the same
-//	(that is, no rotation).
-func (o LogsCustomDestinationElasticsearchDestinationOutput) IndexRotation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsCustomDestinationElasticsearchDestination) *string { return v.IndexRotation }).(pulumi.StringPtrOutput)
-}
-
-type LogsCustomDestinationElasticsearchDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (LogsCustomDestinationElasticsearchDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsCustomDestinationElasticsearchDestination)(nil)).Elem()
-}
-
-func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) ToLogsCustomDestinationElasticsearchDestinationPtrOutput() LogsCustomDestinationElasticsearchDestinationPtrOutput {
-	return o
-}
-
-func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) ToLogsCustomDestinationElasticsearchDestinationPtrOutputWithContext(ctx context.Context) LogsCustomDestinationElasticsearchDestinationPtrOutput {
-	return o
-}
-
-func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) Elem() LogsCustomDestinationElasticsearchDestinationOutput {
-	return o.ApplyT(func(v *LogsCustomDestinationElasticsearchDestination) LogsCustomDestinationElasticsearchDestination {
-		if v != nil {
-			return *v
-		}
-		var ret LogsCustomDestinationElasticsearchDestination
-		return ret
-	}).(LogsCustomDestinationElasticsearchDestinationOutput)
-}
-
-// Basic access authentication.
-func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) BasicAuth() LogsCustomDestinationElasticsearchDestinationBasicAuthPtrOutput {
-	return o.ApplyT(func(v *LogsCustomDestinationElasticsearchDestination) *LogsCustomDestinationElasticsearchDestinationBasicAuth {
-		if v == nil {
-			return nil
-		}
-		return v.BasicAuth
-	}).(LogsCustomDestinationElasticsearchDestinationBasicAuthPtrOutput)
-}
-
-// The destination for which logs will be forwarded to. Must have HTTPS scheme. Forwarding back to Datadog is not allowed.
-func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomDestinationElasticsearchDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Endpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the Elasticsearch index (must follow [Elasticsearch's criteria](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/indices-create-index.html#indices-create-api-path-params)).
-func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) IndexName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomDestinationElasticsearchDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.IndexName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Date pattern with US locale and UTC timezone to be appended to the index name after adding '-'
-//
-//	(that is, '${index_name}-${indexPattern}').
-//	You can customize the index rotation naming pattern by choosing one of these options:
-//	- Hourly: 'yyyy-MM-dd-HH' (as an example, it would render: '2022-10-19-09')
-//	- Daily: 'yyyy-MM-dd' (as an example, it would render: '2022-10-19')
-//	- Weekly: 'yyyy-'W'ww' (as an example, it would render: '2022-W42')
-//	- Monthly: 'yyyy-MM' (as an example, it would render: '2022-10')
-//	If this field is missing or is blank, it means that the index name will always be the same
-//	(that is, no rotation).
-func (o LogsCustomDestinationElasticsearchDestinationPtrOutput) IndexRotation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsCustomDestinationElasticsearchDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IndexRotation
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysInput)(nil)).Elem(), DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrInput)(nil)).Elem(), DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs{})
@@ -89798,6 +90218,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleRecurringScheduleRecurrenceArrayInput)(nil)).Elem(), DowntimeScheduleRecurringScheduleRecurrenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetScheduleRuleInput)(nil)).Elem(), FleetScheduleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetScheduleRulePtrInput)(nil)).Elem(), FleetScheduleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GithubOidcIdentityMappingClaimMatchersInput)(nil)).Elem(), GithubOidcIdentityMappingClaimMatchersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GithubOidcIdentityMappingClaimMatchersPtrInput)(nil)).Elem(), GithubOidcIdentityMappingClaimMatchersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GithubOidcIntakeMappingClaimMatchersInput)(nil)).Elem(), GithubOidcIntakeMappingClaimMatchersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GithubOidcIntakeMappingClaimMatchersPtrInput)(nil)).Elem(), GithubOidcIntakeMappingClaimMatchersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GovernanceControlNotificationSettingInput)(nil)).Elem(), GovernanceControlNotificationSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GovernanceControlNotificationSettingArrayInput)(nil)).Elem(), GovernanceControlNotificationSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GovernanceControlNotificationSettingTargetInput)(nil)).Elem(), GovernanceControlNotificationSettingTargetArgs{})
@@ -89822,10 +90246,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveAzureArchivePtrInput)(nil)).Elem(), LogsArchiveAzureArchiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveGcsArchiveInput)(nil)).Elem(), LogsArchiveGcsArchiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveGcsArchivePtrInput)(nil)).Elem(), LogsArchiveGcsArchiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveS3ArchiveInput)(nil)).Elem(), LogsArchiveS3ArchiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveS3ArchivePtrInput)(nil)).Elem(), LogsArchiveS3ArchiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationElasticsearchDestinationInput)(nil)).Elem(), LogsCustomDestinationElasticsearchDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationElasticsearchDestinationPtrInput)(nil)).Elem(), LogsCustomDestinationElasticsearchDestinationArgs{})
 	pulumi.RegisterOutputType(DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetSunburstDefinitionRequestSortOutput{})
@@ -90798,6 +91218,10 @@ func init() {
 	pulumi.RegisterOutputType(DowntimeScheduleRecurringScheduleRecurrenceArrayOutput{})
 	pulumi.RegisterOutputType(FleetScheduleRuleOutput{})
 	pulumi.RegisterOutputType(FleetScheduleRulePtrOutput{})
+	pulumi.RegisterOutputType(GithubOidcIdentityMappingClaimMatchersOutput{})
+	pulumi.RegisterOutputType(GithubOidcIdentityMappingClaimMatchersPtrOutput{})
+	pulumi.RegisterOutputType(GithubOidcIntakeMappingClaimMatchersOutput{})
+	pulumi.RegisterOutputType(GithubOidcIntakeMappingClaimMatchersPtrOutput{})
 	pulumi.RegisterOutputType(GovernanceControlNotificationSettingOutput{})
 	pulumi.RegisterOutputType(GovernanceControlNotificationSettingArrayOutput{})
 	pulumi.RegisterOutputType(GovernanceControlNotificationSettingTargetOutput{})
@@ -90822,8 +91246,4 @@ func init() {
 	pulumi.RegisterOutputType(LogsArchiveAzureArchivePtrOutput{})
 	pulumi.RegisterOutputType(LogsArchiveGcsArchiveOutput{})
 	pulumi.RegisterOutputType(LogsArchiveGcsArchivePtrOutput{})
-	pulumi.RegisterOutputType(LogsArchiveS3ArchiveOutput{})
-	pulumi.RegisterOutputType(LogsArchiveS3ArchivePtrOutput{})
-	pulumi.RegisterOutputType(LogsCustomDestinationElasticsearchDestinationOutput{})
-	pulumi.RegisterOutputType(LogsCustomDestinationElasticsearchDestinationPtrOutput{})
 }

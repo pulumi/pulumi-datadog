@@ -38,7 +38,7 @@ class LogsArchiveArgs:
         :param pulumi.Input[_builtins.str] name: Your archive name.
         :param pulumi.Input[_builtins.str] query: The archive query/filter. Logs matching this query are included in the archive.
         :param pulumi.Input['LogsArchiveAzureArchiveArgs'] azure_archive: Definition of an azure archive.
-        :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+        :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lookup_attributes: An array of attributes to use as lookup keys for the archive.
@@ -108,7 +108,7 @@ class LogsArchiveArgs:
     @pulumi.getter(name="compressionMethod")
     def compression_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+        The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
         """
         return pulumi.get(self, "compression_method")
 
@@ -219,7 +219,7 @@ class _LogsArchiveState:
         Input properties used for looking up and filtering LogsArchive resources.
 
         :param pulumi.Input['LogsArchiveAzureArchiveArgs'] azure_archive: Definition of an azure archive.
-        :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+        :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
         :param pulumi.Input['LogsArchiveGcsArchiveArgs'] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lookup_attributes: An array of attributes to use as lookup keys for the archive.
@@ -269,7 +269,7 @@ class _LogsArchiveState:
     @pulumi.getter(name="compressionMethod")
     def compression_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+        The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
         """
         return pulumi.get(self, "compression_method")
 
@@ -436,7 +436,7 @@ class LogsArchive(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict', 'outputs.LogsArchiveAzureArchive']] azure_archive: Definition of an azure archive.
-        :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+        :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
         :param pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict', 'outputs.LogsArchiveGcsArchive']] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lookup_attributes: An array of attributes to use as lookup keys for the archive.
@@ -561,7 +561,7 @@ class LogsArchive(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict', 'outputs.LogsArchiveAzureArchive']] azure_archive: Definition of an azure archive.
-        :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+        :param pulumi.Input[_builtins.str] compression_method: The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
         :param pulumi.Input[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict', 'outputs.LogsArchiveGcsArchive']] gcs_archive: Definition of a GCS archive.
         :param pulumi.Input[_builtins.bool] include_tags: To store the tags in the archive, set the value `true`. If it is set to `false`, the tags will be dropped when the logs are sent to the archive. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lookup_attributes: An array of attributes to use as lookup keys for the archive.
@@ -601,7 +601,7 @@ class LogsArchive(pulumi.CustomResource):
     @pulumi.getter(name="compressionMethod")
     def compression_method(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"GZIP"`.
+        The compression method for the archive. Valid values are `GZIP`, `ZSTD`. Defaults to `"ZSTD"`.
         """
         return pulumi.get(self, "compression_method")
 

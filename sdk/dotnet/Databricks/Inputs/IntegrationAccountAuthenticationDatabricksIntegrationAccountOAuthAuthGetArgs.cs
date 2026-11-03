@@ -30,12 +30,28 @@ namespace Pulumi.Datadog.Databricks.Inputs
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
-        [Input("clientSecretWo", required: true)]
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
+
+        /// <summary>
+        /// Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. Exactly one of `ClientSecret` or `ClientSecretWo` must be set. Prefer `ClientSecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+        /// </summary>
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientSecretWo")]
         private Input<string>? _clientSecretWo;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state.
+        /// Secret of the Databricks service principal. Generate it under User management &gt; Service principals &gt; Credentials &amp; secrets in Databricks. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
         /// </summary>
         public Input<string>? ClientSecretWo
         {
@@ -50,8 +66,8 @@ namespace Pulumi.Datadog.Databricks.Inputs
         /// <summary>
         /// Version trigger for client*secret*wo rotation. String length must be at least 1.
         /// </summary>
-        [Input("clientSecretWoVersion", required: true)]
-        public Input<string> ClientSecretWoVersion { get; set; } = null!;
+        [Input("clientSecretWoVersion")]
+        public Input<string>? ClientSecretWoVersion { get; set; }
 
         public IntegrationAccountAuthenticationDatabricksIntegrationAccountOAuthAuthGetArgs()
         {
