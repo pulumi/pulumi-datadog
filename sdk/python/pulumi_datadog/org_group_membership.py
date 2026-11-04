@@ -288,6 +288,20 @@ class OrgGroupMembership(pulumi.CustomResource):
         __props__.__dict__["org_uuid"] = org_uuid
         return OrgGroupMembership(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            org_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            org_name: pulumi.Input[Optional[_builtins.str]] = None,
+            org_site: pulumi.Input[Optional[_builtins.str]] = None,
+            org_uuid: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["orgGroupId"] = org_group_id
+        __props__["orgName"] = org_name
+        __props__["orgSite"] = org_site
+        __props__["orgUuid"] = org_uuid
+        return pulumi.runtime.exists_resource(None, 'datadog:index/orgGroupMembership:OrgGroupMembership', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="orgGroupId")
     def org_group_id(self) -> pulumi.Output[_builtins.str]:

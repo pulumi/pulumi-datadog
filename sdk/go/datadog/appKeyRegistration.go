@@ -100,6 +100,12 @@ func (AppKeyRegistrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appKeyRegistrationState)(nil)).Elem()
 }
 
+// AppKeyRegistrationExists checks whether an existing AppKeyRegistration resource with the given ID exists.
+func AppKeyRegistrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppKeyRegistrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/appKeyRegistration:AppKeyRegistration", id, state, "", opts...)
+}
+
 type appKeyRegistrationArgs struct {
 	// The Application Key ID to register.
 	AppKeyId string `pulumi:"appKeyId"`

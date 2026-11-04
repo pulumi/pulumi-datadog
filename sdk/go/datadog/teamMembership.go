@@ -134,6 +134,12 @@ func (TeamMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamMembershipState)(nil)).Elem()
 }
 
+// TeamMembershipExists checks whether an existing TeamMembership resource with the given ID exists.
+func TeamMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/teamMembership:TeamMembership", id, state, "", opts...)
+}
+
 type teamMembershipArgs struct {
 	// The user's role within the team. Valid values are `admin`.
 	Role *string `pulumi:"role"`

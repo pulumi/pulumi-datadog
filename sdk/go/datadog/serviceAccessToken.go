@@ -179,6 +179,12 @@ func (ServiceAccessTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceAccessTokenState)(nil)).Elem()
 }
 
+// ServiceAccessTokenExists checks whether an existing ServiceAccessToken resource with the given ID exists.
+func ServiceAccessTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceAccessTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/serviceAccessToken:ServiceAccessToken", id, state, "", opts...)
+}
+
 type serviceAccessTokenArgs struct {
 	// Expiration date of the service access token, in RFC3339 format. Omit for a non-expiring token. The Datadog API caps expirations to within 365 days from creation. This attribute is immutable: it cannot be added, changed, or removed after creation. To rotate the expiration, destroy and re-create the resource.
 	ExpiresAt *string `pulumi:"expiresAt"`

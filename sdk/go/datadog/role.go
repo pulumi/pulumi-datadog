@@ -146,6 +146,12 @@ func (RoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleState)(nil)).Elem()
 }
 
+// RoleExists checks whether an existing Role resource with the given ID exists.
+func RoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/role:Role", id, state, "", opts...)
+}
+
 type roleArgs struct {
 	// If set to `true`, the role does not have default (restricted) permissions unless they are explicitly set. The `includeRestricted` attribute for the `getPermissions` data source must be set to `true` to manage default permissions in Terraform.
 	DefaultPermissionsOptOut *bool `pulumi:"defaultPermissionsOptOut"`

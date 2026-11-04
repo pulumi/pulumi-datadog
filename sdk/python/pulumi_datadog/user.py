@@ -386,6 +386,26 @@ class User(pulumi.CustomResource):
         __props__.__dict__["verified"] = verified
         return User(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            send_user_invitation: pulumi.Input[Optional[_builtins.bool]] = None,
+            user_invitation_id: pulumi.Input[Optional[_builtins.str]] = None,
+            verified: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["disabled"] = disabled
+        __props__["email"] = email
+        __props__["name"] = name
+        __props__["roles"] = roles
+        __props__["sendUserInvitation"] = send_user_invitation
+        __props__["userInvitationId"] = user_invitation_id
+        __props__["verified"] = verified
+        return pulumi.runtime.exists_resource(None, 'datadog:index/user:User', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

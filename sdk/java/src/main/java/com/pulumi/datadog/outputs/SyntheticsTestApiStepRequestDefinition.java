@@ -148,11 +148,10 @@ public final class SyntheticsTestApiStepRequestDefinition {
     /**
      * @return A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
-     * @deprecated
-     * Use `plainProtoFile` instead.
+     * @deprecated Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plainProtoFile` instead. */
+    @Deprecated
     private @Nullable String protoJsonDescriptor;
     /**
      * @return For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
@@ -391,11 +390,10 @@ public final class SyntheticsTestApiStepRequestDefinition {
     /**
      * @return A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
-     * @deprecated
-     * Use `plainProtoFile` instead.
+     * @deprecated Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plainProtoFile` instead. */
+    @Deprecated
     public Optional<String> protoJsonDescriptor() {
         return Optional.ofNullable(this.protoJsonDescriptor);
     }

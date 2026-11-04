@@ -297,6 +297,22 @@ class OnCallUserNotificationRule(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return OnCallUserNotificationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delay_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            phone: pulumi.Input[Optional[Union['OnCallUserNotificationRulePhoneArgs', 'OnCallUserNotificationRulePhoneArgsDict', 'outputs.OnCallUserNotificationRulePhone']]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["category"] = category
+        __props__["channelId"] = channel_id
+        __props__["delayMinutes"] = delay_minutes
+        __props__["phone"] = phone
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'datadog:index/onCallUserNotificationRule:OnCallUserNotificationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def category(self) -> pulumi.Output[_builtins.str]:

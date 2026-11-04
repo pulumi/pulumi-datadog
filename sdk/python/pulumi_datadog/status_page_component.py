@@ -455,6 +455,28 @@ class StatusPageComponent(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return StatusPageComponent(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageComponentComponentArgs', 'StatusPageComponentComponentArgsDict', 'outputs.StatusPageComponentComponent']]]]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            page_id: pulumi.Input[Optional[_builtins.str]] = None,
+            position: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["components"] = components
+        __props__["createdAt"] = created_at
+        __props__["modifiedAt"] = modified_at
+        __props__["name"] = name
+        __props__["pageId"] = page_id
+        __props__["position"] = position
+        __props__["status"] = status
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'datadog:index/statusPageComponent:StatusPageComponent', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def components(self) -> pulumi.Output[Optional[Sequence['outputs.StatusPageComponentComponent']]]:

@@ -605,6 +605,12 @@ func (DashboardJsonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dashboardJsonState)(nil)).Elem()
 }
 
+// DashboardJsonExists checks whether an existing DashboardJson resource with the given ID exists.
+func DashboardJsonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DashboardJsonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/dashboardJson:DashboardJson", id, state, "", opts...)
+}
+
 type dashboardJsonArgs struct {
 	// The JSON formatted definition of the Dashboard.
 	Dashboard string `pulumi:"dashboard"`

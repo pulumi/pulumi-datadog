@@ -658,6 +658,38 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
         return Integration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automute: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_email: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_run_revision_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            cspm_resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+            is_resource_change_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_security_command_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationMonitoredResourceConfigArgs', 'IntegrationMonitoredResourceConfigArgsDict', 'outputs.IntegrationMonitoredResourceConfig']]]]] = None,
+            private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automute"] = automute
+        __props__["clientEmail"] = client_email
+        __props__["clientId"] = client_id
+        __props__["cloudRunRevisionFilters"] = cloud_run_revision_filters
+        __props__["cspmResourceCollectionEnabled"] = cspm_resource_collection_enabled
+        __props__["hostFilters"] = host_filters
+        __props__["isResourceChangeCollectionEnabled"] = is_resource_change_collection_enabled
+        __props__["isSecurityCommandCenterEnabled"] = is_security_command_center_enabled
+        __props__["monitoredResourceConfigs"] = monitored_resource_configs
+        __props__["privateKey"] = private_key
+        __props__["privateKeyId"] = private_key_id
+        __props__["projectId"] = project_id
+        __props__["resourceCollectionEnabled"] = resource_collection_enabled
+        return pulumi.runtime.exists_resource(None, 'datadog:gcp/integration:Integration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def automute(self) -> pulumi.Output[_builtins.bool]:

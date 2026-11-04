@@ -112,6 +112,12 @@ func (OrgGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*orgGroupState)(nil)).Elem()
 }
 
+// OrgGroupExists checks whether an existing OrgGroup resource with the given ID exists.
+func OrgGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrgGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/orgGroup:OrgGroup", id, state, "", opts...)
+}
+
 type orgGroupArgs struct {
 	// The name of the org group. String length must be at least 1.
 	Name string `pulumi:"name"`

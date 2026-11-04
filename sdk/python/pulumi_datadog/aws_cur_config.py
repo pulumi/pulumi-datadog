@@ -496,6 +496,34 @@ class AwsCurConfig(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = updated_at
         return AwsCurConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_filters: pulumi.Input[Optional[Union['AwsCurConfigAccountFiltersArgs', 'AwsCurConfigAccountFiltersArgsDict', 'outputs.AwsCurConfigAccountFilters']]] = None,
+            account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            error_messages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            report_name: pulumi.Input[Optional[_builtins.str]] = None,
+            report_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountFilters"] = account_filters
+        __props__["accountId"] = account_id
+        __props__["bucketName"] = bucket_name
+        __props__["bucketRegion"] = bucket_region
+        __props__["createdAt"] = created_at
+        __props__["errorMessages"] = error_messages
+        __props__["reportName"] = report_name
+        __props__["reportPrefix"] = report_prefix
+        __props__["status"] = status
+        __props__["statusUpdatedAt"] = status_updated_at
+        __props__["updatedAt"] = updated_at
+        return pulumi.runtime.exists_resource(None, 'datadog:index/awsCurConfig:AwsCurConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountFilters")
     def account_filters(self) -> pulumi.Output[Optional['outputs.AwsCurConfigAccountFilters']]:

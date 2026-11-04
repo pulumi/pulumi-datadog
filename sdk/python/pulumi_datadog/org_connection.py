@@ -332,6 +332,26 @@ class OrgConnection(pulumi.CustomResource):
         __props__.__dict__["source_org_name"] = source_org_name
         return OrgConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            connection_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            sink_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+            sink_org_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_org_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_org_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["connectionTypes"] = connection_types
+        __props__["createdAt"] = created_at
+        __props__["createdBy"] = created_by
+        __props__["sinkOrgId"] = sink_org_id
+        __props__["sinkOrgName"] = sink_org_name
+        __props__["sourceOrgId"] = source_org_id
+        __props__["sourceOrgName"] = source_org_name
+        return pulumi.runtime.exists_resource(None, 'datadog:index/orgConnection:OrgConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="connectionTypes")
     def connection_types(self) -> pulumi.Output[Sequence[_builtins.str]]:

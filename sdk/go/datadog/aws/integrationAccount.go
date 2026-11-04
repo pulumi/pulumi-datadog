@@ -306,6 +306,12 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountState)(nil)).Elem()
 }
 
+// IntegrationAccountExists checks whether an existing IntegrationAccount resource with the given ID exists.
+func IntegrationAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:aws/integrationAccount:IntegrationAccount", id, state, "", opts...)
+}
+
 type integrationAccountArgs struct {
 	// Tags to apply to all metrics in the account. Defaults to `[]`.
 	AccountTags []string `pulumi:"accountTags"`

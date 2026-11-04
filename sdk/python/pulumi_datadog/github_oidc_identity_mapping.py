@@ -262,6 +262,18 @@ class GithubOidcIdentityMapping(pulumi.CustomResource):
         __props__.__dict__["claim_matchers"] = claim_matchers
         return GithubOidcIdentityMapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            account_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            claim_matchers: pulumi.Input[Optional[Union['GithubOidcIdentityMappingClaimMatchersArgs', 'GithubOidcIdentityMappingClaimMatchersArgsDict', 'outputs.GithubOidcIdentityMappingClaimMatchers']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountIdentifier"] = account_identifier
+        __props__["accountUuid"] = account_uuid
+        __props__["claimMatchers"] = claim_matchers
+        return pulumi.runtime.exists_resource(None, 'datadog:index/githubOidcIdentityMapping:GithubOidcIdentityMapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountIdentifier")
     def account_identifier(self) -> pulumi.Output[_builtins.str]:

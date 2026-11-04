@@ -1006,6 +1006,42 @@ class ServiceLevelObjective(pulumi.CustomResource):
         __props__.__dict__["warning_threshold"] = warning_threshold
         return ServiceLevelObjective(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            monitor_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[Union['ServiceLevelObjectiveQueryArgs', 'ServiceLevelObjectiveQueryArgsDict', 'outputs.ServiceLevelObjectiveQuery']]] = None,
+            sli_specification: pulumi.Input[Optional[Union['ServiceLevelObjectiveSliSpecificationArgs', 'ServiceLevelObjectiveSliSpecificationArgsDict', 'outputs.ServiceLevelObjectiveSliSpecification']]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            target_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+            thresholds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLevelObjectiveThresholdArgs', 'ServiceLevelObjectiveThresholdArgsDict', 'outputs.ServiceLevelObjectiveThreshold']]]]] = None,
+            timeframe: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None,
+            warning_threshold: pulumi.Input[Optional[_builtins.float]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["forceDelete"] = force_delete
+        __props__["groups"] = groups
+        __props__["ignoreTagKeys"] = ignore_tag_keys
+        __props__["monitorIds"] = monitor_ids
+        __props__["name"] = name
+        __props__["query"] = query
+        __props__["sliSpecification"] = sli_specification
+        __props__["tags"] = tags
+        __props__["targetThreshold"] = target_threshold
+        __props__["thresholds"] = thresholds
+        __props__["timeframe"] = timeframe
+        __props__["type"] = type
+        __props__["validate"] = validate
+        __props__["warningThreshold"] = warning_threshold
+        return pulumi.runtime.exists_resource(None, 'datadog:index/serviceLevelObjective:ServiceLevelObjective', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

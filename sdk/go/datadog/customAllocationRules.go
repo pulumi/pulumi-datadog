@@ -221,6 +221,12 @@ func (CustomAllocationRulesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customAllocationRulesState)(nil)).Elem()
 }
 
+// CustomAllocationRulesExists checks whether an existing CustomAllocationRules resource with the given ID exists.
+func CustomAllocationRulesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomAllocationRulesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/customAllocationRules:CustomAllocationRules", id, state, "", opts...)
+}
+
 type customAllocationRulesArgs struct {
 	// Whether to override UI-defined rules. When set to true, any rules created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rules created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources *bool `pulumi:"overrideUiDefinedResources"`

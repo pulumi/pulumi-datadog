@@ -492,6 +492,30 @@ class SecurityMonitoringDefaultRule(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return SecurityMonitoringDefaultRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleCaseArgs', 'SecurityMonitoringDefaultRuleCaseArgsDict', 'outputs.SecurityMonitoringDefaultRuleCase']]]]] = None,
+            custom_message: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_name: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleFilterArgs', 'SecurityMonitoringDefaultRuleFilterArgsDict', 'outputs.SecurityMonitoringDefaultRuleFilter']]]]] = None,
+            options: pulumi.Input[Optional[Union['SecurityMonitoringDefaultRuleOptionsArgs', 'SecurityMonitoringDefaultRuleOptionsArgsDict', 'outputs.SecurityMonitoringDefaultRuleOptions']]] = None,
+            queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringDefaultRuleQueryArgs', 'SecurityMonitoringDefaultRuleQueryArgsDict', 'outputs.SecurityMonitoringDefaultRuleQuery']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cases"] = cases
+        __props__["customMessage"] = custom_message
+        __props__["customName"] = custom_name
+        __props__["customTags"] = custom_tags
+        __props__["enabled"] = enabled
+        __props__["filters"] = filters
+        __props__["options"] = options
+        __props__["queries"] = queries
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cases(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringDefaultRuleCase']]]:

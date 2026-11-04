@@ -243,11 +243,10 @@ public class DashboardV2 extends com.pulumi.resources.CustomResource {
     /**
      * Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
      * 
-     * @deprecated
-     * This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
+     * @deprecated This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard.
      * 
      */
-    @Deprecated /* This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. */
+    @Deprecated
     @Export(name="isReadOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isReadOnly;
 

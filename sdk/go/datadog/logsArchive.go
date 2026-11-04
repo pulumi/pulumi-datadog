@@ -170,6 +170,12 @@ func (LogsArchiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsArchiveState)(nil)).Elem()
 }
 
+// LogsArchiveExists checks whether an existing LogsArchive resource with the given ID exists.
+func LogsArchiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogsArchiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/logsArchive:LogsArchive", id, state, "", opts...)
+}
+
 type logsArchiveArgs struct {
 	// Definition of an azure archive.
 	AzureArchive *LogsArchiveAzureArchive `pulumi:"azureArchive"`

@@ -133,6 +133,12 @@ func (SecureEmbedDashboardState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secureEmbedDashboardState)(nil)).Elem()
 }
 
+// SecureEmbedDashboardExists checks whether an existing SecureEmbedDashboard resource with the given ID exists.
+func SecureEmbedDashboardExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecureEmbedDashboardState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/secureEmbedDashboard:SecureEmbedDashboard", id, state, "", opts...)
+}
+
 type secureEmbedDashboardArgs struct {
 	// The ID of the dashboard to create a secure embed for.
 	DashboardId string `pulumi:"dashboardId"`

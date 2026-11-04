@@ -172,22 +172,20 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     /**
      * HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
      * 
-     * @deprecated
-     * Use `httpVersion` in the `optionsList` field instead.
+     * @deprecated Use `httpVersion` in the `optionsList` field instead.
      * 
      */
-    @Deprecated /* Use `httpVersion` in the `optionsList` field instead. */
+    @Deprecated
     @Import(name="httpVersion")
     private @Nullable Output<String> httpVersion;
 
     /**
      * @return HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
      * 
-     * @deprecated
-     * Use `httpVersion` in the `optionsList` field instead.
+     * @deprecated Use `httpVersion` in the `optionsList` field instead.
      * 
      */
-    @Deprecated /* Use `httpVersion` in the `optionsList` field instead. */
+    @Deprecated
     public Optional<Output<String>> httpVersion() {
         return Optional.ofNullable(this.httpVersion);
     }
@@ -345,22 +343,20 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
     /**
      * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
-     * @deprecated
-     * Use `plainProtoFile` instead.
+     * @deprecated Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plainProtoFile` instead. */
+    @Deprecated
     @Import(name="protoJsonDescriptor")
     private @Nullable Output<String> protoJsonDescriptor;
 
     /**
      * @return A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
-     * @deprecated
-     * Use `plainProtoFile` instead.
+     * @deprecated Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plainProtoFile` instead. */
+    @Deprecated
     public Optional<Output<String>> protoJsonDescriptor() {
         return Optional.ofNullable(this.protoJsonDescriptor);
     }
@@ -795,11 +791,10 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `httpVersion` in the `optionsList` field instead.
+         * @deprecated Use `httpVersion` in the `optionsList` field instead.
          * 
          */
-        @Deprecated /* Use `httpVersion` in the `optionsList` field instead. */
+        @Deprecated
         public Builder httpVersion(@Nullable Output<String> httpVersion) {
             $.httpVersion = httpVersion;
             return this;
@@ -810,11 +805,10 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `httpVersion` in the `optionsList` field instead.
+         * @deprecated Use `httpVersion` in the `optionsList` field instead.
          * 
          */
-        @Deprecated /* Use `httpVersion` in the `optionsList` field instead. */
+        @Deprecated
         public Builder httpVersion(String httpVersion) {
             return httpVersion(Output.of(httpVersion));
         }
@@ -1034,11 +1028,10 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `plainProtoFile` instead.
+         * @deprecated Use `plainProtoFile` instead.
          * 
          */
-        @Deprecated /* Use `plainProtoFile` instead. */
+        @Deprecated
         public Builder protoJsonDescriptor(@Nullable Output<String> protoJsonDescriptor) {
             $.protoJsonDescriptor = protoJsonDescriptor;
             return this;
@@ -1049,11 +1042,10 @@ public final class SyntheticsTestRequestDefinitionArgs extends com.pulumi.resour
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `plainProtoFile` instead.
+         * @deprecated Use `plainProtoFile` instead.
          * 
          */
-        @Deprecated /* Use `plainProtoFile` instead. */
+        @Deprecated
         public Builder protoJsonDescriptor(String protoJsonDescriptor) {
             return protoJsonDescriptor(Output.of(protoJsonDescriptor));
         }

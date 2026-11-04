@@ -152,6 +152,12 @@ func (DowntimeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*downtimeState)(nil)).Elem()
 }
 
+// DowntimeExists checks whether an existing Downtime resource with the given ID exists.
+func DowntimeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DowntimeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/downtime:Downtime", id, state, "", opts...)
+}
+
 type downtimeArgs struct {
 	// Optionally specify an end date when this downtime should expire. Accepts a Unix timestamp in UTC.
 	End *int `pulumi:"end"`

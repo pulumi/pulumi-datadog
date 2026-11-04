@@ -169,6 +169,12 @@ func (SecurityMonitoringSuppressionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityMonitoringSuppressionState)(nil)).Elem()
 }
 
+// SecurityMonitoringSuppressionExists checks whether an existing SecurityMonitoringSuppression resource with the given ID exists.
+func SecurityMonitoringSuppressionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityMonitoringSuppressionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityMonitoringSuppression:SecurityMonitoringSuppression", id, state, "", opts...)
+}
+
 type securityMonitoringSuppressionArgs struct {
 	// An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
 	DataExclusionQuery *string `pulumi:"dataExclusionQuery"`

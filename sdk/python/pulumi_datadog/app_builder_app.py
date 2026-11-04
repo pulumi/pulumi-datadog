@@ -357,6 +357,24 @@ class AppBuilderApp(pulumi.CustomResource):
         __props__.__dict__["root_instance_name"] = root_instance_name
         return AppBuilderApp(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_query_names_to_connection_ids: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            app_json: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            published: pulumi.Input[Optional[_builtins.bool]] = None,
+            root_instance_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionQueryNamesToConnectionIds"] = action_query_names_to_connection_ids
+        __props__["appJson"] = app_json
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["published"] = published
+        __props__["rootInstanceName"] = root_instance_name
+        return pulumi.runtime.exists_resource(None, 'datadog:index/appBuilderApp:AppBuilderApp', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionQueryNamesToConnectionIds")
     def action_query_names_to_connection_ids(self) -> pulumi.Output[Mapping[str, _builtins.str]]:

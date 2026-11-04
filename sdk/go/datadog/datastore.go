@@ -172,6 +172,12 @@ func (DatastoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datastoreState)(nil)).Elem()
 }
 
+// DatastoreExists checks whether an existing Datastore resource with the given ID exists.
+func DatastoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatastoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/datastore:Datastore", id, state, "", opts...)
+}
+
 type datastoreArgs struct {
 	// A human-readable description about the datastore.
 	Description *string `pulumi:"description"`

@@ -77,11 +77,10 @@ public class Integration extends com.pulumi.resources.CustomResource {
     /**
      * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
      * 
-     * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
+     * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
+    @Deprecated
     @Export(name="cloudRunRevisionFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cloudRunRevisionFilters;
 
@@ -109,11 +108,10 @@ public class Integration extends com.pulumi.resources.CustomResource {
     /**
      * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      * 
-     * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
+     * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
+    @Deprecated
     @Export(name="hostFilters", refs={String.class}, tree="[0]")
     private Output<String> hostFilters;
 

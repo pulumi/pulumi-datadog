@@ -194,6 +194,12 @@ func (OrgGroupPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*orgGroupPolicyState)(nil)).Elem()
 }
 
+// OrgGroupPolicyExists checks whether an existing OrgGroupPolicy resource with the given ID exists.
+func OrgGroupPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrgGroupPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/orgGroupPolicy:OrgGroupPolicy", id, state, "", opts...)
+}
+
 type orgGroupPolicyArgs struct {
 	// The policy content as a JSON-encoded string.
 	Content string `pulumi:"content"`

@@ -140,6 +140,12 @@ func (IncidentTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentTypeState)(nil)).Elem()
 }
 
+// IncidentTypeExists checks whether an existing IncidentType resource with the given ID exists.
+func IncidentTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/incidentType:IncidentType", id, state, "", opts...)
+}
+
 type incidentTypeArgs struct {
 	// The incident type's behavior settings. Any field left unset takes its server-side default. This block is applied in a separate call after the incident type is created.
 	Configuration *IncidentTypeConfiguration `pulumi:"configuration"`

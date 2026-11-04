@@ -169,6 +169,12 @@ func (OnCallScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*onCallScheduleState)(nil)).Elem()
 }
 
+// OnCallScheduleExists checks whether an existing OnCallSchedule resource with the given ID exists.
+func OnCallScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OnCallScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/onCallSchedule:OnCallSchedule", id, state, "", opts...)
+}
+
 type onCallScheduleArgs struct {
 	// List of layers for the schedule.
 	Layers []OnCallScheduleLayer `pulumi:"layers"`

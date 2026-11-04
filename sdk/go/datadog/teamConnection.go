@@ -135,6 +135,12 @@ func (TeamConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamConnectionState)(nil)).Elem()
 }
 
+// TeamConnectionExists checks whether an existing TeamConnection resource with the given ID exists.
+func TeamConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/teamConnection:TeamConnection", id, state, "", opts...)
+}
+
 type teamConnectionArgs struct {
 	// The external connected team reference (e.g. a GitHub team).
 	ConnectedTeam TeamConnectionConnectedTeam `pulumi:"connectedTeam"`

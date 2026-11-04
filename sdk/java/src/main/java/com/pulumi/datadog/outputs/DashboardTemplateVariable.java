@@ -21,11 +21,10 @@ public final class DashboardTemplateVariable {
     /**
      * @return The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
      * 
-     * @deprecated
-     * Use `defaults` instead.
+     * @deprecated Use `defaults` instead.
      * 
      */
-    @Deprecated /* Use `defaults` instead. */
+    @Deprecated
     private @Nullable String default_;
     /**
      * @return One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
@@ -59,11 +58,10 @@ public final class DashboardTemplateVariable {
     /**
      * @return The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
      * 
-     * @deprecated
-     * Use `defaults` instead.
+     * @deprecated Use `defaults` instead.
      * 
      */
-    @Deprecated /* Use `defaults` instead. */
+    @Deprecated
     public Optional<String> default_() {
         return Optional.ofNullable(this.default_);
     }

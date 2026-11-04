@@ -178,6 +178,12 @@ func (CostCustomForecastState) ElementType() reflect.Type {
 	return reflect.TypeOf((*costCustomForecastState)(nil)).Elem()
 }
 
+// CostCustomForecastExists checks whether an existing CostCustomForecast resource with the given ID exists.
+func CostCustomForecastExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CostCustomForecastState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/costCustomForecast:CostCustomForecast", id, state, "", opts...)
+}
+
 type costCustomForecastArgs struct {
 	// The UUID of the budget that this custom forecast belongs to. Changing this value forces a new resource to be created.
 	BudgetUid string `pulumi:"budgetUid"`

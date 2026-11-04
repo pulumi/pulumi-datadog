@@ -144,6 +144,12 @@ func (FleetScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fleetScheduleState)(nil)).Elem()
 }
 
+// FleetScheduleExists checks whether an existing FleetSchedule resource with the given ID exists.
+func FleetScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FleetScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/fleetSchedule:FleetSchedule", id, state, "", opts...)
+}
+
 type fleetScheduleArgs struct {
 	// Human-readable name for the schedule. String length must be at least 1.
 	Name string `pulumi:"name"`

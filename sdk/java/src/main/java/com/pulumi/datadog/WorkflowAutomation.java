@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var workflow = new WorkflowAutomation("workflow", WorkflowAutomationArgs.builder()
  *             .name("Send Email when Monitor Alerts")
  *             .description("This workflow alerts me by email when my monitor goes off. ")
@@ -75,14 +75,14 @@ import javax.annotation.Nullable;
  *                             ), 
  *                             jsonObject(
  *                                 jsonProperty("name", "subject"),
- *                                 jsonProperty("value", "Monitor \"{{ Source.monitor.name }}\" alerted")
+ *                                 jsonProperty("value", "Monitor }&#92;{@code "}{{{@code  Source.monitor.name }}}&#92;{@code " alerted")
  *                             ), 
  *                             jsonObject(
  *                                 jsonProperty("name", "message"),
  *                                 jsonProperty("value", """
- * This message is from {{ WorkflowName }}. 
+ * This message is from }{{{@code  WorkflowName }}}{@code . 
  * 
- * You can find a link to the monitor here: {{ Source.url }}.                                """)
+ * You can find a link to the monitor here: }{{{@code  Source.url }}}{@code .                                """)
  *                             )
  *                         )),
  *                         jsonProperty("display", jsonObject(
@@ -96,8 +96,8 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

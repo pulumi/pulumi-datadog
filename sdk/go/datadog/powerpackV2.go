@@ -180,6 +180,12 @@ func (PowerpackV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*powerpackV2State)(nil)).Elem()
 }
 
+// PowerpackV2Exists checks whether an existing PowerpackV2 resource with the given ID exists.
+func PowerpackV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PowerpackV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/powerpackV2:PowerpackV2", id, state, "", opts...)
+}
+
 type powerpackV2Args struct {
 	// The description of the powerpack.
 	Description *string `pulumi:"description"`

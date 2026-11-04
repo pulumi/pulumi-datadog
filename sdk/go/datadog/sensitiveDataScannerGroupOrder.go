@@ -105,6 +105,12 @@ func (SensitiveDataScannerGroupOrderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sensitiveDataScannerGroupOrderState)(nil)).Elem()
 }
 
+// SensitiveDataScannerGroupOrderExists checks whether an existing SensitiveDataScannerGroupOrder resource with the given ID exists.
+func SensitiveDataScannerGroupOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SensitiveDataScannerGroupOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder", id, state, "", opts...)
+}
+
 type sensitiveDataScannerGroupOrderArgs struct {
 	// The list of Sensitive Data Scanner group IDs, in order. Logs are tested against the query filter of each index one by one following the order of the list.
 	GroupIds []string `pulumi:"groupIds"`

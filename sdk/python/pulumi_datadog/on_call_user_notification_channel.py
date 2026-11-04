@@ -206,6 +206,18 @@ class OnCallUserNotificationChannel(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return OnCallUserNotificationChannel(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            email: pulumi.Input[Optional[Union['OnCallUserNotificationChannelEmailArgs', 'OnCallUserNotificationChannelEmailArgsDict', 'outputs.OnCallUserNotificationChannelEmail']]] = None,
+            phone: pulumi.Input[Optional[Union['OnCallUserNotificationChannelPhoneArgs', 'OnCallUserNotificationChannelPhoneArgsDict', 'outputs.OnCallUserNotificationChannelPhone']]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["email"] = email
+        __props__["phone"] = phone
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'datadog:index/onCallUserNotificationChannel:OnCallUserNotificationChannel', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[Optional['outputs.OnCallUserNotificationChannelEmail']]:

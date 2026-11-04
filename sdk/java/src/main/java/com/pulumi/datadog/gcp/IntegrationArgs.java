@@ -67,22 +67,20 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
      * 
-     * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
+     * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
+    @Deprecated
     @Import(name="cloudRunRevisionFilters")
     private @Nullable Output<List<String>> cloudRunRevisionFilters;
 
     /**
      * @return List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags. Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
      * 
-     * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
+     * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
+    @Deprecated
     public Optional<Output<List<String>>> cloudRunRevisionFilters() {
         return Optional.ofNullable(this.cloudRunRevisionFilters);
     }
@@ -105,22 +103,20 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      * 
-     * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
+     * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
+    @Deprecated
     @Import(name="hostFilters")
     private @Nullable Output<String> hostFilters;
 
     /**
      * @return List of filters to limit the VM instances that are pulled into Datadog by using tags. Only VM instance resources that apply to specified filters are imported into Datadog.
      * 
-     * @deprecated
-     * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
+     * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
      * 
      */
-    @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
+    @Deprecated
     public Optional<Output<String>> hostFilters() {
         return Optional.ofNullable(this.hostFilters);
     }
@@ -334,11 +330,10 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
+         * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
+        @Deprecated
         public Builder cloudRunRevisionFilters(@Nullable Output<List<String>> cloudRunRevisionFilters) {
             $.cloudRunRevisionFilters = cloudRunRevisionFilters;
             return this;
@@ -349,11 +344,10 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
+         * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
+        @Deprecated
         public Builder cloudRunRevisionFilters(List<String> cloudRunRevisionFilters) {
             return cloudRunRevisionFilters(Output.of(cloudRunRevisionFilters));
         }
@@ -363,11 +357,10 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
+         * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=cloud_run_revision` */
+        @Deprecated
         public Builder cloudRunRevisionFilters(String... cloudRunRevisionFilters) {
             return cloudRunRevisionFilters(List.of(cloudRunRevisionFilters));
         }
@@ -398,11 +391,10 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
+         * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
+        @Deprecated
         public Builder hostFilters(@Nullable Output<String> hostFilters) {
             $.hostFilters = hostFilters;
             return this;
@@ -413,11 +405,10 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
+         * @deprecated **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance`
          * 
          */
-        @Deprecated /* **Note:** This field is deprecated. Instead, use `monitoredResourceConfigs` with `type=gce_instance` */
+        @Deprecated
         public Builder hostFilters(String hostFilters) {
             return hostFilters(Output.of(hostFilters));
         }

@@ -121,6 +121,12 @@ func (OrganizationSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*organizationSettingsState)(nil)).Elem()
 }
 
+// OrganizationSettingsExists checks whether an existing OrganizationSettings resource with the given ID exists.
+func OrganizationSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrganizationSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/organizationSettings:OrganizationSettings", id, state, "", opts...)
+}
+
 type organizationSettingsArgs struct {
 	// Name for Organization.
 	Name *string `pulumi:"name"`

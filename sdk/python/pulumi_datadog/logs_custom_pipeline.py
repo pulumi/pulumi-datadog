@@ -646,6 +646,24 @@ class LogsCustomPipeline(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return LogsCustomPipeline(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineFilterArgs', 'LogsCustomPipelineFilterArgsDict', 'outputs.LogsCustomPipelineFilter']]]]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            processors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsCustomPipelineProcessorArgs', 'LogsCustomPipelineProcessorArgsDict', 'outputs.LogsCustomPipelineProcessor']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["filters"] = filters
+        __props__["isEnabled"] = is_enabled
+        __props__["name"] = name
+        __props__["processors"] = processors
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'datadog:index/logsCustomPipeline:LogsCustomPipeline', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

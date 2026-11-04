@@ -104,6 +104,12 @@ func (AppBuilderAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appBuilderAppState)(nil)).Elem()
 }
 
+// AppBuilderAppExists checks whether an existing AppBuilderApp resource with the given ID exists.
+func AppBuilderAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppBuilderAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/appBuilderApp:AppBuilderApp", id, state, "", opts...)
+}
+
 type appBuilderAppArgs struct {
 	// If specified, this will override the Action Connection IDs for the specified Action Query Names in the App JSON. Otherwise, a map of the App's Action Query Names to Action Connection IDs will be returned in output.
 	ActionQueryNamesToConnectionIds map[string]string `pulumi:"actionQueryNamesToConnectionIds"`

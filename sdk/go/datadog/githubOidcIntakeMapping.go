@@ -105,6 +105,12 @@ func (GithubOidcIntakeMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*githubOidcIntakeMappingState)(nil)).Elem()
 }
 
+// GithubOidcIntakeMappingExists checks whether an existing GithubOidcIntakeMapping resource with the given ID exists.
+func GithubOidcIntakeMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GithubOidcIntakeMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/githubOidcIntakeMapping:GithubOidcIntakeMapping", id, state, "", opts...)
+}
+
 type githubOidcIntakeMappingArgs struct {
 	// GitHub Actions OIDC claims to match against. Each argument is a regular expression; `sub` is required and all other claims are optional. A token matches only when all provided patterns match simultaneously (AND semantics).
 	ClaimMatchers GithubOidcIntakeMappingClaimMatchers `pulumi:"claimMatchers"`

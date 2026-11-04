@@ -183,6 +183,12 @@ func (TagPipelineRulesetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagPipelineRulesetState)(nil)).Elem()
 }
 
+// TagPipelineRulesetExists checks whether an existing TagPipelineRuleset resource with the given ID exists.
+func TagPipelineRulesetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagPipelineRulesetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/tagPipelineRuleset:TagPipelineRuleset", id, state, "", opts...)
+}
+
 type tagPipelineRulesetArgs struct {
 	// Whether the ruleset is enabled.
 	Enabled *bool `pulumi:"enabled"`

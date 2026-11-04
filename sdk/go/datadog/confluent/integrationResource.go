@@ -145,6 +145,12 @@ func (IntegrationResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationResourceState)(nil)).Elem()
 }
 
+// IntegrationResourceExists checks whether an existing IntegrationResource resource with the given ID exists.
+func IntegrationResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:confluent/integrationResource:IntegrationResource", id, state, "", opts...)
+}
+
 type integrationResourceArgs struct {
 	// Confluent Account ID.
 	AccountId string `pulumi:"accountId"`

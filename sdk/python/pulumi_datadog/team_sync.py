@@ -365,6 +365,22 @@ class TeamSync(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return TeamSync(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            selection_states: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict', 'outputs.TeamSyncSelectionState']]]]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            sync_membership: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["frequency"] = frequency
+        __props__["selectionStates"] = selection_states
+        __props__["source"] = source
+        __props__["syncMembership"] = sync_membership
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'datadog:index/teamSync:TeamSync', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def frequency(self) -> pulumi.Output[_builtins.str]:

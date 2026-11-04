@@ -140,6 +140,12 @@ func (SecurityMonitoringRuleJsonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityMonitoringRuleJsonState)(nil)).Elem()
 }
 
+// SecurityMonitoringRuleJsonExists checks whether an existing SecurityMonitoringRuleJson resource with the given ID exists.
+func SecurityMonitoringRuleJsonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityMonitoringRuleJsonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityMonitoringRuleJson:SecurityMonitoringRuleJson", id, state, "", opts...)
+}
+
 type securityMonitoringRuleJsonArgs struct {
 	// The JSON definition of the Security Monitoring Rule.
 	Json string `pulumi:"json"`

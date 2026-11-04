@@ -526,6 +526,28 @@ class AppsecWafCustomRule(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return AppsecWafCustomRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[Union['AppsecWafCustomRuleActionArgs', 'AppsecWafCustomRuleActionArgsDict', 'outputs.AppsecWafCustomRuleAction']]] = None,
+            blocking: pulumi.Input[Optional[_builtins.bool]] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleConditionArgs', 'AppsecWafCustomRuleConditionArgsDict', 'outputs.AppsecWafCustomRuleCondition']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            path_glob: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafCustomRuleScopeArgs', 'AppsecWafCustomRuleScopeArgsDict', 'outputs.AppsecWafCustomRuleScope']]]]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["blocking"] = blocking
+        __props__["conditions"] = conditions
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["pathGlob"] = path_glob
+        __props__["scopes"] = scopes
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'datadog:index/appsecWafCustomRule:AppsecWafCustomRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output[Optional['outputs.AppsecWafCustomRuleAction']]:

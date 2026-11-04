@@ -209,6 +209,12 @@ func (SecurityNotificationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityNotificationRuleState)(nil)).Elem()
 }
 
+// SecurityNotificationRuleExists checks whether an existing SecurityNotificationRule resource with the given ID exists.
+func SecurityNotificationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityNotificationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityNotificationRule:SecurityNotificationRule", id, state, "", opts...)
+}
+
 type securityNotificationRuleArgs struct {
 	// Indicates whether the rule is enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`

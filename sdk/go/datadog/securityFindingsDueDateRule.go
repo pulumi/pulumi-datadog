@@ -149,6 +149,12 @@ func (SecurityFindingsDueDateRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityFindingsDueDateRuleState)(nil)).Elem()
 }
 
+// SecurityFindingsDueDateRuleExists checks whether an existing SecurityFindingsDueDateRule resource with the given ID exists.
+func SecurityFindingsDueDateRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityFindingsDueDateRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityFindingsDueDateRule:SecurityFindingsDueDateRule", id, state, "", opts...)
+}
+
 type securityFindingsDueDateRuleArgs struct {
 	// The action to take when the due date rule matches a finding.
 	Action SecurityFindingsDueDateRuleAction `pulumi:"action"`

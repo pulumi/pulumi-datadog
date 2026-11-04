@@ -211,6 +211,12 @@ func (OnCallTeamRoutingRulesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*onCallTeamRoutingRulesState)(nil)).Elem()
 }
 
+// OnCallTeamRoutingRulesExists checks whether an existing OnCallTeamRoutingRules resource with the given ID exists.
+func OnCallTeamRoutingRulesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OnCallTeamRoutingRulesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/onCallTeamRoutingRules:OnCallTeamRoutingRules", id, state, "", opts...)
+}
+
 type onCallTeamRoutingRulesArgs struct {
 	// List of team routing rules.
 	Rules []OnCallTeamRoutingRulesRule `pulumi:"rules"`

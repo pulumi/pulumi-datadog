@@ -90,6 +90,12 @@ func (SyntheticsSuiteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syntheticsSuiteState)(nil)).Elem()
 }
 
+// SyntheticsSuiteExists checks whether an existing SyntheticsSuite resource with the given ID exists.
+func SyntheticsSuiteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyntheticsSuiteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/syntheticsSuite:SyntheticsSuite", id, state, "", opts...)
+}
+
 type syntheticsSuiteArgs struct {
 	// Message of the Synthetics suite.
 	Message *string `pulumi:"message"`

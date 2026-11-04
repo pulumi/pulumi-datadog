@@ -215,6 +215,12 @@ func (WorkflowAutomationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*workflowAutomationState)(nil)).Elem()
 }
 
+// WorkflowAutomationExists checks whether an existing WorkflowAutomation resource with the given ID exists.
+func WorkflowAutomationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WorkflowAutomationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/workflowAutomation:WorkflowAutomation", id, state, "", opts...)
+}
+
 type workflowAutomationArgs struct {
 	// Description of the workflow.
 	Description string `pulumi:"description"`

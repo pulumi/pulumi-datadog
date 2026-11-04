@@ -214,6 +214,12 @@ func (TagIndexingRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagIndexingRuleState)(nil)).Elem()
 }
 
+// TagIndexingRuleExists checks whether an existing TagIndexingRule resource with the given ID exists.
+func TagIndexingRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagIndexingRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/tagIndexingRule:TagIndexingRule", id, state, "", opts...)
+}
+
 type tagIndexingRuleArgs struct {
 	// When true, the rule excludes the listed tags and indexes all others. When false (default), the rule includes only the listed tags. Defaults to `false`.
 	ExcludeTagsMode *bool `pulumi:"excludeTagsMode"`

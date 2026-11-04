@@ -369,6 +369,20 @@ class OnCallSchedule(pulumi.CustomResource):
         __props__.__dict__["time_zone"] = time_zone
         return OnCallSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            layers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnCallScheduleLayerArgs', 'OnCallScheduleLayerArgsDict', 'outputs.OnCallScheduleLayer']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            teams: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["layers"] = layers
+        __props__["name"] = name
+        __props__["teams"] = teams
+        __props__["timeZone"] = time_zone
+        return pulumi.runtime.exists_resource(None, 'datadog:index/onCallSchedule:OnCallSchedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def layers(self) -> pulumi.Output[Sequence['outputs.OnCallScheduleLayer']]:

@@ -246,6 +246,12 @@ func (SecurityMonitoringRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityMonitoringRuleState)(nil)).Elem()
 }
 
+// SecurityMonitoringRuleExists checks whether an existing SecurityMonitoringRule resource with the given ID exists.
+func SecurityMonitoringRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityMonitoringRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityMonitoringRule:SecurityMonitoringRule", id, state, "", opts...)
+}
+
 type securityMonitoringRuleArgs struct {
 	// One or more calculated fields. Available only for scheduled rules (in other words, when `schedulingOptions` is defined).
 	CalculatedFields []SecurityMonitoringRuleCalculatedField `pulumi:"calculatedFields"`

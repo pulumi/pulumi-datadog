@@ -17,11 +17,10 @@ public final class SecurityMonitoringDefaultRuleQuery {
     /**
      * @return **Deprecated**. It won&#39;t be applied anymore.
      * 
-     * @deprecated
-     * `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
-    @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
+    @Deprecated
     private @Nullable List<SecurityMonitoringDefaultRuleQueryAgentRule> agentRules;
     /**
      * @return The aggregation type.
@@ -56,11 +55,10 @@ public final class SecurityMonitoringDefaultRuleQuery {
     /**
      * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
-     * @deprecated
-     * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
+    @Deprecated
     private @Nullable String metric;
     /**
      * @return Group of target fields to aggregate over when using the `sum`, `max`, `geoData`, or `newValue` aggregations. The `sum`, `max`, and `geoData` aggregations only accept one value in this list, whereas the `newValue` aggregation accepts up to five values.
@@ -82,11 +80,10 @@ public final class SecurityMonitoringDefaultRuleQuery {
     /**
      * @return **Deprecated**. It won&#39;t be applied anymore.
      * 
-     * @deprecated
-     * `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
-    @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
+    @Deprecated
     public List<SecurityMonitoringDefaultRuleQueryAgentRule> agentRules() {
         return this.agentRules == null ? List.of() : this.agentRules;
     }
@@ -135,11 +132,10 @@ public final class SecurityMonitoringDefaultRuleQuery {
     /**
      * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
-     * @deprecated
-     * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
+    @Deprecated
     public Optional<String> metric() {
         return Optional.ofNullable(this.metric);
     }

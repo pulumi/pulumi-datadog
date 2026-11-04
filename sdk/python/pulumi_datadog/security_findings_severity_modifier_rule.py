@@ -355,6 +355,20 @@ class SecurityFindingsSeverityModifierRule(pulumi.CustomResource):
         __props__.__dict__["rule"] = rule
         return SecurityFindingsSeverityModifierRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action: pulumi.Input[Optional[Union['SecurityFindingsSeverityModifierRuleActionArgs', 'SecurityFindingsSeverityModifierRuleActionArgsDict', 'outputs.SecurityFindingsSeverityModifierRuleAction']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rule: pulumi.Input[Optional[Union['SecurityFindingsSeverityModifierRuleRuleArgs', 'SecurityFindingsSeverityModifierRuleRuleArgsDict', 'outputs.SecurityFindingsSeverityModifierRuleRule']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["action"] = action
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["rule"] = rule
+        return pulumi.runtime.exists_resource(None, 'datadog:index/securityFindingsSeverityModifierRule:SecurityFindingsSeverityModifierRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def action(self) -> pulumi.Output['outputs.SecurityFindingsSeverityModifierRuleAction']:

@@ -386,6 +386,24 @@ class GovernanceControl(pulumi.CustomResource):
         __props__.__dict__["notification_settings"] = notification_settings
         return GovernanceControl(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            detection_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+            detection_type: pulumi.Input[Optional[_builtins.str]] = None,
+            mitigation_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+            mitigation_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernanceControlNotificationSettingArgs', 'GovernanceControlNotificationSettingArgsDict', 'outputs.GovernanceControlNotificationSetting']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["detectionParameters"] = detection_parameters
+        __props__["detectionType"] = detection_type
+        __props__["mitigationParameters"] = mitigation_parameters
+        __props__["mitigationType"] = mitigation_type
+        __props__["name"] = name
+        __props__["notificationSettings"] = notification_settings
+        return pulumi.runtime.exists_resource(None, 'datadog:index/governanceControl:GovernanceControl', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="detectionParameters")
     def detection_parameters(self) -> pulumi.Output[_builtins.str]:

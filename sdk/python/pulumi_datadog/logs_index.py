@@ -604,6 +604,32 @@ class LogsIndex(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return LogsIndex(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            daily_limit: pulumi.Input[Optional[_builtins.int]] = None,
+            daily_limit_reset: pulumi.Input[Optional[Union['LogsIndexDailyLimitResetArgs', 'LogsIndexDailyLimitResetArgsDict', 'outputs.LogsIndexDailyLimitReset']]] = None,
+            daily_limit_warning_threshold_percentage: pulumi.Input[Optional[_builtins.float]] = None,
+            disable_daily_limit: pulumi.Input[Optional[_builtins.bool]] = None,
+            exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsIndexExclusionFilterArgs', 'LogsIndexExclusionFilterArgsDict', 'outputs.LogsIndexExclusionFilter']]]]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogsIndexFilterArgs', 'LogsIndexFilterArgsDict', 'outputs.LogsIndexFilter']]]]] = None,
+            flex_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dailyLimit"] = daily_limit
+        __props__["dailyLimitReset"] = daily_limit_reset
+        __props__["dailyLimitWarningThresholdPercentage"] = daily_limit_warning_threshold_percentage
+        __props__["disableDailyLimit"] = disable_daily_limit
+        __props__["exclusionFilters"] = exclusion_filters
+        __props__["filters"] = filters
+        __props__["flexRetentionDays"] = flex_retention_days
+        __props__["name"] = name
+        __props__["retentionDays"] = retention_days
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'datadog:index/logsIndex:LogsIndex', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dailyLimit")
     def daily_limit(self) -> pulumi.Output[Optional[_builtins.int]]:

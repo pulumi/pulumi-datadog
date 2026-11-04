@@ -351,6 +351,22 @@ class Role(pulumi.CustomResource):
         __props__.__dict__["validate"] = validate
         return Role(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_permissions_opt_out: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RolePermissionArgs', 'RolePermissionArgsDict', 'outputs.RolePermission']]]]] = None,
+            user_count: pulumi.Input[Optional[_builtins.int]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultPermissionsOptOut"] = default_permissions_opt_out
+        __props__["name"] = name
+        __props__["permissions"] = permissions
+        __props__["userCount"] = user_count
+        __props__["validate"] = validate
+        return pulumi.runtime.exists_resource(None, 'datadog:index/role:Role', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultPermissionsOptOut")
     def default_permissions_opt_out(self) -> pulumi.Output[Optional[_builtins.bool]]:

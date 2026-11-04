@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var myAgentRule = new CsmThreatsAgentRule("myAgentRule", CsmThreatsAgentRuleArgs.builder()
  *             .actions(CsmThreatsAgentRuleActionArgs.builder()
  *                 .hash(com.pulumi.datadog.inputs.CsmThreatsAgentRuleActionHashArgs.builder()
@@ -59,13 +59,13 @@ import javax.annotation.Nullable;
  *             .name("my_agent_rule")
  *             .enabled(true)
  *             .description("This is a rule")
- *             .expression("open.file.name == \"etc/shadow/password\"")
+ *             .expression("open.file.name == }&#92;{@code "etc/shadow/password}&#92;{@code "")
  *             .policyId("jm4-lwh-8cs")
  *             .productTags("compliance_framework:PCI-DSS")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

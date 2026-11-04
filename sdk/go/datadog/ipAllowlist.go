@@ -108,6 +108,12 @@ func (IpAllowlistState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ipAllowlistState)(nil)).Elem()
 }
 
+// IpAllowlistExists checks whether an existing IpAllowlist resource with the given ID exists.
+func IpAllowlistExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IpAllowlistState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/ipAllowlist:IpAllowlist", id, state, "", opts...)
+}
+
 type ipAllowlistArgs struct {
 	// Whether the IP Allowlist is enabled.
 	Enabled bool `pulumi:"enabled"`

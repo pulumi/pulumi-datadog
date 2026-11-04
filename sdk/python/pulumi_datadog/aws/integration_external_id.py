@@ -185,3 +185,9 @@ class IntegrationExternalId(pulumi.CustomResource):
 
         return IntegrationExternalId(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        return pulumi.runtime.exists_resource(None, 'datadog:aws/integrationExternalId:IntegrationExternalId', id, __props__, opts or pulumi.ResourceOptions())
+

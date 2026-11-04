@@ -206,6 +206,14 @@ class ApmRetentionFilterOrder(pulumi.CustomResource):
         __props__.__dict__["filter_ids"] = filter_ids
         return ApmRetentionFilterOrder(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            filter_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["filterIds"] = filter_ids
+        return pulumi.runtime.exists_resource(None, 'datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="filterIds")
     def filter_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:

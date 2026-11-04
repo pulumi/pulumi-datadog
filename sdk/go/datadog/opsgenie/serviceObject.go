@@ -133,6 +133,12 @@ func (ServiceObjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceObjectState)(nil)).Elem()
 }
 
+// ServiceObjectExists checks whether an existing ServiceObject resource with the given ID exists.
+func ServiceObjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceObjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:opsgenie/serviceObject:ServiceObject", id, state, "", opts...)
+}
+
 type serviceObjectArgs struct {
 	// The custom url for a custom region.
 	CustomUrl *string `pulumi:"customUrl"`

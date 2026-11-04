@@ -427,6 +427,24 @@ class TeamNotificationRule(pulumi.CustomResource):
         __props__.__dict__["team_id"] = team_id
         return TeamNotificationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            email: pulumi.Input[Optional[Union['TeamNotificationRuleEmailArgs', 'TeamNotificationRuleEmailArgsDict', 'outputs.TeamNotificationRuleEmail']]] = None,
+            ms_teams: pulumi.Input[Optional[Union['TeamNotificationRuleMsTeamsArgs', 'TeamNotificationRuleMsTeamsArgsDict', 'outputs.TeamNotificationRuleMsTeams']]] = None,
+            pagerduty: pulumi.Input[Optional[Union['TeamNotificationRulePagerdutyArgs', 'TeamNotificationRulePagerdutyArgsDict', 'outputs.TeamNotificationRulePagerduty']]] = None,
+            servicenow: pulumi.Input[Optional[Union['TeamNotificationRuleServicenowArgs', 'TeamNotificationRuleServicenowArgsDict', 'outputs.TeamNotificationRuleServicenow']]] = None,
+            slack: pulumi.Input[Optional[Union['TeamNotificationRuleSlackArgs', 'TeamNotificationRuleSlackArgsDict', 'outputs.TeamNotificationRuleSlack']]] = None,
+            team_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["email"] = email
+        __props__["msTeams"] = ms_teams
+        __props__["pagerduty"] = pagerduty
+        __props__["servicenow"] = servicenow
+        __props__["slack"] = slack
+        __props__["teamId"] = team_id
+        return pulumi.runtime.exists_resource(None, 'datadog:index/teamNotificationRule:TeamNotificationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Output[Optional['outputs.TeamNotificationRuleEmail']]:

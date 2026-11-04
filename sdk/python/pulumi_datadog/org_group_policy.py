@@ -424,6 +424,22 @@ class OrgGroupPolicy(pulumi.CustomResource):
         __props__.__dict__["policy_type"] = policy_type
         return OrgGroupPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            enforcement_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            org_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["content"] = content
+        __props__["enforcementTier"] = enforcement_tier
+        __props__["orgGroupId"] = org_group_id
+        __props__["policyName"] = policy_name
+        __props__["policyType"] = policy_type
+        return pulumi.runtime.exists_resource(None, 'datadog:index/orgGroupPolicy:OrgGroupPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Output[_builtins.str]:

@@ -300,6 +300,12 @@ func (ServiceDefinitionYamlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceDefinitionYamlState)(nil)).Elem()
 }
 
+// ServiceDefinitionYamlExists checks whether an existing ServiceDefinitionYaml resource with the given ID exists.
+func ServiceDefinitionYamlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceDefinitionYamlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml", id, state, "", opts...)
+}
+
 type serviceDefinitionYamlArgs struct {
 	// The YAML/JSON formatted definition of the service
 	ServiceDefinition string `pulumi:"serviceDefinition"`

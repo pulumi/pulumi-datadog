@@ -343,6 +343,12 @@ func (DashboardState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dashboardState)(nil)).Elem()
 }
 
+// DashboardExists checks whether an existing Dashboard resource with the given ID exists.
+func DashboardExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DashboardState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/dashboard:Dashboard", id, state, "", opts...)
+}
+
 type dashboardArgs struct {
 	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 	DashboardLists []int `pulumi:"dashboardLists"`

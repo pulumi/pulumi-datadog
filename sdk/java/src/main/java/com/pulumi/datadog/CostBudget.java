@@ -277,11 +277,10 @@ public class CostBudget extends com.pulumi.resources.CustomResource {
     /**
      * The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      * 
-     * @deprecated
-     * Use budgetLine instead. This field will be removed in a future version.
+     * @deprecated Use budgetLine instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
+    @Deprecated
     @Export(name="entries", refs={List.class,CostBudgetEntry.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CostBudgetEntry>> entries;
 

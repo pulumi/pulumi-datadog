@@ -299,6 +299,12 @@ func (LogsCustomPipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsCustomPipelineState)(nil)).Elem()
 }
 
+// LogsCustomPipelineExists checks whether an existing LogsCustomPipeline resource with the given ID exists.
+func LogsCustomPipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogsCustomPipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/logsCustomPipeline:LogsCustomPipeline", id, state, "", opts...)
+}
+
 type logsCustomPipelineArgs struct {
 	Description *string                       `pulumi:"description"`
 	Filters     []LogsCustomPipelineFilter    `pulumi:"filters"`

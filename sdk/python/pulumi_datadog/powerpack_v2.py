@@ -516,6 +516,28 @@ class PowerpackV2(pulumi.CustomResource):
         __props__.__dict__["widgets"] = widgets
         return PowerpackV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            layout: pulumi.Input[Optional[Union['PowerpackV2LayoutArgs', 'PowerpackV2LayoutArgsDict', 'outputs.PowerpackV2Layout']]] = None,
+            live_span: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_title: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2TemplateVariableArgs', 'PowerpackV2TemplateVariableArgsDict', 'outputs.PowerpackV2TemplateVariable']]]]] = None,
+            widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PowerpackV2WidgetArgs', 'PowerpackV2WidgetArgsDict', 'outputs.PowerpackV2Widget']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["layout"] = layout
+        __props__["liveSpan"] = live_span
+        __props__["name"] = name
+        __props__["showTitle"] = show_title
+        __props__["tags"] = tags
+        __props__["templateVariables"] = template_variables
+        __props__["widgets"] = widgets
+        return pulumi.runtime.exists_resource(None, 'datadog:index/powerpackV2:PowerpackV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

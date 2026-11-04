@@ -532,6 +532,36 @@ class SecurityNotificationRule(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return SecurityNotificationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.int]] = None,
+            created_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by_name: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.int]] = None,
+            modified_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_by_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            selectors: pulumi.Input[Optional[Union['SecurityNotificationRuleSelectorsArgs', 'SecurityNotificationRuleSelectorsArgsDict', 'outputs.SecurityNotificationRuleSelectors']]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            time_aggregation: pulumi.Input[Optional[_builtins.int]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["createdByHandle"] = created_by_handle
+        __props__["createdByName"] = created_by_name
+        __props__["enabled"] = enabled
+        __props__["modifiedAt"] = modified_at
+        __props__["modifiedByHandle"] = modified_by_handle
+        __props__["modifiedByName"] = modified_by_name
+        __props__["name"] = name
+        __props__["selectors"] = selectors
+        __props__["targets"] = targets
+        __props__["timeAggregation"] = time_aggregation
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'datadog:index/securityNotificationRule:SecurityNotificationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.int]:

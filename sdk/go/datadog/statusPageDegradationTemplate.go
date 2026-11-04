@@ -176,6 +176,12 @@ func (StatusPageDegradationTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*statusPageDegradationTemplateState)(nil)).Elem()
 }
 
+// StatusPageDegradationTemplateExists checks whether an existing StatusPageDegradationTemplate resource with the given ID exists.
+func StatusPageDegradationTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StatusPageDegradationTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/statusPageDegradationTemplate:StatusPageDegradationTemplate", id, state, "", opts...)
+}
+
 type statusPageDegradationTemplateArgs struct {
 	// The components affected by a degradation created from this template.
 	ComponentsAffecteds []StatusPageDegradationTemplateComponentsAffected `pulumi:"componentsAffecteds"`

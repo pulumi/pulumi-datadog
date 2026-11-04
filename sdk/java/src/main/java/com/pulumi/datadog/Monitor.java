@@ -317,11 +317,10 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
      * 
-     * @deprecated
-     * Use `newGroupDelay` except when setting `newHostDelay` to zero.
+     * @deprecated Use `newGroupDelay` except when setting `newHostDelay` to zero.
      * 
      */
-    @Deprecated /* Use `newGroupDelay` except when setting `newHostDelay` to zero. */
+    @Deprecated
     @Export(name="newHostDelay", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> newHostDelay;
 
@@ -511,11 +510,10 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
      * 
-     * @deprecated
-     * Use `datadog.RestrictionPolicy` resource to manage permission.
+     * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
      * 
      */
-    @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
+    @Deprecated
     @Export(name="restrictedRoles", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> restrictedRoles;
 

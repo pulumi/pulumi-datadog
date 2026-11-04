@@ -521,6 +521,16 @@ class TagPipelineRulesets(pulumi.CustomResource):
         __props__.__dict__["ruleset_ids"] = ruleset_ids
         return TagPipelineRulesets(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            override_ui_defined_resources: pulumi.Input[Optional[_builtins.bool]] = None,
+            ruleset_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["overrideUiDefinedResources"] = override_ui_defined_resources
+        __props__["rulesetIds"] = ruleset_ids
+        return pulumi.runtime.exists_resource(None, 'datadog:index/tagPipelineRulesets:TagPipelineRulesets', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="overrideUiDefinedResources")
     def override_ui_defined_resources(self) -> pulumi.Output[Optional[_builtins.bool]]:

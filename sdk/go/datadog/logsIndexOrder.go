@@ -112,6 +112,12 @@ func (LogsIndexOrderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsIndexOrderState)(nil)).Elem()
 }
 
+// LogsIndexOrderExists checks whether an existing LogsIndexOrder resource with the given ID exists.
+func LogsIndexOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogsIndexOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/logsIndexOrder:LogsIndexOrder", id, state, "", opts...)
+}
+
 type logsIndexOrderArgs struct {
 	// The index resource list. Logs are tested against the query filter of each index one by one following the order of the list.
 	Indexes []string `pulumi:"indexes"`

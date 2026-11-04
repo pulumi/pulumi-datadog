@@ -153,6 +153,12 @@ func (ApmRetentionFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apmRetentionFilterState)(nil)).Elem()
 }
 
+// ApmRetentionFilterExists checks whether an existing ApmRetentionFilter resource with the given ID exists.
+func ApmRetentionFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApmRetentionFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/apmRetentionFilter:ApmRetentionFilter", id, state, "", opts...)
+}
+
 type apmRetentionFilterArgs struct {
 	// the status of the retention filter.
 	Enabled bool `pulumi:"enabled"`

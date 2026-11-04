@@ -311,6 +311,22 @@ class Dataset(pulumi.CustomResource):
         __props__.__dict__["product_filters"] = product_filters
         return Dataset(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            product_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetProductFilterArgs', 'DatasetProductFilterArgsDict', 'outputs.DatasetProductFilter']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["createdBy"] = created_by
+        __props__["name"] = name
+        __props__["principals"] = principals
+        __props__["productFilters"] = product_filters
+        return pulumi.runtime.exists_resource(None, 'datadog:index/dataset:Dataset', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

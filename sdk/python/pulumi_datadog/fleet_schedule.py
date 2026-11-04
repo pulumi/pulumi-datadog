@@ -370,6 +370,22 @@ class FleetSchedule(pulumi.CustomResource):
         __props__.__dict__["version_to_latest"] = version_to_latest
         return FleetSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            rule: pulumi.Input[Optional[Union['FleetScheduleRuleArgs', 'FleetScheduleRuleArgsDict', 'outputs.FleetScheduleRule']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            version_to_latest: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["query"] = query
+        __props__["rule"] = rule
+        __props__["status"] = status
+        __props__["versionToLatest"] = version_to_latest
+        return pulumi.runtime.exists_resource(None, 'datadog:index/fleetSchedule:FleetSchedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

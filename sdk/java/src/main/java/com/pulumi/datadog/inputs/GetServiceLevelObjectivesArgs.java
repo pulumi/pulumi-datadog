@@ -78,14 +78,14 @@ public final class GetServiceLevelObjectivesArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     * The query string to filter results based on SLO names. Some examples of queries include service:&#92;n&#92;n and &#92;n&#92;n.
      * 
      */
     @Import(name="query")
     private @Nullable Output<String> query;
 
     /**
-     * @return The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     * @return The query string to filter results based on SLO names. Some examples of queries include service:&#92;n&#92;n and &#92;n&#92;n.
      * 
      */
     public Optional<Output<String>> query() {
@@ -231,7 +231,7 @@ public final class GetServiceLevelObjectivesArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param query The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+         * @param query The query string to filter results based on SLO names. Some examples of queries include service:&#92;n&#92;n and &#92;n&#92;n.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class GetServiceLevelObjectivesArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param query The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+         * @param query The query string to filter results based on SLO names. Some examples of queries include service:&#92;n&#92;n and &#92;n&#92;n.
          * 
          * @return builder
          * 

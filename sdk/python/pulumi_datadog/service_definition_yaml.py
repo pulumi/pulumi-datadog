@@ -476,6 +476,14 @@ class ServiceDefinitionYaml(pulumi.CustomResource):
         __props__.__dict__["service_definition"] = service_definition
         return ServiceDefinitionYaml(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            service_definition: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["serviceDefinition"] = service_definition
+        return pulumi.runtime.exists_resource(None, 'datadog:index/serviceDefinitionYaml:ServiceDefinitionYaml', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="serviceDefinition")
     def service_definition(self) -> pulumi.Output[_builtins.str]:

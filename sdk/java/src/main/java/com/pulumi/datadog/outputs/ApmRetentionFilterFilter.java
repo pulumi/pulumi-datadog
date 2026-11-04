@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApmRetentionFilterFilter {
     /**
-     * @return The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `&#34;*&#34;`.
+     * @return The search query - follow the span search syntax, use `AND` between tags and `&#92;` to escape special characters, use nanosecond for duration. Defaults to `&#34;*&#34;`.
      * 
      */
     private @Nullable String query;
 
     private ApmRetentionFilterFilter() {}
     /**
-     * @return The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `&#34;*&#34;`.
+     * @return The search query - follow the span search syntax, use `AND` between tags and `&#92;` to escape special characters, use nanosecond for duration. Defaults to `&#34;*&#34;`.
      * 
      */
     public Optional<String> query() {

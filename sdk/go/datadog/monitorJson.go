@@ -130,6 +130,12 @@ func (MonitorJsonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorJsonState)(nil)).Elem()
 }
 
+// MonitorJsonExists checks whether an existing MonitorJson resource with the given ID exists.
+func MonitorJsonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorJsonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/monitorJson:MonitorJson", id, state, "", opts...)
+}
+
 type monitorJsonArgs struct {
 	// The JSON formatted definition of the monitor.
 	Monitor string `pulumi:"monitor"`

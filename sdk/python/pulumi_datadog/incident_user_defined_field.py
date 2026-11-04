@@ -677,6 +677,42 @@ class IncidentUserDefinedField(pulumi.CustomResource):
         __props__.__dict__["valid_values"] = valid_values
         return IncidentUserDefinedField(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            default_value: pulumi.Input[Optional[_builtins.str]] = None,
+            deleted: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            incident_type: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Union['IncidentUserDefinedFieldMetadataArgs', 'IncidentUserDefinedFieldMetadataArgsDict', 'outputs.IncidentUserDefinedFieldMetadata']]] = None,
+            modified: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            ordinal: pulumi.Input[Optional[_builtins.str]] = None,
+            required: pulumi.Input[Optional[_builtins.bool]] = None,
+            reserved: pulumi.Input[Optional[_builtins.bool]] = None,
+            tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            valid_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentUserDefinedFieldValidValueArgs', 'IncidentUserDefinedFieldValidValueArgsDict', 'outputs.IncidentUserDefinedFieldValidValue']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["category"] = category
+        __props__["created"] = created
+        __props__["defaultValue"] = default_value
+        __props__["deleted"] = deleted
+        __props__["displayName"] = display_name
+        __props__["incidentType"] = incident_type
+        __props__["metadata"] = metadata
+        __props__["modified"] = modified
+        __props__["name"] = name
+        __props__["ordinal"] = ordinal
+        __props__["required"] = required
+        __props__["reserved"] = reserved
+        __props__["tagKey"] = tag_key
+        __props__["type"] = type
+        __props__["validValues"] = valid_values
+        return pulumi.runtime.exists_resource(None, 'datadog:index/incidentUserDefinedField:IncidentUserDefinedField', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def category(self) -> pulumi.Output[Optional[_builtins.str]]:

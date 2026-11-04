@@ -150,6 +150,12 @@ func (SecurityMonitoringFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityMonitoringFilterState)(nil)).Elem()
 }
 
+// SecurityMonitoringFilterExists checks whether an existing SecurityMonitoringFilter resource with the given ID exists.
+func SecurityMonitoringFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityMonitoringFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityMonitoringFilter:SecurityMonitoringFilter", id, state, "", opts...)
+}
+
 type securityMonitoringFilterArgs struct {
 	// Exclusion filters to exclude some logs from the security filter.
 	ExclusionFilters []SecurityMonitoringFilterExclusionFilter `pulumi:"exclusionFilters"`

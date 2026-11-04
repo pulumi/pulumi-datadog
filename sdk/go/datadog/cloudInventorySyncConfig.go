@@ -161,6 +161,12 @@ func (CloudInventorySyncConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudInventorySyncConfigState)(nil)).Elem()
 }
 
+// CloudInventorySyncConfigExists checks whether an existing CloudInventorySyncConfig resource with the given ID exists.
+func CloudInventorySyncConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudInventorySyncConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/cloudInventorySyncConfig:CloudInventorySyncConfig", id, state, "", opts...)
+}
+
 type cloudInventorySyncConfigArgs struct {
 	// AWS-specific configuration. Required when cloudProvider is `aws`.
 	Aws *CloudInventorySyncConfigAws `pulumi:"aws"`

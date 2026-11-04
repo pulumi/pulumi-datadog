@@ -746,6 +746,44 @@ class IntegrationSts(pulumi.CustomResource):
         __props__.__dict__["resource_collection_enabled"] = resource_collection_enabled
         return IntegrationSts(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            automute: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_email: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud_run_revision_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            delegate_account_email: pulumi.Input[Optional[_builtins.str]] = None,
+            host_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            is_cspm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_global_location_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_org_folder_resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_per_project_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_resource_change_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_security_command_center_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            metric_namespace_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationStsMetricNamespaceConfigArgs', 'IntegrationStsMetricNamespaceConfigArgsDict', 'outputs.IntegrationStsMetricNamespaceConfig']]]]] = None,
+            monitored_resource_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationStsMonitoredResourceConfigArgs', 'IntegrationStsMonitoredResourceConfigArgsDict', 'outputs.IntegrationStsMonitoredResourceConfig']]]]] = None,
+            region_filter_configs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountTags"] = account_tags
+        __props__["automute"] = automute
+        __props__["clientEmail"] = client_email
+        __props__["cloudRunRevisionFilters"] = cloud_run_revision_filters
+        __props__["delegateAccountEmail"] = delegate_account_email
+        __props__["hostFilters"] = host_filters
+        __props__["isCspmEnabled"] = is_cspm_enabled
+        __props__["isGlobalLocationEnabled"] = is_global_location_enabled
+        __props__["isOrgFolderResourceCollectionEnabled"] = is_org_folder_resource_collection_enabled
+        __props__["isPerProjectQuotaEnabled"] = is_per_project_quota_enabled
+        __props__["isResourceChangeCollectionEnabled"] = is_resource_change_collection_enabled
+        __props__["isSecurityCommandCenterEnabled"] = is_security_command_center_enabled
+        __props__["metricNamespaceConfigs"] = metric_namespace_configs
+        __props__["monitoredResourceConfigs"] = monitored_resource_configs
+        __props__["regionFilterConfigs"] = region_filter_configs
+        __props__["resourceCollectionEnabled"] = resource_collection_enabled
+        return pulumi.runtime.exists_resource(None, 'datadog:gcp/integrationSts:IntegrationSts', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountTags")
     def account_tags(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

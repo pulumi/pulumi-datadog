@@ -136,6 +136,12 @@ func (TeamLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamLinkState)(nil)).Elem()
 }
 
+// TeamLinkExists checks whether an existing TeamLink resource with the given ID exists.
+func TeamLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/teamLink:TeamLink", id, state, "", opts...)
+}
+
 type teamLinkArgs struct {
 	// The link's label.
 	Label string `pulumi:"label"`

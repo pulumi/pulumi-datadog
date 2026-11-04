@@ -276,6 +276,18 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["subdomain"] = subdomain
         return Integration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_token: pulumi.Input[Optional[_builtins.str]] = None,
+            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subdomain: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiToken"] = api_token
+        __props__["schedules"] = schedules
+        __props__["subdomain"] = subdomain
+        return pulumi.runtime.exists_resource(None, 'datadog:pagerduty/integration:Integration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiToken")
     def api_token(self) -> pulumi.Output[Optional[_builtins.str]]:

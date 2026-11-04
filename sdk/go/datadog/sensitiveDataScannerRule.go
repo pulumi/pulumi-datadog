@@ -146,6 +146,12 @@ func (SensitiveDataScannerRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sensitiveDataScannerRuleState)(nil)).Elem()
 }
 
+// SensitiveDataScannerRuleExists checks whether an existing SensitiveDataScannerRule resource with the given ID exists.
+func SensitiveDataScannerRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SensitiveDataScannerRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule", id, state, "", opts...)
+}
+
 type sensitiveDataScannerRuleArgs struct {
 	// Description of the rule. Computed when `standardPatternId` is set and this field is omitted.
 	Description *string `pulumi:"description"`

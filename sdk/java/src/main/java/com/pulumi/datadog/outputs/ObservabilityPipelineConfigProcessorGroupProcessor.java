@@ -100,11 +100,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
     /**
      * @return The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
      * 
-     * @deprecated
-     * This processor is deprecated, use `generateMetrics` instead.
+     * @deprecated This processor is deprecated, use `generateMetrics` instead.
      * 
      */
-    @Deprecated /* This processor is deprecated, use `generateMetrics` instead. */
+    @Deprecated
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics generateDatadogMetrics;
     /**
      * @return The `generateMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields. There must be a destination whose `inputs` reference this processor with the `&lt;processor-id&gt;.metrics` suffix to route the generated metrics. All destination types normally supported for `metrics` pipelines are also supported as metrics destinations in `logs` pipelines.
@@ -286,11 +285,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
     /**
      * @return The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
      * 
-     * @deprecated
-     * This processor is deprecated, use `generateMetrics` instead.
+     * @deprecated This processor is deprecated, use `generateMetrics` instead.
      * 
      */
-    @Deprecated /* This processor is deprecated, use `generateMetrics` instead. */
+    @Deprecated
     public Optional<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetrics> generateDatadogMetrics() {
         return Optional.ofNullable(this.generateDatadogMetrics);
     }

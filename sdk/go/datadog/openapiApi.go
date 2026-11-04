@@ -108,6 +108,12 @@ func (OpenapiApiState) ElementType() reflect.Type {
 	return reflect.TypeOf((*openapiApiState)(nil)).Elem()
 }
 
+// OpenapiApiExists checks whether an existing OpenapiApi resource with the given ID exists.
+func OpenapiApiExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpenapiApiState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/openapiApi:OpenapiApi", id, state, "", opts...)
+}
+
 type openapiApiArgs struct {
 	// The textual content of the OpenAPI specification. Use `file()` in order to reference another file in the repository (see exmaple).
 	Spec string `pulumi:"spec"`

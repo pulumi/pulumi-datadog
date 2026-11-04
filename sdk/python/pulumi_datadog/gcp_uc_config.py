@@ -533,6 +533,38 @@ class GcpUcConfig(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = updated_at
         return GcpUcConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            dataset: pulumi.Input[Optional[_builtins.str]] = None,
+            error_messages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            export_dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+            export_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            export_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+            months: pulumi.Input[Optional[_builtins.int]] = None,
+            service_account: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["billingAccountId"] = billing_account_id
+        __props__["bucketName"] = bucket_name
+        __props__["createdAt"] = created_at
+        __props__["dataset"] = dataset
+        __props__["errorMessages"] = error_messages
+        __props__["exportDatasetName"] = export_dataset_name
+        __props__["exportPrefix"] = export_prefix
+        __props__["exportProjectName"] = export_project_name
+        __props__["months"] = months
+        __props__["serviceAccount"] = service_account
+        __props__["status"] = status
+        __props__["statusUpdatedAt"] = status_updated_at
+        __props__["updatedAt"] = updated_at
+        return pulumi.runtime.exists_resource(None, 'datadog:index/gcpUcConfig:GcpUcConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="billingAccountId")
     def billing_account_id(self) -> pulumi.Output[_builtins.str]:

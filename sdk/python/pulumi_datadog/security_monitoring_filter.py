@@ -390,6 +390,24 @@ class SecurityMonitoringFilter(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return SecurityMonitoringFilter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringFilterExclusionFilterArgs', 'SecurityMonitoringFilterExclusionFilterArgsDict', 'outputs.SecurityMonitoringFilterExclusionFilter']]]]] = None,
+            filtered_data_type: pulumi.Input[Optional[_builtins.str]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["exclusionFilters"] = exclusion_filters
+        __props__["filteredDataType"] = filtered_data_type
+        __props__["isEnabled"] = is_enabled
+        __props__["name"] = name
+        __props__["query"] = query
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'datadog:index/securityMonitoringFilter:SecurityMonitoringFilter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
     def exclusion_filters(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringFilterExclusionFilter']]]:

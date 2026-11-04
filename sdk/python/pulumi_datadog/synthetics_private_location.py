@@ -396,6 +396,26 @@ class SyntheticsPrivateLocation(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return SyntheticsPrivateLocation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            config: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[Union['SyntheticsPrivateLocationMetadataArgs', 'SyntheticsPrivateLocationMetadataArgsDict', 'outputs.SyntheticsPrivateLocationMetadata']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            restriction_policy_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["config"] = config
+        __props__["description"] = description
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["restrictionPolicyResourceId"] = restriction_policy_resource_id
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -175,6 +175,12 @@ func (CsmThreatsAgentRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*csmThreatsAgentRuleState)(nil)).Elem()
 }
 
+// CsmThreatsAgentRuleExists checks whether an existing CsmThreatsAgentRule resource with the given ID exists.
+func CsmThreatsAgentRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CsmThreatsAgentRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/csmThreatsAgentRule:CsmThreatsAgentRule", id, state, "", opts...)
+}
+
 type csmThreatsAgentRuleArgs struct {
 	// The list of actions the rule can perform
 	Actions []CsmThreatsAgentRuleAction `pulumi:"actions"`

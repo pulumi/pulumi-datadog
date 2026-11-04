@@ -159,6 +159,12 @@ func (SensitiveDataScannerGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sensitiveDataScannerGroupState)(nil)).Elem()
 }
 
+// SensitiveDataScannerGroupExists checks whether an existing SensitiveDataScannerGroup resource with the given ID exists.
+func SensitiveDataScannerGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SensitiveDataScannerGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/sensitiveDataScannerGroup:SensitiveDataScannerGroup", id, state, "", opts...)
+}
+
 type sensitiveDataScannerGroupArgs struct {
 	// Description of the Datadog scanning group.
 	Description *string `pulumi:"description"`

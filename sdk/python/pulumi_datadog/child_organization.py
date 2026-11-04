@@ -288,6 +288,26 @@ class ChildOrganization(pulumi.CustomResource):
         __props__.__dict__["users"] = users
         return ChildOrganization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChildOrganizationApiKeyArgs', 'ChildOrganizationApiKeyArgsDict', 'outputs.ChildOrganizationApiKey']]]]] = None,
+            application_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChildOrganizationApplicationKeyArgs', 'ChildOrganizationApplicationKeyArgsDict', 'outputs.ChildOrganizationApplicationKey']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            public_id: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChildOrganizationSettingArgs', 'ChildOrganizationSettingArgsDict', 'outputs.ChildOrganizationSetting']]]]] = None,
+            users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChildOrganizationUserArgs', 'ChildOrganizationUserArgsDict', 'outputs.ChildOrganizationUser']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKeys"] = api_keys
+        __props__["applicationKeys"] = application_keys
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["publicId"] = public_id
+        __props__["settings"] = settings
+        __props__["users"] = users
+        return pulumi.runtime.exists_resource(None, 'datadog:index/childOrganization:ChildOrganization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKeys")
     def api_keys(self) -> pulumi.Output[Sequence['outputs.ChildOrganizationApiKey']]:

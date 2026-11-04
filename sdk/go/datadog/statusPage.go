@@ -203,6 +203,12 @@ func (StatusPageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*statusPageState)(nil)).Elem()
 }
 
+// StatusPageExists checks whether an existing StatusPage resource with the given ID exists.
+func StatusPageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StatusPageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/statusPage:StatusPage", id, state, "", opts...)
+}
+
 type statusPageArgs struct {
 	// The company logo displayed on the status page.
 	CompanyLogo *string `pulumi:"companyLogo"`

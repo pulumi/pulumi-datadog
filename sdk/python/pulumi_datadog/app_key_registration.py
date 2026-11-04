@@ -180,6 +180,14 @@ class AppKeyRegistration(pulumi.CustomResource):
         __props__.__dict__["app_key_id"] = app_key_id
         return AppKeyRegistration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_key_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appKeyId"] = app_key_id
+        return pulumi.runtime.exists_resource(None, 'datadog:index/appKeyRegistration:AppKeyRegistration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appKeyId")
     def app_key_id(self) -> pulumi.Output[_builtins.str]:

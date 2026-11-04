@@ -162,6 +162,12 @@ func (MetricTagConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*metricTagConfigurationState)(nil)).Elem()
 }
 
+// MetricTagConfigurationExists checks whether an existing MetricTagConfiguration resource with the given ID exists.
+func MetricTagConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MetricTagConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/metricTagConfiguration:MetricTagConfiguration", id, state, "", opts...)
+}
+
 type metricTagConfigurationArgs struct {
 	// A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
 	//

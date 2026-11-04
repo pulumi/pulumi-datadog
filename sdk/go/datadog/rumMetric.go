@@ -146,6 +146,12 @@ func (RumMetricState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rumMetricState)(nil)).Elem()
 }
 
+// RumMetricExists checks whether an existing RumMetric resource with the given ID exists.
+func RumMetricExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RumMetricState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/rumMetric:RumMetric", id, state, "", opts...)
+}
+
 type rumMetricArgs struct {
 	Compute *RumMetricCompute `pulumi:"compute"`
 	// The type of RUM events to filter on.

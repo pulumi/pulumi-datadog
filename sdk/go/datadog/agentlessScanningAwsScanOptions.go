@@ -151,6 +151,12 @@ func (AgentlessScanningAwsScanOptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentlessScanningAwsScanOptionsState)(nil)).Elem()
 }
 
+// AgentlessScanningAwsScanOptionsExists checks whether an existing AgentlessScanningAwsScanOptions resource with the given ID exists.
+func AgentlessScanningAwsScanOptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentlessScanningAwsScanOptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions", id, state, "", opts...)
+}
+
 type agentlessScanningAwsScanOptionsArgs struct {
 	// The AWS account ID for which agentless scanning is configured. Must be a valid AWS account ID.
 	AwsAccountId string `pulumi:"awsAccountId"`

@@ -202,6 +202,12 @@ func (SloCorrectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sloCorrectionState)(nil)).Elem()
 }
 
+// SloCorrectionExists checks whether an existing SloCorrection resource with the given ID exists.
+func SloCorrectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SloCorrectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/sloCorrection:SloCorrection", id, state, "", opts...)
+}
+
 type sloCorrectionArgs struct {
 	// Category the SLO correction belongs to. Valid values are `Scheduled Maintenance`, `Outside Business Hours`, `Deployment`, `Other`.
 	Category string `pulumi:"category"`

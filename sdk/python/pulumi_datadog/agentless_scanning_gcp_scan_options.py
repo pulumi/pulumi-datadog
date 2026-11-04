@@ -357,6 +357,22 @@ class AgentlessScanningGcpScanOptions(pulumi.CustomResource):
         __props__.__dict__["vuln_host_os"] = vuln_host_os
         return AgentlessScanningGcpScanOptions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cloud_function: pulumi.Input[Optional[_builtins.bool]] = None,
+            compliance_host: pulumi.Input[Optional[_builtins.bool]] = None,
+            gcp_project_id: pulumi.Input[Optional[_builtins.str]] = None,
+            vuln_containers_os: pulumi.Input[Optional[_builtins.bool]] = None,
+            vuln_host_os: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cloudFunction"] = cloud_function
+        __props__["complianceHost"] = compliance_host
+        __props__["gcpProjectId"] = gcp_project_id
+        __props__["vulnContainersOs"] = vuln_containers_os
+        __props__["vulnHostOs"] = vuln_host_os
+        return pulumi.runtime.exists_resource(None, 'datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="cloudFunction")
     def cloud_function(self) -> pulumi.Output[_builtins.bool]:

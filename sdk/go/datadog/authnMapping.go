@@ -133,6 +133,12 @@ func (AuthnMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authnMappingState)(nil)).Elem()
 }
 
+// AuthnMappingExists checks whether an existing AuthnMapping resource with the given ID exists.
+func AuthnMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthnMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/authnMapping:AuthnMapping", id, state, "", opts...)
+}
+
 type authnMappingArgs struct {
 	// Identity provider key.
 	Key string `pulumi:"key"`

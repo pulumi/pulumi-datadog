@@ -190,6 +190,14 @@ class SensitiveDataScannerGroupOrder(pulumi.CustomResource):
         __props__.__dict__["group_ids"] = group_ids
         return SensitiveDataScannerGroupOrder(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groupIds"] = group_ids
+        return pulumi.runtime.exists_resource(None, 'datadog:index/sensitiveDataScannerGroupOrder:SensitiveDataScannerGroupOrder', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="groupIds")
     def group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:

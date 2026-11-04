@@ -435,6 +435,26 @@ class StatusPageDegradationTemplate(pulumi.CustomResource):
         __props__.__dict__["updates"] = updates
         return StatusPageDegradationTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            components_affecteds: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateComponentsAffectedArgs', 'StatusPageDegradationTemplateComponentsAffectedArgsDict', 'outputs.StatusPageDegradationTemplateComponentsAffected']]]]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            degradation_title: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            page_id: pulumi.Input[Optional[_builtins.str]] = None,
+            updates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StatusPageDegradationTemplateUpdateArgs', 'StatusPageDegradationTemplateUpdateArgsDict', 'outputs.StatusPageDegradationTemplateUpdate']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["componentsAffecteds"] = components_affecteds
+        __props__["createdAt"] = created_at
+        __props__["degradationTitle"] = degradation_title
+        __props__["modifiedAt"] = modified_at
+        __props__["name"] = name
+        __props__["pageId"] = page_id
+        __props__["updates"] = updates
+        return pulumi.runtime.exists_resource(None, 'datadog:index/statusPageDegradationTemplate:StatusPageDegradationTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="componentsAffecteds")
     def components_affecteds(self) -> pulumi.Output[Optional[Sequence['outputs.StatusPageDegradationTemplateComponentsAffected']]]:

@@ -90,6 +90,12 @@ func (SamlIdpMetadataState) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlIdpMetadataState)(nil)).Elem()
 }
 
+// SamlIdpMetadataExists checks whether an existing SamlIdpMetadata resource with the given ID exists.
+func SamlIdpMetadataExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SamlIdpMetadataState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/samlIdpMetadata:SamlIdpMetadata", id, state, "", opts...)
+}
+
 type samlIdpMetadataArgs struct {
 	// The content of the IdP metadata XML file, for example loaded with the `file()` function. A leading UTF-8 byte order mark (BOM) is stripped automatically before upload.
 	IdpMetadata string `pulumi:"idpMetadata"`

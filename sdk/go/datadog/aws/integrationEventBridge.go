@@ -130,6 +130,12 @@ func (IntegrationEventBridgeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationEventBridgeState)(nil)).Elem()
 }
 
+// IntegrationEventBridgeExists checks whether an existing IntegrationEventBridge resource with the given ID exists.
+func IntegrationEventBridgeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationEventBridgeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:aws/integrationEventBridge:IntegrationEventBridge", id, state, "", opts...)
+}
+
 type integrationEventBridgeArgs struct {
 	// Your AWS Account ID without dashes.
 	AccountId string `pulumi:"accountId"`

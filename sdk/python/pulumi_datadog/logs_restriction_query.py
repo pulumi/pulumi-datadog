@@ -271,6 +271,20 @@ class LogsRestrictionQuery(pulumi.CustomResource):
         __props__.__dict__["role_ids"] = role_ids
         return LogsRestrictionQuery(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            restriction_query: pulumi.Input[Optional[_builtins.str]] = None,
+            role_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["modifiedAt"] = modified_at
+        __props__["restrictionQuery"] = restriction_query
+        __props__["roleIds"] = role_ids
+        return pulumi.runtime.exists_resource(None, 'datadog:index/logsRestrictionQuery:LogsRestrictionQuery', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

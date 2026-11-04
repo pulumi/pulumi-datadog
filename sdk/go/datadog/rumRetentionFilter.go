@@ -145,6 +145,12 @@ func (RumRetentionFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rumRetentionFilterState)(nil)).Elem()
 }
 
+// RumRetentionFilterExists checks whether an existing RumRetentionFilter resource with the given ID exists.
+func RumRetentionFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RumRetentionFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/rumRetentionFilter:RumRetentionFilter", id, state, "", opts...)
+}
+
 type rumRetentionFilterArgs struct {
 	// RUM application ID.
 	ApplicationId string `pulumi:"applicationId"`

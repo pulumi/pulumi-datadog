@@ -123,6 +123,12 @@ func (RestrictionPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*restrictionPolicyState)(nil)).Elem()
 }
 
+// RestrictionPolicyExists checks whether an existing RestrictionPolicy resource with the given ID exists.
+func RestrictionPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RestrictionPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/restrictionPolicy:RestrictionPolicy", id, state, "", opts...)
+}
+
 type restrictionPolicyArgs struct {
 	Bindings []RestrictionPolicyBinding `pulumi:"bindings"`
 	// Identifier for the resource, formatted as resource*type:resource*id.

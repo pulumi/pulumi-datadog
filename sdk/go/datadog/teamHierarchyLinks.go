@@ -87,6 +87,12 @@ func (TeamHierarchyLinksState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamHierarchyLinksState)(nil)).Elem()
 }
 
+// TeamHierarchyLinksExists checks whether an existing TeamHierarchyLinks resource with the given ID exists.
+func TeamHierarchyLinksExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamHierarchyLinksState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/teamHierarchyLinks:TeamHierarchyLinks", id, state, "", opts...)
+}
+
 type teamHierarchyLinksArgs struct {
 	// ID of the parent team the team hierarchy link is associated with.
 	ParentTeamId string `pulumi:"parentTeamId"`

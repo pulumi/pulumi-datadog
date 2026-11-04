@@ -253,6 +253,12 @@ func (ReferenceTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*referenceTableState)(nil)).Elem()
 }
 
+// ReferenceTableExists checks whether an existing ReferenceTable resource with the given ID exists.
+func ReferenceTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReferenceTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/referenceTable:ReferenceTable", id, state, "", opts...)
+}
+
 type referenceTableArgs struct {
 	// The description of the reference table.
 	Description *string `pulumi:"description"`

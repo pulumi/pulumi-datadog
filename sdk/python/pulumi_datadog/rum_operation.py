@@ -488,6 +488,26 @@ class RumOperation(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return RumOperation(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RumOperationStepArgs', 'RumOperationStepArgsDict', 'outputs.RumOperationStep']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationId"] = application_id
+        __props__["category"] = category
+        __props__["description"] = description
+        __props__["displayName"] = display_name
+        __props__["name"] = name
+        __props__["steps"] = steps
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'datadog:index/rumOperation:RumOperation', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:

@@ -215,6 +215,12 @@ func (IncidentNotificationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentNotificationRuleState)(nil)).Elem()
 }
 
+// IncidentNotificationRuleExists checks whether an existing IncidentNotificationRule resource with the given ID exists.
+func IncidentNotificationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentNotificationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/incidentNotificationRule:IncidentNotificationRule", id, state, "", opts...)
+}
+
 type incidentNotificationRuleArgs struct {
 	// The conditions that trigger this notification rule. At least one condition is required.
 	Conditions []IncidentNotificationRuleCondition `pulumi:"conditions"`

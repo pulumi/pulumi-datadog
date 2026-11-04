@@ -343,6 +343,12 @@ func (DashboardV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*dashboardV2State)(nil)).Elem()
 }
 
+// DashboardV2Exists checks whether an existing DashboardV2 resource with the given ID exists.
+func DashboardV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DashboardV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/dashboardV2:DashboardV2", id, state, "", opts...)
+}
+
 type dashboardV2Args struct {
 	// A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
 	DashboardLists []int `pulumi:"dashboardLists"`

@@ -179,6 +179,12 @@ func (SecurityFindingsTicketCreationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityFindingsTicketCreationRuleState)(nil)).Elem()
 }
 
+// SecurityFindingsTicketCreationRuleExists checks whether an existing SecurityFindingsTicketCreationRule resource with the given ID exists.
+func SecurityFindingsTicketCreationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityFindingsTicketCreationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityFindingsTicketCreationRule:SecurityFindingsTicketCreationRule", id, state, "", opts...)
+}
+
 type securityFindingsTicketCreationRuleArgs struct {
 	// The action to take when the ticket creation rule matches a finding.
 	Action SecurityFindingsTicketCreationRuleAction `pulumi:"action"`

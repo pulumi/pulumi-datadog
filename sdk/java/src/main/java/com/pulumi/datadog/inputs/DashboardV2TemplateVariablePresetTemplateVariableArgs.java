@@ -34,22 +34,20 @@ public final class DashboardV2TemplateVariablePresetTemplateVariableArgs extends
     /**
      * The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
      * 
-     * @deprecated
-     * Use `values` instead.
+     * @deprecated Use `values` instead.
      * 
      */
-    @Deprecated /* Use `values` instead. */
+    @Deprecated
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
      * @return The value that should be assumed by the template variable in this preset. Cannot be used in conjunction with `values`. **Deprecated.** Use `values` instead.
      * 
-     * @deprecated
-     * Use `values` instead.
+     * @deprecated Use `values` instead.
      * 
      */
-    @Deprecated /* Use `values` instead. */
+    @Deprecated
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -121,11 +119,10 @@ public final class DashboardV2TemplateVariablePresetTemplateVariableArgs extends
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `values` instead.
+         * @deprecated Use `values` instead.
          * 
          */
-        @Deprecated /* Use `values` instead. */
+        @Deprecated
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
@@ -136,11 +133,10 @@ public final class DashboardV2TemplateVariablePresetTemplateVariableArgs extends
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `values` instead.
+         * @deprecated Use `values` instead.
          * 
          */
-        @Deprecated /* Use `values` instead. */
+        @Deprecated
         public Builder value(String value) {
             return value(Output.of(value));
         }

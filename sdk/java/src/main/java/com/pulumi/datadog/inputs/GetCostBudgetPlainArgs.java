@@ -36,22 +36,20 @@ public final class GetCostBudgetPlainArgs extends com.pulumi.resources.InvokeArg
     /**
      * The flat list of budget entries (deprecated - use budgetLine instead).
      * 
-     * @deprecated
-     * Use budgetLine instead. The entries block will be removed in a future version.
+     * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
      * 
      */
-    @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+    @Deprecated
     @Import(name="entries")
     private @Nullable List<GetCostBudgetEntry> entries;
 
     /**
      * @return The flat list of budget entries (deprecated - use budgetLine instead).
      * 
-     * @deprecated
-     * Use budgetLine instead. The entries block will be removed in a future version.
+     * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
      * 
      */
-    @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+    @Deprecated
     public Optional<List<GetCostBudgetEntry>> entries() {
         return Optional.ofNullable(this.entries);
     }
@@ -123,11 +121,10 @@ public final class GetCostBudgetPlainArgs extends com.pulumi.resources.InvokeArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use budgetLine instead. The entries block will be removed in a future version.
+         * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
          * 
          */
-        @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+        @Deprecated
         public Builder entries(@Nullable List<GetCostBudgetEntry> entries) {
             $.entries = entries;
             return this;
@@ -138,11 +135,10 @@ public final class GetCostBudgetPlainArgs extends com.pulumi.resources.InvokeArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use budgetLine instead. The entries block will be removed in a future version.
+         * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
          * 
          */
-        @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+        @Deprecated
         public Builder entries(GetCostBudgetEntry... entries) {
             return entries(List.of(entries));
         }

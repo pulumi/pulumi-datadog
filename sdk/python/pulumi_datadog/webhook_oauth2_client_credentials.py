@@ -394,6 +394,24 @@ class WebhookOauth2ClientCredentials(pulumi.CustomResource):
         __props__.__dict__["scope"] = scope
         return WebhookOauth2ClientCredentials(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_token_url: pulumi.Input[Optional[_builtins.str]] = None,
+            audience: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessTokenUrl"] = access_token_url
+        __props__["audience"] = audience
+        __props__["clientId"] = client_id
+        __props__["clientSecret"] = client_secret
+        __props__["name"] = name
+        __props__["scope"] = scope
+        return pulumi.runtime.exists_resource(None, 'datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessTokenUrl")
     def access_token_url(self) -> pulumi.Output[_builtins.str]:

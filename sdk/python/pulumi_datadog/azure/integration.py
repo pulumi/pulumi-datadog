@@ -773,6 +773,42 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["usage_metrics_enabled"] = usage_metrics_enabled
         return Integration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_service_plan_filters: pulumi.Input[Optional[_builtins.str]] = None,
+            automute: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            container_app_filters: pulumi.Input[Optional[_builtins.str]] = None,
+            cspm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            custom_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            host_filters: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            metrics_enabled_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_collection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            resource_provider_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationResourceProviderConfigArgs', 'IntegrationResourceProviderConfigArgsDict', 'outputs.IntegrationResourceProviderConfig']]]]] = None,
+            secretless_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
+            usage_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appServicePlanFilters"] = app_service_plan_filters
+        __props__["automute"] = automute
+        __props__["clientId"] = client_id
+        __props__["clientSecret"] = client_secret
+        __props__["containerAppFilters"] = container_app_filters
+        __props__["cspmEnabled"] = cspm_enabled
+        __props__["customMetricsEnabled"] = custom_metrics_enabled
+        __props__["hostFilters"] = host_filters
+        __props__["metricsEnabled"] = metrics_enabled
+        __props__["metricsEnabledDefault"] = metrics_enabled_default
+        __props__["resourceCollectionEnabled"] = resource_collection_enabled
+        __props__["resourceProviderConfigs"] = resource_provider_configs
+        __props__["secretlessAuthEnabled"] = secretless_auth_enabled
+        __props__["tenantName"] = tenant_name
+        __props__["usageMetricsEnabled"] = usage_metrics_enabled
+        return pulumi.runtime.exists_resource(None, 'datadog:azure/integration:Integration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appServicePlanFilters")
     def app_service_plan_filters(self) -> pulumi.Output[_builtins.str]:

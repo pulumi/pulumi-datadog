@@ -220,22 +220,20 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
     /**
      * The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
      * 
-     * @deprecated
-     * This processor is deprecated, use `generateMetrics` instead.
+     * @deprecated This processor is deprecated, use `generateMetrics` instead.
      * 
      */
-    @Deprecated /* This processor is deprecated, use `generateMetrics` instead. */
+    @Deprecated
     @Import(name="generateDatadogMetrics")
     private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs> generateDatadogMetrics;
 
     /**
      * @return The `generateDatadogMetrics` processor creates custom metrics from logs. Metrics can be counters, gauges, or distributions and optionally grouped by log fields.
      * 
-     * @deprecated
-     * This processor is deprecated, use `generateMetrics` instead.
+     * @deprecated This processor is deprecated, use `generateMetrics` instead.
      * 
      */
-    @Deprecated /* This processor is deprecated, use `generateMetrics` instead. */
+    @Deprecated
     public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs>> generateDatadogMetrics() {
         return Optional.ofNullable(this.generateDatadogMetrics);
     }
@@ -825,11 +823,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
          * 
          * @return builder
          * 
-         * @deprecated
-         * This processor is deprecated, use `generateMetrics` instead.
+         * @deprecated This processor is deprecated, use `generateMetrics` instead.
          * 
          */
-        @Deprecated /* This processor is deprecated, use `generateMetrics` instead. */
+        @Deprecated
         public Builder generateDatadogMetrics(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs> generateDatadogMetrics) {
             $.generateDatadogMetrics = generateDatadogMetrics;
             return this;
@@ -840,11 +837,10 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
          * 
          * @return builder
          * 
-         * @deprecated
-         * This processor is deprecated, use `generateMetrics` instead.
+         * @deprecated This processor is deprecated, use `generateMetrics` instead.
          * 
          */
-        @Deprecated /* This processor is deprecated, use `generateMetrics` instead. */
+        @Deprecated
         public Builder generateDatadogMetrics(ObservabilityPipelineConfigProcessorGroupProcessorGenerateDatadogMetricsArgs generateDatadogMetrics) {
             return generateDatadogMetrics(Output.of(generateDatadogMetrics));
         }

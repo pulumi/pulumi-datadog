@@ -120,6 +120,12 @@ func (TagIndexingRuleExemptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagIndexingRuleExemptionState)(nil)).Elem()
 }
 
+// TagIndexingRuleExemptionExists checks whether an existing TagIndexingRuleExemption resource with the given ID exists.
+func TagIndexingRuleExemptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagIndexingRuleExemptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/tagIndexingRuleExemption:TagIndexingRuleExemption", id, state, "", opts...)
+}
+
 type tagIndexingRuleExemptionArgs struct {
 	// The metric name to exempt. Changing this value forces a new resource to be created.
 	MetricName string `pulumi:"metricName"`

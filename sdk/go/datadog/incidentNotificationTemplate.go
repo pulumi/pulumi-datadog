@@ -187,6 +187,12 @@ func (IncidentNotificationTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentNotificationTemplateState)(nil)).Elem()
 }
 
+// IncidentNotificationTemplateExists checks whether an existing IncidentNotificationTemplate resource with the given ID exists.
+func IncidentNotificationTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentNotificationTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate", id, state, "", opts...)
+}
+
 type incidentNotificationTemplateArgs struct {
 	// The category of the notification template. Valid values are `alert`, `incident`, `recovery`.
 	Category string `pulumi:"category"`

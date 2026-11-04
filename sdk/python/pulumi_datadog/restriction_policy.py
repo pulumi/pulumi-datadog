@@ -243,6 +243,16 @@ class RestrictionPolicy(pulumi.CustomResource):
         __props__.__dict__["resource_id"] = resource_id
         return RestrictionPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bindings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RestrictionPolicyBindingArgs', 'RestrictionPolicyBindingArgsDict', 'outputs.RestrictionPolicyBinding']]]]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bindings"] = bindings
+        __props__["resourceId"] = resource_id
+        return pulumi.runtime.exists_resource(None, 'datadog:index/restrictionPolicy:RestrictionPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def bindings(self) -> pulumi.Output[Optional[Sequence['outputs.RestrictionPolicyBinding']]]:

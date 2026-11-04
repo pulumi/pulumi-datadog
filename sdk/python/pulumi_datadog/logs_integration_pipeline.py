@@ -185,6 +185,14 @@ class LogsIntegrationPipeline(pulumi.CustomResource):
         __props__.__dict__["is_enabled"] = is_enabled
         return LogsIntegrationPipeline(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["isEnabled"] = is_enabled
+        return pulumi.runtime.exists_resource(None, 'datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

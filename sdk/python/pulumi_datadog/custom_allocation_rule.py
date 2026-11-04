@@ -540,6 +540,34 @@ class CustomAllocationRule(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return CustomAllocationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            costs_to_allocates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomAllocationRuleCostsToAllocateArgs', 'CustomAllocationRuleCostsToAllocateArgsDict', 'outputs.CustomAllocationRuleCostsToAllocate']]]]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified_user_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            order_id: pulumi.Input[Optional[_builtins.int]] = None,
+            providernames: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rejected: pulumi.Input[Optional[_builtins.bool]] = None,
+            rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            strategy: pulumi.Input[Optional[Union['CustomAllocationRuleStrategyArgs', 'CustomAllocationRuleStrategyArgsDict', 'outputs.CustomAllocationRuleStrategy']]] = None,
+            updated: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["costsToAllocates"] = costs_to_allocates
+        __props__["created"] = created
+        __props__["enabled"] = enabled
+        __props__["lastModifiedUserUuid"] = last_modified_user_uuid
+        __props__["orderId"] = order_id
+        __props__["providernames"] = providernames
+        __props__["rejected"] = rejected
+        __props__["ruleName"] = rule_name
+        __props__["strategy"] = strategy
+        __props__["updated"] = updated
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'datadog:index/customAllocationRule:CustomAllocationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="costsToAllocates")
     def costs_to_allocates(self) -> pulumi.Output[Optional[Sequence['outputs.CustomAllocationRuleCostsToAllocate']]]:

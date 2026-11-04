@@ -132,6 +132,12 @@ func (ComplianceResourceEvaluationFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*complianceResourceEvaluationFilterState)(nil)).Elem()
 }
 
+// ComplianceResourceEvaluationFilterExists checks whether an existing ComplianceResourceEvaluationFilter resource with the given ID exists.
+func ComplianceResourceEvaluationFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComplianceResourceEvaluationFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/complianceResourceEvaluationFilter:ComplianceResourceEvaluationFilter", id, state, "", opts...)
+}
+
 type complianceResourceEvaluationFilterArgs struct {
 	// The cloud provider of the filter's targeted resource. Only `aws`, `gcp`, or `azure` are considered valid cloud providers.
 	CloudProvider string `pulumi:"cloudProvider"`

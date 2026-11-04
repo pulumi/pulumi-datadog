@@ -165,6 +165,12 @@ func (PowerpackState) ElementType() reflect.Type {
 	return reflect.TypeOf((*powerpackState)(nil)).Elem()
 }
 
+// PowerpackExists checks whether an existing Powerpack resource with the given ID exists.
+func PowerpackExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PowerpackState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/powerpack:Powerpack", id, state, "", opts...)
+}
+
 type powerpackArgs struct {
 	// The description of the powerpack.
 	Description *string `pulumi:"description"`

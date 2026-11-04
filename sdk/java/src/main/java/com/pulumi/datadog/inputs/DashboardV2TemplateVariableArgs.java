@@ -35,22 +35,20 @@ public final class DashboardV2TemplateVariableArgs extends com.pulumi.resources.
     /**
      * The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
      * 
-     * @deprecated
-     * Use `defaults` instead.
+     * @deprecated Use `defaults` instead.
      * 
      */
-    @Deprecated /* Use `defaults` instead. */
+    @Deprecated
     @Import(name="default")
     private @Nullable Output<String> default_;
 
     /**
      * @return The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`. **Deprecated.** Use `defaults` instead.
      * 
-     * @deprecated
-     * Use `defaults` instead.
+     * @deprecated Use `defaults` instead.
      * 
      */
-    @Deprecated /* Use `defaults` instead. */
+    @Deprecated
     public Optional<Output<String>> default_() {
         return Optional.ofNullable(this.default_);
     }
@@ -180,11 +178,10 @@ public final class DashboardV2TemplateVariableArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `defaults` instead.
+         * @deprecated Use `defaults` instead.
          * 
          */
-        @Deprecated /* Use `defaults` instead. */
+        @Deprecated
         public Builder default_(@Nullable Output<String> default_) {
             $.default_ = default_;
             return this;
@@ -195,11 +192,10 @@ public final class DashboardV2TemplateVariableArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `defaults` instead.
+         * @deprecated Use `defaults` instead.
          * 
          */
-        @Deprecated /* Use `defaults` instead. */
+        @Deprecated
         public Builder default_(String default_) {
             return default_(Output.of(default_));
         }

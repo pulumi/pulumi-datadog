@@ -122,6 +122,12 @@ func (ApplicationKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*applicationKeyState)(nil)).Elem()
 }
 
+// ApplicationKeyExists checks whether an existing ApplicationKey resource with the given ID exists.
+func ApplicationKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApplicationKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/applicationKey:ApplicationKey", id, state, "", opts...)
+}
+
 type applicationKeyArgs struct {
 	// Name for Application Key.
 	Name string `pulumi:"name"`

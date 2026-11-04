@@ -591,6 +591,32 @@ class IncidentNotificationRule(pulumi.CustomResource):
         __props__.__dict__["visibility"] = visibility
         return IncidentNotificationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentNotificationRuleConditionArgs', 'IncidentNotificationRuleConditionArgsDict', 'outputs.IncidentNotificationRuleCondition']]]]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            handles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            incident_type: pulumi.Input[Optional[_builtins.str]] = None,
+            modified: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_template: pulumi.Input[Optional[_builtins.str]] = None,
+            renotify_ons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            trigger: pulumi.Input[Optional[_builtins.str]] = None,
+            visibility: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["conditions"] = conditions
+        __props__["created"] = created
+        __props__["enabled"] = enabled
+        __props__["handles"] = handles
+        __props__["incidentType"] = incident_type
+        __props__["modified"] = modified
+        __props__["notificationTemplate"] = notification_template
+        __props__["renotifyOns"] = renotify_ons
+        __props__["trigger"] = trigger
+        __props__["visibility"] = visibility
+        return pulumi.runtime.exists_resource(None, 'datadog:index/incidentNotificationRule:IncidentNotificationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.IncidentNotificationRuleCondition']]]:

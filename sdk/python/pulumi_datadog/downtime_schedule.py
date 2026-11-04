@@ -519,6 +519,30 @@ class DowntimeSchedule(pulumi.CustomResource):
         __props__.__dict__["scope"] = scope
         return DowntimeSchedule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            display_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_identifier: pulumi.Input[Optional[Union['DowntimeScheduleMonitorIdentifierArgs', 'DowntimeScheduleMonitorIdentifierArgsDict', 'outputs.DowntimeScheduleMonitorIdentifier']]] = None,
+            mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+            notify_end_states: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            notify_end_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            one_time_schedule: pulumi.Input[Optional[Union['DowntimeScheduleOneTimeScheduleArgs', 'DowntimeScheduleOneTimeScheduleArgsDict', 'outputs.DowntimeScheduleOneTimeSchedule']]] = None,
+            recurring_schedule: pulumi.Input[Optional[Union['DowntimeScheduleRecurringScheduleArgs', 'DowntimeScheduleRecurringScheduleArgsDict', 'outputs.DowntimeScheduleRecurringSchedule']]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["displayTimezone"] = display_timezone
+        __props__["message"] = message
+        __props__["monitorIdentifier"] = monitor_identifier
+        __props__["muteFirstRecoveryNotification"] = mute_first_recovery_notification
+        __props__["notifyEndStates"] = notify_end_states
+        __props__["notifyEndTypes"] = notify_end_types
+        __props__["oneTimeSchedule"] = one_time_schedule
+        __props__["recurringSchedule"] = recurring_schedule
+        __props__["scope"] = scope
+        return pulumi.runtime.exists_resource(None, 'datadog:index/downtimeSchedule:DowntimeSchedule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="displayTimezone")
     def display_timezone(self) -> pulumi.Output[_builtins.str]:

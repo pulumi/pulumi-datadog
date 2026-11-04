@@ -159,6 +159,12 @@ func (ServiceAccountApplicationKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceAccountApplicationKeyState)(nil)).Elem()
 }
 
+// ServiceAccountApplicationKeyExists checks whether an existing ServiceAccountApplicationKey resource with the given ID exists.
+func ServiceAccountApplicationKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceAccountApplicationKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey", id, state, "", opts...)
+}
+
 type serviceAccountApplicationKeyArgs struct {
 	// Name of the application key.
 	Name string `pulumi:"name"`

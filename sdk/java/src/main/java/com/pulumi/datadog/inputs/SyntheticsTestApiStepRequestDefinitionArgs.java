@@ -412,22 +412,20 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
     /**
      * A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
-     * @deprecated
-     * Use `plainProtoFile` instead.
+     * @deprecated Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plainProtoFile` instead. */
+    @Deprecated
     @Import(name="protoJsonDescriptor")
     private @Nullable Output<String> protoJsonDescriptor;
 
     /**
      * @return A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
-     * @deprecated
-     * Use `plainProtoFile` instead.
+     * @deprecated Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plainProtoFile` instead. */
+    @Deprecated
     public Optional<Output<String>> protoJsonDescriptor() {
         return Optional.ofNullable(this.protoJsonDescriptor);
     }
@@ -1203,11 +1201,10 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `plainProtoFile` instead.
+         * @deprecated Use `plainProtoFile` instead.
          * 
          */
-        @Deprecated /* Use `plainProtoFile` instead. */
+        @Deprecated
         public Builder protoJsonDescriptor(@Nullable Output<String> protoJsonDescriptor) {
             $.protoJsonDescriptor = protoJsonDescriptor;
             return this;
@@ -1218,11 +1215,10 @@ public final class SyntheticsTestApiStepRequestDefinitionArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `plainProtoFile` instead.
+         * @deprecated Use `plainProtoFile` instead.
          * 
          */
-        @Deprecated /* Use `plainProtoFile` instead. */
+        @Deprecated
         public Builder protoJsonDescriptor(String protoJsonDescriptor) {
             return protoJsonDescriptor(Output.of(protoJsonDescriptor));
         }

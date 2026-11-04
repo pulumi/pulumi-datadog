@@ -28,22 +28,20 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
     /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="apmQuery")
     private @Nullable Output<PowerpackV2WidgetApmQueryArgs> apmQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<PowerpackV2WidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
@@ -81,22 +79,20 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
     /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="logQuery")
     private @Nullable Output<PowerpackV2WidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<PowerpackV2WidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
@@ -104,22 +100,20 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
     /**
      * The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="processQuery")
     private @Nullable Output<PowerpackV2WidgetHeatmapDefinitionRequestProcessQueryArgs> processQuery;
 
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<PowerpackV2WidgetHeatmapDefinitionRequestProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
@@ -127,22 +121,20 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
     /**
      * The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="q")
     private @Nullable Output<String> q;
 
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
@@ -165,22 +157,20 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
     /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="rumQuery")
     private @Nullable Output<PowerpackV2WidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<PowerpackV2WidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
@@ -188,22 +178,20 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
     /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="securityQuery")
     private @Nullable Output<PowerpackV2WidgetSecurityQueryArgs> securityQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<PowerpackV2WidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -261,11 +249,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder apmQuery(@Nullable Output<PowerpackV2WidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
@@ -276,11 +263,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder apmQuery(PowerpackV2WidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
@@ -342,11 +328,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder logQuery(@Nullable Output<PowerpackV2WidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
@@ -357,11 +342,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder logQuery(PowerpackV2WidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
@@ -371,11 +355,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder processQuery(@Nullable Output<PowerpackV2WidgetHeatmapDefinitionRequestProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
@@ -386,11 +369,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder processQuery(PowerpackV2WidgetHeatmapDefinitionRequestProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
@@ -400,11 +382,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
@@ -415,11 +396,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder q(String q) {
             return q(Output.of(q));
         }
@@ -460,11 +440,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder rumQuery(@Nullable Output<PowerpackV2WidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
@@ -475,11 +454,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder rumQuery(PowerpackV2WidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
@@ -489,11 +467,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder securityQuery(@Nullable Output<PowerpackV2WidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
@@ -504,11 +481,10 @@ public final class PowerpackV2WidgetHeatmapDefinitionRequestArgs extends com.pul
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder securityQuery(PowerpackV2WidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }

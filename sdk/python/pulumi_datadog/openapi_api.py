@@ -184,6 +184,14 @@ class OpenapiApi(pulumi.CustomResource):
         __props__.__dict__["spec"] = spec
         return OpenapiApi(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            spec: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["spec"] = spec
+        return pulumi.runtime.exists_resource(None, 'datadog:index/openapiApi:OpenapiApi', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def spec(self) -> pulumi.Output[_builtins.str]:

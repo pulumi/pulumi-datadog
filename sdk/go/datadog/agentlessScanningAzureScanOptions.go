@@ -141,6 +141,12 @@ func (AgentlessScanningAzureScanOptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentlessScanningAzureScanOptionsState)(nil)).Elem()
 }
 
+// AgentlessScanningAzureScanOptionsExists checks whether an existing AgentlessScanningAzureScanOptions resource with the given ID exists.
+func AgentlessScanningAzureScanOptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentlessScanningAzureScanOptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/agentlessScanningAzureScanOptions:AgentlessScanningAzureScanOptions", id, state, "", opts...)
+}
+
 type agentlessScanningAzureScanOptionsArgs struct {
 	// The Azure subscription ID for which agentless scanning is configured. Must be a valid Azure subscription ID (UUID format).
 	AzureSubscriptionId string `pulumi:"azureSubscriptionId"`

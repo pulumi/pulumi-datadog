@@ -299,6 +299,20 @@ class SpansMetric(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return SpansMetric(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            compute: pulumi.Input[Optional[Union['SpansMetricComputeArgs', 'SpansMetricComputeArgsDict', 'outputs.SpansMetricCompute']]] = None,
+            filter: pulumi.Input[Optional[Union['SpansMetricFilterArgs', 'SpansMetricFilterArgsDict', 'outputs.SpansMetricFilter']]] = None,
+            group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpansMetricGroupByArgs', 'SpansMetricGroupByArgsDict', 'outputs.SpansMetricGroupBy']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["compute"] = compute
+        __props__["filter"] = filter
+        __props__["groupBies"] = group_bies
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'datadog:index/spansMetric:SpansMetric', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def compute(self) -> pulumi.Output['outputs.SpansMetricCompute']:

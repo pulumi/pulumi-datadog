@@ -68,22 +68,20 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
     /**
      * The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      * 
-     * @deprecated
-     * Use budgetLine instead. This field will be removed in a future version.
+     * @deprecated Use budgetLine instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
+    @Deprecated
     @Import(name="entries")
     private @Nullable Output<List<CostBudgetEntryArgs>> entries;
 
     /**
      * @return The entries of the budget. **Note:** You must provide entries for all months in the budget period. For hierarchical budgets, each unique tag combination must have entries for all months.
      * 
-     * @deprecated
-     * Use budgetLine instead. This field will be removed in a future version.
+     * @deprecated Use budgetLine instead. This field will be removed in a future version.
      * 
      */
-    @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
+    @Deprecated
     public Optional<Output<List<CostBudgetEntryArgs>>> entries() {
         return Optional.ofNullable(this.entries);
     }
@@ -257,11 +255,10 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use budgetLine instead. This field will be removed in a future version.
+         * @deprecated Use budgetLine instead. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
+        @Deprecated
         public Builder entries(@Nullable Output<List<CostBudgetEntryArgs>> entries) {
             $.entries = entries;
             return this;
@@ -272,11 +269,10 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use budgetLine instead. This field will be removed in a future version.
+         * @deprecated Use budgetLine instead. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
+        @Deprecated
         public Builder entries(List<CostBudgetEntryArgs> entries) {
             return entries(Output.of(entries));
         }
@@ -286,11 +282,10 @@ public final class CostBudgetState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use budgetLine instead. This field will be removed in a future version.
+         * @deprecated Use budgetLine instead. This field will be removed in a future version.
          * 
          */
-        @Deprecated /* Use budgetLine instead. This field will be removed in a future version. */
+        @Deprecated
         public Builder entries(CostBudgetEntryArgs... entries) {
             return entries(List.of(entries));
         }

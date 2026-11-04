@@ -115,6 +115,12 @@ func (LogsPipelineOrderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsPipelineOrderState)(nil)).Elem()
 }
 
+// LogsPipelineOrderExists checks whether an existing LogsPipelineOrder resource with the given ID exists.
+func LogsPipelineOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogsPipelineOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/logsPipelineOrder:LogsPipelineOrder", id, state, "", opts...)
+}
+
 type logsPipelineOrderArgs struct {
 	// The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
 	Name string `pulumi:"name"`

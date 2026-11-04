@@ -345,6 +345,24 @@ class RumApplication(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return RumApplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key_id: pulumi.Input[Optional[_builtins.int]] = None,
+            client_token: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
+            rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKeyId"] = api_key_id
+        __props__["clientToken"] = client_token
+        __props__["name"] = name
+        __props__["productAnalyticsRetentionState"] = product_analytics_retention_state
+        __props__["rumEventProcessingState"] = rum_event_processing_state
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'datadog:index/rumApplication:RumApplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKeyId")
     def api_key_id(self) -> pulumi.Output[_builtins.int]:

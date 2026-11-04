@@ -632,6 +632,38 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         __props__.__dict__["text_replacement"] = text_replacement
         return SensitiveDataScannerRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            excluded_namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            included_keyword_configuration: pulumi.Input[Optional[Union['SensitiveDataScannerRuleIncludedKeywordConfigurationArgs', 'SensitiveDataScannerRuleIncludedKeywordConfigurationArgsDict', 'outputs.SensitiveDataScannerRuleIncludedKeywordConfiguration']]] = None,
+            is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            standard_pattern_id: pulumi.Input[Optional[_builtins.str]] = None,
+            suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["excludedNamespaces"] = excluded_namespaces
+        __props__["groupId"] = group_id
+        __props__["includedKeywordConfiguration"] = included_keyword_configuration
+        __props__["isEnabled"] = is_enabled
+        __props__["name"] = name
+        __props__["namespaces"] = namespaces
+        __props__["pattern"] = pattern
+        __props__["priority"] = priority
+        __props__["standardPatternId"] = standard_pattern_id
+        __props__["suppressions"] = suppressions
+        __props__["tags"] = tags
+        __props__["textReplacement"] = text_replacement
+        return pulumi.runtime.exists_resource(None, 'datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:

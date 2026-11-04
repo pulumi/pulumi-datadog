@@ -193,6 +193,12 @@ func (OrgGroupPolicyOverrideState) ElementType() reflect.Type {
 	return reflect.TypeOf((*orgGroupPolicyOverrideState)(nil)).Elem()
 }
 
+// OrgGroupPolicyOverrideExists checks whether an existing OrgGroupPolicyOverride resource with the given ID exists.
+func OrgGroupPolicyOverrideExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrgGroupPolicyOverrideState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/orgGroupPolicyOverride:OrgGroupPolicyOverride", id, state, "", opts...)
+}
+
 type orgGroupPolicyOverrideArgs struct {
 	// The UUID of the org group that owns the policy. Must be a valid UUID.
 	OrgGroupId string `pulumi:"orgGroupId"`

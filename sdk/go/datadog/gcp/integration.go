@@ -179,6 +179,12 @@ func (IntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationState)(nil)).Elem()
 }
 
+// IntegrationExists checks whether an existing Integration resource with the given ID exists.
+func IntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:gcp/integration:Integration", id, state, "", opts...)
+}
+
 type integrationArgs struct {
 	// Silence monitors for expected GCE instance shutdowns. Defaults to `false`.
 	Automute *bool `pulumi:"automute"`

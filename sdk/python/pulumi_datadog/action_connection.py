@@ -1299,6 +1299,66 @@ class ActionConnection(pulumi.CustomResource):
         __props__.__dict__["virus_total"] = virus_total
         return ActionConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            anthropic: pulumi.Input[Optional[Union['ActionConnectionAnthropicArgs', 'ActionConnectionAnthropicArgsDict', 'outputs.ActionConnectionAnthropic']]] = None,
+            asana: pulumi.Input[Optional[Union['ActionConnectionAsanaArgs', 'ActionConnectionAsanaArgsDict', 'outputs.ActionConnectionAsana']]] = None,
+            aws: pulumi.Input[Optional[Union['ActionConnectionAwsArgs', 'ActionConnectionAwsArgsDict', 'outputs.ActionConnectionAws']]] = None,
+            azure: pulumi.Input[Optional[Union['ActionConnectionAzureArgs', 'ActionConnectionAzureArgsDict', 'outputs.ActionConnectionAzure']]] = None,
+            circle_ci: pulumi.Input[Optional[Union['ActionConnectionCircleCiArgs', 'ActionConnectionCircleCiArgsDict', 'outputs.ActionConnectionCircleCi']]] = None,
+            clickup: pulumi.Input[Optional[Union['ActionConnectionClickupArgs', 'ActionConnectionClickupArgsDict', 'outputs.ActionConnectionClickup']]] = None,
+            cloudflare: pulumi.Input[Optional[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict', 'outputs.ActionConnectionCloudflare']]] = None,
+            config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']]] = None,
+            datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']]] = None,
+            effective_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']]] = None,
+            freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']]] = None,
+            gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']]] = None,
+            gemini: pulumi.Input[Optional[Union['ActionConnectionGeminiArgs', 'ActionConnectionGeminiArgsDict', 'outputs.ActionConnectionGemini']]] = None,
+            gitlab: pulumi.Input[Optional[Union['ActionConnectionGitlabArgs', 'ActionConnectionGitlabArgsDict', 'outputs.ActionConnectionGitlab']]] = None,
+            grey_noise: pulumi.Input[Optional[Union['ActionConnectionGreyNoiseArgs', 'ActionConnectionGreyNoiseArgsDict', 'outputs.ActionConnectionGreyNoise']]] = None,
+            http: pulumi.Input[Optional[Union['ActionConnectionHttpArgs', 'ActionConnectionHttpArgsDict', 'outputs.ActionConnectionHttp']]] = None,
+            launch_darkly: pulumi.Input[Optional[Union['ActionConnectionLaunchDarklyArgs', 'ActionConnectionLaunchDarklyArgsDict', 'outputs.ActionConnectionLaunchDarkly']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notion: pulumi.Input[Optional[Union['ActionConnectionNotionArgs', 'ActionConnectionNotionArgsDict', 'outputs.ActionConnectionNotion']]] = None,
+            okta: pulumi.Input[Optional[Union['ActionConnectionOktaArgs', 'ActionConnectionOktaArgsDict', 'outputs.ActionConnectionOkta']]] = None,
+            openai: pulumi.Input[Optional[Union['ActionConnectionOpenaiArgs', 'ActionConnectionOpenaiArgsDict', 'outputs.ActionConnectionOpenai']]] = None,
+            service_now: pulumi.Input[Optional[Union['ActionConnectionServiceNowArgs', 'ActionConnectionServiceNowArgsDict', 'outputs.ActionConnectionServiceNow']]] = None,
+            split: pulumi.Input[Optional[Union['ActionConnectionSplitArgs', 'ActionConnectionSplitArgsDict', 'outputs.ActionConnectionSplit']]] = None,
+            statsig: pulumi.Input[Optional[Union['ActionConnectionStatsigArgs', 'ActionConnectionStatsigArgsDict', 'outputs.ActionConnectionStatsig']]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict', 'outputs.ActionConnectionVirusTotal']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["anthropic"] = anthropic
+        __props__["asana"] = asana
+        __props__["aws"] = aws
+        __props__["azure"] = azure
+        __props__["circleCi"] = circle_ci
+        __props__["clickup"] = clickup
+        __props__["cloudflare"] = cloudflare
+        __props__["configCat"] = config_cat
+        __props__["datadog"] = datadog
+        __props__["effectiveTags"] = effective_tags
+        __props__["fastly"] = fastly
+        __props__["freshservice"] = freshservice
+        __props__["gcp"] = gcp
+        __props__["gemini"] = gemini
+        __props__["gitlab"] = gitlab
+        __props__["greyNoise"] = grey_noise
+        __props__["http"] = http
+        __props__["launchDarkly"] = launch_darkly
+        __props__["name"] = name
+        __props__["notion"] = notion
+        __props__["okta"] = okta
+        __props__["openai"] = openai
+        __props__["serviceNow"] = service_now
+        __props__["split"] = split
+        __props__["statsig"] = statsig
+        __props__["tags"] = tags
+        __props__["virusTotal"] = virus_total
+        return pulumi.runtime.exists_resource(None, 'datadog:index/actionConnection:ActionConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def anthropic(self) -> pulumi.Output[Optional['outputs.ActionConnectionAnthropic']]:

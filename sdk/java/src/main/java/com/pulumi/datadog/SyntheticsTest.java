@@ -383,7 +383,7 @@ import javax.annotation.Nullable;
  *                         .callType("unary")
  *                         .service("greeter.Greeter")
  *                         .method("SayHello")
- *                         .message("}{{@code \"name\": \"John\"}}{@code ")
+ *                         .message("}{&#92;{@code "name}&#92;{@code ": }&#92;{@code "John}&#92;{@code "}}{@code ")
  *                         .plainProtoFile("""
  * syntax = "proto3";
  * 
@@ -736,7 +736,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .mobileSteps(            
  *                 SyntheticsTestMobileStepArgs.builder()
- *                     .name("Tap on StaticText \"Tap\"")
+ *                     .name("Tap on StaticText }&#92;{@code "Tap}&#92;{@code "")
  *                     .params(SyntheticsTestMobileStepParamsArgs.builder()
  *                         .element(SyntheticsTestMobileStepParamsElementArgs.builder()
  *                             .context("NATIVE_APP")
@@ -756,7 +756,7 @@ import javax.annotation.Nullable;
  *                                     .value("some_id")
  *                                     .build())
  *                                 .build())
- *                             .elementDescription("<XCUIElementTypeStaticText value=\"Tap\" name=\"Tap\" label=\"Tap\">")
+ *                             .elementDescription("<XCUIElementTypeStaticText value=}&#92;{@code "Tap}&#92;{@code " name=}&#92;{@code "Tap}&#92;{@code " label=}&#92;{@code "Tap}&#92;{@code ">")
  *                             .build())
  *                         .build())
  *                     .timeout(100)
@@ -767,7 +767,7 @@ import javax.annotation.Nullable;
  *                     .hasNewStepElement(false)
  *                     .build(),
  *                 SyntheticsTestMobileStepArgs.builder()
- *                     .name("Test View \"Tap\" content")
+ *                     .name("Test View }&#92;{@code "Tap}&#92;{@code " content")
  *                     .params(SyntheticsTestMobileStepParamsArgs.builder()
  *                         .check("contains")
  *                         .value("Tap")
@@ -789,7 +789,7 @@ import javax.annotation.Nullable;
  *                                     .value("some_id")
  *                                     .build())
  *                                 .build())
- *                             .elementDescription("<XCUIElementTypeOther name=\"Tap\" label=\"Tap\">")
+ *                             .elementDescription("<XCUIElementTypeOther name=}&#92;{@code "Tap}&#92;{@code " label=}&#92;{@code "Tap}&#92;{@code ">")
  *                             .build())
  *                         .build())
  *                     .timeout(100)
@@ -821,7 +821,7 @@ import javax.annotation.Nullable;
  *                 .callType("unary")
  *                 .service("greeter.Greeter")
  *                 .method("SayHello")
- *                 .message("}{{@code \"name\": \"John\"}}{@code ")
+ *                 .message("}{&#92;{@code "name}&#92;{@code ": }&#92;{@code "John}&#92;{@code "}}{@code ")
  *                 .plainProtoFile("""
  * syntax = "proto3";
  * 

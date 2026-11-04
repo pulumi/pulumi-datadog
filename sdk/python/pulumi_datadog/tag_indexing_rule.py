@@ -550,6 +550,34 @@ class TagIndexingRule(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return TagIndexingRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_tags_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignored_metric_name_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            metric_name_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Union['TagIndexingRuleOptionsArgs', 'TagIndexingRuleOptionsArgsDict', 'outputs.TagIndexingRuleOptions']]] = None,
+            rule_order: pulumi.Input[Optional[_builtins.int]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["createdByHandle"] = created_by_handle
+        __props__["excludeTagsMode"] = exclude_tags_mode
+        __props__["ignoredMetricNameMatches"] = ignored_metric_name_matches
+        __props__["metricNameMatches"] = metric_name_matches
+        __props__["modifiedAt"] = modified_at
+        __props__["modifiedByHandle"] = modified_by_handle
+        __props__["name"] = name
+        __props__["options"] = options
+        __props__["ruleOrder"] = rule_order
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'datadog:index/tagIndexingRule:TagIndexingRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

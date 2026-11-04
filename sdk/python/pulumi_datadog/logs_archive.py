@@ -589,6 +589,34 @@ class LogsArchive(pulumi.CustomResource):
         __props__.__dict__["s3_archive"] = s3_archive
         return LogsArchive(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure_archive: pulumi.Input[Optional[Union['LogsArchiveAzureArchiveArgs', 'LogsArchiveAzureArchiveArgsDict', 'outputs.LogsArchiveAzureArchive']]] = None,
+            compression_method: pulumi.Input[Optional[_builtins.str]] = None,
+            gcs_archive: pulumi.Input[Optional[Union['LogsArchiveGcsArchiveArgs', 'LogsArchiveGcsArchiveArgsDict', 'outputs.LogsArchiveGcsArchive']]] = None,
+            include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            lookup_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            partitioning_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            rehydration_max_scan_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+            rehydration_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            s3_archive: pulumi.Input[Optional[Union['LogsArchiveS3ArchiveArgs', 'LogsArchiveS3ArchiveArgsDict', 'outputs.LogsArchiveS3Archive']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azureArchive"] = azure_archive
+        __props__["compressionMethod"] = compression_method
+        __props__["gcsArchive"] = gcs_archive
+        __props__["includeTags"] = include_tags
+        __props__["lookupAttributes"] = lookup_attributes
+        __props__["name"] = name
+        __props__["partitioningAttributes"] = partitioning_attributes
+        __props__["query"] = query
+        __props__["rehydrationMaxScanSizeInGb"] = rehydration_max_scan_size_in_gb
+        __props__["rehydrationTags"] = rehydration_tags
+        __props__["s3Archive"] = s3_archive
+        return pulumi.runtime.exists_resource(None, 'datadog:index/logsArchive:LogsArchive', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="azureArchive")
     def azure_archive(self) -> pulumi.Output[Optional['outputs.LogsArchiveAzureArchive']]:

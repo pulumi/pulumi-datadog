@@ -114,6 +114,12 @@ func (SecurityFindingsSeverityModifierRulesOrderState) ElementType() reflect.Typ
 	return reflect.TypeOf((*securityFindingsSeverityModifierRulesOrderState)(nil)).Elem()
 }
 
+// SecurityFindingsSeverityModifierRulesOrderExists checks whether an existing SecurityFindingsSeverityModifierRulesOrder resource with the given ID exists.
+func SecurityFindingsSeverityModifierRulesOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityFindingsSeverityModifierRulesOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityFindingsSeverityModifierRulesOrder:SecurityFindingsSeverityModifierRulesOrder", id, state, "", opts...)
+}
+
 type securityFindingsSeverityModifierRulesOrderArgs struct {
 	// A unique identifier for the order resource. This field has no server-side equivalent; Datadog recommends matching the resource name.
 	Name string `pulumi:"name"`

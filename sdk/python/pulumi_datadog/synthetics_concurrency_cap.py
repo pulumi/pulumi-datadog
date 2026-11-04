@@ -186,6 +186,14 @@ class SyntheticsConcurrencyCap(pulumi.CustomResource):
         __props__.__dict__["on_demand_concurrency_cap"] = on_demand_concurrency_cap
         return SyntheticsConcurrencyCap(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            on_demand_concurrency_cap: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["onDemandConcurrencyCap"] = on_demand_concurrency_cap
+        return pulumi.runtime.exists_resource(None, 'datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="onDemandConcurrencyCap")
     def on_demand_concurrency_cap(self) -> pulumi.Output[_builtins.int]:

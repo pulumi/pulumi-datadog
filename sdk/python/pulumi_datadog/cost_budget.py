@@ -681,6 +681,28 @@ class CostBudget(pulumi.CustomResource):
         __props__.__dict__["total_amount"] = total_amount
         return CostBudget(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            budget_id: pulumi.Input[Optional[_builtins.str]] = None,
+            budget_lines: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetBudgetLineArgs', 'CostBudgetBudgetLineArgsDict', 'outputs.CostBudgetBudgetLine']]]]] = None,
+            end_month: pulumi.Input[Optional[_builtins.int]] = None,
+            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostBudgetEntryArgs', 'CostBudgetEntryArgsDict', 'outputs.CostBudgetEntry']]]]] = None,
+            metrics_query: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            start_month: pulumi.Input[Optional[_builtins.int]] = None,
+            total_amount: pulumi.Input[Optional[_builtins.float]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["budgetId"] = budget_id
+        __props__["budgetLines"] = budget_lines
+        __props__["endMonth"] = end_month
+        __props__["entries"] = entries
+        __props__["metricsQuery"] = metrics_query
+        __props__["name"] = name
+        __props__["startMonth"] = start_month
+        __props__["totalAmount"] = total_amount
+        return pulumi.runtime.exists_resource(None, 'datadog:index/costBudget:CostBudget', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="budgetId")
     def budget_id(self) -> pulumi.Output[_builtins.str]:
