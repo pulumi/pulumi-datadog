@@ -163,6 +163,12 @@ func (DashboardListState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dashboardListState)(nil)).Elem()
 }
 
+// DashboardListExists checks whether an existing DashboardList resource with the given ID exists.
+func DashboardListExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DashboardListState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/dashboardList:DashboardList", id, state, "", opts...)
+}
+
 type dashboardListArgs struct {
 	// A set of dashboard items that belong to this list
 	DashItems []DashboardListDashItem `pulumi:"dashItems"`

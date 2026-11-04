@@ -101,6 +101,12 @@ func (LogsArchiveOrderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsArchiveOrderState)(nil)).Elem()
 }
 
+// LogsArchiveOrderExists checks whether an existing LogsArchiveOrder resource with the given ID exists.
+func LogsArchiveOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogsArchiveOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/logsArchiveOrder:LogsArchiveOrder", id, state, "", opts...)
+}
+
 type logsArchiveOrderArgs struct {
 	// The archive IDs list. The order of archive IDs in this attribute defines the overall archive order for logs. If `archiveIds` is empty or not specified, it will import the actual archive order, and create the resource. Otherwise, it will try to update the order.
 	ArchiveIds []string `pulumi:"archiveIds"`

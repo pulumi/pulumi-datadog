@@ -421,6 +421,24 @@ class MetricTagConfiguration(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return MetricTagConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aggregations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricTagConfigurationAggregationArgs', 'MetricTagConfigurationAggregationArgsDict', 'outputs.MetricTagConfigurationAggregation']]]]] = None,
+            exclude_tags_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            include_percentiles: pulumi.Input[Optional[_builtins.bool]] = None,
+            metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aggregations"] = aggregations
+        __props__["excludeTagsMode"] = exclude_tags_mode
+        __props__["includePercentiles"] = include_percentiles
+        __props__["metricName"] = metric_name
+        __props__["metricType"] = metric_type
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'datadog:index/metricTagConfiguration:MetricTagConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.""")

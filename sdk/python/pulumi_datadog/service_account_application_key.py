@@ -353,6 +353,24 @@ class ServiceAccountApplicationKey(pulumi.CustomResource):
         __props__.__dict__["service_account_id"] = service_account_id
         return ServiceAccountApplicationKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            last4: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            service_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["key"] = key
+        __props__["last4"] = last4
+        __props__["name"] = name
+        __props__["scopes"] = scopes
+        __props__["serviceAccountId"] = service_account_id
+        return pulumi.runtime.exists_resource(None, 'datadog:index/serviceAccountApplicationKey:ServiceAccountApplicationKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

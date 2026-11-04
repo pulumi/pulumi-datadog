@@ -293,6 +293,12 @@ func (ActionExecutionPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionExecutionPolicyState)(nil)).Elem()
 }
 
+// ActionExecutionPolicyExists checks whether an existing ActionExecutionPolicy resource with the given ID exists.
+func ActionExecutionPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionExecutionPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/actionExecutionPolicy:ActionExecutionPolicy", id, state, "", opts...)
+}
+
 type actionExecutionPolicyArgs struct {
 	// The set of actions this policy applies to. Required.
 	ActionPattern *ActionExecutionPolicyActionPattern `pulumi:"actionPattern"`

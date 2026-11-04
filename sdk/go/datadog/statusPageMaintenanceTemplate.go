@@ -178,6 +178,12 @@ func (StatusPageMaintenanceTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*statusPageMaintenanceTemplateState)(nil)).Elem()
 }
 
+// StatusPageMaintenanceTemplateExists checks whether an existing StatusPageMaintenanceTemplate resource with the given ID exists.
+func StatusPageMaintenanceTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StatusPageMaintenanceTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/statusPageMaintenanceTemplate:StatusPageMaintenanceTemplate", id, state, "", opts...)
+}
+
 type statusPageMaintenanceTemplateArgs struct {
 	// The pre-filled description shown once the maintenance is completed.
 	CompletedDescription *string `pulumi:"completedDescription"`

@@ -139,6 +139,12 @@ func (OrgGroupMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*orgGroupMembershipState)(nil)).Elem()
 }
 
+// OrgGroupMembershipExists checks whether an existing OrgGroupMembership resource with the given ID exists.
+func OrgGroupMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrgGroupMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/orgGroupMembership:OrgGroupMembership", id, state, "", opts...)
+}
+
 type orgGroupMembershipArgs struct {
 	// The UUID of the org group to assign the organization to. Must be a valid UUID.
 	OrgGroupId string `pulumi:"orgGroupId"`

@@ -22,11 +22,10 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSize {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable PowerpackV2WidgetApmQuery apmQuery;
     /**
      * @return A list of formulas to use in the widget.
@@ -36,29 +35,26 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSize {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable PowerpackV2WidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable PowerpackV2WidgetHostmapDefinitionRequestSizeProcessQuery processQuery;
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable String q;
     /**
      * @return A list of queries to use in the widget.
@@ -68,31 +64,28 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSize {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable PowerpackV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable PowerpackV2WidgetSecurityQuery securityQuery;
 
     private PowerpackV2WidgetHostmapDefinitionRequestSize() {}
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<PowerpackV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
@@ -106,33 +99,30 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSize {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<PowerpackV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<PowerpackV2WidgetHostmapDefinitionRequestSizeProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
@@ -146,22 +136,20 @@ public final class PowerpackV2WidgetHostmapDefinitionRequestSize {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<PowerpackV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<PowerpackV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }

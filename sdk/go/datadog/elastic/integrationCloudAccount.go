@@ -90,6 +90,12 @@ func (IntegrationCloudAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationCloudAccountState)(nil)).Elem()
 }
 
+// IntegrationCloudAccountExists checks whether an existing IntegrationCloudAccount resource with the given ID exists.
+func IntegrationCloudAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationCloudAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:elastic/integrationCloudAccount:IntegrationCloudAccount", id, state, "", opts...)
+}
+
 type integrationCloudAccountArgs struct {
 	// Authentication configured on the Elastic Cloud integration account.
 	Authentication IntegrationCloudAccountAuthentication `pulumi:"authentication"`

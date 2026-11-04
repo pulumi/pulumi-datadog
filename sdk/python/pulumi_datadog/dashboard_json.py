@@ -1248,6 +1248,20 @@ class DashboardJson(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return DashboardJson(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dashboard: pulumi.Input[Optional[_builtins.str]] = None,
+            dashboard_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            dashboard_lists_removeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dashboard"] = dashboard
+        __props__["dashboardLists"] = dashboard_lists
+        __props__["dashboardListsRemoveds"] = dashboard_lists_removeds
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'datadog:index/dashboardJson:DashboardJson', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def dashboard(self) -> pulumi.Output[_builtins.str]:

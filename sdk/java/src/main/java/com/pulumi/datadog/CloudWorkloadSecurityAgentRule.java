@@ -36,21 +36,21 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var myAgentRule = new CloudWorkloadSecurityAgentRule("myAgentRule", CloudWorkloadSecurityAgentRuleArgs.builder()
  *             .name("my_agent_rule")
  *             .description("My agent rule")
  *             .enabled(true)
- *             .expression("exec.file.name == \"java\"")
+ *             .expression("exec.file.name == }&#92;{@code "java}&#92;{@code "")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

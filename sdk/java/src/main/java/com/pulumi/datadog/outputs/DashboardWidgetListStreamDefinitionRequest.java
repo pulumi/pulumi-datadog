@@ -23,11 +23,10 @@ public final class DashboardWidgetListStreamDefinitionRequest {
     /**
      * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
      * 
-     * @deprecated
-     * This field has no effect and will be removed in a future release.
+     * @deprecated This field has no effect and will be removed in a future release.
      * 
      */
-    @Deprecated /* This field has no effect and will be removed in a future release. */
+    @Deprecated
     private @Nullable String description;
     /**
      * @return Updated list stream widget.
@@ -51,11 +50,10 @@ public final class DashboardWidgetListStreamDefinitionRequest {
     /**
      * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
      * 
-     * @deprecated
-     * This field has no effect and will be removed in a future release.
+     * @deprecated This field has no effect and will be removed in a future release.
      * 
      */
-    @Deprecated /* This field has no effect and will be removed in a future release. */
+    @Deprecated
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }

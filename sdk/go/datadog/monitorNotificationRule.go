@@ -171,6 +171,12 @@ func (MonitorNotificationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorNotificationRuleState)(nil)).Elem()
 }
 
+// MonitorNotificationRuleExists checks whether an existing MonitorNotificationRule resource with the given ID exists.
+func MonitorNotificationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorNotificationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/monitorNotificationRule:MonitorNotificationRule", id, state, "", opts...)
+}
+
 type monitorNotificationRuleArgs struct {
 	// Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
 	BundleConfig *MonitorNotificationRuleBundleConfig `pulumi:"bundleConfig"`

@@ -450,6 +450,26 @@ class IncidentNotificationTemplate(pulumi.CustomResource):
         __props__.__dict__["subject"] = subject
         return IncidentNotificationTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            incident_type: pulumi.Input[Optional[_builtins.str]] = None,
+            modified: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            subject: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["category"] = category
+        __props__["content"] = content
+        __props__["created"] = created
+        __props__["incidentType"] = incident_type
+        __props__["modified"] = modified
+        __props__["name"] = name
+        __props__["subject"] = subject
+        return pulumi.runtime.exists_resource(None, 'datadog:index/incidentNotificationTemplate:IncidentNotificationTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def category(self) -> pulumi.Output[_builtins.str]:

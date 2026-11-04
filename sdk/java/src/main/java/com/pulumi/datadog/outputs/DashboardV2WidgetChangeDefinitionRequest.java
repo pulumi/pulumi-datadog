@@ -23,11 +23,10 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetApmQuery apmQuery;
     /**
      * @return Whether to show absolute or relative change. Valid values are `absolute`, `relative`.
@@ -52,11 +51,10 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetLogQuery logQuery;
     /**
      * @return What to order by. Valid values are `change`, `name`, `present`, `past`.
@@ -71,20 +69,18 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetChangeDefinitionRequestProcessQuery processQuery;
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable String q;
     /**
      * @return A list of queries to use in the widget.
@@ -94,20 +90,18 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
     /**
      * @return If set to `true`, displays the current value.
@@ -119,11 +113,10 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
@@ -158,11 +151,10 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
@@ -183,22 +175,20 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetChangeDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
@@ -212,22 +202,20 @@ public final class DashboardV2WidgetChangeDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }

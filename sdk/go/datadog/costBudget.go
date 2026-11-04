@@ -323,6 +323,12 @@ func (CostBudgetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*costBudgetState)(nil)).Elem()
 }
 
+// CostBudgetExists checks whether an existing CostBudget resource with the given ID exists.
+func CostBudgetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CostBudgetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/costBudget:CostBudget", id, state, "", opts...)
+}
+
 type costBudgetArgs struct {
 	// The ID of the budget.
 	BudgetId *string `pulumi:"budgetId"`

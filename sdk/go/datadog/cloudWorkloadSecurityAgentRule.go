@@ -126,6 +126,12 @@ func (CloudWorkloadSecurityAgentRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudWorkloadSecurityAgentRuleState)(nil)).Elem()
 }
 
+// CloudWorkloadSecurityAgentRuleExists checks whether an existing CloudWorkloadSecurityAgentRule resource with the given ID exists.
+func CloudWorkloadSecurityAgentRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudWorkloadSecurityAgentRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/cloudWorkloadSecurityAgentRule:CloudWorkloadSecurityAgentRule", id, state, "", opts...)
+}
+
 type cloudWorkloadSecurityAgentRuleArgs struct {
 	// The description of the Agent rule. Defaults to `""`.
 	Description *string `pulumi:"description"`

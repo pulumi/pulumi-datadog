@@ -139,6 +139,12 @@ func (UserRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userRoleState)(nil)).Elem()
 }
 
+// UserRoleExists checks whether an existing UserRole resource with the given ID exists.
+func UserRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/userRole:UserRole", id, state, "", opts...)
+}
+
 type userRoleArgs struct {
 	// ID of the role that the user is assigned to.
 	RoleId string `pulumi:"roleId"`

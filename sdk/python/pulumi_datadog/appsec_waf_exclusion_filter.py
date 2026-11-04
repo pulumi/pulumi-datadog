@@ -515,6 +515,30 @@ class AppsecWafExclusionFilter(pulumi.CustomResource):
         __props__.__dict__["scopes"] = scopes
         return AppsecWafExclusionFilter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            event_query: pulumi.Input[Optional[_builtins.str]] = None,
+            ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            on_match: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            path_glob: pulumi.Input[Optional[_builtins.str]] = None,
+            rules_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterRulesTargetArgs', 'AppsecWafExclusionFilterRulesTargetArgsDict', 'outputs.AppsecWafExclusionFilterRulesTarget']]]]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppsecWafExclusionFilterScopeArgs', 'AppsecWafExclusionFilterScopeArgsDict', 'outputs.AppsecWafExclusionFilterScope']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["eventQuery"] = event_query
+        __props__["ipLists"] = ip_lists
+        __props__["onMatch"] = on_match
+        __props__["parameters"] = parameters
+        __props__["pathGlob"] = path_glob
+        __props__["rulesTargets"] = rules_targets
+        __props__["scopes"] = scopes
+        return pulumi.runtime.exists_resource(None, 'datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:

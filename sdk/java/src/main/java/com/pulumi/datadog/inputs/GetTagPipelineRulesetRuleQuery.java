@@ -50,22 +50,20 @@ public final class GetTagPipelineRulesetRuleQuery extends com.pulumi.resources.I
     /**
      * Whether to apply the query only if the key doesn&#39;t exist.
      * 
-     * @deprecated
-     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      * 
      */
-    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
+    @Deprecated
     @Import(name="ifNotExists", required=true)
     private Boolean ifNotExists;
 
     /**
      * @return Whether to apply the query only if the key doesn&#39;t exist.
      * 
-     * @deprecated
-     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      * 
      */
-    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
+    @Deprecated
     public Boolean ifNotExists() {
         return this.ifNotExists;
     }
@@ -155,11 +153,10 @@ public final class GetTagPipelineRulesetRuleQuery extends com.pulumi.resources.I
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `ifTagExists` instead. This field will be removed in a future release.
+         * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
          * 
          */
-        @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
+        @Deprecated
         public Builder ifNotExists(Boolean ifNotExists) {
             $.ifNotExists = ifNotExists;
             return this;

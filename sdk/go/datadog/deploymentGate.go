@@ -169,6 +169,12 @@ func (DeploymentGateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deploymentGateState)(nil)).Elem()
 }
 
+// DeploymentGateExists checks whether an existing DeploymentGate resource with the given ID exists.
+func DeploymentGateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeploymentGateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/deploymentGate:DeploymentGate", id, state, "", opts...)
+}
+
 type deploymentGateArgs struct {
 	// Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
 	DryRun *bool `pulumi:"dryRun"`

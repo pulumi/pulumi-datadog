@@ -176,6 +176,12 @@ func (IntegrationStsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationStsState)(nil)).Elem()
 }
 
+// IntegrationStsExists checks whether an existing IntegrationSts resource with the given ID exists.
+func IntegrationStsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationStsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:gcp/integrationSts:IntegrationSts", id, state, "", opts...)
+}
+
 type integrationStsArgs struct {
 	// Tags to be associated with GCP metrics and service checks from your account.
 	AccountTags []string `pulumi:"accountTags"`

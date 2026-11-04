@@ -135,6 +135,12 @@ func (RumExclusionFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rumExclusionFilterState)(nil)).Elem()
 }
 
+// RumExclusionFilterExists checks whether an existing RumExclusionFilter resource with the given ID exists.
+func RumExclusionFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RumExclusionFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/rumExclusionFilter:RumExclusionFilter", id, state, "", opts...)
+}
+
 type rumExclusionFilterArgs struct {
 	// RUM application ID.
 	ApplicationId string `pulumi:"applicationId"`

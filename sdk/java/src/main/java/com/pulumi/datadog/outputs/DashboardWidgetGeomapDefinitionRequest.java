@@ -24,20 +24,18 @@ public final class DashboardWidgetGeomapDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable String q;
     /**
      * @return List of queries that can be returned directly or used in formulas.
@@ -47,11 +45,10 @@ public final class DashboardWidgetGeomapDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardWidgetRumQuery rumQuery;
 
     private DashboardWidgetGeomapDefinitionRequest() {}
@@ -65,22 +62,20 @@ public final class DashboardWidgetGeomapDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
@@ -94,11 +89,10 @@ public final class DashboardWidgetGeomapDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }

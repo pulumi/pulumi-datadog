@@ -267,6 +267,20 @@ class IntegrationAccount(pulumi.CustomResource):
         __props__.__dict__["settings"] = settings
         return IntegrationAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication: pulumi.Input[Optional[Union['IntegrationAccountAuthenticationArgs', 'IntegrationAccountAuthenticationArgsDict', 'outputs.IntegrationAccountAuthentication']]] = None,
+            dataflows: pulumi.Input[Optional[Union['IntegrationAccountDataflowsArgs', 'IntegrationAccountDataflowsArgsDict', 'outputs.IntegrationAccountDataflows']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['IntegrationAccountSettingsArgs', 'IntegrationAccountSettingsArgsDict', 'outputs.IntegrationAccountSettings']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authentication"] = authentication
+        __props__["dataflows"] = dataflows
+        __props__["name"] = name
+        __props__["settings"] = settings
+        return pulumi.runtime.exists_resource(None, 'datadog:twilio/integrationAccount:IntegrationAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def authentication(self) -> pulumi.Output['outputs.IntegrationAccountAuthentication']:

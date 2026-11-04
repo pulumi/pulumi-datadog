@@ -308,6 +308,20 @@ class IntegrationAccount(pulumi.CustomResource):
         __props__.__dict__["resources"] = resources
         return IntegrationAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiKey"] = api_key
+        __props__["email"] = email
+        __props__["name"] = name
+        __props__["resources"] = resources
+        return pulumi.runtime.exists_resource(None, 'datadog:cloudflare/integrationAccount:IntegrationAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[_builtins.str]:

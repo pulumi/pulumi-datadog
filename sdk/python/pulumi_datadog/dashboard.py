@@ -1006,6 +1006,44 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["widgets"] = widgets
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dashboard_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            dashboard_lists_removeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+            layout_type: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            reflow_type: pulumi.Input[Optional[_builtins.str]] = None,
+            restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tabs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTabArgs', 'DashboardTabArgsDict', 'outputs.DashboardTab']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            template_variable_presets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariablePresetArgs', 'DashboardTemplateVariablePresetArgsDict', 'outputs.DashboardTemplateVariablePreset']]]]] = None,
+            template_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardTemplateVariableArgs', 'DashboardTemplateVariableArgsDict', 'outputs.DashboardTemplateVariable']]]]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None,
+            widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict', 'outputs.DashboardWidget']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dashboardLists"] = dashboard_lists
+        __props__["dashboardListsRemoveds"] = dashboard_lists_removeds
+        __props__["description"] = description
+        __props__["isReadOnly"] = is_read_only
+        __props__["layoutType"] = layout_type
+        __props__["notifyLists"] = notify_lists
+        __props__["reflowType"] = reflow_type
+        __props__["restrictedRoles"] = restricted_roles
+        __props__["tabs"] = tabs
+        __props__["tags"] = tags
+        __props__["templateVariablePresets"] = template_variable_presets
+        __props__["templateVariables"] = template_variables
+        __props__["title"] = title
+        __props__["url"] = url
+        __props__["validate"] = validate
+        __props__["widgets"] = widgets
+        return pulumi.runtime.exists_resource(None, 'datadog:index/dashboard:Dashboard', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dashboardLists")
     def dashboard_lists(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:

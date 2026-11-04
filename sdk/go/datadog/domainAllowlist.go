@@ -104,6 +104,12 @@ func (DomainAllowlistState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainAllowlistState)(nil)).Elem()
 }
 
+// DomainAllowlistExists checks whether an existing DomainAllowlist resource with the given ID exists.
+func DomainAllowlistExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainAllowlistState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/domainAllowlist:DomainAllowlist", id, state, "", opts...)
+}
+
 type domainAllowlistArgs struct {
 	// The domains within the domain allowlist.
 	Domains []string `pulumi:"domains"`

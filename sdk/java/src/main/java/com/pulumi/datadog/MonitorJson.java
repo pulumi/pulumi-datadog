@@ -34,41 +34,41 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var monitorJson = new MonitorJson("monitorJson", MonitorJsonArgs.builder()
  *             .monitor("""
- * {
+ * }{{@code
  *     "name": "Example monitor - service check",
  *     "type": "service check",
- *     "query": "\"ntp.in_sync\".by(\"*\").last(2).count_by_status()",
- *     "message": "Change the message triggers if any host's clock goes out of sync with the time given by NTP. The offset threshold is configured in the Agent's 'ntp.yaml' file.\n\nSee [Troubleshooting NTP Offset issues](https://docs.datadoghq.com/agent/troubleshooting/ntp for more details on cause and resolution.",
+ *     "query": "}&#92;{@code "ntp.in_sync}&#92;{@code ".by(}&#92;{@code "*}&#92;{@code ").last(2).count_by_status()",
+ *     "message": "Change the message triggers if any host's clock goes out of sync with the time given by NTP. The offset threshold is configured in the Agent's 'ntp.yaml' file.}&#92;{@code n}&#92;{@code nSee [Troubleshooting NTP Offset issues](https://docs.datadoghq.com/agent/troubleshooting/ntp for more details on cause and resolution.",
  *     "tags": [],
  *     "multi": true,
  * 	"restricted_roles": null,
- *     "options": {
+ *     "options": }{{@code
  *         "include_tags": true,
  *         "new_host_delay": 150,
  *         "notify_audit": false,
  *         "notify_no_data": false,
- *         "thresholds": {
+ *         "thresholds": }{{@code
  *             "warning": 1,
  *             "ok": 1,
  *             "critical": 1
- *         }
- *     },
+ *         }}{@code
+ *     }}{@code ,
  *     "priority": null,
  *     "classification": "custom"
- * }
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

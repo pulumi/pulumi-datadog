@@ -114,6 +114,12 @@ func (SecurityFindingsMuteRulesOrderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityFindingsMuteRulesOrderState)(nil)).Elem()
 }
 
+// SecurityFindingsMuteRulesOrderExists checks whether an existing SecurityFindingsMuteRulesOrder resource with the given ID exists.
+func SecurityFindingsMuteRulesOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityFindingsMuteRulesOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityFindingsMuteRulesOrder:SecurityFindingsMuteRulesOrder", id, state, "", opts...)
+}
+
 type securityFindingsMuteRulesOrderArgs struct {
 	// A unique identifier for the order resource. This field has no server-side equivalent; Datadog recommends matching the resource name.
 	Name string `pulumi:"name"`

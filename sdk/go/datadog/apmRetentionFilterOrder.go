@@ -121,6 +121,12 @@ func (ApmRetentionFilterOrderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apmRetentionFilterOrderState)(nil)).Elem()
 }
 
+// ApmRetentionFilterOrderExists checks whether an existing ApmRetentionFilterOrder resource with the given ID exists.
+func ApmRetentionFilterOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApmRetentionFilterOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder", id, state, "", opts...)
+}
+
 type apmRetentionFilterOrderArgs struct {
 	// The filter IDs list. The order of filters IDs in this attribute defines the overall APM retention filters order.
 	FilterIds []string `pulumi:"filterIds"`

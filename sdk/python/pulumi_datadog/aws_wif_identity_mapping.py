@@ -258,6 +258,18 @@ class AwsWifIdentityMapping(pulumi.CustomResource):
         __props__.__dict__["arn_pattern"] = arn_pattern
         return AwsWifIdentityMapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+            account_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            arn_pattern: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountIdentifier"] = account_identifier
+        __props__["accountUuid"] = account_uuid
+        __props__["arnPattern"] = arn_pattern
+        return pulumi.runtime.exists_resource(None, 'datadog:index/awsWifIdentityMapping:AwsWifIdentityMapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountIdentifier")
     def account_identifier(self) -> pulumi.Output[_builtins.str]:

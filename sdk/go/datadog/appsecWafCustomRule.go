@@ -214,6 +214,12 @@ func (AppsecWafCustomRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appsecWafCustomRuleState)(nil)).Elem()
 }
 
+// AppsecWafCustomRuleExists checks whether an existing AppsecWafCustomRule resource with the given ID exists.
+func AppsecWafCustomRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppsecWafCustomRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/appsecWafCustomRule:AppsecWafCustomRule", id, state, "", opts...)
+}
+
 type appsecWafCustomRuleArgs struct {
 	Action *AppsecWafCustomRuleAction `pulumi:"action"`
 	// Indicates whether the WAF custom rule will block the request.

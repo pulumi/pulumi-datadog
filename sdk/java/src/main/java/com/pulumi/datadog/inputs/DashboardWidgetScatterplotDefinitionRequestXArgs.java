@@ -41,22 +41,20 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
     /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="apmQuery")
     private @Nullable Output<DashboardWidgetApmQueryArgs> apmQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<DashboardWidgetApmQueryArgs>> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
@@ -79,22 +77,20 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
     /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<DashboardWidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
@@ -102,22 +98,20 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
     /**
      * The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="processQuery")
     private @Nullable Output<DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs> processQuery;
 
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs>> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
@@ -125,22 +119,20 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
     /**
      * The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="q")
     private @Nullable Output<String> q;
 
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
@@ -163,22 +155,20 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
     /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<DashboardWidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
@@ -186,22 +176,20 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
     /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="securityQuery")
     private @Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<DashboardWidgetSecurityQueryArgs>> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }
@@ -264,11 +252,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder apmQuery(@Nullable Output<DashboardWidgetApmQueryArgs> apmQuery) {
             $.apmQuery = apmQuery;
             return this;
@@ -279,11 +266,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder apmQuery(DashboardWidgetApmQueryArgs apmQuery) {
             return apmQuery(Output.of(apmQuery));
         }
@@ -324,11 +310,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder logQuery(@Nullable Output<DashboardWidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
@@ -339,11 +324,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder logQuery(DashboardWidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
@@ -353,11 +337,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder processQuery(@Nullable Output<DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs> processQuery) {
             $.processQuery = processQuery;
             return this;
@@ -368,11 +351,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder processQuery(DashboardWidgetScatterplotDefinitionRequestXProcessQueryArgs processQuery) {
             return processQuery(Output.of(processQuery));
         }
@@ -382,11 +364,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
@@ -397,11 +378,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder q(String q) {
             return q(Output.of(q));
         }
@@ -442,11 +422,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder rumQuery(@Nullable Output<DashboardWidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
@@ -457,11 +436,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder rumQuery(DashboardWidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }
@@ -471,11 +449,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder securityQuery(@Nullable Output<DashboardWidgetSecurityQueryArgs> securityQuery) {
             $.securityQuery = securityQuery;
             return this;
@@ -486,11 +463,10 @@ public final class DashboardWidgetScatterplotDefinitionRequestXArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder securityQuery(DashboardWidgetSecurityQueryArgs securityQuery) {
             return securityQuery(Output.of(securityQuery));
         }

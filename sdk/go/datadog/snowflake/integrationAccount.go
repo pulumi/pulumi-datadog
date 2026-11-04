@@ -90,6 +90,12 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountState)(nil)).Elem()
 }
 
+// IntegrationAccountExists checks whether an existing IntegrationAccount resource with the given ID exists.
+func IntegrationAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:snowflake/integrationAccount:IntegrationAccount", id, state, "", opts...)
+}
+
 type integrationAccountArgs struct {
 	// Authentication configured on the Snowflake integration account.
 	Authentication IntegrationAccountAuthentication `pulumi:"authentication"`

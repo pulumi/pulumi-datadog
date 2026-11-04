@@ -26,20 +26,18 @@ public final class DashboardWidgetToplistDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardWidgetApmQuery apmQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardWidgetToplistDefinitionRequestAuditQuery auditQuery;
     /**
      * @return Conditional formats allow you to set the color of your widget content or background, depending on a rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
@@ -54,29 +52,26 @@ public final class DashboardWidgetToplistDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardWidgetLogQuery logQuery;
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardWidgetToplistDefinitionRequestProcessQuery processQuery;
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable String q;
     /**
      * @return A list of queries to use in the widget.
@@ -86,20 +81,18 @@ public final class DashboardWidgetToplistDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardWidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardWidgetSecurityQuery securityQuery;
     /**
      * @return The controls for sorting the widget. Only applicable for formula-style requests.
@@ -116,22 +109,20 @@ public final class DashboardWidgetToplistDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardWidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardWidgetToplistDefinitionRequestAuditQuery> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
@@ -152,33 +143,30 @@ public final class DashboardWidgetToplistDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardWidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
     /**
      * @return The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardWidgetToplistDefinitionRequestProcessQuery> processQuery() {
         return Optional.ofNullable(this.processQuery);
     }
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
@@ -192,22 +180,20 @@ public final class DashboardWidgetToplistDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardWidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardWidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }

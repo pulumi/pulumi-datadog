@@ -51,22 +51,20 @@ public final class GetTagPipelineRulesetRuleQueryArgs extends com.pulumi.resourc
     /**
      * Whether to apply the query only if the key doesn&#39;t exist.
      * 
-     * @deprecated
-     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      * 
      */
-    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
+    @Deprecated
     @Import(name="ifNotExists", required=true)
     private Output<Boolean> ifNotExists;
 
     /**
      * @return Whether to apply the query only if the key doesn&#39;t exist.
      * 
-     * @deprecated
-     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      * 
      */
-    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
+    @Deprecated
     public Output<Boolean> ifNotExists() {
         return this.ifNotExists;
     }
@@ -176,11 +174,10 @@ public final class GetTagPipelineRulesetRuleQueryArgs extends com.pulumi.resourc
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `ifTagExists` instead. This field will be removed in a future release.
+         * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
          * 
          */
-        @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
+        @Deprecated
         public Builder ifNotExists(Output<Boolean> ifNotExists) {
             $.ifNotExists = ifNotExists;
             return this;
@@ -191,11 +188,10 @@ public final class GetTagPipelineRulesetRuleQueryArgs extends com.pulumi.resourc
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `ifTagExists` instead. This field will be removed in a future release.
+         * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
          * 
          */
-        @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
+        @Deprecated
         public Builder ifNotExists(Boolean ifNotExists) {
             return ifNotExists(Output.of(ifNotExists));
         }

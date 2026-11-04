@@ -175,6 +175,12 @@ func (ComplianceCustomFrameworkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*complianceCustomFrameworkState)(nil)).Elem()
 }
 
+// ComplianceCustomFrameworkExists checks whether an existing ComplianceCustomFramework resource with the given ID exists.
+func ComplianceCustomFrameworkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComplianceCustomFrameworkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/complianceCustomFramework:ComplianceCustomFramework", id, state, "", opts...)
+}
+
 type complianceCustomFrameworkArgs struct {
 	// The framework handle. String length must be at least 1. This field is immutable.
 	Handle string `pulumi:"handle"`

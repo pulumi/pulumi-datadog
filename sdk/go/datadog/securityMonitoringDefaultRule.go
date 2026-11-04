@@ -156,6 +156,12 @@ func (SecurityMonitoringDefaultRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityMonitoringDefaultRuleState)(nil)).Elem()
 }
 
+// SecurityMonitoringDefaultRuleExists checks whether an existing SecurityMonitoringDefaultRule resource with the given ID exists.
+func SecurityMonitoringDefaultRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityMonitoringDefaultRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityMonitoringDefaultRule:SecurityMonitoringDefaultRule", id, state, "", opts...)
+}
+
 type securityMonitoringDefaultRuleArgs struct {
 	// Cases of the rule, this is used to update notifications.
 	Cases []SecurityMonitoringDefaultRuleCase `pulumi:"cases"`

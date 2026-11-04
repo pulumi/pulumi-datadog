@@ -138,6 +138,12 @@ func (TagIndexingRuleOrderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagIndexingRuleOrderState)(nil)).Elem()
 }
 
+// TagIndexingRuleOrderExists checks whether an existing TagIndexingRuleOrder resource with the given ID exists.
+func TagIndexingRuleOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagIndexingRuleOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/tagIndexingRuleOrder:TagIndexingRuleOrder", id, state, "", opts...)
+}
+
 type tagIndexingRuleOrderArgs struct {
 	// A unique name for the order resource. Recommended to match the resource name. No corresponding field exists in the API.
 	Name string `pulumi:"name"`

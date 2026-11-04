@@ -117,6 +117,12 @@ func (IntegrationAccountCcmConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountCcmConfigState)(nil)).Elem()
 }
 
+// IntegrationAccountCcmConfigExists checks whether an existing IntegrationAccountCcmConfig resource with the given ID exists.
+func IntegrationAccountCcmConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountCcmConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:aws/integrationAccountCcmConfig:IntegrationAccountCcmConfig", id, state, "", opts...)
+}
+
 type integrationAccountCcmConfigArgs struct {
 	// Unique Datadog ID of the AWS Account Integration Config.
 	AwsAccountConfigId string                                `pulumi:"awsAccountConfigId"`

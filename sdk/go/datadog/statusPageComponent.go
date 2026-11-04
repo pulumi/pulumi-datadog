@@ -185,6 +185,12 @@ func (StatusPageComponentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*statusPageComponentState)(nil)).Elem()
 }
 
+// StatusPageComponentExists checks whether an existing StatusPageComponent resource with the given ID exists.
+func StatusPageComponentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StatusPageComponentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/statusPageComponent:StatusPageComponent", id, state, "", opts...)
+}
+
 type statusPageComponentArgs struct {
 	// The sub-components of a component of type `group`.
 	Components []StatusPageComponentComponent `pulumi:"components"`

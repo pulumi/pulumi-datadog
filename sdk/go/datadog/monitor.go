@@ -365,6 +365,12 @@ func (MonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorState)(nil)).Elem()
 }
 
+// MonitorExists checks whether an existing Monitor resource with the given ID exists.
+func MonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/monitor:Monitor", id, state, "", opts...)
+}
+
 type monitorArgs struct {
 	// List of monitor assets (for example, runbooks, dashboards, workflows) tied to this monitor.
 	Assets []MonitorAsset `pulumi:"assets"`

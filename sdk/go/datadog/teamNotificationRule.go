@@ -170,6 +170,12 @@ func (TeamNotificationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamNotificationRuleState)(nil)).Elem()
 }
 
+// TeamNotificationRuleExists checks whether an existing TeamNotificationRule resource with the given ID exists.
+func TeamNotificationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamNotificationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/teamNotificationRule:TeamNotificationRule", id, state, "", opts...)
+}
+
 type teamNotificationRuleArgs struct {
 	// The email notification settings.
 	Email *TeamNotificationRuleEmail `pulumi:"email"`

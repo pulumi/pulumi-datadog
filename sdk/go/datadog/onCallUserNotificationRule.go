@@ -96,6 +96,12 @@ func (OnCallUserNotificationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*onCallUserNotificationRuleState)(nil)).Elem()
 }
 
+// OnCallUserNotificationRuleExists checks whether an existing OnCallUserNotificationRule resource with the given ID exists.
+func OnCallUserNotificationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OnCallUserNotificationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/onCallUserNotificationRule:OnCallUserNotificationRule", id, state, "", opts...)
+}
+
 type onCallUserNotificationRuleArgs struct {
 	// Notification category to associate the rule with. Valid values are `highUrgency`, `lowUrgency`.
 	Category string `pulumi:"category"`

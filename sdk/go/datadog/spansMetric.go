@@ -134,6 +134,12 @@ func (SpansMetricState) ElementType() reflect.Type {
 	return reflect.TypeOf((*spansMetricState)(nil)).Elem()
 }
 
+// SpansMetricExists checks whether an existing SpansMetric resource with the given ID exists.
+func SpansMetricExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SpansMetricState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/spansMetric:SpansMetric", id, state, "", opts...)
+}
+
 type spansMetricArgs struct {
 	Compute   SpansMetricCompute   `pulumi:"compute"`
 	Filter    SpansMetricFilter    `pulumi:"filter"`

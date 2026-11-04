@@ -135,6 +135,12 @@ func (SecurityFindingsInboxRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityFindingsInboxRuleState)(nil)).Elem()
 }
 
+// SecurityFindingsInboxRuleExists checks whether an existing SecurityFindingsInboxRule resource with the given ID exists.
+func SecurityFindingsInboxRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityFindingsInboxRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityFindingsInboxRule:SecurityFindingsInboxRule", id, state, "", opts...)
+}
+
 type securityFindingsInboxRuleArgs struct {
 	// The action to take when the inbox rule matches a finding.
 	Action SecurityFindingsInboxRuleAction `pulumi:"action"`

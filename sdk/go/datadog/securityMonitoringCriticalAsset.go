@@ -144,6 +144,12 @@ func (SecurityMonitoringCriticalAssetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityMonitoringCriticalAssetState)(nil)).Elem()
 }
 
+// SecurityMonitoringCriticalAssetExists checks whether an existing SecurityMonitoringCriticalAsset resource with the given ID exists.
+func SecurityMonitoringCriticalAssetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityMonitoringCriticalAssetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityMonitoringCriticalAsset:SecurityMonitoringCriticalAsset", id, state, "", opts...)
+}
+
 type securityMonitoringCriticalAssetArgs struct {
 	// A description of the critical asset.
 	Description *string `pulumi:"description"`

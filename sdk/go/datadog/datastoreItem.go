@@ -150,6 +150,12 @@ func (DatastoreItemState) ElementType() reflect.Type {
 	return reflect.TypeOf((*datastoreItemState)(nil)).Elem()
 }
 
+// DatastoreItemExists checks whether an existing DatastoreItem resource with the given ID exists.
+func DatastoreItemExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatastoreItemState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/datastoreItem:DatastoreItem", id, state, "", opts...)
+}
+
 type datastoreItemArgs struct {
 	// The unique identifier of the datastore containing this item.
 	DatastoreId string `pulumi:"datastoreId"`

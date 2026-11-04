@@ -153,6 +153,12 @@ func (GovernanceControlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*governanceControlState)(nil)).Elem()
 }
 
+// GovernanceControlExists checks whether an existing GovernanceControl resource with the given ID exists.
+func GovernanceControlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GovernanceControlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/governanceControl:GovernanceControl", id, state, "", opts...)
+}
+
 type governanceControlArgs struct {
 	// Detection parameters for the control, as a JSON-encoded map of parameter names to their configured values.
 	DetectionParameters *string `pulumi:"detectionParameters"`

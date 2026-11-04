@@ -197,6 +197,12 @@ func (LogsIndexState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsIndexState)(nil)).Elem()
 }
 
+// LogsIndexExists checks whether an existing LogsIndex resource with the given ID exists.
+func LogsIndexExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogsIndexState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/logsIndex:LogsIndex", id, state, "", opts...)
+}
+
 type logsIndexArgs struct {
 	// The number of log events you can send in this index per day before you are rate-limited.
 	DailyLimit *int `pulumi:"dailyLimit"`

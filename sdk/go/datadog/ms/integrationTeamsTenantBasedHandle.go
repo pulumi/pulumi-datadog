@@ -93,6 +93,12 @@ func (IntegrationTeamsTenantBasedHandleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationTeamsTenantBasedHandleState)(nil)).Elem()
 }
 
+// IntegrationTeamsTenantBasedHandleExists checks whether an existing IntegrationTeamsTenantBasedHandle resource with the given ID exists.
+func IntegrationTeamsTenantBasedHandleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationTeamsTenantBasedHandleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle", id, state, "", opts...)
+}
+
 type integrationTeamsTenantBasedHandleArgs struct {
 	// Your channel name.
 	ChannelName string `pulumi:"channelName"`

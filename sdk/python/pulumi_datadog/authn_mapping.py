@@ -314,6 +314,20 @@ class AuthnMapping(pulumi.CustomResource):
         __props__.__dict__["value"] = value
         return AuthnMapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            role: pulumi.Input[Optional[_builtins.str]] = None,
+            team: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["key"] = key
+        __props__["role"] = role
+        __props__["team"] = team
+        __props__["value"] = value
+        return pulumi.runtime.exists_resource(None, 'datadog:index/authnMapping:AuthnMapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:

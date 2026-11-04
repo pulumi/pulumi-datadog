@@ -82,6 +82,12 @@ func (IntegrationTeamsWorkflowsWebhookHandleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationTeamsWorkflowsWebhookHandleState)(nil)).Elem()
 }
 
+// IntegrationTeamsWorkflowsWebhookHandleExists checks whether an existing IntegrationTeamsWorkflowsWebhookHandle resource with the given ID exists.
+func IntegrationTeamsWorkflowsWebhookHandleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationTeamsWorkflowsWebhookHandleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle", id, state, "", opts...)
+}
+
 type integrationTeamsWorkflowsWebhookHandleArgs struct {
 	// Your Microsoft Workflows webhook handle name.
 	Name string `pulumi:"name"`

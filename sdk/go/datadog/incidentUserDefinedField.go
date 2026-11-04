@@ -214,6 +214,12 @@ func (IncidentUserDefinedFieldState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentUserDefinedFieldState)(nil)).Elem()
 }
 
+// IncidentUserDefinedFieldExists checks whether an existing IncidentUserDefinedField resource with the given ID exists.
+func IncidentUserDefinedFieldExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentUserDefinedFieldState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/incidentUserDefinedField:IncidentUserDefinedField", id, state, "", opts...)
+}
+
 type incidentUserDefinedFieldArgs struct {
 	// The section in which the field appears: `whatHappened` or `whyItHappened`. When unset, the field appears in the Attributes section.
 	Category *string `pulumi:"category"`

@@ -37,22 +37,20 @@ public final class GetCostBudgetArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The flat list of budget entries (deprecated - use budgetLine instead).
      * 
-     * @deprecated
-     * Use budgetLine instead. The entries block will be removed in a future version.
+     * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
      * 
      */
-    @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+    @Deprecated
     @Import(name="entries")
     private @Nullable Output<List<GetCostBudgetEntryArgs>> entries;
 
     /**
      * @return The flat list of budget entries (deprecated - use budgetLine instead).
      * 
-     * @deprecated
-     * Use budgetLine instead. The entries block will be removed in a future version.
+     * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
      * 
      */
-    @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+    @Deprecated
     public Optional<Output<List<GetCostBudgetEntryArgs>>> entries() {
         return Optional.ofNullable(this.entries);
     }
@@ -134,11 +132,10 @@ public final class GetCostBudgetArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use budgetLine instead. The entries block will be removed in a future version.
+         * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
          * 
          */
-        @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+        @Deprecated
         public Builder entries(@Nullable Output<List<GetCostBudgetEntryArgs>> entries) {
             $.entries = entries;
             return this;
@@ -149,11 +146,10 @@ public final class GetCostBudgetArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use budgetLine instead. The entries block will be removed in a future version.
+         * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
          * 
          */
-        @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+        @Deprecated
         public Builder entries(List<GetCostBudgetEntryArgs> entries) {
             return entries(Output.of(entries));
         }
@@ -163,11 +159,10 @@ public final class GetCostBudgetArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use budgetLine instead. The entries block will be removed in a future version.
+         * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
          * 
          */
-        @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+        @Deprecated
         public Builder entries(GetCostBudgetEntryArgs... entries) {
             return entries(List.of(entries));
         }

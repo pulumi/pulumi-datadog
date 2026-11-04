@@ -141,6 +141,12 @@ func (AgentlessScanningGcpScanOptionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentlessScanningGcpScanOptionsState)(nil)).Elem()
 }
 
+// AgentlessScanningGcpScanOptionsExists checks whether an existing AgentlessScanningGcpScanOptions resource with the given ID exists.
+func AgentlessScanningGcpScanOptionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentlessScanningGcpScanOptionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions", id, state, "", opts...)
+}
+
 type agentlessScanningGcpScanOptionsArgs struct {
 	// Indicates if scanning of Cloud Functions is enabled.
 	CloudFunction bool `pulumi:"cloudFunction"`

@@ -234,6 +234,16 @@ class ServiceObject(pulumi.CustomResource):
         __props__.__dict__["service_name"] = service_name
         return ServiceObject(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            service_key: pulumi.Input[Optional[_builtins.str]] = None,
+            service_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["serviceKey"] = service_key
+        __props__["serviceName"] = service_name
+        return pulumi.runtime.exists_resource(None, 'datadog:pagerduty/serviceObject:ServiceObject', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Output[_builtins.str]:

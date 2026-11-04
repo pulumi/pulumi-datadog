@@ -121,6 +121,12 @@ func (MonitorConfigPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorConfigPolicyState)(nil)).Elem()
 }
 
+// MonitorConfigPolicyExists checks whether an existing MonitorConfigPolicy resource with the given ID exists.
+func MonitorConfigPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MonitorConfigPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/monitorConfigPolicy:MonitorConfigPolicy", id, state, "", opts...)
+}
+
 type monitorConfigPolicyArgs struct {
 	// Config for a downtime duration policy. Only set if `policyType` is `downtime`.
 	DowntimePolicy *MonitorConfigPolicyDowntimePolicy `pulumi:"downtimePolicy"`

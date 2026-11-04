@@ -304,6 +304,22 @@ class SyntheticsSuite(pulumi.CustomResource):
         __props__.__dict__["tests"] = tests
         return SyntheticsSuite(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteOptionArgs', 'SyntheticsSuiteOptionArgsDict', 'outputs.SyntheticsSuiteOption']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            tests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SyntheticsSuiteTestArgs', 'SyntheticsSuiteTestArgsDict', 'outputs.SyntheticsSuiteTest']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["message"] = message
+        __props__["name"] = name
+        __props__["options"] = options
+        __props__["tags"] = tags
+        __props__["tests"] = tests
+        return pulumi.runtime.exists_resource(None, 'datadog:index/syntheticsSuite:SyntheticsSuite', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def message(self) -> pulumi.Output[Optional[_builtins.str]]:

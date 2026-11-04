@@ -38,22 +38,20 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
     /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="logQuery")
     private @Nullable Output<DashboardWidgetLogQueryArgs> logQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<DashboardWidgetLogQueryArgs>> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
@@ -61,22 +59,20 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
     /**
      * The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="q")
     private @Nullable Output<String> q;
 
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<String>> q() {
         return Optional.ofNullable(this.q);
     }
@@ -99,22 +95,20 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
     /**
      * The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     @Import(name="rumQuery")
     private @Nullable Output<DashboardWidgetRumQueryArgs> rumQuery;
 
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<Output<DashboardWidgetRumQueryArgs>> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
@@ -183,11 +177,10 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder logQuery(@Nullable Output<DashboardWidgetLogQueryArgs> logQuery) {
             $.logQuery = logQuery;
             return this;
@@ -198,11 +191,10 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder logQuery(DashboardWidgetLogQueryArgs logQuery) {
             return logQuery(Output.of(logQuery));
         }
@@ -212,11 +204,10 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder q(@Nullable Output<String> q) {
             $.q = q;
             return this;
@@ -227,11 +218,10 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder q(String q) {
             return q(Output.of(q));
         }
@@ -272,11 +262,10 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder rumQuery(@Nullable Output<DashboardWidgetRumQueryArgs> rumQuery) {
             $.rumQuery = rumQuery;
             return this;
@@ -287,11 +276,10 @@ public final class DashboardWidgetGeomapDefinitionRequestArgs extends com.pulumi
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use queries and formulas instead.
+         * @deprecated Use queries and formulas instead.
          * 
          */
-        @Deprecated /* Use queries and formulas instead. */
+        @Deprecated
         public Builder rumQuery(DashboardWidgetRumQueryArgs rumQuery) {
             return rumQuery(Output.of(rumQuery));
         }

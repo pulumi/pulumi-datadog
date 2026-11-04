@@ -110,6 +110,12 @@ func (RumOperationJourneyLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rumOperationJourneyLinkState)(nil)).Elem()
 }
 
+// RumOperationJourneyLinkExists checks whether an existing RumOperationJourneyLink resource with the given ID exists.
+func RumOperationJourneyLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RumOperationJourneyLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/rumOperationJourneyLink:RumOperationJourneyLink", id, state, "", opts...)
+}
+
 type rumOperationJourneyLinkArgs struct {
 	// ID of the journey.
 	JourneyId string `pulumi:"journeyId"`

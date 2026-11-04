@@ -375,6 +375,12 @@ func (SoftwareCatalogState) ElementType() reflect.Type {
 	return reflect.TypeOf((*softwareCatalogState)(nil)).Elem()
 }
 
+// SoftwareCatalogExists checks whether an existing SoftwareCatalog resource with the given ID exists.
+func SoftwareCatalogExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SoftwareCatalogState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/softwareCatalog:SoftwareCatalog", id, state, "", opts...)
+}
+
 type softwareCatalogArgs struct {
 	// The catalog entity definition. Entity must be a valid entity YAML/JSON structure.
 	Entity string `pulumi:"entity"`

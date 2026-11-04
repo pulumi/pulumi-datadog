@@ -26,11 +26,10 @@ public final class DashboardWidgetToplistDefinitionStyleDisplay {
     /**
      * @return Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
      * 
-     * @deprecated
-     * Use the `stacked` or `flat` block instead.
+     * @deprecated Use the `stacked` or `flat` block instead.
      * 
      */
-    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    @Deprecated
     private @Nullable String type;
 
     private DashboardWidgetToplistDefinitionStyleDisplay() {}
@@ -51,11 +50,10 @@ public final class DashboardWidgetToplistDefinitionStyleDisplay {
     /**
      * @return Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
      * 
-     * @deprecated
-     * Use the `stacked` or `flat` block instead.
+     * @deprecated Use the `stacked` or `flat` block instead.
      * 
      */
-    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    @Deprecated
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

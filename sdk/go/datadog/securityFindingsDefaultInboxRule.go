@@ -124,6 +124,12 @@ func (SecurityFindingsDefaultInboxRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityFindingsDefaultInboxRuleState)(nil)).Elem()
 }
 
+// SecurityFindingsDefaultInboxRuleExists checks whether an existing SecurityFindingsDefaultInboxRule resource with the given ID exists.
+func SecurityFindingsDefaultInboxRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityFindingsDefaultInboxRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityFindingsDefaultInboxRule:SecurityFindingsDefaultInboxRule", id, state, "", opts...)
+}
+
 type securityFindingsDefaultInboxRuleArgs struct {
 	// Whether the default inbox rule is enabled for the organization. When not set, the rule's current server-side value is adopted; declare it to manage the value. Default inbox rules are enabled unless disabled.
 	Enabled *bool `pulumi:"enabled"`

@@ -343,6 +343,12 @@ func (ServiceLevelObjectiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceLevelObjectiveState)(nil)).Elem()
 }
 
+// ServiceLevelObjectiveExists checks whether an existing ServiceLevelObjective resource with the given ID exists.
+func ServiceLevelObjectiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceLevelObjectiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/serviceLevelObjective:ServiceLevelObjective", id, state, "", opts...)
+}
+
 type serviceLevelObjectiveArgs struct {
 	// A description of this service level objective.
 	Description *string `pulumi:"description"`

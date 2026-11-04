@@ -137,6 +137,12 @@ func (GithubOidcIdentityMappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*githubOidcIdentityMappingState)(nil)).Elem()
 }
 
+// GithubOidcIdentityMappingExists checks whether an existing GithubOidcIdentityMapping resource with the given ID exists.
+func GithubOidcIdentityMappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GithubOidcIdentityMappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/githubOidcIdentityMapping:GithubOidcIdentityMapping", id, state, "", opts...)
+}
+
 type githubOidcIdentityMappingArgs struct {
 	// The email or handle of the Datadog user or service account that the GitHub workload authenticates as. For a Terraform-managed service account, prefer the stable UUID exported by `datadog_service_account.id`; Datadog accepts it as the service account identifier. Datadog normalizes an email to the account's handle, so the handle form is the only value that survives `pulumi import` unchanged — importing a mapping configured by email produces a diff on this attribute, which forces replacement. String length must be at least 1.
 	AccountIdentifier string `pulumi:"accountIdentifier"`

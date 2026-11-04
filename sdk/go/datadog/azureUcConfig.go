@@ -179,6 +179,12 @@ func (AzureUcConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*azureUcConfigState)(nil)).Elem()
 }
 
+// AzureUcConfigExists checks whether an existing AzureUcConfig resource with the given ID exists.
+func AzureUcConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AzureUcConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/azureUcConfig:AzureUcConfig", id, state, "", opts...)
+}
+
 type azureUcConfigArgs struct {
 	// The tenant ID of the Azure account.
 	AccountId string `pulumi:"accountId"`

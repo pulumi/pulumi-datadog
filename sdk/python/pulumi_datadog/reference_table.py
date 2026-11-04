@@ -640,6 +640,34 @@ class ReferenceTable(pulumi.CustomResource):
         __props__.__dict__["updated_at"] = updated_at
         return ReferenceTable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            file_metadata: pulumi.Input[Optional[Union['ReferenceTableFileMetadataArgs', 'ReferenceTableFileMetadataArgsDict', 'outputs.ReferenceTableFileMetadata']]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            row_count: pulumi.Input[Optional[_builtins.int]] = None,
+            schema: pulumi.Input[Optional[Union['ReferenceTableSchemaArgs', 'ReferenceTableSchemaArgsDict', 'outputs.ReferenceTableSchema']]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdBy"] = created_by
+        __props__["description"] = description
+        __props__["fileMetadata"] = file_metadata
+        __props__["lastUpdatedBy"] = last_updated_by
+        __props__["rowCount"] = row_count
+        __props__["schema"] = schema
+        __props__["source"] = source
+        __props__["status"] = status
+        __props__["tableName"] = table_name
+        __props__["tags"] = tags
+        __props__["updatedAt"] = updated_at
+        return pulumi.runtime.exists_resource(None, 'datadog:index/referenceTable:ReferenceTable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:

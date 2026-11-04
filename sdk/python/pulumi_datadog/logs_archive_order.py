@@ -189,6 +189,14 @@ class LogsArchiveOrder(pulumi.CustomResource):
         __props__.__dict__["archive_ids"] = archive_ids
         return LogsArchiveOrder(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            archive_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["archiveIds"] = archive_ids
+        return pulumi.runtime.exists_resource(None, 'datadog:index/logsArchiveOrder:LogsArchiveOrder', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="archiveIds")
     def archive_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:

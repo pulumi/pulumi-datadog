@@ -138,6 +138,12 @@ func (CsmThreatsPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*csmThreatsPolicyState)(nil)).Elem()
 }
 
+// CsmThreatsPolicyExists checks whether an existing CsmThreatsPolicy resource with the given ID exists.
+func CsmThreatsPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CsmThreatsPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/csmThreatsPolicy:CsmThreatsPolicy", id, state, "", opts...)
+}
+
 type csmThreatsPolicyArgs struct {
 	// A description for the policy.
 	Description *string `pulumi:"description"`

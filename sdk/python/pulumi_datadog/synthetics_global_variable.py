@@ -750,6 +750,38 @@ class SyntheticsGlobalVariable(pulumi.CustomResource):
         __props__.__dict__["value_wo_version"] = value_wo_version
         return SyntheticsGlobalVariable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            is_fido: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_totp: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableOptionsArgs', 'SyntheticsGlobalVariableOptionsArgsDict', 'outputs.SyntheticsGlobalVariableOptions']]] = None,
+            parse_test_id: pulumi.Input[Optional[_builtins.str]] = None,
+            parse_test_options: pulumi.Input[Optional[Union['SyntheticsGlobalVariableParseTestOptionsArgs', 'SyntheticsGlobalVariableParseTestOptionsArgsDict', 'outputs.SyntheticsGlobalVariableParseTestOptions']]] = None,
+            restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            secure: pulumi.Input[Optional[_builtins.bool]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            value_wo_version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["isFido"] = is_fido
+        __props__["isTotp"] = is_totp
+        __props__["name"] = name
+        __props__["options"] = options
+        __props__["parseTestId"] = parse_test_id
+        __props__["parseTestOptions"] = parse_test_options
+        __props__["restrictedRoles"] = restricted_roles
+        __props__["secure"] = secure
+        __props__["tags"] = tags
+        __props__["value"] = value
+        __props__["valueWo"] = value_wo
+        __props__["valueWoVersion"] = value_wo_version
+        return pulumi.runtime.exists_resource(None, 'datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:

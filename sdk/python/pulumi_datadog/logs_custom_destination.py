@@ -587,6 +587,32 @@ class LogsCustomDestination(pulumi.CustomResource):
         __props__.__dict__["splunk_destination"] = splunk_destination
         return LogsCustomDestination(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            elasticsearch_destination: pulumi.Input[Optional[Union['LogsCustomDestinationElasticsearchDestinationArgs', 'LogsCustomDestinationElasticsearchDestinationArgsDict', 'outputs.LogsCustomDestinationElasticsearchDestination']]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            forward_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            forward_tags_restriction_list_type: pulumi.Input[Optional[_builtins.str]] = None,
+            forward_tags_restriction_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            http_destination: pulumi.Input[Optional[Union['LogsCustomDestinationHttpDestinationArgs', 'LogsCustomDestinationHttpDestinationArgsDict', 'outputs.LogsCustomDestinationHttpDestination']]] = None,
+            microsoft_sentinel_destination: pulumi.Input[Optional[Union['LogsCustomDestinationMicrosoftSentinelDestinationArgs', 'LogsCustomDestinationMicrosoftSentinelDestinationArgsDict', 'outputs.LogsCustomDestinationMicrosoftSentinelDestination']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            splunk_destination: pulumi.Input[Optional[Union['LogsCustomDestinationSplunkDestinationArgs', 'LogsCustomDestinationSplunkDestinationArgsDict', 'outputs.LogsCustomDestinationSplunkDestination']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["elasticsearchDestination"] = elasticsearch_destination
+        __props__["enabled"] = enabled
+        __props__["forwardTags"] = forward_tags
+        __props__["forwardTagsRestrictionListType"] = forward_tags_restriction_list_type
+        __props__["forwardTagsRestrictionLists"] = forward_tags_restriction_lists
+        __props__["httpDestination"] = http_destination
+        __props__["microsoftSentinelDestination"] = microsoft_sentinel_destination
+        __props__["name"] = name
+        __props__["query"] = query
+        __props__["splunkDestination"] = splunk_destination
+        return pulumi.runtime.exists_resource(None, 'datadog:index/logsCustomDestination:LogsCustomDestination', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="elasticsearchDestination")
     def elasticsearch_destination(self) -> pulumi.Output[Optional['outputs.LogsCustomDestinationElasticsearchDestination']]:

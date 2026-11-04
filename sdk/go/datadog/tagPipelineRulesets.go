@@ -331,6 +331,12 @@ func (TagPipelineRulesetsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tagPipelineRulesetsState)(nil)).Elem()
 }
 
+// TagPipelineRulesetsExists checks whether an existing TagPipelineRulesets resource with the given ID exists.
+func TagPipelineRulesetsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TagPipelineRulesetsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/tagPipelineRulesets:TagPipelineRulesets", id, state, "", opts...)
+}
+
 type tagPipelineRulesetsArgs struct {
 	// Whether to override UI-defined rulesets. When set to true, any rulesets created via the UI that are not defined in Terraform will be deleted and Terraform will be used as the source of truth for rules and their ordering. When set to false, any rulesets created via the UI that are at the end of order will be kept but will be warned, otherwise an error will be thrown in pulumi preview phase. Default is false
 	OverrideUiDefinedResources *bool `pulumi:"overrideUiDefinedResources"`

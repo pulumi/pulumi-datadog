@@ -130,6 +130,12 @@ func (TeamPermissionSettingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamPermissionSettingState)(nil)).Elem()
 }
 
+// TeamPermissionSettingExists checks whether an existing TeamPermissionSetting resource with the given ID exists.
+func TeamPermissionSettingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamPermissionSettingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/teamPermissionSetting:TeamPermissionSetting", id, state, "", opts...)
+}
+
 type teamPermissionSettingArgs struct {
 	// The identifier for the action. Valid values are `manageMembership`, `edit`.
 	Action string `pulumi:"action"`

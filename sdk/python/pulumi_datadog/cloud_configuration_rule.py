@@ -649,6 +649,34 @@ class CloudConfigurationRule(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return CloudConfigurationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudConfigurationRuleFilterArgs', 'CloudConfigurationRuleFilterArgsDict', 'outputs.CloudConfigurationRuleFilter']]]]] = None,
+            group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notifications: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
+            related_resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            severity: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enabled"] = enabled
+        __props__["filters"] = filters
+        __props__["groupBies"] = group_bies
+        __props__["message"] = message
+        __props__["name"] = name
+        __props__["notifications"] = notifications
+        __props__["policy"] = policy
+        __props__["relatedResourceTypes"] = related_resource_types
+        __props__["resourceType"] = resource_type
+        __props__["severity"] = severity
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'datadog:index/cloudConfigurationRule:CloudConfigurationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:

@@ -158,6 +158,12 @@ func (SecurityFindingsSeverityModifierRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityFindingsSeverityModifierRuleState)(nil)).Elem()
 }
 
+// SecurityFindingsSeverityModifierRuleExists checks whether an existing SecurityFindingsSeverityModifierRule resource with the given ID exists.
+func SecurityFindingsSeverityModifierRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityFindingsSeverityModifierRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityFindingsSeverityModifierRule:SecurityFindingsSeverityModifierRule", id, state, "", opts...)
+}
+
 type securityFindingsSeverityModifierRuleArgs struct {
 	// The action to take when a severity modifier rule matches a finding. This is a discriminated union on `type`: `set` assigns a fixed severity, while `shift` moves the severity up or down by one severity rank. In this resource the union is expressed as the `set` and `shift` blocks; exactly one must be provided. A severity modifier rule's `rule.query` must not filter on `@severity` or on the `@severity_details.user_adjusted.*` namespace. Use `@severity_details.adjusted.value` instead, which reflects the severity before user-defined adjustments.
 	Action SecurityFindingsSeverityModifierRuleAction `pulumi:"action"`

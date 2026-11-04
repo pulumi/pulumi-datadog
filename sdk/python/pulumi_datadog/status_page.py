@@ -664,6 +664,44 @@ class StatusPage(pulumi.CustomResource):
         __props__.__dict__["visualization_type"] = visualization_type
         return StatusPage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            company_logo: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_domain_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            email_header_image: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            favicon: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            page_url: pulumi.Input[Optional[_builtins.str]] = None,
+            slack_app_icon: pulumi.Input[Optional[_builtins.str]] = None,
+            slack_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            visualization_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["companyLogo"] = company_logo
+        __props__["createdAt"] = created_at
+        __props__["customDomain"] = custom_domain
+        __props__["customDomainEnabled"] = custom_domain_enabled
+        __props__["domainPrefix"] = domain_prefix
+        __props__["emailHeaderImage"] = email_header_image
+        __props__["enabled"] = enabled
+        __props__["favicon"] = favicon
+        __props__["modifiedAt"] = modified_at
+        __props__["name"] = name
+        __props__["pageUrl"] = page_url
+        __props__["slackAppIcon"] = slack_app_icon
+        __props__["slackSubscriptionsEnabled"] = slack_subscriptions_enabled
+        __props__["subscriptionsEnabled"] = subscriptions_enabled
+        __props__["type"] = type
+        __props__["visualizationType"] = visualization_type
+        return pulumi.runtime.exists_resource(None, 'datadog:index/statusPage:StatusPage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="companyLogo")
     def company_logo(self) -> pulumi.Output[_builtins.str]:

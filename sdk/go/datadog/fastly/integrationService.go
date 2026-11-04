@@ -125,6 +125,12 @@ func (IntegrationServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationServiceState)(nil)).Elem()
 }
 
+// IntegrationServiceExists checks whether an existing IntegrationService resource with the given ID exists.
+func IntegrationServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:fastly/integrationService:IntegrationService", id, state, "", opts...)
+}
+
 type integrationServiceArgs struct {
 	// Fastly Account id.
 	AccountId *string `pulumi:"accountId"`

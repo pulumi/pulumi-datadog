@@ -266,6 +266,20 @@ class IntegrationTeamsTenantBasedHandle(pulumi.CustomResource):
         __props__.__dict__["tenant_name"] = tenant_name
         return IntegrationTeamsTenantBasedHandle(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            team_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tenant_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["channelName"] = channel_name
+        __props__["name"] = name
+        __props__["teamName"] = team_name
+        __props__["tenantName"] = tenant_name
+        return pulumi.runtime.exists_resource(None, 'datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="channelName")
     def channel_name(self) -> pulumi.Output[_builtins.str]:

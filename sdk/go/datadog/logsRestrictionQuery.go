@@ -123,6 +123,12 @@ func (LogsRestrictionQueryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsRestrictionQueryState)(nil)).Elem()
 }
 
+// LogsRestrictionQueryExists checks whether an existing LogsRestrictionQuery resource with the given ID exists.
+func LogsRestrictionQueryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogsRestrictionQueryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/logsRestrictionQuery:LogsRestrictionQuery", id, state, "", opts...)
+}
+
 type logsRestrictionQueryArgs struct {
 	// The query that defines the restriction. Only the content matching the query can be returned.
 	RestrictionQuery string `pulumi:"restrictionQuery"`

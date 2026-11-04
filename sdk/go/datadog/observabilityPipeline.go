@@ -167,6 +167,12 @@ func (ObservabilityPipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*observabilityPipelineState)(nil)).Elem()
 }
 
+// ObservabilityPipelineExists checks whether an existing ObservabilityPipeline resource with the given ID exists.
+func ObservabilityPipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ObservabilityPipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/observabilityPipeline:ObservabilityPipeline", id, state, "", opts...)
+}
+
 type observabilityPipelineArgs struct {
 	// Configuration for the pipeline.
 	Config ObservabilityPipelineConfig `pulumi:"config"`

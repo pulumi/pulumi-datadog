@@ -29,11 +29,10 @@ public final class GetCostBudgetResult {
     /**
      * @return The flat list of budget entries (deprecated - use budgetLine instead).
      * 
-     * @deprecated
-     * Use budgetLine instead. The entries block will be removed in a future version.
+     * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
      * 
      */
-    @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+    @Deprecated
     private @Nullable List<GetCostBudgetEntry> entries;
     /**
      * @return The ID of the budget.
@@ -79,11 +78,10 @@ public final class GetCostBudgetResult {
     /**
      * @return The flat list of budget entries (deprecated - use budgetLine instead).
      * 
-     * @deprecated
-     * Use budgetLine instead. The entries block will be removed in a future version.
+     * @deprecated Use budgetLine instead. The entries block will be removed in a future version.
      * 
      */
-    @Deprecated /* Use budgetLine instead. The entries block will be removed in a future version. */
+    @Deprecated
     public List<GetCostBudgetEntry> entries() {
         return this.entries == null ? List.of() : this.entries;
     }

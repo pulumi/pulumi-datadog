@@ -243,6 +243,18 @@ class ApiKey(pulumi.CustomResource):
         __props__.__dict__["remote_config_read_enabled"] = remote_config_read_enabled
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remote_config_read_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["key"] = key
+        __props__["name"] = name
+        __props__["remoteConfigReadEnabled"] = remote_config_read_enabled
+        return pulumi.runtime.exists_resource(None, 'datadog:index/apiKey:ApiKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:

@@ -180,6 +180,12 @@ func (AwsCurConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*awsCurConfigState)(nil)).Elem()
 }
 
+// AwsCurConfigExists checks whether an existing AwsCurConfig resource with the given ID exists.
+func AwsCurConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AwsCurConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/awsCurConfig:AwsCurConfig", id, state, "", opts...)
+}
+
 type awsCurConfigArgs struct {
 	AccountFilters *AwsCurConfigAccountFilters `pulumi:"accountFilters"`
 	// The AWS account ID of your billing/payer account. For AWS Organizations, this is typically the management account ID.

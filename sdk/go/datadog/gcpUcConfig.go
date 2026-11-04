@@ -190,6 +190,12 @@ func (GcpUcConfigState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gcpUcConfigState)(nil)).Elem()
 }
 
+// GcpUcConfigExists checks whether an existing GcpUcConfig resource with the given ID exists.
+func GcpUcConfigExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GcpUcConfigState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/gcpUcConfig:GcpUcConfig", id, state, "", opts...)
+}
+
 type gcpUcConfigArgs struct {
 	// The Google Cloud account ID.
 	BillingAccountId string `pulumi:"billingAccountId"`

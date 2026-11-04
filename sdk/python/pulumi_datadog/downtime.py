@@ -614,6 +614,40 @@ class Downtime(pulumi.CustomResource):
         __props__.__dict__["timezone"] = timezone
         return Downtime(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
+            active_child_id: pulumi.Input[Optional[_builtins.int]] = None,
+            disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            end: pulumi.Input[Optional[_builtins.int]] = None,
+            end_date: pulumi.Input[Optional[_builtins.str]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_id: pulumi.Input[Optional[_builtins.int]] = None,
+            monitor_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mute_first_recovery_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+            recurrence: pulumi.Input[Optional[Union['DowntimeRecurrenceArgs', 'DowntimeRecurrenceArgsDict', 'outputs.DowntimeRecurrence']]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            start: pulumi.Input[Optional[_builtins.int]] = None,
+            start_date: pulumi.Input[Optional[_builtins.str]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["active"] = active
+        __props__["activeChildId"] = active_child_id
+        __props__["disabled"] = disabled
+        __props__["end"] = end
+        __props__["endDate"] = end_date
+        __props__["message"] = message
+        __props__["monitorId"] = monitor_id
+        __props__["monitorTags"] = monitor_tags
+        __props__["muteFirstRecoveryNotification"] = mute_first_recovery_notification
+        __props__["recurrence"] = recurrence
+        __props__["scopes"] = scopes
+        __props__["start"] = start
+        __props__["startDate"] = start_date
+        __props__["timezone"] = timezone
+        return pulumi.runtime.exists_resource(None, 'datadog:index/downtime:Downtime', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def active(self) -> pulumi.Output[_builtins.bool]:

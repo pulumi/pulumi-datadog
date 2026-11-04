@@ -287,6 +287,18 @@ class TeamConnection(pulumi.CustomResource):
         __props__.__dict__["team"] = team
         return TeamConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            connected_team: pulumi.Input[Optional[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict', 'outputs.TeamConnectionConnectedTeam']]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            team: pulumi.Input[Optional[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict', 'outputs.TeamConnectionTeam']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["connectedTeam"] = connected_team
+        __props__["source"] = source
+        __props__["team"] = team
+        return pulumi.runtime.exists_resource(None, 'datadog:index/teamConnection:TeamConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="connectedTeam")
     def connected_team(self) -> pulumi.Output['outputs.TeamConnectionConnectedTeam']:

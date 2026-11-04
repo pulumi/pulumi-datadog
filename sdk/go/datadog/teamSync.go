@@ -143,6 +143,12 @@ func (TeamSyncState) ElementType() reflect.Type {
 	return reflect.TypeOf((*teamSyncState)(nil)).Elem()
 }
 
+// TeamSyncExists checks whether an existing TeamSync resource with the given ID exists.
+func TeamSyncExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TeamSyncState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/teamSync:TeamSync", id, state, "", opts...)
+}
+
 type teamSyncArgs struct {
 	// How often the sync process should run. Valid values are `once`, `continuously`, `paused`. Defaults to `"once"`.
 	Frequency *string `pulumi:"frequency"`

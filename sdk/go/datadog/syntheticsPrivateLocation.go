@@ -151,6 +151,12 @@ func (SyntheticsPrivateLocationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syntheticsPrivateLocationState)(nil)).Elem()
 }
 
+// SyntheticsPrivateLocationExists checks whether an existing SyntheticsPrivateLocation resource with the given ID exists.
+func SyntheticsPrivateLocationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyntheticsPrivateLocationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/syntheticsPrivateLocation:SyntheticsPrivateLocation", id, state, "", opts...)
+}
+
 type syntheticsPrivateLocationArgs struct {
 	// API key used to generate the private location configuration.
 	ApiKey *string `pulumi:"apiKey"`

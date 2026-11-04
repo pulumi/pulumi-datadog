@@ -19,22 +19,20 @@ public final class SyntheticsPrivateLocationMetadataArgs extends com.pulumi.reso
     /**
      * A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
-     * @deprecated
-     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
-    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
+    @Deprecated
     @Import(name="restrictedRoles")
     private @Nullable Output<List<String>> restrictedRoles;
 
     /**
      * @return A set of role identifiers pulled from the Roles API to restrict read and write access. **Deprecated.** This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
-     * @deprecated
-     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
-    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
+    @Deprecated
     public Optional<Output<List<String>>> restrictedRoles() {
         return Optional.ofNullable(this.restrictedRoles);
     }
@@ -68,11 +66,10 @@ public final class SyntheticsPrivateLocationMetadataArgs extends com.pulumi.reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+         * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
          * 
          */
-        @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
+        @Deprecated
         public Builder restrictedRoles(@Nullable Output<List<String>> restrictedRoles) {
             $.restrictedRoles = restrictedRoles;
             return this;
@@ -83,11 +80,10 @@ public final class SyntheticsPrivateLocationMetadataArgs extends com.pulumi.reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+         * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
          * 
          */
-        @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
+        @Deprecated
         public Builder restrictedRoles(List<String> restrictedRoles) {
             return restrictedRoles(Output.of(restrictedRoles));
         }
@@ -97,11 +93,10 @@ public final class SyntheticsPrivateLocationMetadataArgs extends com.pulumi.reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+         * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
          * 
          */
-        @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
+        @Deprecated
         public Builder restrictedRoles(String... restrictedRoles) {
             return restrictedRoles(List.of(restrictedRoles));
         }

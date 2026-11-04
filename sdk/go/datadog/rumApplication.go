@@ -133,6 +133,12 @@ func (RumApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rumApplicationState)(nil)).Elem()
 }
 
+// RumApplicationExists checks whether an existing RumApplication resource with the given ID exists.
+func RumApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RumApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/rumApplication:RumApplication", id, state, "", opts...)
+}
+
 type rumApplicationArgs struct {
 	// Name of the RUM application.
 	Name string `pulumi:"name"`

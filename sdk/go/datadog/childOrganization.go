@@ -129,6 +129,12 @@ func (ChildOrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*childOrganizationState)(nil)).Elem()
 }
 
+// ChildOrganizationExists checks whether an existing ChildOrganization resource with the given ID exists.
+func ChildOrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ChildOrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/childOrganization:ChildOrganization", id, state, "", opts...)
+}
+
 type childOrganizationArgs struct {
 	// Name for Child Organization after creation.
 	Name string `pulumi:"name"`

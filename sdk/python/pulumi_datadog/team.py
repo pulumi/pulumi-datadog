@@ -328,6 +328,24 @@ class Team(pulumi.CustomResource):
         __props__.__dict__["user_count"] = user_count
         return Team(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            handle: pulumi.Input[Optional[_builtins.str]] = None,
+            link_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            summary: pulumi.Input[Optional[_builtins.str]] = None,
+            user_count: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["handle"] = handle
+        __props__["linkCount"] = link_count
+        __props__["name"] = name
+        __props__["summary"] = summary
+        __props__["userCount"] = user_count
+        return pulumi.runtime.exists_resource(None, 'datadog:index/team:Team', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:

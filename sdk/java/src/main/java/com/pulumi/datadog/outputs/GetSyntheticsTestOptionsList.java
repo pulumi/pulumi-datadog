@@ -126,11 +126,10 @@ public final class GetSyntheticsTestOptionsList {
     /**
      * @return A list of role identifiers pulled from the Roles API to restrict read and write access. Included for parity with the `datadog.SyntheticsTest` resource.
      * 
-     * @deprecated
-     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
-    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
+    @Deprecated
     private List<String> restrictedRoles;
     /**
      * @return Object describing the retry strategy to apply to a Synthetic test.
@@ -304,11 +303,10 @@ public final class GetSyntheticsTestOptionsList {
     /**
      * @return A list of role identifiers pulled from the Roles API to restrict read and write access. Included for parity with the `datadog.SyntheticsTest` resource.
      * 
-     * @deprecated
-     * This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
+     * @deprecated This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead.
      * 
      */
-    @Deprecated /* This field is no longer supported by the Datadog API. Please use `datadog.RestrictionPolicy` instead. */
+    @Deprecated
     public List<String> restrictedRoles() {
         return this.restrictedRoles;
     }

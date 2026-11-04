@@ -20,11 +20,10 @@ public final class DashboardV2WidgetLogStreamDefinitionSort {
     /**
      * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
      * 
-     * @deprecated
-     * This field has no effect and will be removed in a future release.
+     * @deprecated This field has no effect and will be removed in a future release.
      * 
      */
-    @Deprecated /* This field has no effect and will be removed in a future release. */
+    @Deprecated
     private @Nullable String description;
     /**
      * @return Widget sorting methods. Valid values are `asc`, `desc`.
@@ -43,11 +42,10 @@ public final class DashboardV2WidgetLogStreamDefinitionSort {
     /**
      * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
      * 
-     * @deprecated
-     * This field has no effect and will be removed in a future release.
+     * @deprecated This field has no effect and will be removed in a future release.
      * 
      */
-    @Deprecated /* This field has no effect and will be removed in a future release. */
+    @Deprecated
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }

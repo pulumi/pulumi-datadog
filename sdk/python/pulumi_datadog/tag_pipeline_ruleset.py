@@ -400,6 +400,22 @@ class TagPipelineRuleset(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return TagPipelineRuleset(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            position: pulumi.Input[Optional[_builtins.int]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagPipelineRulesetRuleArgs', 'TagPipelineRulesetRuleArgsDict', 'outputs.TagPipelineRulesetRule']]]]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["position"] = position
+        __props__["rules"] = rules
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'datadog:index/tagPipelineRuleset:TagPipelineRuleset', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:

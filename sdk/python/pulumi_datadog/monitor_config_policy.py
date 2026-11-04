@@ -272,6 +272,18 @@ class MonitorConfigPolicy(pulumi.CustomResource):
         __props__.__dict__["tag_policy"] = tag_policy
         return MonitorConfigPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            downtime_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyDowntimePolicyArgs', 'MonitorConfigPolicyDowntimePolicyArgsDict', 'outputs.MonitorConfigPolicyDowntimePolicy']]] = None,
+            policy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_policy: pulumi.Input[Optional[Union['MonitorConfigPolicyTagPolicyArgs', 'MonitorConfigPolicyTagPolicyArgsDict', 'outputs.MonitorConfigPolicyTagPolicy']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["downtimePolicy"] = downtime_policy
+        __props__["policyType"] = policy_type
+        __props__["tagPolicy"] = tag_policy
+        return pulumi.runtime.exists_resource(None, 'datadog:index/monitorConfigPolicy:MonitorConfigPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="downtimePolicy")
     def downtime_policy(self) -> pulumi.Output[Optional['outputs.MonitorConfigPolicyDowntimePolicy']]:

@@ -397,6 +397,22 @@ class MonitorNotificationRule(pulumi.CustomResource):
         __props__.__dict__["recipients"] = recipients
         return MonitorNotificationRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bundle_config: pulumi.Input[Optional[Union['MonitorNotificationRuleBundleConfigArgs', 'MonitorNotificationRuleBundleConfigArgsDict', 'outputs.MonitorNotificationRuleBundleConfig']]] = None,
+            conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict', 'outputs.MonitorNotificationRuleConditionalRecipients']]] = None,
+            filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bundleConfig"] = bundle_config
+        __props__["conditionalRecipients"] = conditional_recipients
+        __props__["filter"] = filter
+        __props__["name"] = name
+        __props__["recipients"] = recipients
+        return pulumi.runtime.exists_resource(None, 'datadog:index/monitorNotificationRule:MonitorNotificationRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bundleConfig")
     def bundle_config(self) -> pulumi.Output[Optional['outputs.MonitorNotificationRuleBundleConfig']]:

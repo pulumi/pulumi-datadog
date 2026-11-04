@@ -103,6 +103,12 @@ func (SyntheticsConcurrencyCapState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syntheticsConcurrencyCapState)(nil)).Elem()
 }
 
+// SyntheticsConcurrencyCapExists checks whether an existing SyntheticsConcurrencyCap resource with the given ID exists.
+func SyntheticsConcurrencyCapExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyntheticsConcurrencyCapState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap", id, state, "", opts...)
+}
+
 type syntheticsConcurrencyCapArgs struct {
 	// Value of the on-demand concurrency cap, customizing the number of Synthetic tests run in parallel. Value must be at least 1.
 	OnDemandConcurrencyCap int `pulumi:"onDemandConcurrencyCap"`

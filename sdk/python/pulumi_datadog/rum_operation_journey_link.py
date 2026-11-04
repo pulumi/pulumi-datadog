@@ -224,6 +224,16 @@ class RumOperationJourneyLink(pulumi.CustomResource):
         __props__.__dict__["operation_id"] = operation_id
         return RumOperationJourneyLink(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            journey_id: pulumi.Input[Optional[_builtins.str]] = None,
+            operation_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["journeyId"] = journey_id
+        __props__["operationId"] = operation_id
+        return pulumi.runtime.exists_resource(None, 'datadog:index/rumOperationJourneyLink:RumOperationJourneyLink', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="journeyId")
     def journey_id(self) -> pulumi.Output[_builtins.str]:

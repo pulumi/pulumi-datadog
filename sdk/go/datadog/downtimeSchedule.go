@@ -174,6 +174,12 @@ func (DowntimeScheduleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*downtimeScheduleState)(nil)).Elem()
 }
 
+// DowntimeScheduleExists checks whether an existing DowntimeSchedule resource with the given ID exists.
+func DowntimeScheduleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DowntimeScheduleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/downtimeSchedule:DowntimeSchedule", id, state, "", opts...)
+}
+
 type downtimeScheduleArgs struct {
 	// The timezone in which to display the downtime's start and end times in Datadog applications. This is not used as an offset for scheduling.
 	DisplayTimezone *string `pulumi:"displayTimezone"`

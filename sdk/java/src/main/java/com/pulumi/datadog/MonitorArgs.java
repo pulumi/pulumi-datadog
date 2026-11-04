@@ -275,22 +275,20 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
      * 
-     * @deprecated
-     * Use `newGroupDelay` except when setting `newHostDelay` to zero.
+     * @deprecated Use `newGroupDelay` except when setting `newHostDelay` to zero.
      * 
      */
-    @Deprecated /* Use `newGroupDelay` except when setting `newHostDelay` to zero. */
+    @Deprecated
     @Import(name="newHostDelay")
     private @Nullable Output<Integer> newHostDelay;
 
     /**
      * @return **Deprecated**. See `newGroupDelay`. Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non-negative integer. This value is ignored for simple monitors and monitors not grouped by host. The only case when this should be used is to override the default and set `newHostDelay` to zero for monitors grouped by host.
      * 
-     * @deprecated
-     * Use `newGroupDelay` except when setting `newHostDelay` to zero.
+     * @deprecated Use `newGroupDelay` except when setting `newHostDelay` to zero.
      * 
      */
-    @Deprecated /* Use `newGroupDelay` except when setting `newHostDelay` to zero. */
+    @Deprecated
     public Optional<Output<Integer>> newHostDelay() {
         return Optional.ofNullable(this.newHostDelay);
     }
@@ -486,22 +484,20 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
      * 
-     * @deprecated
-     * Use `datadog.RestrictionPolicy` resource to manage permission.
+     * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
      * 
      */
-    @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
+    @Deprecated
     @Import(name="restrictedRoles")
     private @Nullable Output<List<String>> restrictedRoles;
 
     /**
      * @return A list of unique role identifiers to define which roles are allowed to edit the monitor. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. Roles unique identifiers can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) in the `data.id` field.
      * 
-     * @deprecated
-     * Use `datadog.RestrictionPolicy` resource to manage permission.
+     * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
      * 
      */
-    @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
+    @Deprecated
     public Optional<Output<List<String>>> restrictedRoles() {
         return Optional.ofNullable(this.restrictedRoles);
     }
@@ -1016,11 +1012,10 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `newGroupDelay` except when setting `newHostDelay` to zero.
+         * @deprecated Use `newGroupDelay` except when setting `newHostDelay` to zero.
          * 
          */
-        @Deprecated /* Use `newGroupDelay` except when setting `newHostDelay` to zero. */
+        @Deprecated
         public Builder newHostDelay(@Nullable Output<Integer> newHostDelay) {
             $.newHostDelay = newHostDelay;
             return this;
@@ -1031,11 +1026,10 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `newGroupDelay` except when setting `newHostDelay` to zero.
+         * @deprecated Use `newGroupDelay` except when setting `newHostDelay` to zero.
          * 
          */
-        @Deprecated /* Use `newGroupDelay` except when setting `newHostDelay` to zero. */
+        @Deprecated
         public Builder newHostDelay(Integer newHostDelay) {
             return newHostDelay(Output.of(newHostDelay));
         }
@@ -1325,11 +1319,10 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `datadog.RestrictionPolicy` resource to manage permission.
+         * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
          * 
          */
-        @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
+        @Deprecated
         public Builder restrictedRoles(@Nullable Output<List<String>> restrictedRoles) {
             $.restrictedRoles = restrictedRoles;
             return this;
@@ -1340,11 +1333,10 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `datadog.RestrictionPolicy` resource to manage permission.
+         * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
          * 
          */
-        @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
+        @Deprecated
         public Builder restrictedRoles(List<String> restrictedRoles) {
             return restrictedRoles(Output.of(restrictedRoles));
         }
@@ -1354,11 +1346,10 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `datadog.RestrictionPolicy` resource to manage permission.
+         * @deprecated Use `datadog.RestrictionPolicy` resource to manage permission.
          * 
          */
-        @Deprecated /* Use `datadog.RestrictionPolicy` resource to manage permission. */
+        @Deprecated
         public Builder restrictedRoles(String... restrictedRoles) {
             return restrictedRoles(List.of(restrictedRoles));
         }

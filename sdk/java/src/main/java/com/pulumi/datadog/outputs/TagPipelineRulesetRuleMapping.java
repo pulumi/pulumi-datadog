@@ -21,11 +21,10 @@ public final class TagPipelineRulesetRuleMapping {
     /**
      * @return Whether to apply the mapping only if the destination key doesn&#39;t exist.
      * 
-     * @deprecated
-     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      * 
      */
-    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
+    @Deprecated
     private @Nullable Boolean ifNotExists;
     /**
      * @return Behavior when the tag already exists. Valid values: `append` (append to the existing tag value), `replace` (replace existing tag value), `doNotApply` (never apply if tag already exists). Valid values are `append`, `replace`, `doNotApply`.
@@ -49,11 +48,10 @@ public final class TagPipelineRulesetRuleMapping {
     /**
      * @return Whether to apply the mapping only if the destination key doesn&#39;t exist.
      * 
-     * @deprecated
-     * Use `ifTagExists` instead. This field will be removed in a future release.
+     * @deprecated Use `ifTagExists` instead. This field will be removed in a future release.
      * 
      */
-    @Deprecated /* Use `ifTagExists` instead. This field will be removed in a future release. */
+    @Deprecated
     public Optional<Boolean> ifNotExists() {
         return Optional.ofNullable(this.ifNotExists);
     }

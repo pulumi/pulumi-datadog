@@ -1632,6 +1632,84 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["variables"] = variables
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorAssetArgs', 'MonitorAssetArgsDict', 'outputs.MonitorAsset']]]]] = None,
+            draft_status: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_logs_sample: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_samples: pulumi.Input[Optional[_builtins.bool]] = None,
+            escalation_message: pulumi.Input[Optional[_builtins.str]] = None,
+            evaluation_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            group_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            groupby_simple_monitor: pulumi.Input[Optional[_builtins.bool]] = None,
+            ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            include_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_threshold_windows: pulumi.Input[Optional[Union['MonitorMonitorThresholdWindowsArgs', 'MonitorMonitorThresholdWindowsArgsDict', 'outputs.MonitorMonitorThresholdWindows']]] = None,
+            monitor_thresholds: pulumi.Input[Optional[Union['MonitorMonitorThresholdsArgs', 'MonitorMonitorThresholdsArgsDict', 'outputs.MonitorMonitorThresholds']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            new_group_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            new_host_delay: pulumi.Input[Optional[_builtins.int]] = None,
+            no_data_timeframe: pulumi.Input[Optional[_builtins.int]] = None,
+            notification_preset_name: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_audit: pulumi.Input[Optional[_builtins.bool]] = None,
+            notify_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            notify_no_data: pulumi.Input[Optional[_builtins.bool]] = None,
+            on_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            renotify_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            renotify_occurrences: pulumi.Input[Optional[_builtins.int]] = None,
+            renotify_statuses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            require_full_window: pulumi.Input[Optional[_builtins.bool]] = None,
+            restricted_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            scheduling_options: pulumi.Input[Optional[Union['MonitorSchedulingOptionsArgs', 'MonitorSchedulingOptionsArgsDict', 'outputs.MonitorSchedulingOptions']]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            timeout_h: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None,
+            variables: pulumi.Input[Optional[Union['MonitorVariablesArgs', 'MonitorVariablesArgsDict', 'outputs.MonitorVariables']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assets"] = assets
+        __props__["draftStatus"] = draft_status
+        __props__["enableLogsSample"] = enable_logs_sample
+        __props__["enableSamples"] = enable_samples
+        __props__["escalationMessage"] = escalation_message
+        __props__["evaluationDelay"] = evaluation_delay
+        __props__["forceDelete"] = force_delete
+        __props__["groupRetentionDuration"] = group_retention_duration
+        __props__["groupbySimpleMonitor"] = groupby_simple_monitor
+        __props__["ignoreTagKeys"] = ignore_tag_keys
+        __props__["includeTags"] = include_tags
+        __props__["message"] = message
+        __props__["monitorThresholdWindows"] = monitor_threshold_windows
+        __props__["monitorThresholds"] = monitor_thresholds
+        __props__["name"] = name
+        __props__["newGroupDelay"] = new_group_delay
+        __props__["newHostDelay"] = new_host_delay
+        __props__["noDataTimeframe"] = no_data_timeframe
+        __props__["notificationPresetName"] = notification_preset_name
+        __props__["notifyAudit"] = notify_audit
+        __props__["notifyBies"] = notify_bies
+        __props__["notifyNoData"] = notify_no_data
+        __props__["onMissingData"] = on_missing_data
+        __props__["priority"] = priority
+        __props__["query"] = query
+        __props__["renotifyInterval"] = renotify_interval
+        __props__["renotifyOccurrences"] = renotify_occurrences
+        __props__["renotifyStatuses"] = renotify_statuses
+        __props__["requireFullWindow"] = require_full_window
+        __props__["restrictedRoles"] = restricted_roles
+        __props__["schedulingOptions"] = scheduling_options
+        __props__["tags"] = tags
+        __props__["timeoutH"] = timeout_h
+        __props__["type"] = type
+        __props__["validate"] = validate
+        __props__["variables"] = variables
+        return pulumi.runtime.exists_resource(None, 'datadog:index/monitor:Monitor', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def assets(self) -> pulumi.Output[Optional[Sequence['outputs.MonitorAsset']]]:

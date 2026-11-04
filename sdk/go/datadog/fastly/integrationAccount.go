@@ -134,6 +134,12 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationAccountState)(nil)).Elem()
 }
 
+// IntegrationAccountExists checks whether an existing IntegrationAccount resource with the given ID exists.
+func IntegrationAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:fastly/integrationAccount:IntegrationAccount", id, state, "", opts...)
+}
+
 type integrationAccountArgs struct {
 	// The API key for the Fastly account. Exactly one of `apiKey` or `apiKeyWo` must be set.
 	ApiKey *string `pulumi:"apiKey"`

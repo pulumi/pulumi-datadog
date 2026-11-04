@@ -145,6 +145,12 @@ func (IncidentUserDefinedRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentUserDefinedRoleState)(nil)).Elem()
 }
 
+// IncidentUserDefinedRoleExists checks whether an existing IncidentUserDefinedRole resource with the given ID exists.
+func IncidentUserDefinedRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentUserDefinedRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/incidentUserDefinedRole:IncidentUserDefinedRole", id, state, "", opts...)
+}
+
 type incidentUserDefinedRoleArgs struct {
 	// A description of the user-defined role. At most 1024 characters.
 	Description *string `pulumi:"description"`

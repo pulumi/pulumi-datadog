@@ -128,6 +128,12 @@ func (WebhookCustomVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webhookCustomVariableState)(nil)).Elem()
 }
 
+// WebhookCustomVariableExists checks whether an existing WebhookCustomVariable resource with the given ID exists.
+func WebhookCustomVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebhookCustomVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/webhookCustomVariable:WebhookCustomVariable", id, state, "", opts...)
+}
+
 type webhookCustomVariableArgs struct {
 	// Whether the custom variable is secret or not.
 	IsSecret bool `pulumi:"isSecret"`

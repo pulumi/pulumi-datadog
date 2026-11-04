@@ -29,20 +29,18 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetApmQuery apmQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestAuditQuery auditQuery;
     /**
      * @return How to display the marker lines. Valid values are `area`, `bars`, `line`, `overlay`.
@@ -52,11 +50,10 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestEventQuery eventQuery;
     /**
      * @return List of formulas that operate on queries.
@@ -66,11 +63,10 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetLogQuery logQuery;
     /**
      * @return Used to define expression aliases. Multiple `metadata` blocks are allowed using the structure below.
@@ -80,11 +76,10 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestNetworkQuery networkQuery;
     /**
      * @return A Boolean indicating whether the request uses the right or left Y-Axis.
@@ -99,20 +94,18 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetTimeseriesDefinitionRequestProfileMetricsQuery profileMetricsQuery;
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable String q;
     /**
      * @return List of queries that can be returned directly or used in formulas.
@@ -122,20 +115,18 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetRumQuery rumQuery;
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     private @Nullable DashboardV2WidgetSecurityQuery securityQuery;
     /**
      * @return The style of the widget graph. Exactly one `style` block is allowed using the structure below.
@@ -147,22 +138,20 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetApmQuery> apmQuery() {
         return Optional.ofNullable(this.apmQuery);
     }
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetTimeseriesDefinitionRequestAuditQuery> auditQuery() {
         return Optional.ofNullable(this.auditQuery);
     }
@@ -176,11 +165,10 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetTimeseriesDefinitionRequestEventQuery> eventQuery() {
         return Optional.ofNullable(this.eventQuery);
     }
@@ -194,11 +182,10 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetLogQuery> logQuery() {
         return Optional.ofNullable(this.logQuery);
     }
@@ -212,11 +199,10 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetTimeseriesDefinitionRequestNetworkQuery> networkQuery() {
         return Optional.ofNullable(this.networkQuery);
     }
@@ -237,22 +223,20 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetTimeseriesDefinitionRequestProfileMetricsQuery> profileMetricsQuery() {
         return Optional.ofNullable(this.profileMetricsQuery);
     }
     /**
      * @return The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<String> q() {
         return Optional.ofNullable(this.q);
     }
@@ -266,22 +250,20 @@ public final class DashboardV2WidgetTimeseriesDefinitionRequest {
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetRumQuery> rumQuery() {
         return Optional.ofNullable(this.rumQuery);
     }
     /**
      * @return The query to use for this widget. **Deprecated.** Use queries and formulas instead.
      * 
-     * @deprecated
-     * Use queries and formulas instead.
+     * @deprecated Use queries and formulas instead.
      * 
      */
-    @Deprecated /* Use queries and formulas instead. */
+    @Deprecated
     public Optional<DashboardV2WidgetSecurityQuery> securityQuery() {
         return Optional.ofNullable(this.securityQuery);
     }

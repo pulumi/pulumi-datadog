@@ -1429,6 +1429,12 @@ func (SyntheticsTestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syntheticsTestState)(nil)).Elem()
 }
 
+// SyntheticsTestExists checks whether an existing SyntheticsTest resource with the given ID exists.
+func SyntheticsTestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyntheticsTestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/syntheticsTest:SyntheticsTest", id, state, "", opts...)
+}
+
 type syntheticsTestArgs struct {
 	// Steps for multistep API tests
 	ApiSteps []SyntheticsTestApiStep `pulumi:"apiSteps"`

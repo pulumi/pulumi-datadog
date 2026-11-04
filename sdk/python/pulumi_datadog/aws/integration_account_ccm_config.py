@@ -233,6 +233,16 @@ class IntegrationAccountCcmConfig(pulumi.CustomResource):
         __props__.__dict__["ccm_config"] = ccm_config
         return IntegrationAccountCcmConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_account_config_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ccm_config: pulumi.Input[Optional[Union['IntegrationAccountCcmConfigCcmConfigArgs', 'IntegrationAccountCcmConfigCcmConfigArgsDict', 'outputs.IntegrationAccountCcmConfigCcmConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsAccountConfigId"] = aws_account_config_id
+        __props__["ccmConfig"] = ccm_config
+        return pulumi.runtime.exists_resource(None, 'datadog:aws/integrationAccountCcmConfig:IntegrationAccountCcmConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsAccountConfigId")
     def aws_account_config_id(self) -> pulumi.Output[_builtins.str]:

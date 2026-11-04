@@ -37,22 +37,20 @@ public final class DashboardV2WidgetListStreamDefinitionRequestArgs extends com.
     /**
      * This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
      * 
-     * @deprecated
-     * This field has no effect and will be removed in a future release.
+     * @deprecated This field has no effect and will be removed in a future release.
      * 
      */
-    @Deprecated /* This field has no effect and will be removed in a future release. */
+    @Deprecated
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
      * @return This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
      * 
-     * @deprecated
-     * This field has no effect and will be removed in a future release.
+     * @deprecated This field has no effect and will be removed in a future release.
      * 
      */
-    @Deprecated /* This field has no effect and will be removed in a future release. */
+    @Deprecated
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -150,11 +148,10 @@ public final class DashboardV2WidgetListStreamDefinitionRequestArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field has no effect and will be removed in a future release.
+         * @deprecated This field has no effect and will be removed in a future release.
          * 
          */
-        @Deprecated /* This field has no effect and will be removed in a future release. */
+        @Deprecated
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
@@ -165,11 +162,10 @@ public final class DashboardV2WidgetListStreamDefinitionRequestArgs extends com.
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field has no effect and will be removed in a future release.
+         * @deprecated This field has no effect and will be removed in a future release.
          * 
          */
-        @Deprecated /* This field has no effect and will be removed in a future release. */
+        @Deprecated
         public Builder description(String description) {
             return description(Output.of(description));
         }

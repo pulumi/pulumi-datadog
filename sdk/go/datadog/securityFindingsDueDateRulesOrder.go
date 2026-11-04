@@ -114,6 +114,12 @@ func (SecurityFindingsDueDateRulesOrderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityFindingsDueDateRulesOrderState)(nil)).Elem()
 }
 
+// SecurityFindingsDueDateRulesOrderExists checks whether an existing SecurityFindingsDueDateRulesOrder resource with the given ID exists.
+func SecurityFindingsDueDateRulesOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityFindingsDueDateRulesOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityFindingsDueDateRulesOrder:SecurityFindingsDueDateRulesOrder", id, state, "", opts...)
+}
+
 type securityFindingsDueDateRulesOrderArgs struct {
 	// A unique identifier for the order resource. This field has no server-side equivalent; Datadog recommends matching the resource name.
 	Name string `pulumi:"name"`

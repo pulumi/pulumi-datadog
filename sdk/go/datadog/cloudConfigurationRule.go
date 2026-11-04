@@ -221,6 +221,12 @@ func (CloudConfigurationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cloudConfigurationRuleState)(nil)).Elem()
 }
 
+// CloudConfigurationRuleExists checks whether an existing CloudConfigurationRule resource with the given ID exists.
+func CloudConfigurationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CloudConfigurationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/cloudConfigurationRule:CloudConfigurationRule", id, state, "", opts...)
+}
+
 type cloudConfigurationRuleArgs struct {
 	// Whether the cloud configuration rule is enabled.
 	Enabled bool `pulumi:"enabled"`

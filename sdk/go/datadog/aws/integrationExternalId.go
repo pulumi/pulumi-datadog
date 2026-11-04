@@ -137,6 +137,12 @@ func (IntegrationExternalIdState) ElementType() reflect.Type {
 	return reflect.TypeOf((*integrationExternalIdState)(nil)).Elem()
 }
 
+// IntegrationExternalIdExists checks whether an existing IntegrationExternalId resource with the given ID exists.
+func IntegrationExternalIdExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntegrationExternalIdState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:aws/integrationExternalId:IntegrationExternalId", id, state, "", opts...)
+}
+
 type integrationExternalIdArgs struct {
 }
 

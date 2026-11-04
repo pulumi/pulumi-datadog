@@ -41,7 +41,7 @@ public final class GetServiceLevelObjectivesResult {
      */
     private @Nullable String nameQuery;
     /**
-     * @return The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     * @return The query string to filter results based on SLO names. Some examples of queries include service:&#92;n&#92;n and &#92;n&#92;n.
      * 
      */
     private @Nullable String query;
@@ -93,7 +93,7 @@ public final class GetServiceLevelObjectivesResult {
         return Optional.ofNullable(this.nameQuery);
     }
     /**
-     * @return The query string to filter results based on SLO names. Some examples of queries include service:\n\n and \n\n.
+     * @return The query string to filter results based on SLO names. Some examples of queries include service:&#92;n&#92;n and &#92;n&#92;n.
      * 
      */
     public Optional<String> query() {

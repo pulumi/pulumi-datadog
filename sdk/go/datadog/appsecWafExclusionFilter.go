@@ -176,6 +176,12 @@ func (AppsecWafExclusionFilterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appsecWafExclusionFilterState)(nil)).Elem()
 }
 
+// AppsecWafExclusionFilterExists checks whether an existing AppsecWafExclusionFilter resource with the given ID exists.
+func AppsecWafExclusionFilterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppsecWafExclusionFilterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/appsecWafExclusionFilter:AppsecWafExclusionFilter", id, state, "", opts...)
+}
+
 type appsecWafExclusionFilterArgs struct {
 	// A description for the exclusion filter.
 	Description string `pulumi:"description"`

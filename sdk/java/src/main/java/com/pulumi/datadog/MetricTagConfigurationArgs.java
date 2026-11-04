@@ -22,22 +22,20 @@ public final class MetricTagConfigurationArgs extends com.pulumi.resources.Resou
     /**
      * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
      * 
-     * @deprecated
-     * The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+     * @deprecated The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="aggregations")
     private @Nullable Output<List<MetricTagConfigurationAggregationArgs>> aggregations;
 
     /**
      * @return A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
      * 
-     * @deprecated
-     * The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+     * @deprecated The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<Output<List<MetricTagConfigurationAggregationArgs>>> aggregations() {
         return Optional.ofNullable(this.aggregations);
     }
@@ -151,11 +149,10 @@ public final class MetricTagConfigurationArgs extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+         * @deprecated The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider. */
+        @Deprecated
         public Builder aggregations(@Nullable Output<List<MetricTagConfigurationAggregationArgs>> aggregations) {
             $.aggregations = aggregations;
             return this;
@@ -166,11 +163,10 @@ public final class MetricTagConfigurationArgs extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+         * @deprecated The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider. */
+        @Deprecated
         public Builder aggregations(List<MetricTagConfigurationAggregationArgs> aggregations) {
             return aggregations(Output.of(aggregations));
         }
@@ -180,11 +176,10 @@ public final class MetricTagConfigurationArgs extends com.pulumi.resources.Resou
          * 
          * @return builder
          * 
-         * @deprecated
-         * The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+         * @deprecated The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider. */
+        @Deprecated
         public Builder aggregations(MetricTagConfigurationAggregationArgs... aggregations) {
             return aggregations(List.of(aggregations));
         }

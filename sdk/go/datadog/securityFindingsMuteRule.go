@@ -137,6 +137,12 @@ func (SecurityFindingsMuteRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityFindingsMuteRuleState)(nil)).Elem()
 }
 
+// SecurityFindingsMuteRuleExists checks whether an existing SecurityFindingsMuteRule resource with the given ID exists.
+func SecurityFindingsMuteRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityFindingsMuteRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityFindingsMuteRule:SecurityFindingsMuteRule", id, state, "", opts...)
+}
+
 type securityFindingsMuteRuleArgs struct {
 	// The action to take when the mute rule matches a finding.
 	Action SecurityFindingsMuteRuleAction `pulumi:"action"`

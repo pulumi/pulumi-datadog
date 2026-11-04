@@ -681,6 +681,30 @@ class IntegrationAccount(pulumi.CustomResource):
         __props__.__dict__["traces_config"] = traces_config
         return IntegrationAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auth_config: pulumi.Input[Optional[Union['IntegrationAccountAuthConfigArgs', 'IntegrationAccountAuthConfigArgsDict', 'outputs.IntegrationAccountAuthConfig']]] = None,
+            aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_partition: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_regions: pulumi.Input[Optional[Union['IntegrationAccountAwsRegionsArgs', 'IntegrationAccountAwsRegionsArgsDict', 'outputs.IntegrationAccountAwsRegions']]] = None,
+            logs_config: pulumi.Input[Optional[Union['IntegrationAccountLogsConfigArgs', 'IntegrationAccountLogsConfigArgsDict', 'outputs.IntegrationAccountLogsConfig']]] = None,
+            metrics_config: pulumi.Input[Optional[Union['IntegrationAccountMetricsConfigArgs', 'IntegrationAccountMetricsConfigArgsDict', 'outputs.IntegrationAccountMetricsConfig']]] = None,
+            resources_config: pulumi.Input[Optional[Union['IntegrationAccountResourcesConfigArgs', 'IntegrationAccountResourcesConfigArgsDict', 'outputs.IntegrationAccountResourcesConfig']]] = None,
+            traces_config: pulumi.Input[Optional[Union['IntegrationAccountTracesConfigArgs', 'IntegrationAccountTracesConfigArgsDict', 'outputs.IntegrationAccountTracesConfig']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountTags"] = account_tags
+        __props__["authConfig"] = auth_config
+        __props__["awsAccountId"] = aws_account_id
+        __props__["awsPartition"] = aws_partition
+        __props__["awsRegions"] = aws_regions
+        __props__["logsConfig"] = logs_config
+        __props__["metricsConfig"] = metrics_config
+        __props__["resourcesConfig"] = resources_config
+        __props__["tracesConfig"] = traces_config
+        return pulumi.runtime.exists_resource(None, 'datadog:aws/integrationAccount:IntegrationAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountTags")
     def account_tags(self) -> pulumi.Output[Sequence[_builtins.str]]:

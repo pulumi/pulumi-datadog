@@ -426,6 +426,26 @@ class MetricMetadata(pulumi.CustomResource):
         __props__.__dict__["unit"] = unit
         return MetricMetadata(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            metric: pulumi.Input[Optional[_builtins.str]] = None,
+            per_unit: pulumi.Input[Optional[_builtins.str]] = None,
+            short_name: pulumi.Input[Optional[_builtins.str]] = None,
+            statsd_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            unit: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["metric"] = metric
+        __props__["perUnit"] = per_unit
+        __props__["shortName"] = short_name
+        __props__["statsdInterval"] = statsd_interval
+        __props__["type"] = type
+        __props__["unit"] = unit
+        return pulumi.runtime.exists_resource(None, 'datadog:index/metricMetadata:MetricMetadata', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

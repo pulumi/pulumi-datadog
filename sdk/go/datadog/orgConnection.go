@@ -144,6 +144,12 @@ func (OrgConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*orgConnectionState)(nil)).Elem()
 }
 
+// OrgConnectionExists checks whether an existing OrgConnection resource with the given ID exists.
+func OrgConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrgConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/orgConnection:OrgConnection", id, state, "", opts...)
+}
+
 type orgConnectionArgs struct {
 	// Set of connection types to enable for this connection (., metrics, logs).
 	ConnectionTypes []string `pulumi:"connectionTypes"`

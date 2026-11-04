@@ -252,6 +252,12 @@ func (SyntheticsGlobalVariableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*syntheticsGlobalVariableState)(nil)).Elem()
 }
 
+// SyntheticsGlobalVariableExists checks whether an existing SyntheticsGlobalVariable resource with the given ID exists.
+func SyntheticsGlobalVariableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SyntheticsGlobalVariableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable", id, state, "", opts...)
+}
+
 type syntheticsGlobalVariableArgs struct {
 	// Description of the global variable. Defaults to `""`.
 	Description *string `pulumi:"description"`

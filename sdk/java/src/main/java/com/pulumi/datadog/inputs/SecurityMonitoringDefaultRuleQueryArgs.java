@@ -21,22 +21,20 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     /**
      * **Deprecated**. It won&#39;t be applied anymore.
      * 
-     * @deprecated
-     * `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
-    @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
+    @Deprecated
     @Import(name="agentRules")
     private @Nullable Output<List<SecurityMonitoringDefaultRuleQueryAgentRuleArgs>> agentRules;
 
     /**
      * @return **Deprecated**. It won&#39;t be applied anymore.
      * 
-     * @deprecated
-     * `agentRule` has been deprecated in favor of new Agent Rule resource.
+     * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
      * 
      */
-    @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
+    @Deprecated
     public Optional<Output<List<SecurityMonitoringDefaultRuleQueryAgentRuleArgs>>> agentRules() {
         return Optional.ofNullable(this.agentRules);
     }
@@ -134,22 +132,20 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
     /**
      * The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
-     * @deprecated
-     * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
+    @Deprecated
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
     /**
      * @return The target field to aggregate over when using the `sum`, `max`, or `geoData` aggregations.
      * 
-     * @deprecated
-     * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+     * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
      * 
      */
-    @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
+    @Deprecated
     public Optional<Output<String>> metric() {
         return Optional.ofNullable(this.metric);
     }
@@ -238,11 +234,10 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
          * 
          * @return builder
          * 
-         * @deprecated
-         * `agentRule` has been deprecated in favor of new Agent Rule resource.
+         * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
          * 
          */
-        @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
+        @Deprecated
         public Builder agentRules(@Nullable Output<List<SecurityMonitoringDefaultRuleQueryAgentRuleArgs>> agentRules) {
             $.agentRules = agentRules;
             return this;
@@ -253,11 +248,10 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
          * 
          * @return builder
          * 
-         * @deprecated
-         * `agentRule` has been deprecated in favor of new Agent Rule resource.
+         * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
          * 
          */
-        @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
+        @Deprecated
         public Builder agentRules(List<SecurityMonitoringDefaultRuleQueryAgentRuleArgs> agentRules) {
             return agentRules(Output.of(agentRules));
         }
@@ -267,11 +261,10 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
          * 
          * @return builder
          * 
-         * @deprecated
-         * `agentRule` has been deprecated in favor of new Agent Rule resource.
+         * @deprecated `agentRule` has been deprecated in favor of new Agent Rule resource.
          * 
          */
-        @Deprecated /* `agentRule` has been deprecated in favor of new Agent Rule resource. */
+        @Deprecated
         public Builder agentRules(SecurityMonitoringDefaultRuleQueryAgentRuleArgs... agentRules) {
             return agentRules(List.of(agentRules));
         }
@@ -427,11 +420,10 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
          * 
          */
-        @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
+        @Deprecated
         public Builder metric(@Nullable Output<String> metric) {
             $.metric = metric;
             return this;
@@ -442,11 +434,10 @@ public final class SecurityMonitoringDefaultRuleQueryArgs extends com.pulumi.res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
+         * @deprecated Configure `metrics` instead. This attribute will be removed in the next major version of the provider.
          * 
          */
-        @Deprecated /* Configure `metrics` instead. This attribute will be removed in the next major version of the provider. */
+        @Deprecated
         public Builder metric(String metric) {
             return metric(Output.of(metric));
         }

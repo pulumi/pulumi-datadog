@@ -359,6 +359,20 @@ class CloudInventorySyncConfig(pulumi.CustomResource):
         __props__.__dict__["gcp"] = gcp
         return CloudInventorySyncConfig(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws: pulumi.Input[Optional[Union['CloudInventorySyncConfigAwsArgs', 'CloudInventorySyncConfigAwsArgsDict', 'outputs.CloudInventorySyncConfigAws']]] = None,
+            azure: pulumi.Input[Optional[Union['CloudInventorySyncConfigAzureArgs', 'CloudInventorySyncConfigAzureArgsDict', 'outputs.CloudInventorySyncConfigAzure']]] = None,
+            cloud_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            gcp: pulumi.Input[Optional[Union['CloudInventorySyncConfigGcpArgs', 'CloudInventorySyncConfigGcpArgsDict', 'outputs.CloudInventorySyncConfigGcp']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aws"] = aws
+        __props__["azure"] = azure
+        __props__["cloudProvider"] = cloud_provider
+        __props__["gcp"] = gcp
+        return pulumi.runtime.exists_resource(None, 'datadog:index/cloudInventorySyncConfig:CloudInventorySyncConfig', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aws(self) -> pulumi.Output[Optional['outputs.CloudInventorySyncConfigAws']]:

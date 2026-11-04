@@ -180,6 +180,12 @@ func (LogsCustomDestinationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsCustomDestinationState)(nil)).Elem()
 }
 
+// LogsCustomDestinationExists checks whether an existing LogsCustomDestination resource with the given ID exists.
+func LogsCustomDestinationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogsCustomDestinationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/logsCustomDestination:LogsCustomDestination", id, state, "", opts...)
+}
+
 type logsCustomDestinationArgs struct {
 	// The Elasticsearch destination.
 	ElasticsearchDestination *LogsCustomDestinationElasticsearchDestination `pulumi:"elasticsearchDestination"`

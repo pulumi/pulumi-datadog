@@ -443,6 +443,32 @@ class IncidentPostmortemTemplate(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return IncidentPostmortemTemplate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            confluence_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateConfluencePostmortemSettingsArgs', 'IncidentPostmortemTemplateConfluencePostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateConfluencePostmortemSettings']]] = None,
+            content: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            google_docs_postmortem_settings: pulumi.Input[Optional[Union['IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgs', 'IncidentPostmortemTemplateGoogleDocsPostmortemSettingsArgsDict', 'outputs.IncidentPostmortemTemplateGoogleDocsPostmortemSettings']]] = None,
+            incident_type: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_modified_by_user: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            modified: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["confluencePostmortemSettings"] = confluence_postmortem_settings
+        __props__["content"] = content
+        __props__["created"] = created
+        __props__["googleDocsPostmortemSettings"] = google_docs_postmortem_settings
+        __props__["incidentType"] = incident_type
+        __props__["isDefault"] = is_default
+        __props__["lastModifiedByUser"] = last_modified_by_user
+        __props__["location"] = location
+        __props__["modified"] = modified
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'datadog:index/incidentPostmortemTemplate:IncidentPostmortemTemplate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="confluencePostmortemSettings")
     def confluence_postmortem_settings(self) -> pulumi.Output[Optional['outputs.IncidentPostmortemTemplateConfluencePostmortemSettings']]:

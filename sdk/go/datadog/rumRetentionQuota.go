@@ -126,6 +126,12 @@ func (RumRetentionQuotaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rumRetentionQuotaState)(nil)).Elem()
 }
 
+// RumRetentionQuotaExists checks whether an existing RumRetentionQuota resource with the given ID exists.
+func RumRetentionQuotaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RumRetentionQuotaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/rumRetentionQuota:RumRetentionQuota", id, state, "", opts...)
+}
+
 type rumRetentionQuotaArgs struct {
 	// RUM application ID.
 	ApplicationId string `pulumi:"applicationId"`

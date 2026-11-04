@@ -141,6 +141,12 @@ func (LogsMetricState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsMetricState)(nil)).Elem()
 }
 
+// LogsMetricExists checks whether an existing LogsMetric resource with the given ID exists.
+func LogsMetricExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogsMetricState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/logsMetric:LogsMetric", id, state, "", opts...)
+}
+
 type logsMetricArgs struct {
 	// The compute rule to compute the log-based metric. This field can't be updated after creation.
 	Compute LogsMetricCompute `pulumi:"compute"`

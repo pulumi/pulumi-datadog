@@ -268,6 +268,22 @@ class TagIndexingRuleExemption(pulumi.CustomResource):
         __props__.__dict__["reason"] = reason
         return TagIndexingRuleExemption(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by_handle: pulumi.Input[Optional[_builtins.str]] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+            reason: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["createdByHandle"] = created_by_handle
+        __props__["kind"] = kind
+        __props__["metricName"] = metric_name
+        __props__["reason"] = reason
+        return pulumi.runtime.exists_resource(None, 'datadog:index/tagIndexingRuleExemption:TagIndexingRuleExemption', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

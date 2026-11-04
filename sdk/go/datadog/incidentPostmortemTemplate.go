@@ -123,6 +123,12 @@ func (IncidentPostmortemTemplateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*incidentPostmortemTemplateState)(nil)).Elem()
 }
 
+// IncidentPostmortemTemplateExists checks whether an existing IncidentPostmortemTemplate resource with the given ID exists.
+func IncidentPostmortemTemplateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IncidentPostmortemTemplateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/incidentPostmortemTemplate:IncidentPostmortemTemplate", id, state, "", opts...)
+}
+
 type incidentPostmortemTemplateArgs struct {
 	// Settings for a postmortem template stored in Confluence. Required when location is confluence.
 	ConfluencePostmortemSettings *IncidentPostmortemTemplateConfluencePostmortemSettings `pulumi:"confluencePostmortemSettings"`

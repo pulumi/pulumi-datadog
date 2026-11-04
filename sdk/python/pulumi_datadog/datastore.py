@@ -461,6 +461,32 @@ class Datastore(pulumi.CustomResource):
         __props__.__dict__["primary_key_generation_strategy"] = primary_key_generation_strategy
         return Datastore(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            creator_user_id: pulumi.Input[Optional[_builtins.int]] = None,
+            creator_user_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            org_access: pulumi.Input[Optional[_builtins.str]] = None,
+            org_id: pulumi.Input[Optional[_builtins.int]] = None,
+            primary_column_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key_generation_strategy: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["creatorUserId"] = creator_user_id
+        __props__["creatorUserUuid"] = creator_user_uuid
+        __props__["description"] = description
+        __props__["modifiedAt"] = modified_at
+        __props__["name"] = name
+        __props__["orgAccess"] = org_access
+        __props__["orgId"] = org_id
+        __props__["primaryColumnName"] = primary_column_name
+        __props__["primaryKeyGenerationStrategy"] = primary_key_generation_strategy
+        return pulumi.runtime.exists_resource(None, 'datadog:index/datastore:Datastore', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

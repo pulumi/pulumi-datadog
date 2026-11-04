@@ -83,11 +83,10 @@ public class MetricTagConfiguration extends com.pulumi.resources.CustomResource 
     /**
      * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metricType` of count, rate, or gauge. **Deprecated.** The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
      * 
-     * @deprecated
-     * The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
+     * @deprecated The &#39;aggregations&#39; field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider. */
+    @Deprecated
     @Export(name="aggregations", refs={List.class,MetricTagConfigurationAggregation.class}, tree="[0,1]")
     private Output<List<MetricTagConfigurationAggregation>> aggregations;
 

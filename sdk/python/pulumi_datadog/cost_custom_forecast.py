@@ -375,6 +375,24 @@ class CostCustomForecast(pulumi.CustomResource):
         __props__.__dict__["updated_by"] = updated_by
         return CostCustomForecast(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            budget_uid: pulumi.Input[Optional[_builtins.str]] = None,
+            created_at: pulumi.Input[Optional[_builtins.int]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CostCustomForecastEntryArgs', 'CostCustomForecastEntryArgsDict', 'outputs.CostCustomForecastEntry']]]]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.int]] = None,
+            updated_by: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["budgetUid"] = budget_uid
+        __props__["createdAt"] = created_at
+        __props__["createdBy"] = created_by
+        __props__["entries"] = entries
+        __props__["updatedAt"] = updated_at
+        __props__["updatedBy"] = updated_by
+        return pulumi.runtime.exists_resource(None, 'datadog:index/costCustomForecast:CostCustomForecast', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="budgetUid")
     def budget_uid(self) -> pulumi.Output[_builtins.str]:

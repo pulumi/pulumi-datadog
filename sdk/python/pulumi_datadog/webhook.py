@@ -359,6 +359,22 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Webhook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_headers: pulumi.Input[Optional[_builtins.str]] = None,
+            encode_as: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            payload: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customHeaders"] = custom_headers
+        __props__["encodeAs"] = encode_as
+        __props__["name"] = name
+        __props__["payload"] = payload
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'datadog:index/webhook:Webhook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> pulumi.Output[Optional[_builtins.str]]:

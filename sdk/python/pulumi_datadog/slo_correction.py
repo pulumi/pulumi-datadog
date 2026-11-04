@@ -565,6 +565,30 @@ class SloCorrection(pulumi.CustomResource):
         __props__.__dict__["timezone"] = timezone
         return SloCorrection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            category: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            duration: pulumi.Input[Optional[_builtins.int]] = None,
+            end: pulumi.Input[Optional[_builtins.int]] = None,
+            rrule: pulumi.Input[Optional[_builtins.str]] = None,
+            slo_id: pulumi.Input[Optional[_builtins.str]] = None,
+            slo_query: pulumi.Input[Optional[_builtins.str]] = None,
+            start: pulumi.Input[Optional[_builtins.int]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["category"] = category
+        __props__["description"] = description
+        __props__["duration"] = duration
+        __props__["end"] = end
+        __props__["rrule"] = rrule
+        __props__["sloId"] = slo_id
+        __props__["sloQuery"] = slo_query
+        __props__["start"] = start
+        __props__["timezone"] = timezone
+        return pulumi.runtime.exists_resource(None, 'datadog:index/sloCorrection:SloCorrection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def category(self) -> pulumi.Output[_builtins.str]:

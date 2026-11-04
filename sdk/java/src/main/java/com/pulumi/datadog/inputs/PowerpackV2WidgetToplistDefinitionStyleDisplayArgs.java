@@ -50,22 +50,20 @@ public final class PowerpackV2WidgetToplistDefinitionStyleDisplayArgs extends co
     /**
      * Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
      * 
-     * @deprecated
-     * Use the `stacked` or `flat` block instead.
+     * @deprecated Use the `stacked` or `flat` block instead.
      * 
      */
-    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    @Deprecated
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return Legacy display type for the widget. Valid values are `stacked`, `flat`. **Deprecated.** Use the `stacked` or `flat` block instead.
      * 
-     * @deprecated
-     * Use the `stacked` or `flat` block instead.
+     * @deprecated Use the `stacked` or `flat` block instead.
      * 
      */
-    @Deprecated /* Use the `stacked` or `flat` block instead. */
+    @Deprecated
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -143,11 +141,10 @@ public final class PowerpackV2WidgetToplistDefinitionStyleDisplayArgs extends co
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the `stacked` or `flat` block instead.
+         * @deprecated Use the `stacked` or `flat` block instead.
          * 
          */
-        @Deprecated /* Use the `stacked` or `flat` block instead. */
+        @Deprecated
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
@@ -158,11 +155,10 @@ public final class PowerpackV2WidgetToplistDefinitionStyleDisplayArgs extends co
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the `stacked` or `flat` block instead.
+         * @deprecated Use the `stacked` or `flat` block instead.
          * 
          */
-        @Deprecated /* Use the `stacked` or `flat` block instead. */
+        @Deprecated
         public Builder type(String type) {
             return type(Output.of(type));
         }

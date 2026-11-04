@@ -41,11 +41,10 @@ public final class GetSensitiveDataScannerStandardPatternResult {
     /**
      * @return Regex to match, optionally documented for older standard rules.  **Deprecated.** Refer to the description field to understand what the rule does.
      * 
-     * @deprecated
-     * Refer to the description field to understand what the rule does.
+     * @deprecated Refer to the description field to understand what the rule does.
      * 
      */
-    @Deprecated /* Refer to the description field to understand what the rule does. */
+    @Deprecated
     private String pattern;
     /**
      * @return Stable ID of the Datadog standard pattern to retrieve. This can be set directly to avoid Terraform configs breaking when Datadog renames a standard pattern.
@@ -97,11 +96,10 @@ public final class GetSensitiveDataScannerStandardPatternResult {
     /**
      * @return Regex to match, optionally documented for older standard rules.  **Deprecated.** Refer to the description field to understand what the rule does.
      * 
-     * @deprecated
-     * Refer to the description field to understand what the rule does.
+     * @deprecated Refer to the description field to understand what the rule does.
      * 
      */
-    @Deprecated /* Refer to the description field to understand what the rule does. */
+    @Deprecated
     public String pattern() {
         return this.pattern;
     }

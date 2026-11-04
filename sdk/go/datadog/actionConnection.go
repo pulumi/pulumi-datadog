@@ -337,6 +337,12 @@ func (ActionConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*actionConnectionState)(nil)).Elem()
 }
 
+// ActionConnectionExists checks whether an existing ActionConnection resource with the given ID exists.
+func ActionConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ActionConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/actionConnection:ActionConnection", id, state, "", opts...)
+}
+
 type actionConnectionArgs struct {
 	// Configuration for an Anthropic connection
 	Anthropic *ActionConnectionAnthropic `pulumi:"anthropic"`

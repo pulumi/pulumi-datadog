@@ -313,6 +313,16 @@ class DashboardList(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return DashboardList(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dash_items: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardListDashItemArgs', 'DashboardListDashItemArgsDict', 'outputs.DashboardListDashItem']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dashItems"] = dash_items
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'datadog:index/dashboardList:DashboardList', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dashItems")
     def dash_items(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardListDashItem']]]:

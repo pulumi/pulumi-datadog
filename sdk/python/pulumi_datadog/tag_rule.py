@@ -727,6 +727,44 @@ class TagRule(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return TagRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            force_blocking_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            hard_delete: pulumi.Input[Optional[_builtins.bool]] = None,
+            modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            modified_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            negated: pulumi.Input[Optional[_builtins.bool]] = None,
+            required: pulumi.Input[Optional[_builtins.bool]] = None,
+            rule_type: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            source: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_key: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_value_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["createdBy"] = created_by
+        __props__["enabled"] = enabled
+        __props__["forceBlockingOnCreate"] = force_blocking_on_create
+        __props__["hardDelete"] = hard_delete
+        __props__["modifiedAt"] = modified_at
+        __props__["modifiedBy"] = modified_by
+        __props__["name"] = name
+        __props__["negated"] = negated
+        __props__["required"] = required
+        __props__["ruleType"] = rule_type
+        __props__["scope"] = scope
+        __props__["source"] = source
+        __props__["tagKey"] = tag_key
+        __props__["tagValuePatterns"] = tag_value_patterns
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'datadog:index/tagRule:TagRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

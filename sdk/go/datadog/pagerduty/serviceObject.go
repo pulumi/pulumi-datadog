@@ -125,6 +125,12 @@ func (ServiceObjectState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceObjectState)(nil)).Elem()
 }
 
+// ServiceObjectExists checks whether an existing ServiceObject resource with the given ID exists.
+func ServiceObjectExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceObjectState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:pagerduty/serviceObject:ServiceObject", id, state, "", opts...)
+}
+
 type serviceObjectArgs struct {
 	// Your Service name associated service key in PagerDuty. This key may also be referred to as an Integration Key or Routing Key in the Pagerduty Integration [documentation](https://www.pagerduty.com/docs/guides/datadog-integration-guide/), UI, and within the Pagerduty Provider for Terraform Note: Since the Datadog API never returns service keys, it is impossible to detect drifts. The best way to solve a drift is to manually mark the Service Object resource with terraform taint to have it destroyed and recreated.
 	ServiceKey string `pulumi:"serviceKey"`

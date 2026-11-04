@@ -601,6 +601,32 @@ class ActionExecutionPolicy(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return ActionExecutionPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            action_pattern: pulumi.Input[Optional[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict', 'outputs.ActionExecutionPolicyActionPattern']]] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            effect: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scope: pulumi.Input[Optional[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict', 'outputs.ActionExecutionPolicyScope']]] = None,
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+            updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["actionPattern"] = action_pattern
+        __props__["createdAt"] = created_at
+        __props__["createdBy"] = created_by
+        __props__["effect"] = effect
+        __props__["name"] = name
+        __props__["scope"] = scope
+        __props__["targets"] = targets
+        __props__["updatedAt"] = updated_at
+        __props__["updatedBy"] = updated_by
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'datadog:index/actionExecutionPolicy:ActionExecutionPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="actionPattern")
     def action_pattern(self) -> pulumi.Output[Optional['outputs.ActionExecutionPolicyActionPattern']]:

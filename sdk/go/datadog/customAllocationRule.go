@@ -243,6 +243,12 @@ func (CustomAllocationRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customAllocationRuleState)(nil)).Elem()
 }
 
+// CustomAllocationRuleExists checks whether an existing CustomAllocationRule resource with the given ID exists.
+func CustomAllocationRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomAllocationRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/customAllocationRule:CustomAllocationRule", id, state, "", opts...)
+}
+
 type customAllocationRuleArgs struct {
 	CostsToAllocates []CustomAllocationRuleCostsToAllocate `pulumi:"costsToAllocates"`
 	// Whether the custom allocation rule is enabled.

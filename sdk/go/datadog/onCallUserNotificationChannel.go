@@ -72,6 +72,12 @@ func (OnCallUserNotificationChannelState) ElementType() reflect.Type {
 	return reflect.TypeOf((*onCallUserNotificationChannelState)(nil)).Elem()
 }
 
+// OnCallUserNotificationChannelExists checks whether an existing OnCallUserNotificationChannel resource with the given ID exists.
+func OnCallUserNotificationChannelExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OnCallUserNotificationChannelState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/onCallUserNotificationChannel:OnCallUserNotificationChannel", id, state, "", opts...)
+}
+
 type onCallUserNotificationChannelArgs struct {
 	Email *OnCallUserNotificationChannelEmail `pulumi:"email"`
 	Phone *OnCallUserNotificationChannelPhone `pulumi:"phone"`

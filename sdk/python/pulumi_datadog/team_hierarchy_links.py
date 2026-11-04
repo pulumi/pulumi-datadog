@@ -226,6 +226,20 @@ class TeamHierarchyLinks(pulumi.CustomResource):
         __props__.__dict__["sub_team_id"] = sub_team_id
         return TeamHierarchyLinks(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioned_by: pulumi.Input[Optional[_builtins.str]] = None,
+            sub_team_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdAt"] = created_at
+        __props__["parentTeamId"] = parent_team_id
+        __props__["provisionedBy"] = provisioned_by
+        __props__["subTeamId"] = sub_team_id
+        return pulumi.runtime.exists_resource(None, 'datadog:index/teamHierarchyLinks:TeamHierarchyLinks', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:

@@ -148,6 +148,12 @@ func (OnCallEscalationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*onCallEscalationPolicyState)(nil)).Elem()
 }
 
+// OnCallEscalationPolicyExists checks whether an existing OnCallEscalationPolicy resource with the given ID exists.
+func OnCallEscalationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OnCallEscalationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/onCallEscalationPolicy:OnCallEscalationPolicy", id, state, "", opts...)
+}
+
 type onCallEscalationPolicyArgs struct {
 	// A human-readable name for the escalation policy.
 	Name string `pulumi:"name"`

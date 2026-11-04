@@ -891,6 +891,48 @@ class SecurityMonitoringRule(pulumi.CustomResource):
         __props__.__dict__["validate"] = validate
         return SecurityMonitoringRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            calculated_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCalculatedFieldArgs', 'SecurityMonitoringRuleCalculatedFieldArgsDict', 'outputs.SecurityMonitoringRuleCalculatedField']]]]] = None,
+            cases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringRuleCaseArgs', 'SecurityMonitoringRuleCaseArgsDict', 'outputs.SecurityMonitoringRuleCase']]]]] = None,
+            effective_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringRuleFilterArgs', 'SecurityMonitoringRuleFilterArgsDict', 'outputs.SecurityMonitoringRuleFilter']]]]] = None,
+            group_signals_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            has_extended_title: pulumi.Input[Optional[_builtins.bool]] = None,
+            message: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            options: pulumi.Input[Optional[Union['SecurityMonitoringRuleOptionsArgs', 'SecurityMonitoringRuleOptionsArgsDict', 'outputs.SecurityMonitoringRuleOptions']]] = None,
+            queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringRuleQueryArgs', 'SecurityMonitoringRuleQueryArgsDict', 'outputs.SecurityMonitoringRuleQuery']]]]] = None,
+            reference_tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringRuleReferenceTableArgs', 'SecurityMonitoringRuleReferenceTableArgsDict', 'outputs.SecurityMonitoringRuleReferenceTable']]]]] = None,
+            scheduling_options: pulumi.Input[Optional[Union['SecurityMonitoringRuleSchedulingOptionsArgs', 'SecurityMonitoringRuleSchedulingOptionsArgsDict', 'outputs.SecurityMonitoringRuleSchedulingOptions']]] = None,
+            signal_queries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringRuleSignalQueryArgs', 'SecurityMonitoringRuleSignalQueryArgsDict', 'outputs.SecurityMonitoringRuleSignalQuery']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            third_party_cases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityMonitoringRuleThirdPartyCaseArgs', 'SecurityMonitoringRuleThirdPartyCaseArgsDict', 'outputs.SecurityMonitoringRuleThirdPartyCase']]]]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["calculatedFields"] = calculated_fields
+        __props__["cases"] = cases
+        __props__["effectiveTags"] = effective_tags
+        __props__["enabled"] = enabled
+        __props__["filters"] = filters
+        __props__["groupSignalsBies"] = group_signals_bies
+        __props__["hasExtendedTitle"] = has_extended_title
+        __props__["message"] = message
+        __props__["name"] = name
+        __props__["options"] = options
+        __props__["queries"] = queries
+        __props__["referenceTables"] = reference_tables
+        __props__["schedulingOptions"] = scheduling_options
+        __props__["signalQueries"] = signal_queries
+        __props__["tags"] = tags
+        __props__["thirdPartyCases"] = third_party_cases
+        __props__["type"] = type
+        __props__["validate"] = validate
+        return pulumi.runtime.exists_resource(None, 'datadog:index/securityMonitoringRule:SecurityMonitoringRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="calculatedFields")
     def calculated_fields(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityMonitoringRuleCalculatedField']]]:

@@ -99,6 +99,12 @@ func (LogsIntegrationPipelineState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logsIntegrationPipelineState)(nil)).Elem()
 }
 
+// LogsIntegrationPipelineExists checks whether an existing LogsIntegrationPipeline resource with the given ID exists.
+func LogsIntegrationPipelineExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogsIntegrationPipelineState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/logsIntegrationPipeline:LogsIntegrationPipeline", id, state, "", opts...)
+}
+
 type logsIntegrationPipelineArgs struct {
 	// Boolean value to enable your pipeline.
 	IsEnabled *bool `pulumi:"isEnabled"`

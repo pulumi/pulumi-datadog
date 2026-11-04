@@ -152,6 +152,12 @@ func (WebhookOauth2ClientCredentialsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*webhookOauth2ClientCredentialsState)(nil)).Elem()
 }
 
+// WebhookOauth2ClientCredentialsExists checks whether an existing WebhookOauth2ClientCredentials resource with the given ID exists.
+func WebhookOauth2ClientCredentialsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WebhookOauth2ClientCredentialsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/webhookOauth2ClientCredentials:WebhookOauth2ClientCredentials", id, state, "", opts...)
+}
+
 type webhookOauth2ClientCredentialsArgs struct {
 	// The URL used to fetch the access token.
 	AccessTokenUrl string `pulumi:"accessTokenUrl"`

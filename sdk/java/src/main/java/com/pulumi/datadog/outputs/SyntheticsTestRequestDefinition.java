@@ -68,11 +68,10 @@ public final class SyntheticsTestRequestDefinition {
     /**
      * @return HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
      * 
-     * @deprecated
-     * Use `httpVersion` in the `optionsList` field instead.
+     * @deprecated Use `httpVersion` in the `optionsList` field instead.
      * 
      */
-    @Deprecated /* Use `httpVersion` in the `optionsList` field instead. */
+    @Deprecated
     private @Nullable String httpVersion;
     /**
      * @return For Websocket tests, whether the message is treated as a base64-encoded string in the server.
@@ -127,11 +126,10 @@ public final class SyntheticsTestRequestDefinition {
     /**
      * @return A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
-     * @deprecated
-     * Use `plainProtoFile` instead.
+     * @deprecated Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plainProtoFile` instead. */
+    @Deprecated
     private @Nullable String protoJsonDescriptor;
     /**
      * @return For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number.
@@ -258,11 +256,10 @@ public final class SyntheticsTestRequestDefinition {
     /**
      * @return HTTP version to use for an HTTP request in an API test or step. **Deprecated.** Use `httpVersion` in the `optionsList` field instead.
      * 
-     * @deprecated
-     * Use `httpVersion` in the `optionsList` field instead.
+     * @deprecated Use `httpVersion` in the `optionsList` field instead.
      * 
      */
-    @Deprecated /* Use `httpVersion` in the `optionsList` field instead. */
+    @Deprecated
     public Optional<String> httpVersion() {
         return Optional.ofNullable(this.httpVersion);
     }
@@ -339,11 +336,10 @@ public final class SyntheticsTestRequestDefinition {
     /**
      * @return A protobuf JSON descriptor. **Deprecated.** Use `plainProtoFile` instead.
      * 
-     * @deprecated
-     * Use `plainProtoFile` instead.
+     * @deprecated Use `plainProtoFile` instead.
      * 
      */
-    @Deprecated /* Use `plainProtoFile` instead. */
+    @Deprecated
     public Optional<String> protoJsonDescriptor() {
         return Optional.ofNullable(this.protoJsonDescriptor);
     }

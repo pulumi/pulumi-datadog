@@ -114,6 +114,12 @@ func (SecurityFindingsTicketCreationRulesOrderState) ElementType() reflect.Type 
 	return reflect.TypeOf((*securityFindingsTicketCreationRulesOrderState)(nil)).Elem()
 }
 
+// SecurityFindingsTicketCreationRulesOrderExists checks whether an existing SecurityFindingsTicketCreationRulesOrder resource with the given ID exists.
+func SecurityFindingsTicketCreationRulesOrderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityFindingsTicketCreationRulesOrderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("datadog:index/securityFindingsTicketCreationRulesOrder:SecurityFindingsTicketCreationRulesOrder", id, state, "", opts...)
+}
+
 type securityFindingsTicketCreationRulesOrderArgs struct {
 	// A unique identifier for the order resource. This field has no server-side equivalent; Datadog recommends matching the resource name.
 	Name string `pulumi:"name"`
