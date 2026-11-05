@@ -62,6 +62,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogMetric> DatadogMetrics;
         /// <summary>
+        /// The `DatadogTraces` destination forwards traces to Datadog.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationDatadogTraces? DatadogTraces;
+        /// <summary>
         /// The `Elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationElasticsearch> Elasticsearches;
@@ -106,7 +110,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationOpensearch> Opensearches;
         /// <summary>
-        /// The `Opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+        /// The `Opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigDestinationOpentelemetry? Opentelemetry;
         /// <summary>
@@ -168,6 +172,8 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics,
 
+            Outputs.ObservabilityPipelineConfigDestinationDatadogTraces? datadogTraces,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches,
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorage> googleCloudStorages,
@@ -220,6 +226,7 @@ namespace Pulumi.Datadog.Outputs
             DatabricksZerobuses = databricksZerobuses;
             DatadogLogs = datadogLogs;
             DatadogMetrics = datadogMetrics;
+            DatadogTraces = datadogTraces;
             Elasticsearches = elasticsearches;
             GoogleCloudStorages = googleCloudStorages;
             GooglePubsubs = googlePubsubs;

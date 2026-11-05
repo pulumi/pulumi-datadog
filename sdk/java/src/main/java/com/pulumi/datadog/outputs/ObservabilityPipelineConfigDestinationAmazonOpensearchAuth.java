@@ -28,6 +28,11 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
      */
     private @Nullable String externalId;
     /**
+     * @return Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+     * 
+     */
+    private @Nullable String passwordKey;
+    /**
      * @return Session name for assumed role.
      * 
      */
@@ -37,6 +42,11 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
      * 
      */
     private String strategy;
+    /**
+     * @return Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+     * 
+     */
+    private @Nullable String usernameKey;
 
     private ObservabilityPipelineConfigDestinationAmazonOpensearchAuth() {}
     /**
@@ -61,6 +71,13 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
         return Optional.ofNullable(this.externalId);
     }
     /**
+     * @return Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+     * 
+     */
+    public Optional<String> passwordKey() {
+        return Optional.ofNullable(this.passwordKey);
+    }
+    /**
      * @return Session name for assumed role.
      * 
      */
@@ -73,6 +90,13 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
      */
     public String strategy() {
         return this.strategy;
+    }
+    /**
+     * @return Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+     * 
+     */
+    public Optional<String> usernameKey() {
+        return Optional.ofNullable(this.usernameKey);
     }
 
     public static Builder builder() {
@@ -87,16 +111,20 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
         private @Nullable String assumeRole;
         private @Nullable String awsRegion;
         private @Nullable String externalId;
+        private @Nullable String passwordKey;
         private @Nullable String sessionName;
         private String strategy;
+        private @Nullable String usernameKey;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationAmazonOpensearchAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.assumeRole = defaults.assumeRole;
     	      this.awsRegion = defaults.awsRegion;
     	      this.externalId = defaults.externalId;
+    	      this.passwordKey = defaults.passwordKey;
     	      this.sessionName = defaults.sessionName;
     	      this.strategy = defaults.strategy;
+    	      this.usernameKey = defaults.usernameKey;
         }
 
         @CustomType.Setter
@@ -118,6 +146,12 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
             return this;
         }
         @CustomType.Setter
+        public Builder passwordKey(@Nullable String passwordKey) {
+
+            this.passwordKey = passwordKey;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sessionName(@Nullable String sessionName) {
 
             this.sessionName = sessionName;
@@ -131,13 +165,21 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
             this.strategy = strategy;
             return this;
         }
+        @CustomType.Setter
+        public Builder usernameKey(@Nullable String usernameKey) {
+
+            this.usernameKey = usernameKey;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationAmazonOpensearchAuth build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationAmazonOpensearchAuth();
             _resultValue.assumeRole = assumeRole;
             _resultValue.awsRegion = awsRegion;
             _resultValue.externalId = externalId;
+            _resultValue.passwordKey = passwordKey;
             _resultValue.sessionName = sessionName;
             _resultValue.strategy = strategy;
+            _resultValue.usernameKey = usernameKey;
             return _resultValue;
         }
     }

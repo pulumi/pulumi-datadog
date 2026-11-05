@@ -13,6 +13,413 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type LogsArchiveAzureArchive struct {
+	// Your client id.
+	ClientId string `pulumi:"clientId"`
+	// The container where the archive is stored.
+	Container string `pulumi:"container"`
+	// The path where the archive is stored.
+	Path *string `pulumi:"path"`
+	// The associated storage account.
+	StorageAccount string `pulumi:"storageAccount"`
+	// Your tenant id.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// LogsArchiveAzureArchiveInput is an input type that accepts LogsArchiveAzureArchiveArgs and LogsArchiveAzureArchiveOutput values.
+// You can construct a concrete instance of `LogsArchiveAzureArchiveInput` via:
+//
+//	LogsArchiveAzureArchiveArgs{...}
+type LogsArchiveAzureArchiveInput interface {
+	pulumi.Input
+
+	ToLogsArchiveAzureArchiveOutput() LogsArchiveAzureArchiveOutput
+	ToLogsArchiveAzureArchiveOutputWithContext(context.Context) LogsArchiveAzureArchiveOutput
+}
+
+type LogsArchiveAzureArchiveArgs struct {
+	// Your client id.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The container where the archive is stored.
+	Container pulumi.StringInput `pulumi:"container"`
+	// The path where the archive is stored.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The associated storage account.
+	StorageAccount pulumi.StringInput `pulumi:"storageAccount"`
+	// Your tenant id.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (LogsArchiveAzureArchiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchiveAzureArchive)(nil)).Elem()
+}
+
+func (i LogsArchiveAzureArchiveArgs) ToLogsArchiveAzureArchiveOutput() LogsArchiveAzureArchiveOutput {
+	return i.ToLogsArchiveAzureArchiveOutputWithContext(context.Background())
+}
+
+func (i LogsArchiveAzureArchiveArgs) ToLogsArchiveAzureArchiveOutputWithContext(ctx context.Context) LogsArchiveAzureArchiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveAzureArchiveOutput)
+}
+
+func (i LogsArchiveAzureArchiveArgs) ToLogsArchiveAzureArchivePtrOutput() LogsArchiveAzureArchivePtrOutput {
+	return i.ToLogsArchiveAzureArchivePtrOutputWithContext(context.Background())
+}
+
+func (i LogsArchiveAzureArchiveArgs) ToLogsArchiveAzureArchivePtrOutputWithContext(ctx context.Context) LogsArchiveAzureArchivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveAzureArchiveOutput).ToLogsArchiveAzureArchivePtrOutputWithContext(ctx)
+}
+
+// LogsArchiveAzureArchivePtrInput is an input type that accepts LogsArchiveAzureArchiveArgs, LogsArchiveAzureArchivePtr and LogsArchiveAzureArchivePtrOutput values.
+// You can construct a concrete instance of `LogsArchiveAzureArchivePtrInput` via:
+//
+//	        LogsArchiveAzureArchiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsArchiveAzureArchivePtrInput interface {
+	pulumi.Input
+
+	ToLogsArchiveAzureArchivePtrOutput() LogsArchiveAzureArchivePtrOutput
+	ToLogsArchiveAzureArchivePtrOutputWithContext(context.Context) LogsArchiveAzureArchivePtrOutput
+}
+
+type logsArchiveAzureArchivePtrType LogsArchiveAzureArchiveArgs
+
+func LogsArchiveAzureArchivePtr(v *LogsArchiveAzureArchiveArgs) LogsArchiveAzureArchivePtrInput {
+	return (*logsArchiveAzureArchivePtrType)(v)
+}
+
+func (*logsArchiveAzureArchivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsArchiveAzureArchive)(nil)).Elem()
+}
+
+func (i *logsArchiveAzureArchivePtrType) ToLogsArchiveAzureArchivePtrOutput() LogsArchiveAzureArchivePtrOutput {
+	return i.ToLogsArchiveAzureArchivePtrOutputWithContext(context.Background())
+}
+
+func (i *logsArchiveAzureArchivePtrType) ToLogsArchiveAzureArchivePtrOutputWithContext(ctx context.Context) LogsArchiveAzureArchivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveAzureArchivePtrOutput)
+}
+
+type LogsArchiveAzureArchiveOutput struct{ *pulumi.OutputState }
+
+func (LogsArchiveAzureArchiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchiveAzureArchive)(nil)).Elem()
+}
+
+func (o LogsArchiveAzureArchiveOutput) ToLogsArchiveAzureArchiveOutput() LogsArchiveAzureArchiveOutput {
+	return o
+}
+
+func (o LogsArchiveAzureArchiveOutput) ToLogsArchiveAzureArchiveOutputWithContext(ctx context.Context) LogsArchiveAzureArchiveOutput {
+	return o
+}
+
+func (o LogsArchiveAzureArchiveOutput) ToLogsArchiveAzureArchivePtrOutput() LogsArchiveAzureArchivePtrOutput {
+	return o.ToLogsArchiveAzureArchivePtrOutputWithContext(context.Background())
+}
+
+func (o LogsArchiveAzureArchiveOutput) ToLogsArchiveAzureArchivePtrOutputWithContext(ctx context.Context) LogsArchiveAzureArchivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsArchiveAzureArchive) *LogsArchiveAzureArchive {
+		return &v
+	}).(LogsArchiveAzureArchivePtrOutput)
+}
+
+// Your client id.
+func (o LogsArchiveAzureArchiveOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsArchiveAzureArchive) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The container where the archive is stored.
+func (o LogsArchiveAzureArchiveOutput) Container() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsArchiveAzureArchive) string { return v.Container }).(pulumi.StringOutput)
+}
+
+// The path where the archive is stored.
+func (o LogsArchiveAzureArchiveOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsArchiveAzureArchive) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The associated storage account.
+func (o LogsArchiveAzureArchiveOutput) StorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsArchiveAzureArchive) string { return v.StorageAccount }).(pulumi.StringOutput)
+}
+
+// Your tenant id.
+func (o LogsArchiveAzureArchiveOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsArchiveAzureArchive) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type LogsArchiveAzureArchivePtrOutput struct{ *pulumi.OutputState }
+
+func (LogsArchiveAzureArchivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsArchiveAzureArchive)(nil)).Elem()
+}
+
+func (o LogsArchiveAzureArchivePtrOutput) ToLogsArchiveAzureArchivePtrOutput() LogsArchiveAzureArchivePtrOutput {
+	return o
+}
+
+func (o LogsArchiveAzureArchivePtrOutput) ToLogsArchiveAzureArchivePtrOutputWithContext(ctx context.Context) LogsArchiveAzureArchivePtrOutput {
+	return o
+}
+
+func (o LogsArchiveAzureArchivePtrOutput) Elem() LogsArchiveAzureArchiveOutput {
+	return o.ApplyT(func(v *LogsArchiveAzureArchive) LogsArchiveAzureArchive {
+		if v != nil {
+			return *v
+		}
+		var ret LogsArchiveAzureArchive
+		return ret
+	}).(LogsArchiveAzureArchiveOutput)
+}
+
+// Your client id.
+func (o LogsArchiveAzureArchivePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveAzureArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The container where the archive is stored.
+func (o LogsArchiveAzureArchivePtrOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveAzureArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Container
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path where the archive is stored.
+func (o LogsArchiveAzureArchivePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveAzureArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The associated storage account.
+func (o LogsArchiveAzureArchivePtrOutput) StorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveAzureArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageAccount
+	}).(pulumi.StringPtrOutput)
+}
+
+// Your tenant id.
+func (o LogsArchiveAzureArchivePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveAzureArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogsArchiveGcsArchive struct {
+	// Name of your GCS bucket.
+	Bucket string `pulumi:"bucket"`
+	// Your client email.
+	ClientEmail string `pulumi:"clientEmail"`
+	// Path where the archive is stored.
+	Path *string `pulumi:"path"`
+	// Your project id.
+	ProjectId *string `pulumi:"projectId"`
+}
+
+// LogsArchiveGcsArchiveInput is an input type that accepts LogsArchiveGcsArchiveArgs and LogsArchiveGcsArchiveOutput values.
+// You can construct a concrete instance of `LogsArchiveGcsArchiveInput` via:
+//
+//	LogsArchiveGcsArchiveArgs{...}
+type LogsArchiveGcsArchiveInput interface {
+	pulumi.Input
+
+	ToLogsArchiveGcsArchiveOutput() LogsArchiveGcsArchiveOutput
+	ToLogsArchiveGcsArchiveOutputWithContext(context.Context) LogsArchiveGcsArchiveOutput
+}
+
+type LogsArchiveGcsArchiveArgs struct {
+	// Name of your GCS bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Your client email.
+	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
+	// Path where the archive is stored.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Your project id.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+}
+
+func (LogsArchiveGcsArchiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchiveGcsArchive)(nil)).Elem()
+}
+
+func (i LogsArchiveGcsArchiveArgs) ToLogsArchiveGcsArchiveOutput() LogsArchiveGcsArchiveOutput {
+	return i.ToLogsArchiveGcsArchiveOutputWithContext(context.Background())
+}
+
+func (i LogsArchiveGcsArchiveArgs) ToLogsArchiveGcsArchiveOutputWithContext(ctx context.Context) LogsArchiveGcsArchiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveGcsArchiveOutput)
+}
+
+func (i LogsArchiveGcsArchiveArgs) ToLogsArchiveGcsArchivePtrOutput() LogsArchiveGcsArchivePtrOutput {
+	return i.ToLogsArchiveGcsArchivePtrOutputWithContext(context.Background())
+}
+
+func (i LogsArchiveGcsArchiveArgs) ToLogsArchiveGcsArchivePtrOutputWithContext(ctx context.Context) LogsArchiveGcsArchivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveGcsArchiveOutput).ToLogsArchiveGcsArchivePtrOutputWithContext(ctx)
+}
+
+// LogsArchiveGcsArchivePtrInput is an input type that accepts LogsArchiveGcsArchiveArgs, LogsArchiveGcsArchivePtr and LogsArchiveGcsArchivePtrOutput values.
+// You can construct a concrete instance of `LogsArchiveGcsArchivePtrInput` via:
+//
+//	        LogsArchiveGcsArchiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogsArchiveGcsArchivePtrInput interface {
+	pulumi.Input
+
+	ToLogsArchiveGcsArchivePtrOutput() LogsArchiveGcsArchivePtrOutput
+	ToLogsArchiveGcsArchivePtrOutputWithContext(context.Context) LogsArchiveGcsArchivePtrOutput
+}
+
+type logsArchiveGcsArchivePtrType LogsArchiveGcsArchiveArgs
+
+func LogsArchiveGcsArchivePtr(v *LogsArchiveGcsArchiveArgs) LogsArchiveGcsArchivePtrInput {
+	return (*logsArchiveGcsArchivePtrType)(v)
+}
+
+func (*logsArchiveGcsArchivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsArchiveGcsArchive)(nil)).Elem()
+}
+
+func (i *logsArchiveGcsArchivePtrType) ToLogsArchiveGcsArchivePtrOutput() LogsArchiveGcsArchivePtrOutput {
+	return i.ToLogsArchiveGcsArchivePtrOutputWithContext(context.Background())
+}
+
+func (i *logsArchiveGcsArchivePtrType) ToLogsArchiveGcsArchivePtrOutputWithContext(ctx context.Context) LogsArchiveGcsArchivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveGcsArchivePtrOutput)
+}
+
+type LogsArchiveGcsArchiveOutput struct{ *pulumi.OutputState }
+
+func (LogsArchiveGcsArchiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogsArchiveGcsArchive)(nil)).Elem()
+}
+
+func (o LogsArchiveGcsArchiveOutput) ToLogsArchiveGcsArchiveOutput() LogsArchiveGcsArchiveOutput {
+	return o
+}
+
+func (o LogsArchiveGcsArchiveOutput) ToLogsArchiveGcsArchiveOutputWithContext(ctx context.Context) LogsArchiveGcsArchiveOutput {
+	return o
+}
+
+func (o LogsArchiveGcsArchiveOutput) ToLogsArchiveGcsArchivePtrOutput() LogsArchiveGcsArchivePtrOutput {
+	return o.ToLogsArchiveGcsArchivePtrOutputWithContext(context.Background())
+}
+
+func (o LogsArchiveGcsArchiveOutput) ToLogsArchiveGcsArchivePtrOutputWithContext(ctx context.Context) LogsArchiveGcsArchivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsArchiveGcsArchive) *LogsArchiveGcsArchive {
+		return &v
+	}).(LogsArchiveGcsArchivePtrOutput)
+}
+
+// Name of your GCS bucket.
+func (o LogsArchiveGcsArchiveOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsArchiveGcsArchive) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Your client email.
+func (o LogsArchiveGcsArchiveOutput) ClientEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v LogsArchiveGcsArchive) string { return v.ClientEmail }).(pulumi.StringOutput)
+}
+
+// Path where the archive is stored.
+func (o LogsArchiveGcsArchiveOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsArchiveGcsArchive) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Your project id.
+func (o LogsArchiveGcsArchiveOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogsArchiveGcsArchive) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+type LogsArchiveGcsArchivePtrOutput struct{ *pulumi.OutputState }
+
+func (LogsArchiveGcsArchivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogsArchiveGcsArchive)(nil)).Elem()
+}
+
+func (o LogsArchiveGcsArchivePtrOutput) ToLogsArchiveGcsArchivePtrOutput() LogsArchiveGcsArchivePtrOutput {
+	return o
+}
+
+func (o LogsArchiveGcsArchivePtrOutput) ToLogsArchiveGcsArchivePtrOutputWithContext(ctx context.Context) LogsArchiveGcsArchivePtrOutput {
+	return o
+}
+
+func (o LogsArchiveGcsArchivePtrOutput) Elem() LogsArchiveGcsArchiveOutput {
+	return o.ApplyT(func(v *LogsArchiveGcsArchive) LogsArchiveGcsArchive {
+		if v != nil {
+			return *v
+		}
+		var ret LogsArchiveGcsArchive
+		return ret
+	}).(LogsArchiveGcsArchiveOutput)
+}
+
+// Name of your GCS bucket.
+func (o LogsArchiveGcsArchivePtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveGcsArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Your client email.
+func (o LogsArchiveGcsArchivePtrOutput) ClientEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveGcsArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path where the archive is stored.
+func (o LogsArchiveGcsArchivePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveGcsArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Your project id.
+func (o LogsArchiveGcsArchivePtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogsArchiveGcsArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
 type LogsArchiveS3Archive struct {
 	// Your AWS access key id, used as an alternative to `accountId`/`roleName`.
 	AccessKeyId *string `pulumi:"accessKeyId"`
@@ -29214,7 +29621,7 @@ func (o MonitorVariablesEventQuerySearchOutput) Query() pulumi.StringOutput {
 type ObservabilityPipelineConfig struct {
 	// List of destinations.
 	Destinations []ObservabilityPipelineConfigDestination `pulumi:"destinations"`
-	// The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+	// The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
 	PipelineType *string `pulumi:"pipelineType"`
 	// A processor group containing common configuration and nested processors.
 	ProcessorGroups []ObservabilityPipelineConfigProcessorGroup `pulumi:"processorGroups"`
@@ -29238,7 +29645,7 @@ type ObservabilityPipelineConfigInput interface {
 type ObservabilityPipelineConfigArgs struct {
 	// List of destinations.
 	Destinations ObservabilityPipelineConfigDestinationArrayInput `pulumi:"destinations"`
-	// The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+	// The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
 	PipelineType pulumi.StringPtrInput `pulumi:"pipelineType"`
 	// A processor group containing common configuration and nested processors.
 	ProcessorGroups ObservabilityPipelineConfigProcessorGroupArrayInput `pulumi:"processorGroups"`
@@ -29330,7 +29737,7 @@ func (o ObservabilityPipelineConfigOutput) Destinations() ObservabilityPipelineC
 	return o.ApplyT(func(v ObservabilityPipelineConfig) []ObservabilityPipelineConfigDestination { return v.Destinations }).(ObservabilityPipelineConfigDestinationArrayOutput)
 }
 
-// The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+// The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
 func (o ObservabilityPipelineConfigOutput) PipelineType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfig) *string { return v.PipelineType }).(pulumi.StringPtrOutput)
 }
@@ -29386,7 +29793,7 @@ func (o ObservabilityPipelineConfigPtrOutput) Destinations() ObservabilityPipeli
 	}).(ObservabilityPipelineConfigDestinationArrayOutput)
 }
 
-// The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+// The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
 func (o ObservabilityPipelineConfigPtrOutput) PipelineType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObservabilityPipelineConfig) *string {
 		if v == nil {
@@ -29451,6 +29858,8 @@ type ObservabilityPipelineConfigDestination struct {
 	DatadogLogs []ObservabilityPipelineConfigDestinationDatadogLog `pulumi:"datadogLogs"`
 	// The `getMetrics` destination forwards metrics to Datadog.
 	DatadogMetrics []ObservabilityPipelineConfigDestinationDatadogMetric `pulumi:"datadogMetrics"`
+	// The `datadogTraces` destination forwards traces to Datadog.
+	DatadogTraces *ObservabilityPipelineConfigDestinationDatadogTraces `pulumi:"datadogTraces"`
 	// The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
 	Elasticsearches []ObservabilityPipelineConfigDestinationElasticsearch `pulumi:"elasticsearches"`
 	// The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
@@ -29473,7 +29882,7 @@ type ObservabilityPipelineConfigDestination struct {
 	NewRelics []ObservabilityPipelineConfigDestinationNewRelic `pulumi:"newRelics"`
 	// The `opensearch` destination writes logs to an OpenSearch cluster.
 	Opensearches []ObservabilityPipelineConfigDestinationOpensearch `pulumi:"opensearches"`
-	// The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+	// The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
 	Opentelemetry *ObservabilityPipelineConfigDestinationOpentelemetry `pulumi:"opentelemetry"`
 	// The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
 	PrometheusRemoteWrite *ObservabilityPipelineConfigDestinationPrometheusRemoteWrite `pulumi:"prometheusRemoteWrite"`
@@ -29529,6 +29938,8 @@ type ObservabilityPipelineConfigDestinationArgs struct {
 	DatadogLogs ObservabilityPipelineConfigDestinationDatadogLogArrayInput `pulumi:"datadogLogs"`
 	// The `getMetrics` destination forwards metrics to Datadog.
 	DatadogMetrics ObservabilityPipelineConfigDestinationDatadogMetricArrayInput `pulumi:"datadogMetrics"`
+	// The `datadogTraces` destination forwards traces to Datadog.
+	DatadogTraces ObservabilityPipelineConfigDestinationDatadogTracesPtrInput `pulumi:"datadogTraces"`
 	// The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
 	Elasticsearches ObservabilityPipelineConfigDestinationElasticsearchArrayInput `pulumi:"elasticsearches"`
 	// The `googleCloudStorage` destination stores logs in a Google Cloud Storage (GCS) bucket.
@@ -29551,7 +29962,7 @@ type ObservabilityPipelineConfigDestinationArgs struct {
 	NewRelics ObservabilityPipelineConfigDestinationNewRelicArrayInput `pulumi:"newRelics"`
 	// The `opensearch` destination writes logs to an OpenSearch cluster.
 	Opensearches ObservabilityPipelineConfigDestinationOpensearchArrayInput `pulumi:"opensearches"`
-	// The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+	// The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
 	Opentelemetry ObservabilityPipelineConfigDestinationOpentelemetryPtrInput `pulumi:"opentelemetry"`
 	// The `prometheusRemoteWrite` destination sends metrics to a Prometheus Remote Write compatible endpoint.
 	PrometheusRemoteWrite ObservabilityPipelineConfigDestinationPrometheusRemoteWritePtrInput `pulumi:"prometheusRemoteWrite"`
@@ -29706,6 +30117,13 @@ func (o ObservabilityPipelineConfigDestinationOutput) DatadogMetrics() Observabi
 	}).(ObservabilityPipelineConfigDestinationDatadogMetricArrayOutput)
 }
 
+// The `datadogTraces` destination forwards traces to Datadog.
+func (o ObservabilityPipelineConfigDestinationOutput) DatadogTraces() ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestination) *ObservabilityPipelineConfigDestinationDatadogTraces {
+		return v.DatadogTraces
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput)
+}
+
 // The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
 func (o ObservabilityPipelineConfigDestinationOutput) Elasticsearches() ObservabilityPipelineConfigDestinationElasticsearchArrayOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestination) []ObservabilityPipelineConfigDestinationElasticsearch {
@@ -29779,7 +30197,7 @@ func (o ObservabilityPipelineConfigDestinationOutput) Opensearches() Observabili
 	}).(ObservabilityPipelineConfigDestinationOpensearchArrayOutput)
 }
 
-// The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+// The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
 func (o ObservabilityPipelineConfigDestinationOutput) Opentelemetry() ObservabilityPipelineConfigDestinationOpentelemetryPtrOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestination) *ObservabilityPipelineConfigDestinationOpentelemetry {
 		return v.Opentelemetry
@@ -29863,11 +30281,16 @@ func (o ObservabilityPipelineConfigDestinationArrayOutput) Index(i pulumi.IntInp
 }
 
 type ObservabilityPipelineConfigDestinationAmazonOpensearch struct {
-	Auth ObservabilityPipelineConfigDestinationAmazonOpensearchAuth `pulumi:"auth"`
+	// Authentication settings for the Amazon OpenSearch destination.
+	Auth *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth `pulumi:"auth"`
 	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
 	Buffer *ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer `pulumi:"buffer"`
 	// The index or datastream to write logs to.
 	BulkIndex *string `pulumi:"bulkIndex"`
+	// Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+	DataStream *ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream `pulumi:"dataStream"`
+	// Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+	EndpointUrlKey *string `pulumi:"endpointUrlKey"`
 }
 
 // ObservabilityPipelineConfigDestinationAmazonOpensearchInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchArgs and ObservabilityPipelineConfigDestinationAmazonOpensearchOutput values.
@@ -29882,11 +30305,16 @@ type ObservabilityPipelineConfigDestinationAmazonOpensearchInput interface {
 }
 
 type ObservabilityPipelineConfigDestinationAmazonOpensearchArgs struct {
-	Auth ObservabilityPipelineConfigDestinationAmazonOpensearchAuthInput `pulumi:"auth"`
+	// Authentication settings for the Amazon OpenSearch destination.
+	Auth ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrInput `pulumi:"auth"`
 	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
 	Buffer ObservabilityPipelineConfigDestinationAmazonOpensearchBufferPtrInput `pulumi:"buffer"`
 	// The index or datastream to write logs to.
 	BulkIndex pulumi.StringPtrInput `pulumi:"bulkIndex"`
+	// Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+	DataStream ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrInput `pulumi:"dataStream"`
+	// Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+	EndpointUrlKey pulumi.StringPtrInput `pulumi:"endpointUrlKey"`
 }
 
 func (ObservabilityPipelineConfigDestinationAmazonOpensearchArgs) ElementType() reflect.Type {
@@ -29940,10 +30368,11 @@ func (o ObservabilityPipelineConfigDestinationAmazonOpensearchOutput) ToObservab
 	return o
 }
 
-func (o ObservabilityPipelineConfigDestinationAmazonOpensearchOutput) Auth() ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearch) ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
+// Authentication settings for the Amazon OpenSearch destination.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchOutput) Auth() ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearch) *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
 		return v.Auth
-	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput)
+	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput)
 }
 
 // Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
@@ -29956,6 +30385,18 @@ func (o ObservabilityPipelineConfigDestinationAmazonOpensearchOutput) Buffer() O
 // The index or datastream to write logs to.
 func (o ObservabilityPipelineConfigDestinationAmazonOpensearchOutput) BulkIndex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearch) *string { return v.BulkIndex }).(pulumi.StringPtrOutput)
+}
+
+// Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchOutput) DataStream() ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearch) *ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream {
+		return v.DataStream
+	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchOutput) EndpointUrlKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearch) *string { return v.EndpointUrlKey }).(pulumi.StringPtrOutput)
 }
 
 type ObservabilityPipelineConfigDestinationAmazonOpensearchArrayOutput struct{ *pulumi.OutputState }
@@ -29985,10 +30426,14 @@ type ObservabilityPipelineConfigDestinationAmazonOpensearchAuth struct {
 	AwsRegion *string `pulumi:"awsRegion"`
 	// External ID for assumed role.
 	ExternalId *string `pulumi:"externalId"`
+	// Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+	PasswordKey *string `pulumi:"passwordKey"`
 	// Session name for assumed role.
 	SessionName *string `pulumi:"sessionName"`
 	// The authentication strategy to use (e.g. aws or basic).
 	Strategy string `pulumi:"strategy"`
+	// Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+	UsernameKey *string `pulumi:"usernameKey"`
 }
 
 // ObservabilityPipelineConfigDestinationAmazonOpensearchAuthInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs and ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput values.
@@ -30009,10 +30454,14 @@ type ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs struct {
 	AwsRegion pulumi.StringPtrInput `pulumi:"awsRegion"`
 	// External ID for assumed role.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+	PasswordKey pulumi.StringPtrInput `pulumi:"passwordKey"`
 	// Session name for assumed role.
 	SessionName pulumi.StringPtrInput `pulumi:"sessionName"`
 	// The authentication strategy to use (e.g. aws or basic).
 	Strategy pulumi.StringInput `pulumi:"strategy"`
+	// Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+	UsernameKey pulumi.StringPtrInput `pulumi:"usernameKey"`
 }
 
 func (ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs) ElementType() reflect.Type {
@@ -30027,6 +30476,47 @@ func (i ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs) ToObserv
 	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput)
 }
 
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput).ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs, ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtr and ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAmazonOpensearchAuthPtrType ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs
+
+func ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtr(v *ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs) ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrInput {
+	return (*observabilityPipelineConfigDestinationAmazonOpensearchAuthPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAmazonOpensearchAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchAuth)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAmazonOpensearchAuthPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAmazonOpensearchAuthPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput)
+}
+
 type ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput struct{ *pulumi.OutputState }
 
 func (ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) ElementType() reflect.Type {
@@ -30039,6 +30529,16 @@ func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) ToObse
 
 func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput {
 	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput)
 }
 
 // ARN of the role to assume.
@@ -30056,6 +30556,11 @@ func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) Extern
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
+// Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) PasswordKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string { return v.PasswordKey }).(pulumi.StringPtrOutput)
+}
+
 // Session name for assumed role.
 func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) SessionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string { return v.SessionName }).(pulumi.StringPtrOutput)
@@ -30064,6 +30569,105 @@ func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) Sessio
 // The authentication strategy to use (e.g. aws or basic).
 func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) Strategy() pulumi.StringOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) string { return v.Strategy }).(pulumi.StringOutput)
+}
+
+// Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput) UsernameKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string { return v.UsernameKey }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchAuth)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) Elem() ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAmazonOpensearchAuth
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput)
+}
+
+// ARN of the role to assume.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) AssumeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssumeRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS region override (if applicable).
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// External ID for assumed role.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) PasswordKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Session name for assumed role.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) SessionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authentication strategy to use (e.g. aws or basic).
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Strategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput) UsernameKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameKey
+	}).(pulumi.StringPtrOutput)
 }
 
 type ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer struct {
@@ -30554,6 +31158,181 @@ func (o ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOut
 			return nil
 		}
 		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream struct {
+	// The data stream dataset for your logs. This groups logs by their source or application.
+	Dataset *string `pulumi:"dataset"`
+	// The data stream type for your logs. This determines how logs are categorized within the data stream.
+	Dtype *string `pulumi:"dtype"`
+	// The data stream namespace for your logs. This separates logs into different environments or domains.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs and ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamInput` via:
+//
+//	ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs{...}
+type ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs struct {
+	// The data stream dataset for your logs. This groups logs by their source or application.
+	Dataset pulumi.StringPtrInput `pulumi:"dataset"`
+	// The data stream type for your logs. This determines how logs are categorized within the data stream.
+	Dtype pulumi.StringPtrInput `pulumi:"dtype"`
+	// The data stream namespace for your logs. This separates logs into different environments or domains.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput).ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs, ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtr and ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput
+	ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput
+}
+
+type observabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrType ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs
+
+func ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtr(v *ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs) ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrInput {
+	return (*observabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrType) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream) *ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput)
+}
+
+// The data stream dataset for your logs. This groups logs by their source or application.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput) Dataset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream) *string { return v.Dataset }).(pulumi.StringPtrOutput)
+}
+
+// The data stream type for your logs. This determines how logs are categorized within the data stream.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput) Dtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream) *string { return v.Dtype }).(pulumi.StringPtrOutput)
+}
+
+// The data stream namespace for your logs. This separates logs into different environments or domains.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput() ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput) ToObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput) Elem() ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream) ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream
+		return ret
+	}).(ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput)
+}
+
+// The data stream dataset for your logs. This groups logs by their source or application.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput) Dataset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Dataset
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data stream type for your logs. This determines how logs are categorized within the data stream.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput) Dtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Dtype
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data stream namespace for your logs. This separates logs into different environments or domains.
+func (o ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -42326,6 +43105,636 @@ func (o ObservabilityPipelineConfigDestinationDatadogMetricArrayOutput) Index(i 
 	}).(ObservabilityPipelineConfigDestinationDatadogMetricOutput)
 }
 
+type ObservabilityPipelineConfigDestinationDatadogTraces struct {
+	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+	Buffer *ObservabilityPipelineConfigDestinationDatadogTracesBuffer `pulumi:"buffer"`
+}
+
+// ObservabilityPipelineConfigDestinationDatadogTracesInput is an input type that accepts ObservabilityPipelineConfigDestinationDatadogTracesArgs and ObservabilityPipelineConfigDestinationDatadogTracesOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationDatadogTracesInput` via:
+//
+//	ObservabilityPipelineConfigDestinationDatadogTracesArgs{...}
+type ObservabilityPipelineConfigDestinationDatadogTracesInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationDatadogTracesOutput() ObservabilityPipelineConfigDestinationDatadogTracesOutput
+	ToObservabilityPipelineConfigDestinationDatadogTracesOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationDatadogTracesOutput
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesArgs struct {
+	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+	Buffer ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrInput `pulumi:"buffer"`
+}
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTraces)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesArgs) ToObservabilityPipelineConfigDestinationDatadogTracesOutput() ObservabilityPipelineConfigDestinationDatadogTracesOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesArgs) ToObservabilityPipelineConfigDestinationDatadogTracesOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesArgs) ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesArgs) ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesOutput).ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationDatadogTracesPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationDatadogTracesArgs, ObservabilityPipelineConfigDestinationDatadogTracesPtr and ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationDatadogTracesPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationDatadogTracesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationDatadogTracesPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput
+	ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput
+}
+
+type observabilityPipelineConfigDestinationDatadogTracesPtrType ObservabilityPipelineConfigDestinationDatadogTracesArgs
+
+func ObservabilityPipelineConfigDestinationDatadogTracesPtr(v *ObservabilityPipelineConfigDestinationDatadogTracesArgs) ObservabilityPipelineConfigDestinationDatadogTracesPtrInput {
+	return (*observabilityPipelineConfigDestinationDatadogTracesPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationDatadogTracesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationDatadogTraces)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationDatadogTracesPtrType) ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationDatadogTracesPtrType) ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTraces)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesOutput) ToObservabilityPipelineConfigDestinationDatadogTracesOutput() ObservabilityPipelineConfigDestinationDatadogTracesOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesOutput) ToObservabilityPipelineConfigDestinationDatadogTracesOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesOutput) ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesOutput) ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationDatadogTraces) *ObservabilityPipelineConfigDestinationDatadogTraces {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput)
+}
+
+// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesOutput) Buffer() ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationDatadogTraces) *ObservabilityPipelineConfigDestinationDatadogTracesBuffer {
+		return v.Buffer
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationDatadogTraces)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput) ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput) ToObservabilityPipelineConfigDestinationDatadogTracesPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput) Elem() ObservabilityPipelineConfigDestinationDatadogTracesOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTraces) ObservabilityPipelineConfigDestinationDatadogTraces {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationDatadogTraces
+		return ret
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesOutput)
+}
+
+// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput) Buffer() ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTraces) *ObservabilityPipelineConfigDestinationDatadogTracesBuffer {
+		if v == nil {
+			return nil
+		}
+		return v.Buffer
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBuffer struct {
+	// Options for configuring a disk buffer. Cannot be used with `memory`.
+	Disk *ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk `pulumi:"disk"`
+	// Options for configuring a memory buffer. Cannot be used with `disk`.
+	Memory *ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory `pulumi:"memory"`
+}
+
+// ObservabilityPipelineConfigDestinationDatadogTracesBufferInput is an input type that accepts ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs and ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationDatadogTracesBufferInput` via:
+//
+//	ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs{...}
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs struct {
+	// Options for configuring a disk buffer. Cannot be used with `memory`.
+	Disk ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrInput `pulumi:"disk"`
+	// Options for configuring a memory buffer. Cannot be used with `disk`.
+	Memory ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrInput `pulumi:"memory"`
+}
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBuffer)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesBufferOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput).ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs, ObservabilityPipelineConfigDestinationDatadogTracesBufferPtr and ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput
+}
+
+type observabilityPipelineConfigDestinationDatadogTracesBufferPtrType ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs
+
+func ObservabilityPipelineConfigDestinationDatadogTracesBufferPtr(v *ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs) ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrInput {
+	return (*observabilityPipelineConfigDestinationDatadogTracesBufferPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationDatadogTracesBufferPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationDatadogTracesBuffer)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationDatadogTracesBufferPtrType) ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationDatadogTracesBufferPtrType) ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBuffer)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationDatadogTracesBuffer) *ObservabilityPipelineConfigDestinationDatadogTracesBuffer {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput)
+}
+
+// Options for configuring a disk buffer. Cannot be used with `memory`.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput) Disk() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationDatadogTracesBuffer) *ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk {
+		return v.Disk
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput)
+}
+
+// Options for configuring a memory buffer. Cannot be used with `disk`.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput) Memory() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationDatadogTracesBuffer) *ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory {
+		return v.Memory
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationDatadogTracesBuffer)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput) Elem() ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTracesBuffer) ObservabilityPipelineConfigDestinationDatadogTracesBuffer {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationDatadogTracesBuffer
+		return ret
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput)
+}
+
+// Options for configuring a disk buffer. Cannot be used with `memory`.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput) Disk() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTracesBuffer) *ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk {
+		if v == nil {
+			return nil
+		}
+		return v.Disk
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput)
+}
+
+// Options for configuring a memory buffer. Cannot be used with `disk`.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput) Memory() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTracesBuffer) *ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk struct {
+	// Maximum size of the disk buffer (in bytes).
+	MaxSize *int `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull *string `pulumi:"whenFull"`
+}
+
+// ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskInput is an input type that accepts ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs and ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskInput` via:
+//
+//	ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs{...}
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs struct {
+	// Maximum size of the disk buffer (in bytes).
+	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull pulumi.StringPtrInput `pulumi:"whenFull"`
+}
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput).ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs, ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtr and ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput
+}
+
+type observabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrType ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs
+
+func ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtr(v *ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs) ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrInput {
+	return (*observabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrType) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrType) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk) *ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput)
+}
+
+// Maximum size of the disk buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk) *string { return v.WhenFull }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput) Elem() ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk) ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk
+		return ret
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput)
+}
+
+// Maximum size of the disk buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory struct {
+	// Maximum events for the memory buffer.
+	MaxEvents *int `pulumi:"maxEvents"`
+	// Maximum size of the memory buffer (in bytes).
+	MaxSize *int `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull *string `pulumi:"whenFull"`
+}
+
+// ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryInput is an input type that accepts ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs and ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryInput` via:
+//
+//	ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs{...}
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs struct {
+	// Maximum events for the memory buffer.
+	MaxEvents pulumi.IntPtrInput `pulumi:"maxEvents"`
+	// Maximum size of the memory buffer (in bytes).
+	MaxSize pulumi.IntPtrInput `pulumi:"maxSize"`
+	// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+	WhenFull pulumi.StringPtrInput `pulumi:"whenFull"`
+}
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput)
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput).ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrInput is an input type that accepts ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs, ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtr and ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrInput` via:
+//
+//	        ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput
+	ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutputWithContext(context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput
+}
+
+type observabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrType ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs
+
+func ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtr(v *ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs) ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrInput {
+	return (*observabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrType)(v)
+}
+
+func (*observabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrType) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput {
+	return i.ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrType) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput {
+	return o.ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory) *ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory {
+		return &v
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput)
+}
+
+// Maximum events for the memory buffer.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput) MaxEvents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory) *int { return v.MaxEvents }).(pulumi.IntPtrOutput)
+}
+
+// Maximum size of the memory buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory) *int { return v.MaxSize }).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory) *string { return v.WhenFull }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput) ToObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput) Elem() ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory) ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory
+		return ret
+	}).(ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput)
+}
+
+// Maximum events for the memory buffer.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput) MaxEvents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEvents
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum size of the memory buffer (in bytes).
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+func (o ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput) WhenFull() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WhenFull
+	}).(pulumi.StringPtrOutput)
+}
+
 type ObservabilityPipelineConfigDestinationElasticsearch struct {
 	// The Elasticsearch API version to use. Set to `auto` to auto-detect. Valid values are `auto`, `v6`, `v7`, `v8`.
 	ApiVersion *string `pulumi:"apiVersion"`
@@ -51192,7 +52601,7 @@ func (o ObservabilityPipelineConfigDestinationOpensearchDataStreamPtrOutput) Nam
 type ObservabilityPipelineConfigDestinationOpentelemetry struct {
 	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
 	Buffer *ObservabilityPipelineConfigDestinationOpentelemetryBuffer `pulumi:"buffer"`
-	// Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+	// Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
 	HttpClientUriKey *string `pulumi:"httpClientUriKey"`
 	// Configuration for enabling TLS encryption between the pipeline component and external services.
 	Tls *ObservabilityPipelineConfigDestinationOpentelemetryTls `pulumi:"tls"`
@@ -51212,7 +52621,7 @@ type ObservabilityPipelineConfigDestinationOpentelemetryInput interface {
 type ObservabilityPipelineConfigDestinationOpentelemetryArgs struct {
 	// Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
 	Buffer ObservabilityPipelineConfigDestinationOpentelemetryBufferPtrInput `pulumi:"buffer"`
-	// Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+	// Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
 	HttpClientUriKey pulumi.StringPtrInput `pulumi:"httpClientUriKey"`
 	// Configuration for enabling TLS encryption between the pipeline component and external services.
 	Tls ObservabilityPipelineConfigDestinationOpentelemetryTlsPtrInput `pulumi:"tls"`
@@ -51302,7 +52711,7 @@ func (o ObservabilityPipelineConfigDestinationOpentelemetryOutput) Buffer() Obse
 	}).(ObservabilityPipelineConfigDestinationOpentelemetryBufferPtrOutput)
 }
 
-// Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+// Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
 func (o ObservabilityPipelineConfigDestinationOpentelemetryOutput) HttpClientUriKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationOpentelemetry) *string { return v.HttpClientUriKey }).(pulumi.StringPtrOutput)
 }
@@ -51348,7 +52757,7 @@ func (o ObservabilityPipelineConfigDestinationOpentelemetryPtrOutput) Buffer() O
 	}).(ObservabilityPipelineConfigDestinationOpentelemetryBufferPtrOutput)
 }
 
-// Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+// Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
 func (o ObservabilityPipelineConfigDestinationOpentelemetryPtrOutput) HttpClientUriKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObservabilityPipelineConfigDestinationOpentelemetry) *string {
 		if v == nil {
@@ -81274,1088 +82683,11 @@ func (o OnCallTeamRoutingRulesRuleArrayOutput) Index(i pulumi.IntInput) OnCallTe
 	}).(OnCallTeamRoutingRulesRuleOutput)
 }
 
-type OnCallTeamRoutingRulesRuleAction struct {
-	EscalationPolicy *OnCallTeamRoutingRulesRuleActionEscalationPolicy `pulumi:"escalationPolicy"`
-	// Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
-	RerouteToTeam             *OnCallTeamRoutingRulesRuleActionRerouteToTeam             `pulumi:"rerouteToTeam"`
-	SendSlackMessage          *OnCallTeamRoutingRulesRuleActionSendSlackMessage          `pulumi:"sendSlackMessage"`
-	SendTeamsMessage          *OnCallTeamRoutingRulesRuleActionSendTeamsMessage          `pulumi:"sendTeamsMessage"`
-	TriggerWorkflowAutomation *OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation `pulumi:"triggerWorkflowAutomation"`
-}
-
-// OnCallTeamRoutingRulesRuleActionInput is an input type that accepts OnCallTeamRoutingRulesRuleActionArgs and OnCallTeamRoutingRulesRuleActionOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionInput` via:
-//
-//	OnCallTeamRoutingRulesRuleActionArgs{...}
-type OnCallTeamRoutingRulesRuleActionInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionOutput() OnCallTeamRoutingRulesRuleActionOutput
-	ToOnCallTeamRoutingRulesRuleActionOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionOutput
-}
-
-type OnCallTeamRoutingRulesRuleActionArgs struct {
-	EscalationPolicy OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput `pulumi:"escalationPolicy"`
-	// Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
-	RerouteToTeam             OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput             `pulumi:"rerouteToTeam"`
-	SendSlackMessage          OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput          `pulumi:"sendSlackMessage"`
-	SendTeamsMessage          OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput          `pulumi:"sendTeamsMessage"`
-	TriggerWorkflowAutomation OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrInput `pulumi:"triggerWorkflowAutomation"`
-}
-
-func (OnCallTeamRoutingRulesRuleActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleAction)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleActionArgs) ToOnCallTeamRoutingRulesRuleActionOutput() OnCallTeamRoutingRulesRuleActionOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionArgs) ToOnCallTeamRoutingRulesRuleActionOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionOutput)
-}
-
-// OnCallTeamRoutingRulesRuleActionArrayInput is an input type that accepts OnCallTeamRoutingRulesRuleActionArray and OnCallTeamRoutingRulesRuleActionArrayOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionArrayInput` via:
-//
-//	OnCallTeamRoutingRulesRuleActionArray{ OnCallTeamRoutingRulesRuleActionArgs{...} }
-type OnCallTeamRoutingRulesRuleActionArrayInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionArrayOutput() OnCallTeamRoutingRulesRuleActionArrayOutput
-	ToOnCallTeamRoutingRulesRuleActionArrayOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionArrayOutput
-}
-
-type OnCallTeamRoutingRulesRuleActionArray []OnCallTeamRoutingRulesRuleActionInput
-
-func (OnCallTeamRoutingRulesRuleActionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OnCallTeamRoutingRulesRuleAction)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleActionArray) ToOnCallTeamRoutingRulesRuleActionArrayOutput() OnCallTeamRoutingRulesRuleActionArrayOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionArrayOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionArray) ToOnCallTeamRoutingRulesRuleActionArrayOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionArrayOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleAction)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionOutput) ToOnCallTeamRoutingRulesRuleActionOutput() OnCallTeamRoutingRulesRuleActionOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionOutput) ToOnCallTeamRoutingRulesRuleActionOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionOutput) EscalationPolicy() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionEscalationPolicy {
-		return v.EscalationPolicy
-	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput)
-}
-
-// Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
-func (o OnCallTeamRoutingRulesRuleActionOutput) RerouteToTeam() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionRerouteToTeam {
-		return v.RerouteToTeam
-	}).(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput)
-}
-
-func (o OnCallTeamRoutingRulesRuleActionOutput) SendSlackMessage() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionSendSlackMessage {
-		return v.SendSlackMessage
-	}).(OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput)
-}
-
-func (o OnCallTeamRoutingRulesRuleActionOutput) SendTeamsMessage() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionSendTeamsMessage {
-		return v.SendTeamsMessage
-	}).(OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput)
-}
-
-func (o OnCallTeamRoutingRulesRuleActionOutput) TriggerWorkflowAutomation() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation {
-		return v.TriggerWorkflowAutomation
-	}).(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionArrayOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OnCallTeamRoutingRulesRuleAction)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionArrayOutput) ToOnCallTeamRoutingRulesRuleActionArrayOutput() OnCallTeamRoutingRulesRuleActionArrayOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionArrayOutput) ToOnCallTeamRoutingRulesRuleActionArrayOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionArrayOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionArrayOutput) Index(i pulumi.IntInput) OnCallTeamRoutingRulesRuleActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OnCallTeamRoutingRulesRuleAction {
-		return vs[0].([]OnCallTeamRoutingRulesRuleAction)[vs[1].(int)]
-	}).(OnCallTeamRoutingRulesRuleActionOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicy struct {
-	// Number of minutes before an acknowledged page is re-triggered. Value must be between 30 and 4320.
-	AckTimeoutMinutes *int `pulumi:"ackTimeoutMinutes"`
-	// Escalation policy ID.
-	PolicyId *string `pulumi:"policyId"`
-	// Support hours during which the escalation policy will execute.
-	SupportHours *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours `pulumi:"supportHours"`
-	// Urgency for pages created via this action. Valid values are `high`, `low`, `dynamic`.
-	Urgency *string `pulumi:"urgency"`
-}
-
-// OnCallTeamRoutingRulesRuleActionEscalationPolicyInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs and OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicyInput` via:
-//
-//	OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs{...}
-type OnCallTeamRoutingRulesRuleActionEscalationPolicyInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs struct {
-	// Number of minutes before an acknowledged page is re-triggered. Value must be between 30 and 4320.
-	AckTimeoutMinutes pulumi.IntPtrInput `pulumi:"ackTimeoutMinutes"`
-	// Escalation policy ID.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Support hours during which the escalation policy will execute.
-	SupportHours OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput `pulumi:"supportHours"`
-	// Urgency for pages created via this action. Valid values are `high`, `low`, `dynamic`.
-	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
-}
-
-func (OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicy)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput)
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput).ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(ctx)
-}
-
-// OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs, OnCallTeamRoutingRulesRuleActionEscalationPolicyPtr and OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput` via:
-//
-//	        OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs{...}
-//
-//	or:
-//
-//	        nil
-type OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput
-}
-
-type onCallTeamRoutingRulesRuleActionEscalationPolicyPtrType OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs
-
-func OnCallTeamRoutingRulesRuleActionEscalationPolicyPtr(v *OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput {
-	return (*onCallTeamRoutingRulesRuleActionEscalationPolicyPtrType)(v)
-}
-
-func (*onCallTeamRoutingRulesRuleActionEscalationPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionEscalationPolicy)(nil)).Elem()
-}
-
-func (i *onCallTeamRoutingRulesRuleActionEscalationPolicyPtrType) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *onCallTeamRoutingRulesRuleActionEscalationPolicyPtrType) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicy)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
-	return o.ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionEscalationPolicy) *OnCallTeamRoutingRulesRuleActionEscalationPolicy {
-		return &v
-	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput)
-}
-
-// Number of minutes before an acknowledged page is re-triggered. Value must be between 30 and 4320.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) AckTimeoutMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicy) *int { return v.AckTimeoutMinutes }).(pulumi.IntPtrOutput)
-}
-
-// Escalation policy ID.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicy) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
-}
-
-// Support hours during which the escalation policy will execute.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) SupportHours() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicy) *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours {
-		return v.SupportHours
-	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput)
-}
-
-// Urgency for pages created via this action. Valid values are `high`, `low`, `dynamic`.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) Urgency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicy) *string { return v.Urgency }).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionEscalationPolicy)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) Elem() OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicy) OnCallTeamRoutingRulesRuleActionEscalationPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret OnCallTeamRoutingRulesRuleActionEscalationPolicy
-		return ret
-	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput)
-}
-
-// Number of minutes before an acknowledged page is re-triggered. Value must be between 30 and 4320.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) AckTimeoutMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicy) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AckTimeoutMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// Escalation policy ID.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PolicyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Support hours during which the escalation policy will execute.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) SupportHours() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicy) *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours {
-		if v == nil {
-			return nil
-		}
-		return v.SupportHours
-	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput)
-}
-
-// Urgency for pages created via this action. Valid values are `high`, `low`, `dynamic`.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) Urgency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Urgency
-	}).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours struct {
-	Restrictions []OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction `pulumi:"restrictions"`
-	// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
-	TimeZone *string `pulumi:"timeZone"`
-}
-
-// OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs and OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursInput` via:
-//
-//	OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs{...}
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs struct {
-	Restrictions OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput `pulumi:"restrictions"`
-	// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
-}
-
-func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput)
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput).ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(ctx)
-}
-
-// OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs, OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtr and OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput` via:
-//
-//	        OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs{...}
-//
-//	or:
-//
-//	        nil
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput
-}
-
-type onCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrType OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs
-
-func OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtr(v *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput {
-	return (*onCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrType)(v)
-}
-
-func (*onCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours)(nil)).Elem()
-}
-
-func (i *onCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrType) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(context.Background())
-}
-
-func (i *onCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrType) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
-	return o.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(context.Background())
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours {
-		return &v
-	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput)
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) Restrictions() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) []OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction {
-		return v.Restrictions
-	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput)
-}
-
-// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) Elem() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours {
-		if v != nil {
-			return *v
-		}
-		var ret OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours
-		return ret
-	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput)
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) Restrictions() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) []OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction {
-		if v == nil {
-			return nil
-		}
-		return v.Restrictions
-	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput)
-}
-
-// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeZone
-	}).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction struct {
-	// The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-	EndDay *string `pulumi:"endDay"`
-	// The time of day when the restriction ends (hh:mm:ss).
-	EndTime *string `pulumi:"endTime"`
-	// The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-	StartDay *string `pulumi:"startDay"`
-	// The time of day when the restriction begins (hh:mm:ss).
-	StartTime *string `pulumi:"startTime"`
-}
-
-// OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs and OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput` via:
-//
-//	OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs{...}
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs struct {
-	// The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-	EndDay pulumi.StringPtrInput `pulumi:"endDay"`
-	// The time of day when the restriction ends (hh:mm:ss).
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-	StartDay pulumi.StringPtrInput `pulumi:"startDay"`
-	// The time of day when the restriction begins (hh:mm:ss).
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-}
-
-func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput)
-}
-
-// OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray and OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput` via:
-//
-//	OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray{ OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs{...} }
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput
-	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray []OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput
-
-func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput {
-	return o
-}
-
-// The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) EndDay() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction) *string {
-		return v.EndDay
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time of day when the restriction ends (hh:mm:ss).
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction) *string {
-		return v.EndTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) StartDay() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction) *string {
-		return v.StartDay
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time of day when the restriction begins (hh:mm:ss).
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction) *string {
-		return v.StartTime
-	}).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput) Index(i pulumi.IntInput) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction {
-		return vs[0].([]OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)[vs[1].(int)]
-	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionRerouteToTeam struct {
-	// ID of the team to reroute the page to.
-	DestinationTeamId *string `pulumi:"destinationTeamId"`
-}
-
-// OnCallTeamRoutingRulesRuleActionRerouteToTeamInput is an input type that accepts OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs and OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionRerouteToTeamInput` via:
-//
-//	OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{...}
-type OnCallTeamRoutingRulesRuleActionRerouteToTeamInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput
-	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput
-}
-
-type OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs struct {
-	// ID of the team to reroute the page to.
-	DestinationTeamId pulumi.StringPtrInput `pulumi:"destinationTeamId"`
-}
-
-func (OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput)
-}
-
-func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput).ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx)
-}
-
-// OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs, OnCallTeamRoutingRulesRuleActionRerouteToTeamPtr and OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput` via:
-//
-//	        OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{...}
-//
-//	or:
-//
-//	        nil
-type OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput
-	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput
-}
-
-type onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs
-
-func OnCallTeamRoutingRulesRuleActionRerouteToTeamPtr(v *OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput {
-	return (*onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType)(v)
-}
-
-func (*onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
-}
-
-func (i *onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Background())
-}
-
-func (i *onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
-	return o.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Background())
-}
-
-func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionRerouteToTeam) *OnCallTeamRoutingRulesRuleActionRerouteToTeam {
-		return &v
-	}).(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput)
-}
-
-// ID of the team to reroute the page to.
-func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) DestinationTeamId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionRerouteToTeam) *string { return v.DestinationTeamId }).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) Elem() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionRerouteToTeam) OnCallTeamRoutingRulesRuleActionRerouteToTeam {
-		if v != nil {
-			return *v
-		}
-		var ret OnCallTeamRoutingRulesRuleActionRerouteToTeam
-		return ret
-	}).(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput)
-}
-
-// ID of the team to reroute the page to.
-func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) DestinationTeamId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionRerouteToTeam) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DestinationTeamId
-	}).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionSendSlackMessage struct {
-	// Slack channel ID.
-	Channel *string `pulumi:"channel"`
-	// Slack workspace ID.
-	Workspace *string `pulumi:"workspace"`
-}
-
-// OnCallTeamRoutingRulesRuleActionSendSlackMessageInput is an input type that accepts OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs and OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionSendSlackMessageInput` via:
-//
-//	OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{...}
-type OnCallTeamRoutingRulesRuleActionSendSlackMessageInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput
-	ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput
-}
-
-type OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs struct {
-	// Slack channel ID.
-	Channel pulumi.StringPtrInput `pulumi:"channel"`
-	// Slack workspace ID.
-	Workspace pulumi.StringPtrInput `pulumi:"workspace"`
-}
-
-func (OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessage)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput)
-}
-
-func (i OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput).ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(ctx)
-}
-
-// OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs, OnCallTeamRoutingRulesRuleActionSendSlackMessagePtr and OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput` via:
-//
-//	        OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{...}
-//
-//	or:
-//
-//	        nil
-type OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput
-	ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput
-}
-
-type onCallTeamRoutingRulesRuleActionSendSlackMessagePtrType OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs
-
-func OnCallTeamRoutingRulesRuleActionSendSlackMessagePtr(v *OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput {
-	return (*onCallTeamRoutingRulesRuleActionSendSlackMessagePtrType)(v)
-}
-
-func (*onCallTeamRoutingRulesRuleActionSendSlackMessagePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionSendSlackMessage)(nil)).Elem()
-}
-
-func (i *onCallTeamRoutingRulesRuleActionSendSlackMessagePtrType) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(context.Background())
-}
-
-func (i *onCallTeamRoutingRulesRuleActionSendSlackMessagePtrType) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessage)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
-	return o.ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(context.Background())
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionSendSlackMessage) *OnCallTeamRoutingRulesRuleActionSendSlackMessage {
-		return &v
-	}).(OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput)
-}
-
-// Slack channel ID.
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) Channel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionSendSlackMessage) *string { return v.Channel }).(pulumi.StringPtrOutput)
-}
-
-// Slack workspace ID.
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) Workspace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionSendSlackMessage) *string { return v.Workspace }).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionSendSlackMessage)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) Elem() OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendSlackMessage) OnCallTeamRoutingRulesRuleActionSendSlackMessage {
-		if v != nil {
-			return *v
-		}
-		var ret OnCallTeamRoutingRulesRuleActionSendSlackMessage
-		return ret
-	}).(OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput)
-}
-
-// Slack channel ID.
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) Channel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendSlackMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Channel
-	}).(pulumi.StringPtrOutput)
-}
-
-// Slack workspace ID.
-func (o OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) Workspace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendSlackMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Workspace
-	}).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionSendTeamsMessage struct {
-	// Teams channel ID.
-	Channel *string `pulumi:"channel"`
-	// Teams team ID.
-	Team *string `pulumi:"team"`
-	// Teams tenant ID.
-	Tenant *string `pulumi:"tenant"`
-}
-
-// OnCallTeamRoutingRulesRuleActionSendTeamsMessageInput is an input type that accepts OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs and OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionSendTeamsMessageInput` via:
-//
-//	OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{...}
-type OnCallTeamRoutingRulesRuleActionSendTeamsMessageInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput
-	ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput
-}
-
-type OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs struct {
-	// Teams channel ID.
-	Channel pulumi.StringPtrInput `pulumi:"channel"`
-	// Teams team ID.
-	Team pulumi.StringPtrInput `pulumi:"team"`
-	// Teams tenant ID.
-	Tenant pulumi.StringPtrInput `pulumi:"tenant"`
-}
-
-func (OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessage)(nil)).Elem()
-}
-
-func (i OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput)
-}
-
-func (i OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(context.Background())
-}
-
-func (i OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput).ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(ctx)
-}
-
-// OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs, OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtr and OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput values.
-// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput` via:
-//
-//	        OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{...}
-//
-//	or:
-//
-//	        nil
-type OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput interface {
-	pulumi.Input
-
-	ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput
-	ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput
-}
-
-type onCallTeamRoutingRulesRuleActionSendTeamsMessagePtrType OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs
-
-func OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtr(v *OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput {
-	return (*onCallTeamRoutingRulesRuleActionSendTeamsMessagePtrType)(v)
-}
-
-func (*onCallTeamRoutingRulesRuleActionSendTeamsMessagePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionSendTeamsMessage)(nil)).Elem()
-}
-
-func (i *onCallTeamRoutingRulesRuleActionSendTeamsMessagePtrType) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
-	return i.ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(context.Background())
-}
-
-func (i *onCallTeamRoutingRulesRuleActionSendTeamsMessagePtrType) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessage)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
-	return o.ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(context.Background())
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *OnCallTeamRoutingRulesRuleActionSendTeamsMessage {
-		return &v
-	}).(OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput)
-}
-
-// Teams channel ID.
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) Channel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string { return v.Channel }).(pulumi.StringPtrOutput)
-}
-
-// Teams team ID.
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) Team() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string { return v.Team }).(pulumi.StringPtrOutput)
-}
-
-// Teams tenant ID.
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) Tenant() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string { return v.Tenant }).(pulumi.StringPtrOutput)
-}
-
-type OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput struct{ *pulumi.OutputState }
-
-func (OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionSendTeamsMessage)(nil)).Elem()
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
-	return o
-}
-
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) Elem() OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendTeamsMessage) OnCallTeamRoutingRulesRuleActionSendTeamsMessage {
-		if v != nil {
-			return *v
-		}
-		var ret OnCallTeamRoutingRulesRuleActionSendTeamsMessage
-		return ret
-	}).(OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput)
-}
-
-// Teams channel ID.
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) Channel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Channel
-	}).(pulumi.StringPtrOutput)
-}
-
-// Teams team ID.
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) Team() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Team
-	}).(pulumi.StringPtrOutput)
-}
-
-// Teams tenant ID.
-func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) Tenant() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tenant
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveAzureArchiveInput)(nil)).Elem(), LogsArchiveAzureArchiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveAzureArchivePtrInput)(nil)).Elem(), LogsArchiveAzureArchiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveGcsArchiveInput)(nil)).Elem(), LogsArchiveGcsArchiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveGcsArchivePtrInput)(nil)).Elem(), LogsArchiveGcsArchiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveS3ArchiveInput)(nil)).Elem(), LogsArchiveS3ArchiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveS3ArchivePtrInput)(nil)).Elem(), LogsArchiveS3ArchiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogsCustomDestinationElasticsearchDestinationInput)(nil)).Elem(), LogsCustomDestinationElasticsearchDestinationArgs{})
@@ -82699,12 +83031,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchArrayInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchAuthInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonS3Input)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonS3ArrayInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonS3Array{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationAmazonS3AuthInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationAmazonS3AuthArgs{})
@@ -82843,6 +83178,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemoryPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogMetricInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogMetricArrayInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogTracesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogTracesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBufferInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationElasticsearchInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationElasticsearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationElasticsearchArrayInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationElasticsearchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationElasticsearchAuthInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationElasticsearchAuthArgs{})
@@ -83323,20 +83666,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallScheduleLayerRestrictionArrayInput)(nil)).Elem(), OnCallScheduleLayerRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleArrayInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionArrayInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicyInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeamInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessageInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessageInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{})
+	pulumi.RegisterOutputType(LogsArchiveAzureArchiveOutput{})
+	pulumi.RegisterOutputType(LogsArchiveAzureArchivePtrOutput{})
+	pulumi.RegisterOutputType(LogsArchiveGcsArchiveOutput{})
+	pulumi.RegisterOutputType(LogsArchiveGcsArchivePtrOutput{})
 	pulumi.RegisterOutputType(LogsArchiveS3ArchiveOutput{})
 	pulumi.RegisterOutputType(LogsArchiveS3ArchivePtrOutput{})
 	pulumi.RegisterOutputType(LogsCustomDestinationElasticsearchDestinationOutput{})
@@ -83680,12 +84013,15 @@ func init() {
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonS3Output{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonS3ArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationAmazonS3AuthOutput{})
@@ -83824,6 +84160,14 @@ func init() {
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemoryPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogMetricOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogMetricArrayOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogTracesOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogTracesPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogTracesBufferOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogTracesBufferPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationElasticsearchOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationElasticsearchArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationElasticsearchAuthOutput{})
@@ -84304,18 +84648,4 @@ func init() {
 	pulumi.RegisterOutputType(OnCallScheduleLayerRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleArrayOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionArrayOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput{})
-	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput{})
 }

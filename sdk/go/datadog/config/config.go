@@ -26,17 +26,17 @@ func GetAppKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:appKey")
 }
 
-// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
+// An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
 func GetAwsAccessKeyId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:awsAccessKeyId")
 }
 
-// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+// An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `awsAccessKeyId`. Omit both fields to use the AWS SDK default credential chain.
 func GetAwsSecretAccessKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:awsSecretAccessKey")
 }
 
-// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+// An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
 func GetAwsSessionToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:awsSessionToken")
 }
@@ -46,7 +46,7 @@ func GetBearerToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:bearerToken")
 }
 
-// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
 func GetCloudProviderRegion(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:cloudProviderRegion")
 }

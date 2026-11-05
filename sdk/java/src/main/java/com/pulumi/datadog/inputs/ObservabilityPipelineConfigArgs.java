@@ -36,14 +36,14 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
     }
 
     /**
-     * The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     * The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
      * 
      */
     @Import(name="pipelineType")
     private @Nullable Output<String> pipelineType;
 
     /**
-     * @return The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     * @return The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
      * 
      */
     public Optional<Output<String>> pipelineType() {
@@ -155,7 +155,7 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param pipelineType The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+         * @param pipelineType The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ObservabilityPipelineConfigArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param pipelineType The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+         * @param pipelineType The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
          * 
          * @return builder
          * 

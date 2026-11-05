@@ -60858,6 +60858,19 @@
                     }
                 }
             },
+            "datadog_derived_metric": {
+                "current": "datadog:index/derivedMetric:DerivedMetric",
+                "majorVersion": 5,
+                "fields": {
+                    "definition": {
+                        "fields": {
+                            "queries": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_domain_allowlist": {
                 "current": "datadog:index/domainAllowlist:DomainAllowlist",
                 "majorVersion": 5,
@@ -62468,6 +62481,9 @@
                                                                     }
                                                                 }
                                                             }
+                                                        },
+                                                        "data_stream": {
+                                                            "maxItemsOne": true
                                                         }
                                                     }
                                                 }
@@ -62766,6 +62782,26 @@
                                             },
                                             "datadog_metrics": {
                                                 "maxItemsOne": false
+                                            },
+                                            "datadog_traces": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "elasticsearch": {
                                                 "maxItemsOne": false,
@@ -94507,6 +94543,7 @@
             "datadog_datastore": {},
             "datadog_datastore_item": {},
             "datadog_deployment_gate": {},
+            "datadog_derived_metric": {},
             "datadog_domain_allowlist": {},
             "datadog_downtime_schedule": {},
             "datadog_fleet_schedule": {},
@@ -94678,6 +94715,7 @@
             "datadog:index/datastore:Datastore": 1,
             "datadog:index/datastoreItem:DatastoreItem": 1,
             "datadog:index/deploymentGate:DeploymentGate": 1,
+            "datadog:index/derivedMetric:DerivedMetric": 1,
             "datadog:index/domainAllowlist:DomainAllowlist": 1,
             "datadog:index/downtime:Downtime": 0,
             "datadog:index/downtimeSchedule:DowntimeSchedule": 1,

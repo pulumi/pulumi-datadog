@@ -45,21 +45,21 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def aws_access_key_id(self) -> Optional[str]:
         """
-        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
         """
         return __config__.get('awsAccessKeyId')
 
     @_builtins.property
     def aws_secret_access_key(self) -> Optional[str]:
         """
-        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `aws_access_key_id`. Omit both fields to use the AWS SDK default credential chain.
         """
         return __config__.get('awsSecretAccessKey')
 
     @_builtins.property
     def aws_session_token(self) -> Optional[str]:
         """
-        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
         """
         return __config__.get('awsSessionToken')
 
@@ -73,7 +73,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def cloud_provider_region(self) -> Optional[str]:
         """
-        The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
         """
         return __config__.get('cloudProviderRegion')
 

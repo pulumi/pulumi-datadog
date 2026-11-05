@@ -43,6 +43,7 @@ from .dataset import *
 from .datastore import *
 from .datastore_item import *
 from .deployment_gate import *
+from .derived_metric import *
 from .domain_allowlist import *
 from .downtime import *
 from .downtime_schedule import *
@@ -706,6 +707,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/deploymentGate:DeploymentGate": "DeploymentGate"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/derivedMetric",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/derivedMetric:DerivedMetric": "DerivedMetric"
   }
  },
  {

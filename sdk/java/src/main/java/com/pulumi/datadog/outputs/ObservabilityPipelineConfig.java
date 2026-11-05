@@ -22,7 +22,7 @@ public final class ObservabilityPipelineConfig {
      */
     private @Nullable List<ObservabilityPipelineConfigDestination> destinations;
     /**
-     * @return The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     * @return The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
      * 
      */
     private @Nullable String pipelineType;
@@ -51,7 +51,7 @@ public final class ObservabilityPipelineConfig {
         return this.destinations == null ? List.of() : this.destinations;
     }
     /**
-     * @return The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     * @return The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
      * 
      */
     public Optional<String> pipelineType() {

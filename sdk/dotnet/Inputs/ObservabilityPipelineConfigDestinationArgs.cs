@@ -132,6 +132,12 @@ namespace Pulumi.Datadog.Inputs
             set => _datadogMetrics = value;
         }
 
+        /// <summary>
+        /// The `DatadogTraces` destination forwards traces to Datadog.
+        /// </summary>
+        [Input("datadogTraces")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationDatadogTracesArgs>? DatadogTraces { get; set; }
+
         [Input("elasticsearches")]
         private InputList<Inputs.ObservabilityPipelineConfigDestinationElasticsearchArgs>? _elasticsearches;
 
@@ -253,7 +259,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The `Opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+        /// The `Opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
         /// </summary>
         [Input("opentelemetry")]
         public Input<Inputs.ObservabilityPipelineConfigDestinationOpentelemetryArgs>? Opentelemetry { get; set; }

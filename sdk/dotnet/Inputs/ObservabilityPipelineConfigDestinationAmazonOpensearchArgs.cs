@@ -12,8 +12,11 @@ namespace Pulumi.Datadog.Inputs
 
     public sealed class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs : global::Pulumi.ResourceArgs
     {
-        [Input("auth", required: true)]
-        public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> Auth { get; set; } = null!;
+        /// <summary>
+        /// Authentication settings for the Amazon OpenSearch destination.
+        /// </summary>
+        [Input("auth")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs>? Auth { get; set; }
 
         /// <summary>
         /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
@@ -26,6 +29,18 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("bulkIndex")]
         public Input<string>? BulkIndex { get; set; }
+
+        /// <summary>
+        /// Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+        /// </summary>
+        [Input("dataStream")]
+        public Input<Inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs>? DataStream { get; set; }
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+        /// </summary>
+        [Input("endpointUrlKey")]
+        public Input<string>? EndpointUrlKey { get; set; }
 
         public ObservabilityPipelineConfigDestinationAmazonOpensearchArgs()
         {

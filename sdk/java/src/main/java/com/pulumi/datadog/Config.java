@@ -36,21 +36,21 @@ public final class Config {
         return Codegen.stringProp("appKey").config(config).get();
     }
 /**
- * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
+ * An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
  * 
  */
     public Optional<String> awsAccessKeyId() {
         return Codegen.stringProp("awsAccessKeyId").config(config).get();
     }
 /**
- * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+ * An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `awsAccessKeyId`. Omit both fields to use the AWS SDK default credential chain.
  * 
  */
     public Optional<String> awsSecretAccessKey() {
         return Codegen.stringProp("awsSecretAccessKey").config(config).get();
     }
 /**
- * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+ * An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
  * 
  */
     public Optional<String> awsSessionToken() {
@@ -64,7 +64,7 @@ public final class Config {
         return Codegen.stringProp("bearerToken").config(config).get();
     }
 /**
- * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+ * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
  * 
  */
     public Optional<String> cloudProviderRegion() {

@@ -64,7 +64,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _awsAccessKeyId = new __Value<string?>(() => __config.Get("awsAccessKeyId"));
         /// <summary>
-        /// The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `CloudProviderType` set to `Aws`.
+        /// An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
         /// </summary>
         public static string? AwsAccessKeyId
         {
@@ -74,7 +74,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _awsSecretAccessKey = new __Value<string?>(() => __config.Get("awsSecretAccessKey"));
         /// <summary>
-        /// The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `CloudProviderType` set to `Aws`.
+        /// An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `AwsAccessKeyId`. Omit both fields to use the AWS SDK default credential chain.
         /// </summary>
         public static string? AwsSecretAccessKey
         {
@@ -84,7 +84,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _awsSessionToken = new __Value<string?>(() => __config.Get("awsSessionToken"));
         /// <summary>
-        /// The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `CloudProviderType` set to `Aws` and using temporary credentials.
+        /// An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
         /// </summary>
         public static string? AwsSessionToken
         {
@@ -104,7 +104,7 @@ namespace Pulumi.Datadog
 
         private static readonly __Value<string?> _cloudProviderRegion = new __Value<string?>(() => __config.Get("cloudProviderRegion"));
         /// <summary>
-        /// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        /// The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
         /// </summary>
         public static string? CloudProviderRegion
         {

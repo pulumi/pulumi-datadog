@@ -229,14 +229,14 @@ public final class TagRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+     * One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `[&#34;*&#34;]` with `required = true` means the tag must be present with any value, and `[&#34;*&#34;]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `required` and `negated` both `false` (the rule would have no effect) or both `true` (no value could comply).
      * 
      */
     @Import(name="tagValuePatterns")
     private @Nullable Output<List<String>> tagValuePatterns;
 
     /**
-     * @return One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+     * @return One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `[&#34;*&#34;]` with `required = true` means the tag must be present with any value, and `[&#34;*&#34;]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `required` and `negated` both `false` (the rule would have no effect) or both `true` (no value could comply).
      * 
      */
     public Optional<Output<List<String>>> tagValuePatterns() {
@@ -592,7 +592,7 @@ public final class TagRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagValuePatterns One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+         * @param tagValuePatterns One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `[&#34;*&#34;]` with `required = true` means the tag must be present with any value, and `[&#34;*&#34;]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `required` and `negated` both `false` (the rule would have no effect) or both `true` (no value could comply).
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class TagRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagValuePatterns One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+         * @param tagValuePatterns One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `[&#34;*&#34;]` with `required = true` means the tag must be present with any value, and `[&#34;*&#34;]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `required` and `negated` both `false` (the rule would have no effect) or both `true` (no value could comply).
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class TagRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagValuePatterns One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+         * @param tagValuePatterns One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `[&#34;*&#34;]` with `required = true` means the tag must be present with any value, and `[&#34;*&#34;]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `required` and `negated` both `false` (the rule would have no effect) or both `true` (no value could comply).
          * 
          * @return builder
          * 

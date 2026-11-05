@@ -95,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatastoreItem{}
 	case "datadog:index/deploymentGate:DeploymentGate":
 		r = &DeploymentGate{}
+	case "datadog:index/derivedMetric:DerivedMetric":
+		r = &DerivedMetric{}
 	case "datadog:index/domainAllowlist:DomainAllowlist":
 		r = &DomainAllowlist{}
 	case "datadog:index/downtime:Downtime":
@@ -543,6 +545,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/deploymentGate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/derivedMetric",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

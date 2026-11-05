@@ -28,6 +28,18 @@ import * as utilities from "./utilities";
  *     ruleType: "surfacing",
  *     required: true,
  * });
+ * // Require the tag to be present with any value. A bare `*` accepts every
+ * // value, so it must be paired with `required = true` (or with `negated = true`
+ * // to require the tag to be absent instead).
+ * const team = new datadog.TagRule("team", {
+ *     name: "team must be set",
+ *     source: "logs",
+ *     scope: "org",
+ *     tagKey: "team",
+ *     tagValuePatterns: ["*"],
+ *     ruleType: "surfacing",
+ *     required: true,
+ * });
  * // Create a blocking tag rule, which rejects telemetry that violates it.
  * // The Datadog API only accepts `surfacing` at creation time, so the provider
  * // creates the rule and then immediately updates it to `blocking`. Because that
@@ -148,7 +160,7 @@ export class TagRule extends pulumi.CustomResource {
      */
     declare public readonly tagKey: pulumi.Output<string>;
     /**
-     * One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+     * One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `["*"]` with `required = true` means the tag must be present with any value, and `["*"]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `required` and `negated` both `false` (the rule would have no effect) or both `true` (no value could comply).
      */
     declare public readonly tagValuePatterns: pulumi.Output<string[]>;
     /**
@@ -288,7 +300,7 @@ export interface TagRuleState {
      */
     tagKey?: pulumi.Input<string | undefined>;
     /**
-     * One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+     * One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `["*"]` with `required = true` means the tag must be present with any value, and `["*"]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `required` and `negated` both `false` (the rule would have no effect) or both `true` (no value could comply).
      */
     tagValuePatterns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -342,7 +354,7 @@ export interface TagRuleArgs {
      */
     tagKey: pulumi.Input<string>;
     /**
-     * One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+     * One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `["*"]` with `required = true` means the tag must be present with any value, and `["*"]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `required` and `negated` both `false` (the rule would have no effect) or both `true` (no value could comply).
      */
     tagValuePatterns: pulumi.Input<pulumi.Input<string>[]>;
 }

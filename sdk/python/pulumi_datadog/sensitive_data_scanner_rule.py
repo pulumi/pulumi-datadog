@@ -33,7 +33,8 @@ class SensitiveDataScannerRuleArgs:
                  standard_pattern_id: pulumi.Input[Optional[_builtins.str]] = None,
                  suppressions: pulumi.Input[Optional['SensitiveDataScannerRuleSuppressionsArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 text_replacement: pulumi.Input[Optional['SensitiveDataScannerRuleTextReplacementArgs']] = None):
+                 text_replacement: pulumi.Input[Optional['SensitiveDataScannerRuleTextReplacementArgs']] = None,
+                 use_recommended_suppressions: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SensitiveDataScannerRule resource.
 
@@ -47,9 +48,10 @@ class SensitiveDataScannerRuleArgs:
         :param pulumi.Input[_builtins.str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[_builtins.int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[_builtins.str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
-        :param pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs'] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        :param pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs'] suppressions: Object defining custom suppressions to skip matches based on `starts_with`, `ends_with`, and `exact_match` rules. Custom lists are managed independently of `use_recommended_suppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `use_recommended_suppressions`. Recommended suppressions are not copied into these lists.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags.
         :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
+        :param pulumi.Input[_builtins.bool] use_recommended_suppressions: Whether to use the standard pattern's recommended suppressions. Requires `standard_pattern_id` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
         """
         pulumi.set(__self__, "group_id", group_id)
         if description is not None:
@@ -76,6 +78,8 @@ class SensitiveDataScannerRuleArgs:
             pulumi.set(__self__, "tags", tags)
         if text_replacement is not None:
             pulumi.set(__self__, "text_replacement", text_replacement)
+        if use_recommended_suppressions is not None:
+            pulumi.set(__self__, "use_recommended_suppressions", use_recommended_suppressions)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
@@ -201,7 +205,7 @@ class SensitiveDataScannerRuleArgs:
     @pulumi.getter
     def suppressions(self) -> pulumi.Input[Optional['SensitiveDataScannerRuleSuppressionsArgs']]:
         """
-        Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        Object defining custom suppressions to skip matches based on `starts_with`, `ends_with`, and `exact_match` rules. Custom lists are managed independently of `use_recommended_suppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `use_recommended_suppressions`. Recommended suppressions are not copied into these lists.
         """
         return pulumi.get(self, "suppressions")
 
@@ -233,6 +237,18 @@ class SensitiveDataScannerRuleArgs:
     def text_replacement(self, value: pulumi.Input[Optional['SensitiveDataScannerRuleTextReplacementArgs']]):
         pulumi.set(self, "text_replacement", value)
 
+    @_builtins.property
+    @pulumi.getter(name="useRecommendedSuppressions")
+    def use_recommended_suppressions(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to use the standard pattern's recommended suppressions. Requires `standard_pattern_id` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+        """
+        return pulumi.get(self, "use_recommended_suppressions")
+
+    @use_recommended_suppressions.setter
+    def use_recommended_suppressions(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_recommended_suppressions", value)
+
 
 @pulumi.input_type
 class _SensitiveDataScannerRuleState:
@@ -249,7 +265,8 @@ class _SensitiveDataScannerRuleState:
                  standard_pattern_id: pulumi.Input[Optional[_builtins.str]] = None,
                  suppressions: pulumi.Input[Optional['SensitiveDataScannerRuleSuppressionsArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 text_replacement: pulumi.Input[Optional['SensitiveDataScannerRuleTextReplacementArgs']] = None):
+                 text_replacement: pulumi.Input[Optional['SensitiveDataScannerRuleTextReplacementArgs']] = None,
+                 use_recommended_suppressions: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SensitiveDataScannerRule resources.
 
@@ -263,9 +280,10 @@ class _SensitiveDataScannerRuleState:
         :param pulumi.Input[_builtins.str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[_builtins.int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[_builtins.str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
-        :param pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs'] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        :param pulumi.Input['SensitiveDataScannerRuleSuppressionsArgs'] suppressions: Object defining custom suppressions to skip matches based on `starts_with`, `ends_with`, and `exact_match` rules. Custom lists are managed independently of `use_recommended_suppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `use_recommended_suppressions`. Recommended suppressions are not copied into these lists.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags.
         :param pulumi.Input['SensitiveDataScannerRuleTextReplacementArgs'] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
+        :param pulumi.Input[_builtins.bool] use_recommended_suppressions: Whether to use the standard pattern's recommended suppressions. Requires `standard_pattern_id` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -293,6 +311,8 @@ class _SensitiveDataScannerRuleState:
             pulumi.set(__self__, "tags", tags)
         if text_replacement is not None:
             pulumi.set(__self__, "text_replacement", text_replacement)
+        if use_recommended_suppressions is not None:
+            pulumi.set(__self__, "use_recommended_suppressions", use_recommended_suppressions)
 
     @_builtins.property
     @pulumi.getter
@@ -418,7 +438,7 @@ class _SensitiveDataScannerRuleState:
     @pulumi.getter
     def suppressions(self) -> pulumi.Input[Optional['SensitiveDataScannerRuleSuppressionsArgs']]:
         """
-        Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        Object defining custom suppressions to skip matches based on `starts_with`, `ends_with`, and `exact_match` rules. Custom lists are managed independently of `use_recommended_suppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `use_recommended_suppressions`. Recommended suppressions are not copied into these lists.
         """
         return pulumi.get(self, "suppressions")
 
@@ -450,6 +470,18 @@ class _SensitiveDataScannerRuleState:
     def text_replacement(self, value: pulumi.Input[Optional['SensitiveDataScannerRuleTextReplacementArgs']]):
         pulumi.set(self, "text_replacement", value)
 
+    @_builtins.property
+    @pulumi.getter(name="useRecommendedSuppressions")
+    def use_recommended_suppressions(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to use the standard pattern's recommended suppressions. Requires `standard_pattern_id` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+        """
+        return pulumi.get(self, "use_recommended_suppressions")
+
+    @use_recommended_suppressions.setter
+    def use_recommended_suppressions(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_recommended_suppressions", value)
+
 
 @pulumi.type_token("datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule")
 class SensitiveDataScannerRule(pulumi.CustomResource):
@@ -470,6 +502,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']]] = None,
+                 use_recommended_suppressions: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a Datadog SensitiveDataScannerRule resource. This can be used to create and manage Datadog sensitive_data_scanner_rule. Setting the `create_before_destroy` lifecycle Meta-argument to `true` is highly recommended if modifying the `included_keyword_configuration` field to avoid unexpectedly disabling Sensitive Data Scanner groups.
@@ -495,9 +528,10 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[_builtins.int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[_builtins.str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
-        :param pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        :param pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']] suppressions: Object defining custom suppressions to skip matches based on `starts_with`, `ends_with`, and `exact_match` rules. Custom lists are managed independently of `use_recommended_suppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `use_recommended_suppressions`. Recommended suppressions are not copied into these lists.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags.
         :param pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
+        :param pulumi.Input[_builtins.bool] use_recommended_suppressions: Whether to use the standard pattern's recommended suppressions. Requires `standard_pattern_id` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
         """
         ...
     @overload
@@ -545,6 +579,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
                  suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']]] = None,
+                 use_recommended_suppressions: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -569,6 +604,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             __props__.__dict__["suppressions"] = suppressions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["text_replacement"] = text_replacement
+            __props__.__dict__["use_recommended_suppressions"] = use_recommended_suppressions
         super(SensitiveDataScannerRule, __self__).__init__(
             'datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule',
             resource_name,
@@ -591,7 +627,8 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             standard_pattern_id: pulumi.Input[Optional[_builtins.str]] = None,
             suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']]] = None) -> 'SensitiveDataScannerRule':
+            text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']]] = None,
+            use_recommended_suppressions: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SensitiveDataScannerRule':
         """
         Get an existing SensitiveDataScannerRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -609,9 +646,10 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] pattern: Not included if there is a relationship to a standard pattern.
         :param pulumi.Input[_builtins.int] priority: Priority level of the rule (optional). Used to order sensitive data discovered in the sds summary page. It must be between 1 and 5 (1 being the most important).
         :param pulumi.Input[_builtins.str] standard_pattern_id: Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
-        :param pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']] suppressions: Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        :param pulumi.Input[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']] suppressions: Object defining custom suppressions to skip matches based on `starts_with`, `ends_with`, and `exact_match` rules. Custom lists are managed independently of `use_recommended_suppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `use_recommended_suppressions`. Recommended suppressions are not copied into these lists.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: List of tags.
         :param pulumi.Input[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']] text_replacement: Object describing how the scanned event will be replaced. Defaults to `type: none`
+        :param pulumi.Input[_builtins.bool] use_recommended_suppressions: Whether to use the standard pattern's recommended suppressions. Requires `standard_pattern_id` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -630,6 +668,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         __props__.__dict__["suppressions"] = suppressions
         __props__.__dict__["tags"] = tags
         __props__.__dict__["text_replacement"] = text_replacement
+        __props__.__dict__["use_recommended_suppressions"] = use_recommended_suppressions
         return SensitiveDataScannerRule(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -647,7 +686,8 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
             standard_pattern_id: pulumi.Input[Optional[_builtins.str]] = None,
             suppressions: pulumi.Input[Optional[Union['SensitiveDataScannerRuleSuppressionsArgs', 'SensitiveDataScannerRuleSuppressionsArgsDict', 'outputs.SensitiveDataScannerRuleSuppressions']]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']]] = None) -> pulumi.Output[bool]:
+            text_replacement: pulumi.Input[Optional[Union['SensitiveDataScannerRuleTextReplacementArgs', 'SensitiveDataScannerRuleTextReplacementArgsDict', 'outputs.SensitiveDataScannerRuleTextReplacement']]] = None,
+            use_recommended_suppressions: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         __props__["description"] = description
         __props__["excludedNamespaces"] = excluded_namespaces
@@ -662,6 +702,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         __props__["suppressions"] = suppressions
         __props__["tags"] = tags
         __props__["textReplacement"] = text_replacement
+        __props__["useRecommendedSuppressions"] = use_recommended_suppressions
         return pulumi.runtime.exists_resource(None, 'datadog:index/sensitiveDataScannerRule:SensitiveDataScannerRule', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
@@ -748,7 +789,7 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
     @pulumi.getter
     def suppressions(self) -> pulumi.Output[Optional['outputs.SensitiveDataScannerRuleSuppressions']]:
         """
-        Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `starts_with`, `ends_with`, and `exact_match`.
+        Object defining custom suppressions to skip matches based on `starts_with`, `ends_with`, and `exact_match` rules. Custom lists are managed independently of `use_recommended_suppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `use_recommended_suppressions`. Recommended suppressions are not copied into these lists.
         """
         return pulumi.get(self, "suppressions")
 
@@ -767,4 +808,12 @@ class SensitiveDataScannerRule(pulumi.CustomResource):
         Object describing how the scanned event will be replaced. Defaults to `type: none`
         """
         return pulumi.get(self, "text_replacement")
+
+    @_builtins.property
+    @pulumi.getter(name="useRecommendedSuppressions")
+    def use_recommended_suppressions(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether to use the standard pattern's recommended suppressions. Requires `standard_pattern_id` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+        """
+        return pulumi.get(self, "use_recommended_suppressions")
 

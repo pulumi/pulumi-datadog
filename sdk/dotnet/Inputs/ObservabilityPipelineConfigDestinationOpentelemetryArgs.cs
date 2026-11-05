@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigDestinationOpentelemetryBufferArgs>? Buffer { get; set; }
 
         /// <summary>
-        /// Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+        /// Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
         /// </summary>
         [Input("httpClientUriKey")]
         public Input<string>? HttpClientUriKey { get; set; }

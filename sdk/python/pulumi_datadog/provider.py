@@ -46,11 +46,11 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] api_key: Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
         :param pulumi.Input[_builtins.str] api_url: The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
         :param pulumi.Input[_builtins.str] app_key: Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
-        :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
-        :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
-        :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        :param pulumi.Input[_builtins.str] aws_access_key_id: An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
+        :param pulumi.Input[_builtins.str] aws_secret_access_key: An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `aws_access_key_id`. Omit both fields to use the AWS SDK default credential chain.
+        :param pulumi.Input[_builtins.str] aws_session_token: An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] bearer_token: Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
-        :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
         :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
@@ -145,7 +145,7 @@ class ProviderArgs:
     @pulumi.getter(name="awsAccessKeyId")
     def aws_access_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
         """
         return pulumi.get(self, "aws_access_key_id")
 
@@ -157,7 +157,7 @@ class ProviderArgs:
     @pulumi.getter(name="awsSecretAccessKey")
     def aws_secret_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `aws_access_key_id`. Omit both fields to use the AWS SDK default credential chain.
         """
         return pulumi.get(self, "aws_secret_access_key")
 
@@ -169,7 +169,7 @@ class ProviderArgs:
     @pulumi.getter(name="awsSessionToken")
     def aws_session_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
         """
         return pulumi.get(self, "aws_session_token")
 
@@ -193,7 +193,7 @@ class ProviderArgs:
     @pulumi.getter(name="cloudProviderRegion")
     def cloud_provider_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
         """
         return pulumi.get(self, "cloud_provider_region")
 
@@ -385,11 +385,11 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] api_key: Datadog API key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_API_KEY` environment variable.
         :param pulumi.Input[_builtins.str] api_url: The API URL. This can also be set via the DD_HOST environment variable, and defaults to `https://api.datadoghq.com`. Note that this URL must not end with the `/api/` path. For example, `https://api.datadoghq.com/` is a correct value, while `https://api.datadoghq.com/api/` is not. And if you're working with "EU" version of Datadog, use `https://api.datadoghq.eu/`. Other Datadog region examples: `https://api.us5.datadoghq.com/`, `https://api.us3.datadoghq.com/` and `https://api.ddog-gov.com/`. See https://docs.datadoghq.com/getting_started/site/ for all available regions.
         :param pulumi.Input[_builtins.str] app_key: Datadog application key. Required when `validate` is true unless authentication uses AWS WIF, a bearer token, or Terraform Dynamic Provider Credentials. This can also be set via the `DD_APP_KEY` environment variable.
-        :param pulumi.Input[_builtins.str] aws_access_key_id: The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
-        :param pulumi.Input[_builtins.str] aws_secret_access_key: The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
-        :param pulumi.Input[_builtins.str] aws_session_token: The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        :param pulumi.Input[_builtins.str] aws_access_key_id: An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
+        :param pulumi.Input[_builtins.str] aws_secret_access_key: An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `aws_access_key_id`. Omit both fields to use the AWS SDK default credential chain.
+        :param pulumi.Input[_builtins.str] aws_session_token: An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
         :param pulumi.Input[_builtins.str] bearer_token: Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts personal access tokens (`ddpat_*`) and service-account access tokens (`ddsat_*`). When set, the provider authenticates with `Authorization: Bearer <token>` instead of the `DD-API-KEY` / `DD-APPLICATION-KEY` headers. This can also be set via the `DD_BEARER_TOKEN` or `DATADOG_BEARER_TOKEN` environment variable.
-        :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        :param pulumi.Input[_builtins.str] cloud_provider_region: The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
         :param pulumi.Input[_builtins.str] cloud_provider_type: Specifies the cloud provider used for cloud-provider-based authentication, enabling keyless access without API or app keys. Only [`aws`] is supported. This can also be set using the `DD_CLOUD_PROVIDER_TYPE` environment variable. This feature is in Preview. If you'd like to enable it for your organization, contact [support](https://docs.datadoghq.com/help/).
         :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: [Experimental - Action Connections, Logs Indexes, Logs Pipelines, Monitors, Security Monitoring Rules, and Service Level Objectives only] Configuration block containing settings to apply default resource tags across all resources.
         :param pulumi.Input[_builtins.int] http_client_retry_backoff_base: The HTTP request retry back off base. Defaults to 2.
@@ -516,7 +516,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="awsAccessKeyId")
     def aws_access_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
         """
         return pulumi.get(self, "aws_access_key_id")
 
@@ -524,7 +524,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="awsSecretAccessKey")
     def aws_secret_access_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+        An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `aws_access_key_id`. Omit both fields to use the AWS SDK default credential chain.
         """
         return pulumi.get(self, "aws_secret_access_key")
 
@@ -532,7 +532,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="awsSessionToken")
     def aws_session_token(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+        An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
         """
         return pulumi.get(self, "aws_session_token")
 
@@ -548,7 +548,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="cloudProviderRegion")
     def cloud_provider_region(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+        The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
         """
         return pulumi.get(self, "cloud_provider_region")
 

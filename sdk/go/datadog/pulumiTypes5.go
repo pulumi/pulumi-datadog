@@ -85382,6 +85382,277 @@ func (o DeploymentGateRuleOptionsMonitorIdArrayOutput) Index(i pulumi.IntInput) 
 	}).(DeploymentGateRuleOptionsMonitorIdOutput)
 }
 
+type DerivedMetricDefinition struct {
+	// The formula that combines the queries into the value of the derived metric.
+	Formula string `pulumi:"formula"`
+	// The list of queries referenced by the formula.
+	Queries []DerivedMetricDefinitionQuery `pulumi:"queries"`
+}
+
+// DerivedMetricDefinitionInput is an input type that accepts DerivedMetricDefinitionArgs and DerivedMetricDefinitionOutput values.
+// You can construct a concrete instance of `DerivedMetricDefinitionInput` via:
+//
+//	DerivedMetricDefinitionArgs{...}
+type DerivedMetricDefinitionInput interface {
+	pulumi.Input
+
+	ToDerivedMetricDefinitionOutput() DerivedMetricDefinitionOutput
+	ToDerivedMetricDefinitionOutputWithContext(context.Context) DerivedMetricDefinitionOutput
+}
+
+type DerivedMetricDefinitionArgs struct {
+	// The formula that combines the queries into the value of the derived metric.
+	Formula pulumi.StringInput `pulumi:"formula"`
+	// The list of queries referenced by the formula.
+	Queries DerivedMetricDefinitionQueryArrayInput `pulumi:"queries"`
+}
+
+func (DerivedMetricDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DerivedMetricDefinition)(nil)).Elem()
+}
+
+func (i DerivedMetricDefinitionArgs) ToDerivedMetricDefinitionOutput() DerivedMetricDefinitionOutput {
+	return i.ToDerivedMetricDefinitionOutputWithContext(context.Background())
+}
+
+func (i DerivedMetricDefinitionArgs) ToDerivedMetricDefinitionOutputWithContext(ctx context.Context) DerivedMetricDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DerivedMetricDefinitionOutput)
+}
+
+func (i DerivedMetricDefinitionArgs) ToDerivedMetricDefinitionPtrOutput() DerivedMetricDefinitionPtrOutput {
+	return i.ToDerivedMetricDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i DerivedMetricDefinitionArgs) ToDerivedMetricDefinitionPtrOutputWithContext(ctx context.Context) DerivedMetricDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DerivedMetricDefinitionOutput).ToDerivedMetricDefinitionPtrOutputWithContext(ctx)
+}
+
+// DerivedMetricDefinitionPtrInput is an input type that accepts DerivedMetricDefinitionArgs, DerivedMetricDefinitionPtr and DerivedMetricDefinitionPtrOutput values.
+// You can construct a concrete instance of `DerivedMetricDefinitionPtrInput` via:
+//
+//	        DerivedMetricDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DerivedMetricDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToDerivedMetricDefinitionPtrOutput() DerivedMetricDefinitionPtrOutput
+	ToDerivedMetricDefinitionPtrOutputWithContext(context.Context) DerivedMetricDefinitionPtrOutput
+}
+
+type derivedMetricDefinitionPtrType DerivedMetricDefinitionArgs
+
+func DerivedMetricDefinitionPtr(v *DerivedMetricDefinitionArgs) DerivedMetricDefinitionPtrInput {
+	return (*derivedMetricDefinitionPtrType)(v)
+}
+
+func (*derivedMetricDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DerivedMetricDefinition)(nil)).Elem()
+}
+
+func (i *derivedMetricDefinitionPtrType) ToDerivedMetricDefinitionPtrOutput() DerivedMetricDefinitionPtrOutput {
+	return i.ToDerivedMetricDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *derivedMetricDefinitionPtrType) ToDerivedMetricDefinitionPtrOutputWithContext(ctx context.Context) DerivedMetricDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DerivedMetricDefinitionPtrOutput)
+}
+
+type DerivedMetricDefinitionOutput struct{ *pulumi.OutputState }
+
+func (DerivedMetricDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DerivedMetricDefinition)(nil)).Elem()
+}
+
+func (o DerivedMetricDefinitionOutput) ToDerivedMetricDefinitionOutput() DerivedMetricDefinitionOutput {
+	return o
+}
+
+func (o DerivedMetricDefinitionOutput) ToDerivedMetricDefinitionOutputWithContext(ctx context.Context) DerivedMetricDefinitionOutput {
+	return o
+}
+
+func (o DerivedMetricDefinitionOutput) ToDerivedMetricDefinitionPtrOutput() DerivedMetricDefinitionPtrOutput {
+	return o.ToDerivedMetricDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o DerivedMetricDefinitionOutput) ToDerivedMetricDefinitionPtrOutputWithContext(ctx context.Context) DerivedMetricDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DerivedMetricDefinition) *DerivedMetricDefinition {
+		return &v
+	}).(DerivedMetricDefinitionPtrOutput)
+}
+
+// The formula that combines the queries into the value of the derived metric.
+func (o DerivedMetricDefinitionOutput) Formula() pulumi.StringOutput {
+	return o.ApplyT(func(v DerivedMetricDefinition) string { return v.Formula }).(pulumi.StringOutput)
+}
+
+// The list of queries referenced by the formula.
+func (o DerivedMetricDefinitionOutput) Queries() DerivedMetricDefinitionQueryArrayOutput {
+	return o.ApplyT(func(v DerivedMetricDefinition) []DerivedMetricDefinitionQuery { return v.Queries }).(DerivedMetricDefinitionQueryArrayOutput)
+}
+
+type DerivedMetricDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (DerivedMetricDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DerivedMetricDefinition)(nil)).Elem()
+}
+
+func (o DerivedMetricDefinitionPtrOutput) ToDerivedMetricDefinitionPtrOutput() DerivedMetricDefinitionPtrOutput {
+	return o
+}
+
+func (o DerivedMetricDefinitionPtrOutput) ToDerivedMetricDefinitionPtrOutputWithContext(ctx context.Context) DerivedMetricDefinitionPtrOutput {
+	return o
+}
+
+func (o DerivedMetricDefinitionPtrOutput) Elem() DerivedMetricDefinitionOutput {
+	return o.ApplyT(func(v *DerivedMetricDefinition) DerivedMetricDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret DerivedMetricDefinition
+		return ret
+	}).(DerivedMetricDefinitionOutput)
+}
+
+// The formula that combines the queries into the value of the derived metric.
+func (o DerivedMetricDefinitionPtrOutput) Formula() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DerivedMetricDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Formula
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of queries referenced by the formula.
+func (o DerivedMetricDefinitionPtrOutput) Queries() DerivedMetricDefinitionQueryArrayOutput {
+	return o.ApplyT(func(v *DerivedMetricDefinition) []DerivedMetricDefinitionQuery {
+		if v == nil {
+			return nil
+		}
+		return v.Queries
+	}).(DerivedMetricDefinitionQueryArrayOutput)
+}
+
+type DerivedMetricDefinitionQuery struct {
+	// The data source that the query is run against.
+	DataSource string `pulumi:"dataSource"`
+	// The name used to reference this query from the formula.
+	Name string `pulumi:"name"`
+	// The query string executed against the data source.
+	Query string `pulumi:"query"`
+}
+
+// DerivedMetricDefinitionQueryInput is an input type that accepts DerivedMetricDefinitionQueryArgs and DerivedMetricDefinitionQueryOutput values.
+// You can construct a concrete instance of `DerivedMetricDefinitionQueryInput` via:
+//
+//	DerivedMetricDefinitionQueryArgs{...}
+type DerivedMetricDefinitionQueryInput interface {
+	pulumi.Input
+
+	ToDerivedMetricDefinitionQueryOutput() DerivedMetricDefinitionQueryOutput
+	ToDerivedMetricDefinitionQueryOutputWithContext(context.Context) DerivedMetricDefinitionQueryOutput
+}
+
+type DerivedMetricDefinitionQueryArgs struct {
+	// The data source that the query is run against.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// The name used to reference this query from the formula.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The query string executed against the data source.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (DerivedMetricDefinitionQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DerivedMetricDefinitionQuery)(nil)).Elem()
+}
+
+func (i DerivedMetricDefinitionQueryArgs) ToDerivedMetricDefinitionQueryOutput() DerivedMetricDefinitionQueryOutput {
+	return i.ToDerivedMetricDefinitionQueryOutputWithContext(context.Background())
+}
+
+func (i DerivedMetricDefinitionQueryArgs) ToDerivedMetricDefinitionQueryOutputWithContext(ctx context.Context) DerivedMetricDefinitionQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DerivedMetricDefinitionQueryOutput)
+}
+
+// DerivedMetricDefinitionQueryArrayInput is an input type that accepts DerivedMetricDefinitionQueryArray and DerivedMetricDefinitionQueryArrayOutput values.
+// You can construct a concrete instance of `DerivedMetricDefinitionQueryArrayInput` via:
+//
+//	DerivedMetricDefinitionQueryArray{ DerivedMetricDefinitionQueryArgs{...} }
+type DerivedMetricDefinitionQueryArrayInput interface {
+	pulumi.Input
+
+	ToDerivedMetricDefinitionQueryArrayOutput() DerivedMetricDefinitionQueryArrayOutput
+	ToDerivedMetricDefinitionQueryArrayOutputWithContext(context.Context) DerivedMetricDefinitionQueryArrayOutput
+}
+
+type DerivedMetricDefinitionQueryArray []DerivedMetricDefinitionQueryInput
+
+func (DerivedMetricDefinitionQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DerivedMetricDefinitionQuery)(nil)).Elem()
+}
+
+func (i DerivedMetricDefinitionQueryArray) ToDerivedMetricDefinitionQueryArrayOutput() DerivedMetricDefinitionQueryArrayOutput {
+	return i.ToDerivedMetricDefinitionQueryArrayOutputWithContext(context.Background())
+}
+
+func (i DerivedMetricDefinitionQueryArray) ToDerivedMetricDefinitionQueryArrayOutputWithContext(ctx context.Context) DerivedMetricDefinitionQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DerivedMetricDefinitionQueryArrayOutput)
+}
+
+type DerivedMetricDefinitionQueryOutput struct{ *pulumi.OutputState }
+
+func (DerivedMetricDefinitionQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DerivedMetricDefinitionQuery)(nil)).Elem()
+}
+
+func (o DerivedMetricDefinitionQueryOutput) ToDerivedMetricDefinitionQueryOutput() DerivedMetricDefinitionQueryOutput {
+	return o
+}
+
+func (o DerivedMetricDefinitionQueryOutput) ToDerivedMetricDefinitionQueryOutputWithContext(ctx context.Context) DerivedMetricDefinitionQueryOutput {
+	return o
+}
+
+// The data source that the query is run against.
+func (o DerivedMetricDefinitionQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v DerivedMetricDefinitionQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// The name used to reference this query from the formula.
+func (o DerivedMetricDefinitionQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DerivedMetricDefinitionQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The query string executed against the data source.
+func (o DerivedMetricDefinitionQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v DerivedMetricDefinitionQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type DerivedMetricDefinitionQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (DerivedMetricDefinitionQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DerivedMetricDefinitionQuery)(nil)).Elem()
+}
+
+func (o DerivedMetricDefinitionQueryArrayOutput) ToDerivedMetricDefinitionQueryArrayOutput() DerivedMetricDefinitionQueryArrayOutput {
+	return o
+}
+
+func (o DerivedMetricDefinitionQueryArrayOutput) ToDerivedMetricDefinitionQueryArrayOutputWithContext(ctx context.Context) DerivedMetricDefinitionQueryArrayOutput {
+	return o
+}
+
+func (o DerivedMetricDefinitionQueryArrayOutput) Index(i pulumi.IntInput) DerivedMetricDefinitionQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DerivedMetricDefinitionQuery {
+		return vs[0].([]DerivedMetricDefinitionQuery)[vs[1].(int)]
+	}).(DerivedMetricDefinitionQueryOutput)
+}
+
 type DowntimeRecurrence struct {
 	// How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
 	Period *int `pulumi:"period"`
@@ -88838,413 +89109,6 @@ func (o IpAllowlistEntryArrayOutput) Index(i pulumi.IntInput) IpAllowlistEntryOu
 	}).(IpAllowlistEntryOutput)
 }
 
-type LogsArchiveAzureArchive struct {
-	// Your client id.
-	ClientId string `pulumi:"clientId"`
-	// The container where the archive is stored.
-	Container string `pulumi:"container"`
-	// The path where the archive is stored.
-	Path *string `pulumi:"path"`
-	// The associated storage account.
-	StorageAccount string `pulumi:"storageAccount"`
-	// Your tenant id.
-	TenantId string `pulumi:"tenantId"`
-}
-
-// LogsArchiveAzureArchiveInput is an input type that accepts LogsArchiveAzureArchiveArgs and LogsArchiveAzureArchiveOutput values.
-// You can construct a concrete instance of `LogsArchiveAzureArchiveInput` via:
-//
-//	LogsArchiveAzureArchiveArgs{...}
-type LogsArchiveAzureArchiveInput interface {
-	pulumi.Input
-
-	ToLogsArchiveAzureArchiveOutput() LogsArchiveAzureArchiveOutput
-	ToLogsArchiveAzureArchiveOutputWithContext(context.Context) LogsArchiveAzureArchiveOutput
-}
-
-type LogsArchiveAzureArchiveArgs struct {
-	// Your client id.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The container where the archive is stored.
-	Container pulumi.StringInput `pulumi:"container"`
-	// The path where the archive is stored.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The associated storage account.
-	StorageAccount pulumi.StringInput `pulumi:"storageAccount"`
-	// Your tenant id.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-}
-
-func (LogsArchiveAzureArchiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchiveAzureArchive)(nil)).Elem()
-}
-
-func (i LogsArchiveAzureArchiveArgs) ToLogsArchiveAzureArchiveOutput() LogsArchiveAzureArchiveOutput {
-	return i.ToLogsArchiveAzureArchiveOutputWithContext(context.Background())
-}
-
-func (i LogsArchiveAzureArchiveArgs) ToLogsArchiveAzureArchiveOutputWithContext(ctx context.Context) LogsArchiveAzureArchiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveAzureArchiveOutput)
-}
-
-func (i LogsArchiveAzureArchiveArgs) ToLogsArchiveAzureArchivePtrOutput() LogsArchiveAzureArchivePtrOutput {
-	return i.ToLogsArchiveAzureArchivePtrOutputWithContext(context.Background())
-}
-
-func (i LogsArchiveAzureArchiveArgs) ToLogsArchiveAzureArchivePtrOutputWithContext(ctx context.Context) LogsArchiveAzureArchivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveAzureArchiveOutput).ToLogsArchiveAzureArchivePtrOutputWithContext(ctx)
-}
-
-// LogsArchiveAzureArchivePtrInput is an input type that accepts LogsArchiveAzureArchiveArgs, LogsArchiveAzureArchivePtr and LogsArchiveAzureArchivePtrOutput values.
-// You can construct a concrete instance of `LogsArchiveAzureArchivePtrInput` via:
-//
-//	        LogsArchiveAzureArchiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type LogsArchiveAzureArchivePtrInput interface {
-	pulumi.Input
-
-	ToLogsArchiveAzureArchivePtrOutput() LogsArchiveAzureArchivePtrOutput
-	ToLogsArchiveAzureArchivePtrOutputWithContext(context.Context) LogsArchiveAzureArchivePtrOutput
-}
-
-type logsArchiveAzureArchivePtrType LogsArchiveAzureArchiveArgs
-
-func LogsArchiveAzureArchivePtr(v *LogsArchiveAzureArchiveArgs) LogsArchiveAzureArchivePtrInput {
-	return (*logsArchiveAzureArchivePtrType)(v)
-}
-
-func (*logsArchiveAzureArchivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsArchiveAzureArchive)(nil)).Elem()
-}
-
-func (i *logsArchiveAzureArchivePtrType) ToLogsArchiveAzureArchivePtrOutput() LogsArchiveAzureArchivePtrOutput {
-	return i.ToLogsArchiveAzureArchivePtrOutputWithContext(context.Background())
-}
-
-func (i *logsArchiveAzureArchivePtrType) ToLogsArchiveAzureArchivePtrOutputWithContext(ctx context.Context) LogsArchiveAzureArchivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveAzureArchivePtrOutput)
-}
-
-type LogsArchiveAzureArchiveOutput struct{ *pulumi.OutputState }
-
-func (LogsArchiveAzureArchiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchiveAzureArchive)(nil)).Elem()
-}
-
-func (o LogsArchiveAzureArchiveOutput) ToLogsArchiveAzureArchiveOutput() LogsArchiveAzureArchiveOutput {
-	return o
-}
-
-func (o LogsArchiveAzureArchiveOutput) ToLogsArchiveAzureArchiveOutputWithContext(ctx context.Context) LogsArchiveAzureArchiveOutput {
-	return o
-}
-
-func (o LogsArchiveAzureArchiveOutput) ToLogsArchiveAzureArchivePtrOutput() LogsArchiveAzureArchivePtrOutput {
-	return o.ToLogsArchiveAzureArchivePtrOutputWithContext(context.Background())
-}
-
-func (o LogsArchiveAzureArchiveOutput) ToLogsArchiveAzureArchivePtrOutputWithContext(ctx context.Context) LogsArchiveAzureArchivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsArchiveAzureArchive) *LogsArchiveAzureArchive {
-		return &v
-	}).(LogsArchiveAzureArchivePtrOutput)
-}
-
-// Your client id.
-func (o LogsArchiveAzureArchiveOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsArchiveAzureArchive) string { return v.ClientId }).(pulumi.StringOutput)
-}
-
-// The container where the archive is stored.
-func (o LogsArchiveAzureArchiveOutput) Container() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsArchiveAzureArchive) string { return v.Container }).(pulumi.StringOutput)
-}
-
-// The path where the archive is stored.
-func (o LogsArchiveAzureArchiveOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsArchiveAzureArchive) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// The associated storage account.
-func (o LogsArchiveAzureArchiveOutput) StorageAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsArchiveAzureArchive) string { return v.StorageAccount }).(pulumi.StringOutput)
-}
-
-// Your tenant id.
-func (o LogsArchiveAzureArchiveOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsArchiveAzureArchive) string { return v.TenantId }).(pulumi.StringOutput)
-}
-
-type LogsArchiveAzureArchivePtrOutput struct{ *pulumi.OutputState }
-
-func (LogsArchiveAzureArchivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsArchiveAzureArchive)(nil)).Elem()
-}
-
-func (o LogsArchiveAzureArchivePtrOutput) ToLogsArchiveAzureArchivePtrOutput() LogsArchiveAzureArchivePtrOutput {
-	return o
-}
-
-func (o LogsArchiveAzureArchivePtrOutput) ToLogsArchiveAzureArchivePtrOutputWithContext(ctx context.Context) LogsArchiveAzureArchivePtrOutput {
-	return o
-}
-
-func (o LogsArchiveAzureArchivePtrOutput) Elem() LogsArchiveAzureArchiveOutput {
-	return o.ApplyT(func(v *LogsArchiveAzureArchive) LogsArchiveAzureArchive {
-		if v != nil {
-			return *v
-		}
-		var ret LogsArchiveAzureArchive
-		return ret
-	}).(LogsArchiveAzureArchiveOutput)
-}
-
-// Your client id.
-func (o LogsArchiveAzureArchivePtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveAzureArchive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The container where the archive is stored.
-func (o LogsArchiveAzureArchivePtrOutput) Container() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveAzureArchive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Container
-	}).(pulumi.StringPtrOutput)
-}
-
-// The path where the archive is stored.
-func (o LogsArchiveAzureArchivePtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveAzureArchive) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// The associated storage account.
-func (o LogsArchiveAzureArchivePtrOutput) StorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveAzureArchive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageAccount
-	}).(pulumi.StringPtrOutput)
-}
-
-// Your tenant id.
-func (o LogsArchiveAzureArchivePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveAzureArchive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-type LogsArchiveGcsArchive struct {
-	// Name of your GCS bucket.
-	Bucket string `pulumi:"bucket"`
-	// Your client email.
-	ClientEmail string `pulumi:"clientEmail"`
-	// Path where the archive is stored.
-	Path *string `pulumi:"path"`
-	// Your project id.
-	ProjectId *string `pulumi:"projectId"`
-}
-
-// LogsArchiveGcsArchiveInput is an input type that accepts LogsArchiveGcsArchiveArgs and LogsArchiveGcsArchiveOutput values.
-// You can construct a concrete instance of `LogsArchiveGcsArchiveInput` via:
-//
-//	LogsArchiveGcsArchiveArgs{...}
-type LogsArchiveGcsArchiveInput interface {
-	pulumi.Input
-
-	ToLogsArchiveGcsArchiveOutput() LogsArchiveGcsArchiveOutput
-	ToLogsArchiveGcsArchiveOutputWithContext(context.Context) LogsArchiveGcsArchiveOutput
-}
-
-type LogsArchiveGcsArchiveArgs struct {
-	// Name of your GCS bucket.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Your client email.
-	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
-	// Path where the archive is stored.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Your project id.
-	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
-}
-
-func (LogsArchiveGcsArchiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchiveGcsArchive)(nil)).Elem()
-}
-
-func (i LogsArchiveGcsArchiveArgs) ToLogsArchiveGcsArchiveOutput() LogsArchiveGcsArchiveOutput {
-	return i.ToLogsArchiveGcsArchiveOutputWithContext(context.Background())
-}
-
-func (i LogsArchiveGcsArchiveArgs) ToLogsArchiveGcsArchiveOutputWithContext(ctx context.Context) LogsArchiveGcsArchiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveGcsArchiveOutput)
-}
-
-func (i LogsArchiveGcsArchiveArgs) ToLogsArchiveGcsArchivePtrOutput() LogsArchiveGcsArchivePtrOutput {
-	return i.ToLogsArchiveGcsArchivePtrOutputWithContext(context.Background())
-}
-
-func (i LogsArchiveGcsArchiveArgs) ToLogsArchiveGcsArchivePtrOutputWithContext(ctx context.Context) LogsArchiveGcsArchivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveGcsArchiveOutput).ToLogsArchiveGcsArchivePtrOutputWithContext(ctx)
-}
-
-// LogsArchiveGcsArchivePtrInput is an input type that accepts LogsArchiveGcsArchiveArgs, LogsArchiveGcsArchivePtr and LogsArchiveGcsArchivePtrOutput values.
-// You can construct a concrete instance of `LogsArchiveGcsArchivePtrInput` via:
-//
-//	        LogsArchiveGcsArchiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type LogsArchiveGcsArchivePtrInput interface {
-	pulumi.Input
-
-	ToLogsArchiveGcsArchivePtrOutput() LogsArchiveGcsArchivePtrOutput
-	ToLogsArchiveGcsArchivePtrOutputWithContext(context.Context) LogsArchiveGcsArchivePtrOutput
-}
-
-type logsArchiveGcsArchivePtrType LogsArchiveGcsArchiveArgs
-
-func LogsArchiveGcsArchivePtr(v *LogsArchiveGcsArchiveArgs) LogsArchiveGcsArchivePtrInput {
-	return (*logsArchiveGcsArchivePtrType)(v)
-}
-
-func (*logsArchiveGcsArchivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsArchiveGcsArchive)(nil)).Elem()
-}
-
-func (i *logsArchiveGcsArchivePtrType) ToLogsArchiveGcsArchivePtrOutput() LogsArchiveGcsArchivePtrOutput {
-	return i.ToLogsArchiveGcsArchivePtrOutputWithContext(context.Background())
-}
-
-func (i *logsArchiveGcsArchivePtrType) ToLogsArchiveGcsArchivePtrOutputWithContext(ctx context.Context) LogsArchiveGcsArchivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogsArchiveGcsArchivePtrOutput)
-}
-
-type LogsArchiveGcsArchiveOutput struct{ *pulumi.OutputState }
-
-func (LogsArchiveGcsArchiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogsArchiveGcsArchive)(nil)).Elem()
-}
-
-func (o LogsArchiveGcsArchiveOutput) ToLogsArchiveGcsArchiveOutput() LogsArchiveGcsArchiveOutput {
-	return o
-}
-
-func (o LogsArchiveGcsArchiveOutput) ToLogsArchiveGcsArchiveOutputWithContext(ctx context.Context) LogsArchiveGcsArchiveOutput {
-	return o
-}
-
-func (o LogsArchiveGcsArchiveOutput) ToLogsArchiveGcsArchivePtrOutput() LogsArchiveGcsArchivePtrOutput {
-	return o.ToLogsArchiveGcsArchivePtrOutputWithContext(context.Background())
-}
-
-func (o LogsArchiveGcsArchiveOutput) ToLogsArchiveGcsArchivePtrOutputWithContext(ctx context.Context) LogsArchiveGcsArchivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogsArchiveGcsArchive) *LogsArchiveGcsArchive {
-		return &v
-	}).(LogsArchiveGcsArchivePtrOutput)
-}
-
-// Name of your GCS bucket.
-func (o LogsArchiveGcsArchiveOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsArchiveGcsArchive) string { return v.Bucket }).(pulumi.StringOutput)
-}
-
-// Your client email.
-func (o LogsArchiveGcsArchiveOutput) ClientEmail() pulumi.StringOutput {
-	return o.ApplyT(func(v LogsArchiveGcsArchive) string { return v.ClientEmail }).(pulumi.StringOutput)
-}
-
-// Path where the archive is stored.
-func (o LogsArchiveGcsArchiveOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsArchiveGcsArchive) *string { return v.Path }).(pulumi.StringPtrOutput)
-}
-
-// Your project id.
-func (o LogsArchiveGcsArchiveOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LogsArchiveGcsArchive) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
-}
-
-type LogsArchiveGcsArchivePtrOutput struct{ *pulumi.OutputState }
-
-func (LogsArchiveGcsArchivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogsArchiveGcsArchive)(nil)).Elem()
-}
-
-func (o LogsArchiveGcsArchivePtrOutput) ToLogsArchiveGcsArchivePtrOutput() LogsArchiveGcsArchivePtrOutput {
-	return o
-}
-
-func (o LogsArchiveGcsArchivePtrOutput) ToLogsArchiveGcsArchivePtrOutputWithContext(ctx context.Context) LogsArchiveGcsArchivePtrOutput {
-	return o
-}
-
-func (o LogsArchiveGcsArchivePtrOutput) Elem() LogsArchiveGcsArchiveOutput {
-	return o.ApplyT(func(v *LogsArchiveGcsArchive) LogsArchiveGcsArchive {
-		if v != nil {
-			return *v
-		}
-		var ret LogsArchiveGcsArchive
-		return ret
-	}).(LogsArchiveGcsArchiveOutput)
-}
-
-// Name of your GCS bucket.
-func (o LogsArchiveGcsArchivePtrOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveGcsArchive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Bucket
-	}).(pulumi.StringPtrOutput)
-}
-
-// Your client email.
-func (o LogsArchiveGcsArchivePtrOutput) ClientEmail() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveGcsArchive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClientEmail
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path where the archive is stored.
-func (o LogsArchiveGcsArchivePtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveGcsArchive) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// Your project id.
-func (o LogsArchiveGcsArchivePtrOutput) ProjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogsArchiveGcsArchive) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProjectId
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysInput)(nil)).Elem(), DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrInput)(nil)).Elem(), DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs{})
@@ -90206,6 +90070,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGateRuleOptionsPtrInput)(nil)).Elem(), DeploymentGateRuleOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGateRuleOptionsMonitorIdInput)(nil)).Elem(), DeploymentGateRuleOptionsMonitorIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGateRuleOptionsMonitorIdArrayInput)(nil)).Elem(), DeploymentGateRuleOptionsMonitorIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DerivedMetricDefinitionInput)(nil)).Elem(), DerivedMetricDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DerivedMetricDefinitionPtrInput)(nil)).Elem(), DerivedMetricDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DerivedMetricDefinitionQueryInput)(nil)).Elem(), DerivedMetricDefinitionQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DerivedMetricDefinitionQueryArrayInput)(nil)).Elem(), DerivedMetricDefinitionQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeRecurrenceInput)(nil)).Elem(), DowntimeRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeRecurrencePtrInput)(nil)).Elem(), DowntimeRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DowntimeScheduleMonitorIdentifierInput)(nil)).Elem(), DowntimeScheduleMonitorIdentifierArgs{})
@@ -90242,10 +90110,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IncidentUserDefinedRolePolicyPtrInput)(nil)).Elem(), IncidentUserDefinedRolePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpAllowlistEntryInput)(nil)).Elem(), IpAllowlistEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpAllowlistEntryArrayInput)(nil)).Elem(), IpAllowlistEntryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveAzureArchiveInput)(nil)).Elem(), LogsArchiveAzureArchiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveAzureArchivePtrInput)(nil)).Elem(), LogsArchiveAzureArchiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveGcsArchiveInput)(nil)).Elem(), LogsArchiveGcsArchiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogsArchiveGcsArchivePtrInput)(nil)).Elem(), LogsArchiveGcsArchiveArgs{})
 	pulumi.RegisterOutputType(DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetSunburstDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetSunburstDefinitionRequestSortOutput{})
@@ -91206,6 +91070,10 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentGateRuleOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGateRuleOptionsMonitorIdOutput{})
 	pulumi.RegisterOutputType(DeploymentGateRuleOptionsMonitorIdArrayOutput{})
+	pulumi.RegisterOutputType(DerivedMetricDefinitionOutput{})
+	pulumi.RegisterOutputType(DerivedMetricDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(DerivedMetricDefinitionQueryOutput{})
+	pulumi.RegisterOutputType(DerivedMetricDefinitionQueryArrayOutput{})
 	pulumi.RegisterOutputType(DowntimeRecurrenceOutput{})
 	pulumi.RegisterOutputType(DowntimeRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(DowntimeScheduleMonitorIdentifierOutput{})
@@ -91242,8 +91110,4 @@ func init() {
 	pulumi.RegisterOutputType(IncidentUserDefinedRolePolicyPtrOutput{})
 	pulumi.RegisterOutputType(IpAllowlistEntryOutput{})
 	pulumi.RegisterOutputType(IpAllowlistEntryArrayOutput{})
-	pulumi.RegisterOutputType(LogsArchiveAzureArchiveOutput{})
-	pulumi.RegisterOutputType(LogsArchiveAzureArchivePtrOutput{})
-	pulumi.RegisterOutputType(LogsArchiveGcsArchiveOutput{})
-	pulumi.RegisterOutputType(LogsArchiveGcsArchivePtrOutput{})
 }
