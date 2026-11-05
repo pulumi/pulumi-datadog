@@ -73,17 +73,17 @@
             },
             "awsAccessKeyId": {
                 "type": "string",
-                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using \u003cspan pulumi-lang-nodejs=\"`cloudProviderType`\" pulumi-lang-dotnet=\"`CloudProviderType`\" pulumi-lang-go=\"`cloudProviderType`\" pulumi-lang-python=\"`cloud_provider_type`\" pulumi-lang-yaml=\"`cloudProviderType`\" pulumi-lang-java=\"`cloudProviderType`\" pulumi-lang-hcl=\"`cloud_provider_type`\"\u003e`cloudProviderType`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`aws`\" pulumi-lang-dotnet=\"`Aws`\" pulumi-lang-go=\"`aws`\" pulumi-lang-python=\"`aws`\" pulumi-lang-yaml=\"`aws`\" pulumi-lang-java=\"`aws`\" pulumi-lang-hcl=\"`aws`\"\u003e`aws`\u003c/span\u003e.",
+                "description": "An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.",
                 "secret": true
             },
             "awsSecretAccessKey": {
                 "type": "string",
-                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using \u003cspan pulumi-lang-nodejs=\"`cloudProviderType`\" pulumi-lang-dotnet=\"`CloudProviderType`\" pulumi-lang-go=\"`cloudProviderType`\" pulumi-lang-python=\"`cloud_provider_type`\" pulumi-lang-yaml=\"`cloudProviderType`\" pulumi-lang-java=\"`cloudProviderType`\" pulumi-lang-hcl=\"`cloud_provider_type`\"\u003e`cloudProviderType`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`aws`\" pulumi-lang-dotnet=\"`Aws`\" pulumi-lang-go=\"`aws`\" pulumi-lang-python=\"`aws`\" pulumi-lang-yaml=\"`aws`\" pulumi-lang-java=\"`aws`\" pulumi-lang-hcl=\"`aws`\"\u003e`aws`\u003c/span\u003e.",
+                "description": "An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with \u003cspan pulumi-lang-nodejs=\"`awsAccessKeyId`\" pulumi-lang-dotnet=\"`AwsAccessKeyId`\" pulumi-lang-go=\"`awsAccessKeyId`\" pulumi-lang-python=\"`aws_access_key_id`\" pulumi-lang-yaml=\"`awsAccessKeyId`\" pulumi-lang-java=\"`awsAccessKeyId`\" pulumi-lang-hcl=\"`aws_access_key_id`\"\u003e`awsAccessKeyId`\u003c/span\u003e. Omit both fields to use the AWS SDK default credential chain.",
                 "secret": true
             },
             "awsSessionToken": {
                 "type": "string",
-                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using \u003cspan pulumi-lang-nodejs=\"`cloudProviderType`\" pulumi-lang-dotnet=\"`CloudProviderType`\" pulumi-lang-go=\"`cloudProviderType`\" pulumi-lang-python=\"`cloud_provider_type`\" pulumi-lang-yaml=\"`cloudProviderType`\" pulumi-lang-java=\"`cloudProviderType`\" pulumi-lang-hcl=\"`cloud_provider_type`\"\u003e`cloudProviderType`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`aws`\" pulumi-lang-dotnet=\"`Aws`\" pulumi-lang-go=\"`aws`\" pulumi-lang-python=\"`aws`\" pulumi-lang-yaml=\"`aws`\" pulumi-lang-java=\"`aws`\" pulumi-lang-hcl=\"`aws`\"\u003e`aws`\u003c/span\u003e and using temporary credentials.",
+                "description": "An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.",
                 "secret": true
             },
             "bearerToken": {
@@ -93,7 +93,7 @@
             },
             "cloudProviderRegion": {
                 "type": "string",
-                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS."
+                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain."
             },
             "cloudProviderType": {
                 "type": "string",
@@ -73998,6 +73998,48 @@
                 "id"
             ]
         },
+        "datadog:index/DerivedMetricDefinition:DerivedMetricDefinition": {
+            "properties": {
+                "formula": {
+                    "type": "string",
+                    "description": "The formula that combines the queries into the value of the derived metric.\n"
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/datadog:index/DerivedMetricDefinitionQuery:DerivedMetricDefinitionQuery"
+                    },
+                    "description": "The list of queries referenced by the formula.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "formula",
+                "queries"
+            ]
+        },
+        "datadog:index/DerivedMetricDefinitionQuery:DerivedMetricDefinitionQuery": {
+            "properties": {
+                "dataSource": {
+                    "type": "string",
+                    "description": "The data source that the query is run against.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name used to reference this query from the formula.\n"
+                },
+                "query": {
+                    "type": "string",
+                    "description": "The query string executed against the data source.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dataSource",
+                "name",
+                "query"
+            ]
+        },
         "datadog:index/DowntimeRecurrence:DowntimeRecurrence": {
             "properties": {
                 "period": {
@@ -79054,7 +79096,7 @@
                 },
                 "pipelineType": {
                     "type": "string",
-                    "description": "The type of data being ingested. Defaults to \u003cspan pulumi-lang-nodejs=\"`logs`\" pulumi-lang-dotnet=\"`Logs`\" pulumi-lang-go=\"`logs`\" pulumi-lang-python=\"`logs`\" pulumi-lang-yaml=\"`logs`\" pulumi-lang-java=\"`logs`\" pulumi-lang-hcl=\"`logs`\"\u003e`logs`\u003c/span\u003e if not specified. Valid values are \u003cspan pulumi-lang-nodejs=\"`logs`\" pulumi-lang-dotnet=\"`Logs`\" pulumi-lang-go=\"`logs`\" pulumi-lang-python=\"`logs`\" pulumi-lang-yaml=\"`logs`\" pulumi-lang-java=\"`logs`\" pulumi-lang-hcl=\"`logs`\"\u003e`logs`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`metrics`\" pulumi-lang-dotnet=\"`Metrics`\" pulumi-lang-go=\"`metrics`\" pulumi-lang-python=\"`metrics`\" pulumi-lang-yaml=\"`metrics`\" pulumi-lang-java=\"`metrics`\" pulumi-lang-hcl=\"`metrics`\"\u003e`metrics`\u003c/span\u003e.\n"
+                    "description": "The type of data being ingested. Defaults to \u003cspan pulumi-lang-nodejs=\"`logs`\" pulumi-lang-dotnet=\"`Logs`\" pulumi-lang-go=\"`logs`\" pulumi-lang-python=\"`logs`\" pulumi-lang-yaml=\"`logs`\" pulumi-lang-java=\"`logs`\" pulumi-lang-hcl=\"`logs`\"\u003e`logs`\u003c/span\u003e if not specified. Valid values are \u003cspan pulumi-lang-nodejs=\"`logs`\" pulumi-lang-dotnet=\"`Logs`\" pulumi-lang-go=\"`logs`\" pulumi-lang-python=\"`logs`\" pulumi-lang-yaml=\"`logs`\" pulumi-lang-java=\"`logs`\" pulumi-lang-hcl=\"`logs`\"\u003e`logs`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`metrics`\" pulumi-lang-dotnet=\"`Metrics`\" pulumi-lang-go=\"`metrics`\" pulumi-lang-python=\"`metrics`\" pulumi-lang-yaml=\"`metrics`\" pulumi-lang-java=\"`metrics`\" pulumi-lang-hcl=\"`metrics`\"\u003e`metrics`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`traces`\" pulumi-lang-dotnet=\"`Traces`\" pulumi-lang-go=\"`traces`\" pulumi-lang-python=\"`traces`\" pulumi-lang-yaml=\"`traces`\" pulumi-lang-java=\"`traces`\" pulumi-lang-hcl=\"`traces`\"\u003e`traces`\u003c/span\u003e.\n"
                 },
                 "processorGroups": {
                     "type": "array",
@@ -79159,6 +79201,10 @@
                     },
                     "description": "The \u003cspan pulumi-lang-nodejs=\"`datadog.getMetrics`\" pulumi-lang-dotnet=\"`datadog.getMetrics`\" pulumi-lang-go=\"`getMetrics`\" pulumi-lang-python=\"`get_metrics`\" pulumi-lang-yaml=\"`datadog.getMetrics`\" pulumi-lang-java=\"`datadog.getMetrics`\" pulumi-lang-hcl=\"`data.datadog_metrics`\"\u003e`datadog.getMetrics`\u003c/span\u003e destination forwards metrics to Datadog.\n"
                 },
+                "datadogTraces": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationDatadogTraces:ObservabilityPipelineConfigDestinationDatadogTraces",
+                    "description": "The \u003cspan pulumi-lang-nodejs=\"`datadogTraces`\" pulumi-lang-dotnet=\"`DatadogTraces`\" pulumi-lang-go=\"`datadogTraces`\" pulumi-lang-python=\"`datadog_traces`\" pulumi-lang-yaml=\"`datadogTraces`\" pulumi-lang-java=\"`datadogTraces`\" pulumi-lang-hcl=\"`datadog_traces`\"\u003e`datadogTraces`\u003c/span\u003e destination forwards traces to Datadog.\n"
+                },
                 "elasticsearches": {
                     "type": "array",
                     "items": {
@@ -79232,7 +79278,7 @@
                 },
                 "opentelemetry": {
                     "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationOpentelemetry:ObservabilityPipelineConfigDestinationOpentelemetry",
-                    "description": "The \u003cspan pulumi-lang-nodejs=\"`opentelemetry`\" pulumi-lang-dotnet=\"`Opentelemetry`\" pulumi-lang-go=\"`opentelemetry`\" pulumi-lang-python=\"`opentelemetry`\" pulumi-lang-yaml=\"`opentelemetry`\" pulumi-lang-java=\"`opentelemetry`\" pulumi-lang-hcl=\"`opentelemetry`\"\u003e`opentelemetry`\u003c/span\u003e destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.\n"
+                    "description": "The \u003cspan pulumi-lang-nodejs=\"`opentelemetry`\" pulumi-lang-dotnet=\"`Opentelemetry`\" pulumi-lang-go=\"`opentelemetry`\" pulumi-lang-python=\"`opentelemetry`\" pulumi-lang-yaml=\"`opentelemetry`\" pulumi-lang-java=\"`opentelemetry`\" pulumi-lang-hcl=\"`opentelemetry`\"\u003e`opentelemetry`\u003c/span\u003e destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.\n"
                 },
                 "prometheusRemoteWrite": {
                     "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationPrometheusRemoteWrite:ObservabilityPipelineConfigDestinationPrometheusRemoteWrite",
@@ -79294,7 +79340,8 @@
         "datadog:index/ObservabilityPipelineConfigDestinationAmazonOpensearch:ObservabilityPipelineConfigDestinationAmazonOpensearch": {
             "properties": {
                 "auth": {
-                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationAmazonOpensearchAuth:ObservabilityPipelineConfigDestinationAmazonOpensearchAuth"
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationAmazonOpensearchAuth:ObservabilityPipelineConfigDestinationAmazonOpensearchAuth",
+                    "description": "Authentication settings for the Amazon OpenSearch destination.\n"
                 },
                 "buffer": {
                     "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer:ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer",
@@ -79303,12 +79350,17 @@
                 "bulkIndex": {
                     "type": "string",
                     "description": "The index or datastream to write logs to.\n"
+                },
+                "dataStream": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream:ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream",
+                    "description": "Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.\n"
+                },
+                "endpointUrlKey": {
+                    "type": "string",
+                    "description": "Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.\n"
                 }
             },
-            "type": "object",
-            "required": [
-                "auth"
-            ]
+            "type": "object"
         },
         "datadog:index/ObservabilityPipelineConfigDestinationAmazonOpensearchAuth:ObservabilityPipelineConfigDestinationAmazonOpensearchAuth": {
             "properties": {
@@ -79324,6 +79376,10 @@
                     "type": "string",
                     "description": "External ID for assumed role.\n"
                 },
+                "passwordKey": {
+                    "type": "string",
+                    "description": "Name of the environment variable or secret that holds the Amazon OpenSearch password (used when \u003cspan pulumi-lang-nodejs=\"`strategy`\" pulumi-lang-dotnet=\"`Strategy`\" pulumi-lang-go=\"`strategy`\" pulumi-lang-python=\"`strategy`\" pulumi-lang-yaml=\"`strategy`\" pulumi-lang-java=\"`strategy`\" pulumi-lang-hcl=\"`strategy`\"\u003e`strategy`\u003c/span\u003e is \u003cspan pulumi-lang-nodejs=\"`basic`\" pulumi-lang-dotnet=\"`Basic`\" pulumi-lang-go=\"`basic`\" pulumi-lang-python=\"`basic`\" pulumi-lang-yaml=\"`basic`\" pulumi-lang-java=\"`basic`\" pulumi-lang-hcl=\"`basic`\"\u003e`basic`\u003c/span\u003e).\n"
+                },
                 "sessionName": {
                     "type": "string",
                     "description": "Session name for assumed role.\n"
@@ -79331,6 +79387,10 @@
                 "strategy": {
                     "type": "string",
                     "description": "The authentication strategy to use (e.g. aws or basic).\n"
+                },
+                "usernameKey": {
+                    "type": "string",
+                    "description": "Name of the environment variable or secret that holds the Amazon OpenSearch username (used when \u003cspan pulumi-lang-nodejs=\"`strategy`\" pulumi-lang-dotnet=\"`Strategy`\" pulumi-lang-go=\"`strategy`\" pulumi-lang-python=\"`strategy`\" pulumi-lang-yaml=\"`strategy`\" pulumi-lang-java=\"`strategy`\" pulumi-lang-hcl=\"`strategy`\"\u003e`strategy`\u003c/span\u003e is \u003cspan pulumi-lang-nodejs=\"`basic`\" pulumi-lang-dotnet=\"`Basic`\" pulumi-lang-go=\"`basic`\" pulumi-lang-python=\"`basic`\" pulumi-lang-yaml=\"`basic`\" pulumi-lang-java=\"`basic`\" pulumi-lang-hcl=\"`basic`\"\u003e`basic`\u003c/span\u003e).\n"
                 }
             },
             "type": "object",
@@ -79394,6 +79454,23 @@
                     ]
                 }
             }
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream:ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream": {
+            "properties": {
+                "dataset": {
+                    "type": "string",
+                    "description": "The data stream dataset for your logs. This groups logs by their source or application.\n"
+                },
+                "dtype": {
+                    "type": "string",
+                    "description": "The data stream type for your logs. This determines how logs are categorized within the data stream.\n"
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "The data stream namespace for your logs. This separates logs into different environments or domains.\n"
+                }
+            },
+            "type": "object"
         },
         "datadog:index/ObservabilityPipelineConfigDestinationAmazonS3:ObservabilityPipelineConfigDestinationAmazonS3": {
             "properties": {
@@ -80850,6 +80927,72 @@
         "datadog:index/ObservabilityPipelineConfigDestinationDatadogMetric:ObservabilityPipelineConfigDestinationDatadogMetric": {
             "type": "object"
         },
+        "datadog:index/ObservabilityPipelineConfigDestinationDatadogTraces:ObservabilityPipelineConfigDestinationDatadogTraces": {
+            "properties": {
+                "buffer": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationDatadogTracesBuffer:ObservabilityPipelineConfigDestinationDatadogTracesBuffer",
+                    "description": "Configuration for buffer settings on destination components. Exactly one of \u003cspan pulumi-lang-nodejs=\"`disk`\" pulumi-lang-dotnet=\"`Disk`\" pulumi-lang-go=\"`disk`\" pulumi-lang-python=\"`disk`\" pulumi-lang-yaml=\"`disk`\" pulumi-lang-java=\"`disk`\" pulumi-lang-hcl=\"`disk`\"\u003e`disk`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`memory`\" pulumi-lang-dotnet=\"`Memory`\" pulumi-lang-go=\"`memory`\" pulumi-lang-python=\"`memory`\" pulumi-lang-yaml=\"`memory`\" pulumi-lang-java=\"`memory`\" pulumi-lang-hcl=\"`memory`\"\u003e`memory`\u003c/span\u003e must be specified.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationDatadogTracesBuffer:ObservabilityPipelineConfigDestinationDatadogTracesBuffer": {
+            "properties": {
+                "disk": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk:ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk",
+                    "description": "Options for configuring a disk buffer. Cannot be used with \u003cspan pulumi-lang-nodejs=\"`memory`\" pulumi-lang-dotnet=\"`Memory`\" pulumi-lang-go=\"`memory`\" pulumi-lang-python=\"`memory`\" pulumi-lang-yaml=\"`memory`\" pulumi-lang-java=\"`memory`\" pulumi-lang-hcl=\"`memory`\"\u003e`memory`\u003c/span\u003e.\n"
+                },
+                "memory": {
+                    "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory:ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory",
+                    "description": "Options for configuring a memory buffer. Cannot be used with \u003cspan pulumi-lang-nodejs=\"`disk`\" pulumi-lang-dotnet=\"`Disk`\" pulumi-lang-go=\"`disk`\" pulumi-lang-python=\"`disk`\" pulumi-lang-yaml=\"`disk`\" pulumi-lang-java=\"`disk`\" pulumi-lang-hcl=\"`disk`\"\u003e`disk`\u003c/span\u003e.\n"
+                }
+            },
+            "type": "object"
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk:ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk": {
+            "properties": {
+                "maxSize": {
+                    "type": "integer",
+                    "description": "Maximum size of the disk buffer (in bytes).\n"
+                },
+                "whenFull": {
+                    "type": "string",
+                    "description": "Behavior when the buffer is full. Valid values are \u003cspan pulumi-lang-nodejs=\"`block`\" pulumi-lang-dotnet=\"`Block`\" pulumi-lang-go=\"`block`\" pulumi-lang-python=\"`block`\" pulumi-lang-yaml=\"`block`\" pulumi-lang-java=\"`block`\" pulumi-lang-hcl=\"`block`\"\u003e`block`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`dropNewest`\" pulumi-lang-dotnet=\"`DropNewest`\" pulumi-lang-go=\"`dropNewest`\" pulumi-lang-python=\"`drop_newest`\" pulumi-lang-yaml=\"`dropNewest`\" pulumi-lang-java=\"`dropNewest`\" pulumi-lang-hcl=\"`drop_newest`\"\u003e`dropNewest`\u003c/span\u003e. Defaults to `\"block\"`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "whenFull"
+                    ]
+                }
+            }
+        },
+        "datadog:index/ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory:ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory": {
+            "properties": {
+                "maxEvents": {
+                    "type": "integer",
+                    "description": "Maximum events for the memory buffer.\n"
+                },
+                "maxSize": {
+                    "type": "integer",
+                    "description": "Maximum size of the memory buffer (in bytes).\n"
+                },
+                "whenFull": {
+                    "type": "string",
+                    "description": "Behavior when the buffer is full. Valid values are \u003cspan pulumi-lang-nodejs=\"`block`\" pulumi-lang-dotnet=\"`Block`\" pulumi-lang-go=\"`block`\" pulumi-lang-python=\"`block`\" pulumi-lang-yaml=\"`block`\" pulumi-lang-java=\"`block`\" pulumi-lang-hcl=\"`block`\"\u003e`block`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`dropNewest`\" pulumi-lang-dotnet=\"`DropNewest`\" pulumi-lang-go=\"`dropNewest`\" pulumi-lang-python=\"`drop_newest`\" pulumi-lang-yaml=\"`dropNewest`\" pulumi-lang-java=\"`dropNewest`\" pulumi-lang-hcl=\"`drop_newest`\"\u003e`dropNewest`\u003c/span\u003e. Defaults to `\"block\"`.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "whenFull"
+                    ]
+                }
+            }
+        },
         "datadog:index/ObservabilityPipelineConfigDestinationElasticsearch:ObservabilityPipelineConfigDestinationElasticsearch": {
             "properties": {
                 "apiVersion": {
@@ -82057,7 +82200,7 @@
                 },
                 "httpClientUriKey": {
                     "type": "string",
-                    "description": "Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.\n"
+                    "description": "Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.\n"
                 },
                 "tls": {
                     "$ref": "#/types/datadog:index/ObservabilityPipelineConfigDestinationOpentelemetryTls:ObservabilityPipelineConfigDestinationOpentelemetryTls",
@@ -137704,17 +137847,17 @@
             },
             "awsAccessKeyId": {
                 "type": "string",
-                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using \u003cspan pulumi-lang-nodejs=\"`cloudProviderType`\" pulumi-lang-dotnet=\"`CloudProviderType`\" pulumi-lang-go=\"`cloudProviderType`\" pulumi-lang-python=\"`cloud_provider_type`\" pulumi-lang-yaml=\"`cloudProviderType`\" pulumi-lang-java=\"`cloudProviderType`\" pulumi-lang-hcl=\"`cloud_provider_type`\"\u003e`cloudProviderType`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`aws`\" pulumi-lang-dotnet=\"`Aws`\" pulumi-lang-go=\"`aws`\" pulumi-lang-python=\"`aws`\" pulumi-lang-yaml=\"`aws`\" pulumi-lang-java=\"`aws`\" pulumi-lang-hcl=\"`aws`\"\u003e`aws`\u003c/span\u003e.",
+                "description": "An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.",
                 "secret": true
             },
             "awsSecretAccessKey": {
                 "type": "string",
-                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using \u003cspan pulumi-lang-nodejs=\"`cloudProviderType`\" pulumi-lang-dotnet=\"`CloudProviderType`\" pulumi-lang-go=\"`cloudProviderType`\" pulumi-lang-python=\"`cloud_provider_type`\" pulumi-lang-yaml=\"`cloudProviderType`\" pulumi-lang-java=\"`cloudProviderType`\" pulumi-lang-hcl=\"`cloud_provider_type`\"\u003e`cloudProviderType`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`aws`\" pulumi-lang-dotnet=\"`Aws`\" pulumi-lang-go=\"`aws`\" pulumi-lang-python=\"`aws`\" pulumi-lang-yaml=\"`aws`\" pulumi-lang-java=\"`aws`\" pulumi-lang-hcl=\"`aws`\"\u003e`aws`\u003c/span\u003e.",
+                "description": "An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with \u003cspan pulumi-lang-nodejs=\"`awsAccessKeyId`\" pulumi-lang-dotnet=\"`AwsAccessKeyId`\" pulumi-lang-go=\"`awsAccessKeyId`\" pulumi-lang-python=\"`aws_access_key_id`\" pulumi-lang-yaml=\"`awsAccessKeyId`\" pulumi-lang-java=\"`awsAccessKeyId`\" pulumi-lang-hcl=\"`aws_access_key_id`\"\u003e`awsAccessKeyId`\u003c/span\u003e. Omit both fields to use the AWS SDK default credential chain.",
                 "secret": true
             },
             "awsSessionToken": {
                 "type": "string",
-                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using \u003cspan pulumi-lang-nodejs=\"`cloudProviderType`\" pulumi-lang-dotnet=\"`CloudProviderType`\" pulumi-lang-go=\"`cloudProviderType`\" pulumi-lang-python=\"`cloud_provider_type`\" pulumi-lang-yaml=\"`cloudProviderType`\" pulumi-lang-java=\"`cloudProviderType`\" pulumi-lang-hcl=\"`cloud_provider_type`\"\u003e`cloudProviderType`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`aws`\" pulumi-lang-dotnet=\"`Aws`\" pulumi-lang-go=\"`aws`\" pulumi-lang-python=\"`aws`\" pulumi-lang-yaml=\"`aws`\" pulumi-lang-java=\"`aws`\" pulumi-lang-hcl=\"`aws`\"\u003e`aws`\u003c/span\u003e and using temporary credentials.",
+                "description": "An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.",
                 "secret": true
             },
             "bearerToken": {
@@ -137724,7 +137867,7 @@
             },
             "cloudProviderRegion": {
                 "type": "string",
-                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS."
+                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain."
             },
             "cloudProviderType": {
                 "type": "string",
@@ -137795,17 +137938,17 @@
             },
             "awsAccessKeyId": {
                 "type": "string",
-                "description": "The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using \u003cspan pulumi-lang-nodejs=\"`cloudProviderType`\" pulumi-lang-dotnet=\"`CloudProviderType`\" pulumi-lang-go=\"`cloudProviderType`\" pulumi-lang-python=\"`cloud_provider_type`\" pulumi-lang-yaml=\"`cloudProviderType`\" pulumi-lang-java=\"`cloudProviderType`\" pulumi-lang-hcl=\"`cloud_provider_type`\"\u003e`cloudProviderType`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`aws`\" pulumi-lang-dotnet=\"`Aws`\" pulumi-lang-go=\"`aws`\" pulumi-lang-python=\"`aws`\" pulumi-lang-yaml=\"`aws`\" pulumi-lang-java=\"`aws`\" pulumi-lang-hcl=\"`aws`\"\u003e`aws`\u003c/span\u003e.",
+                "description": "An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.",
                 "secret": true
             },
             "awsSecretAccessKey": {
                 "type": "string",
-                "description": "The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using \u003cspan pulumi-lang-nodejs=\"`cloudProviderType`\" pulumi-lang-dotnet=\"`CloudProviderType`\" pulumi-lang-go=\"`cloudProviderType`\" pulumi-lang-python=\"`cloud_provider_type`\" pulumi-lang-yaml=\"`cloudProviderType`\" pulumi-lang-java=\"`cloudProviderType`\" pulumi-lang-hcl=\"`cloud_provider_type`\"\u003e`cloudProviderType`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`aws`\" pulumi-lang-dotnet=\"`Aws`\" pulumi-lang-go=\"`aws`\" pulumi-lang-python=\"`aws`\" pulumi-lang-yaml=\"`aws`\" pulumi-lang-java=\"`aws`\" pulumi-lang-hcl=\"`aws`\"\u003e`aws`\u003c/span\u003e.",
+                "description": "An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with \u003cspan pulumi-lang-nodejs=\"`awsAccessKeyId`\" pulumi-lang-dotnet=\"`AwsAccessKeyId`\" pulumi-lang-go=\"`awsAccessKeyId`\" pulumi-lang-python=\"`aws_access_key_id`\" pulumi-lang-yaml=\"`awsAccessKeyId`\" pulumi-lang-java=\"`awsAccessKeyId`\" pulumi-lang-hcl=\"`aws_access_key_id`\"\u003e`awsAccessKeyId`\u003c/span\u003e. Omit both fields to use the AWS SDK default credential chain.",
                 "secret": true
             },
             "awsSessionToken": {
                 "type": "string",
-                "description": "The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using \u003cspan pulumi-lang-nodejs=\"`cloudProviderType`\" pulumi-lang-dotnet=\"`CloudProviderType`\" pulumi-lang-go=\"`cloudProviderType`\" pulumi-lang-python=\"`cloud_provider_type`\" pulumi-lang-yaml=\"`cloudProviderType`\" pulumi-lang-java=\"`cloudProviderType`\" pulumi-lang-hcl=\"`cloud_provider_type`\"\u003e`cloudProviderType`\u003c/span\u003e set to \u003cspan pulumi-lang-nodejs=\"`aws`\" pulumi-lang-dotnet=\"`Aws`\" pulumi-lang-go=\"`aws`\" pulumi-lang-python=\"`aws`\" pulumi-lang-yaml=\"`aws`\" pulumi-lang-java=\"`aws`\" pulumi-lang-hcl=\"`aws`\"\u003e`aws`\u003c/span\u003e and using temporary credentials.",
+                "description": "An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.",
                 "secret": true
             },
             "bearerToken": {
@@ -137815,7 +137958,7 @@
             },
             "cloudProviderRegion": {
                 "type": "string",
-                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS."
+                "description": "The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain."
             },
             "cloudProviderType": {
                 "type": "string",
@@ -143650,6 +143793,51 @@
                     "updatedAt": {
                         "type": "string",
                         "description": "Last update timestamp of the deployment gate.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "datadog:index/derivedMetric:DerivedMetric": {
+            "description": "Provides a Datadog derived metric resource computed from a formula and metric queries. Managing derived metrics requires the Manage Tags for Metrics permission.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a derived metric that combines two metric queries\nconst cpuTotal = new datadog.DerivedMetric(\"cpu_total\", {\n    name: \"custom.cpu.total\",\n    definition: {\n        formula: \"a + b\",\n        queries: [\n            {\n                name: \"a\",\n                dataSource: \"metrics\",\n                query: \"avg:system.cpu.user{*}\",\n            },\n            {\n                name: \"b\",\n                dataSource: \"metrics\",\n                query: \"avg:system.cpu.system{*}\",\n            },\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a derived metric that combines two metric queries\ncpu_total = datadog.DerivedMetric(\"cpu_total\",\n    name=\"custom.cpu.total\",\n    definition={\n        \"formula\": \"a + b\",\n        \"queries\": [\n            {\n                \"name\": \"a\",\n                \"data_source\": \"metrics\",\n                \"query\": \"avg:system.cpu.user{*}\",\n            },\n            {\n                \"name\": \"b\",\n                \"data_source\": \"metrics\",\n                \"query\": \"avg:system.cpu.system{*}\",\n            },\n        ],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a derived metric that combines two metric queries\n    var cpuTotal = new Datadog.DerivedMetric(\"cpu_total\", new()\n    {\n        Name = \"custom.cpu.total\",\n        Definition = new Datadog.Inputs.DerivedMetricDefinitionArgs\n        {\n            Formula = \"a + b\",\n            Queries = new[]\n            {\n                new Datadog.Inputs.DerivedMetricDefinitionQueryArgs\n                {\n                    Name = \"a\",\n                    DataSource = \"metrics\",\n                    Query = \"avg:system.cpu.user{*}\",\n                },\n                new Datadog.Inputs.DerivedMetricDefinitionQueryArgs\n                {\n                    Name = \"b\",\n                    DataSource = \"metrics\",\n                    Query = \"avg:system.cpu.system{*}\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a derived metric that combines two metric queries\n\t\t_, err := datadog.NewDerivedMetric(ctx, \"cpu_total\", \u0026datadog.DerivedMetricArgs{\n\t\t\tName: pulumi.String(\"custom.cpu.total\"),\n\t\t\tDefinition: \u0026datadog.DerivedMetricDefinitionArgs{\n\t\t\t\tFormula: pulumi.String(\"a + b\"),\n\t\t\t\tQueries: datadog.DerivedMetricDefinitionQueryArray{\n\t\t\t\t\t\u0026datadog.DerivedMetricDefinitionQueryArgs{\n\t\t\t\t\t\tName:       pulumi.String(\"a\"),\n\t\t\t\t\t\tDataSource: pulumi.String(\"metrics\"),\n\t\t\t\t\t\tQuery:      pulumi.String(\"avg:system.cpu.user{*}\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026datadog.DerivedMetricDefinitionQueryArgs{\n\t\t\t\t\t\tName:       pulumi.String(\"b\"),\n\t\t\t\t\t\tDataSource: pulumi.String(\"metrics\"),\n\t\t\t\t\t\tQuery:      pulumi.String(\"avg:system.cpu.system{*}\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    datadog = {\n      source = \"pulumi/datadog\"\n    }\n  }\n}\n\n# Create a derived metric that combines two metric queries\nresource \"datadog_derived_metric\" \"cpu_total\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  name = \"custom.cpu.total\"\n  definition = {\n    formula = \"a + b\"\n    queries = [{\n      name        = \"a\"\n      data_source = \"metrics\"\n      query       = \"avg:system.cpu.user{*}\"\n      }, {\n      name        = \"b\"\n      data_source = \"metrics\"\n      query       = \"avg:system.cpu.system{*}\"\n    }]\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.DerivedMetric;\nimport com.pulumi.datadog.DerivedMetricArgs;\nimport com.pulumi.datadog.inputs.DerivedMetricDefinitionArgs;\nimport com.pulumi.datadog.inputs.DerivedMetricDefinitionQueryArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a derived metric that combines two metric queries\n        var cpuTotal = new DerivedMetric(\"cpuTotal\", DerivedMetricArgs.builder()\n            .name(\"custom.cpu.total\")\n            .definition(DerivedMetricDefinitionArgs.builder()\n                .formula(\"a + b\")\n                .queries(                \n                    DerivedMetricDefinitionQueryArgs.builder()\n                        .name(\"a\")\n                        .dataSource(\"metrics\")\n                        .query(\"avg:system.cpu.user{*}\")\n                        .build(),\n                    DerivedMetricDefinitionQueryArgs.builder()\n                        .name(\"b\")\n                        .dataSource(\"metrics\")\n                        .query(\"avg:system.cpu.system{*}\")\n                        .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a derived metric that combines two metric queries\n  cpuTotal:\n    type: datadog:DerivedMetric\n    name: cpu_total\n    properties:\n      name: custom.cpu.total\n      definition:\n        formula: a + b\n        queries:\n          - name: a\n            dataSource: metrics\n            query: avg:system.cpu.user{*}\n          - name: b\n            dataSource: metrics\n            query: avg:system.cpu.system{*}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\nDerived metrics can be imported using their name, e.g.\n\n```sh\n$ pulumi import datadog:index/derivedMetric:DerivedMetric cpu_total \"custom.cpu.total\"\n```\n\n",
+            "properties": {
+                "definition": {
+                    "$ref": "#/types/datadog:index/DerivedMetricDefinition:DerivedMetricDefinition",
+                    "description": "The definition of a derived metric as a formula over one or more queries.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Caller-assigned name sent as the create ID. After import, the first apply adopts the configured name through an update using the canonical API ID, without replacing the resource. Once the name is stored in state, changing it replaces the resource. String length must be at least 1.\n"
+                }
+            },
+            "required": [
+                "definition",
+                "name"
+            ],
+            "inputProperties": {
+                "definition": {
+                    "$ref": "#/types/datadog:index/DerivedMetricDefinition:DerivedMetricDefinition",
+                    "description": "The definition of a derived metric as a formula over one or more queries.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Caller-assigned name sent as the create ID. After import, the first apply adopts the configured name through an update using the canonical API ID, without replacing the resource. Once the name is stored in state, changing it replaces the resource. String length must be at least 1.\n"
+                }
+            },
+            "requiredInputs": [
+                "definition",
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering DerivedMetric resources.\n",
+                "properties": {
+                    "definition": {
+                        "$ref": "#/types/datadog:index/DerivedMetricDefinition:DerivedMetricDefinition",
+                        "description": "The definition of a derived metric as a formula over one or more queries.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Caller-assigned name sent as the create ID. After import, the first apply adopts the configured name through an update using the canonical API ID, without replacing the resource. Once the name is stored in state, changing it replaces the resource. String length must be at least 1.\n"
                     }
                 },
                 "type": "object"
@@ -151438,7 +151626,7 @@
                 },
                 "suppressions": {
                     "$ref": "#/types/datadog:index/SensitiveDataScannerRuleSuppressions:SensitiveDataScannerRuleSuppressions",
-                    "description": "Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\" pulumi-lang-hcl=\"`starts_with`\"\u003e`startsWith`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`endsWith`\" pulumi-lang-dotnet=\"`EndsWith`\" pulumi-lang-go=\"`endsWith`\" pulumi-lang-python=\"`ends_with`\" pulumi-lang-yaml=\"`endsWith`\" pulumi-lang-java=\"`endsWith`\" pulumi-lang-hcl=\"`ends_with`\"\u003e`endsWith`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`exactMatch`\" pulumi-lang-dotnet=\"`ExactMatch`\" pulumi-lang-go=\"`exactMatch`\" pulumi-lang-python=\"`exact_match`\" pulumi-lang-yaml=\"`exactMatch`\" pulumi-lang-java=\"`exactMatch`\" pulumi-lang-hcl=\"`exact_match`\"\u003e`exactMatch`\u003c/span\u003e.\n"
+                    "description": "Object defining custom suppressions to skip matches based on \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\" pulumi-lang-hcl=\"`starts_with`\"\u003e`startsWith`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`endsWith`\" pulumi-lang-dotnet=\"`EndsWith`\" pulumi-lang-go=\"`endsWith`\" pulumi-lang-python=\"`ends_with`\" pulumi-lang-yaml=\"`endsWith`\" pulumi-lang-java=\"`endsWith`\" pulumi-lang-hcl=\"`ends_with`\"\u003e`endsWith`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`exactMatch`\" pulumi-lang-dotnet=\"`ExactMatch`\" pulumi-lang-go=\"`exactMatch`\" pulumi-lang-python=\"`exact_match`\" pulumi-lang-yaml=\"`exactMatch`\" pulumi-lang-java=\"`exactMatch`\" pulumi-lang-hcl=\"`exact_match`\"\u003e`exactMatch`\u003c/span\u003e rules. Custom lists are managed independently of \u003cspan pulumi-lang-nodejs=\"`useRecommendedSuppressions`\" pulumi-lang-dotnet=\"`UseRecommendedSuppressions`\" pulumi-lang-go=\"`useRecommendedSuppressions`\" pulumi-lang-python=\"`use_recommended_suppressions`\" pulumi-lang-yaml=\"`useRecommendedSuppressions`\" pulumi-lang-java=\"`useRecommendedSuppressions`\" pulumi-lang-hcl=\"`use_recommended_suppressions`\"\u003e`useRecommendedSuppressions`\u003c/span\u003e. Replacing or removing \u003cspan pulumi-lang-nodejs=\"`suppressions`\" pulumi-lang-dotnet=\"`Suppressions`\" pulumi-lang-go=\"`suppressions`\" pulumi-lang-python=\"`suppressions`\" pulumi-lang-yaml=\"`suppressions`\" pulumi-lang-java=\"`suppressions`\" pulumi-lang-hcl=\"`suppressions`\"\u003e`suppressions`\u003c/span\u003e updates or clears the custom lists without affecting \u003cspan pulumi-lang-nodejs=\"`useRecommendedSuppressions`\" pulumi-lang-dotnet=\"`UseRecommendedSuppressions`\" pulumi-lang-go=\"`useRecommendedSuppressions`\" pulumi-lang-python=\"`use_recommended_suppressions`\" pulumi-lang-yaml=\"`useRecommendedSuppressions`\" pulumi-lang-java=\"`useRecommendedSuppressions`\" pulumi-lang-hcl=\"`use_recommended_suppressions`\"\u003e`useRecommendedSuppressions`\u003c/span\u003e. Recommended suppressions are not copied into these lists.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -151450,13 +151638,18 @@
                 "textReplacement": {
                     "$ref": "#/types/datadog:index/SensitiveDataScannerRuleTextReplacement:SensitiveDataScannerRuleTextReplacement",
                     "description": "Object describing how the scanned event will be replaced. Defaults to `type: none`\n"
+                },
+                "useRecommendedSuppressions": {
+                    "type": "boolean",
+                    "description": "Whether to use the standard pattern's recommended suppressions. Requires \u003cspan pulumi-lang-nodejs=\"`standardPatternId`\" pulumi-lang-dotnet=\"`StandardPatternId`\" pulumi-lang-go=\"`standardPatternId`\" pulumi-lang-python=\"`standard_pattern_id`\" pulumi-lang-yaml=\"`standardPatternId`\" pulumi-lang-java=\"`standardPatternId`\" pulumi-lang-hcl=\"`standard_pattern_id`\"\u003e`standardPatternId`\u003c/span\u003e when true. Defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the \u003cspan pulumi-lang-nodejs=\"`suppressions`\" pulumi-lang-dotnet=\"`Suppressions`\" pulumi-lang-go=\"`suppressions`\" pulumi-lang-python=\"`suppressions`\" pulumi-lang-yaml=\"`suppressions`\" pulumi-lang-java=\"`suppressions`\" pulumi-lang-hcl=\"`suppressions`\"\u003e`suppressions`\u003c/span\u003e block and are retained when this setting changes.\n"
                 }
             },
             "required": [
                 "description",
                 "groupId",
                 "includedKeywordConfiguration",
-                "priority"
+                "priority",
+                "useRecommendedSuppressions"
             ],
             "inputProperties": {
                 "description": {
@@ -151509,7 +151702,7 @@
                 },
                 "suppressions": {
                     "$ref": "#/types/datadog:index/SensitiveDataScannerRuleSuppressions:SensitiveDataScannerRuleSuppressions",
-                    "description": "Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\" pulumi-lang-hcl=\"`starts_with`\"\u003e`startsWith`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`endsWith`\" pulumi-lang-dotnet=\"`EndsWith`\" pulumi-lang-go=\"`endsWith`\" pulumi-lang-python=\"`ends_with`\" pulumi-lang-yaml=\"`endsWith`\" pulumi-lang-java=\"`endsWith`\" pulumi-lang-hcl=\"`ends_with`\"\u003e`endsWith`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`exactMatch`\" pulumi-lang-dotnet=\"`ExactMatch`\" pulumi-lang-go=\"`exactMatch`\" pulumi-lang-python=\"`exact_match`\" pulumi-lang-yaml=\"`exactMatch`\" pulumi-lang-java=\"`exactMatch`\" pulumi-lang-hcl=\"`exact_match`\"\u003e`exactMatch`\u003c/span\u003e.\n"
+                    "description": "Object defining custom suppressions to skip matches based on \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\" pulumi-lang-hcl=\"`starts_with`\"\u003e`startsWith`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`endsWith`\" pulumi-lang-dotnet=\"`EndsWith`\" pulumi-lang-go=\"`endsWith`\" pulumi-lang-python=\"`ends_with`\" pulumi-lang-yaml=\"`endsWith`\" pulumi-lang-java=\"`endsWith`\" pulumi-lang-hcl=\"`ends_with`\"\u003e`endsWith`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`exactMatch`\" pulumi-lang-dotnet=\"`ExactMatch`\" pulumi-lang-go=\"`exactMatch`\" pulumi-lang-python=\"`exact_match`\" pulumi-lang-yaml=\"`exactMatch`\" pulumi-lang-java=\"`exactMatch`\" pulumi-lang-hcl=\"`exact_match`\"\u003e`exactMatch`\u003c/span\u003e rules. Custom lists are managed independently of \u003cspan pulumi-lang-nodejs=\"`useRecommendedSuppressions`\" pulumi-lang-dotnet=\"`UseRecommendedSuppressions`\" pulumi-lang-go=\"`useRecommendedSuppressions`\" pulumi-lang-python=\"`use_recommended_suppressions`\" pulumi-lang-yaml=\"`useRecommendedSuppressions`\" pulumi-lang-java=\"`useRecommendedSuppressions`\" pulumi-lang-hcl=\"`use_recommended_suppressions`\"\u003e`useRecommendedSuppressions`\u003c/span\u003e. Replacing or removing \u003cspan pulumi-lang-nodejs=\"`suppressions`\" pulumi-lang-dotnet=\"`Suppressions`\" pulumi-lang-go=\"`suppressions`\" pulumi-lang-python=\"`suppressions`\" pulumi-lang-yaml=\"`suppressions`\" pulumi-lang-java=\"`suppressions`\" pulumi-lang-hcl=\"`suppressions`\"\u003e`suppressions`\u003c/span\u003e updates or clears the custom lists without affecting \u003cspan pulumi-lang-nodejs=\"`useRecommendedSuppressions`\" pulumi-lang-dotnet=\"`UseRecommendedSuppressions`\" pulumi-lang-go=\"`useRecommendedSuppressions`\" pulumi-lang-python=\"`use_recommended_suppressions`\" pulumi-lang-yaml=\"`useRecommendedSuppressions`\" pulumi-lang-java=\"`useRecommendedSuppressions`\" pulumi-lang-hcl=\"`use_recommended_suppressions`\"\u003e`useRecommendedSuppressions`\u003c/span\u003e. Recommended suppressions are not copied into these lists.\n"
                 },
                 "tags": {
                     "type": "array",
@@ -151521,6 +151714,10 @@
                 "textReplacement": {
                     "$ref": "#/types/datadog:index/SensitiveDataScannerRuleTextReplacement:SensitiveDataScannerRuleTextReplacement",
                     "description": "Object describing how the scanned event will be replaced. Defaults to `type: none`\n"
+                },
+                "useRecommendedSuppressions": {
+                    "type": "boolean",
+                    "description": "Whether to use the standard pattern's recommended suppressions. Requires \u003cspan pulumi-lang-nodejs=\"`standardPatternId`\" pulumi-lang-dotnet=\"`StandardPatternId`\" pulumi-lang-go=\"`standardPatternId`\" pulumi-lang-python=\"`standard_pattern_id`\" pulumi-lang-yaml=\"`standardPatternId`\" pulumi-lang-java=\"`standardPatternId`\" pulumi-lang-hcl=\"`standard_pattern_id`\"\u003e`standardPatternId`\u003c/span\u003e when true. Defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the \u003cspan pulumi-lang-nodejs=\"`suppressions`\" pulumi-lang-dotnet=\"`Suppressions`\" pulumi-lang-go=\"`suppressions`\" pulumi-lang-python=\"`suppressions`\" pulumi-lang-yaml=\"`suppressions`\" pulumi-lang-java=\"`suppressions`\" pulumi-lang-hcl=\"`suppressions`\"\u003e`suppressions`\u003c/span\u003e block and are retained when this setting changes.\n"
                 }
             },
             "requiredInputs": [
@@ -151579,7 +151776,7 @@
                     },
                     "suppressions": {
                         "$ref": "#/types/datadog:index/SensitiveDataScannerRuleSuppressions:SensitiveDataScannerRuleSuppressions",
-                        "description": "Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\" pulumi-lang-hcl=\"`starts_with`\"\u003e`startsWith`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`endsWith`\" pulumi-lang-dotnet=\"`EndsWith`\" pulumi-lang-go=\"`endsWith`\" pulumi-lang-python=\"`ends_with`\" pulumi-lang-yaml=\"`endsWith`\" pulumi-lang-java=\"`endsWith`\" pulumi-lang-hcl=\"`ends_with`\"\u003e`endsWith`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`exactMatch`\" pulumi-lang-dotnet=\"`ExactMatch`\" pulumi-lang-go=\"`exactMatch`\" pulumi-lang-python=\"`exact_match`\" pulumi-lang-yaml=\"`exactMatch`\" pulumi-lang-java=\"`exactMatch`\" pulumi-lang-hcl=\"`exact_match`\"\u003e`exactMatch`\u003c/span\u003e.\n"
+                        "description": "Object defining custom suppressions to skip matches based on \u003cspan pulumi-lang-nodejs=\"`startsWith`\" pulumi-lang-dotnet=\"`StartsWith`\" pulumi-lang-go=\"`startsWith`\" pulumi-lang-python=\"`starts_with`\" pulumi-lang-yaml=\"`startsWith`\" pulumi-lang-java=\"`startsWith`\" pulumi-lang-hcl=\"`starts_with`\"\u003e`startsWith`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`endsWith`\" pulumi-lang-dotnet=\"`EndsWith`\" pulumi-lang-go=\"`endsWith`\" pulumi-lang-python=\"`ends_with`\" pulumi-lang-yaml=\"`endsWith`\" pulumi-lang-java=\"`endsWith`\" pulumi-lang-hcl=\"`ends_with`\"\u003e`endsWith`\u003c/span\u003e, and \u003cspan pulumi-lang-nodejs=\"`exactMatch`\" pulumi-lang-dotnet=\"`ExactMatch`\" pulumi-lang-go=\"`exactMatch`\" pulumi-lang-python=\"`exact_match`\" pulumi-lang-yaml=\"`exactMatch`\" pulumi-lang-java=\"`exactMatch`\" pulumi-lang-hcl=\"`exact_match`\"\u003e`exactMatch`\u003c/span\u003e rules. Custom lists are managed independently of \u003cspan pulumi-lang-nodejs=\"`useRecommendedSuppressions`\" pulumi-lang-dotnet=\"`UseRecommendedSuppressions`\" pulumi-lang-go=\"`useRecommendedSuppressions`\" pulumi-lang-python=\"`use_recommended_suppressions`\" pulumi-lang-yaml=\"`useRecommendedSuppressions`\" pulumi-lang-java=\"`useRecommendedSuppressions`\" pulumi-lang-hcl=\"`use_recommended_suppressions`\"\u003e`useRecommendedSuppressions`\u003c/span\u003e. Replacing or removing \u003cspan pulumi-lang-nodejs=\"`suppressions`\" pulumi-lang-dotnet=\"`Suppressions`\" pulumi-lang-go=\"`suppressions`\" pulumi-lang-python=\"`suppressions`\" pulumi-lang-yaml=\"`suppressions`\" pulumi-lang-java=\"`suppressions`\" pulumi-lang-hcl=\"`suppressions`\"\u003e`suppressions`\u003c/span\u003e updates or clears the custom lists without affecting \u003cspan pulumi-lang-nodejs=\"`useRecommendedSuppressions`\" pulumi-lang-dotnet=\"`UseRecommendedSuppressions`\" pulumi-lang-go=\"`useRecommendedSuppressions`\" pulumi-lang-python=\"`use_recommended_suppressions`\" pulumi-lang-yaml=\"`useRecommendedSuppressions`\" pulumi-lang-java=\"`useRecommendedSuppressions`\" pulumi-lang-hcl=\"`use_recommended_suppressions`\"\u003e`useRecommendedSuppressions`\u003c/span\u003e. Recommended suppressions are not copied into these lists.\n"
                     },
                     "tags": {
                         "type": "array",
@@ -151591,6 +151788,10 @@
                     "textReplacement": {
                         "$ref": "#/types/datadog:index/SensitiveDataScannerRuleTextReplacement:SensitiveDataScannerRuleTextReplacement",
                         "description": "Object describing how the scanned event will be replaced. Defaults to `type: none`\n"
+                    },
+                    "useRecommendedSuppressions": {
+                        "type": "boolean",
+                        "description": "Whether to use the standard pattern's recommended suppressions. Requires \u003cspan pulumi-lang-nodejs=\"`standardPatternId`\" pulumi-lang-dotnet=\"`StandardPatternId`\" pulumi-lang-go=\"`standardPatternId`\" pulumi-lang-python=\"`standard_pattern_id`\" pulumi-lang-yaml=\"`standardPatternId`\" pulumi-lang-java=\"`standardPatternId`\" pulumi-lang-hcl=\"`standard_pattern_id`\"\u003e`standardPatternId`\u003c/span\u003e when true. Defaults to \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the \u003cspan pulumi-lang-nodejs=\"`suppressions`\" pulumi-lang-dotnet=\"`Suppressions`\" pulumi-lang-go=\"`suppressions`\" pulumi-lang-python=\"`suppressions`\" pulumi-lang-yaml=\"`suppressions`\" pulumi-lang-java=\"`suppressions`\" pulumi-lang-hcl=\"`suppressions`\"\u003e`suppressions`\u003c/span\u003e block and are retained when this setting changes.\n"
                     }
                 },
                 "type": "object"
@@ -154357,7 +154558,7 @@
             }
         },
         "datadog:index/tagRule:TagRule": {
-            "description": "Provides a Datadog tag rule resource. This can be used to create and manage Datadog governance tag rules.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a surfacing tag rule, which highlights non-compliant telemetry\n// without rejecting it.\nconst env = new datadog.TagRule(\"env\", {\n    name: \"env must be a known environment\",\n    source: \"logs\",\n    scope: \"org\",\n    tagKey: \"env\",\n    tagValuePatterns: [\n        \"prod\",\n        \"staging\",\n        \"dev\",\n    ],\n    ruleType: \"surfacing\",\n    required: true,\n});\n// Create a blocking tag rule, which rejects telemetry that violates it.\n// The Datadog API only accepts `surfacing` at creation time, so the provider\n// creates the rule and then immediately updates it to `blocking`. Because that\n// makes the create non-atomic, it has to be opted into explicitly.\nconst service = new datadog.TagRule(\"service\", {\n    name: \"service must be lowercase and hyphenated\",\n    source: \"spans\",\n    scope: \"org\",\n    tagKey: \"service\",\n    tagValuePatterns: [\"web-*\"],\n    ruleType: \"blocking\",\n    forceBlockingOnCreate: true,\n    hardDelete: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a surfacing tag rule, which highlights non-compliant telemetry\n# without rejecting it.\nenv = datadog.TagRule(\"env\",\n    name=\"env must be a known environment\",\n    source=\"logs\",\n    scope=\"org\",\n    tag_key=\"env\",\n    tag_value_patterns=[\n        \"prod\",\n        \"staging\",\n        \"dev\",\n    ],\n    rule_type=\"surfacing\",\n    required=True)\n# Create a blocking tag rule, which rejects telemetry that violates it.\n# The Datadog API only accepts `surfacing` at creation time, so the provider\n# creates the rule and then immediately updates it to `blocking`. Because that\n# makes the create non-atomic, it has to be opted into explicitly.\nservice = datadog.TagRule(\"service\",\n    name=\"service must be lowercase and hyphenated\",\n    source=\"spans\",\n    scope=\"org\",\n    tag_key=\"service\",\n    tag_value_patterns=[\"web-*\"],\n    rule_type=\"blocking\",\n    force_blocking_on_create=True,\n    hard_delete=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a surfacing tag rule, which highlights non-compliant telemetry\n    // without rejecting it.\n    var env = new Datadog.TagRule(\"env\", new()\n    {\n        Name = \"env must be a known environment\",\n        Source = \"logs\",\n        Scope = \"org\",\n        TagKey = \"env\",\n        TagValuePatterns = new[]\n        {\n            \"prod\",\n            \"staging\",\n            \"dev\",\n        },\n        RuleType = \"surfacing\",\n        Required = true,\n    });\n\n    // Create a blocking tag rule, which rejects telemetry that violates it.\n    // The Datadog API only accepts `surfacing` at creation time, so the provider\n    // creates the rule and then immediately updates it to `blocking`. Because that\n    // makes the create non-atomic, it has to be opted into explicitly.\n    var service = new Datadog.TagRule(\"service\", new()\n    {\n        Name = \"service must be lowercase and hyphenated\",\n        Source = \"spans\",\n        Scope = \"org\",\n        TagKey = \"service\",\n        TagValuePatterns = new[]\n        {\n            \"web-*\",\n        },\n        RuleType = \"blocking\",\n        ForceBlockingOnCreate = true,\n        HardDelete = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a surfacing tag rule, which highlights non-compliant telemetry\n\t\t// without rejecting it.\n\t\t_, err := datadog.NewTagRule(ctx, \"env\", \u0026datadog.TagRuleArgs{\n\t\t\tName:   pulumi.String(\"env must be a known environment\"),\n\t\t\tSource: pulumi.String(\"logs\"),\n\t\t\tScope:  pulumi.String(\"org\"),\n\t\t\tTagKey: pulumi.String(\"env\"),\n\t\t\tTagValuePatterns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"prod\"),\n\t\t\t\tpulumi.String(\"staging\"),\n\t\t\t\tpulumi.String(\"dev\"),\n\t\t\t},\n\t\t\tRuleType: pulumi.String(\"surfacing\"),\n\t\t\tRequired: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Create a blocking tag rule, which rejects telemetry that violates it.\n\t\t// The Datadog API only accepts `surfacing` at creation time, so the provider\n\t\t// creates the rule and then immediately updates it to `blocking`. Because that\n\t\t// makes the create non-atomic, it has to be opted into explicitly.\n\t\t_, err = datadog.NewTagRule(ctx, \"service\", \u0026datadog.TagRuleArgs{\n\t\t\tName:   pulumi.String(\"service must be lowercase and hyphenated\"),\n\t\t\tSource: pulumi.String(\"spans\"),\n\t\t\tScope:  pulumi.String(\"org\"),\n\t\t\tTagKey: pulumi.String(\"service\"),\n\t\t\tTagValuePatterns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"web-*\"),\n\t\t\t},\n\t\t\tRuleType:              pulumi.String(\"blocking\"),\n\t\t\tForceBlockingOnCreate: pulumi.Bool(true),\n\t\t\tHardDelete:            pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    datadog = {\n      source = \"pulumi/datadog\"\n    }\n  }\n}\n\n# Create a surfacing tag rule, which highlights non-compliant telemetry\n# without rejecting it.\nresource \"datadog_tag_rule\" \"env\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  name               = \"env must be a known environment\"\n  source             = \"logs\"\n  scope              = \"org\"\n  tag_key            = \"env\"\n  tag_value_patterns = [\"prod\", \"staging\", \"dev\"]\n  rule_type          = \"surfacing\"\n  required           = true\n}\n# Create a blocking tag rule, which rejects telemetry that violates it.\n# The Datadog API only accepts `surfacing` at creation time, so the provider\n# creates the rule and then immediately updates it to `blocking`. Because that\n# makes the create non-atomic, it has to be opted into explicitly.\nresource \"datadog_tag_rule\" \"service\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  name                     = \"service must be lowercase and hyphenated\"\n  source                   = \"spans\"\n  scope                    = \"org\"\n  tag_key                  = \"service\"\n  tag_value_patterns       = [\"web-*\"]\n  rule_type                = \"blocking\"\n  force_blocking_on_create = true\n  # Keep the rule recoverable and preserve its historical compliance score\n  # data when this resource is destroyed.\n  hard_delete = false\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.TagRule;\nimport com.pulumi.datadog.TagRuleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a surfacing tag rule, which highlights non-compliant telemetry\n        // without rejecting it.\n        var env = new TagRule(\"env\", TagRuleArgs.builder()\n            .name(\"env must be a known environment\")\n            .source(\"logs\")\n            .scope(\"org\")\n            .tagKey(\"env\")\n            .tagValuePatterns(            \n                \"prod\",\n                \"staging\",\n                \"dev\")\n            .ruleType(\"surfacing\")\n            .required(true)\n            .build());\n\n        // Create a blocking tag rule, which rejects telemetry that violates it.\n        // The Datadog API only accepts `surfacing` at creation time, so the provider\n        // creates the rule and then immediately updates it to `blocking`. Because that\n        // makes the create non-atomic, it has to be opted into explicitly.\n        var service = new TagRule(\"service\", TagRuleArgs.builder()\n            .name(\"service must be lowercase and hyphenated\")\n            .source(\"spans\")\n            .scope(\"org\")\n            .tagKey(\"service\")\n            .tagValuePatterns(\"web-*\")\n            .ruleType(\"blocking\")\n            .forceBlockingOnCreate(true)\n            .hardDelete(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a surfacing tag rule, which highlights non-compliant telemetry\n  # without rejecting it.\n  env:\n    type: datadog:TagRule\n    properties:\n      name: env must be a known environment\n      source: logs\n      scope: org\n      tagKey: env\n      tagValuePatterns:\n        - prod\n        - staging\n        - dev\n      ruleType: surfacing\n      required: true\n  # Create a blocking tag rule, which rejects telemetry that violates it.\n  # The Datadog API only accepts `surfacing` at creation time, so the provider\n  # creates the rule and then immediately updates it to `blocking`. Because that\n  # makes the create non-atomic, it has to be opted into explicitly.\n  service:\n    type: datadog:TagRule\n    properties:\n      name: service must be lowercase and hyphenated\n      source: spans\n      scope: org\n      tagKey: service\n      tagValuePatterns:\n        - web-*\n      ruleType: blocking\n      forceBlockingOnCreate: true # Keep the rule recoverable and preserve its historical compliance score\n      #   # data when this resource is destroyed.\n      hardDelete: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/tagRule:TagRule env \"\u003crule_id\u003e\"\n```\n\n",
+            "description": "Provides a Datadog tag rule resource. This can be used to create and manage Datadog governance tag rules.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as datadog from \"@pulumi/datadog\";\n\n// Create a surfacing tag rule, which highlights non-compliant telemetry\n// without rejecting it.\nconst env = new datadog.TagRule(\"env\", {\n    name: \"env must be a known environment\",\n    source: \"logs\",\n    scope: \"org\",\n    tagKey: \"env\",\n    tagValuePatterns: [\n        \"prod\",\n        \"staging\",\n        \"dev\",\n    ],\n    ruleType: \"surfacing\",\n    required: true,\n});\n// Require the tag to be present with any value. A bare `*` accepts every\n// value, so it must be paired with `required = true` (or with `negated = true`\n// to require the tag to be absent instead).\nconst team = new datadog.TagRule(\"team\", {\n    name: \"team must be set\",\n    source: \"logs\",\n    scope: \"org\",\n    tagKey: \"team\",\n    tagValuePatterns: [\"*\"],\n    ruleType: \"surfacing\",\n    required: true,\n});\n// Create a blocking tag rule, which rejects telemetry that violates it.\n// The Datadog API only accepts `surfacing` at creation time, so the provider\n// creates the rule and then immediately updates it to `blocking`. Because that\n// makes the create non-atomic, it has to be opted into explicitly.\nconst service = new datadog.TagRule(\"service\", {\n    name: \"service must be lowercase and hyphenated\",\n    source: \"spans\",\n    scope: \"org\",\n    tagKey: \"service\",\n    tagValuePatterns: [\"web-*\"],\n    ruleType: \"blocking\",\n    forceBlockingOnCreate: true,\n    hardDelete: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_datadog as datadog\n\n# Create a surfacing tag rule, which highlights non-compliant telemetry\n# without rejecting it.\nenv = datadog.TagRule(\"env\",\n    name=\"env must be a known environment\",\n    source=\"logs\",\n    scope=\"org\",\n    tag_key=\"env\",\n    tag_value_patterns=[\n        \"prod\",\n        \"staging\",\n        \"dev\",\n    ],\n    rule_type=\"surfacing\",\n    required=True)\n# Require the tag to be present with any value. A bare `*` accepts every\n# value, so it must be paired with `required = true` (or with `negated = true`\n# to require the tag to be absent instead).\nteam = datadog.TagRule(\"team\",\n    name=\"team must be set\",\n    source=\"logs\",\n    scope=\"org\",\n    tag_key=\"team\",\n    tag_value_patterns=[\"*\"],\n    rule_type=\"surfacing\",\n    required=True)\n# Create a blocking tag rule, which rejects telemetry that violates it.\n# The Datadog API only accepts `surfacing` at creation time, so the provider\n# creates the rule and then immediately updates it to `blocking`. Because that\n# makes the create non-atomic, it has to be opted into explicitly.\nservice = datadog.TagRule(\"service\",\n    name=\"service must be lowercase and hyphenated\",\n    source=\"spans\",\n    scope=\"org\",\n    tag_key=\"service\",\n    tag_value_patterns=[\"web-*\"],\n    rule_type=\"blocking\",\n    force_blocking_on_create=True,\n    hard_delete=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Datadog = Pulumi.Datadog;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a surfacing tag rule, which highlights non-compliant telemetry\n    // without rejecting it.\n    var env = new Datadog.TagRule(\"env\", new()\n    {\n        Name = \"env must be a known environment\",\n        Source = \"logs\",\n        Scope = \"org\",\n        TagKey = \"env\",\n        TagValuePatterns = new[]\n        {\n            \"prod\",\n            \"staging\",\n            \"dev\",\n        },\n        RuleType = \"surfacing\",\n        Required = true,\n    });\n\n    // Require the tag to be present with any value. A bare `*` accepts every\n    // value, so it must be paired with `required = true` (or with `negated = true`\n    // to require the tag to be absent instead).\n    var team = new Datadog.TagRule(\"team\", new()\n    {\n        Name = \"team must be set\",\n        Source = \"logs\",\n        Scope = \"org\",\n        TagKey = \"team\",\n        TagValuePatterns = new[]\n        {\n            \"*\",\n        },\n        RuleType = \"surfacing\",\n        Required = true,\n    });\n\n    // Create a blocking tag rule, which rejects telemetry that violates it.\n    // The Datadog API only accepts `surfacing` at creation time, so the provider\n    // creates the rule and then immediately updates it to `blocking`. Because that\n    // makes the create non-atomic, it has to be opted into explicitly.\n    var service = new Datadog.TagRule(\"service\", new()\n    {\n        Name = \"service must be lowercase and hyphenated\",\n        Source = \"spans\",\n        Scope = \"org\",\n        TagKey = \"service\",\n        TagValuePatterns = new[]\n        {\n            \"web-*\",\n        },\n        RuleType = \"blocking\",\n        ForceBlockingOnCreate = true,\n        HardDelete = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// Create a surfacing tag rule, which highlights non-compliant telemetry\n\t\t// without rejecting it.\n\t\t_, err := datadog.NewTagRule(ctx, \"env\", \u0026datadog.TagRuleArgs{\n\t\t\tName:   pulumi.String(\"env must be a known environment\"),\n\t\t\tSource: pulumi.String(\"logs\"),\n\t\t\tScope:  pulumi.String(\"org\"),\n\t\t\tTagKey: pulumi.String(\"env\"),\n\t\t\tTagValuePatterns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"prod\"),\n\t\t\t\tpulumi.String(\"staging\"),\n\t\t\t\tpulumi.String(\"dev\"),\n\t\t\t},\n\t\t\tRuleType: pulumi.String(\"surfacing\"),\n\t\t\tRequired: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Require the tag to be present with any value. A bare `*` accepts every\n\t\t// value, so it must be paired with `required = true` (or with `negated = true`\n\t\t// to require the tag to be absent instead).\n\t\t_, err = datadog.NewTagRule(ctx, \"team\", \u0026datadog.TagRuleArgs{\n\t\t\tName:   pulumi.String(\"team must be set\"),\n\t\t\tSource: pulumi.String(\"logs\"),\n\t\t\tScope:  pulumi.String(\"org\"),\n\t\t\tTagKey: pulumi.String(\"team\"),\n\t\t\tTagValuePatterns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"*\"),\n\t\t\t},\n\t\t\tRuleType: pulumi.String(\"surfacing\"),\n\t\t\tRequired: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Create a blocking tag rule, which rejects telemetry that violates it.\n\t\t// The Datadog API only accepts `surfacing` at creation time, so the provider\n\t\t// creates the rule and then immediately updates it to `blocking`. Because that\n\t\t// makes the create non-atomic, it has to be opted into explicitly.\n\t\t_, err = datadog.NewTagRule(ctx, \"service\", \u0026datadog.TagRuleArgs{\n\t\t\tName:   pulumi.String(\"service must be lowercase and hyphenated\"),\n\t\t\tSource: pulumi.String(\"spans\"),\n\t\t\tScope:  pulumi.String(\"org\"),\n\t\t\tTagKey: pulumi.String(\"service\"),\n\t\t\tTagValuePatterns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"web-*\"),\n\t\t\t},\n\t\t\tRuleType:              pulumi.String(\"blocking\"),\n\t\t\tForceBlockingOnCreate: pulumi.Bool(true),\n\t\t\tHardDelete:            pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\nterraform {\n  required_providers {\n    datadog = {\n      source = \"pulumi/datadog\"\n    }\n  }\n}\n\n# Create a surfacing tag rule, which highlights non-compliant telemetry\n# without rejecting it.\nresource \"datadog_tag_rule\" \"env\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  name               = \"env must be a known environment\"\n  source             = \"logs\"\n  scope              = \"org\"\n  tag_key            = \"env\"\n  tag_value_patterns = [\"prod\", \"staging\", \"dev\"]\n  rule_type          = \"surfacing\"\n  required           = true\n}\n# Require the tag to be present with any value. A bare `*` accepts every\n# value, so it must be paired with `required = true` (or with `negated = true`\n# to require the tag to be absent instead).\nresource \"datadog_tag_rule\" \"team\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  name               = \"team must be set\"\n  source             = \"logs\"\n  scope              = \"org\"\n  tag_key            = \"team\"\n  tag_value_patterns = [\"*\"]\n  rule_type          = \"surfacing\"\n  required           = true\n}\n# Create a blocking tag rule, which rejects telemetry that violates it.\n# The Datadog API only accepts `surfacing` at creation time, so the provider\n# creates the rule and then immediately updates it to `blocking`. Because that\n# makes the create non-atomic, it has to be opted into explicitly.\nresource \"datadog_tag_rule\" \"service\" {\n  lifecycle {\n    create_before_destroy = true\n  }\n  name                     = \"service must be lowercase and hyphenated\"\n  source                   = \"spans\"\n  scope                    = \"org\"\n  tag_key                  = \"service\"\n  tag_value_patterns       = [\"web-*\"]\n  rule_type                = \"blocking\"\n  force_blocking_on_create = true\n  # Keep the rule recoverable and preserve its historical compliance score\n  # data when this resource is destroyed.\n  hard_delete = false\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.datadog.TagRule;\nimport com.pulumi.datadog.TagRuleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        // Create a surfacing tag rule, which highlights non-compliant telemetry\n        // without rejecting it.\n        var env = new TagRule(\"env\", TagRuleArgs.builder()\n            .name(\"env must be a known environment\")\n            .source(\"logs\")\n            .scope(\"org\")\n            .tagKey(\"env\")\n            .tagValuePatterns(            \n                \"prod\",\n                \"staging\",\n                \"dev\")\n            .ruleType(\"surfacing\")\n            .required(true)\n            .build());\n\n        // Require the tag to be present with any value. A bare `*` accepts every\n        // value, so it must be paired with `required = true` (or with `negated = true`\n        // to require the tag to be absent instead).\n        var team = new TagRule(\"team\", TagRuleArgs.builder()\n            .name(\"team must be set\")\n            .source(\"logs\")\n            .scope(\"org\")\n            .tagKey(\"team\")\n            .tagValuePatterns(\"*\")\n            .ruleType(\"surfacing\")\n            .required(true)\n            .build());\n\n        // Create a blocking tag rule, which rejects telemetry that violates it.\n        // The Datadog API only accepts `surfacing` at creation time, so the provider\n        // creates the rule and then immediately updates it to `blocking`. Because that\n        // makes the create non-atomic, it has to be opted into explicitly.\n        var service = new TagRule(\"service\", TagRuleArgs.builder()\n            .name(\"service must be lowercase and hyphenated\")\n            .source(\"spans\")\n            .scope(\"org\")\n            .tagKey(\"service\")\n            .tagValuePatterns(\"web-*\")\n            .ruleType(\"blocking\")\n            .forceBlockingOnCreate(true)\n            .hardDelete(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a surfacing tag rule, which highlights non-compliant telemetry\n  # without rejecting it.\n  env:\n    type: datadog:TagRule\n    properties:\n      name: env must be a known environment\n      source: logs\n      scope: org\n      tagKey: env\n      tagValuePatterns:\n        - prod\n        - staging\n        - dev\n      ruleType: surfacing\n      required: true\n  # Require the tag to be present with any value. A bare `*` accepts every\n  # value, so it must be paired with `required = true` (or with `negated = true`\n  # to require the tag to be absent instead).\n  team:\n    type: datadog:TagRule\n    properties:\n      name: team must be set\n      source: logs\n      scope: org\n      tagKey: team\n      tagValuePatterns:\n        - '*'\n      ruleType: surfacing\n      required: true\n  # Create a blocking tag rule, which rejects telemetry that violates it.\n  # The Datadog API only accepts `surfacing` at creation time, so the provider\n  # creates the rule and then immediately updates it to `blocking`. Because that\n  # makes the create non-atomic, it has to be opted into explicitly.\n  service:\n    type: datadog:TagRule\n    properties:\n      name: service must be lowercase and hyphenated\n      source: spans\n      scope: org\n      tagKey: service\n      tagValuePatterns:\n        - web-*\n      ruleType: blocking\n      forceBlockingOnCreate: true # Keep the rule recoverable and preserve its historical compliance score\n      #   # data when this resource is destroyed.\n      hardDelete: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nThe `pulumi import` command can be used, for example:\n\n```sh\n$ pulumi import datadog:index/tagRule:TagRule env \"\u003crule_id\u003e\"\n```\n\n",
             "properties": {
                 "createdAt": {
                     "type": "string",
@@ -154420,7 +154621,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.\n"
+                    "description": "One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `[\"*\"]` with `required = true` means the tag must be present with any value, and `[\"*\"]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with \u003cspan pulumi-lang-nodejs=\"`required`\" pulumi-lang-dotnet=\"`Required`\" pulumi-lang-go=\"`required`\" pulumi-lang-python=\"`required`\" pulumi-lang-yaml=\"`required`\" pulumi-lang-java=\"`required`\" pulumi-lang-hcl=\"`required`\"\u003e`required`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`negated`\" pulumi-lang-dotnet=\"`Negated`\" pulumi-lang-go=\"`negated`\" pulumi-lang-python=\"`negated`\" pulumi-lang-yaml=\"`negated`\" pulumi-lang-java=\"`negated`\" pulumi-lang-hcl=\"`negated`\"\u003e`negated`\u003c/span\u003e both \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e (the rule would have no effect) or both \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e (no value could comply).\n"
                 },
                 "version": {
                     "type": "integer",
@@ -154490,7 +154691,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.\n"
+                    "description": "One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `[\"*\"]` with `required = true` means the tag must be present with any value, and `[\"*\"]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with \u003cspan pulumi-lang-nodejs=\"`required`\" pulumi-lang-dotnet=\"`Required`\" pulumi-lang-go=\"`required`\" pulumi-lang-python=\"`required`\" pulumi-lang-yaml=\"`required`\" pulumi-lang-java=\"`required`\" pulumi-lang-hcl=\"`required`\"\u003e`required`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`negated`\" pulumi-lang-dotnet=\"`Negated`\" pulumi-lang-go=\"`negated`\" pulumi-lang-python=\"`negated`\" pulumi-lang-yaml=\"`negated`\" pulumi-lang-java=\"`negated`\" pulumi-lang-hcl=\"`negated`\"\u003e`negated`\u003c/span\u003e both \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e (the rule would have no effect) or both \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e (no value could comply).\n"
                 }
             },
             "requiredInputs": [
@@ -154565,7 +154766,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.\n"
+                        "description": "One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `[\"*\"]` with `required = true` means the tag must be present with any value, and `[\"*\"]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with \u003cspan pulumi-lang-nodejs=\"`required`\" pulumi-lang-dotnet=\"`Required`\" pulumi-lang-go=\"`required`\" pulumi-lang-python=\"`required`\" pulumi-lang-yaml=\"`required`\" pulumi-lang-java=\"`required`\" pulumi-lang-hcl=\"`required`\"\u003e`required`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`negated`\" pulumi-lang-dotnet=\"`Negated`\" pulumi-lang-go=\"`negated`\" pulumi-lang-python=\"`negated`\" pulumi-lang-yaml=\"`negated`\" pulumi-lang-java=\"`negated`\" pulumi-lang-hcl=\"`negated`\"\u003e`negated`\u003c/span\u003e both \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e (the rule would have no effect) or both \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e (no value could comply).\n"
                     },
                     "version": {
                         "type": "integer",
