@@ -32,17 +32,17 @@ Datadog application key. Required when `validate` is true unless authentication 
 
 awsAccessKeyId: Optional[str]
 """
-The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloud_provider_type` set to `aws`.
+An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
 """
 
 awsSecretAccessKey: Optional[str]
 """
-The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloud_provider_type` set to `aws`.
+An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `aws_access_key_id`. Omit both fields to use the AWS SDK default credential chain.
 """
 
 awsSessionToken: Optional[str]
 """
-The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloud_provider_type` set to `aws` and using temporary credentials.
+An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
 """
 
 bearerToken: Optional[str]
@@ -52,7 +52,7 @@ Datadog credential sent in the `Authorization: Bearer <token>` header. Accepts p
 
 cloudProviderRegion: Optional[str]
 """
-The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
 """
 
 cloudProviderType: Optional[str]

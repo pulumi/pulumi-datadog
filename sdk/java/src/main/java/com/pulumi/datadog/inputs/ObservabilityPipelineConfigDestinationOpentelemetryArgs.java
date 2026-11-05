@@ -33,14 +33,14 @@ public final class ObservabilityPipelineConfigDestinationOpentelemetryArgs exten
     }
 
     /**
-     * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+     * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
      * 
      */
     @Import(name="httpClientUriKey")
     private @Nullable Output<String> httpClientUriKey;
 
     /**
-     * @return Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+     * @return Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
      * 
      */
     public Optional<Output<String>> httpClientUriKey() {
@@ -110,7 +110,7 @@ public final class ObservabilityPipelineConfigDestinationOpentelemetryArgs exten
         }
 
         /**
-         * @param httpClientUriKey Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+         * @param httpClientUriKey Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ObservabilityPipelineConfigDestinationOpentelemetryArgs exten
         }
 
         /**
-         * @param httpClientUriKey Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+         * @param httpClientUriKey Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
          * 
          * @return builder
          * 

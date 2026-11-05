@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ExternalId;
         /// <summary>
+        /// Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `Strategy` is `Basic`).
+        /// </summary>
+        public readonly string? PasswordKey;
+        /// <summary>
         /// Session name for assumed role.
         /// </summary>
         public readonly string? SessionName;
@@ -33,6 +37,10 @@ namespace Pulumi.Datadog.Outputs
         /// The authentication strategy to use (e.g. aws or basic).
         /// </summary>
         public readonly string Strategy;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `Strategy` is `Basic`).
+        /// </summary>
+        public readonly string? UsernameKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationAmazonOpensearchAuth(
@@ -42,15 +50,21 @@ namespace Pulumi.Datadog.Outputs
 
             string? externalId,
 
+            string? passwordKey,
+
             string? sessionName,
 
-            string strategy)
+            string strategy,
+
+            string? usernameKey)
         {
             AssumeRole = assumeRole;
             AwsRegion = awsRegion;
             ExternalId = externalId;
+            PasswordKey = passwordKey;
             SessionName = sessionName;
             Strategy = strategy;
+            UsernameKey = usernameKey;
         }
     }
 }

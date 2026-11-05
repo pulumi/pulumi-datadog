@@ -44,12 +44,14 @@ type SensitiveDataScannerRule struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId pulumi.StringPtrOutput `pulumi:"standardPatternId"`
-	// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+	// Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
 	Suppressions SensitiveDataScannerRuleSuppressionsPtrOutput `pulumi:"suppressions"`
 	// List of tags.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// Object describing how the scanned event will be replaced. Defaults to `type: none`
 	TextReplacement SensitiveDataScannerRuleTextReplacementPtrOutput `pulumi:"textReplacement"`
+	// Whether to use the standard pattern's recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+	UseRecommendedSuppressions pulumi.BoolOutput `pulumi:"useRecommendedSuppressions"`
 }
 
 // NewSensitiveDataScannerRule registers a new resource with the given unique name, arguments, and options.
@@ -105,12 +107,14 @@ type sensitiveDataScannerRuleState struct {
 	Priority *int `pulumi:"priority"`
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId *string `pulumi:"standardPatternId"`
-	// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+	// Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
 	Suppressions *SensitiveDataScannerRuleSuppressions `pulumi:"suppressions"`
 	// List of tags.
 	Tags []string `pulumi:"tags"`
 	// Object describing how the scanned event will be replaced. Defaults to `type: none`
 	TextReplacement *SensitiveDataScannerRuleTextReplacement `pulumi:"textReplacement"`
+	// Whether to use the standard pattern's recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+	UseRecommendedSuppressions *bool `pulumi:"useRecommendedSuppressions"`
 }
 
 type SensitiveDataScannerRuleState struct {
@@ -134,12 +138,14 @@ type SensitiveDataScannerRuleState struct {
 	Priority pulumi.IntPtrInput
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId pulumi.StringPtrInput
-	// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+	// Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
 	Suppressions SensitiveDataScannerRuleSuppressionsPtrInput
 	// List of tags.
 	Tags pulumi.StringArrayInput
 	// Object describing how the scanned event will be replaced. Defaults to `type: none`
 	TextReplacement SensitiveDataScannerRuleTextReplacementPtrInput
+	// Whether to use the standard pattern's recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+	UseRecommendedSuppressions pulumi.BoolPtrInput
 }
 
 func (SensitiveDataScannerRuleState) ElementType() reflect.Type {
@@ -173,12 +179,14 @@ type sensitiveDataScannerRuleArgs struct {
 	Priority *int `pulumi:"priority"`
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId *string `pulumi:"standardPatternId"`
-	// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+	// Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
 	Suppressions *SensitiveDataScannerRuleSuppressions `pulumi:"suppressions"`
 	// List of tags.
 	Tags []string `pulumi:"tags"`
 	// Object describing how the scanned event will be replaced. Defaults to `type: none`
 	TextReplacement *SensitiveDataScannerRuleTextReplacement `pulumi:"textReplacement"`
+	// Whether to use the standard pattern's recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+	UseRecommendedSuppressions *bool `pulumi:"useRecommendedSuppressions"`
 }
 
 // The set of arguments for constructing a SensitiveDataScannerRule resource.
@@ -203,12 +211,14 @@ type SensitiveDataScannerRuleArgs struct {
 	Priority pulumi.IntPtrInput
 	// Id of the standard pattern the rule refers to. If provided, then pattern must not be provided.
 	StandardPatternId pulumi.StringPtrInput
-	// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+	// Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
 	Suppressions SensitiveDataScannerRuleSuppressionsPtrInput
 	// List of tags.
 	Tags pulumi.StringArrayInput
 	// Object describing how the scanned event will be replaced. Defaults to `type: none`
 	TextReplacement SensitiveDataScannerRuleTextReplacementPtrInput
+	// Whether to use the standard pattern's recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+	UseRecommendedSuppressions pulumi.BoolPtrInput
 }
 
 func (SensitiveDataScannerRuleArgs) ElementType() reflect.Type {
@@ -350,7 +360,7 @@ func (o SensitiveDataScannerRuleOutput) StandardPatternId() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *SensitiveDataScannerRule) pulumi.StringPtrOutput { return v.StandardPatternId }).(pulumi.StringPtrOutput)
 }
 
-// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+// Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
 func (o SensitiveDataScannerRuleOutput) Suppressions() SensitiveDataScannerRuleSuppressionsPtrOutput {
 	return o.ApplyT(func(v *SensitiveDataScannerRule) SensitiveDataScannerRuleSuppressionsPtrOutput { return v.Suppressions }).(SensitiveDataScannerRuleSuppressionsPtrOutput)
 }
@@ -365,6 +375,11 @@ func (o SensitiveDataScannerRuleOutput) TextReplacement() SensitiveDataScannerRu
 	return o.ApplyT(func(v *SensitiveDataScannerRule) SensitiveDataScannerRuleTextReplacementPtrOutput {
 		return v.TextReplacement
 	}).(SensitiveDataScannerRuleTextReplacementPtrOutput)
+}
+
+// Whether to use the standard pattern's recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+func (o SensitiveDataScannerRuleOutput) UseRecommendedSuppressions() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SensitiveDataScannerRule) pulumi.BoolOutput { return v.UseRecommendedSuppressions }).(pulumi.BoolOutput)
 }
 
 type SensitiveDataScannerRuleArrayOutput struct{ *pulumi.OutputState }

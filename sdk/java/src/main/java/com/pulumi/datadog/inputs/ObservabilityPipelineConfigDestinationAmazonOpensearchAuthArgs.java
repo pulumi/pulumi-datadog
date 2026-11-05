@@ -62,6 +62,21 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArg
     }
 
     /**
+     * Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+     * 
+     */
+    @Import(name="passwordKey")
+    private @Nullable Output<String> passwordKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+     * 
+     */
+    public Optional<Output<String>> passwordKey() {
+        return Optional.ofNullable(this.passwordKey);
+    }
+
+    /**
      * Session name for assumed role.
      * 
      */
@@ -91,14 +106,31 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArg
         return this.strategy;
     }
 
+    /**
+     * Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+     * 
+     */
+    @Import(name="usernameKey")
+    private @Nullable Output<String> usernameKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+     * 
+     */
+    public Optional<Output<String>> usernameKey() {
+        return Optional.ofNullable(this.usernameKey);
+    }
+
     private ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs() {}
 
     private ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs $) {
         this.assumeRole = $.assumeRole;
         this.awsRegion = $.awsRegion;
         this.externalId = $.externalId;
+        this.passwordKey = $.passwordKey;
         this.sessionName = $.sessionName;
         this.strategy = $.strategy;
+        this.usernameKey = $.usernameKey;
     }
 
     public static Builder builder() {
@@ -183,6 +215,27 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArg
         }
 
         /**
+         * @param passwordKey Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordKey(@Nullable Output<String> passwordKey) {
+            $.passwordKey = passwordKey;
+            return this;
+        }
+
+        /**
+         * @param passwordKey Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordKey(String passwordKey) {
+            return passwordKey(Output.of(passwordKey));
+        }
+
+        /**
          * @param sessionName Session name for assumed role.
          * 
          * @return builder
@@ -222,6 +275,27 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArg
          */
         public Builder strategy(String strategy) {
             return strategy(Output.of(strategy));
+        }
+
+        /**
+         * @param usernameKey Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameKey(@Nullable Output<String> usernameKey) {
+            $.usernameKey = usernameKey;
+            return this;
+        }
+
+        /**
+         * @param usernameKey Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameKey(String usernameKey) {
+            return usernameKey(Output.of(usernameKey));
         }
 
         public ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs build() {

@@ -13,7 +13,10 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ObservabilityPipelineConfigDestinationAmazonOpensearch
     {
-        public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth Auth;
+        /// <summary>
+        /// Authentication settings for the Amazon OpenSearch destination.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth? Auth;
         /// <summary>
         /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
         /// </summary>
@@ -22,18 +25,32 @@ namespace Pulumi.Datadog.Outputs
         /// The index or datastream to write logs to.
         /// </summary>
         public readonly string? BulkIndex;
+        /// <summary>
+        /// Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream? DataStream;
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+        /// </summary>
+        public readonly string? EndpointUrlKey;
 
         [OutputConstructor]
         private ObservabilityPipelineConfigDestinationAmazonOpensearch(
-            Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth auth,
+            Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth? auth,
 
             Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer? buffer,
 
-            string? bulkIndex)
+            string? bulkIndex,
+
+            Outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream? dataStream,
+
+            string? endpointUrlKey)
         {
             Auth = auth;
             Buffer = buffer;
             BulkIndex = bulkIndex;
+            DataStream = dataStream;
+            EndpointUrlKey = endpointUrlKey;
         }
     }
 }

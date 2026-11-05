@@ -43,7 +43,7 @@ Object.defineProperty(exports, "appKey", {
 });
 
 /**
- * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
+ * An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
  */
 export declare const awsAccessKeyId: string | undefined;
 Object.defineProperty(exports, "awsAccessKeyId", {
@@ -54,7 +54,7 @@ Object.defineProperty(exports, "awsAccessKeyId", {
 });
 
 /**
- * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+ * An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `awsAccessKeyId`. Omit both fields to use the AWS SDK default credential chain.
  */
 export declare const awsSecretAccessKey: string | undefined;
 Object.defineProperty(exports, "awsSecretAccessKey", {
@@ -65,7 +65,7 @@ Object.defineProperty(exports, "awsSecretAccessKey", {
 });
 
 /**
- * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+ * An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
  */
 export declare const awsSessionToken: string | undefined;
 Object.defineProperty(exports, "awsSessionToken", {
@@ -87,7 +87,7 @@ Object.defineProperty(exports, "bearerToken", {
 });
 
 /**
- * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+ * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
  */
 export declare const cloudProviderRegion: string | undefined;
 Object.defineProperty(exports, "cloudProviderRegion", {

@@ -19,7 +19,7 @@ public final class ObservabilityPipelineConfigDestinationOpentelemetry {
      */
     private @Nullable ObservabilityPipelineConfigDestinationOpentelemetryBuffer buffer;
     /**
-     * @return Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+     * @return Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
      * 
      */
     private @Nullable String httpClientUriKey;
@@ -38,7 +38,7 @@ public final class ObservabilityPipelineConfigDestinationOpentelemetry {
         return Optional.ofNullable(this.buffer);
     }
     /**
-     * @return Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+     * @return Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
      * 
      */
     public Optional<String> httpClientUriKey() {

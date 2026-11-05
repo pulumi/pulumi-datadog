@@ -173,14 +173,14 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     * Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
      * 
      */
     @Import(name="suppressions")
     private @Nullable Output<SensitiveDataScannerRuleSuppressionsArgs> suppressions;
 
     /**
-     * @return Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     * @return Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
      * 
      */
     public Optional<Output<SensitiveDataScannerRuleSuppressionsArgs>> suppressions() {
@@ -217,6 +217,21 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.textReplacement);
     }
 
+    /**
+     * Whether to use the standard pattern&#39;s recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+     * 
+     */
+    @Import(name="useRecommendedSuppressions")
+    private @Nullable Output<Boolean> useRecommendedSuppressions;
+
+    /**
+     * @return Whether to use the standard pattern&#39;s recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+     * 
+     */
+    public Optional<Output<Boolean>> useRecommendedSuppressions() {
+        return Optional.ofNullable(this.useRecommendedSuppressions);
+    }
+
     private SensitiveDataScannerRuleArgs() {}
 
     private SensitiveDataScannerRuleArgs(SensitiveDataScannerRuleArgs $) {
@@ -233,6 +248,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         this.suppressions = $.suppressions;
         this.tags = $.tags;
         this.textReplacement = $.textReplacement;
+        this.useRecommendedSuppressions = $.useRecommendedSuppressions;
     }
 
     public static Builder builder() {
@@ -484,7 +500,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param suppressions Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+         * @param suppressions Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
          * 
          * @return builder
          * 
@@ -495,7 +511,7 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param suppressions Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+         * @param suppressions Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
          * 
          * @return builder
          * 
@@ -554,6 +570,27 @@ public final class SensitiveDataScannerRuleArgs extends com.pulumi.resources.Res
          */
         public Builder textReplacement(SensitiveDataScannerRuleTextReplacementArgs textReplacement) {
             return textReplacement(Output.of(textReplacement));
+        }
+
+        /**
+         * @param useRecommendedSuppressions Whether to use the standard pattern&#39;s recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useRecommendedSuppressions(@Nullable Output<Boolean> useRecommendedSuppressions) {
+            $.useRecommendedSuppressions = useRecommendedSuppressions;
+            return this;
+        }
+
+        /**
+         * @param useRecommendedSuppressions Whether to use the standard pattern&#39;s recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useRecommendedSuppressions(Boolean useRecommendedSuppressions) {
+            return useRecommendedSuppressions(Output.of(useRecommendedSuppressions));
         }
 
         public SensitiveDataScannerRuleArgs build() {

@@ -55301,6 +55301,32 @@ export interface DeploymentGateRuleOptionsMonitorId {
     id: string;
 }
 
+export interface DerivedMetricDefinition {
+    /**
+     * The formula that combines the queries into the value of the derived metric.
+     */
+    formula: string;
+    /**
+     * The list of queries referenced by the formula.
+     */
+    queries: outputs.DerivedMetricDefinitionQuery[];
+}
+
+export interface DerivedMetricDefinitionQuery {
+    /**
+     * The data source that the query is run against.
+     */
+    dataSource: string;
+    /**
+     * The name used to reference this query from the formula.
+     */
+    name: string;
+    /**
+     * The query string executed against the data source.
+     */
+    query: string;
+}
+
 export interface DowntimeRecurrence {
     /**
      * How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
@@ -61702,7 +61728,7 @@ export interface ObservabilityPipelineConfig {
      */
     destinations?: outputs.ObservabilityPipelineConfigDestination[];
     /**
-     * The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     * The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
      */
     pipelineType: string;
     /**
@@ -61769,6 +61795,10 @@ export interface ObservabilityPipelineConfigDestination {
      */
     datadogMetrics?: outputs.ObservabilityPipelineConfigDestinationDatadogMetric[];
     /**
+     * The `datadogTraces` destination forwards traces to Datadog.
+     */
+    datadogTraces?: outputs.ObservabilityPipelineConfigDestinationDatadogTraces;
+    /**
      * The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      */
     elasticsearches?: outputs.ObservabilityPipelineConfigDestinationElasticsearch[];
@@ -61813,7 +61843,7 @@ export interface ObservabilityPipelineConfigDestination {
      */
     opensearches?: outputs.ObservabilityPipelineConfigDestinationOpensearch[];
     /**
-     * The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+     * The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
      */
     opentelemetry?: outputs.ObservabilityPipelineConfigDestinationOpentelemetry;
     /**
@@ -61851,7 +61881,10 @@ export interface ObservabilityPipelineConfigDestination {
 }
 
 export interface ObservabilityPipelineConfigDestinationAmazonOpensearch {
-    auth: outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth;
+    /**
+     * Authentication settings for the Amazon OpenSearch destination.
+     */
+    auth?: outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth;
     /**
      * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      */
@@ -61860,6 +61893,14 @@ export interface ObservabilityPipelineConfigDestinationAmazonOpensearch {
      * The index or datastream to write logs to.
      */
     bulkIndex?: string;
+    /**
+     * Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+     */
+    dataStream?: outputs.ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream;
+    /**
+     * Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+     */
+    endpointUrlKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
@@ -61876,6 +61917,10 @@ export interface ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
      */
     externalId?: string;
     /**
+     * Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+     */
+    passwordKey?: string;
+    /**
      * Session name for assumed role.
      */
     sessionName?: string;
@@ -61883,6 +61928,10 @@ export interface ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
      * The authentication strategy to use (e.g. aws or basic).
      */
     strategy: string;
+    /**
+     * Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+     */
+    usernameKey?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer {
@@ -61920,6 +61969,21 @@ export interface ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMem
      * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
      */
     whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream {
+    /**
+     * The data stream dataset for your logs. This groups logs by their source or application.
+     */
+    dataset?: string;
+    /**
+     * The data stream type for your logs. This determines how logs are categorized within the data stream.
+     */
+    dtype?: string;
+    /**
+     * The data stream namespace for your logs. This separates logs into different environments or domains.
+     */
+    namespace?: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationAmazonS3 {
@@ -62997,6 +63061,50 @@ export interface ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemo
 export interface ObservabilityPipelineConfigDestinationDatadogMetric {
 }
 
+export interface ObservabilityPipelineConfigDestinationDatadogTraces {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationDatadogTracesBuffer;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogTracesBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
 export interface ObservabilityPipelineConfigDestinationElasticsearch {
     /**
      * The Elasticsearch API version to use. Set to `auto` to auto-detect. Valid values are `auto`, `v6`, `v7`, `v8`.
@@ -63886,7 +63994,7 @@ export interface ObservabilityPipelineConfigDestinationOpentelemetry {
      */
     buffer?: outputs.ObservabilityPipelineConfigDestinationOpentelemetryBuffer;
     /**
-     * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+     * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
      */
     httpClientUriKey?: string;
     /**

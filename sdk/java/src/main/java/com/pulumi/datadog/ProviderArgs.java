@@ -64,14 +64,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
+     * An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
      * 
      */
     @Import(name="awsAccessKeyId")
     private @Nullable Output<String> awsAccessKeyId;
 
     /**
-     * @return The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
+     * @return An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
      * 
      */
     public Optional<Output<String>> awsAccessKeyId() {
@@ -79,14 +79,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+     * An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `awsAccessKeyId`. Omit both fields to use the AWS SDK default credential chain.
      * 
      */
     @Import(name="awsSecretAccessKey")
     private @Nullable Output<String> awsSecretAccessKey;
 
     /**
-     * @return The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+     * @return An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `awsAccessKeyId`. Omit both fields to use the AWS SDK default credential chain.
      * 
      */
     public Optional<Output<String>> awsSecretAccessKey() {
@@ -94,14 +94,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+     * An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
      * 
      */
     @Import(name="awsSessionToken")
     private @Nullable Output<String> awsSessionToken;
 
     /**
-     * @return The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+     * @return An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
      * 
      */
     public Optional<Output<String>> awsSessionToken() {
@@ -124,14 +124,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+     * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
      * 
      */
     @Import(name="cloudProviderRegion")
     private @Nullable Output<String> cloudProviderRegion;
 
     /**
-     * @return The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+     * @return The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
      * 
      */
     public Optional<Output<String>> cloudProviderRegion() {
@@ -425,7 +425,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsAccessKeyId The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
+         * @param awsAccessKeyId An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsAccessKeyId The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
+         * @param awsAccessKeyId An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsSecretAccessKey The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+         * @param awsSecretAccessKey An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `awsAccessKeyId`. Omit both fields to use the AWS SDK default credential chain.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsSecretAccessKey The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+         * @param awsSecretAccessKey An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `awsAccessKeyId`. Omit both fields to use the AWS SDK default credential chain.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsSessionToken The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+         * @param awsSessionToken An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsSessionToken The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+         * @param awsSessionToken An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudProviderRegion The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+         * @param cloudProviderRegion The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cloudProviderRegion The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+         * @param cloudProviderRegion The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
          * 
          * @return builder
          * 

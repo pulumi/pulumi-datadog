@@ -16,6 +16,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationCrowdstr
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatabricksZerobus;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogLog;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogMetric;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogTraces;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationElasticsearch;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGoogleCloudStorage;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationGooglePubsub;
@@ -104,6 +105,11 @@ public final class ObservabilityPipelineConfigDestination {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics;
     /**
+     * @return The `datadogTraces` destination forwards traces to Datadog.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationDatadogTraces datadogTraces;
+    /**
      * @return The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
@@ -159,7 +165,7 @@ public final class ObservabilityPipelineConfigDestination {
      */
     private @Nullable List<ObservabilityPipelineConfigDestinationOpensearch> opensearches;
     /**
-     * @return The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+     * @return The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
      * 
      */
     private @Nullable ObservabilityPipelineConfigDestinationOpentelemetry opentelemetry;
@@ -290,6 +296,13 @@ public final class ObservabilityPipelineConfigDestination {
         return this.datadogMetrics == null ? List.of() : this.datadogMetrics;
     }
     /**
+     * @return The `datadogTraces` destination forwards traces to Datadog.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationDatadogTraces> datadogTraces() {
+        return Optional.ofNullable(this.datadogTraces);
+    }
+    /**
      * @return The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
@@ -367,7 +380,7 @@ public final class ObservabilityPipelineConfigDestination {
         return this.opensearches == null ? List.of() : this.opensearches;
     }
     /**
-     * @return The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+     * @return The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
      * 
      */
     public Optional<ObservabilityPipelineConfigDestinationOpentelemetry> opentelemetry() {
@@ -451,6 +464,7 @@ public final class ObservabilityPipelineConfigDestination {
         private @Nullable List<ObservabilityPipelineConfigDestinationDatabricksZerobus> databricksZerobuses;
         private @Nullable List<ObservabilityPipelineConfigDestinationDatadogLog> datadogLogs;
         private @Nullable List<ObservabilityPipelineConfigDestinationDatadogMetric> datadogMetrics;
+        private @Nullable ObservabilityPipelineConfigDestinationDatadogTraces datadogTraces;
         private @Nullable List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches;
         private @Nullable List<ObservabilityPipelineConfigDestinationGoogleCloudStorage> googleCloudStorages;
         private @Nullable List<ObservabilityPipelineConfigDestinationGooglePubsub> googlePubsubs;
@@ -486,6 +500,7 @@ public final class ObservabilityPipelineConfigDestination {
     	      this.databricksZerobuses = defaults.databricksZerobuses;
     	      this.datadogLogs = defaults.datadogLogs;
     	      this.datadogMetrics = defaults.datadogMetrics;
+    	      this.datadogTraces = defaults.datadogTraces;
     	      this.elasticsearches = defaults.elasticsearches;
     	      this.googleCloudStorages = defaults.googleCloudStorages;
     	      this.googlePubsubs = defaults.googlePubsubs;
@@ -603,6 +618,12 @@ public final class ObservabilityPipelineConfigDestination {
         }
         public Builder datadogMetrics(ObservabilityPipelineConfigDestinationDatadogMetric... datadogMetrics) {
             return datadogMetrics(List.of(datadogMetrics));
+        }
+        @CustomType.Setter
+        public Builder datadogTraces(@Nullable ObservabilityPipelineConfigDestinationDatadogTraces datadogTraces) {
+
+            this.datadogTraces = datadogTraces;
+            return this;
         }
         @CustomType.Setter
         public Builder elasticsearches(@Nullable List<ObservabilityPipelineConfigDestinationElasticsearch> elasticsearches) {
@@ -787,6 +808,7 @@ public final class ObservabilityPipelineConfigDestination {
             _resultValue.databricksZerobuses = databricksZerobuses;
             _resultValue.datadogLogs = datadogLogs;
             _resultValue.datadogMetrics = datadogMetrics;
+            _resultValue.datadogTraces = datadogTraces;
             _resultValue.elasticsearches = elasticsearches;
             _resultValue.googleCloudStorages = googleCloudStorages;
             _resultValue.googlePubsubs = googlePubsubs;

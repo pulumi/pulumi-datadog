@@ -40,15 +40,15 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly appKey: pulumi.Output<string | undefined>;
     /**
-     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
+     * An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
      */
     declare public readonly awsAccessKeyId: pulumi.Output<string | undefined>;
     /**
-     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+     * An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `awsAccessKeyId`. Omit both fields to use the AWS SDK default credential chain.
      */
     declare public readonly awsSecretAccessKey: pulumi.Output<string | undefined>;
     /**
-     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+     * An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
      */
     declare public readonly awsSessionToken: pulumi.Output<string | undefined>;
     /**
@@ -56,7 +56,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     declare public readonly bearerToken: pulumi.Output<string | undefined>;
     /**
-     * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+     * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
      */
     declare public readonly cloudProviderRegion: pulumi.Output<string | undefined>;
     /**
@@ -145,15 +145,15 @@ export interface ProviderArgs {
      */
     appKey?: pulumi.Input<string | undefined>;
     /**
-     * The AWS access key ID; used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. Required when using `cloudProviderType` set to `aws`.
+     * An optional explicit AWS access key ID used for cloud-provider-based authentication. This can also be set using the `AWS_ACCESS_KEY_ID` environment variable. When explicit credentials are omitted, the AWS SDK default credential chain is used.
      */
     awsAccessKeyId?: pulumi.Input<string | undefined>;
     /**
-     * The AWS secret access key; used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. Required when using `cloudProviderType` set to `aws`.
+     * An optional explicit AWS secret access key used for cloud-provider-based authentication. This can also be set using the `AWS_SECRET_ACCESS_KEY` environment variable. It must be provided together with `awsAccessKeyId`. Omit both fields to use the AWS SDK default credential chain.
      */
     awsSecretAccessKey?: pulumi.Input<string | undefined>;
     /**
-     * The AWS session token; used for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable. Required when using `cloudProviderType` set to `aws` and using temporary credentials.
+     * An optional AWS session token used with explicit temporary credentials for cloud-provider-based authentication. This can also be set using the `AWS_SESSION_TOKEN` environment variable.
      */
     awsSessionToken?: pulumi.Input<string | undefined>;
     /**
@@ -161,7 +161,7 @@ export interface ProviderArgs {
      */
     bearerToken?: pulumi.Input<string | undefined>;
     /**
-     * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS.
+     * The cloud provider region specifier; used for cloud-provider-based authentication. For example, `us-east-1` for AWS. When omitted for AWS, the region is loaded from the AWS SDK default configuration chain.
      */
     cloudProviderRegion?: pulumi.Input<string | undefined>;
     /**

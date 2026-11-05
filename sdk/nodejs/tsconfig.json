@@ -81,6 +81,7 @@
         "datastore.ts",
         "datastoreItem.ts",
         "deploymentGate.ts",
+        "derivedMetric.ts",
         "domainAllowlist.ts",
         "downtime.ts",
         "downtimeSchedule.ts",

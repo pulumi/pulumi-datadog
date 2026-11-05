@@ -7,7 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,11 +18,19 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs ex
 
     public static final ObservabilityPipelineConfigDestinationAmazonOpensearchArgs Empty = new ObservabilityPipelineConfigDestinationAmazonOpensearchArgs();
 
-    @Import(name="auth", required=true)
-    private Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth;
+    /**
+     * Authentication settings for the Amazon OpenSearch destination.
+     * 
+     */
+    @Import(name="auth")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth;
 
-    public Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth() {
-        return this.auth;
+    /**
+     * @return Authentication settings for the Amazon OpenSearch destination.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs>> auth() {
+        return Optional.ofNullable(this.auth);
     }
 
     /**
@@ -55,12 +63,44 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs ex
         return Optional.ofNullable(this.bulkIndex);
     }
 
+    /**
+     * Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+     * 
+     */
+    @Import(name="dataStream")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs> dataStream;
+
+    /**
+     * @return Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs>> dataStream() {
+        return Optional.ofNullable(this.dataStream);
+    }
+
+    /**
+     * Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+     * 
+     */
+    @Import(name="endpointUrlKey")
+    private @Nullable Output<String> endpointUrlKey;
+
+    /**
+     * @return Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+     * 
+     */
+    public Optional<Output<String>> endpointUrlKey() {
+        return Optional.ofNullable(this.endpointUrlKey);
+    }
+
     private ObservabilityPipelineConfigDestinationAmazonOpensearchArgs() {}
 
     private ObservabilityPipelineConfigDestinationAmazonOpensearchArgs(ObservabilityPipelineConfigDestinationAmazonOpensearchArgs $) {
         this.auth = $.auth;
         this.buffer = $.buffer;
         this.bulkIndex = $.bulkIndex;
+        this.dataStream = $.dataStream;
+        this.endpointUrlKey = $.endpointUrlKey;
     }
 
     public static Builder builder() {
@@ -81,11 +121,23 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs ex
             $ = new ObservabilityPipelineConfigDestinationAmazonOpensearchArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder auth(Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth) {
+        /**
+         * @param auth Authentication settings for the Amazon OpenSearch destination.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auth(@Nullable Output<ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs> auth) {
             $.auth = auth;
             return this;
         }
 
+        /**
+         * @param auth Authentication settings for the Amazon OpenSearch destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder auth(ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs auth) {
             return auth(Output.of(auth));
         }
@@ -132,10 +184,49 @@ public final class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs ex
             return bulkIndex(Output.of(bulkIndex));
         }
 
+        /**
+         * @param dataStream Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataStream(@Nullable Output<ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs> dataStream) {
+            $.dataStream = dataStream;
+            return this;
+        }
+
+        /**
+         * @param dataStream Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataStream(ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs dataStream) {
+            return dataStream(Output.of(dataStream));
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(@Nullable Output<String> endpointUrlKey) {
+            $.endpointUrlKey = endpointUrlKey;
+            return this;
+        }
+
+        /**
+         * @param endpointUrlKey Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUrlKey(String endpointUrlKey) {
+            return endpointUrlKey(Output.of(endpointUrlKey));
+        }
+
         public ObservabilityPipelineConfigDestinationAmazonOpensearchArgs build() {
-            if ($.auth == null) {
-                throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationAmazonOpensearchArgs", "auth");
-            }
             return $;
         }
     }

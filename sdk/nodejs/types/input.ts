@@ -55301,6 +55301,32 @@ export interface DeploymentGateRuleOptionsMonitorId {
     id: pulumi.Input<string>;
 }
 
+export interface DerivedMetricDefinition {
+    /**
+     * The formula that combines the queries into the value of the derived metric.
+     */
+    formula: pulumi.Input<string>;
+    /**
+     * The list of queries referenced by the formula.
+     */
+    queries: pulumi.Input<pulumi.Input<inputs.DerivedMetricDefinitionQuery>[]>;
+}
+
+export interface DerivedMetricDefinitionQuery {
+    /**
+     * The data source that the query is run against.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * The name used to reference this query from the formula.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The query string executed against the data source.
+     */
+    query: pulumi.Input<string>;
+}
+
 export interface DowntimeRecurrence {
     /**
      * How often to repeat as an integer. For example to repeat every 3 days, select a `type` of `days` and a `period` of `3`.
@@ -61325,7 +61351,7 @@ export interface ObservabilityPipelineConfig {
      */
     destinations?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestination>[] | undefined>;
     /**
-     * The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+     * The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
      */
     pipelineType?: pulumi.Input<string | undefined>;
     /**
@@ -61392,6 +61418,10 @@ export interface ObservabilityPipelineConfigDestination {
      */
     datadogMetrics?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogMetric>[] | undefined>;
     /**
+     * The `datadogTraces` destination forwards traces to Datadog.
+     */
+    datadogTraces?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogTraces | undefined>;
+    /**
      * The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      */
     elasticsearches?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationElasticsearch>[] | undefined>;
@@ -61436,7 +61466,7 @@ export interface ObservabilityPipelineConfigDestination {
      */
     opensearches?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpensearch>[] | undefined>;
     /**
-     * The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+     * The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
      */
     opentelemetry?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpentelemetry | undefined>;
     /**
@@ -61474,7 +61504,10 @@ export interface ObservabilityPipelineConfigDestination {
 }
 
 export interface ObservabilityPipelineConfigDestinationAmazonOpensearch {
-    auth: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth>;
+    /**
+     * Authentication settings for the Amazon OpenSearch destination.
+     */
+    auth?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchAuth | undefined>;
     /**
      * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
      */
@@ -61483,6 +61516,14 @@ export interface ObservabilityPipelineConfigDestinationAmazonOpensearch {
      * The index or datastream to write logs to.
      */
     bulkIndex?: pulumi.Input<string | undefined>;
+    /**
+     * Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+     */
+    dataStream?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream | undefined>;
+    /**
+     * Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+     */
+    endpointUrlKey?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
@@ -61499,6 +61540,10 @@ export interface ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
      */
     externalId?: pulumi.Input<string | undefined>;
     /**
+     * Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+     */
+    passwordKey?: pulumi.Input<string | undefined>;
+    /**
      * Session name for assumed role.
      */
     sessionName?: pulumi.Input<string | undefined>;
@@ -61506,6 +61551,10 @@ export interface ObservabilityPipelineConfigDestinationAmazonOpensearchAuth {
      * The authentication strategy to use (e.g. aws or basic).
      */
     strategy: pulumi.Input<string>;
+    /**
+     * Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+     */
+    usernameKey?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigDestinationAmazonOpensearchBuffer {
@@ -61543,6 +61592,21 @@ export interface ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMem
      * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
      */
     whenFull?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationAmazonOpensearchDataStream {
+    /**
+     * The data stream dataset for your logs. This groups logs by their source or application.
+     */
+    dataset?: pulumi.Input<string | undefined>;
+    /**
+     * The data stream type for your logs. This determines how logs are categorized within the data stream.
+     */
+    dtype?: pulumi.Input<string | undefined>;
+    /**
+     * The data stream namespace for your logs. This separates logs into different environments or domains.
+     */
+    namespace?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigDestinationAmazonS3 {
@@ -62620,6 +62684,50 @@ export interface ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemo
 export interface ObservabilityPipelineConfigDestinationDatadogMetric {
 }
 
+export interface ObservabilityPipelineConfigDestinationDatadogTraces {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogTracesBuffer | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogTracesBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk | undefined>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogTracesBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number | undefined>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogTracesBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number | undefined>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number | undefined>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string | undefined>;
+}
+
 export interface ObservabilityPipelineConfigDestinationElasticsearch {
     /**
      * The Elasticsearch API version to use. Set to `auto` to auto-detect. Valid values are `auto`, `v6`, `v7`, `v8`.
@@ -63509,7 +63617,7 @@ export interface ObservabilityPipelineConfigDestinationOpentelemetry {
      */
     buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationOpentelemetryBuffer | undefined>;
     /**
-     * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+     * Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
      */
     httpClientUriKey?: pulumi.Input<string | undefined>;
     /**

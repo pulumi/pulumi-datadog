@@ -175,14 +175,14 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.standardPatternId);
     }
     /**
-     * Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     * Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
      * 
      */
     @Export(name="suppressions", refs={SensitiveDataScannerRuleSuppressions.class}, tree="[0]")
     private Output</* @Nullable */ SensitiveDataScannerRuleSuppressions> suppressions;
 
     /**
-     * @return Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `startsWith`, `endsWith`, and `exactMatch`.
+     * @return Object defining custom suppressions to skip matches based on `startsWith`, `endsWith`, and `exactMatch` rules. Custom lists are managed independently of `useRecommendedSuppressions`. Replacing or removing `suppressions` updates or clears the custom lists without affecting `useRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
      * 
      */
     public Output<Optional<SensitiveDataScannerRuleSuppressions>> suppressions() {
@@ -215,6 +215,20 @@ public class SensitiveDataScannerRule extends com.pulumi.resources.CustomResourc
      */
     public Output<Optional<SensitiveDataScannerRuleTextReplacement>> textReplacement() {
         return Codegen.optional(this.textReplacement);
+    }
+    /**
+     * Whether to use the standard pattern&#39;s recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+     * 
+     */
+    @Export(name="useRecommendedSuppressions", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> useRecommendedSuppressions;
+
+    /**
+     * @return Whether to use the standard pattern&#39;s recommended suppressions. Requires `standardPatternId` when true. Defaults to `true` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `suppressions` block and are retained when this setting changes.
+     * 
+     */
+    public Output<Boolean> useRecommendedSuppressions() {
+        return this.useRecommendedSuppressions;
     }
 
     /**

@@ -17,6 +17,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationCrowdstri
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatabricksZerobusArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogLogArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogMetricArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationDatadogTracesArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationElasticsearchArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigDestinationGooglePubsubArgs;
@@ -228,6 +229,21 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
+     * The `datadogTraces` destination forwards traces to Datadog.
+     * 
+     */
+    @Import(name="datadogTraces")
+    private @Nullable Output<ObservabilityPipelineConfigDestinationDatadogTracesArgs> datadogTraces;
+
+    /**
+     * @return The `datadogTraces` destination forwards traces to Datadog.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigDestinationDatadogTracesArgs>> datadogTraces() {
+        return Optional.ofNullable(this.datadogTraces);
+    }
+
+    /**
      * The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
      * 
      */
@@ -393,14 +409,14 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
     }
 
     /**
-     * The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+     * The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
      * 
      */
     @Import(name="opentelemetry")
     private @Nullable Output<ObservabilityPipelineConfigDestinationOpentelemetryArgs> opentelemetry;
 
     /**
-     * @return The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+     * @return The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
      * 
      */
     public Optional<Output<ObservabilityPipelineConfigDestinationOpentelemetryArgs>> opentelemetry() {
@@ -542,6 +558,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         this.databricksZerobuses = $.databricksZerobuses;
         this.datadogLogs = $.datadogLogs;
         this.datadogMetrics = $.datadogMetrics;
+        this.datadogTraces = $.datadogTraces;
         this.elasticsearches = $.elasticsearches;
         this.googleCloudStorages = $.googleCloudStorages;
         this.googlePubsubs = $.googlePubsubs;
@@ -915,6 +932,27 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
+         * @param datadogTraces The `datadogTraces` destination forwards traces to Datadog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datadogTraces(@Nullable Output<ObservabilityPipelineConfigDestinationDatadogTracesArgs> datadogTraces) {
+            $.datadogTraces = datadogTraces;
+            return this;
+        }
+
+        /**
+         * @param datadogTraces The `datadogTraces` destination forwards traces to Datadog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datadogTraces(ObservabilityPipelineConfigDestinationDatadogTracesArgs datadogTraces) {
+            return datadogTraces(Output.of(datadogTraces));
+        }
+
+        /**
          * @param elasticsearches The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
          * 
          * @return builder
@@ -1236,7 +1274,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param opentelemetry The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+         * @param opentelemetry The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
          * 
          * @return builder
          * 
@@ -1247,7 +1285,7 @@ public final class ObservabilityPipelineConfigDestinationArgs extends com.pulumi
         }
 
         /**
-         * @param opentelemetry The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+         * @param opentelemetry The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
          * 
          * @return builder
          * 

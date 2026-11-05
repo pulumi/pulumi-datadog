@@ -5975,6 +5975,10 @@ __all__ = [
     'DeploymentGateRuleOptionsArgsDict',
     'DeploymentGateRuleOptionsMonitorIdArgs',
     'DeploymentGateRuleOptionsMonitorIdArgsDict',
+    'DerivedMetricDefinitionArgs',
+    'DerivedMetricDefinitionArgsDict',
+    'DerivedMetricDefinitionQueryArgs',
+    'DerivedMetricDefinitionQueryArgsDict',
     'DowntimeRecurrenceArgs',
     'DowntimeRecurrenceArgsDict',
     'DowntimeScheduleMonitorIdentifierArgs',
@@ -6375,6 +6379,8 @@ __all__ = [
     'ObservabilityPipelineConfigDestinationAmazonOpensearchBufferDiskArgsDict',
     'ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs',
     'ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgsDict',
+    'ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs',
+    'ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgsDict',
     'ObservabilityPipelineConfigDestinationAmazonS3Args',
     'ObservabilityPipelineConfigDestinationAmazonS3ArgsDict',
     'ObservabilityPipelineConfigDestinationAmazonS3AuthArgs',
@@ -6513,6 +6519,14 @@ __all__ = [
     'ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemoryArgsDict',
     'ObservabilityPipelineConfigDestinationDatadogMetricArgs',
     'ObservabilityPipelineConfigDestinationDatadogMetricArgsDict',
+    'ObservabilityPipelineConfigDestinationDatadogTracesArgs',
+    'ObservabilityPipelineConfigDestinationDatadogTracesArgsDict',
+    'ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs',
+    'ObservabilityPipelineConfigDestinationDatadogTracesBufferArgsDict',
+    'ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs',
+    'ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgsDict',
+    'ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs',
+    'ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgsDict',
     'ObservabilityPipelineConfigDestinationElasticsearchArgs',
     'ObservabilityPipelineConfigDestinationElasticsearchArgsDict',
     'ObservabilityPipelineConfigDestinationElasticsearchAuthArgs',
@@ -264720,6 +264734,119 @@ class DeploymentGateRuleOptionsMonitorIdArgs:
         pulumi.set(self, "id", value)
 
 
+class DerivedMetricDefinitionArgsDict(TypedDict):
+    formula: pulumi.Input[_builtins.str]
+    """
+    The formula that combines the queries into the value of the derived metric.
+    """
+    queries: pulumi.Input[Sequence[pulumi.Input['DerivedMetricDefinitionQueryArgsDict']]]
+    """
+    The list of queries referenced by the formula.
+    """
+
+@pulumi.input_type
+class DerivedMetricDefinitionArgs:
+    def __init__(__self__, *,
+                 formula: pulumi.Input[_builtins.str],
+                 queries: pulumi.Input[Sequence[pulumi.Input['DerivedMetricDefinitionQueryArgs']]]):
+        """
+        :param pulumi.Input[_builtins.str] formula: The formula that combines the queries into the value of the derived metric.
+        :param pulumi.Input[Sequence[pulumi.Input['DerivedMetricDefinitionQueryArgs']]] queries: The list of queries referenced by the formula.
+        """
+        pulumi.set(__self__, "formula", formula)
+        pulumi.set(__self__, "queries", queries)
+
+    @_builtins.property
+    @pulumi.getter
+    def formula(self) -> pulumi.Input[_builtins.str]:
+        """
+        The formula that combines the queries into the value of the derived metric.
+        """
+        return pulumi.get(self, "formula")
+
+    @formula.setter
+    def formula(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "formula", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def queries(self) -> pulumi.Input[Sequence[pulumi.Input['DerivedMetricDefinitionQueryArgs']]]:
+        """
+        The list of queries referenced by the formula.
+        """
+        return pulumi.get(self, "queries")
+
+    @queries.setter
+    def queries(self, value: pulumi.Input[Sequence[pulumi.Input['DerivedMetricDefinitionQueryArgs']]]):
+        pulumi.set(self, "queries", value)
+
+
+class DerivedMetricDefinitionQueryArgsDict(TypedDict):
+    data_source: pulumi.Input[_builtins.str]
+    """
+    The data source that the query is run against.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name used to reference this query from the formula.
+    """
+    query: pulumi.Input[_builtins.str]
+    """
+    The query string executed against the data source.
+    """
+
+@pulumi.input_type
+class DerivedMetricDefinitionQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 query: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] data_source: The data source that the query is run against.
+        :param pulumi.Input[_builtins.str] name: The name used to reference this query from the formula.
+        :param pulumi.Input[_builtins.str] query: The query string executed against the data source.
+        """
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The data source that the query is run against.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name used to reference this query from the formula.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[_builtins.str]:
+        """
+        The query string executed against the data source.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "query", value)
+
+
 class DowntimeRecurrenceArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
@@ -281451,7 +281578,7 @@ class ObservabilityPipelineConfigArgsDict(TypedDict):
     """
     pipeline_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+    The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
     """
     processor_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupArgsDict']]]]]
     """
@@ -281476,7 +281603,7 @@ class ObservabilityPipelineConfigArgs:
                  use_legacy_search_syntax: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationArgs']]] destinations: List of destinations.
-        :param pulumi.Input[_builtins.str] pipeline_type: The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+        :param pulumi.Input[_builtins.str] pipeline_type: The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupArgs']]] processor_groups: A processor group containing common configuration and nested processors.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigSourceArgs']]] sources: List of sources.
         :param pulumi.Input[_builtins.bool] use_legacy_search_syntax: Set to `true` to continue using the legacy search syntax while migrating filter queries. After migrating all queries to the new syntax, set to `false`. The legacy syntax is deprecated and will eventually be removed. Requires Observability Pipelines Worker 2.11 or later. Only applies to `logs` pipelines. This field is ignored for `metrics` pipelines. See https://docs.datadoghq.com/observability*pipelines/guide/upgrade*your*filter*queries*to*the*new*search_syntax/ for more information.
@@ -281508,7 +281635,7 @@ class ObservabilityPipelineConfigArgs:
     @pulumi.getter(name="pipelineType")
     def pipeline_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`.
+        The type of data being ingested. Defaults to `logs` if not specified. Valid values are `logs`, `metrics`, `traces`.
         """
         return pulumi.get(self, "pipeline_type")
 
@@ -281610,6 +281737,10 @@ class ObservabilityPipelineConfigDestinationArgsDict(TypedDict):
     """
     The `get_metrics` destination forwards metrics to Datadog.
     """
+    datadog_traces: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesArgsDict']]]
+    """
+    The `datadog_traces` destination forwards traces to Datadog.
+    """
     elasticsearches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationElasticsearchArgsDict']]]]]
     """
     The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
@@ -281648,7 +281779,7 @@ class ObservabilityPipelineConfigDestinationArgsDict(TypedDict):
     """
     opentelemetry: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationOpentelemetryArgsDict']]]
     """
-    The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+    The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
     """
     prometheus_remote_write: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgsDict']]]
     """
@@ -281700,6 +281831,7 @@ class ObservabilityPipelineConfigDestinationArgs:
                  databricks_zerobuses: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationDatabricksZerobusArgs']]]] = None,
                  datadog_logs: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationDatadogLogArgs']]]] = None,
                  datadog_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationDatadogMetricArgs']]]] = None,
+                 datadog_traces: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesArgs']] = None,
                  elasticsearches: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationElasticsearchArgs']]]] = None,
                  google_cloud_storages: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs']]]] = None,
                  google_pubsubs: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationGooglePubsubArgs']]]] = None,
@@ -281733,6 +281865,7 @@ class ObservabilityPipelineConfigDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationDatabricksZerobusArgs']]] databricks_zerobuses: The `databricks_zerobus` destination sends logs to Databricks via the Zerobus ingestion API.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationDatadogLogArgs']]] datadog_logs: The `datadog_logs` destination forwards logs to Datadog Log Management.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationDatadogMetricArgs']]] datadog_metrics: The `get_metrics` destination forwards metrics to Datadog.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationDatadogTracesArgs'] datadog_traces: The `datadog_traces` destination forwards traces to Datadog.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationElasticsearchArgs']]] elasticsearches: The `elasticsearch` destination writes logs or metrics to an Elasticsearch cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationGoogleCloudStorageArgs']]] google_cloud_storages: The `google_cloud_storage` destination stores logs in a Google Cloud Storage (GCS) bucket.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationGooglePubsubArgs']]] google_pubsubs: The `google_pubsub` destination publishes logs to a Google Cloud Pub/Sub topic.
@@ -281742,7 +281875,7 @@ class ObservabilityPipelineConfigDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationMicrosoftSentinelArgs']]] microsoft_sentinels: The `microsoft_sentinel` destination forwards logs to Microsoft Sentinel.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationNewRelicArgs']]] new_relics: The `new_relic` destination sends logs to the New Relic platform.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationOpensearchArgs']]] opensearches: The `opensearch` destination writes logs to an OpenSearch cluster.
-        :param pulumi.Input['ObservabilityPipelineConfigDestinationOpentelemetryArgs'] opentelemetry: The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationOpentelemetryArgs'] opentelemetry: The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
         :param pulumi.Input['ObservabilityPipelineConfigDestinationPrometheusRemoteWriteArgs'] prometheus_remote_write: The `prometheus_remote_write` destination sends metrics to a Prometheus Remote Write compatible endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationRsyslogArgs']]] rsyslogs: The `rsyslog` destination forwards logs to an external `rsyslog` server over TCP or UDP using the syslog protocol.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationSentinelOneArgs']]] sentinel_ones: The `sentinel_one` destination sends logs to SentinelOne.
@@ -281778,6 +281911,8 @@ class ObservabilityPipelineConfigDestinationArgs:
             pulumi.set(__self__, "datadog_logs", datadog_logs)
         if datadog_metrics is not None:
             pulumi.set(__self__, "datadog_metrics", datadog_metrics)
+        if datadog_traces is not None:
+            pulumi.set(__self__, "datadog_traces", datadog_traces)
         if elasticsearches is not None:
             pulumi.set(__self__, "elasticsearches", elasticsearches)
         if google_cloud_storages is not None:
@@ -281984,6 +282119,18 @@ class ObservabilityPipelineConfigDestinationArgs:
         pulumi.set(self, "datadog_metrics", value)
 
     @_builtins.property
+    @pulumi.getter(name="datadogTraces")
+    def datadog_traces(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesArgs']]:
+        """
+        The `datadog_traces` destination forwards traces to Datadog.
+        """
+        return pulumi.get(self, "datadog_traces")
+
+    @datadog_traces.setter
+    def datadog_traces(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesArgs']]):
+        pulumi.set(self, "datadog_traces", value)
+
+    @_builtins.property
     @pulumi.getter
     def elasticsearches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigDestinationElasticsearchArgs']]]]:
         """
@@ -282095,7 +282242,7 @@ class ObservabilityPipelineConfigDestinationArgs:
     @pulumi.getter
     def opentelemetry(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationOpentelemetryArgs']]:
         """
-        The `opentelemetry` destination forwards metrics using the OpenTelemetry Protocol (OTLP) over HTTP.
+        The `opentelemetry` destination forwards metrics or traces using the OpenTelemetry Protocol (OTLP) over HTTP.
         """
         return pulumi.get(self, "opentelemetry")
 
@@ -282201,7 +282348,10 @@ class ObservabilityPipelineConfigDestinationArgs:
 
 
 class ObservabilityPipelineConfigDestinationAmazonOpensearchArgsDict(TypedDict):
-    auth: pulumi.Input['ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgsDict']
+    auth: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgsDict']]]
+    """
+    Authentication settings for the Amazon OpenSearch destination.
+    """
     buffer: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgsDict']]]
     """
     Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
@@ -282210,30 +282360,51 @@ class ObservabilityPipelineConfigDestinationAmazonOpensearchArgsDict(TypedDict):
     """
     The index or datastream to write logs to.
     """
+    data_stream: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgsDict']]]
+    """
+    Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+    """
+    endpoint_url_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+    """
 
 @pulumi.input_type
 class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs:
     def __init__(__self__, *,
-                 auth: pulumi.Input['ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs'],
+                 auth: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs']] = None,
                  buffer: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs']] = None,
-                 bulk_index: pulumi.Input[Optional[_builtins.str]] = None):
+                 bulk_index: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_stream: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs']] = None,
+                 endpoint_url_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs'] auth: Authentication settings for the Amazon OpenSearch destination.
         :param pulumi.Input['ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgs'] buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
         :param pulumi.Input[_builtins.str] bulk_index: The index or datastream to write logs to.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs'] data_stream: Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+        :param pulumi.Input[_builtins.str] endpoint_url_key: Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
         """
-        pulumi.set(__self__, "auth", auth)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
         if buffer is not None:
             pulumi.set(__self__, "buffer", buffer)
         if bulk_index is not None:
             pulumi.set(__self__, "bulk_index", bulk_index)
+        if data_stream is not None:
+            pulumi.set(__self__, "data_stream", data_stream)
+        if endpoint_url_key is not None:
+            pulumi.set(__self__, "endpoint_url_key", endpoint_url_key)
 
     @_builtins.property
     @pulumi.getter
-    def auth(self) -> pulumi.Input['ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs']:
+    def auth(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs']]:
+        """
+        Authentication settings for the Amazon OpenSearch destination.
+        """
         return pulumi.get(self, "auth")
 
     @auth.setter
-    def auth(self, value: pulumi.Input['ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs']):
+    def auth(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs']]):
         pulumi.set(self, "auth", value)
 
     @_builtins.property
@@ -282260,6 +282431,30 @@ class ObservabilityPipelineConfigDestinationAmazonOpensearchArgs:
     def bulk_index(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bulk_index", value)
 
+    @_builtins.property
+    @pulumi.getter(name="dataStream")
+    def data_stream(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs']]:
+        """
+        Configuration options for writing to Amazon OpenSearch Data Streams instead of a fixed index.
+        """
+        return pulumi.get(self, "data_stream")
+
+    @data_stream.setter
+    def data_stream(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs']]):
+        pulumi.set(self, "data_stream", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointUrlKey")
+    def endpoint_url_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the Amazon OpenSearch endpoint URL.
+        """
+        return pulumi.get(self, "endpoint_url_key")
+
+    @endpoint_url_key.setter
+    def endpoint_url_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "endpoint_url_key", value)
+
 
 class ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgsDict(TypedDict):
     strategy: pulumi.Input[_builtins.str]
@@ -282278,9 +282473,17 @@ class ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgsDict(TypedDi
     """
     External ID for assumed role.
     """
+    password_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+    """
     session_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Session name for assumed role.
+    """
+    username_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
     """
 
 @pulumi.input_type
@@ -282290,13 +282493,17 @@ class ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs:
                  assume_role: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_region: pulumi.Input[Optional[_builtins.str]] = None,
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 session_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 password_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] strategy: The authentication strategy to use (e.g. aws or basic).
         :param pulumi.Input[_builtins.str] assume_role: ARN of the role to assume.
         :param pulumi.Input[_builtins.str] aws_region: AWS region override (if applicable).
         :param pulumi.Input[_builtins.str] external_id: External ID for assumed role.
+        :param pulumi.Input[_builtins.str] password_key: Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
         :param pulumi.Input[_builtins.str] session_name: Session name for assumed role.
+        :param pulumi.Input[_builtins.str] username_key: Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
         """
         pulumi.set(__self__, "strategy", strategy)
         if assume_role is not None:
@@ -282305,8 +282512,12 @@ class ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs:
             pulumi.set(__self__, "aws_region", aws_region)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
+        if password_key is not None:
+            pulumi.set(__self__, "password_key", password_key)
         if session_name is not None:
             pulumi.set(__self__, "session_name", session_name)
+        if username_key is not None:
+            pulumi.set(__self__, "username_key", username_key)
 
     @_builtins.property
     @pulumi.getter
@@ -282357,6 +282568,18 @@ class ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs:
         pulumi.set(self, "external_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="passwordKey")
+    def password_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `strategy` is `basic`).
+        """
+        return pulumi.get(self, "password_key")
+
+    @password_key.setter
+    def password_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password_key", value)
+
+    @_builtins.property
     @pulumi.getter(name="sessionName")
     def session_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -282367,6 +282590,18 @@ class ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs:
     @session_name.setter
     def session_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usernameKey")
+    def username_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `strategy` is `basic`).
+        """
+        return pulumi.get(self, "username_key")
+
+    @username_key.setter
+    def username_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username_key", value)
 
 
 class ObservabilityPipelineConfigDestinationAmazonOpensearchBufferArgsDict(TypedDict):
@@ -282534,6 +282769,75 @@ class ObservabilityPipelineConfigDestinationAmazonOpensearchBufferMemoryArgs:
     @when_full.setter
     def when_full(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "when_full", value)
+
+
+class ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgsDict(TypedDict):
+    dataset: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The data stream dataset for your logs. This groups logs by their source or application.
+    """
+    dtype: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The data stream type for your logs. This determines how logs are categorized within the data stream.
+    """
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The data stream namespace for your logs. This separates logs into different environments or domains.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationAmazonOpensearchDataStreamArgs:
+    def __init__(__self__, *,
+                 dataset: pulumi.Input[Optional[_builtins.str]] = None,
+                 dtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] dataset: The data stream dataset for your logs. This groups logs by their source or application.
+        :param pulumi.Input[_builtins.str] dtype: The data stream type for your logs. This determines how logs are categorized within the data stream.
+        :param pulumi.Input[_builtins.str] namespace: The data stream namespace for your logs. This separates logs into different environments or domains.
+        """
+        if dataset is not None:
+            pulumi.set(__self__, "dataset", dataset)
+        if dtype is not None:
+            pulumi.set(__self__, "dtype", dtype)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @_builtins.property
+    @pulumi.getter
+    def dataset(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data stream dataset for your logs. This groups logs by their source or application.
+        """
+        return pulumi.get(self, "dataset")
+
+    @dataset.setter
+    def dataset(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dataset", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def dtype(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data stream type for your logs. This determines how logs are categorized within the data stream.
+        """
+        return pulumi.get(self, "dtype")
+
+    @dtype.setter
+    def dtype(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dtype", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data stream namespace for your logs. This separates logs into different environments or domains.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "namespace", value)
 
 
 class ObservabilityPipelineConfigDestinationAmazonS3ArgsDict(TypedDict):
@@ -287449,6 +287753,202 @@ class ObservabilityPipelineConfigDestinationDatadogMetricArgs:
         pass
 
 
+class ObservabilityPipelineConfigDestinationDatadogTracesArgsDict(TypedDict):
+    buffer: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferArgsDict']]]
+    """
+    Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationDatadogTracesArgs:
+    def __init__(__self__, *,
+                 buffer: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs']] = None):
+        """
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs'] buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        """
+        if buffer is not None:
+            pulumi.set(__self__, "buffer", buffer)
+
+    @_builtins.property
+    @pulumi.getter
+    def buffer(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs']]:
+        """
+        Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        """
+        return pulumi.get(self, "buffer")
+
+    @buffer.setter
+    def buffer(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs']]):
+        pulumi.set(self, "buffer", value)
+
+
+class ObservabilityPipelineConfigDestinationDatadogTracesBufferArgsDict(TypedDict):
+    disk: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgsDict']]]
+    """
+    Options for configuring a disk buffer. Cannot be used with `memory`.
+    """
+    memory: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgsDict']]]
+    """
+    Options for configuring a memory buffer. Cannot be used with `disk`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs:
+    def __init__(__self__, *,
+                 disk: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs']] = None,
+                 memory: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs']] = None):
+        """
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs'] disk: Options for configuring a disk buffer. Cannot be used with `memory`.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs'] memory: Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        if disk is not None:
+            pulumi.set(__self__, "disk", disk)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @_builtins.property
+    @pulumi.getter
+    def disk(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs']]:
+        """
+        Options for configuring a disk buffer. Cannot be used with `memory`.
+        """
+        return pulumi.get(self, "disk")
+
+    @disk.setter
+    def disk(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs']]):
+        pulumi.set(self, "disk", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def memory(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs']]:
+        """
+        Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs']]):
+        pulumi.set(self, "memory", value)
+
+
+class ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgsDict(TypedDict):
+    max_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum size of the disk buffer (in bytes).
+    """
+    when_full: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationDatadogTracesBufferDiskArgs:
+    def __init__(__self__, *,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 when_full: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_size: Maximum size of the disk buffer (in bytes).
+        :param pulumi.Input[_builtins.str] when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum size of the disk buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+    @when_full.setter
+    def when_full(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "when_full", value)
+
+
+class ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgsDict(TypedDict):
+    max_events: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum events for the memory buffer.
+    """
+    max_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum size of the memory buffer (in bytes).
+    """
+    when_full: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationDatadogTracesBufferMemoryArgs:
+    def __init__(__self__, *,
+                 max_events: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 when_full: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_events: Maximum events for the memory buffer.
+        :param pulumi.Input[_builtins.int] max_size: Maximum size of the memory buffer (in bytes).
+        :param pulumi.Input[_builtins.str] when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_events is not None:
+            pulumi.set(__self__, "max_events", max_events)
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEvents")
+    def max_events(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum events for the memory buffer.
+        """
+        return pulumi.get(self, "max_events")
+
+    @max_events.setter
+    def max_events(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_events", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum size of the memory buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+    @when_full.setter
+    def when_full(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "when_full", value)
+
+
 class ObservabilityPipelineConfigDestinationElasticsearchArgsDict(TypedDict):
     api_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -291519,7 +292019,7 @@ class ObservabilityPipelineConfigDestinationOpentelemetryArgsDict(TypedDict):
     """
     http_client_uri_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+    Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
     """
     tls: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationOpentelemetryTlsArgsDict']]]
     """
@@ -291534,7 +292034,7 @@ class ObservabilityPipelineConfigDestinationOpentelemetryArgs:
                  tls: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationOpentelemetryTlsArgs']] = None):
         """
         :param pulumi.Input['ObservabilityPipelineConfigDestinationOpentelemetryBufferArgs'] buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
-        :param pulumi.Input[_builtins.str] http_client_uri_key: Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+        :param pulumi.Input[_builtins.str] http_client_uri_key: Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
         :param pulumi.Input['ObservabilityPipelineConfigDestinationOpentelemetryTlsArgs'] tls: Configuration for enabling TLS encryption between the pipeline component and external services.
         """
         if buffer is not None:
@@ -291560,7 +292060,7 @@ class ObservabilityPipelineConfigDestinationOpentelemetryArgs:
     @pulumi.getter(name="httpClientUriKey")
     def http_client_uri_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics to.
+        Environment variable name containing the URI of the OTLP HTTP endpoint to send metrics or traces to.
         """
         return pulumi.get(self, "http_client_uri_key")
 

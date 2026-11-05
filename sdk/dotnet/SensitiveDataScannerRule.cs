@@ -84,7 +84,7 @@ namespace Pulumi.Datadog
         public Output<string?> StandardPatternId { get; private set; } = null!;
 
         /// <summary>
-        /// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `StartsWith`, `EndsWith`, and `ExactMatch`.
+        /// Object defining custom suppressions to skip matches based on `StartsWith`, `EndsWith`, and `ExactMatch` rules. Custom lists are managed independently of `UseRecommendedSuppressions`. Replacing or removing `Suppressions` updates or clears the custom lists without affecting `UseRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
         /// </summary>
         [Output("suppressions")]
         public Output<Outputs.SensitiveDataScannerRuleSuppressions?> Suppressions { get; private set; } = null!;
@@ -100,6 +100,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("textReplacement")]
         public Output<Outputs.SensitiveDataScannerRuleTextReplacement?> TextReplacement { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to use the standard pattern's recommended suppressions. Requires `StandardPatternId` when true. Defaults to `True` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `Suppressions` block and are retained when this setting changes.
+        /// </summary>
+        [Output("useRecommendedSuppressions")]
+        public Output<bool> UseRecommendedSuppressions { get; private set; } = null!;
 
 
         /// <summary>
@@ -220,7 +226,7 @@ namespace Pulumi.Datadog
         public Input<string>? StandardPatternId { get; set; }
 
         /// <summary>
-        /// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `StartsWith`, `EndsWith`, and `ExactMatch`.
+        /// Object defining custom suppressions to skip matches based on `StartsWith`, `EndsWith`, and `ExactMatch` rules. Custom lists are managed independently of `UseRecommendedSuppressions`. Replacing or removing `Suppressions` updates or clears the custom lists without affecting `UseRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
         /// </summary>
         [Input("suppressions")]
         public Input<Inputs.SensitiveDataScannerRuleSuppressionsArgs>? Suppressions { get; set; }
@@ -242,6 +248,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("textReplacement")]
         public Input<Inputs.SensitiveDataScannerRuleTextReplacementArgs>? TextReplacement { get; set; }
+
+        /// <summary>
+        /// Whether to use the standard pattern's recommended suppressions. Requires `StandardPatternId` when true. Defaults to `True` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `Suppressions` block and are retained when this setting changes.
+        /// </summary>
+        [Input("useRecommendedSuppressions")]
+        public Input<bool>? UseRecommendedSuppressions { get; set; }
 
         public SensitiveDataScannerRuleArgs()
         {
@@ -324,7 +336,7 @@ namespace Pulumi.Datadog
         public Input<string>? StandardPatternId { get; set; }
 
         /// <summary>
-        /// Object defining a set of suppressions to skip matches based on a set of rules. The available suppression types are `StartsWith`, `EndsWith`, and `ExactMatch`.
+        /// Object defining custom suppressions to skip matches based on `StartsWith`, `EndsWith`, and `ExactMatch` rules. Custom lists are managed independently of `UseRecommendedSuppressions`. Replacing or removing `Suppressions` updates or clears the custom lists without affecting `UseRecommendedSuppressions`. Recommended suppressions are not copied into these lists.
         /// </summary>
         [Input("suppressions")]
         public Input<Inputs.SensitiveDataScannerRuleSuppressionsGetArgs>? Suppressions { get; set; }
@@ -346,6 +358,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("textReplacement")]
         public Input<Inputs.SensitiveDataScannerRuleTextReplacementGetArgs>? TextReplacement { get; set; }
+
+        /// <summary>
+        /// Whether to use the standard pattern's recommended suppressions. Requires `StandardPatternId` when true. Defaults to `True` for new standard-pattern rules. When omitted for an existing or imported rule, preserves the current API choice. Custom suppressions are managed separately in the `Suppressions` block and are retained when this setting changes.
+        /// </summary>
+        [Input("useRecommendedSuppressions")]
+        public Input<bool>? UseRecommendedSuppressions { get; set; }
 
         public SensitiveDataScannerRuleState()
         {

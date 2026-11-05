@@ -31,6 +31,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string>? ExternalId { get; set; }
 
         /// <summary>
+        /// Name of the environment variable or secret that holds the Amazon OpenSearch password (used when `Strategy` is `Basic`).
+        /// </summary>
+        [Input("passwordKey")]
+        public Input<string>? PasswordKey { get; set; }
+
+        /// <summary>
         /// Session name for assumed role.
         /// </summary>
         [Input("sessionName")]
@@ -41,6 +47,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("strategy", required: true)]
         public Input<string> Strategy { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the environment variable or secret that holds the Amazon OpenSearch username (used when `Strategy` is `Basic`).
+        /// </summary>
+        [Input("usernameKey")]
+        public Input<string>? UsernameKey { get; set; }
 
         public ObservabilityPipelineConfigDestinationAmazonOpensearchAuthArgs()
         {

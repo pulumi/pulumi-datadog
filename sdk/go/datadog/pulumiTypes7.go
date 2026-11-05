@@ -13,6 +13,1087 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type OnCallTeamRoutingRulesRuleAction struct {
+	EscalationPolicy *OnCallTeamRoutingRulesRuleActionEscalationPolicy `pulumi:"escalationPolicy"`
+	// Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+	RerouteToTeam             *OnCallTeamRoutingRulesRuleActionRerouteToTeam             `pulumi:"rerouteToTeam"`
+	SendSlackMessage          *OnCallTeamRoutingRulesRuleActionSendSlackMessage          `pulumi:"sendSlackMessage"`
+	SendTeamsMessage          *OnCallTeamRoutingRulesRuleActionSendTeamsMessage          `pulumi:"sendTeamsMessage"`
+	TriggerWorkflowAutomation *OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation `pulumi:"triggerWorkflowAutomation"`
+}
+
+// OnCallTeamRoutingRulesRuleActionInput is an input type that accepts OnCallTeamRoutingRulesRuleActionArgs and OnCallTeamRoutingRulesRuleActionOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionInput` via:
+//
+//	OnCallTeamRoutingRulesRuleActionArgs{...}
+type OnCallTeamRoutingRulesRuleActionInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionOutput() OnCallTeamRoutingRulesRuleActionOutput
+	ToOnCallTeamRoutingRulesRuleActionOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionOutput
+}
+
+type OnCallTeamRoutingRulesRuleActionArgs struct {
+	EscalationPolicy OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput `pulumi:"escalationPolicy"`
+	// Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+	RerouteToTeam             OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput             `pulumi:"rerouteToTeam"`
+	SendSlackMessage          OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput          `pulumi:"sendSlackMessage"`
+	SendTeamsMessage          OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput          `pulumi:"sendTeamsMessage"`
+	TriggerWorkflowAutomation OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrInput `pulumi:"triggerWorkflowAutomation"`
+}
+
+func (OnCallTeamRoutingRulesRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleAction)(nil)).Elem()
+}
+
+func (i OnCallTeamRoutingRulesRuleActionArgs) ToOnCallTeamRoutingRulesRuleActionOutput() OnCallTeamRoutingRulesRuleActionOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionArgs) ToOnCallTeamRoutingRulesRuleActionOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionOutput)
+}
+
+// OnCallTeamRoutingRulesRuleActionArrayInput is an input type that accepts OnCallTeamRoutingRulesRuleActionArray and OnCallTeamRoutingRulesRuleActionArrayOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionArrayInput` via:
+//
+//	OnCallTeamRoutingRulesRuleActionArray{ OnCallTeamRoutingRulesRuleActionArgs{...} }
+type OnCallTeamRoutingRulesRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionArrayOutput() OnCallTeamRoutingRulesRuleActionArrayOutput
+	ToOnCallTeamRoutingRulesRuleActionArrayOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionArrayOutput
+}
+
+type OnCallTeamRoutingRulesRuleActionArray []OnCallTeamRoutingRulesRuleActionInput
+
+func (OnCallTeamRoutingRulesRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnCallTeamRoutingRulesRuleAction)(nil)).Elem()
+}
+
+func (i OnCallTeamRoutingRulesRuleActionArray) ToOnCallTeamRoutingRulesRuleActionArrayOutput() OnCallTeamRoutingRulesRuleActionArrayOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionArray) ToOnCallTeamRoutingRulesRuleActionArrayOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionArrayOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleAction)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionOutput) ToOnCallTeamRoutingRulesRuleActionOutput() OnCallTeamRoutingRulesRuleActionOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionOutput) ToOnCallTeamRoutingRulesRuleActionOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionOutput) EscalationPolicy() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionEscalationPolicy {
+		return v.EscalationPolicy
+	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput)
+}
+
+// Reroutes the page to another team's routing rules. Can only be combined with `sendSlackMessage` or `sendTeamsMessage` actions in the same rule.
+func (o OnCallTeamRoutingRulesRuleActionOutput) RerouteToTeam() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionRerouteToTeam {
+		return v.RerouteToTeam
+	}).(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput)
+}
+
+func (o OnCallTeamRoutingRulesRuleActionOutput) SendSlackMessage() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionSendSlackMessage {
+		return v.SendSlackMessage
+	}).(OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput)
+}
+
+func (o OnCallTeamRoutingRulesRuleActionOutput) SendTeamsMessage() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionSendTeamsMessage {
+		return v.SendTeamsMessage
+	}).(OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput)
+}
+
+func (o OnCallTeamRoutingRulesRuleActionOutput) TriggerWorkflowAutomation() OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleAction) *OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation {
+		return v.TriggerWorkflowAutomation
+	}).(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnCallTeamRoutingRulesRuleAction)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionArrayOutput) ToOnCallTeamRoutingRulesRuleActionArrayOutput() OnCallTeamRoutingRulesRuleActionArrayOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionArrayOutput) ToOnCallTeamRoutingRulesRuleActionArrayOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionArrayOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionArrayOutput) Index(i pulumi.IntInput) OnCallTeamRoutingRulesRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OnCallTeamRoutingRulesRuleAction {
+		return vs[0].([]OnCallTeamRoutingRulesRuleAction)[vs[1].(int)]
+	}).(OnCallTeamRoutingRulesRuleActionOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicy struct {
+	// Number of minutes before an acknowledged page is re-triggered. Value must be between 30 and 4320.
+	AckTimeoutMinutes *int `pulumi:"ackTimeoutMinutes"`
+	// Escalation policy ID.
+	PolicyId *string `pulumi:"policyId"`
+	// Support hours during which the escalation policy will execute.
+	SupportHours *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours `pulumi:"supportHours"`
+	// Urgency for pages created via this action. Valid values are `high`, `low`, `dynamic`.
+	Urgency *string `pulumi:"urgency"`
+}
+
+// OnCallTeamRoutingRulesRuleActionEscalationPolicyInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs and OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicyInput` via:
+//
+//	OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs{...}
+type OnCallTeamRoutingRulesRuleActionEscalationPolicyInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs struct {
+	// Number of minutes before an acknowledged page is re-triggered. Value must be between 30 and 4320.
+	AckTimeoutMinutes pulumi.IntPtrInput `pulumi:"ackTimeoutMinutes"`
+	// Escalation policy ID.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Support hours during which the escalation policy will execute.
+	SupportHours OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput `pulumi:"supportHours"`
+	// Urgency for pages created via this action. Valid values are `high`, `low`, `dynamic`.
+	Urgency pulumi.StringPtrInput `pulumi:"urgency"`
+}
+
+func (OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicy)(nil)).Elem()
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput)
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput).ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(ctx)
+}
+
+// OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs, OnCallTeamRoutingRulesRuleActionEscalationPolicyPtr and OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput` via:
+//
+//	        OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput
+}
+
+type onCallTeamRoutingRulesRuleActionEscalationPolicyPtrType OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs
+
+func OnCallTeamRoutingRulesRuleActionEscalationPolicyPtr(v *OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput {
+	return (*onCallTeamRoutingRulesRuleActionEscalationPolicyPtrType)(v)
+}
+
+func (*onCallTeamRoutingRulesRuleActionEscalationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionEscalationPolicy)(nil)).Elem()
+}
+
+func (i *onCallTeamRoutingRulesRuleActionEscalationPolicyPtrType) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *onCallTeamRoutingRulesRuleActionEscalationPolicyPtrType) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicy)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
+	return o.ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionEscalationPolicy) *OnCallTeamRoutingRulesRuleActionEscalationPolicy {
+		return &v
+	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput)
+}
+
+// Number of minutes before an acknowledged page is re-triggered. Value must be between 30 and 4320.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) AckTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicy) *int { return v.AckTimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Escalation policy ID.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicy) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Support hours during which the escalation policy will execute.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) SupportHours() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicy) *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours {
+		return v.SupportHours
+	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput)
+}
+
+// Urgency for pages created via this action. Valid values are `high`, `low`, `dynamic`.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput) Urgency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicy) *string { return v.Urgency }).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionEscalationPolicy)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) Elem() OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicy) OnCallTeamRoutingRulesRuleActionEscalationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret OnCallTeamRoutingRulesRuleActionEscalationPolicy
+		return ret
+	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput)
+}
+
+// Number of minutes before an acknowledged page is re-triggered. Value must be between 30 and 4320.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) AckTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AckTimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Escalation policy ID.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Support hours during which the escalation policy will execute.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) SupportHours() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicy) *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours {
+		if v == nil {
+			return nil
+		}
+		return v.SupportHours
+	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput)
+}
+
+// Urgency for pages created via this action. Valid values are `high`, `low`, `dynamic`.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput) Urgency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Urgency
+	}).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours struct {
+	Restrictions []OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction `pulumi:"restrictions"`
+	// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs and OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursInput` via:
+//
+//	OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs{...}
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs struct {
+	Restrictions OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput `pulumi:"restrictions"`
+	// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours)(nil)).Elem()
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput)
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput).ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(ctx)
+}
+
+// OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs, OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtr and OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput` via:
+//
+//	        OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs{...}
+//
+//	or:
+//
+//	        nil
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput
+}
+
+type onCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrType OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs
+
+func OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtr(v *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput {
+	return (*onCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrType)(v)
+}
+
+func (*onCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours)(nil)).Elem()
+}
+
+func (i *onCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrType) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(context.Background())
+}
+
+func (i *onCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrType) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
+	return o.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(context.Background())
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours {
+		return &v
+	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput)
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) Restrictions() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) []OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction {
+		return v.Restrictions
+	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput)
+}
+
+// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) Elem() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours {
+		if v != nil {
+			return *v
+		}
+		var ret OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours
+		return ret
+	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput)
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) Restrictions() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) []OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.Restrictions
+	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput)
+}
+
+// Specifies the time zone applicable to the restrictions, e.g. `America/New_York`.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHours) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction struct {
+	// The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+	EndDay *string `pulumi:"endDay"`
+	// The time of day when the restriction ends (hh:mm:ss).
+	EndTime *string `pulumi:"endTime"`
+	// The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+	StartDay *string `pulumi:"startDay"`
+	// The time of day when the restriction begins (hh:mm:ss).
+	StartTime *string `pulumi:"startTime"`
+}
+
+// OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs and OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput` via:
+//
+//	OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs{...}
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs struct {
+	// The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+	EndDay pulumi.StringPtrInput `pulumi:"endDay"`
+	// The time of day when the restriction ends (hh:mm:ss).
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+	StartDay pulumi.StringPtrInput `pulumi:"startDay"`
+	// The time of day when the restriction begins (hh:mm:ss).
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)(nil)).Elem()
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput)
+}
+
+// OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput is an input type that accepts OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray and OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput` via:
+//
+//	OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray{ OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs{...} }
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput
+	ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray []OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput
+
+func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)(nil)).Elem()
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput {
+	return o
+}
+
+// The weekday when the restriction period ends. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) EndDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction) *string {
+		return v.EndDay
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time of day when the restriction ends (hh:mm:ss).
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction) *string {
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The weekday when the restriction period starts. Valid values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) StartDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction) *string {
+		return v.StartDay
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time of day when the restriction begins (hh:mm:ss).
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction) *string {
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput() OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput) ToOnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput) Index(i pulumi.IntInput) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction {
+		return vs[0].([]OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestriction)[vs[1].(int)]
+	}).(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionRerouteToTeam struct {
+	// ID of the team to reroute the page to.
+	DestinationTeamId *string `pulumi:"destinationTeamId"`
+}
+
+// OnCallTeamRoutingRulesRuleActionRerouteToTeamInput is an input type that accepts OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs and OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionRerouteToTeamInput` via:
+//
+//	OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{...}
+type OnCallTeamRoutingRulesRuleActionRerouteToTeamInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput
+	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput
+}
+
+type OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs struct {
+	// ID of the team to reroute the page to.
+	DestinationTeamId pulumi.StringPtrInput `pulumi:"destinationTeamId"`
+}
+
+func (OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
+}
+
+func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput)
+}
+
+func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput).ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx)
+}
+
+// OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs, OnCallTeamRoutingRulesRuleActionRerouteToTeamPtr and OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput` via:
+//
+//	        OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{...}
+//
+//	or:
+//
+//	        nil
+type OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput
+	ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput
+}
+
+type onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs
+
+func OnCallTeamRoutingRulesRuleActionRerouteToTeamPtr(v *OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput {
+	return (*onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType)(v)
+}
+
+func (*onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
+}
+
+func (i *onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Background())
+}
+
+func (i *onCallTeamRoutingRulesRuleActionRerouteToTeamPtrType) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return o.ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(context.Background())
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionRerouteToTeam) *OnCallTeamRoutingRulesRuleActionRerouteToTeam {
+		return &v
+	}).(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput)
+}
+
+// ID of the team to reroute the page to.
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput) DestinationTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionRerouteToTeam) *string { return v.DestinationTeamId }).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionRerouteToTeam)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput() OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) ToOnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) Elem() OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionRerouteToTeam) OnCallTeamRoutingRulesRuleActionRerouteToTeam {
+		if v != nil {
+			return *v
+		}
+		var ret OnCallTeamRoutingRulesRuleActionRerouteToTeam
+		return ret
+	}).(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput)
+}
+
+// ID of the team to reroute the page to.
+func (o OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput) DestinationTeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionRerouteToTeam) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationTeamId
+	}).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionSendSlackMessage struct {
+	// Slack channel ID.
+	Channel *string `pulumi:"channel"`
+	// Slack workspace ID.
+	Workspace *string `pulumi:"workspace"`
+}
+
+// OnCallTeamRoutingRulesRuleActionSendSlackMessageInput is an input type that accepts OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs and OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionSendSlackMessageInput` via:
+//
+//	OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{...}
+type OnCallTeamRoutingRulesRuleActionSendSlackMessageInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput
+	ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput
+}
+
+type OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs struct {
+	// Slack channel ID.
+	Channel pulumi.StringPtrInput `pulumi:"channel"`
+	// Slack workspace ID.
+	Workspace pulumi.StringPtrInput `pulumi:"workspace"`
+}
+
+func (OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessage)(nil)).Elem()
+}
+
+func (i OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput)
+}
+
+func (i OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput).ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(ctx)
+}
+
+// OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs, OnCallTeamRoutingRulesRuleActionSendSlackMessagePtr and OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput` via:
+//
+//	        OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{...}
+//
+//	or:
+//
+//	        nil
+type OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput
+	ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput
+}
+
+type onCallTeamRoutingRulesRuleActionSendSlackMessagePtrType OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs
+
+func OnCallTeamRoutingRulesRuleActionSendSlackMessagePtr(v *OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput {
+	return (*onCallTeamRoutingRulesRuleActionSendSlackMessagePtrType)(v)
+}
+
+func (*onCallTeamRoutingRulesRuleActionSendSlackMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionSendSlackMessage)(nil)).Elem()
+}
+
+func (i *onCallTeamRoutingRulesRuleActionSendSlackMessagePtrType) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *onCallTeamRoutingRulesRuleActionSendSlackMessagePtrType) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessage)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessageOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
+	return o.ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(context.Background())
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionSendSlackMessage) *OnCallTeamRoutingRulesRuleActionSendSlackMessage {
+		return &v
+	}).(OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput)
+}
+
+// Slack channel ID.
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) Channel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionSendSlackMessage) *string { return v.Channel }).(pulumi.StringPtrOutput)
+}
+
+// Slack workspace ID.
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionSendSlackMessage) *string { return v.Workspace }).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionSendSlackMessage)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) ToOnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) Elem() OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendSlackMessage) OnCallTeamRoutingRulesRuleActionSendSlackMessage {
+		if v != nil {
+			return *v
+		}
+		var ret OnCallTeamRoutingRulesRuleActionSendSlackMessage
+		return ret
+	}).(OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput)
+}
+
+// Slack channel ID.
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) Channel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendSlackMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Channel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Slack workspace ID.
+func (o OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendSlackMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Workspace
+	}).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionSendTeamsMessage struct {
+	// Teams channel ID.
+	Channel *string `pulumi:"channel"`
+	// Teams team ID.
+	Team *string `pulumi:"team"`
+	// Teams tenant ID.
+	Tenant *string `pulumi:"tenant"`
+}
+
+// OnCallTeamRoutingRulesRuleActionSendTeamsMessageInput is an input type that accepts OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs and OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionSendTeamsMessageInput` via:
+//
+//	OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{...}
+type OnCallTeamRoutingRulesRuleActionSendTeamsMessageInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput
+	ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput
+}
+
+type OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs struct {
+	// Teams channel ID.
+	Channel pulumi.StringPtrInput `pulumi:"channel"`
+	// Teams team ID.
+	Team pulumi.StringPtrInput `pulumi:"team"`
+	// Teams tenant ID.
+	Tenant pulumi.StringPtrInput `pulumi:"tenant"`
+}
+
+func (OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessage)(nil)).Elem()
+}
+
+func (i OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput)
+}
+
+func (i OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(context.Background())
+}
+
+func (i OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput).ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(ctx)
+}
+
+// OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput is an input type that accepts OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs, OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtr and OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput values.
+// You can construct a concrete instance of `OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput` via:
+//
+//	        OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{...}
+//
+//	or:
+//
+//	        nil
+type OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput interface {
+	pulumi.Input
+
+	ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput
+	ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput
+}
+
+type onCallTeamRoutingRulesRuleActionSendTeamsMessagePtrType OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs
+
+func OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtr(v *OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput {
+	return (*onCallTeamRoutingRulesRuleActionSendTeamsMessagePtrType)(v)
+}
+
+func (*onCallTeamRoutingRulesRuleActionSendTeamsMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionSendTeamsMessage)(nil)).Elem()
+}
+
+func (i *onCallTeamRoutingRulesRuleActionSendTeamsMessagePtrType) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
+	return i.ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *onCallTeamRoutingRulesRuleActionSendTeamsMessagePtrType) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessage)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessageOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
+	return o.ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(context.Background())
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *OnCallTeamRoutingRulesRuleActionSendTeamsMessage {
+		return &v
+	}).(OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput)
+}
+
+// Teams channel ID.
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) Channel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string { return v.Channel }).(pulumi.StringPtrOutput)
+}
+
+// Teams team ID.
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) Team() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string { return v.Team }).(pulumi.StringPtrOutput)
+}
+
+// Teams tenant ID.
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput) Tenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string { return v.Tenant }).(pulumi.StringPtrOutput)
+}
+
+type OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnCallTeamRoutingRulesRuleActionSendTeamsMessage)(nil)).Elem()
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput() OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) ToOnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutputWithContext(ctx context.Context) OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput {
+	return o
+}
+
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) Elem() OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendTeamsMessage) OnCallTeamRoutingRulesRuleActionSendTeamsMessage {
+		if v != nil {
+			return *v
+		}
+		var ret OnCallTeamRoutingRulesRuleActionSendTeamsMessage
+		return ret
+	}).(OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput)
+}
+
+// Teams channel ID.
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) Channel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Channel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Teams team ID.
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) Team() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Team
+	}).(pulumi.StringPtrOutput)
+}
+
+// Teams tenant ID.
+func (o OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput) Tenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnCallTeamRoutingRulesRuleActionSendTeamsMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tenant
+	}).(pulumi.StringPtrOutput)
+}
+
 type OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomation struct {
 	// The handle of the Workflow Automation to trigger.
 	Handle *string `pulumi:"handle"`
@@ -86719,1258 +87800,21 @@ func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanon
 	}).(pulumi.StringPtrOutput)
 }
 
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom struct {
-	// Unit label
-	Label string `pulumi:"label"`
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs and PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs struct {
-	// Unit label
-	Label pulumi.StringInput `pulumi:"label"`
-}
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput)
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput).ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs, PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtr and PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrInput` via:
-//
-//	        PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
-}
-
-type powerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrType PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs
-
-func PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtr(v *PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrInput {
-	return (*powerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom) *PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom {
-		return &v
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
-}
-
-// Unit label
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput) Label() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom) string {
-		return v.Label
-	}).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Elem() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom
-		return ret
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput)
-}
-
-// Unit label
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustom) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Label
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale struct {
-	// The name of the unit.
-	UnitName string `pulumi:"unitName"`
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs and PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs struct {
-	// The name of the unit.
-	UnitName pulumi.StringInput `pulumi:"unitName"`
-}
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput)
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput).ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs, PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtr and PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrInput` via:
-//
-//	        PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
-}
-
-type powerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrType PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs
-
-func PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtr(v *PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrInput {
-	return (*powerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale) *PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale {
-		return &v
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-// The name of the unit.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput) UnitName() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale) string {
-		return v.UnitName
-	}).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) Elem() PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale) PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale
-		return ret
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput)
-}
-
-// The name of the unit.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) UnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScale) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle struct {
-	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-	Palette *string `pulumi:"palette"`
-	// Index specifying which color to use within the palette.
-	PaletteIndex *int `pulumi:"paletteIndex"`
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs and PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs{...}
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs struct {
-	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-	Palette pulumi.StringPtrInput `pulumi:"palette"`
-	// Index specifying which color to use within the palette.
-	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
-}
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput)
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput).ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs, PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtr and PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrInput` via:
-//
-//	        PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput
-}
-
-type powerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrType PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs
-
-func PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtr(v *PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs) PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrInput {
-	return (*powerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput {
-	return o.ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle) *PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle {
-		return &v
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput)
-}
-
-// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
-}
-
-// Index specifying which color to use within the palette.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput) PaletteIndex() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle) *int { return v.PaletteIndex }).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput) Elem() PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle) PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle
-		return ret
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput)
-}
-
-// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Palette
-	}).(pulumi.StringPtrOutput)
-}
-
-// Index specifying which color to use within the palette.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput) PaletteIndex() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyle) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PaletteIndex
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery struct {
-	// A list of processes.
-	FilterBies []string `pulumi:"filterBies"`
-	// The max number of items in the filter list.
-	Limit *int `pulumi:"limit"`
-	// Your chosen metric.
-	Metric string `pulumi:"metric"`
-	// Your chosen search term.
-	SearchBy *string `pulumi:"searchBy"`
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs and PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs{...}
-type PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput() PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs struct {
-	// A list of processes.
-	FilterBies pulumi.StringArrayInput `pulumi:"filterBies"`
-	// The max number of items in the filter list.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// Your chosen metric.
-	Metric pulumi.StringInput `pulumi:"metric"`
-	// Your chosen search term.
-	SearchBy pulumi.StringPtrInput `pulumi:"searchBy"`
-}
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput() PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput)
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput).ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs, PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtr and PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput
-}
-
-type powerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrType PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs
-
-func PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtr(v *PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs) PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrInput {
-	return (*powerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput() PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput {
-	return o.ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery) *PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery {
-		return &v
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput)
-}
-
-// A list of processes.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput) FilterBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery) []string { return v.FilterBies }).(pulumi.StringArrayOutput)
-}
-
-// The max number of items in the filter list.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// Your chosen metric.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput) Metric() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
-}
-
-// Your chosen search term.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput) SearchBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery) *string { return v.SearchBy }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput) Elem() PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery) PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery
-		return ret
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput)
-}
-
-// A list of processes.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput) FilterBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.FilterBies
-	}).(pulumi.StringArrayOutput)
-}
-
-// The max number of items in the filter list.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Limit
-	}).(pulumi.IntPtrOutput)
-}
-
-// Your chosen metric.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Your chosen search term.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput) SearchBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SearchBy
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQuery struct {
-	// The APM Dependency Stats query using formulas and functions.
-	ApmDependencyStatsQuery *PowerpackV2WidgetApmDependencyStatsQuery `pulumi:"apmDependencyStatsQuery"`
-	// The APM metrics query using formulas and functions.
-	ApmMetricsQuery *PowerpackV2WidgetApmMetricsQuery `pulumi:"apmMetricsQuery"`
-	// The APM Resource Stats query using formulas and functions.
-	ApmResourceStatsQuery *PowerpackV2WidgetApmResourceStatsQuery `pulumi:"apmResourceStatsQuery"`
-	// The Cloud Cost query using formulas and functions.
-	CloudCostQuery *PowerpackV2WidgetCloudCostQuery `pulumi:"cloudCostQuery"`
-	// A timeseries formula and functions events query.
-	EventQuery *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery `pulumi:"eventQuery"`
-	// A timeseries formula and functions metrics query.
-	MetricQuery *PowerpackV2WidgetMetricQuery `pulumi:"metricQuery"`
-	// The process query using formulas and functions.
-	ProcessQuery *PowerpackV2WidgetQueryValueDefinitionRequestQueryProcessQuery `pulumi:"processQuery"`
-	// The Product Analytics Extended query using formulas and functions.
-	ProductAnalyticsExtendedQuery *PowerpackV2WidgetProductAnalyticsExtendedQuery `pulumi:"productAnalyticsExtendedQuery"`
-	// The retention query using formulas and functions.
-	RetentionQuery *PowerpackV2WidgetRetentionQuery `pulumi:"retentionQuery"`
-	// The SLO query using formulas and functions.
-	SloQuery *PowerpackV2WidgetSloQuery `pulumi:"sloQuery"`
-	// The User Journey query using formulas and functions.
-	UserJourneyQuery *PowerpackV2WidgetUserJourneyQuery `pulumi:"userJourneyQuery"`
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestQueryInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestQueryArgs and PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestQueryInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionRequestQueryArgs{...}
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryArgs struct {
-	// The APM Dependency Stats query using formulas and functions.
-	ApmDependencyStatsQuery PowerpackV2WidgetApmDependencyStatsQueryPtrInput `pulumi:"apmDependencyStatsQuery"`
-	// The APM metrics query using formulas and functions.
-	ApmMetricsQuery PowerpackV2WidgetApmMetricsQueryPtrInput `pulumi:"apmMetricsQuery"`
-	// The APM Resource Stats query using formulas and functions.
-	ApmResourceStatsQuery PowerpackV2WidgetApmResourceStatsQueryPtrInput `pulumi:"apmResourceStatsQuery"`
-	// The Cloud Cost query using formulas and functions.
-	CloudCostQuery PowerpackV2WidgetCloudCostQueryPtrInput `pulumi:"cloudCostQuery"`
-	// A timeseries formula and functions events query.
-	EventQuery PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrInput `pulumi:"eventQuery"`
-	// A timeseries formula and functions metrics query.
-	MetricQuery PowerpackV2WidgetMetricQueryPtrInput `pulumi:"metricQuery"`
-	// The process query using formulas and functions.
-	ProcessQuery PowerpackV2WidgetQueryValueDefinitionRequestQueryProcessQueryPtrInput `pulumi:"processQuery"`
-	// The Product Analytics Extended query using formulas and functions.
-	ProductAnalyticsExtendedQuery PowerpackV2WidgetProductAnalyticsExtendedQueryPtrInput `pulumi:"productAnalyticsExtendedQuery"`
-	// The retention query using formulas and functions.
-	RetentionQuery PowerpackV2WidgetRetentionQueryPtrInput `pulumi:"retentionQuery"`
-	// The SLO query using formulas and functions.
-	SloQuery PowerpackV2WidgetSloQueryPtrInput `pulumi:"sloQuery"`
-	// The User Journey query using formulas and functions.
-	UserJourneyQuery PowerpackV2WidgetUserJourneyQueryPtrInput `pulumi:"userJourneyQuery"`
-}
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput)
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestQueryArray and PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionRequestQueryArray{ PowerpackV2WidgetQueryValueDefinitionRequestQueryArgs{...} }
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryArray []PowerpackV2WidgetQueryValueDefinitionRequestQueryInput
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryValueDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryArray) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryArray) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput {
-	return o
-}
-
-// The APM Dependency Stats query using formulas and functions.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) ApmDependencyStatsQuery() PowerpackV2WidgetApmDependencyStatsQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetApmDependencyStatsQuery {
-		return v.ApmDependencyStatsQuery
-	}).(PowerpackV2WidgetApmDependencyStatsQueryPtrOutput)
-}
-
-// The APM metrics query using formulas and functions.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) ApmMetricsQuery() PowerpackV2WidgetApmMetricsQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetApmMetricsQuery {
-		return v.ApmMetricsQuery
-	}).(PowerpackV2WidgetApmMetricsQueryPtrOutput)
-}
-
-// The APM Resource Stats query using formulas and functions.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) ApmResourceStatsQuery() PowerpackV2WidgetApmResourceStatsQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetApmResourceStatsQuery {
-		return v.ApmResourceStatsQuery
-	}).(PowerpackV2WidgetApmResourceStatsQueryPtrOutput)
-}
-
-// The Cloud Cost query using formulas and functions.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) CloudCostQuery() PowerpackV2WidgetCloudCostQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetCloudCostQuery {
-		return v.CloudCostQuery
-	}).(PowerpackV2WidgetCloudCostQueryPtrOutput)
-}
-
-// A timeseries formula and functions events query.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) EventQuery() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery {
-		return v.EventQuery
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput)
-}
-
-// A timeseries formula and functions metrics query.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) MetricQuery() PowerpackV2WidgetMetricQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetMetricQuery {
-		return v.MetricQuery
-	}).(PowerpackV2WidgetMetricQueryPtrOutput)
-}
-
-// The process query using formulas and functions.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) ProcessQuery() PowerpackV2WidgetQueryValueDefinitionRequestQueryProcessQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetQueryValueDefinitionRequestQueryProcessQuery {
-		return v.ProcessQuery
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryProcessQueryPtrOutput)
-}
-
-// The Product Analytics Extended query using formulas and functions.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) ProductAnalyticsExtendedQuery() PowerpackV2WidgetProductAnalyticsExtendedQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetProductAnalyticsExtendedQuery {
-		return v.ProductAnalyticsExtendedQuery
-	}).(PowerpackV2WidgetProductAnalyticsExtendedQueryPtrOutput)
-}
-
-// The retention query using formulas and functions.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) RetentionQuery() PowerpackV2WidgetRetentionQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetRetentionQuery {
-		return v.RetentionQuery
-	}).(PowerpackV2WidgetRetentionQueryPtrOutput)
-}
-
-// The SLO query using formulas and functions.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) SloQuery() PowerpackV2WidgetSloQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetSloQuery {
-		return v.SloQuery
-	}).(PowerpackV2WidgetSloQueryPtrOutput)
-}
-
-// The User Journey query using formulas and functions.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput) UserJourneyQuery() PowerpackV2WidgetUserJourneyQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQuery) *PowerpackV2WidgetUserJourneyQuery {
-		return v.UserJourneyQuery
-	}).(PowerpackV2WidgetUserJourneyQueryPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryValueDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetQueryValueDefinitionRequestQuery {
-		return vs[0].([]PowerpackV2WidgetQueryValueDefinitionRequestQuery)[vs[1].(int)]
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery struct {
-	// The compute options.
-	Computes []PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-	DataSource string `pulumi:"dataSource"`
-	// Group by options.
-	GroupBies []PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
-	// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-	GroupByFields *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields `pulumi:"groupByFields"`
-	// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-	Indexes []string `pulumi:"indexes"`
-	// The name of query for use in formulas.
-	Name string `pulumi:"name"`
-	// The search options.
-	Search *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuerySearch `pulumi:"search"`
-	// Option for storage location. Feature in Private Beta.
-	Storage *string `pulumi:"storage"`
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs and PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs{...}
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs struct {
-	// The compute options.
-	Computes PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Group by options.
-	GroupBies PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
-	// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-	GroupByFields PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrInput `pulumi:"groupByFields"`
-	// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
-	// The name of query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The search options.
-	Search PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuerySearchPtrInput `pulumi:"search"`
-	// Option for storage location. Feature in Private Beta.
-	Storage pulumi.StringPtrInput `pulumi:"storage"`
-}
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput)
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput).ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs, PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtr and PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput
-}
-
-type powerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrType PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs
-
-func PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtr(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrInput {
-	return (*powerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrType) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput {
-	return o.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery {
-		return &v
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput)
-}
-
-// The compute options.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) Computes() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) []PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute {
-		return v.Computes
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
-}
-
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// Group by options.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) GroupBies() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) []PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
-		return v.GroupBies
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput)
-}
-
-// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) GroupByFields() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields {
-		return v.GroupByFields
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
-}
-
-// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The search options.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) Search() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuerySearchPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuerySearch {
-		return v.Search
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuerySearchPtrOutput)
-}
-
-// Option for storage location. Feature in Private Beta.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput) Storage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) Elem() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery
-		return ret
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput)
-}
-
-// The compute options.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) Computes() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) []PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute {
-		if v == nil {
-			return nil
-		}
-		return v.Computes
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Group by options.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) GroupBies() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) []PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupBy {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByArrayOutput)
-}
-
-// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) GroupByFields() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFields {
-		if v == nil {
-			return nil
-		}
-		return v.GroupByFields
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
-}
-
-// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Indexes
-	}).(pulumi.StringArrayOutput)
-}
-
-// The name of query for use in formulas.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The search options.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) Search() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuerySearchPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuerySearch {
-		if v == nil {
-			return nil
-		}
-		return v.Search
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuerySearchPtrOutput)
-}
-
-// Option for storage location. Feature in Private Beta.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput) Storage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Storage
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute struct {
-	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation string `pulumi:"aggregation"`
-	// A time interval in milliseconds.
-	Interval *int `pulumi:"interval"`
-	// The measurable attribute to compute.
-	Metric *string `pulumi:"metric"`
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs and PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs{...}
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs struct {
-	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// A time interval in milliseconds.
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The measurable attribute to compute.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-}
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput)
-}
-
-// PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayInput is an input type that accepts PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArray and PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayInput` via:
-//
-//	PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArray{ PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs{...} }
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput
-	ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArray []PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeInput
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArray) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return i.ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArray) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput {
-	return o
-}
-
-// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute) string {
-		return v.Aggregation
-	}).(pulumi.StringOutput)
-}
-
-// A time interval in milliseconds.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
-}
-
-// The measurable attribute to compute.
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute) *string { return v.Metric }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput() PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput) ToPowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute {
-		return vs[0].([]PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryCompute)[vs[1].(int)]
-	}).(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionArrayInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicyInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeamInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionRerouteToTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessageInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendSlackMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessageInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionSendTeamsMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnCallTeamRoutingRulesRuleTimeRestrictionsInput)(nil)).Elem(), OnCallTeamRoutingRulesRuleTimeRestrictionsArgs{})
@@ -88943,20 +88787,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonicalInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayInput)(nil)).Elem(), PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArray{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicyOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursPtrOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionEscalationPolicySupportHoursRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionRerouteToTeamOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionRerouteToTeamPtrOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendSlackMessageOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendSlackMessagePtrOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendTeamsMessageOutput{})
+	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionSendTeamsMessagePtrOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleActionTriggerWorkflowAutomationPtrOutput{})
 	pulumi.RegisterOutputType(OnCallTeamRoutingRulesRuleTimeRestrictionsOutput{})
@@ -89929,18 +89773,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonicalOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScaleOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestFormulaNumberFormatUnitScalePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestFormulaStyleOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestFormulaStylePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestProcessQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryValueDefinitionRequestQueryEventQueryComputeArrayOutput{})
 }

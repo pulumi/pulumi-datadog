@@ -40,6 +40,23 @@ namespace Pulumi.Datadog
     ///         Required = true,
     ///     });
     /// 
+    ///     // Require the tag to be present with any value. A bare `*` accepts every
+    ///     // value, so it must be paired with `required = true` (or with `negated = true`
+    ///     // to require the tag to be absent instead).
+    ///     var team = new Datadog.TagRule("team", new()
+    ///     {
+    ///         Name = "team must be set",
+    ///         Source = "logs",
+    ///         Scope = "org",
+    ///         TagKey = "team",
+    ///         TagValuePatterns = new[]
+    ///         {
+    ///             "*",
+    ///         },
+    ///         RuleType = "surfacing",
+    ///         Required = true,
+    ///     });
+    /// 
     ///     // Create a blocking tag rule, which rejects telemetry that violates it.
     ///     // The Datadog API only accepts `surfacing` at creation time, so the provider
     ///     // creates the rule and then immediately updates it to `blocking`. Because that
@@ -158,7 +175,7 @@ namespace Pulumi.Datadog
         public Output<string> TagKey { get; private set; } = null!;
 
         /// <summary>
-        /// One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+        /// One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `["*"]` with `required = true` means the tag must be present with any value, and `["*"]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `Required` and `Negated` both `False` (the rule would have no effect) or both `True` (no value could comply).
         /// </summary>
         [Output("tagValuePatterns")]
         public Output<ImmutableArray<string>> TagValuePatterns { get; private set; } = null!;
@@ -279,7 +296,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tagValuePatterns;
 
         /// <summary>
-        /// One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+        /// One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `["*"]` with `required = true` means the tag must be present with any value, and `["*"]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `Required` and `Negated` both `False` (the rule would have no effect) or both `True` (no value could comply).
         /// </summary>
         public InputList<string> TagValuePatterns
         {
@@ -383,7 +400,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _tagValuePatterns;
 
         /// <summary>
-        /// One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+        /// One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `["*"]` with `required = true` means the tag must be present with any value, and `["*"]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `Required` and `Negated` both `False` (the rule would have no effect) or both `True` (no value could comply).
         /// </summary>
         public InputList<string> TagValuePatterns
         {

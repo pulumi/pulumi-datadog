@@ -59,6 +59,19 @@ import javax.annotation.Nullable;
  *             .required(true)
  *             .build());
  * 
+ *         // Require the tag to be present with any value. A bare `*` accepts every
+ *         // value, so it must be paired with `required = true` (or with `negated = true`
+ *         // to require the tag to be absent instead).
+ *         var team = new TagRule("team", TagRuleArgs.builder()
+ *             .name("team must be set")
+ *             .source("logs")
+ *             .scope("org")
+ *             .tagKey("team")
+ *             .tagValuePatterns("*")
+ *             .ruleType("surfacing")
+ *             .required(true)
+ *             .build());
+ * 
  *         // Create a blocking tag rule, which rejects telemetry that violates it.
  *         // The Datadog API only accepts `surfacing` at creation time, so the provider
  *         // creates the rule and then immediately updates it to `blocking`. Because that
@@ -287,14 +300,14 @@ public class TagRule extends com.pulumi.resources.CustomResource {
         return this.tagKey;
     }
     /**
-     * One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+     * One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `[&#34;*&#34;]` with `required = true` means the tag must be present with any value, and `[&#34;*&#34;]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `required` and `negated` both `false` (the rule would have no effect) or both `true` (no value could comply).
      * 
      */
     @Export(name="tagValuePatterns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> tagValuePatterns;
 
     /**
-     * @return One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A pattern made up only of wildcards (for example a bare `*`) is rejected by the API.
+     * @return One or more patterns that valid values for the tag key must match. At least one pattern is required. These are not regular expressions: the API restricts pattern characters to `A-Za-z0-9_:-.,/*`, with `*` acting as a wildcard. A bare `*` accepts any value, so `[&#34;*&#34;]` with `required = true` means the tag must be present with any value, and `[&#34;*&#34;]` with `negated = true` means the tag must be absent. A bare `*` cannot be combined with `required` and `negated` both `false` (the rule would have no effect) or both `true` (no value could comply).
      * 
      */
     public Output<List<String>> tagValuePatterns() {

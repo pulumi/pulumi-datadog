@@ -13,6 +13,1127 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat struct {
+	// Unit of the number format.
+	Unit      PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit       `pulumi:"unit"`
+	UnitScale *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale `pulumi:"unitScale"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs and PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs{...}
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs struct {
+	// Unit of the number format.
+	Unit      PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitInput         `pulumi:"unit"`
+	UnitScale PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrInput `pulumi:"unitScale"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput).ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs, PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtr and PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrType PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs
+
+func PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtr(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput)
+}
+
+// Unit of the number format.
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput) Unit() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit {
+		return v.Unit
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput)
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput) UnitScale() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale {
+		return v.UnitScale
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput)
+}
+
+// Unit of the number format.
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput) Unit() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput)
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput) UnitScale() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormat) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale {
+		if v == nil {
+			return nil
+		}
+		return v.UnitScale
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit struct {
+	// Canonical Units
+	Canonical *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical `pulumi:"canonical"`
+	// Use custom (non canonical metrics)
+	Custom *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom `pulumi:"custom"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs and PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs{...}
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs struct {
+	// Canonical Units
+	Canonical PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput `pulumi:"canonical"`
+	// Use custom (non canonical metrics)
+	Custom PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrInput `pulumi:"custom"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput).ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs, PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtr and PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrType PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs
+
+func PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtr(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput)
+}
+
+// Canonical Units
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput) Canonical() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical {
+		return v.Canonical
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
+}
+
+// Use custom (non canonical metrics)
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput) Custom() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom {
+		return v.Custom
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput)
+}
+
+// Canonical Units
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput) Canonical() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical {
+		if v == nil {
+			return nil
+		}
+		return v.Canonical
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
+}
+
+// Use custom (non canonical metrics)
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput) Custom() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnit) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom {
+		if v == nil {
+			return nil
+		}
+		return v.Custom
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical struct {
+	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+	PerUnitName *string `pulumi:"perUnitName"`
+	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+	UnitName string `pulumi:"unitName"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs and PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs struct {
+	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+	PerUnitName pulumi.StringPtrInput `pulumi:"perUnitName"`
+	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+	UnitName pulumi.StringInput `pulumi:"unitName"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput).ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs, PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtr and PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs
+
+func PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtr(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
+}
+
+// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) PerUnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
+		return v.PerUnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) UnitName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical) string {
+		return v.UnitName
+	}).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
+}
+
+// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) PerUnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PerUnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) UnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom struct {
+	// Unit label
+	Label string `pulumi:"label"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs and PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs struct {
+	// Unit label
+	Label pulumi.StringInput `pulumi:"label"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput).ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs, PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtr and PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrType PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs
+
+func PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtr(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+// Unit label
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom) string { return v.Label }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput)
+}
+
+// Unit label
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustom) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale struct {
+	UnitName string `pulumi:"unitName"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs and PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs struct {
+	UnitName pulumi.StringInput `pulumi:"unitName"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput).ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs, PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtr and PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrType PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs
+
+func PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtr(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale) *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput) UnitName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale) string { return v.UnitName }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale) PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput)
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) UnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScale) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaStyle struct {
+	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+	Palette *string `pulumi:"palette"`
+	// Index specifying which color to use within the palette.
+	PaletteIndex *int `pulumi:"paletteIndex"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaStyleInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs and PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaStyleInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs{...}
+type PowerpackWidgetToplistDefinitionRequestFormulaStyleInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaStyleOutput() PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaStyleOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs struct {
+	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+	Palette pulumi.StringPtrInput `pulumi:"palette"`
+	// Index specifying which color to use within the palette.
+	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaStyleOutput() PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaStyleOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput).ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestFormulaStylePtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs, PowerpackWidgetToplistDefinitionRequestFormulaStylePtr and PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestFormulaStylePtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestFormulaStylePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestFormulaStylePtrType PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs
+
+func PowerpackWidgetToplistDefinitionRequestFormulaStylePtr(v *PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs) PowerpackWidgetToplistDefinitionRequestFormulaStylePtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestFormulaStylePtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestFormulaStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaStylePtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestFormulaStylePtrType) ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaStyleOutput() PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestFormulaStyle) *PowerpackWidgetToplistDefinitionRequestFormulaStyle {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput)
+}
+
+// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
+}
+
+// Index specifying which color to use within the palette.
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput) PaletteIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestFormulaStyle) *int { return v.PaletteIndex }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput) ToPowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaStyle) PowerpackWidgetToplistDefinitionRequestFormulaStyle {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestFormulaStyle
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput)
+}
+
+// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaStyle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Palette
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index specifying which color to use within the palette.
+func (o PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput) PaletteIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestFormulaStyle) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PaletteIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQuery struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes []PowerpackWidgetToplistDefinitionRequestLogQueryMultiCompute `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
+}
+
+// PowerpackWidgetToplistDefinitionRequestLogQueryInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestLogQueryArgs and PowerpackWidgetToplistDefinitionRequestLogQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestLogQueryInput` via:
+//
+//	PowerpackWidgetToplistDefinitionRequestLogQueryArgs{...}
+type PowerpackWidgetToplistDefinitionRequestLogQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryOutput() PowerpackWidgetToplistDefinitionRequestLogQueryOutput
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryOutput
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryArgs struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes PowerpackWidgetToplistDefinitionRequestLogQueryMultiComputeArrayInput `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
+}
+
+func (PowerpackWidgetToplistDefinitionRequestLogQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryArgs) ToPowerpackWidgetToplistDefinitionRequestLogQueryOutput() PowerpackWidgetToplistDefinitionRequestLogQueryOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestLogQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryArgs) ToPowerpackWidgetToplistDefinitionRequestLogQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestLogQueryOutput)
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryArgs) ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetToplistDefinitionRequestLogQueryArgs) ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestLogQueryOutput).ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetToplistDefinitionRequestLogQueryPtrInput is an input type that accepts PowerpackWidgetToplistDefinitionRequestLogQueryArgs, PowerpackWidgetToplistDefinitionRequestLogQueryPtr and PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetToplistDefinitionRequestLogQueryPtrInput` via:
+//
+//	        PowerpackWidgetToplistDefinitionRequestLogQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetToplistDefinitionRequestLogQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput
+	ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutputWithContext(context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput
+}
+
+type powerpackWidgetToplistDefinitionRequestLogQueryPtrType PowerpackWidgetToplistDefinitionRequestLogQueryArgs
+
+func PowerpackWidgetToplistDefinitionRequestLogQueryPtr(v *PowerpackWidgetToplistDefinitionRequestLogQueryArgs) PowerpackWidgetToplistDefinitionRequestLogQueryPtrInput {
+	return (*powerpackWidgetToplistDefinitionRequestLogQueryPtrType)(v)
+}
+
+func (*powerpackWidgetToplistDefinitionRequestLogQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestLogQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestLogQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput {
+	return i.ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetToplistDefinitionRequestLogQueryPtrType) ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestLogQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryOutput() PowerpackWidgetToplistDefinitionRequestLogQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput {
+	return o.ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetToplistDefinitionRequestLogQuery) *PowerpackWidgetToplistDefinitionRequestLogQuery {
+		return &v
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryOutput) ComputeQuery() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQuery) *PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery {
+		return v.ComputeQuery
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryOutput) GroupBies() PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQuery) []PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy {
+		return v.GroupBies
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQuery) string { return v.Index }).(pulumi.StringOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryOutput) MultiComputes() PowerpackWidgetToplistDefinitionRequestLogQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQuery) []PowerpackWidgetToplistDefinitionRequestLogQueryMultiCompute {
+		return v.MultiComputes
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetToplistDefinitionRequestLogQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetToplistDefinitionRequestLogQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput() PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput) ToPowerpackWidgetToplistDefinitionRequestLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput) Elem() PowerpackWidgetToplistDefinitionRequestLogQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestLogQuery) PowerpackWidgetToplistDefinitionRequestLogQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetToplistDefinitionRequestLogQuery
+		return ret
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput) ComputeQuery() PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestLogQuery) *PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeQuery
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput) GroupBies() PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestLogQuery) []PowerpackWidgetToplistDefinitionRequestLogQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestLogQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput) MultiComputes() PowerpackWidgetToplistDefinitionRequestLogQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestLogQuery) []PowerpackWidgetToplistDefinitionRequestLogQueryMultiCompute {
+		if v == nil {
+			return nil
+		}
+		return v.MultiComputes
+	}).(PowerpackWidgetToplistDefinitionRequestLogQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetToplistDefinitionRequestLogQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchQuery
+	}).(pulumi.StringPtrOutput)
+}
+
 type PowerpackWidgetToplistDefinitionRequestLogQueryComputeQuery struct {
 	// The aggregation method.
 	Aggregation string `pulumi:"aggregation"`
@@ -67792,6 +68913,20 @@ func (o GetWorkflowAutomationRunAsOutput) Type() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaStyleInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestFormulaStylePtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestFormulaStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetToplistDefinitionRequestLogQueryGroupByInput)(nil)).Elem(), PowerpackWidgetToplistDefinitionRequestLogQueryGroupByArgs{})
@@ -68642,6 +69777,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowAutomationRunAsInput)(nil)).Elem(), GetWorkflowAutomationRunAsArgs{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScaleOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaNumberFormatUnitScalePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaStyleOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestFormulaStylePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryComputeQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetToplistDefinitionRequestLogQueryGroupByOutput{})

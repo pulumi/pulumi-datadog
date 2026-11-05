@@ -190,6 +190,11 @@ export type DeploymentGate = import("./deploymentGate").DeploymentGate;
 export const DeploymentGate: typeof import("./deploymentGate").DeploymentGate = null as any;
 utilities.lazyLoad(exports, ["DeploymentGate"], () => require("./deploymentGate"));
 
+export { DerivedMetricArgs, DerivedMetricState } from "./derivedMetric";
+export type DerivedMetric = import("./derivedMetric").DerivedMetric;
+export const DerivedMetric: typeof import("./derivedMetric").DerivedMetric = null as any;
+utilities.lazyLoad(exports, ["DerivedMetric"], () => require("./derivedMetric"));
+
 export { DomainAllowlistArgs, DomainAllowlistState } from "./domainAllowlist";
 export type DomainAllowlist = import("./domainAllowlist").DomainAllowlist;
 export const DomainAllowlist: typeof import("./domainAllowlist").DomainAllowlist = null as any;
@@ -1314,6 +1319,8 @@ const _module = {
                 return new DatastoreItem(name, <any>undefined, { urn })
             case "datadog:index/deploymentGate:DeploymentGate":
                 return new DeploymentGate(name, <any>undefined, { urn })
+            case "datadog:index/derivedMetric:DerivedMetric":
+                return new DerivedMetric(name, <any>undefined, { urn })
             case "datadog:index/domainAllowlist:DomainAllowlist":
                 return new DomainAllowlist(name, <any>undefined, { urn })
             case "datadog:index/downtime:Downtime":
@@ -1590,6 +1597,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/dataset", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/datastore", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/datastoreItem", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/deploymentGate", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/derivedMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/domainAllowlist", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtime", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/downtimeSchedule", _module)

@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigDestination> Destinations;
         /// <summary>
-        /// The type of data being ingested. Defaults to `Logs` if not specified. Valid values are `Logs`, `Metrics`.
+        /// The type of data being ingested. Defaults to `Logs` if not specified. Valid values are `Logs`, `Metrics`, `Traces`.
         /// </summary>
         public readonly string? PipelineType;
         /// <summary>
