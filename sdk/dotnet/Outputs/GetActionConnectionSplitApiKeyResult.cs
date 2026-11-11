@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Split API key
         /// </summary>
         public readonly string ApiKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerResult? ApiKeyAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionSplitApiKeyResult(string apiKey)
+        private GetActionConnectionSplitApiKeyResult(
+            string apiKey,
+
+            Outputs.GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerResult? apiKeyAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
         }
     }
 }

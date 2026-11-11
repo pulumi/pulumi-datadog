@@ -18,6 +18,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("authEmail")]
         public Input<string>? AuthEmail { get; set; }
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("authEmailAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs>? AuthEmailAwsSecretsManager { get; set; }
+
         [Input("globalApiKey")]
         private Input<string>? _globalApiKey;
 
@@ -33,6 +39,12 @@ namespace Pulumi.Datadog.Inputs
                 _globalApiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("globalApiKeyAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs>? GlobalApiKeyAwsSecretsManager { get; set; }
 
         public ActionConnectionCloudflareGlobalApiTokenArgs()
         {

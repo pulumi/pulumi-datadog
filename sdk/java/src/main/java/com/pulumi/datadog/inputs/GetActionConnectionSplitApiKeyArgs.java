@@ -5,9 +5,12 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionSplitApiKeyArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +32,26 @@ public final class GetActionConnectionSplitApiKeyArgs extends com.pulumi.resourc
         return this.apiKey;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="apiKeyAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs> apiKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs>> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
+    }
+
     private GetActionConnectionSplitApiKeyArgs() {}
 
     private GetActionConnectionSplitApiKeyArgs(GetActionConnectionSplitApiKeyArgs $) {
         this.apiKey = $.apiKey;
+        this.apiKeyAwsSecretsManager = $.apiKeyAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -72,6 +91,27 @@ public final class GetActionConnectionSplitApiKeyArgs extends com.pulumi.resourc
          */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
+        }
+
+        /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(@Nullable Output<GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs> apiKeyAwsSecretsManager) {
+            $.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs apiKeyAwsSecretsManager) {
+            return apiKeyAwsSecretsManager(Output.of(apiKeyAwsSecretsManager));
         }
 
         public GetActionConnectionSplitApiKeyArgs build() {

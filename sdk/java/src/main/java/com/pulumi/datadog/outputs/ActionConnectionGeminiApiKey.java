@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,11 @@ public final class ActionConnectionGeminiApiKey {
      * 
      */
     private @Nullable String apiKey;
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
 
     private ActionConnectionGeminiApiKey() {}
     /**
@@ -24,6 +30,13 @@ public final class ActionConnectionGeminiApiKey {
      */
     public Optional<String> apiKey() {
         return Optional.ofNullable(this.apiKey);
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class ActionConnectionGeminiApiKey {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String apiKey;
+        private @Nullable ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
         public Builder() {}
         public Builder(ActionConnectionGeminiApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
+    	      this.apiKeyAwsSecretsManager = defaults.apiKeyAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class ActionConnectionGeminiApiKey {
             this.apiKey = apiKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder apiKeyAwsSecretsManager(@Nullable ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager) {
+
+            this.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
         public ActionConnectionGeminiApiKey build() {
             final var _resultValue = new ActionConnectionGeminiApiKey();
             _resultValue.apiKey = apiKey;
+            _resultValue.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             return _resultValue;
         }
     }

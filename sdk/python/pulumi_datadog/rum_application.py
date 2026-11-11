@@ -20,6 +20,7 @@ __all__ = ['RumApplicationArgs', 'RumApplication']
 class RumApplicationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
+                 create_default_retention_filters: pulumi.Input[Optional[_builtins.bool]] = None,
                  product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
                  rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
@@ -27,11 +28,14 @@ class RumApplicationArgs:
         The set of arguments for constructing a RumApplication resource.
 
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
-        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
-        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
-        :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+        :param pulumi.Input[_builtins.bool] create_default_retention_filters: Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn't add or remove filters.
+        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
+        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `"browser"`.
         """
         pulumi.set(__self__, "name", name)
+        if create_default_retention_filters is not None:
+            pulumi.set(__self__, "create_default_retention_filters", create_default_retention_filters)
         if product_analytics_retention_state is not None:
             pulumi.set(__self__, "product_analytics_retention_state", product_analytics_retention_state)
         if rum_event_processing_state is not None:
@@ -52,10 +56,22 @@ class RumApplicationArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="createDefaultRetentionFilters")
+    def create_default_retention_filters(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn't add or remove filters.
+        """
+        return pulumi.get(self, "create_default_retention_filters")
+
+    @create_default_retention_filters.setter
+    def create_default_retention_filters(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "create_default_retention_filters", value)
+
+    @_builtins.property
     @pulumi.getter(name="productAnalyticsRetentionState")
     def product_analytics_retention_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
         """
         return pulumi.get(self, "product_analytics_retention_state")
 
@@ -67,7 +83,7 @@ class RumApplicationArgs:
     @pulumi.getter(name="rumEventProcessingState")
     def rum_event_processing_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         """
         return pulumi.get(self, "rum_event_processing_state")
 
@@ -79,7 +95,7 @@ class RumApplicationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+        Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `"browser"`.
         """
         return pulumi.get(self, "type")
 
@@ -93,6 +109,7 @@ class _RumApplicationState:
     def __init__(__self__, *,
                  api_key_id: pulumi.Input[Optional[_builtins.int]] = None,
                  client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_default_retention_filters: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
                  rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
@@ -102,15 +119,18 @@ class _RumApplicationState:
 
         :param pulumi.Input[_builtins.int] api_key_id: ID of the API key associated with the application.
         :param pulumi.Input[_builtins.str] client_token: The client token.
+        :param pulumi.Input[_builtins.bool] create_default_retention_filters: Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn't add or remove filters.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
-        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
-        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
-        :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
+        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `"browser"`.
         """
         if api_key_id is not None:
             pulumi.set(__self__, "api_key_id", api_key_id)
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
+        if create_default_retention_filters is not None:
+            pulumi.set(__self__, "create_default_retention_filters", create_default_retention_filters)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if product_analytics_retention_state is not None:
@@ -145,6 +165,18 @@ class _RumApplicationState:
         pulumi.set(self, "client_token", value)
 
     @_builtins.property
+    @pulumi.getter(name="createDefaultRetentionFilters")
+    def create_default_retention_filters(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn't add or remove filters.
+        """
+        return pulumi.get(self, "create_default_retention_filters")
+
+    @create_default_retention_filters.setter
+    def create_default_retention_filters(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "create_default_retention_filters", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -160,7 +192,7 @@ class _RumApplicationState:
     @pulumi.getter(name="productAnalyticsRetentionState")
     def product_analytics_retention_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
         """
         return pulumi.get(self, "product_analytics_retention_state")
 
@@ -172,7 +204,7 @@ class _RumApplicationState:
     @pulumi.getter(name="rumEventProcessingState")
     def rum_event_processing_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         """
         return pulumi.get(self, "rum_event_processing_state")
 
@@ -184,7 +216,7 @@ class _RumApplicationState:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+        Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `"browser"`.
         """
         return pulumi.get(self, "type")
 
@@ -199,6 +231,7 @@ class RumApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 create_default_retention_filters: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
                  rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
@@ -218,6 +251,11 @@ class RumApplication(pulumi.CustomResource):
             type="browser",
             rum_event_processing_state="ALL",
             product_analytics_retention_state="NONE")
+        # Create the application without the default retention filters to manage them yourself.
+        rum_application_custom_filters = datadog.RumApplication("rum_application_custom_filters",
+            name="my-application-custom-filters",
+            type="browser",
+            create_default_retention_filters=False)
         ```
 
         ## Import
@@ -231,10 +269,11 @@ class RumApplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] create_default_retention_filters: Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn't add or remove filters.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
-        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
-        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
-        :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
+        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `"browser"`.
         """
         ...
     @overload
@@ -256,6 +295,11 @@ class RumApplication(pulumi.CustomResource):
             type="browser",
             rum_event_processing_state="ALL",
             product_analytics_retention_state="NONE")
+        # Create the application without the default retention filters to manage them yourself.
+        rum_application_custom_filters = datadog.RumApplication("rum_application_custom_filters",
+            name="my-application-custom-filters",
+            type="browser",
+            create_default_retention_filters=False)
         ```
 
         ## Import
@@ -282,6 +326,7 @@ class RumApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 create_default_retention_filters: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
                  rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
@@ -295,6 +340,7 @@ class RumApplication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RumApplicationArgs.__new__(RumApplicationArgs)
 
+            __props__.__dict__["create_default_retention_filters"] = create_default_retention_filters
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -315,6 +361,7 @@ class RumApplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key_id: pulumi.Input[Optional[_builtins.int]] = None,
             client_token: pulumi.Input[Optional[_builtins.str]] = None,
+            create_default_retention_filters: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
             rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
@@ -328,10 +375,11 @@ class RumApplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] api_key_id: ID of the API key associated with the application.
         :param pulumi.Input[_builtins.str] client_token: The client token.
+        :param pulumi.Input[_builtins.bool] create_default_retention_filters: Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn't add or remove filters.
         :param pulumi.Input[_builtins.str] name: Name of the RUM application.
-        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
-        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
-        :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+        :param pulumi.Input[_builtins.str] product_analytics_retention_state: Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
+        :param pulumi.Input[_builtins.str] rum_event_processing_state: Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        :param pulumi.Input[_builtins.str] type: Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `"browser"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,6 +387,7 @@ class RumApplication(pulumi.CustomResource):
 
         __props__.__dict__["api_key_id"] = api_key_id
         __props__.__dict__["client_token"] = client_token
+        __props__.__dict__["create_default_retention_filters"] = create_default_retention_filters
         __props__.__dict__["name"] = name
         __props__.__dict__["product_analytics_retention_state"] = product_analytics_retention_state
         __props__.__dict__["rum_event_processing_state"] = rum_event_processing_state
@@ -350,6 +399,7 @@ class RumApplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key_id: pulumi.Input[Optional[_builtins.int]] = None,
             client_token: pulumi.Input[Optional[_builtins.str]] = None,
+            create_default_retention_filters: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             product_analytics_retention_state: pulumi.Input[Optional[_builtins.str]] = None,
             rum_event_processing_state: pulumi.Input[Optional[_builtins.str]] = None,
@@ -357,6 +407,7 @@ class RumApplication(pulumi.CustomResource):
         __props__: dict = {}
         __props__["apiKeyId"] = api_key_id
         __props__["clientToken"] = client_token
+        __props__["createDefaultRetentionFilters"] = create_default_retention_filters
         __props__["name"] = name
         __props__["productAnalyticsRetentionState"] = product_analytics_retention_state
         __props__["rumEventProcessingState"] = rum_event_processing_state
@@ -380,6 +431,14 @@ class RumApplication(pulumi.CustomResource):
         return pulumi.get(self, "client_token")
 
     @_builtins.property
+    @pulumi.getter(name="createDefaultRetentionFilters")
+    def create_default_retention_filters(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn't add or remove filters.
+        """
+        return pulumi.get(self, "create_default_retention_filters")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -391,7 +450,7 @@ class RumApplication(pulumi.CustomResource):
     @pulumi.getter(name="productAnalyticsRetentionState")
     def product_analytics_retention_state(self) -> pulumi.Output[_builtins.str]:
         """
-        Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
         """
         return pulumi.get(self, "product_analytics_retention_state")
 
@@ -399,7 +458,7 @@ class RumApplication(pulumi.CustomResource):
     @pulumi.getter(name="rumEventProcessingState")
     def rum_event_processing_state(self) -> pulumi.Output[_builtins.str]:
         """
-        Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         """
         return pulumi.get(self, "rum_event_processing_state")
 
@@ -407,7 +466,7 @@ class RumApplication(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `"browser"`.
+        Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `"browser"`.
         """
         return pulumi.get(self, "type")
 

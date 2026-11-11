@@ -13,6 +13,7 @@ import com.pulumi.datadog.inputs.MonitorNotificationRuleState;
 import com.pulumi.datadog.outputs.MonitorNotificationRuleBundleConfig;
 import com.pulumi.datadog.outputs.MonitorNotificationRuleConditionalRecipients;
 import com.pulumi.datadog.outputs.MonitorNotificationRuleFilter;
+import com.pulumi.datadog.outputs.MonitorNotificationRuleRuleOptions;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -161,6 +162,20 @@ public class MonitorNotificationRule extends com.pulumi.resources.CustomResource
      */
     public Output<Optional<List<String>>> recipients() {
         return Codegen.optional(this.recipients);
+    }
+    /**
+     * Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+     * 
+     */
+    @Export(name="ruleOptions", refs={MonitorNotificationRuleRuleOptions.class}, tree="[0]")
+    private Output<MonitorNotificationRuleRuleOptions> ruleOptions;
+
+    /**
+     * @return Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+     * 
+     */
+    public Output<MonitorNotificationRuleRuleOptions> ruleOptions() {
+        return this.ruleOptions;
     }
 
     /**

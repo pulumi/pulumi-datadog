@@ -17,6 +17,29 @@ export interface ActionConnectionAnthropicApiKey {
      * Anthropic API token. String length must be at least 1.
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionAsana {
@@ -31,6 +54,29 @@ export interface ActionConnectionAsanaAccessToken {
      * Asana access token. String length must be at least 1.
      */
     accessToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    accessTokenAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionAws {
@@ -97,6 +143,29 @@ export interface ActionConnectionCircleCiApiKey {
      * CircleCI API token. String length must be at least 1.
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionClickup {
@@ -111,6 +180,29 @@ export interface ActionConnectionClickupApiKey {
      * ClickUp API token. String length must be at least 1.
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionClickupApiKeyApiTokenAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionClickupApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionCloudflare {
@@ -129,6 +221,29 @@ export interface ActionConnectionCloudflareApiToken {
      * Cloudflare API token. String length must be at least 1.
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionCloudflareGlobalApiToken {
@@ -137,9 +252,55 @@ export interface ActionConnectionCloudflareGlobalApiToken {
      */
     authEmail?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    authEmailAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager | undefined>;
+    /**
      * Cloudflare global API key. String length must be at least 1.
      */
     globalApiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    globalApiKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionConfigCat {
@@ -155,13 +316,82 @@ export interface ActionConnectionConfigCatSdkKey {
      */
     apiPassword?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiPasswordAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager | undefined>;
+    /**
      * ConfigCat Public Management API username. String length must be at least 1.
      */
     apiUsername?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiUsernameAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager | undefined>;
+    /**
      * ConfigCat SDK key. String length must be at least 1.
      */
     sdkKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    sdkKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionDatadog {
@@ -177,17 +407,120 @@ export interface ActionConnectionDatadogApiKey {
      */
     apiKey?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager | undefined>;
+    /**
      * Datadog application key. String length must be at least 1.
      */
     appKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    appKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager | undefined>;
     /**
      * Datadog site data center. String length must be at least 1.
      */
     datacenter?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    datacenterAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager | undefined>;
+    /**
      * Custom subdomain used for URLs generated with this connection. String length must be at least 1.
      */
     subdomain?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    subdomainAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionDatadogApiKeySubdomainAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionDatadogApiKeySubdomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionExternalSecretsManager {
+    /**
+     * ID of an AWS connection in the same organization used to retrieve secrets. String length must be at least 1.
+     */
+    connectionId: pulumi.Input<string>;
+    /**
+     * AWS region containing the secrets. String length must be at least 1.
+     */
+    region: pulumi.Input<string>;
 }
 
 export interface ActionConnectionFastly {
@@ -202,6 +535,29 @@ export interface ActionConnectionFastlyApiKey {
      * Fastly API key. String length must be at least 1.
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionFreshservice {
@@ -217,9 +573,55 @@ export interface ActionConnectionFreshserviceApiKey {
      */
     apiKey?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager | undefined>;
+    /**
      * Freshservice domain. String length must be at least 1.
      */
     domain?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    domainAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionGcp {
@@ -235,9 +637,55 @@ export interface ActionConnectionGcpServiceAccount {
      */
     privateKey?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    privateKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager | undefined>;
+    /**
      * Google Cloud service account email. String length must be at least 1.
      */
     serviceAccountEmail?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    serviceAccountEmailAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionGemini {
@@ -252,6 +700,29 @@ export interface ActionConnectionGeminiApiKey {
      * Gemini API key. String length must be at least 1.
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionGitlab {
@@ -266,6 +737,29 @@ export interface ActionConnectionGitlabApiKey {
      * GitLab API token. String length must be at least 1.
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionGreyNoise {
@@ -280,6 +774,29 @@ export interface ActionConnectionGreyNoiseApiKey {
      * GreyNoise API key. String length must be at least 1.
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionHttp {
@@ -347,6 +864,29 @@ export interface ActionConnectionHttpTokenAuthToken {
      * Token value. String length must be at least 1.
      */
     value?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    valueAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionHttpTokenAuthUrlParameter {
@@ -372,6 +912,29 @@ export interface ActionConnectionLaunchDarklyApiKey {
      * LaunchDarkly API token. String length must be at least 1.
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionNotion {
@@ -386,6 +949,29 @@ export interface ActionConnectionNotionApiKey {
      * Notion API token. String length must be at least 1.
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionNotionApiKeyApiTokenAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionNotionApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionOkta {
@@ -401,9 +987,55 @@ export interface ActionConnectionOktaApiToken {
      */
     apiToken?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionOktaApiTokenApiTokenAwsSecretsManager | undefined>;
+    /**
      * Okta domain. String length must be at least 1.
      */
     domain?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    domainAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionOktaApiTokenDomainAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionOktaApiTokenApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionOktaApiTokenDomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionOpenai {
@@ -418,6 +1050,29 @@ export interface ActionConnectionOpenaiApiKey {
      * OpenAI API token. String length must be at least 1.
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionServiceNow {
@@ -433,13 +1088,82 @@ export interface ActionConnectionServiceNowBasicAuth {
      */
     instance?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    instanceAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager | undefined>;
+    /**
      * ServiceNow password. String length must be at least 1.
      */
     password?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    passwordAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager | undefined>;
+    /**
      * ServiceNow username. String length must be at least 1.
      */
     username?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    usernameAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionSplit {
@@ -454,6 +1178,29 @@ export interface ActionConnectionSplitApiKey {
      * Split API key. String length must be at least 1.
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionSplitApiKeyApiKeyAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionSplitApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionStatsig {
@@ -468,6 +1215,29 @@ export interface ActionConnectionStatsigApiKey {
      * Statsig API key. String length must be at least 1.
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionConnectionVirusTotal {
@@ -482,6 +1252,29 @@ export interface ActionConnectionVirusTotalApiKey {
      * VirusTotal API key. String length must be at least 1.
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager | undefined>;
+}
+
+export interface ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface ActionExecutionPolicyActionPattern {
@@ -490,7 +1283,7 @@ export interface ActionExecutionPolicyActionPattern {
      */
     actionFqns: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+     * The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
      */
     integration: pulumi.Input<string>;
 }
@@ -508,6 +1301,10 @@ export interface ActionExecutionPolicyScope {
      * Restricts the policy to specific scripts. Requires `action_pattern.integration` to be `INTEGRATION_SCRIPT`.
      */
     scripts?: pulumi.Input<inputs.ActionExecutionPolicyScopeScripts | undefined>;
+    /**
+     * Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+     */
+    slack?: pulumi.Input<inputs.ActionExecutionPolicyScopeSlack | undefined>;
 }
 
 export interface ActionExecutionPolicyScopeKubernetes {
@@ -556,9 +1353,23 @@ export interface ActionExecutionPolicyScopeScriptsRule {
     targetScriptNames: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface ActionExecutionPolicyScopeSlack {
+    /**
+     * A rule restricting the Slack scope to specific channel names.
+     */
+    rules?: pulumi.Input<pulumi.Input<inputs.ActionExecutionPolicyScopeSlackRule>[] | undefined>;
+}
+
+export interface ActionExecutionPolicyScopeSlackRule {
+    /**
+     * The channel name selectors this rule applies to, for example `incident-*`. Use `*` to match any channel name.
+     */
+    channelNameSelectors: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface ActionExecutionPolicyTarget {
     /**
-     * The Agent tags identifying the target, for example `env:prod`.
+     * The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
      */
     agentTags: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -55437,6 +56248,10 @@ export interface GetActionConnectionAnthropicApiKey {
      * Anthropic API token
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: inputs.GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager;
 }
 
 export interface GetActionConnectionAnthropicApiKeyArgs {
@@ -55444,6 +56259,48 @@ export interface GetActionConnectionAnthropicApiKeyArgs {
      * Anthropic API token
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionAsana {
@@ -55465,6 +56322,10 @@ export interface GetActionConnectionAsanaAccessToken {
      * Asana access token
      */
     accessToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    accessTokenAwsSecretsManager?: inputs.GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager;
 }
 
 export interface GetActionConnectionAsanaAccessTokenArgs {
@@ -55472,6 +56333,48 @@ export interface GetActionConnectionAsanaAccessTokenArgs {
      * Asana access token
      */
     accessToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    accessTokenAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionAws {
@@ -55597,6 +56500,10 @@ export interface GetActionConnectionCircleCiApiKey {
      * CircleCI API token
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: inputs.GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager;
 }
 
 export interface GetActionConnectionCircleCiApiKeyArgs {
@@ -55604,6 +56511,48 @@ export interface GetActionConnectionCircleCiApiKeyArgs {
      * CircleCI API token
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionClickup {
@@ -55625,6 +56574,10 @@ export interface GetActionConnectionClickupApiKey {
      * ClickUp API token
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: inputs.GetActionConnectionClickupApiKeyApiTokenAwsSecretsManager;
 }
 
 export interface GetActionConnectionClickupApiKeyArgs {
@@ -55632,6 +56585,48 @@ export interface GetActionConnectionClickupApiKeyArgs {
      * ClickUp API token
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionClickupApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionCloudflare {
@@ -55661,6 +56656,10 @@ export interface GetActionConnectionCloudflareApiToken {
      * Cloudflare API token
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: inputs.GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager;
 }
 
 export interface GetActionConnectionCloudflareApiTokenArgs {
@@ -55668,6 +56667,48 @@ export interface GetActionConnectionCloudflareApiTokenArgs {
      * Cloudflare API token
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionCloudflareGlobalApiToken {
@@ -55676,9 +56717,17 @@ export interface GetActionConnectionCloudflareGlobalApiToken {
      */
     authEmail?: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    authEmailAwsSecretsManager?: inputs.GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager;
+    /**
      * Cloudflare global API key
      */
     globalApiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    globalApiKeyAwsSecretsManager?: inputs.GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager;
 }
 
 export interface GetActionConnectionCloudflareGlobalApiTokenArgs {
@@ -55687,9 +56736,93 @@ export interface GetActionConnectionCloudflareGlobalApiTokenArgs {
      */
     authEmail?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    authEmailAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs | undefined>;
+    /**
      * Cloudflare global API key
      */
     globalApiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    globalApiKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionConfigCat {
@@ -55712,13 +56845,25 @@ export interface GetActionConnectionConfigCatSdkKey {
      */
     apiPassword?: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiPasswordAwsSecretsManager?: inputs.GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager;
+    /**
      * ConfigCat Public Management API username
      */
     apiUsername?: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiUsernameAwsSecretsManager?: inputs.GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager;
+    /**
      * ConfigCat SDK key
      */
     sdkKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    sdkKeyAwsSecretsManager?: inputs.GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager;
 }
 
 export interface GetActionConnectionConfigCatSdkKeyArgs {
@@ -55727,13 +56872,139 @@ export interface GetActionConnectionConfigCatSdkKeyArgs {
      */
     apiPassword?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiPasswordAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs | undefined>;
+    /**
      * ConfigCat Public Management API username
      */
     apiUsername?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiUsernameAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs | undefined>;
+    /**
      * ConfigCat SDK key
      */
     sdkKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    sdkKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionDatadog {
@@ -55756,17 +57027,33 @@ export interface GetActionConnectionDatadogApiKey {
      */
     apiKey?: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: inputs.GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager;
+    /**
      * Datadog application key
      */
     appKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    appKeyAwsSecretsManager?: inputs.GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager;
     /**
      * Datadog site data center
      */
     datacenter?: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    datacenterAwsSecretsManager?: inputs.GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager;
+    /**
      * Custom subdomain used for URLs generated with this connection
      */
     subdomain?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    subdomainAwsSecretsManager?: inputs.GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager;
 }
 
 export interface GetActionConnectionDatadogApiKeyArgs {
@@ -55775,17 +57062,185 @@ export interface GetActionConnectionDatadogApiKeyArgs {
      */
     apiKey?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs | undefined>;
+    /**
      * Datadog application key
      */
     appKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    appKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs | undefined>;
     /**
      * Datadog site data center
      */
     datacenter?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    datacenterAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs | undefined>;
+    /**
      * Custom subdomain used for URLs generated with this connection
      */
     subdomain?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    subdomainAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionFastly {
@@ -55807,6 +57262,10 @@ export interface GetActionConnectionFastlyApiKey {
      * Fastly API key
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: inputs.GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManager;
 }
 
 export interface GetActionConnectionFastlyApiKeyArgs {
@@ -55814,6 +57273,48 @@ export interface GetActionConnectionFastlyApiKeyArgs {
      * Fastly API key
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionFreshservice {
@@ -55836,9 +57337,17 @@ export interface GetActionConnectionFreshserviceApiKey {
      */
     apiKey?: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: inputs.GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager;
+    /**
      * Freshservice domain
      */
     domain?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    domainAwsSecretsManager?: inputs.GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManager;
 }
 
 export interface GetActionConnectionFreshserviceApiKeyArgs {
@@ -55847,9 +57356,93 @@ export interface GetActionConnectionFreshserviceApiKeyArgs {
      */
     apiKey?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs | undefined>;
+    /**
      * Freshservice domain
      */
     domain?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    domainAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionGcp {
@@ -55872,9 +57465,17 @@ export interface GetActionConnectionGcpServiceAccount {
      */
     privateKey?: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    privateKeyAwsSecretsManager?: inputs.GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager;
+    /**
      * Google Cloud service account email
      */
     serviceAccountEmail?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    serviceAccountEmailAwsSecretsManager?: inputs.GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager;
 }
 
 export interface GetActionConnectionGcpServiceAccountArgs {
@@ -55883,9 +57484,93 @@ export interface GetActionConnectionGcpServiceAccountArgs {
      */
     privateKey?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    privateKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs | undefined>;
+    /**
      * Google Cloud service account email
      */
     serviceAccountEmail?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    serviceAccountEmailAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionGemini {
@@ -55907,6 +57592,10 @@ export interface GetActionConnectionGeminiApiKey {
      * Gemini API key
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: inputs.GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManager;
 }
 
 export interface GetActionConnectionGeminiApiKeyArgs {
@@ -55914,6 +57603,48 @@ export interface GetActionConnectionGeminiApiKeyArgs {
      * Gemini API key
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionGitlab {
@@ -55935,6 +57666,10 @@ export interface GetActionConnectionGitlabApiKey {
      * GitLab API token
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: inputs.GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManager;
 }
 
 export interface GetActionConnectionGitlabApiKeyArgs {
@@ -55942,6 +57677,48 @@ export interface GetActionConnectionGitlabApiKeyArgs {
      * GitLab API token
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionGreyNoise {
@@ -55963,6 +57740,10 @@ export interface GetActionConnectionGreyNoiseApiKey {
      * GreyNoise API key
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: inputs.GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager;
 }
 
 export interface GetActionConnectionGreyNoiseApiKeyArgs {
@@ -55970,6 +57751,48 @@ export interface GetActionConnectionGreyNoiseApiKeyArgs {
      * GreyNoise API key
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionHttp {
@@ -56083,6 +57906,10 @@ export interface GetActionConnectionHttpTokenAuthToken {
      * Token value
      */
     value?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    valueAwsSecretsManager?: inputs.GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager;
 }
 
 export interface GetActionConnectionHttpTokenAuthTokenArgs {
@@ -56098,6 +57925,48 @@ export interface GetActionConnectionHttpTokenAuthTokenArgs {
      * Token value
      */
     value?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    valueAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionHttpTokenAuthUrlParameter {
@@ -56141,6 +58010,10 @@ export interface GetActionConnectionLaunchDarklyApiKey {
      * LaunchDarkly API token
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: inputs.GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager;
 }
 
 export interface GetActionConnectionLaunchDarklyApiKeyArgs {
@@ -56148,6 +58021,48 @@ export interface GetActionConnectionLaunchDarklyApiKeyArgs {
      * LaunchDarkly API token
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionNotion {
@@ -56169,6 +58084,10 @@ export interface GetActionConnectionNotionApiKey {
      * Notion API token
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: inputs.GetActionConnectionNotionApiKeyApiTokenAwsSecretsManager;
 }
 
 export interface GetActionConnectionNotionApiKeyArgs {
@@ -56176,6 +58095,48 @@ export interface GetActionConnectionNotionApiKeyArgs {
      * Notion API token
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionNotionApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionOkta {
@@ -56198,9 +58159,17 @@ export interface GetActionConnectionOktaApiToken {
      */
     apiToken?: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: inputs.GetActionConnectionOktaApiTokenApiTokenAwsSecretsManager;
+    /**
      * Okta domain
      */
     domain?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    domainAwsSecretsManager?: inputs.GetActionConnectionOktaApiTokenDomainAwsSecretsManager;
 }
 
 export interface GetActionConnectionOktaApiTokenArgs {
@@ -56209,9 +58178,93 @@ export interface GetActionConnectionOktaApiTokenArgs {
      */
     apiToken?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs | undefined>;
+    /**
      * Okta domain
      */
     domain?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    domainAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionOktaApiTokenApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionOktaApiTokenDomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionOpenai {
@@ -56233,6 +58286,10 @@ export interface GetActionConnectionOpenaiApiKey {
      * OpenAI API token
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: inputs.GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager;
 }
 
 export interface GetActionConnectionOpenaiApiKeyArgs {
@@ -56240,6 +58297,48 @@ export interface GetActionConnectionOpenaiApiKeyArgs {
      * OpenAI API token
      */
     apiToken?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionServiceNow {
@@ -56262,13 +58361,25 @@ export interface GetActionConnectionServiceNowBasicAuth {
      */
     instance?: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    instanceAwsSecretsManager?: inputs.GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager;
+    /**
      * ServiceNow password
      */
     password?: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    passwordAwsSecretsManager?: inputs.GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager;
+    /**
      * ServiceNow username
      */
     username?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    usernameAwsSecretsManager?: inputs.GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager;
 }
 
 export interface GetActionConnectionServiceNowBasicAuthArgs {
@@ -56277,13 +58388,139 @@ export interface GetActionConnectionServiceNowBasicAuthArgs {
      */
     instance?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    instanceAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs | undefined>;
+    /**
      * ServiceNow password
      */
     password?: pulumi.Input<string | undefined>;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    passwordAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs | undefined>;
+    /**
      * ServiceNow username
      */
     username?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    usernameAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
+}
+
+export interface GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionSplit {
@@ -56305,6 +58542,10 @@ export interface GetActionConnectionSplitApiKey {
      * Split API key
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: inputs.GetActionConnectionSplitApiKeyApiKeyAwsSecretsManager;
 }
 
 export interface GetActionConnectionSplitApiKeyArgs {
@@ -56312,6 +58553,48 @@ export interface GetActionConnectionSplitApiKeyArgs {
      * Split API key
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionSplitApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionStatsig {
@@ -56333,6 +58616,10 @@ export interface GetActionConnectionStatsigApiKey {
      * Statsig API key
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: inputs.GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManager;
 }
 
 export interface GetActionConnectionStatsigApiKeyArgs {
@@ -56340,6 +58627,48 @@ export interface GetActionConnectionStatsigApiKeyArgs {
      * Statsig API key
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetActionConnectionVirusTotal {
@@ -56361,6 +58690,10 @@ export interface GetActionConnectionVirusTotalApiKey {
      * VirusTotal API key
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: inputs.GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager;
 }
 
 export interface GetActionConnectionVirusTotalApiKeyArgs {
@@ -56368,6 +58701,48 @@ export interface GetActionConnectionVirusTotalApiKeyArgs {
      * VirusTotal API key
      */
     apiKey?: pulumi.Input<string | undefined>;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: pulumi.Input<inputs.GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs | undefined>;
+}
+
+export interface GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: pulumi.Input<string | undefined>;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: pulumi.Input<string | undefined>;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: pulumi.Input<string | undefined>;
 }
 
 export interface GetAwsCurConfigAccountFilters {
@@ -60311,6 +62686,13 @@ export interface MonitorNotificationRuleFilter {
     tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
+export interface MonitorNotificationRuleRuleOptions {
+    /**
+     * Whether notifications from this rule are threaded. When `true`, follow-up notifications for the same monitor alert are posted in Slack as replies to the first notification. Cannot be `true` when `bundleConfig` is set.
+     */
+    isThreaded: pulumi.Input<boolean>;
+}
+
 export interface MonitorSchedulingOptions {
     /**
      * Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
@@ -62682,6 +65064,47 @@ export interface ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemo
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogMetric {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogMetricBuffer | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogMetricBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogMetricBufferDisk | undefined>;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: pulumi.Input<inputs.ObservabilityPipelineConfigDestinationDatadogMetricBufferMemory | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogMetricBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number | undefined>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string | undefined>;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogMetricBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: pulumi.Input<number | undefined>;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: pulumi.Input<number | undefined>;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull?: pulumi.Input<string | undefined>;
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogTraces {
@@ -64490,6 +66913,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     sensitiveDataScanner?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner | undefined>;
     /**
+     * The `spikeProtection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+     */
+    spikeProtection?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection | undefined>;
+    /**
      * The `splitArray` processor splits array fields into separate events based on configured rules.
      */
     splitArray?: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray | undefined>;
@@ -65522,6 +67949,70 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorSensitiveData
      * The fields to include in scanning.
      */
     fields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection {
+    /**
+     * The action to take when an event is missing one of the `partitionFields`. One of `ignore`, `defaultBucket`. Valid values are `ignore`, `defaultBucket`. Defaults to `"ignore"`.
+     */
+    actionWhenMissingPartitions?: pulumi.Input<string | undefined>;
+    /**
+     * The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate. Defaults to 100 GiB.
+     */
+    minimalThreshold?: pulumi.Input<number | undefined>;
+    /**
+     * A list of per-partition overrides for the minimal threshold, identified by matching field values. Requires `partitionFields` to be set.
+     */
+    minimalThresholdOverrides?: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverride>[] | undefined>;
+    /**
+     * Name of the spike protection rule.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A list of fields used to segment log traffic. Volume is learned and evaluated independently for each unique combination of these field values. A maximum of five fields is supported.
+     */
+    partitionFields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * The action to take when a spike is detected. One of `drop`, `noAction`, `overflowRouting`. When `overflowRouting` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Valid values are `drop`, `noAction`, `overflowRouting`.
+     */
+    spikeAction: pulumi.Input<string>;
+    /**
+     * The number of standard deviations above the learned mean volume that must be exceeded before a spike is detected. Defaults to `5`.
+     */
+    spikeThreshold?: pulumi.Input<number | undefined>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverride {
+    /**
+     * The set of field matchers that identifies the partition this override applies to. Every field name listed must also appear in `partitionFields`.
+     */
+    fields: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideField>[]>;
+    /**
+     * The minimal threshold to apply to the matching partition.
+     */
+    minimalThreshold: pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThreshold>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideField {
+    /**
+     * The field name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The field value.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThreshold {
+    /**
+     * The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate for the matching partition. Used only when `type` is `threshold`.
+     */
+    bytes?: pulumi.Input<number | undefined>;
+    /**
+     * The minimal threshold type. One of `threshold`, `alwaysKeep`. `alwaysKeep` exempts the matching partition from spike protection. Valid values are `threshold`, `alwaysKeep`.
+     */
+    type: pulumi.Input<string>;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorSplitArray {
@@ -100715,11 +103206,11 @@ export interface TagPipelineRulesetRuleReferenceTableFieldPair {
 
 export interface TeamConnectionConnectedTeam {
     /**
-     * The ID of the external connected team.
+     * The ID of the external connected team. For GitHub teams, this is `@<organization>/<team-slug>`. For ServiceNow groups, this is `<instance_name>/<sys_id>`.
      */
     id: pulumi.Input<string>;
     /**
-     * The resource type of the external connected team. Valid values are `githubTeam`.
+     * The resource type of the external connected team. Valid values are `githubTeam`, `servicenowTeam`.
      */
     type: pulumi.Input<string>;
 }
@@ -100795,11 +103286,11 @@ export interface TeamSyncSelectionState {
 
 export interface TeamSyncSelectionStateExternalId {
     /**
-     * The type of external identifier. Valid values are `team`, `organization`.
+     * The type of external identifier. For GitHub, `team` refers to a GitHub team and `organization` refers to a GitHub organization. For ServiceNow, `team` refers to a ServiceNow group and `organization` refers to a ServiceNow instance. Valid values are `team`, `organization`.
      */
     type: pulumi.Input<string>;
     /**
-     * The external identifier value from the source platform (e.g. a GitHub organization ID or team ID).
+     * The external identifier value from the source platform. For GitHub, this is the string representation of a GitHub organization ID or team ID. For ServiceNow, this is the instance name for `organization`, or `<instance_name>/<sys_id>` of the group for `team`.
      */
     value: pulumi.Input<string>;
 }
@@ -100953,7 +103444,13 @@ export namespace aws {
          */
         namespaceFilters?: pulumi.Input<inputs.aws.IntegrationAccountMetricsConfigNamespaceFilters | undefined>;
         /**
+         * AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+         */
+        resourceTypeTagFilters?: pulumi.Input<pulumi.Input<inputs.aws.IntegrationAccountMetricsConfigResourceTypeTagFilter>[] | undefined>;
+        /**
          * AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+         *
+         * @deprecated Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
          */
         tagFilters?: pulumi.Input<pulumi.Input<inputs.aws.IntegrationAccountMetricsConfigTagFilter>[] | undefined>;
     }
@@ -100982,6 +103479,25 @@ export namespace aws {
          * Include only these namespaces for metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values.
          */
         includeOnlies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface IntegrationAccountMetricsConfigResourceTypeTagFilter {
+        /**
+         * Whether this filter applies to custom resources.
+         */
+        custom?: pulumi.Input<boolean | undefined>;
+        /**
+         * The tag filter expression used when collecting metrics for the specified resource types.
+         */
+        expression: pulumi.Input<string>;
+        /**
+         * The AWS resource types within `service` for which the tag filter expression is applied.
+         */
+        resourceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The AWS service for which the tag filter expression is applied.
+         */
+        service?: pulumi.Input<string | undefined>;
     }
 
     export interface IntegrationAccountMetricsConfigTagFilter {

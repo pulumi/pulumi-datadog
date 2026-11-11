@@ -84,6 +84,20 @@
                                         }
                                     }
                                 }
+                            },
+                            "slack": {
+                                "fields": {
+                                    "rule": {
+                                        "maxItemsOne": false,
+                                        "elem": {
+                                            "fields": {
+                                                "channel_name_selectors": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     },
@@ -221,6 +235,10 @@
             },
             "datadog_aws_wif_identity_mapping": {
                 "current": "datadog:index/awsWifIdentityMapping:AwsWifIdentityMapping",
+                "majorVersion": 5
+            },
+            "datadog_aws_wif_intake_mapping": {
+                "current": "datadog:index/awsWifIntakeMapping:AwsWifIntakeMapping",
                 "majorVersion": 5
             },
             "datadog_azure_uc_config": {
@@ -61088,6 +61106,16 @@
                                     }
                                 }
                             },
+                            "resource_type_tag_filters": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "resource_types": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            },
                             "tag_filters": {
                                 "maxItemsOne": false,
                                 "elem": {
@@ -62781,7 +62809,24 @@
                                                 }
                                             },
                                             "datadog_metrics": {
-                                                "maxItemsOne": false
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "buffer": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "disk": {
+                                                                        "maxItemsOne": true
+                                                                    },
+                                                                    "memory": {
+                                                                        "maxItemsOne": true
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             },
                                             "datadog_traces": {
                                                 "maxItemsOne": true,
@@ -63733,6 +63778,29 @@
                                                                                 }
                                                                             }
                                                                         }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "spike_protection": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "minimal_threshold_override": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "field": {
+                                                                                    "maxItemsOne": false
+                                                                                },
+                                                                                "minimal_threshold": {
+                                                                                    "maxItemsOne": true
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "partition_fields": {
+                                                                        "maxItemsOne": false
                                                                     }
                                                                 }
                                                             }
@@ -94522,6 +94590,7 @@
             "datadog_appsec_waf_exclusion_filter": {},
             "datadog_aws_cur_config": {},
             "datadog_aws_wif_identity_mapping": {},
+            "datadog_aws_wif_intake_mapping": {},
             "datadog_azure_uc_config": {},
             "datadog_cloud_inventory_sync_config": {},
             "datadog_compliance_custom_framework": {},
@@ -94694,6 +94763,7 @@
             "datadog:index/authnMapping:AuthnMapping": 0,
             "datadog:index/awsCurConfig:AwsCurConfig": 1,
             "datadog:index/awsWifIdentityMapping:AwsWifIdentityMapping": 1,
+            "datadog:index/awsWifIntakeMapping:AwsWifIntakeMapping": 1,
             "datadog:index/azureUcConfig:AzureUcConfig": 1,
             "datadog:index/childOrganization:ChildOrganization": 0,
             "datadog:index/cloudConfigurationRule:CloudConfigurationRule": 0,

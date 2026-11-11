@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Statsig API key
         /// </summary>
         public readonly string ApiKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerResult? ApiKeyAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionStatsigApiKeyResult(string apiKey)
+        private GetActionConnectionStatsigApiKeyResult(
+            string apiKey,
+
+            Outputs.GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerResult? apiKeyAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
         }
     }
 }

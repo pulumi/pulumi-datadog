@@ -4,9 +4,12 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionVirusTotalApiKey extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +31,26 @@ public final class GetActionConnectionVirusTotalApiKey extends com.pulumi.resour
         return this.apiKey;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="apiKeyAwsSecretsManager")
+    private @Nullable GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
+    }
+
     private GetActionConnectionVirusTotalApiKey() {}
 
     private GetActionConnectionVirusTotalApiKey(GetActionConnectionVirusTotalApiKey $) {
         this.apiKey = $.apiKey;
+        this.apiKeyAwsSecretsManager = $.apiKeyAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -60,6 +79,17 @@ public final class GetActionConnectionVirusTotalApiKey extends com.pulumi.resour
          */
         public Builder apiKey(String apiKey) {
             $.apiKey = apiKey;
+            return this;
+        }
+
+        /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(@Nullable GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager) {
+            $.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             return this;
         }
 

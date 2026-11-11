@@ -28,6 +28,12 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("apiKeyAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerInputArgs>? ApiKeyAwsSecretsManager { get; set; }
+
         public GetActionConnectionSplitApiKeyInputArgs()
         {
         }

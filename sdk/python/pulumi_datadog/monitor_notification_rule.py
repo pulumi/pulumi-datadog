@@ -25,7 +25,8 @@ class MonitorNotificationRuleArgs:
                  name: pulumi.Input[_builtins.str],
                  bundle_config: pulumi.Input[Optional['MonitorNotificationRuleBundleConfigArgs']] = None,
                  conditional_recipients: pulumi.Input[Optional['MonitorNotificationRuleConditionalRecipientsArgs']] = None,
-                 recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rule_options: pulumi.Input[Optional['MonitorNotificationRuleRuleOptionsArgs']] = None):
         """
         The set of arguments for constructing a MonitorNotificationRule resource.
 
@@ -34,6 +35,7 @@ class MonitorNotificationRuleArgs:
         :param pulumi.Input['MonitorNotificationRuleBundleConfigArgs'] bundle_config: Use bundle config to enable alert bundling to reduce monitor signal noises. **Note**: This feature is in preview and is subject to change. If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).
         :param pulumi.Input['MonitorNotificationRuleConditionalRecipientsArgs'] conditional_recipients: Use conditional recipients to define different recipients for different situations. Cannot be used with `recipients`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: List of recipients to notify. Cannot be used with `conditional_recipients`.
+        :param pulumi.Input['MonitorNotificationRuleRuleOptionsArgs'] rule_options: Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
         """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "name", name)
@@ -43,6 +45,8 @@ class MonitorNotificationRuleArgs:
             pulumi.set(__self__, "conditional_recipients", conditional_recipients)
         if recipients is not None:
             pulumi.set(__self__, "recipients", recipients)
+        if rule_options is not None:
+            pulumi.set(__self__, "rule_options", rule_options)
 
     @_builtins.property
     @pulumi.getter
@@ -104,6 +108,18 @@ class MonitorNotificationRuleArgs:
     def recipients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "recipients", value)
 
+    @_builtins.property
+    @pulumi.getter(name="ruleOptions")
+    def rule_options(self) -> pulumi.Input[Optional['MonitorNotificationRuleRuleOptionsArgs']]:
+        """
+        Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+        """
+        return pulumi.get(self, "rule_options")
+
+    @rule_options.setter
+    def rule_options(self, value: pulumi.Input[Optional['MonitorNotificationRuleRuleOptionsArgs']]):
+        pulumi.set(self, "rule_options", value)
+
 
 @pulumi.input_type
 class _MonitorNotificationRuleState:
@@ -112,7 +128,8 @@ class _MonitorNotificationRuleState:
                  conditional_recipients: pulumi.Input[Optional['MonitorNotificationRuleConditionalRecipientsArgs']] = None,
                  filter: pulumi.Input[Optional['MonitorNotificationRuleFilterArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rule_options: pulumi.Input[Optional['MonitorNotificationRuleRuleOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering MonitorNotificationRule resources.
 
@@ -121,6 +138,7 @@ class _MonitorNotificationRuleState:
         :param pulumi.Input['MonitorNotificationRuleFilterArgs'] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: List of recipients to notify. Cannot be used with `conditional_recipients`.
+        :param pulumi.Input['MonitorNotificationRuleRuleOptionsArgs'] rule_options: Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
         """
         if bundle_config is not None:
             pulumi.set(__self__, "bundle_config", bundle_config)
@@ -132,6 +150,8 @@ class _MonitorNotificationRuleState:
             pulumi.set(__self__, "name", name)
         if recipients is not None:
             pulumi.set(__self__, "recipients", recipients)
+        if rule_options is not None:
+            pulumi.set(__self__, "rule_options", rule_options)
 
     @_builtins.property
     @pulumi.getter(name="bundleConfig")
@@ -193,6 +213,18 @@ class _MonitorNotificationRuleState:
     def recipients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "recipients", value)
 
+    @_builtins.property
+    @pulumi.getter(name="ruleOptions")
+    def rule_options(self) -> pulumi.Input[Optional['MonitorNotificationRuleRuleOptionsArgs']]:
+        """
+        Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+        """
+        return pulumi.get(self, "rule_options")
+
+    @rule_options.setter
+    def rule_options(self, value: pulumi.Input[Optional['MonitorNotificationRuleRuleOptionsArgs']]):
+        pulumi.set(self, "rule_options", value)
+
 
 @pulumi.type_token("datadog:index/monitorNotificationRule:MonitorNotificationRule")
 class MonitorNotificationRule(pulumi.CustomResource):
@@ -205,6 +237,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
                  filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rule_options: pulumi.Input[Optional[Union['MonitorNotificationRuleRuleOptionsArgs', 'MonitorNotificationRuleRuleOptionsArgsDict', 'outputs.MonitorNotificationRuleRuleOptions']]] = None,
                  __props__=None):
         """
         Provides a Datadog MonitorNotificationRule resource.
@@ -263,6 +296,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
         :param pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: List of recipients to notify. Cannot be used with `conditional_recipients`.
+        :param pulumi.Input[Union['MonitorNotificationRuleRuleOptionsArgs', 'MonitorNotificationRuleRuleOptionsArgsDict', 'outputs.MonitorNotificationRuleRuleOptions']] rule_options: Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
         """
         ...
     @overload
@@ -340,6 +374,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
                  filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 rule_options: pulumi.Input[Optional[Union['MonitorNotificationRuleRuleOptionsArgs', 'MonitorNotificationRuleRuleOptionsArgsDict', 'outputs.MonitorNotificationRuleRuleOptions']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -358,6 +393,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["recipients"] = recipients
+            __props__.__dict__["rule_options"] = rule_options
         super(MonitorNotificationRule, __self__).__init__(
             'datadog:index/monitorNotificationRule:MonitorNotificationRule',
             resource_name,
@@ -372,7 +408,8 @@ class MonitorNotificationRule(pulumi.CustomResource):
             conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict', 'outputs.MonitorNotificationRuleConditionalRecipients']]] = None,
             filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'MonitorNotificationRule':
+            recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rule_options: pulumi.Input[Optional[Union['MonitorNotificationRuleRuleOptionsArgs', 'MonitorNotificationRuleRuleOptionsArgsDict', 'outputs.MonitorNotificationRuleRuleOptions']]] = None) -> 'MonitorNotificationRule':
         """
         Get an existing MonitorNotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -385,6 +422,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
         :param pulumi.Input[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']] filter: Specifies the matching criteria for monitor notifications.
         :param pulumi.Input[_builtins.str] name: The name of the monitor notification rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: List of recipients to notify. Cannot be used with `conditional_recipients`.
+        :param pulumi.Input[Union['MonitorNotificationRuleRuleOptionsArgs', 'MonitorNotificationRuleRuleOptionsArgsDict', 'outputs.MonitorNotificationRuleRuleOptions']] rule_options: Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -395,6 +433,7 @@ class MonitorNotificationRule(pulumi.CustomResource):
         __props__.__dict__["filter"] = filter
         __props__.__dict__["name"] = name
         __props__.__dict__["recipients"] = recipients
+        __props__.__dict__["rule_options"] = rule_options
         return MonitorNotificationRule(resource_name, opts=opts, __props__=__props__)
 
     @staticmethod
@@ -404,13 +443,15 @@ class MonitorNotificationRule(pulumi.CustomResource):
             conditional_recipients: pulumi.Input[Optional[Union['MonitorNotificationRuleConditionalRecipientsArgs', 'MonitorNotificationRuleConditionalRecipientsArgsDict', 'outputs.MonitorNotificationRuleConditionalRecipients']]] = None,
             filter: pulumi.Input[Optional[Union['MonitorNotificationRuleFilterArgs', 'MonitorNotificationRuleFilterArgsDict', 'outputs.MonitorNotificationRuleFilter']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+            recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            rule_options: pulumi.Input[Optional[Union['MonitorNotificationRuleRuleOptionsArgs', 'MonitorNotificationRuleRuleOptionsArgsDict', 'outputs.MonitorNotificationRuleRuleOptions']]] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         __props__["bundleConfig"] = bundle_config
         __props__["conditionalRecipients"] = conditional_recipients
         __props__["filter"] = filter
         __props__["name"] = name
         __props__["recipients"] = recipients
+        __props__["ruleOptions"] = rule_options
         return pulumi.runtime.exists_resource(None, 'datadog:index/monitorNotificationRule:MonitorNotificationRule', id, __props__, opts or pulumi.ResourceOptions())
 
     @_builtins.property
@@ -452,4 +493,12 @@ class MonitorNotificationRule(pulumi.CustomResource):
         List of recipients to notify. Cannot be used with `conditional_recipients`.
         """
         return pulumi.get(self, "recipients")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleOptions")
+    def rule_options(self) -> pulumi.Output['outputs.MonitorNotificationRuleRuleOptions']:
+        """
+        Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+        """
+        return pulumi.get(self, "rule_options")
 

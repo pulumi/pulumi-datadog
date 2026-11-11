@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.MonitorNotificationRuleBundleConfigArgs;
 import com.pulumi.datadog.inputs.MonitorNotificationRuleConditionalRecipientsArgs;
 import com.pulumi.datadog.inputs.MonitorNotificationRuleFilterArgs;
+import com.pulumi.datadog.inputs.MonitorNotificationRuleRuleOptionsArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -94,6 +95,21 @@ public final class MonitorNotificationRuleState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.recipients);
     }
 
+    /**
+     * Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+     * 
+     */
+    @Import(name="ruleOptions")
+    private @Nullable Output<MonitorNotificationRuleRuleOptionsArgs> ruleOptions;
+
+    /**
+     * @return Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+     * 
+     */
+    public Optional<Output<MonitorNotificationRuleRuleOptionsArgs>> ruleOptions() {
+        return Optional.ofNullable(this.ruleOptions);
+    }
+
     private MonitorNotificationRuleState() {}
 
     private MonitorNotificationRuleState(MonitorNotificationRuleState $) {
@@ -102,6 +118,7 @@ public final class MonitorNotificationRuleState extends com.pulumi.resources.Res
         this.filter = $.filter;
         this.name = $.name;
         this.recipients = $.recipients;
+        this.ruleOptions = $.ruleOptions;
     }
 
     public static Builder builder() {
@@ -235,6 +252,27 @@ public final class MonitorNotificationRuleState extends com.pulumi.resources.Res
          */
         public Builder recipients(String... recipients) {
             return recipients(List.of(recipients));
+        }
+
+        /**
+         * @param ruleOptions Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleOptions(@Nullable Output<MonitorNotificationRuleRuleOptionsArgs> ruleOptions) {
+            $.ruleOptions = ruleOptions;
+            return this;
+        }
+
+        /**
+         * @param ruleOptions Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleOptions(MonitorNotificationRuleRuleOptionsArgs ruleOptions) {
+            return ruleOptions(Output.of(ruleOptions));
         }
 
         public MonitorNotificationRuleState build() {

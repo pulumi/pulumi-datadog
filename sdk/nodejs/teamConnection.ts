@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. GitHub).
+ * Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. a GitHub team or a ServiceNow group).
  *
  * ## Example Usage
  *
@@ -30,6 +30,18 @@ import * as utilities from "./utilities";
  *         id: "@GitHubOrg/team-handle",
  *         type: "github_team",
  *     }],
+ * });
+ * // Create a connection between a Datadog team and a ServiceNow group
+ * const servicenow = new datadog.TeamConnection("servicenow", {
+ *     team: [{
+ *         id: example.id,
+ *         type: "team",
+ *     }],
+ *     connectedTeam: [{
+ *         id: "my-instance/0123456789abcdef0123456789abcdef",
+ *         type: "servicenow_team",
+ *     }],
+ *     source: "servicenow",
  * });
  * ```
  *
@@ -81,11 +93,11 @@ export class TeamConnection extends pulumi.CustomResource {
     }
 
     /**
-     * The external connected team reference (e.g. a GitHub team).
+     * The external connected team reference (e.g. a GitHub team or a ServiceNow group).
      */
     declare public readonly connectedTeam: pulumi.Output<outputs.TeamConnectionConnectedTeam>;
     /**
-     * The source of the connection (e.g. github).
+     * The name of the external source, such as `github` or `servicenow`.
      */
     declare public readonly source: pulumi.Output<string>;
     /**
@@ -131,11 +143,11 @@ export class TeamConnection extends pulumi.CustomResource {
  */
 export interface TeamConnectionState {
     /**
-     * The external connected team reference (e.g. a GitHub team).
+     * The external connected team reference (e.g. a GitHub team or a ServiceNow group).
      */
     connectedTeam?: pulumi.Input<inputs.TeamConnectionConnectedTeam | undefined>;
     /**
-     * The source of the connection (e.g. github).
+     * The name of the external source, such as `github` or `servicenow`.
      */
     source?: pulumi.Input<string | undefined>;
     /**
@@ -149,11 +161,11 @@ export interface TeamConnectionState {
  */
 export interface TeamConnectionArgs {
     /**
-     * The external connected team reference (e.g. a GitHub team).
+     * The external connected team reference (e.g. a GitHub team or a ServiceNow group).
      */
     connectedTeam: pulumi.Input<inputs.TeamConnectionConnectedTeam>;
     /**
-     * The source of the connection (e.g. github).
+     * The name of the external source, such as `github` or `servicenow`.
      */
     source?: pulumi.Input<string | undefined>;
     /**

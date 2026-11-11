@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// GreyNoise API key
         /// </summary>
         public readonly string ApiKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerResult? ApiKeyAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionGreyNoiseApiKeyResult(string apiKey)
+        private GetActionConnectionGreyNoiseApiKeyResult(
+            string apiKey,
+
+            Outputs.GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerResult? apiKeyAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
         }
     }
 }

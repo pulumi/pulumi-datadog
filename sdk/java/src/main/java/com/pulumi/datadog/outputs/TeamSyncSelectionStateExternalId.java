@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class TeamSyncSelectionStateExternalId {
     /**
-     * @return The type of external identifier. Valid values are `team`, `organization`.
+     * @return The type of external identifier. For GitHub, `team` refers to a GitHub team and `organization` refers to a GitHub organization. For ServiceNow, `team` refers to a ServiceNow group and `organization` refers to a ServiceNow instance. Valid values are `team`, `organization`.
      * 
      */
     private String type;
     /**
-     * @return The external identifier value from the source platform (e.g. a GitHub organization ID or team ID).
+     * @return The external identifier value from the source platform. For GitHub, this is the string representation of a GitHub organization ID or team ID. For ServiceNow, this is the instance name for `organization`, or `&lt;instance_name&gt;/&lt;sys_id&gt;` of the group for `team`.
      * 
      */
     private String value;
 
     private TeamSyncSelectionStateExternalId() {}
     /**
-     * @return The type of external identifier. Valid values are `team`, `organization`.
+     * @return The type of external identifier. For GitHub, `team` refers to a GitHub team and `organization` refers to a GitHub organization. For ServiceNow, `team` refers to a ServiceNow group and `organization` refers to a ServiceNow instance. Valid values are `team`, `organization`.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return The external identifier value from the source platform (e.g. a GitHub organization ID or team ID).
+     * @return The external identifier value from the source platform. For GitHub, this is the string representation of a GitHub organization ID or team ID. For ServiceNow, this is the instance name for `organization`, or `&lt;instance_name&gt;/&lt;sys_id&gt;` of the group for `team`.
      * 
      */
     public String value() {

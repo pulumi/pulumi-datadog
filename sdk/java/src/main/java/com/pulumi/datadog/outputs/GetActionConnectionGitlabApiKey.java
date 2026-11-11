@@ -4,9 +4,12 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionGitlabApiKey {
@@ -15,6 +18,11 @@ public final class GetActionConnectionGitlabApiKey {
      * 
      */
     private String apiToken;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
 
     private GetActionConnectionGitlabApiKey() {}
     /**
@@ -23,6 +31,13 @@ public final class GetActionConnectionGitlabApiKey {
      */
     public String apiToken() {
         return this.apiToken;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManager> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -35,10 +50,12 @@ public final class GetActionConnectionGitlabApiKey {
     @CustomType.Builder
     public static final class Builder {
         private String apiToken;
+        private @Nullable GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionGitlabApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiToken = defaults.apiToken;
+    	      this.apiTokenAwsSecretsManager = defaults.apiTokenAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -49,9 +66,16 @@ public final class GetActionConnectionGitlabApiKey {
             this.apiToken = apiToken;
             return this;
         }
+        @CustomType.Setter
+        public Builder apiTokenAwsSecretsManager(@Nullable GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager) {
+
+            this.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionGitlabApiKey build() {
             final var _resultValue = new GetActionConnectionGitlabApiKey();
             _resultValue.apiToken = apiToken;
+            _resultValue.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
             return _resultValue;
         }
     }

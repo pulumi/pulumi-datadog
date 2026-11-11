@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.ActionExecutionPolicyScopeKubernetes;
 import com.pulumi.datadog.outputs.ActionExecutionPolicyScopeRemoteActionRshell;
 import com.pulumi.datadog.outputs.ActionExecutionPolicyScopeScripts;
+import com.pulumi.datadog.outputs.ActionExecutionPolicyScopeSlack;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -28,6 +29,11 @@ public final class ActionExecutionPolicyScope {
      * 
      */
     private @Nullable ActionExecutionPolicyScopeScripts scripts;
+    /**
+     * @return Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+     * 
+     */
+    private @Nullable ActionExecutionPolicyScopeSlack slack;
 
     private ActionExecutionPolicyScope() {}
     /**
@@ -51,6 +57,13 @@ public final class ActionExecutionPolicyScope {
     public Optional<ActionExecutionPolicyScopeScripts> scripts() {
         return Optional.ofNullable(this.scripts);
     }
+    /**
+     * @return Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+     * 
+     */
+    public Optional<ActionExecutionPolicyScopeSlack> slack() {
+        return Optional.ofNullable(this.slack);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -64,12 +77,14 @@ public final class ActionExecutionPolicyScope {
         private @Nullable ActionExecutionPolicyScopeKubernetes kubernetes;
         private @Nullable ActionExecutionPolicyScopeRemoteActionRshell remoteActionRshell;
         private @Nullable ActionExecutionPolicyScopeScripts scripts;
+        private @Nullable ActionExecutionPolicyScopeSlack slack;
         public Builder() {}
         public Builder(ActionExecutionPolicyScope defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kubernetes = defaults.kubernetes;
     	      this.remoteActionRshell = defaults.remoteActionRshell;
     	      this.scripts = defaults.scripts;
+    	      this.slack = defaults.slack;
         }
 
         @CustomType.Setter
@@ -90,11 +105,18 @@ public final class ActionExecutionPolicyScope {
             this.scripts = scripts;
             return this;
         }
+        @CustomType.Setter
+        public Builder slack(@Nullable ActionExecutionPolicyScopeSlack slack) {
+
+            this.slack = slack;
+            return this;
+        }
         public ActionExecutionPolicyScope build() {
             final var _resultValue = new ActionExecutionPolicyScope();
             _resultValue.kubernetes = kubernetes;
             _resultValue.remoteActionRshell = remoteActionRshell;
             _resultValue.scripts = scripts;
+            _resultValue.slack = slack;
             return _resultValue;
         }
     }

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
+// A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource creates connections that run in Datadog's cloud. AWS Secrets Manager references are available for supported token-based credentials and HTTP authentication token values. AWS AssumeRole credentials, Azure credentials, and HTTP request metadata don't support AWS Secrets Manager references and must use literal values. This resource requires a registered application key.
 //
 // ## Example Usage
 //
@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datadog.NewActionConnection(ctx, "aws_connection", &datadog.ActionConnectionArgs{
+//			awsConnection, err := datadog.NewActionConnection(ctx, "aws_connection", &datadog.ActionConnectionArgs{
 //				Name: pulumi.String("My AWS Connection"),
 //				Tags: pulumi.StringArray{
 //					pulumi.String("env:prod"),
@@ -115,6 +115,34 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Datadog resolves these references at runtime. Pulumi stores only the
+//			// references and does not retrieve the GCP credential values.
+//			_, err = datadog.NewActionConnection(ctx, "gcp_connection", &datadog.ActionConnectionArgs{
+//				Name: pulumi.String("My GCP connection with AWS Secrets Manager"),
+//				ExternalSecretsManager: &datadog.ActionConnectionExternalSecretsManagerArgs{
+//					Connection_id: awsConnection.ID(),
+//					Region:        pulumi.String("us-east-1"),
+//				},
+//				Gcp: datadog.ActionConnectionGcpArgs{
+//					map[string][]map[string]map[string]string{
+//						"serviceAccount": []map[string]map[string]string{
+//							{
+//								"privateKeyAwsSecretsManager": {
+//									"secret_id": "example/gcp/service-account",
+//									"key":       "private_key",
+//								},
+//								"serviceAccountEmailAwsSecretsManager": {
+//									"secret_id": "example/gcp/service-account",
+//									"key":       "client_email",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -151,6 +179,8 @@ type ActionConnection struct {
 	Datadog ActionConnectionDatadogPtrOutput `pulumi:"datadog"`
 	// Tags associated with the connection, including those inherited from the provider's `defaultTags` configuration.
 	EffectiveTags pulumi.StringArrayOutput `pulumi:"effectiveTags"`
+	// AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
+	ExternalSecretsManager ActionConnectionExternalSecretsManagerPtrOutput `pulumi:"externalSecretsManager"`
 	// Configuration for a Fastly connection
 	Fastly ActionConnectionFastlyPtrOutput `pulumi:"fastly"`
 	// Configuration for a Freshservice connection
@@ -240,6 +270,8 @@ type actionConnectionState struct {
 	Datadog *ActionConnectionDatadog `pulumi:"datadog"`
 	// Tags associated with the connection, including those inherited from the provider's `defaultTags` configuration.
 	EffectiveTags []string `pulumi:"effectiveTags"`
+	// AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
+	ExternalSecretsManager *ActionConnectionExternalSecretsManager `pulumi:"externalSecretsManager"`
 	// Configuration for a Fastly connection
 	Fastly *ActionConnectionFastly `pulumi:"fastly"`
 	// Configuration for a Freshservice connection
@@ -297,6 +329,8 @@ type ActionConnectionState struct {
 	Datadog ActionConnectionDatadogPtrInput
 	// Tags associated with the connection, including those inherited from the provider's `defaultTags` configuration.
 	EffectiveTags pulumi.StringArrayInput
+	// AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
+	ExternalSecretsManager ActionConnectionExternalSecretsManagerPtrInput
 	// Configuration for a Fastly connection
 	Fastly ActionConnectionFastlyPtrInput
 	// Configuration for a Freshservice connection
@@ -362,6 +396,8 @@ type actionConnectionArgs struct {
 	ConfigCat *ActionConnectionConfigCat `pulumi:"configCat"`
 	// Configuration for a Datadog connection
 	Datadog *ActionConnectionDatadog `pulumi:"datadog"`
+	// AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
+	ExternalSecretsManager *ActionConnectionExternalSecretsManager `pulumi:"externalSecretsManager"`
 	// Configuration for a Fastly connection
 	Fastly *ActionConnectionFastly `pulumi:"fastly"`
 	// Configuration for a Freshservice connection
@@ -418,6 +454,8 @@ type ActionConnectionArgs struct {
 	ConfigCat ActionConnectionConfigCatPtrInput
 	// Configuration for a Datadog connection
 	Datadog ActionConnectionDatadogPtrInput
+	// AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
+	ExternalSecretsManager ActionConnectionExternalSecretsManagerPtrInput
 	// Configuration for a Fastly connection
 	Fastly ActionConnectionFastlyPtrInput
 	// Configuration for a Freshservice connection
@@ -589,6 +627,13 @@ func (o ActionConnectionOutput) Datadog() ActionConnectionDatadogPtrOutput {
 // Tags associated with the connection, including those inherited from the provider's `defaultTags` configuration.
 func (o ActionConnectionOutput) EffectiveTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActionConnection) pulumi.StringArrayOutput { return v.EffectiveTags }).(pulumi.StringArrayOutput)
+}
+
+// AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
+func (o ActionConnectionOutput) ExternalSecretsManager() ActionConnectionExternalSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnection) ActionConnectionExternalSecretsManagerPtrOutput {
+		return v.ExternalSecretsManager
+	}).(ActionConnectionExternalSecretsManagerPtrOutput)
 }
 
 // Configuration for a Fastly connection

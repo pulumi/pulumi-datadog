@@ -25,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// Token value. String length must be at least 1.
         /// </summary>
         public readonly string? Value;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager? ValueAwsSecretsManager;
 
         [OutputConstructor]
         private ActionConnectionHttpTokenAuthToken(
@@ -32,11 +36,14 @@ namespace Pulumi.Datadog.Outputs
 
             string? type,
 
-            string? value)
+            string? value,
+
+            Outputs.ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager? valueAwsSecretsManager)
         {
             Name = name;
             Type = type;
             Value = value;
+            ValueAwsSecretsManager = valueAwsSecretsManager;
         }
     }
 }

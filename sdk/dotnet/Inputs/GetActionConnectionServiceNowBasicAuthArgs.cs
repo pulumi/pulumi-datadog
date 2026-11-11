@@ -18,6 +18,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("instance", required: true)]
         public Input<string> Instance { get; set; } = null!;
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("instanceAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerInputArgs>? InstanceAwsSecretsManager { get; set; }
+
         [Input("password", required: true)]
         private Input<string>? _password;
 
@@ -35,10 +41,22 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("passwordAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerInputArgs>? PasswordAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// ServiceNow username
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("usernameAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerInputArgs>? UsernameAwsSecretsManager { get; set; }
 
         public GetActionConnectionServiceNowBasicAuthInputArgs()
         {

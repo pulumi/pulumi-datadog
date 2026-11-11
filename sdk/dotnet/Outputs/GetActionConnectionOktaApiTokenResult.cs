@@ -18,18 +18,32 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string ApiToken;
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerResult? ApiTokenAwsSecretsManager;
+        /// <summary>
         /// Okta domain
         /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionOktaApiTokenDomainAwsSecretsManagerResult? DomainAwsSecretsManager;
 
         [OutputConstructor]
         private GetActionConnectionOktaApiTokenResult(
             string apiToken,
 
-            string domain)
+            Outputs.GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerResult? apiTokenAwsSecretsManager,
+
+            string domain,
+
+            Outputs.GetActionConnectionOktaApiTokenDomainAwsSecretsManagerResult? domainAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
             Domain = domain;
+            DomainAwsSecretsManager = domainAwsSecretsManager;
         }
     }
 }

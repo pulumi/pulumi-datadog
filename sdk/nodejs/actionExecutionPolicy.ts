@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run against your infrastructure, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts or remote shell paths, and optionally scoped to agents matching a set of Fleet Automation tags.
+ * Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts, remote shell paths or Slack channel names, and optionally scoped to targets matching a set of tags, such as agents matching Fleet Automation tags or a Slack workspace.
  *
  * ## Example Usage
  *
@@ -92,6 +92,26 @@ import * as utilities from "./utilities";
  *         }],
  *     }],
  * });
+ * // Slack: allow posting messages to incident channels in one Slack workspace.
+ * const slackIncidentChannels = new datadog.ActionExecutionPolicy("slack_incident_channels", {
+ *     name: "slack-incident-channels",
+ *     effect: "allow",
+ *     actionPattern: [{
+ *         integration: "INTEGRATION_SLACK",
+ *         actionFqns: ["com.datadoghq.slack.send_simple_message"],
+ *     }],
+ *     scope: [{
+ *         slack: [{
+ *             rules: [{
+ *                 channelNameSelectors: ["incident-*"],
+ *             }],
+ *         }],
+ *     }],
+ *     targets: [{
+ *         name: "main-workspace",
+ *         agentTags: ["slack_workspace_id:T0123456789"],
+ *     }],
+ * });
  * // Access to a policy is managed separately via datadog_restriction_policy,
  * // keyed by "execution-policy:<id>".
  * const kubernetesProdPerms = new datadog.RestrictionPolicy("kubernetes_prod_perms", {
@@ -171,11 +191,11 @@ export class ActionExecutionPolicy extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+     * Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
      */
     declare public readonly scope: pulumi.Output<outputs.ActionExecutionPolicyScope | undefined>;
     /**
-     * A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+     * A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
      */
     declare public readonly targets: pulumi.Output<outputs.ActionExecutionPolicyTarget[] | undefined>;
     /**
@@ -263,11 +283,11 @@ export interface ActionExecutionPolicyState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+     * Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
      */
     scope?: pulumi.Input<inputs.ActionExecutionPolicyScope | undefined>;
     /**
-     * A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+     * A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ActionExecutionPolicyTarget>[] | undefined>;
     /**
@@ -301,11 +321,11 @@ export interface ActionExecutionPolicyArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+     * Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
      */
     scope?: pulumi.Input<inputs.ActionExecutionPolicyScope | undefined>;
     /**
-     * A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+     * A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ActionExecutionPolicyTarget>[] | undefined>;
 }

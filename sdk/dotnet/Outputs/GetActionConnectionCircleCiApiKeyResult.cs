@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// CircleCI API token
         /// </summary>
         public readonly string ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerResult? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionCircleCiApiKeyResult(string apiToken)
+        private GetActionConnectionCircleCiApiKeyResult(
+            string apiToken,
+
+            Outputs.GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerResult? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

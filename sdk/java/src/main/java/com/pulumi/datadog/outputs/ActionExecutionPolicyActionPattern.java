@@ -17,7 +17,7 @@ public final class ActionExecutionPolicyActionPattern {
      */
     private List<String> actionFqns;
     /**
-     * @return The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+     * @return The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
      * 
      */
     private String integration;
@@ -31,7 +31,7 @@ public final class ActionExecutionPolicyActionPattern {
         return this.actionFqns;
     }
     /**
-     * @return The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+     * @return The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
      * 
      */
     public String integration() {

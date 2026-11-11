@@ -29,10 +29,22 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("privateKeyAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerInputArgs>? PrivateKeyAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// Google Cloud service account email
         /// </summary>
         [Input("serviceAccountEmail", required: true)]
         public Input<string> ServiceAccountEmail { get; set; } = null!;
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("serviceAccountEmailAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerInputArgs>? ServiceAccountEmailAwsSecretsManager { get; set; }
 
         public GetActionConnectionGcpServiceAccountInputArgs()
         {

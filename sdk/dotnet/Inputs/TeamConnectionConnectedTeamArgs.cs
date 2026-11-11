@@ -13,13 +13,13 @@ namespace Pulumi.Datadog.Inputs
     public sealed class TeamConnectionConnectedTeamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the external connected team.
+        /// The ID of the external connected team. For GitHub teams, this is `@&lt;organization&gt;/&lt;team-slug&gt;`. For ServiceNow groups, this is `&lt;instance_name&gt;/&lt;sys_id&gt;`.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// The resource type of the external connected team. Valid values are `GithubTeam`.
+        /// The resource type of the external connected team. Valid values are `GithubTeam`, `ServicenowTeam`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

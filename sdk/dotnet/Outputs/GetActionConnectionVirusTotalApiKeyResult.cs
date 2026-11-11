@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// VirusTotal API key
         /// </summary>
         public readonly string ApiKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerResult? ApiKeyAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionVirusTotalApiKeyResult(string apiKey)
+        private GetActionConnectionVirusTotalApiKeyResult(
+            string apiKey,
+
+            Outputs.GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerResult? apiKeyAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
         }
     }
 }

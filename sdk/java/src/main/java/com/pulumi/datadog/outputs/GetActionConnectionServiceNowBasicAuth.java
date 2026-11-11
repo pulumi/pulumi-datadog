@@ -4,9 +4,14 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionServiceNowBasicAuth {
@@ -16,15 +21,30 @@ public final class GetActionConnectionServiceNowBasicAuth {
      */
     private String instance;
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager instanceAwsSecretsManager;
+    /**
      * @return ServiceNow password
      * 
      */
     private String password;
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager passwordAwsSecretsManager;
+    /**
      * @return ServiceNow username
      * 
      */
     private String username;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager usernameAwsSecretsManager;
 
     private GetActionConnectionServiceNowBasicAuth() {}
     /**
@@ -35,6 +55,13 @@ public final class GetActionConnectionServiceNowBasicAuth {
         return this.instance;
     }
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager> instanceAwsSecretsManager() {
+        return Optional.ofNullable(this.instanceAwsSecretsManager);
+    }
+    /**
      * @return ServiceNow password
      * 
      */
@@ -42,11 +69,25 @@ public final class GetActionConnectionServiceNowBasicAuth {
         return this.password;
     }
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager> passwordAwsSecretsManager() {
+        return Optional.ofNullable(this.passwordAwsSecretsManager);
+    }
+    /**
      * @return ServiceNow username
      * 
      */
     public String username() {
         return this.username;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager> usernameAwsSecretsManager() {
+        return Optional.ofNullable(this.usernameAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -59,14 +100,20 @@ public final class GetActionConnectionServiceNowBasicAuth {
     @CustomType.Builder
     public static final class Builder {
         private String instance;
+        private @Nullable GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager instanceAwsSecretsManager;
         private String password;
+        private @Nullable GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager passwordAwsSecretsManager;
         private String username;
+        private @Nullable GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager usernameAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionServiceNowBasicAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instance = defaults.instance;
+    	      this.instanceAwsSecretsManager = defaults.instanceAwsSecretsManager;
     	      this.password = defaults.password;
+    	      this.passwordAwsSecretsManager = defaults.passwordAwsSecretsManager;
     	      this.username = defaults.username;
+    	      this.usernameAwsSecretsManager = defaults.usernameAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -78,11 +125,23 @@ public final class GetActionConnectionServiceNowBasicAuth {
             return this;
         }
         @CustomType.Setter
+        public Builder instanceAwsSecretsManager(@Nullable GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager instanceAwsSecretsManager) {
+
+            this.instanceAwsSecretsManager = instanceAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder password(String password) {
             if (password == null) {
               throw new MissingRequiredPropertyException("GetActionConnectionServiceNowBasicAuth", "password");
             }
             this.password = password;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder passwordAwsSecretsManager(@Nullable GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager passwordAwsSecretsManager) {
+
+            this.passwordAwsSecretsManager = passwordAwsSecretsManager;
             return this;
         }
         @CustomType.Setter
@@ -93,11 +152,20 @@ public final class GetActionConnectionServiceNowBasicAuth {
             this.username = username;
             return this;
         }
+        @CustomType.Setter
+        public Builder usernameAwsSecretsManager(@Nullable GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager usernameAwsSecretsManager) {
+
+            this.usernameAwsSecretsManager = usernameAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionServiceNowBasicAuth build() {
             final var _resultValue = new GetActionConnectionServiceNowBasicAuth();
             _resultValue.instance = instance;
+            _resultValue.instanceAwsSecretsManager = instanceAwsSecretsManager;
             _resultValue.password = password;
+            _resultValue.passwordAwsSecretsManager = passwordAwsSecretsManager;
             _resultValue.username = username;
+            _resultValue.usernameAwsSecretsManager = usernameAwsSecretsManager;
             return _resultValue;
         }
     }

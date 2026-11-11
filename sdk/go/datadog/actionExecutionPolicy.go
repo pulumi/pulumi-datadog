@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run against your infrastructure, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts or remote shell paths, and optionally scoped to agents matching a set of Fleet Automation tags.
+// Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts, remote shell paths or Slack channel names, and optionally scoped to targets matching a set of tags, such as agents matching Fleet Automation tags or a Slack workspace.
 //
 // ## Example Usage
 //
@@ -152,6 +152,45 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Slack: allow posting messages to incident channels in one Slack workspace.
+//			_, err = datadog.NewActionExecutionPolicy(ctx, "slack_incident_channels", &datadog.ActionExecutionPolicyArgs{
+//				Name:   pulumi.String("slack-incident-channels"),
+//				Effect: pulumi.String("allow"),
+//				ActionPattern: datadog.ActionExecutionPolicyActionPatternArgs{
+//					map[string]interface{}{
+//						"integration": "INTEGRATION_SLACK",
+//						"actionFqns": []string{
+//							"com.datadoghq.slack.send_simple_message",
+//						},
+//					},
+//				},
+//				Scope: datadog.ActionExecutionPolicyScopeArgs{
+//					map[string][]map[string][]map[string][]string{
+//						"slack": []map[string][]map[string][]string{
+//							{
+//								"rules": []map[string][]string{
+//									{
+//										"channelNameSelectors": []string{
+//											"incident-*",
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Targets: datadog.ActionExecutionPolicyTargetArray{
+//					&datadog.ActionExecutionPolicyTargetArgs{
+//						Name: pulumi.String("main-workspace"),
+//						AgentTags: pulumi.StringArray{
+//							pulumi.String("slack_workspace_id:T0123456789"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			// Access to a policy is managed separately via datadog_restriction_policy,
 //			// keyed by "execution-policy:<id>".
 //			_, err = datadog.NewRestrictionPolicy(ctx, "kubernetes_prod_perms", &datadog.RestrictionPolicyArgs{
@@ -196,9 +235,9 @@ type ActionExecutionPolicy struct {
 	Effect pulumi.StringOutput `pulumi:"effect"`
 	// The name of the execution policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+	// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
 	Scope ActionExecutionPolicyScopePtrOutput `pulumi:"scope"`
-	// A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+	// A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
 	Targets ActionExecutionPolicyTargetArrayOutput `pulumi:"targets"`
 	// The date and time the execution policy was last updated, as an RFC3339 timestamp.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -254,9 +293,9 @@ type actionExecutionPolicyState struct {
 	Effect *string `pulumi:"effect"`
 	// The name of the execution policy.
 	Name *string `pulumi:"name"`
-	// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+	// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
 	Scope *ActionExecutionPolicyScope `pulumi:"scope"`
-	// A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+	// A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
 	Targets []ActionExecutionPolicyTarget `pulumi:"targets"`
 	// The date and time the execution policy was last updated, as an RFC3339 timestamp.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -277,9 +316,9 @@ type ActionExecutionPolicyState struct {
 	Effect pulumi.StringPtrInput
 	// The name of the execution policy.
 	Name pulumi.StringPtrInput
-	// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+	// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
 	Scope ActionExecutionPolicyScopePtrInput
-	// A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+	// A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
 	Targets ActionExecutionPolicyTargetArrayInput
 	// The date and time the execution policy was last updated, as an RFC3339 timestamp.
 	UpdatedAt pulumi.StringPtrInput
@@ -306,9 +345,9 @@ type actionExecutionPolicyArgs struct {
 	Effect string `pulumi:"effect"`
 	// The name of the execution policy.
 	Name string `pulumi:"name"`
-	// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+	// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
 	Scope *ActionExecutionPolicyScope `pulumi:"scope"`
-	// A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+	// A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
 	Targets []ActionExecutionPolicyTarget `pulumi:"targets"`
 }
 
@@ -320,9 +359,9 @@ type ActionExecutionPolicyArgs struct {
 	Effect pulumi.StringInput
 	// The name of the execution policy.
 	Name pulumi.StringInput
-	// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+	// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
 	Scope ActionExecutionPolicyScopePtrInput
-	// A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+	// A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
 	Targets ActionExecutionPolicyTargetArrayInput
 }
 
@@ -438,12 +477,12 @@ func (o ActionExecutionPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionExecutionPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+// Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
 func (o ActionExecutionPolicyOutput) Scope() ActionExecutionPolicyScopePtrOutput {
 	return o.ApplyT(func(v *ActionExecutionPolicy) ActionExecutionPolicyScopePtrOutput { return v.Scope }).(ActionExecutionPolicyScopePtrOutput)
 }
 
-// A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+// A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
 func (o ActionExecutionPolicyOutput) Targets() ActionExecutionPolicyTargetArrayOutput {
 	return o.ApplyT(func(v *ActionExecutionPolicy) ActionExecutionPolicyTargetArrayOutput { return v.Targets }).(ActionExecutionPolicyTargetArrayOutput)
 }

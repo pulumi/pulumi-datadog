@@ -18,32 +18,60 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string ApiKey;
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerResult? ApiKeyAwsSecretsManager;
+        /// <summary>
         /// Datadog application key
         /// </summary>
         public readonly string AppKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerResult? AppKeyAwsSecretsManager;
         /// <summary>
         /// Datadog site data center
         /// </summary>
         public readonly string Datacenter;
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerResult? DatacenterAwsSecretsManager;
+        /// <summary>
         /// Custom subdomain used for URLs generated with this connection
         /// </summary>
         public readonly string Subdomain;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerResult? SubdomainAwsSecretsManager;
 
         [OutputConstructor]
         private GetActionConnectionDatadogApiKeyResult(
             string apiKey,
 
+            Outputs.GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerResult? apiKeyAwsSecretsManager,
+
             string appKey,
+
+            Outputs.GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerResult? appKeyAwsSecretsManager,
 
             string datacenter,
 
-            string subdomain)
+            Outputs.GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerResult? datacenterAwsSecretsManager,
+
+            string subdomain,
+
+            Outputs.GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerResult? subdomainAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             AppKey = appKey;
+            AppKeyAwsSecretsManager = appKeyAwsSecretsManager;
             Datacenter = datacenter;
+            DatacenterAwsSecretsManager = datacenterAwsSecretsManager;
             Subdomain = subdomain;
+            SubdomainAwsSecretsManager = subdomainAwsSecretsManager;
         }
     }
 }

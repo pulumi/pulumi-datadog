@@ -18,18 +18,32 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string ApiKey;
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerResult? ApiKeyAwsSecretsManager;
+        /// <summary>
         /// Freshservice domain
         /// </summary>
         public readonly string Domain;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerResult? DomainAwsSecretsManager;
 
         [OutputConstructor]
         private GetActionConnectionFreshserviceApiKeyResult(
             string apiKey,
 
-            string domain)
+            Outputs.GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerResult? apiKeyAwsSecretsManager,
+
+            string domain,
+
+            Outputs.GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerResult? domainAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             Domain = domain;
+            DomainAwsSecretsManager = domainAwsSecretsManager;
         }
     }
 }

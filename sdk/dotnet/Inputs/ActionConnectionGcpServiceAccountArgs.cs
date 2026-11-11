@@ -29,10 +29,22 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("privateKeyAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs>? PrivateKeyAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// Google Cloud service account email. String length must be at least 1.
         /// </summary>
         [Input("serviceAccountEmail")]
         public Input<string>? ServiceAccountEmail { get; set; }
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("serviceAccountEmailAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs>? ServiceAccountEmailAwsSecretsManager { get; set; }
 
         public ActionConnectionGcpServiceAccountArgs()
         {

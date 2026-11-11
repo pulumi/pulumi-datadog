@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Anthropic API token
         /// </summary>
         public readonly string ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerResult? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionAnthropicApiKeyResult(string apiToken)
+        private GetActionConnectionAnthropicApiKeyResult(
+            string apiToken,
+
+            Outputs.GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerResult? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

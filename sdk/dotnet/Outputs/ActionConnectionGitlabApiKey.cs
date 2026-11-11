@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// GitLab API token. String length must be at least 1.
         /// </summary>
         public readonly string? ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private ActionConnectionGitlabApiKey(string? apiToken)
+        private ActionConnectionGitlabApiKey(
+            string? apiToken,
+
+            Outputs.ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

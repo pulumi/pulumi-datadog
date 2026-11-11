@@ -18,32 +18,60 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ApiKey;
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager? ApiKeyAwsSecretsManager;
+        /// <summary>
         /// Datadog application key. String length must be at least 1.
         /// </summary>
         public readonly string? AppKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager? AppKeyAwsSecretsManager;
         /// <summary>
         /// Datadog site data center. String length must be at least 1.
         /// </summary>
         public readonly string? Datacenter;
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager? DatacenterAwsSecretsManager;
+        /// <summary>
         /// Custom subdomain used for URLs generated with this connection. String length must be at least 1.
         /// </summary>
         public readonly string? Subdomain;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionDatadogApiKeySubdomainAwsSecretsManager? SubdomainAwsSecretsManager;
 
         [OutputConstructor]
         private ActionConnectionDatadogApiKey(
             string? apiKey,
 
+            Outputs.ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager? apiKeyAwsSecretsManager,
+
             string? appKey,
+
+            Outputs.ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager? appKeyAwsSecretsManager,
 
             string? datacenter,
 
-            string? subdomain)
+            Outputs.ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager? datacenterAwsSecretsManager,
+
+            string? subdomain,
+
+            Outputs.ActionConnectionDatadogApiKeySubdomainAwsSecretsManager? subdomainAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             AppKey = appKey;
+            AppKeyAwsSecretsManager = appKeyAwsSecretsManager;
             Datacenter = datacenter;
+            DatacenterAwsSecretsManager = datacenterAwsSecretsManager;
             Subdomain = subdomain;
+            SubdomainAwsSecretsManager = subdomainAwsSecretsManager;
         }
     }
 }

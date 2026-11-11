@@ -4,9 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionCloudflareGlobalApiToken {
@@ -16,10 +20,20 @@ public final class GetActionConnectionCloudflareGlobalApiToken {
      */
     private String authEmail;
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager authEmailAwsSecretsManager;
+    /**
      * @return Cloudflare global API key
      * 
      */
     private String globalApiKey;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager globalApiKeyAwsSecretsManager;
 
     private GetActionConnectionCloudflareGlobalApiToken() {}
     /**
@@ -30,11 +44,25 @@ public final class GetActionConnectionCloudflareGlobalApiToken {
         return this.authEmail;
     }
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager> authEmailAwsSecretsManager() {
+        return Optional.ofNullable(this.authEmailAwsSecretsManager);
+    }
+    /**
      * @return Cloudflare global API key
      * 
      */
     public String globalApiKey() {
         return this.globalApiKey;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager> globalApiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.globalApiKeyAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -47,12 +75,16 @@ public final class GetActionConnectionCloudflareGlobalApiToken {
     @CustomType.Builder
     public static final class Builder {
         private String authEmail;
+        private @Nullable GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager authEmailAwsSecretsManager;
         private String globalApiKey;
+        private @Nullable GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager globalApiKeyAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionCloudflareGlobalApiToken defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authEmail = defaults.authEmail;
+    	      this.authEmailAwsSecretsManager = defaults.authEmailAwsSecretsManager;
     	      this.globalApiKey = defaults.globalApiKey;
+    	      this.globalApiKeyAwsSecretsManager = defaults.globalApiKeyAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -64,6 +96,12 @@ public final class GetActionConnectionCloudflareGlobalApiToken {
             return this;
         }
         @CustomType.Setter
+        public Builder authEmailAwsSecretsManager(@Nullable GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager authEmailAwsSecretsManager) {
+
+            this.authEmailAwsSecretsManager = authEmailAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder globalApiKey(String globalApiKey) {
             if (globalApiKey == null) {
               throw new MissingRequiredPropertyException("GetActionConnectionCloudflareGlobalApiToken", "globalApiKey");
@@ -71,10 +109,18 @@ public final class GetActionConnectionCloudflareGlobalApiToken {
             this.globalApiKey = globalApiKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder globalApiKeyAwsSecretsManager(@Nullable GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager globalApiKeyAwsSecretsManager) {
+
+            this.globalApiKeyAwsSecretsManager = globalApiKeyAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionCloudflareGlobalApiToken build() {
             final var _resultValue = new GetActionConnectionCloudflareGlobalApiToken();
             _resultValue.authEmail = authEmail;
+            _resultValue.authEmailAwsSecretsManager = authEmailAwsSecretsManager;
             _resultValue.globalApiKey = globalApiKey;
+            _resultValue.globalApiKeyAwsSecretsManager = globalApiKeyAwsSecretsManager;
             return _resultValue;
         }
     }

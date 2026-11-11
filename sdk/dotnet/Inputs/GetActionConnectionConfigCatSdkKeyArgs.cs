@@ -29,10 +29,22 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("apiPasswordAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerInputArgs>? ApiPasswordAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// ConfigCat Public Management API username
         /// </summary>
         [Input("apiUsername", required: true)]
         public Input<string> ApiUsername { get; set; } = null!;
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("apiUsernameAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerInputArgs>? ApiUsernameAwsSecretsManager { get; set; }
 
         [Input("sdkKey", required: true)]
         private Input<string>? _sdkKey;
@@ -49,6 +61,12 @@ namespace Pulumi.Datadog.Inputs
                 _sdkKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("sdkKeyAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerInputArgs>? SdkKeyAwsSecretsManager { get; set; }
 
         public GetActionConnectionConfigCatSdkKeyInputArgs()
         {

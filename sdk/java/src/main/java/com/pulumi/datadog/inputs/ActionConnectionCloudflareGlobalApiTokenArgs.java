@@ -5,6 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +33,21 @@ public final class ActionConnectionCloudflareGlobalApiTokenArgs extends com.pulu
     }
 
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="authEmailAwsSecretsManager")
+    private @Nullable Output<ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs> authEmailAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs>> authEmailAwsSecretsManager() {
+        return Optional.ofNullable(this.authEmailAwsSecretsManager);
+    }
+
+    /**
      * Cloudflare global API key. String length must be at least 1.
      * 
      */
@@ -45,11 +62,28 @@ public final class ActionConnectionCloudflareGlobalApiTokenArgs extends com.pulu
         return Optional.ofNullable(this.globalApiKey);
     }
 
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="globalApiKeyAwsSecretsManager")
+    private @Nullable Output<ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs> globalApiKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs>> globalApiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.globalApiKeyAwsSecretsManager);
+    }
+
     private ActionConnectionCloudflareGlobalApiTokenArgs() {}
 
     private ActionConnectionCloudflareGlobalApiTokenArgs(ActionConnectionCloudflareGlobalApiTokenArgs $) {
         this.authEmail = $.authEmail;
+        this.authEmailAwsSecretsManager = $.authEmailAwsSecretsManager;
         this.globalApiKey = $.globalApiKey;
+        this.globalApiKeyAwsSecretsManager = $.globalApiKeyAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -92,6 +126,27 @@ public final class ActionConnectionCloudflareGlobalApiTokenArgs extends com.pulu
         }
 
         /**
+         * @param authEmailAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authEmailAwsSecretsManager(@Nullable Output<ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs> authEmailAwsSecretsManager) {
+            $.authEmailAwsSecretsManager = authEmailAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param authEmailAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authEmailAwsSecretsManager(ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs authEmailAwsSecretsManager) {
+            return authEmailAwsSecretsManager(Output.of(authEmailAwsSecretsManager));
+        }
+
+        /**
          * @param globalApiKey Cloudflare global API key. String length must be at least 1.
          * 
          * @return builder
@@ -110,6 +165,27 @@ public final class ActionConnectionCloudflareGlobalApiTokenArgs extends com.pulu
          */
         public Builder globalApiKey(String globalApiKey) {
             return globalApiKey(Output.of(globalApiKey));
+        }
+
+        /**
+         * @param globalApiKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalApiKeyAwsSecretsManager(@Nullable Output<ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs> globalApiKeyAwsSecretsManager) {
+            $.globalApiKeyAwsSecretsManager = globalApiKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param globalApiKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalApiKeyAwsSecretsManager(ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs globalApiKeyAwsSecretsManager) {
+            return globalApiKeyAwsSecretsManager(Output.of(globalApiKeyAwsSecretsManager));
         }
 
         public ActionConnectionCloudflareGlobalApiTokenArgs build() {

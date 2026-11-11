@@ -27,9 +27,9 @@ class TeamConnectionArgs:
         """
         The set of arguments for constructing a TeamConnection resource.
 
-        :param pulumi.Input['TeamConnectionConnectedTeamArgs'] connected_team: The external connected team reference (e.g. a GitHub team).
+        :param pulumi.Input['TeamConnectionConnectedTeamArgs'] connected_team: The external connected team reference (e.g. a GitHub team or a ServiceNow group).
         :param pulumi.Input['TeamConnectionTeamArgs'] team: The Datadog team reference.
-        :param pulumi.Input[_builtins.str] source: The source of the connection (e.g. github).
+        :param pulumi.Input[_builtins.str] source: The name of the external source, such as `github` or `servicenow`.
         """
         pulumi.set(__self__, "connected_team", connected_team)
         pulumi.set(__self__, "team", team)
@@ -40,7 +40,7 @@ class TeamConnectionArgs:
     @pulumi.getter(name="connectedTeam")
     def connected_team(self) -> pulumi.Input['TeamConnectionConnectedTeamArgs']:
         """
-        The external connected team reference (e.g. a GitHub team).
+        The external connected team reference (e.g. a GitHub team or a ServiceNow group).
         """
         return pulumi.get(self, "connected_team")
 
@@ -64,7 +64,7 @@ class TeamConnectionArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The source of the connection (e.g. github).
+        The name of the external source, such as `github` or `servicenow`.
         """
         return pulumi.get(self, "source")
 
@@ -82,8 +82,8 @@ class _TeamConnectionState:
         """
         Input properties used for looking up and filtering TeamConnection resources.
 
-        :param pulumi.Input['TeamConnectionConnectedTeamArgs'] connected_team: The external connected team reference (e.g. a GitHub team).
-        :param pulumi.Input[_builtins.str] source: The source of the connection (e.g. github).
+        :param pulumi.Input['TeamConnectionConnectedTeamArgs'] connected_team: The external connected team reference (e.g. a GitHub team or a ServiceNow group).
+        :param pulumi.Input[_builtins.str] source: The name of the external source, such as `github` or `servicenow`.
         :param pulumi.Input['TeamConnectionTeamArgs'] team: The Datadog team reference.
         """
         if connected_team is not None:
@@ -97,7 +97,7 @@ class _TeamConnectionState:
     @pulumi.getter(name="connectedTeam")
     def connected_team(self) -> pulumi.Input[Optional['TeamConnectionConnectedTeamArgs']]:
         """
-        The external connected team reference (e.g. a GitHub team).
+        The external connected team reference (e.g. a GitHub team or a ServiceNow group).
         """
         return pulumi.get(self, "connected_team")
 
@@ -109,7 +109,7 @@ class _TeamConnectionState:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The source of the connection (e.g. github).
+        The name of the external source, such as `github` or `servicenow`.
         """
         return pulumi.get(self, "source")
 
@@ -141,7 +141,7 @@ class TeamConnection(pulumi.CustomResource):
                  team: pulumi.Input[Optional[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict', 'outputs.TeamConnectionTeam']]] = None,
                  __props__=None):
         """
-        Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. GitHub).
+        Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. a GitHub team or a ServiceNow group).
 
         ## Example Usage
 
@@ -163,6 +163,17 @@ class TeamConnection(pulumi.CustomResource):
                 "id": "@GitHubOrg/team-handle",
                 "type": "github_team",
             }])
+        # Create a connection between a Datadog team and a ServiceNow group
+        servicenow = datadog.TeamConnection("servicenow",
+            team=[{
+                "id": example.id,
+                "type": "team",
+            }],
+            connected_team=[{
+                "id": "my-instance/0123456789abcdef0123456789abcdef",
+                "type": "servicenow_team",
+            }],
+            source="servicenow")
         ```
 
         ## Import
@@ -176,8 +187,8 @@ class TeamConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict', 'outputs.TeamConnectionConnectedTeam']] connected_team: The external connected team reference (e.g. a GitHub team).
-        :param pulumi.Input[_builtins.str] source: The source of the connection (e.g. github).
+        :param pulumi.Input[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict', 'outputs.TeamConnectionConnectedTeam']] connected_team: The external connected team reference (e.g. a GitHub team or a ServiceNow group).
+        :param pulumi.Input[_builtins.str] source: The name of the external source, such as `github` or `servicenow`.
         :param pulumi.Input[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict', 'outputs.TeamConnectionTeam']] team: The Datadog team reference.
         """
         ...
@@ -187,7 +198,7 @@ class TeamConnection(pulumi.CustomResource):
                  args: TeamConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. GitHub).
+        Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. a GitHub team or a ServiceNow group).
 
         ## Example Usage
 
@@ -209,6 +220,17 @@ class TeamConnection(pulumi.CustomResource):
                 "id": "@GitHubOrg/team-handle",
                 "type": "github_team",
             }])
+        # Create a connection between a Datadog team and a ServiceNow group
+        servicenow = datadog.TeamConnection("servicenow",
+            team=[{
+                "id": example.id,
+                "type": "team",
+            }],
+            connected_team=[{
+                "id": "my-instance/0123456789abcdef0123456789abcdef",
+                "type": "servicenow_team",
+            }],
+            source="servicenow")
         ```
 
         ## Import
@@ -274,8 +296,8 @@ class TeamConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict', 'outputs.TeamConnectionConnectedTeam']] connected_team: The external connected team reference (e.g. a GitHub team).
-        :param pulumi.Input[_builtins.str] source: The source of the connection (e.g. github).
+        :param pulumi.Input[Union['TeamConnectionConnectedTeamArgs', 'TeamConnectionConnectedTeamArgsDict', 'outputs.TeamConnectionConnectedTeam']] connected_team: The external connected team reference (e.g. a GitHub team or a ServiceNow group).
+        :param pulumi.Input[_builtins.str] source: The name of the external source, such as `github` or `servicenow`.
         :param pulumi.Input[Union['TeamConnectionTeamArgs', 'TeamConnectionTeamArgsDict', 'outputs.TeamConnectionTeam']] team: The Datadog team reference.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -303,7 +325,7 @@ class TeamConnection(pulumi.CustomResource):
     @pulumi.getter(name="connectedTeam")
     def connected_team(self) -> pulumi.Output['outputs.TeamConnectionConnectedTeam']:
         """
-        The external connected team reference (e.g. a GitHub team).
+        The external connected team reference (e.g. a GitHub team or a ServiceNow group).
         """
         return pulumi.get(self, "connected_team")
 
@@ -311,7 +333,7 @@ class TeamConnection(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[_builtins.str]:
         """
-        The source of the connection (e.g. github).
+        The name of the external source, such as `github` or `servicenow`.
         """
         return pulumi.get(self, "source")
 

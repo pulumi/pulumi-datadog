@@ -16,7 +16,7 @@ namespace Pulumi.Datadog.Inputs
         private InputList<string>? _agentTags;
 
         /// <summary>
-        /// The Agent tags identifying the target, for example `env:prod`.
+        /// The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
         /// </summary>
         public InputList<string> AgentTags
         {

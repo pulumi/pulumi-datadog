@@ -25,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// Token value
         /// </summary>
         public readonly string Value;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerResult? ValueAwsSecretsManager;
 
         [OutputConstructor]
         private GetActionConnectionHttpTokenAuthTokenResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Datadog.Outputs
 
             string type,
 
-            string value)
+            string value,
+
+            Outputs.GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerResult? valueAwsSecretsManager)
         {
             Name = name;
             Type = type;
             Value = value;
+            ValueAwsSecretsManager = valueAwsSecretsManager;
         }
     }
 }

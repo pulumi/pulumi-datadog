@@ -60,12 +60,25 @@ namespace Pulumi.Datadog.Aws.Inputs
         [Input("namespaceFilters")]
         public Input<Inputs.IntegrationAccountMetricsConfigNamespaceFiltersGetArgs>? NamespaceFilters { get; set; }
 
+        [Input("resourceTypeTagFilters")]
+        private InputList<Inputs.IntegrationAccountMetricsConfigResourceTypeTagFilterGetArgs>? _resourceTypeTagFilters;
+
+        /// <summary>
+        /// AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+        /// </summary>
+        public InputList<Inputs.IntegrationAccountMetricsConfigResourceTypeTagFilterGetArgs> ResourceTypeTagFilters
+        {
+            get => _resourceTypeTagFilters ?? (_resourceTypeTagFilters = new InputList<Inputs.IntegrationAccountMetricsConfigResourceTypeTagFilterGetArgs>());
+            set => _resourceTypeTagFilters = value;
+        }
+
         [Input("tagFilters")]
         private InputList<Inputs.IntegrationAccountMetricsConfigTagFilterGetArgs>? _tagFilters;
 
         /// <summary>
         /// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
         /// </summary>
+        [Obsolete(@"Deprecated in favor of `ResourceTypeTagFilters`. The two fields are mutually exclusive on an account.")]
         public InputList<Inputs.IntegrationAccountMetricsConfigTagFilterGetArgs> TagFilters
         {
             get => _tagFilters ?? (_tagFilters = new InputList<Inputs.IntegrationAccountMetricsConfigTagFilterGetArgs>());

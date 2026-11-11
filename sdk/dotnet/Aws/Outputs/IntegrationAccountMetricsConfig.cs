@@ -42,6 +42,10 @@ namespace Pulumi.Datadog.Aws.Outputs
         /// </summary>
         public readonly Outputs.IntegrationAccountMetricsConfigNamespaceFilters? NamespaceFilters;
         /// <summary>
+        /// AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IntegrationAccountMetricsConfigResourceTypeTagFilter> ResourceTypeTagFilters;
+        /// <summary>
         /// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
         /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationAccountMetricsConfigTagFilter> TagFilters;
@@ -62,6 +66,8 @@ namespace Pulumi.Datadog.Aws.Outputs
 
             Outputs.IntegrationAccountMetricsConfigNamespaceFilters? namespaceFilters,
 
+            ImmutableArray<Outputs.IntegrationAccountMetricsConfigResourceTypeTagFilter> resourceTypeTagFilters,
+
             ImmutableArray<Outputs.IntegrationAccountMetricsConfigTagFilter> tagFilters)
         {
             AutomuteEnabled = automuteEnabled;
@@ -71,6 +77,7 @@ namespace Pulumi.Datadog.Aws.Outputs
             Enabled = enabled;
             MetricNameFilters = metricNameFilters;
             NamespaceFilters = namespaceFilters;
+            ResourceTypeTagFilters = resourceTypeTagFilters;
             TagFilters = tagFilters;
         }
     }

@@ -36,6 +36,12 @@ namespace Pulumi.Datadog.Inputs
             set => _value = value;
         }
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("valueAwsSecretsManager")]
+        public Inputs.GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs? ValueAwsSecretsManager { get; set; }
+
         public GetActionConnectionHttpTokenAuthTokenArgs()
         {
         }

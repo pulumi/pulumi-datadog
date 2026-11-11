@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ActionExecutionPolicyTarget {
     /**
-     * @return The Agent tags identifying the target, for example `env:prod`.
+     * @return The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
      * 
      */
     private List<String> agentTags;
@@ -26,7 +26,7 @@ public final class ActionExecutionPolicyTarget {
 
     private ActionExecutionPolicyTarget() {}
     /**
-     * @return The Agent tags identifying the target, for example `env:prod`.
+     * @return The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
      * 
      */
     public List<String> agentTags() {

@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Cloudflare API token
         /// </summary>
         public readonly string ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerResult? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionCloudflareApiTokenResult(string apiToken)
+        private GetActionConnectionCloudflareApiTokenResult(
+            string apiToken,
+
+            Outputs.GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerResult? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

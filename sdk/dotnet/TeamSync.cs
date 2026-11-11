@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub) into Datadog.
+    /// Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub or ServiceNow) into Datadog.
     /// 
     /// ## Example Usage
     /// 
@@ -47,6 +47,28 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
+    ///     // Configure team synchronization from ServiceNow
+    ///     var servicenow = new Datadog.TeamSync("servicenow", new()
+    ///     {
+    ///         Source = "servicenow",
+    ///         Type = "link",
+    ///         Frequency = "continuously",
+    ///         SelectionStates = new[]
+    ///         {
+    ///             new Datadog.Inputs.TeamSyncSelectionStateArgs
+    ///             {
+    ///                 ExternalId = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "type", "organization" },
+    ///                         { "value", "my-instance" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -56,6 +78,7 @@ namespace Pulumi.Datadog
     /// 
     /// ```sh
     /// $ pulumi import datadog:index/teamSync:TeamSync example "github"
+    /// $ pulumi import datadog:index/teamSync:TeamSync servicenow "servicenow"
     /// ```
     /// </summary>
     [DatadogResourceType("datadog:index/teamSync:TeamSync")]
@@ -74,7 +97,7 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<Outputs.TeamSyncSelectionState>> SelectionStates { get; private set; } = null!;
 
         /// <summary>
-        /// The external source platform for team synchronization. Valid values are `Github`.
+        /// The external source platform for team synchronization. Valid values are `Github`, `Servicenow`.
         /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
@@ -156,7 +179,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The external source platform for team synchronization. Valid values are `Github`.
+        /// The external source platform for team synchronization. Valid values are `Github`, `Servicenow`.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
@@ -200,7 +223,7 @@ namespace Pulumi.Datadog
         }
 
         /// <summary>
-        /// The external source platform for team synchronization. Valid values are `Github`.
+        /// The external source platform for team synchronization. Valid values are `Github`, `Servicenow`.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }

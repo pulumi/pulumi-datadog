@@ -31,14 +31,14 @@ public final class ActionExecutionPolicyActionPatternArgs extends com.pulumi.res
     }
 
     /**
-     * The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+     * The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
      * 
      */
     @Import(name="integration", required=true)
     private Output<String> integration;
 
     /**
-     * @return The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+     * @return The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
      * 
      */
     public Output<String> integration() {
@@ -102,7 +102,7 @@ public final class ActionExecutionPolicyActionPatternArgs extends com.pulumi.res
         }
 
         /**
-         * @param integration The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+         * @param integration The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class ActionExecutionPolicyActionPatternArgs extends com.pulumi.res
         }
 
         /**
-         * @param integration The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+         * @param integration The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
          * 
          * @return builder
          * 

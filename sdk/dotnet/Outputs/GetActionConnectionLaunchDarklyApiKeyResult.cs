@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// LaunchDarkly API token
         /// </summary>
         public readonly string ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerResult? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionLaunchDarklyApiKeyResult(string apiToken)
+        private GetActionConnectionLaunchDarklyApiKeyResult(
+            string apiToken,
+
+            Outputs.GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerResult? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

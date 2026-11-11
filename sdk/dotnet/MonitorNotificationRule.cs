@@ -128,6 +128,12 @@ namespace Pulumi.Datadog
         [Output("recipients")]
         public Output<ImmutableArray<string>> Recipients { get; private set; } = null!;
 
+        /// <summary>
+        /// Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+        /// </summary>
+        [Output("ruleOptions")]
+        public Output<Outputs.MonitorNotificationRuleRuleOptions> RuleOptions { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a MonitorNotificationRule resource with the given unique name, arguments, and options.
@@ -210,6 +216,12 @@ namespace Pulumi.Datadog
             set => _recipients = value;
         }
 
+        /// <summary>
+        /// Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+        /// </summary>
+        [Input("ruleOptions")]
+        public Input<Inputs.MonitorNotificationRuleRuleOptionsArgs>? RuleOptions { get; set; }
+
         public MonitorNotificationRuleArgs()
         {
         }
@@ -253,6 +265,12 @@ namespace Pulumi.Datadog
             get => _recipients ?? (_recipients = new InputList<string>());
             set => _recipients = value;
         }
+
+        /// <summary>
+        /// Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+        /// </summary>
+        [Input("ruleOptions")]
+        public Input<Inputs.MonitorNotificationRuleRuleOptionsGetArgs>? RuleOptions { get; set; }
 
         public MonitorNotificationRuleState()
         {

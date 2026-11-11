@@ -41,6 +41,8 @@ __all__ = [
     'IntegrationAccountMetricsConfigMetricNameFilterArgsDict',
     'IntegrationAccountMetricsConfigNamespaceFiltersArgs',
     'IntegrationAccountMetricsConfigNamespaceFiltersArgsDict',
+    'IntegrationAccountMetricsConfigResourceTypeTagFilterArgs',
+    'IntegrationAccountMetricsConfigResourceTypeTagFilterArgsDict',
     'IntegrationAccountMetricsConfigTagFilterArgs',
     'IntegrationAccountMetricsConfigTagFilterArgsDict',
     'IntegrationAccountResourcesConfigArgs',
@@ -572,6 +574,10 @@ class IntegrationAccountMetricsConfigArgsDict(TypedDict):
     """
     AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
     """
+    resource_type_tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigResourceTypeTagFilterArgsDict']]]]]
+    """
+    AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+    """
     tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgsDict']]]]]
     """
     AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
@@ -587,6 +593,7 @@ class IntegrationAccountMetricsConfigArgs:
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  metric_name_filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigMetricNameFilterArgs']]]] = None,
                  namespace_filters: pulumi.Input[Optional['IntegrationAccountMetricsConfigNamespaceFiltersArgs']] = None,
+                 resource_type_tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigResourceTypeTagFilterArgs']]]] = None,
                  tag_filters: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.bool] automute_enabled: Enable EC2 automute for AWS metrics Defaults to `true`.
@@ -596,6 +603,7 @@ class IntegrationAccountMetricsConfigArgs:
         :param pulumi.Input[_builtins.bool] enabled: Enable AWS metrics collection Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountMetricsConfigMetricNameFilterArgs']]] metric_name_filters: AWS CloudWatch metric name filters. Each filter applies to a single namespace and must define exactly one of `include_only` or `exclude_only`.
         :param pulumi.Input['IntegrationAccountMetricsConfigNamespaceFiltersArgs'] namespace_filters: AWS metrics namespace filters. Defaults to a pre-set `exclude_only` list if block is empty.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountMetricsConfigResourceTypeTagFilterArgs']]] resource_type_tag_filters: AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgs']]] tag_filters: AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
         """
         if automute_enabled is not None:
@@ -612,6 +620,11 @@ class IntegrationAccountMetricsConfigArgs:
             pulumi.set(__self__, "metric_name_filters", metric_name_filters)
         if namespace_filters is not None:
             pulumi.set(__self__, "namespace_filters", namespace_filters)
+        if resource_type_tag_filters is not None:
+            pulumi.set(__self__, "resource_type_tag_filters", resource_type_tag_filters)
+        if tag_filters is not None:
+            warnings.warn("""Deprecated in favor of `resource_type_tag_filters`. The two fields are mutually exclusive on an account.""", DeprecationWarning)
+            pulumi.log.warn("""tag_filters is deprecated: Deprecated in favor of `resource_type_tag_filters`. The two fields are mutually exclusive on an account.""")
         if tag_filters is not None:
             pulumi.set(__self__, "tag_filters", tag_filters)
 
@@ -700,7 +713,20 @@ class IntegrationAccountMetricsConfigArgs:
         pulumi.set(self, "namespace_filters", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceTypeTagFilters")
+    def resource_type_tag_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigResourceTypeTagFilterArgs']]]]:
+        """
+        AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+        """
+        return pulumi.get(self, "resource_type_tag_filters")
+
+    @resource_type_tag_filters.setter
+    def resource_type_tag_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigResourceTypeTagFilterArgs']]]]):
+        pulumi.set(self, "resource_type_tag_filters", value)
+
+    @_builtins.property
     @pulumi.getter(name="tagFilters")
+    @_utilities.deprecated("""Deprecated in favor of `resource_type_tag_filters`. The two fields are mutually exclusive on an account.""")
     def tag_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountMetricsConfigTagFilterArgs']]]]:
         """
         AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
@@ -827,6 +853,94 @@ class IntegrationAccountMetricsConfigNamespaceFiltersArgs:
     @include_onlies.setter
     def include_onlies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "include_onlies", value)
+
+
+class IntegrationAccountMetricsConfigResourceTypeTagFilterArgsDict(TypedDict):
+    expression: pulumi.Input[_builtins.str]
+    """
+    The tag filter expression used when collecting metrics for the specified resource types.
+    """
+    custom: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether this filter applies to custom resources.
+    """
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The AWS resource types within `service` for which the tag filter expression is applied.
+    """
+    service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The AWS service for which the tag filter expression is applied.
+    """
+
+@pulumi.input_type
+class IntegrationAccountMetricsConfigResourceTypeTagFilterArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[_builtins.str],
+                 custom: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] expression: The tag filter expression used when collecting metrics for the specified resource types.
+        :param pulumi.Input[_builtins.bool] custom: Whether this filter applies to custom resources.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_types: The AWS resource types within `service` for which the tag filter expression is applied.
+        :param pulumi.Input[_builtins.str] service: The AWS service for which the tag filter expression is applied.
+        """
+        pulumi.set(__self__, "expression", expression)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tag filter expression used when collecting metrics for the specified resource types.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def custom(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this filter applies to custom resources.
+        """
+        return pulumi.get(self, "custom")
+
+    @custom.setter
+    def custom(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "custom", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The AWS resource types within `service` for which the tag filter expression is applied.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The AWS service for which the tag filter expression is applied.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service", value)
 
 
 class IntegrationAccountMetricsConfigTagFilterArgsDict(TypedDict):

@@ -29,10 +29,22 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("apiTokenAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerInputArgs>? ApiTokenAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// Okta domain
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("domainAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionOktaApiTokenDomainAwsSecretsManagerInputArgs>? DomainAwsSecretsManager { get; set; }
 
         public GetActionConnectionOktaApiTokenInputArgs()
         {

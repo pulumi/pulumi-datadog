@@ -40,6 +40,12 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("valueAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerGetArgs>? ValueAwsSecretsManager { get; set; }
+
         public ActionConnectionHttpTokenAuthTokenGetArgs()
         {
         }

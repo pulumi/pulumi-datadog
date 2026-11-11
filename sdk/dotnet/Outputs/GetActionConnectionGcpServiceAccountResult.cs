@@ -18,18 +18,32 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string PrivateKey;
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerResult? PrivateKeyAwsSecretsManager;
+        /// <summary>
         /// Google Cloud service account email
         /// </summary>
         public readonly string ServiceAccountEmail;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerResult? ServiceAccountEmailAwsSecretsManager;
 
         [OutputConstructor]
         private GetActionConnectionGcpServiceAccountResult(
             string privateKey,
 
-            string serviceAccountEmail)
+            Outputs.GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerResult? privateKeyAwsSecretsManager,
+
+            string serviceAccountEmail,
+
+            Outputs.GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerResult? serviceAccountEmailAwsSecretsManager)
         {
             PrivateKey = privateKey;
+            PrivateKeyAwsSecretsManager = privateKeyAwsSecretsManager;
             ServiceAccountEmail = serviceAccountEmail;
+            ServiceAccountEmailAwsSecretsManager = serviceAccountEmailAwsSecretsManager;
         }
     }
 }

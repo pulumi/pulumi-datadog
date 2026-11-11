@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,11 @@ public final class ActionConnectionAsanaAccessToken {
      * 
      */
     private @Nullable String accessToken;
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager accessTokenAwsSecretsManager;
 
     private ActionConnectionAsanaAccessToken() {}
     /**
@@ -24,6 +30,13 @@ public final class ActionConnectionAsanaAccessToken {
      */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager> accessTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.accessTokenAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class ActionConnectionAsanaAccessToken {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessToken;
+        private @Nullable ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager accessTokenAwsSecretsManager;
         public Builder() {}
         public Builder(ActionConnectionAsanaAccessToken defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
+    	      this.accessTokenAwsSecretsManager = defaults.accessTokenAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class ActionConnectionAsanaAccessToken {
             this.accessToken = accessToken;
             return this;
         }
+        @CustomType.Setter
+        public Builder accessTokenAwsSecretsManager(@Nullable ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager accessTokenAwsSecretsManager) {
+
+            this.accessTokenAwsSecretsManager = accessTokenAwsSecretsManager;
+            return this;
+        }
         public ActionConnectionAsanaAccessToken build() {
             final var _resultValue = new ActionConnectionAsanaAccessToken();
             _resultValue.accessToken = accessToken;
+            _resultValue.accessTokenAwsSecretsManager = accessTokenAwsSecretsManager;
             return _resultValue;
         }
     }

@@ -4,9 +4,12 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionGreyNoiseApiKey {
@@ -15,6 +18,11 @@ public final class GetActionConnectionGreyNoiseApiKey {
      * 
      */
     private String apiKey;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
 
     private GetActionConnectionGreyNoiseApiKey() {}
     /**
@@ -23,6 +31,13 @@ public final class GetActionConnectionGreyNoiseApiKey {
      */
     public String apiKey() {
         return this.apiKey;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -35,10 +50,12 @@ public final class GetActionConnectionGreyNoiseApiKey {
     @CustomType.Builder
     public static final class Builder {
         private String apiKey;
+        private @Nullable GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionGreyNoiseApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
+    	      this.apiKeyAwsSecretsManager = defaults.apiKeyAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -49,9 +66,16 @@ public final class GetActionConnectionGreyNoiseApiKey {
             this.apiKey = apiKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder apiKeyAwsSecretsManager(@Nullable GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager) {
+
+            this.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionGreyNoiseApiKey build() {
             final var _resultValue = new GetActionConnectionGreyNoiseApiKey();
             _resultValue.apiKey = apiKey;
+            _resultValue.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             return _resultValue;
         }
     }

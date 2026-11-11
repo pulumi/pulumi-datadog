@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Gemini API key
         /// </summary>
         public readonly string ApiKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerResult? ApiKeyAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionGeminiApiKeyResult(string apiKey)
+        private GetActionConnectionGeminiApiKeyResult(
+            string apiKey,
+
+            Outputs.GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerResult? apiKeyAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
         }
     }
 }

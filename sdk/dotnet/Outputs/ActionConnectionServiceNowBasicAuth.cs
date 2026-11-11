@@ -18,25 +18,46 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? Instance;
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager? InstanceAwsSecretsManager;
+        /// <summary>
         /// ServiceNow password. String length must be at least 1.
         /// </summary>
         public readonly string? Password;
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager? PasswordAwsSecretsManager;
+        /// <summary>
         /// ServiceNow username. String length must be at least 1.
         /// </summary>
         public readonly string? Username;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager? UsernameAwsSecretsManager;
 
         [OutputConstructor]
         private ActionConnectionServiceNowBasicAuth(
             string? instance,
 
+            Outputs.ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager? instanceAwsSecretsManager,
+
             string? password,
 
-            string? username)
+            Outputs.ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager? passwordAwsSecretsManager,
+
+            string? username,
+
+            Outputs.ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager? usernameAwsSecretsManager)
         {
             Instance = instance;
+            InstanceAwsSecretsManager = instanceAwsSecretsManager;
             Password = password;
+            PasswordAwsSecretsManager = passwordAwsSecretsManager;
             Username = username;
+            UsernameAwsSecretsManager = usernameAwsSecretsManager;
         }
     }
 }

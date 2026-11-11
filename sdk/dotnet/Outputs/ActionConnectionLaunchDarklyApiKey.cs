@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// LaunchDarkly API token. String length must be at least 1.
         /// </summary>
         public readonly string? ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private ActionConnectionLaunchDarklyApiKey(string? apiToken)
+        private ActionConnectionLaunchDarklyApiKey(
+            string? apiToken,
+
+            Outputs.ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

@@ -4,9 +4,12 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionOpenaiApiKey {
@@ -15,6 +18,11 @@ public final class GetActionConnectionOpenaiApiKey {
      * 
      */
     private String apiToken;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
 
     private GetActionConnectionOpenaiApiKey() {}
     /**
@@ -23,6 +31,13 @@ public final class GetActionConnectionOpenaiApiKey {
      */
     public String apiToken() {
         return this.apiToken;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -35,10 +50,12 @@ public final class GetActionConnectionOpenaiApiKey {
     @CustomType.Builder
     public static final class Builder {
         private String apiToken;
+        private @Nullable GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionOpenaiApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiToken = defaults.apiToken;
+    	      this.apiTokenAwsSecretsManager = defaults.apiTokenAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -49,9 +66,16 @@ public final class GetActionConnectionOpenaiApiKey {
             this.apiToken = apiToken;
             return this;
         }
+        @CustomType.Setter
+        public Builder apiTokenAwsSecretsManager(@Nullable GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager) {
+
+            this.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionOpenaiApiKey build() {
             final var _resultValue = new GetActionConnectionOpenaiApiKey();
             _resultValue.apiToken = apiToken;
+            _resultValue.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
             return _resultValue;
         }
     }

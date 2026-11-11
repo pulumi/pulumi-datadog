@@ -4,9 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionGcpServiceAccount {
@@ -16,10 +20,20 @@ public final class GetActionConnectionGcpServiceAccount {
      */
     private String privateKey;
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager privateKeyAwsSecretsManager;
+    /**
      * @return Google Cloud service account email
      * 
      */
     private String serviceAccountEmail;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager serviceAccountEmailAwsSecretsManager;
 
     private GetActionConnectionGcpServiceAccount() {}
     /**
@@ -30,11 +44,25 @@ public final class GetActionConnectionGcpServiceAccount {
         return this.privateKey;
     }
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager> privateKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.privateKeyAwsSecretsManager);
+    }
+    /**
      * @return Google Cloud service account email
      * 
      */
     public String serviceAccountEmail() {
         return this.serviceAccountEmail;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager> serviceAccountEmailAwsSecretsManager() {
+        return Optional.ofNullable(this.serviceAccountEmailAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -47,12 +75,16 @@ public final class GetActionConnectionGcpServiceAccount {
     @CustomType.Builder
     public static final class Builder {
         private String privateKey;
+        private @Nullable GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager privateKeyAwsSecretsManager;
         private String serviceAccountEmail;
+        private @Nullable GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager serviceAccountEmailAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionGcpServiceAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateKey = defaults.privateKey;
+    	      this.privateKeyAwsSecretsManager = defaults.privateKeyAwsSecretsManager;
     	      this.serviceAccountEmail = defaults.serviceAccountEmail;
+    	      this.serviceAccountEmailAwsSecretsManager = defaults.serviceAccountEmailAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -64,6 +96,12 @@ public final class GetActionConnectionGcpServiceAccount {
             return this;
         }
         @CustomType.Setter
+        public Builder privateKeyAwsSecretsManager(@Nullable GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager privateKeyAwsSecretsManager) {
+
+            this.privateKeyAwsSecretsManager = privateKeyAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceAccountEmail(String serviceAccountEmail) {
             if (serviceAccountEmail == null) {
               throw new MissingRequiredPropertyException("GetActionConnectionGcpServiceAccount", "serviceAccountEmail");
@@ -71,10 +109,18 @@ public final class GetActionConnectionGcpServiceAccount {
             this.serviceAccountEmail = serviceAccountEmail;
             return this;
         }
+        @CustomType.Setter
+        public Builder serviceAccountEmailAwsSecretsManager(@Nullable GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager serviceAccountEmailAwsSecretsManager) {
+
+            this.serviceAccountEmailAwsSecretsManager = serviceAccountEmailAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionGcpServiceAccount build() {
             final var _resultValue = new GetActionConnectionGcpServiceAccount();
             _resultValue.privateKey = privateKey;
+            _resultValue.privateKeyAwsSecretsManager = privateKeyAwsSecretsManager;
             _resultValue.serviceAccountEmail = serviceAccountEmail;
+            _resultValue.serviceAccountEmailAwsSecretsManager = serviceAccountEmailAwsSecretsManager;
             return _resultValue;
         }
     }

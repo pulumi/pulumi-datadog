@@ -13,6 +13,7 @@ import com.pulumi.datadog.outputs.GetActionConnectionClickup;
 import com.pulumi.datadog.outputs.GetActionConnectionCloudflare;
 import com.pulumi.datadog.outputs.GetActionConnectionConfigCat;
 import com.pulumi.datadog.outputs.GetActionConnectionDatadog;
+import com.pulumi.datadog.outputs.GetActionConnectionExternalSecretsManager;
 import com.pulumi.datadog.outputs.GetActionConnectionFastly;
 import com.pulumi.datadog.outputs.GetActionConnectionFreshservice;
 import com.pulumi.datadog.outputs.GetActionConnectionGcp;
@@ -82,6 +83,11 @@ public final class GetActionConnectionResult {
      * 
      */
     private @Nullable GetActionConnectionDatadog datadog;
+    /**
+     * @return AWS Secrets Manager settings shared by credential references.
+     * 
+     */
+    private GetActionConnectionExternalSecretsManager externalSecretsManager;
     /**
      * @return Configuration for a Fastly connection
      * 
@@ -238,6 +244,13 @@ public final class GetActionConnectionResult {
         return Optional.ofNullable(this.datadog);
     }
     /**
+     * @return AWS Secrets Manager settings shared by credential references.
+     * 
+     */
+    public GetActionConnectionExternalSecretsManager externalSecretsManager() {
+        return this.externalSecretsManager;
+    }
+    /**
      * @return Configuration for a Fastly connection
      * 
      */
@@ -382,6 +395,7 @@ public final class GetActionConnectionResult {
         private @Nullable GetActionConnectionCloudflare cloudflare;
         private @Nullable GetActionConnectionConfigCat configCat;
         private @Nullable GetActionConnectionDatadog datadog;
+        private GetActionConnectionExternalSecretsManager externalSecretsManager;
         private @Nullable GetActionConnectionFastly fastly;
         private @Nullable GetActionConnectionFreshservice freshservice;
         private @Nullable GetActionConnectionGcp gcp;
@@ -412,6 +426,7 @@ public final class GetActionConnectionResult {
     	      this.cloudflare = defaults.cloudflare;
     	      this.configCat = defaults.configCat;
     	      this.datadog = defaults.datadog;
+    	      this.externalSecretsManager = defaults.externalSecretsManager;
     	      this.fastly = defaults.fastly;
     	      this.freshservice = defaults.freshservice;
     	      this.gcp = defaults.gcp;
@@ -484,6 +499,14 @@ public final class GetActionConnectionResult {
         public Builder datadog(@Nullable GetActionConnectionDatadog datadog) {
 
             this.datadog = datadog;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder externalSecretsManager(GetActionConnectionExternalSecretsManager externalSecretsManager) {
+            if (externalSecretsManager == null) {
+              throw new MissingRequiredPropertyException("GetActionConnectionResult", "externalSecretsManager");
+            }
+            this.externalSecretsManager = externalSecretsManager;
             return this;
         }
         @CustomType.Setter
@@ -614,6 +637,7 @@ public final class GetActionConnectionResult {
             _resultValue.cloudflare = cloudflare;
             _resultValue.configCat = configCat;
             _resultValue.datadog = datadog;
+            _resultValue.externalSecretsManager = externalSecretsManager;
             _resultValue.fastly = fastly;
             _resultValue.freshservice = freshservice;
             _resultValue.gcp = gcp;

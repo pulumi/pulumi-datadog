@@ -25,6 +25,10 @@ namespace Pulumi.Datadog.Outputs
         /// Restricts the policy to specific scripts. Requires `action_pattern.integration` to be `INTEGRATION_SCRIPT`.
         /// </summary>
         public readonly Outputs.ActionExecutionPolicyScopeScripts? Scripts;
+        /// <summary>
+        /// Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+        /// </summary>
+        public readonly Outputs.ActionExecutionPolicyScopeSlack? Slack;
 
         [OutputConstructor]
         private ActionExecutionPolicyScope(
@@ -32,11 +36,14 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ActionExecutionPolicyScopeRemoteActionRshell? remoteActionRshell,
 
-            Outputs.ActionExecutionPolicyScopeScripts? scripts)
+            Outputs.ActionExecutionPolicyScopeScripts? scripts,
+
+            Outputs.ActionExecutionPolicyScopeSlack? slack)
         {
             Kubernetes = kubernetes;
             RemoteActionRshell = remoteActionRshell;
             Scripts = scripts;
+            Slack = slack;
         }
     }
 }

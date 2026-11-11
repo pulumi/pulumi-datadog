@@ -153,6 +153,8 @@ func (o ActionConnectionAnthropicPtrOutput) ApiKey() ActionConnectionAnthropicAp
 type ActionConnectionAnthropicApiKey struct {
 	// Anthropic API token. String length must be at least 1.
 	ApiToken *string `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager *ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 // ActionConnectionAnthropicApiKeyInput is an input type that accepts ActionConnectionAnthropicApiKeyArgs and ActionConnectionAnthropicApiKeyOutput values.
@@ -169,6 +171,8 @@ type ActionConnectionAnthropicApiKeyInput interface {
 type ActionConnectionAnthropicApiKeyArgs struct {
 	// Anthropic API token. String length must be at least 1.
 	ApiToken pulumi.StringPtrInput `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrInput `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 func (ActionConnectionAnthropicApiKeyArgs) ElementType() reflect.Type {
@@ -253,6 +257,13 @@ func (o ActionConnectionAnthropicApiKeyOutput) ApiToken() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ActionConnectionAnthropicApiKey) *string { return v.ApiToken }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionAnthropicApiKeyOutput) ApiTokenAwsSecretsManager() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionAnthropicApiKey) *ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager {
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionAnthropicApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionAnthropicApiKeyPtrOutput) ElementType() reflect.Type {
@@ -284,6 +295,210 @@ func (o ActionConnectionAnthropicApiKeyPtrOutput) ApiToken() pulumi.StringPtrOut
 			return nil
 		}
 		return v.ApiToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionAnthropicApiKeyPtrOutput) ApiTokenAwsSecretsManager() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionAnthropicApiKey) *ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerInput is an input type that accepts ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs and ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerInput` via:
+//
+//	ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs{...}
+type ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput
+	ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput
+}
+
+type ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput {
+	return i.ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput).ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs, ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtr and ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput
+	ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrType ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs
+
+func ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtr(v *ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs) ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrInput {
+	return (*actionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager) *ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager {
+		return &v
+	}).(ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput) Elem() ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager) ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager
+		return ret
+	}).(ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -427,6 +642,8 @@ func (o ActionConnectionAsanaPtrOutput) AccessToken() ActionConnectionAsanaAcces
 type ActionConnectionAsanaAccessToken struct {
 	// Asana access token. String length must be at least 1.
 	AccessToken *string `pulumi:"accessToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	AccessTokenAwsSecretsManager *ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager `pulumi:"accessTokenAwsSecretsManager"`
 }
 
 // ActionConnectionAsanaAccessTokenInput is an input type that accepts ActionConnectionAsanaAccessTokenArgs and ActionConnectionAsanaAccessTokenOutput values.
@@ -443,6 +660,8 @@ type ActionConnectionAsanaAccessTokenInput interface {
 type ActionConnectionAsanaAccessTokenArgs struct {
 	// Asana access token. String length must be at least 1.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	AccessTokenAwsSecretsManager ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrInput `pulumi:"accessTokenAwsSecretsManager"`
 }
 
 func (ActionConnectionAsanaAccessTokenArgs) ElementType() reflect.Type {
@@ -527,6 +746,13 @@ func (o ActionConnectionAsanaAccessTokenOutput) AccessToken() pulumi.StringPtrOu
 	return o.ApplyT(func(v ActionConnectionAsanaAccessToken) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionAsanaAccessTokenOutput) AccessTokenAwsSecretsManager() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionAsanaAccessToken) *ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager {
+		return v.AccessTokenAwsSecretsManager
+	}).(ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionAsanaAccessTokenPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionAsanaAccessTokenPtrOutput) ElementType() reflect.Type {
@@ -558,6 +784,210 @@ func (o ActionConnectionAsanaAccessTokenPtrOutput) AccessToken() pulumi.StringPt
 			return nil
 		}
 		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionAsanaAccessTokenPtrOutput) AccessTokenAwsSecretsManager() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionAsanaAccessToken) *ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.AccessTokenAwsSecretsManager
+	}).(ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerInput is an input type that accepts ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs and ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerInput` via:
+//
+//	ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs{...}
+type ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput
+	ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput
+}
+
+type ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput {
+	return i.ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput).ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs, ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtr and ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput
+	ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrType ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs
+
+func ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtr(v *ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs) ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrInput {
+	return (*actionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrType) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrType) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager) *ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager {
+		return &v
+	}).(ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput) ToActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput) Elem() ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager) ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager
+		return ret
+	}).(ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1363,6 +1793,8 @@ func (o ActionConnectionCircleCiPtrOutput) ApiKey() ActionConnectionCircleCiApiK
 type ActionConnectionCircleCiApiKey struct {
 	// CircleCI API token. String length must be at least 1.
 	ApiToken *string `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager *ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 // ActionConnectionCircleCiApiKeyInput is an input type that accepts ActionConnectionCircleCiApiKeyArgs and ActionConnectionCircleCiApiKeyOutput values.
@@ -1379,6 +1811,8 @@ type ActionConnectionCircleCiApiKeyInput interface {
 type ActionConnectionCircleCiApiKeyArgs struct {
 	// CircleCI API token. String length must be at least 1.
 	ApiToken pulumi.StringPtrInput `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrInput `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 func (ActionConnectionCircleCiApiKeyArgs) ElementType() reflect.Type {
@@ -1463,6 +1897,13 @@ func (o ActionConnectionCircleCiApiKeyOutput) ApiToken() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ActionConnectionCircleCiApiKey) *string { return v.ApiToken }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionCircleCiApiKeyOutput) ApiTokenAwsSecretsManager() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCircleCiApiKey) *ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager {
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionCircleCiApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionCircleCiApiKeyPtrOutput) ElementType() reflect.Type {
@@ -1494,6 +1935,210 @@ func (o ActionConnectionCircleCiApiKeyPtrOutput) ApiToken() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.ApiToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionCircleCiApiKeyPtrOutput) ApiTokenAwsSecretsManager() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCircleCiApiKey) *ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerInput is an input type that accepts ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs and ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerInput` via:
+//
+//	ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs{...}
+type ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput
+	ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput
+}
+
+type ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput {
+	return i.ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput).ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs, ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtr and ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput
+	ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrType ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs
+
+func ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtr(v *ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs) ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrInput {
+	return (*actionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager) *ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager {
+		return &v
+	}).(ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput) Elem() ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager) ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager
+		return ret
+	}).(ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1637,6 +2282,8 @@ func (o ActionConnectionClickupPtrOutput) ApiKey() ActionConnectionClickupApiKey
 type ActionConnectionClickupApiKey struct {
 	// ClickUp API token. String length must be at least 1.
 	ApiToken *string `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager *ActionConnectionClickupApiKeyApiTokenAwsSecretsManager `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 // ActionConnectionClickupApiKeyInput is an input type that accepts ActionConnectionClickupApiKeyArgs and ActionConnectionClickupApiKeyOutput values.
@@ -1653,6 +2300,8 @@ type ActionConnectionClickupApiKeyInput interface {
 type ActionConnectionClickupApiKeyArgs struct {
 	// ClickUp API token. String length must be at least 1.
 	ApiToken pulumi.StringPtrInput `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrInput `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 func (ActionConnectionClickupApiKeyArgs) ElementType() reflect.Type {
@@ -1737,6 +2386,13 @@ func (o ActionConnectionClickupApiKeyOutput) ApiToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionClickupApiKey) *string { return v.ApiToken }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionClickupApiKeyOutput) ApiTokenAwsSecretsManager() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionClickupApiKey) *ActionConnectionClickupApiKeyApiTokenAwsSecretsManager {
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionClickupApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionClickupApiKeyPtrOutput) ElementType() reflect.Type {
@@ -1768,6 +2424,210 @@ func (o ActionConnectionClickupApiKeyPtrOutput) ApiToken() pulumi.StringPtrOutpu
 			return nil
 		}
 		return v.ApiToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionClickupApiKeyPtrOutput) ApiTokenAwsSecretsManager() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionClickupApiKey) *ActionConnectionClickupApiKeyApiTokenAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionClickupApiKeyApiTokenAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerInput is an input type that accepts ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs and ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerInput` via:
+//
+//	ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs{...}
+type ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput
+	ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput
+}
+
+type ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionClickupApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput {
+	return i.ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput).ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs, ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtr and ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput
+	ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrType ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs
+
+func ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtr(v *ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs) ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrInput {
+	return (*actionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionClickupApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionClickupApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionClickupApiKeyApiTokenAwsSecretsManager) *ActionConnectionClickupApiKeyApiTokenAwsSecretsManager {
+		return &v
+	}).(ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionClickupApiKeyApiTokenAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionClickupApiKeyApiTokenAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionClickupApiKeyApiTokenAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionClickupApiKeyApiTokenAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionClickupApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput) Elem() ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionClickupApiKeyApiTokenAwsSecretsManager) ActionConnectionClickupApiKeyApiTokenAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionClickupApiKeyApiTokenAwsSecretsManager
+		return ret
+	}).(ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionClickupApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionClickupApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionClickupApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionClickupApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1930,6 +2790,8 @@ func (o ActionConnectionCloudflarePtrOutput) GlobalApiToken() ActionConnectionCl
 type ActionConnectionCloudflareApiToken struct {
 	// Cloudflare API token. String length must be at least 1.
 	ApiToken *string `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager *ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 // ActionConnectionCloudflareApiTokenInput is an input type that accepts ActionConnectionCloudflareApiTokenArgs and ActionConnectionCloudflareApiTokenOutput values.
@@ -1946,6 +2808,8 @@ type ActionConnectionCloudflareApiTokenInput interface {
 type ActionConnectionCloudflareApiTokenArgs struct {
 	// Cloudflare API token. String length must be at least 1.
 	ApiToken pulumi.StringPtrInput `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrInput `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 func (ActionConnectionCloudflareApiTokenArgs) ElementType() reflect.Type {
@@ -2030,6 +2894,13 @@ func (o ActionConnectionCloudflareApiTokenOutput) ApiToken() pulumi.StringPtrOut
 	return o.ApplyT(func(v ActionConnectionCloudflareApiToken) *string { return v.ApiToken }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionCloudflareApiTokenOutput) ApiTokenAwsSecretsManager() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareApiToken) *ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager {
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionCloudflareApiTokenPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionCloudflareApiTokenPtrOutput) ElementType() reflect.Type {
@@ -2064,11 +2935,219 @@ func (o ActionConnectionCloudflareApiTokenPtrOutput) ApiToken() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionCloudflareApiTokenPtrOutput) ApiTokenAwsSecretsManager() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareApiToken) *ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerInput is an input type that accepts ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs and ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerInput` via:
+//
+//	ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs{...}
+type ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput
+	ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput
+}
+
+type ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput {
+	return i.ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput).ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs, ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtr and ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput
+	ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrType ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs
+
+func ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtr(v *ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs) ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrInput {
+	return (*actionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrType) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrType) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager) *ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager {
+		return &v
+	}).(ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput) Elem() ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager) ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager
+		return ret
+	}).(ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
 type ActionConnectionCloudflareGlobalApiToken struct {
 	// Email address associated with the Cloudflare account. String length must be at least 1.
 	AuthEmail *string `pulumi:"authEmail"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	AuthEmailAwsSecretsManager *ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager `pulumi:"authEmailAwsSecretsManager"`
 	// Cloudflare global API key. String length must be at least 1.
 	GlobalApiKey *string `pulumi:"globalApiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	GlobalApiKeyAwsSecretsManager *ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager `pulumi:"globalApiKeyAwsSecretsManager"`
 }
 
 // ActionConnectionCloudflareGlobalApiTokenInput is an input type that accepts ActionConnectionCloudflareGlobalApiTokenArgs and ActionConnectionCloudflareGlobalApiTokenOutput values.
@@ -2085,8 +3164,12 @@ type ActionConnectionCloudflareGlobalApiTokenInput interface {
 type ActionConnectionCloudflareGlobalApiTokenArgs struct {
 	// Email address associated with the Cloudflare account. String length must be at least 1.
 	AuthEmail pulumi.StringPtrInput `pulumi:"authEmail"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	AuthEmailAwsSecretsManager ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrInput `pulumi:"authEmailAwsSecretsManager"`
 	// Cloudflare global API key. String length must be at least 1.
 	GlobalApiKey pulumi.StringPtrInput `pulumi:"globalApiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	GlobalApiKeyAwsSecretsManager ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrInput `pulumi:"globalApiKeyAwsSecretsManager"`
 }
 
 func (ActionConnectionCloudflareGlobalApiTokenArgs) ElementType() reflect.Type {
@@ -2171,9 +3254,23 @@ func (o ActionConnectionCloudflareGlobalApiTokenOutput) AuthEmail() pulumi.Strin
 	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiToken) *string { return v.AuthEmail }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionCloudflareGlobalApiTokenOutput) AuthEmailAwsSecretsManager() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiToken) *ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager {
+		return v.AuthEmailAwsSecretsManager
+	}).(ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput)
+}
+
 // Cloudflare global API key. String length must be at least 1.
 func (o ActionConnectionCloudflareGlobalApiTokenOutput) GlobalApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiToken) *string { return v.GlobalApiKey }).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionCloudflareGlobalApiTokenOutput) GlobalApiKeyAwsSecretsManager() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiToken) *ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager {
+		return v.GlobalApiKeyAwsSecretsManager
+	}).(ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput)
 }
 
 type ActionConnectionCloudflareGlobalApiTokenPtrOutput struct{ *pulumi.OutputState }
@@ -2210,6 +3307,16 @@ func (o ActionConnectionCloudflareGlobalApiTokenPtrOutput) AuthEmail() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionCloudflareGlobalApiTokenPtrOutput) AuthEmailAwsSecretsManager() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiToken) *ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.AuthEmailAwsSecretsManager
+	}).(ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput)
+}
+
 // Cloudflare global API key. String length must be at least 1.
 func (o ActionConnectionCloudflareGlobalApiTokenPtrOutput) GlobalApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiToken) *string {
@@ -2217,6 +3324,412 @@ func (o ActionConnectionCloudflareGlobalApiTokenPtrOutput) GlobalApiKey() pulumi
 			return nil
 		}
 		return v.GlobalApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionCloudflareGlobalApiTokenPtrOutput) GlobalApiKeyAwsSecretsManager() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiToken) *ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalApiKeyAwsSecretsManager
+	}).(ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerInput is an input type that accepts ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs and ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerInput` via:
+//
+//	ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs{...}
+type ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput
+	ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput
+}
+
+type ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput {
+	return i.ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput).ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs, ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtr and ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput
+	ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrType ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs
+
+func ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtr(v *ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs) ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrInput {
+	return (*actionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrType) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrType) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager) *ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager {
+		return &v
+	}).(ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager) *string {
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput) ToActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput) Elem() ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager) ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager
+		return ret
+	}).(ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs and ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs{...}
+type ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput
+	ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput).ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs, ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtr and ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrType ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs
+
+func ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtr(v *ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs) ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrType) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrType) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager) *ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager) string {
+		return v.SecretId
+	}).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager) *string {
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager) *string {
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager) ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2360,10 +3873,16 @@ func (o ActionConnectionConfigCatPtrOutput) SdkKey() ActionConnectionConfigCatSd
 type ActionConnectionConfigCatSdkKey struct {
 	// ConfigCat Public Management API password. String length must be at least 1.
 	ApiPassword *string `pulumi:"apiPassword"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiPasswordAwsSecretsManager *ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager `pulumi:"apiPasswordAwsSecretsManager"`
 	// ConfigCat Public Management API username. String length must be at least 1.
 	ApiUsername *string `pulumi:"apiUsername"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiUsernameAwsSecretsManager *ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager `pulumi:"apiUsernameAwsSecretsManager"`
 	// ConfigCat SDK key. String length must be at least 1.
 	SdkKey *string `pulumi:"sdkKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	SdkKeyAwsSecretsManager *ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager `pulumi:"sdkKeyAwsSecretsManager"`
 }
 
 // ActionConnectionConfigCatSdkKeyInput is an input type that accepts ActionConnectionConfigCatSdkKeyArgs and ActionConnectionConfigCatSdkKeyOutput values.
@@ -2380,10 +3899,16 @@ type ActionConnectionConfigCatSdkKeyInput interface {
 type ActionConnectionConfigCatSdkKeyArgs struct {
 	// ConfigCat Public Management API password. String length must be at least 1.
 	ApiPassword pulumi.StringPtrInput `pulumi:"apiPassword"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiPasswordAwsSecretsManager ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrInput `pulumi:"apiPasswordAwsSecretsManager"`
 	// ConfigCat Public Management API username. String length must be at least 1.
 	ApiUsername pulumi.StringPtrInput `pulumi:"apiUsername"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiUsernameAwsSecretsManager ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrInput `pulumi:"apiUsernameAwsSecretsManager"`
 	// ConfigCat SDK key. String length must be at least 1.
 	SdkKey pulumi.StringPtrInput `pulumi:"sdkKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	SdkKeyAwsSecretsManager ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrInput `pulumi:"sdkKeyAwsSecretsManager"`
 }
 
 func (ActionConnectionConfigCatSdkKeyArgs) ElementType() reflect.Type {
@@ -2468,14 +3993,35 @@ func (o ActionConnectionConfigCatSdkKeyOutput) ApiPassword() pulumi.StringPtrOut
 	return o.ApplyT(func(v ActionConnectionConfigCatSdkKey) *string { return v.ApiPassword }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionConfigCatSdkKeyOutput) ApiPasswordAwsSecretsManager() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKey) *ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager {
+		return v.ApiPasswordAwsSecretsManager
+	}).(ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput)
+}
+
 // ConfigCat Public Management API username. String length must be at least 1.
 func (o ActionConnectionConfigCatSdkKeyOutput) ApiUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionConfigCatSdkKey) *string { return v.ApiUsername }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionConfigCatSdkKeyOutput) ApiUsernameAwsSecretsManager() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKey) *ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager {
+		return v.ApiUsernameAwsSecretsManager
+	}).(ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput)
+}
+
 // ConfigCat SDK key. String length must be at least 1.
 func (o ActionConnectionConfigCatSdkKeyOutput) SdkKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionConfigCatSdkKey) *string { return v.SdkKey }).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionConfigCatSdkKeyOutput) SdkKeyAwsSecretsManager() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKey) *ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager {
+		return v.SdkKeyAwsSecretsManager
+	}).(ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput)
 }
 
 type ActionConnectionConfigCatSdkKeyPtrOutput struct{ *pulumi.OutputState }
@@ -2512,6 +4058,16 @@ func (o ActionConnectionConfigCatSdkKeyPtrOutput) ApiPassword() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionConfigCatSdkKeyPtrOutput) ApiPasswordAwsSecretsManager() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKey) *ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiPasswordAwsSecretsManager
+	}).(ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput)
+}
+
 // ConfigCat Public Management API username. String length must be at least 1.
 func (o ActionConnectionConfigCatSdkKeyPtrOutput) ApiUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKey) *string {
@@ -2522,6 +4078,16 @@ func (o ActionConnectionConfigCatSdkKeyPtrOutput) ApiUsername() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionConfigCatSdkKeyPtrOutput) ApiUsernameAwsSecretsManager() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKey) *ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiUsernameAwsSecretsManager
+	}).(ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput)
+}
+
 // ConfigCat SDK key. String length must be at least 1.
 func (o ActionConnectionConfigCatSdkKeyPtrOutput) SdkKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKey) *string {
@@ -2529,6 +4095,598 @@ func (o ActionConnectionConfigCatSdkKeyPtrOutput) SdkKey() pulumi.StringPtrOutpu
 			return nil
 		}
 		return v.SdkKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionConfigCatSdkKeyPtrOutput) SdkKeyAwsSecretsManager() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKey) *ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.SdkKeyAwsSecretsManager
+	}).(ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerInput is an input type that accepts ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs and ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerInput` via:
+//
+//	ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs{...}
+type ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput
+	ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput
+}
+
+type ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput {
+	return i.ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput).ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs, ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtr and ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput
+	ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrType ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs
+
+func ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtr(v *ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs) ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrInput {
+	return (*actionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrType) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrType) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager) *ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager {
+		return &v
+	}).(ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput) ToActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput) Elem() ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager) ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager
+		return ret
+	}).(ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerInput is an input type that accepts ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs and ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerInput` via:
+//
+//	ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs{...}
+type ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput
+	ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput
+}
+
+type ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput {
+	return i.ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput).ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs, ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtr and ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput
+	ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrType ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs
+
+func ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtr(v *ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs) ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrInput {
+	return (*actionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrType) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrType) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager) *ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager {
+		return &v
+	}).(ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput) ToActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput) Elem() ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager) ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager
+		return ret
+	}).(ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs and ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs{...}
+type ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput
+	ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput).ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs, ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtr and ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrType ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs
+
+func ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtr(v *ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs) ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrType) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrType) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager) *ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput) ToActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager) ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2672,12 +4830,20 @@ func (o ActionConnectionDatadogPtrOutput) ApiKey() ActionConnectionDatadogApiKey
 type ActionConnectionDatadogApiKey struct {
 	// Datadog API key. String length must be at least 1.
 	ApiKey *string `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager *ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager `pulumi:"apiKeyAwsSecretsManager"`
 	// Datadog application key. String length must be at least 1.
 	AppKey *string `pulumi:"appKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	AppKeyAwsSecretsManager *ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager `pulumi:"appKeyAwsSecretsManager"`
 	// Datadog site data center. String length must be at least 1.
 	Datacenter *string `pulumi:"datacenter"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	DatacenterAwsSecretsManager *ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager `pulumi:"datacenterAwsSecretsManager"`
 	// Custom subdomain used for URLs generated with this connection. String length must be at least 1.
 	Subdomain *string `pulumi:"subdomain"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	SubdomainAwsSecretsManager *ActionConnectionDatadogApiKeySubdomainAwsSecretsManager `pulumi:"subdomainAwsSecretsManager"`
 }
 
 // ActionConnectionDatadogApiKeyInput is an input type that accepts ActionConnectionDatadogApiKeyArgs and ActionConnectionDatadogApiKeyOutput values.
@@ -2694,12 +4860,20 @@ type ActionConnectionDatadogApiKeyInput interface {
 type ActionConnectionDatadogApiKeyArgs struct {
 	// Datadog API key. String length must be at least 1.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrInput `pulumi:"apiKeyAwsSecretsManager"`
 	// Datadog application key. String length must be at least 1.
 	AppKey pulumi.StringPtrInput `pulumi:"appKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	AppKeyAwsSecretsManager ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrInput `pulumi:"appKeyAwsSecretsManager"`
 	// Datadog site data center. String length must be at least 1.
 	Datacenter pulumi.StringPtrInput `pulumi:"datacenter"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	DatacenterAwsSecretsManager ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrInput `pulumi:"datacenterAwsSecretsManager"`
 	// Custom subdomain used for URLs generated with this connection. String length must be at least 1.
 	Subdomain pulumi.StringPtrInput `pulumi:"subdomain"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	SubdomainAwsSecretsManager ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrInput `pulumi:"subdomainAwsSecretsManager"`
 }
 
 func (ActionConnectionDatadogApiKeyArgs) ElementType() reflect.Type {
@@ -2784,9 +4958,23 @@ func (o ActionConnectionDatadogApiKeyOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionDatadogApiKey) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionDatadogApiKeyOutput) ApiKeyAwsSecretsManager() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKey) *ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager {
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
 // Datadog application key. String length must be at least 1.
 func (o ActionConnectionDatadogApiKeyOutput) AppKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionDatadogApiKey) *string { return v.AppKey }).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionDatadogApiKeyOutput) AppKeyAwsSecretsManager() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKey) *ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager {
+		return v.AppKeyAwsSecretsManager
+	}).(ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput)
 }
 
 // Datadog site data center. String length must be at least 1.
@@ -2794,9 +4982,23 @@ func (o ActionConnectionDatadogApiKeyOutput) Datacenter() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ActionConnectionDatadogApiKey) *string { return v.Datacenter }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionDatadogApiKeyOutput) DatacenterAwsSecretsManager() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKey) *ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager {
+		return v.DatacenterAwsSecretsManager
+	}).(ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput)
+}
+
 // Custom subdomain used for URLs generated with this connection. String length must be at least 1.
 func (o ActionConnectionDatadogApiKeyOutput) Subdomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionDatadogApiKey) *string { return v.Subdomain }).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionDatadogApiKeyOutput) SubdomainAwsSecretsManager() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKey) *ActionConnectionDatadogApiKeySubdomainAwsSecretsManager {
+		return v.SubdomainAwsSecretsManager
+	}).(ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput)
 }
 
 type ActionConnectionDatadogApiKeyPtrOutput struct{ *pulumi.OutputState }
@@ -2833,6 +5035,16 @@ func (o ActionConnectionDatadogApiKeyPtrOutput) ApiKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionDatadogApiKeyPtrOutput) ApiKeyAwsSecretsManager() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKey) *ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
 // Datadog application key. String length must be at least 1.
 func (o ActionConnectionDatadogApiKeyPtrOutput) AppKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionConnectionDatadogApiKey) *string {
@@ -2841,6 +5053,16 @@ func (o ActionConnectionDatadogApiKeyPtrOutput) AppKey() pulumi.StringPtrOutput 
 		}
 		return v.AppKey
 	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionDatadogApiKeyPtrOutput) AppKeyAwsSecretsManager() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKey) *ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.AppKeyAwsSecretsManager
+	}).(ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput)
 }
 
 // Datadog site data center. String length must be at least 1.
@@ -2853,6 +5075,16 @@ func (o ActionConnectionDatadogApiKeyPtrOutput) Datacenter() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionDatadogApiKeyPtrOutput) DatacenterAwsSecretsManager() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKey) *ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.DatacenterAwsSecretsManager
+	}).(ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput)
+}
+
 // Custom subdomain used for URLs generated with this connection. String length must be at least 1.
 func (o ActionConnectionDatadogApiKeyPtrOutput) Subdomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionConnectionDatadogApiKey) *string {
@@ -2860,6 +5092,948 @@ func (o ActionConnectionDatadogApiKeyPtrOutput) Subdomain() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.Subdomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionDatadogApiKeyPtrOutput) SubdomainAwsSecretsManager() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKey) *ActionConnectionDatadogApiKeySubdomainAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.SubdomainAwsSecretsManager
+	}).(ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs and ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs{...}
+type ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput
+	ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput).ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs, ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtr and ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrType ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs
+
+func ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtr(v *ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs) ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager) *ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager) ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs and ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs{...}
+type ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput
+	ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput).ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs, ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtr and ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrType ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs
+
+func ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtr(v *ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs) ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrType) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrType) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager) *ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput) ToActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager) ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerInput is an input type that accepts ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs and ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerInput` via:
+//
+//	ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs{...}
+type ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput
+	ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput
+}
+
+type ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput {
+	return i.ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput).ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs, ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtr and ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput
+	ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrType ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs
+
+func ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtr(v *ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs) ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrInput {
+	return (*actionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrType) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrType) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager) *ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager {
+		return &v
+	}).(ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput) ToActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput) Elem() ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager) ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager
+		return ret
+	}).(ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeySubdomainAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerInput is an input type that accepts ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs and ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerInput` via:
+//
+//	ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs{...}
+type ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput
+	ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput
+}
+
+type ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionDatadogApiKeySubdomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput {
+	return i.ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput).ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs, ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtr and ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput
+	ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrType ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs
+
+func ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtr(v *ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs) ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrInput {
+	return (*actionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionDatadogApiKeySubdomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrType) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrType) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionDatadogApiKeySubdomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionDatadogApiKeySubdomainAwsSecretsManager) *ActionConnectionDatadogApiKeySubdomainAwsSecretsManager {
+		return &v
+	}).(ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeySubdomainAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeySubdomainAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeySubdomainAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionDatadogApiKeySubdomainAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionDatadogApiKeySubdomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput) ToActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput) Elem() ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeySubdomainAwsSecretsManager) ActionConnectionDatadogApiKeySubdomainAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionDatadogApiKeySubdomainAwsSecretsManager
+		return ret
+	}).(ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeySubdomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeySubdomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeySubdomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionDatadogApiKeySubdomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionExternalSecretsManager struct {
+	// ID of an AWS connection in the same organization used to retrieve secrets. String length must be at least 1.
+	ConnectionId string `pulumi:"connectionId"`
+	// AWS region containing the secrets. String length must be at least 1.
+	Region string `pulumi:"region"`
+}
+
+// ActionConnectionExternalSecretsManagerInput is an input type that accepts ActionConnectionExternalSecretsManagerArgs and ActionConnectionExternalSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionExternalSecretsManagerInput` via:
+//
+//	ActionConnectionExternalSecretsManagerArgs{...}
+type ActionConnectionExternalSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionExternalSecretsManagerOutput() ActionConnectionExternalSecretsManagerOutput
+	ToActionConnectionExternalSecretsManagerOutputWithContext(context.Context) ActionConnectionExternalSecretsManagerOutput
+}
+
+type ActionConnectionExternalSecretsManagerArgs struct {
+	// ID of an AWS connection in the same organization used to retrieve secrets. String length must be at least 1.
+	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
+	// AWS region containing the secrets. String length must be at least 1.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (ActionConnectionExternalSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionExternalSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionExternalSecretsManagerArgs) ToActionConnectionExternalSecretsManagerOutput() ActionConnectionExternalSecretsManagerOutput {
+	return i.ToActionConnectionExternalSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionExternalSecretsManagerArgs) ToActionConnectionExternalSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionExternalSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionExternalSecretsManagerOutput)
+}
+
+func (i ActionConnectionExternalSecretsManagerArgs) ToActionConnectionExternalSecretsManagerPtrOutput() ActionConnectionExternalSecretsManagerPtrOutput {
+	return i.ToActionConnectionExternalSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionExternalSecretsManagerArgs) ToActionConnectionExternalSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionExternalSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionExternalSecretsManagerOutput).ToActionConnectionExternalSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionExternalSecretsManagerPtrInput is an input type that accepts ActionConnectionExternalSecretsManagerArgs, ActionConnectionExternalSecretsManagerPtr and ActionConnectionExternalSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionExternalSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionExternalSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionExternalSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionExternalSecretsManagerPtrOutput() ActionConnectionExternalSecretsManagerPtrOutput
+	ToActionConnectionExternalSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionExternalSecretsManagerPtrOutput
+}
+
+type actionConnectionExternalSecretsManagerPtrType ActionConnectionExternalSecretsManagerArgs
+
+func ActionConnectionExternalSecretsManagerPtr(v *ActionConnectionExternalSecretsManagerArgs) ActionConnectionExternalSecretsManagerPtrInput {
+	return (*actionConnectionExternalSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionExternalSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionExternalSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionExternalSecretsManagerPtrType) ToActionConnectionExternalSecretsManagerPtrOutput() ActionConnectionExternalSecretsManagerPtrOutput {
+	return i.ToActionConnectionExternalSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionExternalSecretsManagerPtrType) ToActionConnectionExternalSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionExternalSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionExternalSecretsManagerPtrOutput)
+}
+
+type ActionConnectionExternalSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionExternalSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionExternalSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionExternalSecretsManagerOutput) ToActionConnectionExternalSecretsManagerOutput() ActionConnectionExternalSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionExternalSecretsManagerOutput) ToActionConnectionExternalSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionExternalSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionExternalSecretsManagerOutput) ToActionConnectionExternalSecretsManagerPtrOutput() ActionConnectionExternalSecretsManagerPtrOutput {
+	return o.ToActionConnectionExternalSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionExternalSecretsManagerOutput) ToActionConnectionExternalSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionExternalSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionExternalSecretsManager) *ActionConnectionExternalSecretsManager {
+		return &v
+	}).(ActionConnectionExternalSecretsManagerPtrOutput)
+}
+
+// ID of an AWS connection in the same organization used to retrieve secrets. String length must be at least 1.
+func (o ActionConnectionExternalSecretsManagerOutput) ConnectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionExternalSecretsManager) string { return v.ConnectionId }).(pulumi.StringOutput)
+}
+
+// AWS region containing the secrets. String length must be at least 1.
+func (o ActionConnectionExternalSecretsManagerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionExternalSecretsManager) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type ActionConnectionExternalSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionExternalSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionExternalSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionExternalSecretsManagerPtrOutput) ToActionConnectionExternalSecretsManagerPtrOutput() ActionConnectionExternalSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionExternalSecretsManagerPtrOutput) ToActionConnectionExternalSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionExternalSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionExternalSecretsManagerPtrOutput) Elem() ActionConnectionExternalSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionExternalSecretsManager) ActionConnectionExternalSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionExternalSecretsManager
+		return ret
+	}).(ActionConnectionExternalSecretsManagerOutput)
+}
+
+// ID of an AWS connection in the same organization used to retrieve secrets. String length must be at least 1.
+func (o ActionConnectionExternalSecretsManagerPtrOutput) ConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionExternalSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS region containing the secrets. String length must be at least 1.
+func (o ActionConnectionExternalSecretsManagerPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionExternalSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3003,6 +6177,8 @@ func (o ActionConnectionFastlyPtrOutput) ApiKey() ActionConnectionFastlyApiKeyPt
 type ActionConnectionFastlyApiKey struct {
 	// Fastly API key. String length must be at least 1.
 	ApiKey *string `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager *ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 // ActionConnectionFastlyApiKeyInput is an input type that accepts ActionConnectionFastlyApiKeyArgs and ActionConnectionFastlyApiKeyOutput values.
@@ -3019,6 +6195,8 @@ type ActionConnectionFastlyApiKeyInput interface {
 type ActionConnectionFastlyApiKeyArgs struct {
 	// Fastly API key. String length must be at least 1.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrInput `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 func (ActionConnectionFastlyApiKeyArgs) ElementType() reflect.Type {
@@ -3103,6 +6281,13 @@ func (o ActionConnectionFastlyApiKeyOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionFastlyApiKey) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionFastlyApiKeyOutput) ApiKeyAwsSecretsManager() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFastlyApiKey) *ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager {
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionFastlyApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionFastlyApiKeyPtrOutput) ElementType() reflect.Type {
@@ -3134,6 +6319,210 @@ func (o ActionConnectionFastlyApiKeyPtrOutput) ApiKey() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.ApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionFastlyApiKeyPtrOutput) ApiKeyAwsSecretsManager() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFastlyApiKey) *ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs and ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs{...}
+type ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput
+	ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput).ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs, ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtr and ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrType ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs
+
+func ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtr(v *ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs) ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager) *ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager) ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3277,8 +6666,12 @@ func (o ActionConnectionFreshservicePtrOutput) ApiKey() ActionConnectionFreshser
 type ActionConnectionFreshserviceApiKey struct {
 	// Freshservice API key. String length must be at least 1.
 	ApiKey *string `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager *ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager `pulumi:"apiKeyAwsSecretsManager"`
 	// Freshservice domain. String length must be at least 1.
 	Domain *string `pulumi:"domain"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	DomainAwsSecretsManager *ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager `pulumi:"domainAwsSecretsManager"`
 }
 
 // ActionConnectionFreshserviceApiKeyInput is an input type that accepts ActionConnectionFreshserviceApiKeyArgs and ActionConnectionFreshserviceApiKeyOutput values.
@@ -3295,8 +6688,12 @@ type ActionConnectionFreshserviceApiKeyInput interface {
 type ActionConnectionFreshserviceApiKeyArgs struct {
 	// Freshservice API key. String length must be at least 1.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrInput `pulumi:"apiKeyAwsSecretsManager"`
 	// Freshservice domain. String length must be at least 1.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	DomainAwsSecretsManager ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrInput `pulumi:"domainAwsSecretsManager"`
 }
 
 func (ActionConnectionFreshserviceApiKeyArgs) ElementType() reflect.Type {
@@ -3381,9 +6778,23 @@ func (o ActionConnectionFreshserviceApiKeyOutput) ApiKey() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ActionConnectionFreshserviceApiKey) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionFreshserviceApiKeyOutput) ApiKeyAwsSecretsManager() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFreshserviceApiKey) *ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager {
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
 // Freshservice domain. String length must be at least 1.
 func (o ActionConnectionFreshserviceApiKeyOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionFreshserviceApiKey) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionFreshserviceApiKeyOutput) DomainAwsSecretsManager() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFreshserviceApiKey) *ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager {
+		return v.DomainAwsSecretsManager
+	}).(ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput)
 }
 
 type ActionConnectionFreshserviceApiKeyPtrOutput struct{ *pulumi.OutputState }
@@ -3420,6 +6831,16 @@ func (o ActionConnectionFreshserviceApiKeyPtrOutput) ApiKey() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionFreshserviceApiKeyPtrOutput) ApiKeyAwsSecretsManager() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKey) *ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
 // Freshservice domain. String length must be at least 1.
 func (o ActionConnectionFreshserviceApiKeyPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKey) *string {
@@ -3427,6 +6848,404 @@ func (o ActionConnectionFreshserviceApiKeyPtrOutput) Domain() pulumi.StringPtrOu
 			return nil
 		}
 		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionFreshserviceApiKeyPtrOutput) DomainAwsSecretsManager() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKey) *ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.DomainAwsSecretsManager
+	}).(ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs and ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs{...}
+type ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput
+	ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput).ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs, ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtr and ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrType ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs
+
+func ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtr(v *ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs) ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager) *ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager) ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerInput is an input type that accepts ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs and ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerInput` via:
+//
+//	ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs{...}
+type ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput
+	ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput
+}
+
+type ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput {
+	return i.ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput).ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs, ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtr and ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput
+	ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrType ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs
+
+func ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtr(v *ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs) ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrInput {
+	return (*actionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrType) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrType) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager) *ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager {
+		return &v
+	}).(ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput) ToActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput) Elem() ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager) ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager
+		return ret
+	}).(ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3570,8 +7389,12 @@ func (o ActionConnectionGcpPtrOutput) ServiceAccount() ActionConnectionGcpServic
 type ActionConnectionGcpServiceAccount struct {
 	// Google Cloud service account private key. String length must be at least 1.
 	PrivateKey *string `pulumi:"privateKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	PrivateKeyAwsSecretsManager *ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager `pulumi:"privateKeyAwsSecretsManager"`
 	// Google Cloud service account email. String length must be at least 1.
 	ServiceAccountEmail *string `pulumi:"serviceAccountEmail"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ServiceAccountEmailAwsSecretsManager *ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager `pulumi:"serviceAccountEmailAwsSecretsManager"`
 }
 
 // ActionConnectionGcpServiceAccountInput is an input type that accepts ActionConnectionGcpServiceAccountArgs and ActionConnectionGcpServiceAccountOutput values.
@@ -3588,8 +7411,12 @@ type ActionConnectionGcpServiceAccountInput interface {
 type ActionConnectionGcpServiceAccountArgs struct {
 	// Google Cloud service account private key. String length must be at least 1.
 	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	PrivateKeyAwsSecretsManager ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrInput `pulumi:"privateKeyAwsSecretsManager"`
 	// Google Cloud service account email. String length must be at least 1.
 	ServiceAccountEmail pulumi.StringPtrInput `pulumi:"serviceAccountEmail"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ServiceAccountEmailAwsSecretsManager ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrInput `pulumi:"serviceAccountEmailAwsSecretsManager"`
 }
 
 func (ActionConnectionGcpServiceAccountArgs) ElementType() reflect.Type {
@@ -3674,9 +7501,23 @@ func (o ActionConnectionGcpServiceAccountOutput) PrivateKey() pulumi.StringPtrOu
 	return o.ApplyT(func(v ActionConnectionGcpServiceAccount) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionGcpServiceAccountOutput) PrivateKeyAwsSecretsManager() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGcpServiceAccount) *ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager {
+		return v.PrivateKeyAwsSecretsManager
+	}).(ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput)
+}
+
 // Google Cloud service account email. String length must be at least 1.
 func (o ActionConnectionGcpServiceAccountOutput) ServiceAccountEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionGcpServiceAccount) *string { return v.ServiceAccountEmail }).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionGcpServiceAccountOutput) ServiceAccountEmailAwsSecretsManager() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGcpServiceAccount) *ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager {
+		return v.ServiceAccountEmailAwsSecretsManager
+	}).(ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput)
 }
 
 type ActionConnectionGcpServiceAccountPtrOutput struct{ *pulumi.OutputState }
@@ -3713,6 +7554,16 @@ func (o ActionConnectionGcpServiceAccountPtrOutput) PrivateKey() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionGcpServiceAccountPtrOutput) PrivateKeyAwsSecretsManager() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccount) *ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateKeyAwsSecretsManager
+	}).(ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput)
+}
+
 // Google Cloud service account email. String length must be at least 1.
 func (o ActionConnectionGcpServiceAccountPtrOutput) ServiceAccountEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionConnectionGcpServiceAccount) *string {
@@ -3720,6 +7571,410 @@ func (o ActionConnectionGcpServiceAccountPtrOutput) ServiceAccountEmail() pulumi
 			return nil
 		}
 		return v.ServiceAccountEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionGcpServiceAccountPtrOutput) ServiceAccountEmailAwsSecretsManager() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccount) *ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccountEmailAwsSecretsManager
+	}).(ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs and ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs{...}
+type ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput
+	ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput).ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs, ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtr and ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrType ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs
+
+func ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtr(v *ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs) ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrType) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrType) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager) *ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput) ToActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager) ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerInput is an input type that accepts ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs and ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerInput` via:
+//
+//	ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs{...}
+type ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput
+	ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput
+}
+
+type ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput {
+	return i.ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput).ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs, ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtr and ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput
+	ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrType ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs
+
+func ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtr(v *ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs) ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrInput {
+	return (*actionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrType) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrType) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager) *ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager {
+		return &v
+	}).(ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager) string {
+		return v.SecretId
+	}).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager) *string {
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager) *string {
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput) ToActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput) Elem() ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager) ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager
+		return ret
+	}).(ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3863,6 +8118,8 @@ func (o ActionConnectionGeminiPtrOutput) ApiKey() ActionConnectionGeminiApiKeyPt
 type ActionConnectionGeminiApiKey struct {
 	// Gemini API key. String length must be at least 1.
 	ApiKey *string `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager *ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 // ActionConnectionGeminiApiKeyInput is an input type that accepts ActionConnectionGeminiApiKeyArgs and ActionConnectionGeminiApiKeyOutput values.
@@ -3879,6 +8136,8 @@ type ActionConnectionGeminiApiKeyInput interface {
 type ActionConnectionGeminiApiKeyArgs struct {
 	// Gemini API key. String length must be at least 1.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrInput `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 func (ActionConnectionGeminiApiKeyArgs) ElementType() reflect.Type {
@@ -3963,6 +8222,13 @@ func (o ActionConnectionGeminiApiKeyOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionGeminiApiKey) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionGeminiApiKeyOutput) ApiKeyAwsSecretsManager() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGeminiApiKey) *ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager {
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionGeminiApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionGeminiApiKeyPtrOutput) ElementType() reflect.Type {
@@ -3994,6 +8260,210 @@ func (o ActionConnectionGeminiApiKeyPtrOutput) ApiKey() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.ApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionGeminiApiKeyPtrOutput) ApiKeyAwsSecretsManager() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGeminiApiKey) *ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs and ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs{...}
+type ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput
+	ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput).ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs, ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtr and ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrType ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs
+
+func ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtr(v *ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs) ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager) *ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager) ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4137,6 +8607,8 @@ func (o ActionConnectionGitlabPtrOutput) ApiKey() ActionConnectionGitlabApiKeyPt
 type ActionConnectionGitlabApiKey struct {
 	// GitLab API token. String length must be at least 1.
 	ApiToken *string `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager *ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 // ActionConnectionGitlabApiKeyInput is an input type that accepts ActionConnectionGitlabApiKeyArgs and ActionConnectionGitlabApiKeyOutput values.
@@ -4153,6 +8625,8 @@ type ActionConnectionGitlabApiKeyInput interface {
 type ActionConnectionGitlabApiKeyArgs struct {
 	// GitLab API token. String length must be at least 1.
 	ApiToken pulumi.StringPtrInput `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrInput `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 func (ActionConnectionGitlabApiKeyArgs) ElementType() reflect.Type {
@@ -4237,6 +8711,13 @@ func (o ActionConnectionGitlabApiKeyOutput) ApiToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionGitlabApiKey) *string { return v.ApiToken }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionGitlabApiKeyOutput) ApiTokenAwsSecretsManager() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGitlabApiKey) *ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager {
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionGitlabApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionGitlabApiKeyPtrOutput) ElementType() reflect.Type {
@@ -4268,6 +8749,210 @@ func (o ActionConnectionGitlabApiKeyPtrOutput) ApiToken() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.ApiToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionGitlabApiKeyPtrOutput) ApiTokenAwsSecretsManager() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGitlabApiKey) *ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerInput is an input type that accepts ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs and ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerInput` via:
+//
+//	ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs{...}
+type ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput
+	ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput
+}
+
+type ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput {
+	return i.ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput).ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs, ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtr and ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput
+	ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrType ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs
+
+func ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtr(v *ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs) ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrInput {
+	return (*actionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager) *ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager {
+		return &v
+	}).(ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput) Elem() ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager) ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager
+		return ret
+	}).(ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4411,6 +9096,8 @@ func (o ActionConnectionGreyNoisePtrOutput) ApiKey() ActionConnectionGreyNoiseAp
 type ActionConnectionGreyNoiseApiKey struct {
 	// GreyNoise API key. String length must be at least 1.
 	ApiKey *string `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager *ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 // ActionConnectionGreyNoiseApiKeyInput is an input type that accepts ActionConnectionGreyNoiseApiKeyArgs and ActionConnectionGreyNoiseApiKeyOutput values.
@@ -4427,6 +9114,8 @@ type ActionConnectionGreyNoiseApiKeyInput interface {
 type ActionConnectionGreyNoiseApiKeyArgs struct {
 	// GreyNoise API key. String length must be at least 1.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrInput `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 func (ActionConnectionGreyNoiseApiKeyArgs) ElementType() reflect.Type {
@@ -4511,6 +9200,13 @@ func (o ActionConnectionGreyNoiseApiKeyOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionGreyNoiseApiKey) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionGreyNoiseApiKeyOutput) ApiKeyAwsSecretsManager() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGreyNoiseApiKey) *ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager {
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionGreyNoiseApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionGreyNoiseApiKeyPtrOutput) ElementType() reflect.Type {
@@ -4542,6 +9238,210 @@ func (o ActionConnectionGreyNoiseApiKeyPtrOutput) ApiKey() pulumi.StringPtrOutpu
 			return nil
 		}
 		return v.ApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionGreyNoiseApiKeyPtrOutput) ApiKeyAwsSecretsManager() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGreyNoiseApiKey) *ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs and ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs{...}
+type ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput
+	ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput).ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs, ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtr and ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrType ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs
+
+func ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtr(v *ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs) ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager) *ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager) ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5166,6 +10066,8 @@ type ActionConnectionHttpTokenAuthToken struct {
 	Type *string `pulumi:"type"`
 	// Token value. String length must be at least 1.
 	Value *string `pulumi:"value"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ValueAwsSecretsManager *ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager `pulumi:"valueAwsSecretsManager"`
 }
 
 // ActionConnectionHttpTokenAuthTokenInput is an input type that accepts ActionConnectionHttpTokenAuthTokenArgs and ActionConnectionHttpTokenAuthTokenOutput values.
@@ -5186,6 +10088,8 @@ type ActionConnectionHttpTokenAuthTokenArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Token value. String length must be at least 1.
 	Value pulumi.StringPtrInput `pulumi:"value"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ValueAwsSecretsManager ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrInput `pulumi:"valueAwsSecretsManager"`
 }
 
 func (ActionConnectionHttpTokenAuthTokenArgs) ElementType() reflect.Type {
@@ -5254,6 +10158,13 @@ func (o ActionConnectionHttpTokenAuthTokenOutput) Value() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ActionConnectionHttpTokenAuthToken) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionHttpTokenAuthTokenOutput) ValueAwsSecretsManager() ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionHttpTokenAuthToken) *ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager {
+		return v.ValueAwsSecretsManager
+	}).(ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionHttpTokenAuthTokenArrayOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionHttpTokenAuthTokenArrayOutput) ElementType() reflect.Type {
@@ -5272,6 +10183,200 @@ func (o ActionConnectionHttpTokenAuthTokenArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionConnectionHttpTokenAuthToken {
 		return vs[0].([]ActionConnectionHttpTokenAuthToken)[vs[1].(int)]
 	}).(ActionConnectionHttpTokenAuthTokenOutput)
+}
+
+type ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerInput is an input type that accepts ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs and ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerInput` via:
+//
+//	ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs{...}
+type ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput() ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput
+	ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput
+}
+
+type ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput() ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput {
+	return i.ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput() ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput).ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs, ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtr and ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput() ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput
+	ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrType ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs
+
+func ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtr(v *ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs) ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrInput {
+	return (*actionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrType) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput() ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrType) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput() ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput() ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager) *ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager {
+		return &v
+	}).(ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput() ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput) ToActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput) Elem() ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager) ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager
+		return ret
+	}).(ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
 }
 
 type ActionConnectionHttpTokenAuthUrlParameter struct {
@@ -5520,6 +10625,8 @@ func (o ActionConnectionLaunchDarklyPtrOutput) ApiKey() ActionConnectionLaunchDa
 type ActionConnectionLaunchDarklyApiKey struct {
 	// LaunchDarkly API token. String length must be at least 1.
 	ApiToken *string `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager *ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 // ActionConnectionLaunchDarklyApiKeyInput is an input type that accepts ActionConnectionLaunchDarklyApiKeyArgs and ActionConnectionLaunchDarklyApiKeyOutput values.
@@ -5536,6 +10643,8 @@ type ActionConnectionLaunchDarklyApiKeyInput interface {
 type ActionConnectionLaunchDarklyApiKeyArgs struct {
 	// LaunchDarkly API token. String length must be at least 1.
 	ApiToken pulumi.StringPtrInput `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrInput `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 func (ActionConnectionLaunchDarklyApiKeyArgs) ElementType() reflect.Type {
@@ -5620,6 +10729,13 @@ func (o ActionConnectionLaunchDarklyApiKeyOutput) ApiToken() pulumi.StringPtrOut
 	return o.ApplyT(func(v ActionConnectionLaunchDarklyApiKey) *string { return v.ApiToken }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionLaunchDarklyApiKeyOutput) ApiTokenAwsSecretsManager() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionLaunchDarklyApiKey) *ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager {
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionLaunchDarklyApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionLaunchDarklyApiKeyPtrOutput) ElementType() reflect.Type {
@@ -5651,6 +10767,210 @@ func (o ActionConnectionLaunchDarklyApiKeyPtrOutput) ApiToken() pulumi.StringPtr
 			return nil
 		}
 		return v.ApiToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionLaunchDarklyApiKeyPtrOutput) ApiTokenAwsSecretsManager() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionLaunchDarklyApiKey) *ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerInput is an input type that accepts ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs and ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerInput` via:
+//
+//	ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs{...}
+type ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput
+	ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput
+}
+
+type ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput {
+	return i.ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput).ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs, ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtr and ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput
+	ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrType ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs
+
+func ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtr(v *ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs) ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrInput {
+	return (*actionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager) *ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager {
+		return &v
+	}).(ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput) Elem() ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager) ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager
+		return ret
+	}).(ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5794,6 +11114,8 @@ func (o ActionConnectionNotionPtrOutput) ApiKey() ActionConnectionNotionApiKeyPt
 type ActionConnectionNotionApiKey struct {
 	// Notion API token. String length must be at least 1.
 	ApiToken *string `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager *ActionConnectionNotionApiKeyApiTokenAwsSecretsManager `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 // ActionConnectionNotionApiKeyInput is an input type that accepts ActionConnectionNotionApiKeyArgs and ActionConnectionNotionApiKeyOutput values.
@@ -5810,6 +11132,8 @@ type ActionConnectionNotionApiKeyInput interface {
 type ActionConnectionNotionApiKeyArgs struct {
 	// Notion API token. String length must be at least 1.
 	ApiToken pulumi.StringPtrInput `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrInput `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 func (ActionConnectionNotionApiKeyArgs) ElementType() reflect.Type {
@@ -5894,6 +11218,13 @@ func (o ActionConnectionNotionApiKeyOutput) ApiToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionNotionApiKey) *string { return v.ApiToken }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionNotionApiKeyOutput) ApiTokenAwsSecretsManager() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionNotionApiKey) *ActionConnectionNotionApiKeyApiTokenAwsSecretsManager {
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionNotionApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionNotionApiKeyPtrOutput) ElementType() reflect.Type {
@@ -5925,6 +11256,210 @@ func (o ActionConnectionNotionApiKeyPtrOutput) ApiToken() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.ApiToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionNotionApiKeyPtrOutput) ApiTokenAwsSecretsManager() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionNotionApiKey) *ActionConnectionNotionApiKeyApiTokenAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionNotionApiKeyApiTokenAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerInput is an input type that accepts ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs and ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerInput` via:
+//
+//	ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs{...}
+type ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput
+	ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput
+}
+
+type ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionNotionApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput {
+	return i.ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput).ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs, ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtr and ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput
+	ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrType ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs
+
+func ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtr(v *ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs) ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrInput {
+	return (*actionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionNotionApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionNotionApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionNotionApiKeyApiTokenAwsSecretsManager) *ActionConnectionNotionApiKeyApiTokenAwsSecretsManager {
+		return &v
+	}).(ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionNotionApiKeyApiTokenAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionNotionApiKeyApiTokenAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionNotionApiKeyApiTokenAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionNotionApiKeyApiTokenAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionNotionApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput) Elem() ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionNotionApiKeyApiTokenAwsSecretsManager) ActionConnectionNotionApiKeyApiTokenAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionNotionApiKeyApiTokenAwsSecretsManager
+		return ret
+	}).(ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionNotionApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionNotionApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionNotionApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionNotionApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6068,8 +11603,12 @@ func (o ActionConnectionOktaPtrOutput) ApiToken() ActionConnectionOktaApiTokenPt
 type ActionConnectionOktaApiToken struct {
 	// Okta API token. String length must be at least 1.
 	ApiToken *string `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager *ActionConnectionOktaApiTokenApiTokenAwsSecretsManager `pulumi:"apiTokenAwsSecretsManager"`
 	// Okta domain. String length must be at least 1.
 	Domain *string `pulumi:"domain"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	DomainAwsSecretsManager *ActionConnectionOktaApiTokenDomainAwsSecretsManager `pulumi:"domainAwsSecretsManager"`
 }
 
 // ActionConnectionOktaApiTokenInput is an input type that accepts ActionConnectionOktaApiTokenArgs and ActionConnectionOktaApiTokenOutput values.
@@ -6086,8 +11625,12 @@ type ActionConnectionOktaApiTokenInput interface {
 type ActionConnectionOktaApiTokenArgs struct {
 	// Okta API token. String length must be at least 1.
 	ApiToken pulumi.StringPtrInput `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrInput `pulumi:"apiTokenAwsSecretsManager"`
 	// Okta domain. String length must be at least 1.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	DomainAwsSecretsManager ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrInput `pulumi:"domainAwsSecretsManager"`
 }
 
 func (ActionConnectionOktaApiTokenArgs) ElementType() reflect.Type {
@@ -6172,9 +11715,23 @@ func (o ActionConnectionOktaApiTokenOutput) ApiToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionOktaApiToken) *string { return v.ApiToken }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionOktaApiTokenOutput) ApiTokenAwsSecretsManager() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOktaApiToken) *ActionConnectionOktaApiTokenApiTokenAwsSecretsManager {
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput)
+}
+
 // Okta domain. String length must be at least 1.
 func (o ActionConnectionOktaApiTokenOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionOktaApiToken) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionOktaApiTokenOutput) DomainAwsSecretsManager() ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOktaApiToken) *ActionConnectionOktaApiTokenDomainAwsSecretsManager {
+		return v.DomainAwsSecretsManager
+	}).(ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput)
 }
 
 type ActionConnectionOktaApiTokenPtrOutput struct{ *pulumi.OutputState }
@@ -6211,6 +11768,16 @@ func (o ActionConnectionOktaApiTokenPtrOutput) ApiToken() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionOktaApiTokenPtrOutput) ApiTokenAwsSecretsManager() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiToken) *ActionConnectionOktaApiTokenApiTokenAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput)
+}
+
 // Okta domain. String length must be at least 1.
 func (o ActionConnectionOktaApiTokenPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionConnectionOktaApiToken) *string {
@@ -6218,6 +11785,404 @@ func (o ActionConnectionOktaApiTokenPtrOutput) Domain() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionOktaApiTokenPtrOutput) DomainAwsSecretsManager() ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiToken) *ActionConnectionOktaApiTokenDomainAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.DomainAwsSecretsManager
+	}).(ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionOktaApiTokenApiTokenAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerInput is an input type that accepts ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs and ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerInput` via:
+//
+//	ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs{...}
+type ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput
+	ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput
+}
+
+type ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionOktaApiTokenApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput {
+	return i.ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput).ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs, ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtr and ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput
+	ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrType ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs
+
+func ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtr(v *ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs) ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrInput {
+	return (*actionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionOktaApiTokenApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrType) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrType) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionOktaApiTokenApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionOktaApiTokenApiTokenAwsSecretsManager) *ActionConnectionOktaApiTokenApiTokenAwsSecretsManager {
+		return &v
+	}).(ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOktaApiTokenApiTokenAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionOktaApiTokenApiTokenAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOktaApiTokenApiTokenAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOktaApiTokenApiTokenAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionOktaApiTokenApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput) Elem() ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiTokenApiTokenAwsSecretsManager) ActionConnectionOktaApiTokenApiTokenAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionOktaApiTokenApiTokenAwsSecretsManager
+		return ret
+	}).(ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiTokenApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiTokenApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiTokenApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiTokenApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionOktaApiTokenDomainAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionOktaApiTokenDomainAwsSecretsManagerInput is an input type that accepts ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs and ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionOktaApiTokenDomainAwsSecretsManagerInput` via:
+//
+//	ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs{...}
+type ActionConnectionOktaApiTokenDomainAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput() ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput
+	ToActionConnectionOktaApiTokenDomainAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput
+}
+
+type ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionOktaApiTokenDomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput() ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput {
+	return i.ToActionConnectionOktaApiTokenDomainAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput() ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput).ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs, ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtr and ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput() ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput
+	ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionOktaApiTokenDomainAwsSecretsManagerPtrType ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs
+
+func ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtr(v *ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs) ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrInput {
+	return (*actionConnectionOktaApiTokenDomainAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionOktaApiTokenDomainAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionOktaApiTokenDomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionOktaApiTokenDomainAwsSecretsManagerPtrType) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput() ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionOktaApiTokenDomainAwsSecretsManagerPtrType) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionOktaApiTokenDomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput() ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput() ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionOktaApiTokenDomainAwsSecretsManager) *ActionConnectionOktaApiTokenDomainAwsSecretsManager {
+		return &v
+	}).(ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOktaApiTokenDomainAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionOktaApiTokenDomainAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOktaApiTokenDomainAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOktaApiTokenDomainAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionOktaApiTokenDomainAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput() ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput) ToActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput) Elem() ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiTokenDomainAwsSecretsManager) ActionConnectionOktaApiTokenDomainAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionOktaApiTokenDomainAwsSecretsManager
+		return ret
+	}).(ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiTokenDomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiTokenDomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiTokenDomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOktaApiTokenDomainAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6361,6 +12326,8 @@ func (o ActionConnectionOpenaiPtrOutput) ApiKey() ActionConnectionOpenaiApiKeyPt
 type ActionConnectionOpenaiApiKey struct {
 	// OpenAI API token. String length must be at least 1.
 	ApiToken *string `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager *ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 // ActionConnectionOpenaiApiKeyInput is an input type that accepts ActionConnectionOpenaiApiKeyArgs and ActionConnectionOpenaiApiKeyOutput values.
@@ -6377,6 +12344,8 @@ type ActionConnectionOpenaiApiKeyInput interface {
 type ActionConnectionOpenaiApiKeyArgs struct {
 	// OpenAI API token. String length must be at least 1.
 	ApiToken pulumi.StringPtrInput `pulumi:"apiToken"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiTokenAwsSecretsManager ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrInput `pulumi:"apiTokenAwsSecretsManager"`
 }
 
 func (ActionConnectionOpenaiApiKeyArgs) ElementType() reflect.Type {
@@ -6461,6 +12430,13 @@ func (o ActionConnectionOpenaiApiKeyOutput) ApiToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionOpenaiApiKey) *string { return v.ApiToken }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionOpenaiApiKeyOutput) ApiTokenAwsSecretsManager() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOpenaiApiKey) *ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager {
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionOpenaiApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionOpenaiApiKeyPtrOutput) ElementType() reflect.Type {
@@ -6492,6 +12468,210 @@ func (o ActionConnectionOpenaiApiKeyPtrOutput) ApiToken() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.ApiToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionOpenaiApiKeyPtrOutput) ApiTokenAwsSecretsManager() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOpenaiApiKey) *ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiTokenAwsSecretsManager
+	}).(ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerInput is an input type that accepts ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs and ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerInput` via:
+//
+//	ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs{...}
+type ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput
+	ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput
+}
+
+type ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput {
+	return i.ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput).ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs, ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtr and ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput
+	ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrType ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs
+
+func ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtr(v *ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs) ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrInput {
+	return (*actionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrType) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager) *ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager {
+		return &v
+	}).(ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput) ToActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput) Elem() ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager) ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager
+		return ret
+	}).(ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6635,10 +12815,16 @@ func (o ActionConnectionServiceNowPtrOutput) BasicAuth() ActionConnectionService
 type ActionConnectionServiceNowBasicAuth struct {
 	// ServiceNow instance. String length must be at least 1.
 	Instance *string `pulumi:"instance"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	InstanceAwsSecretsManager *ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager `pulumi:"instanceAwsSecretsManager"`
 	// ServiceNow password. String length must be at least 1.
 	Password *string `pulumi:"password"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	PasswordAwsSecretsManager *ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager `pulumi:"passwordAwsSecretsManager"`
 	// ServiceNow username. String length must be at least 1.
 	Username *string `pulumi:"username"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	UsernameAwsSecretsManager *ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager `pulumi:"usernameAwsSecretsManager"`
 }
 
 // ActionConnectionServiceNowBasicAuthInput is an input type that accepts ActionConnectionServiceNowBasicAuthArgs and ActionConnectionServiceNowBasicAuthOutput values.
@@ -6655,10 +12841,16 @@ type ActionConnectionServiceNowBasicAuthInput interface {
 type ActionConnectionServiceNowBasicAuthArgs struct {
 	// ServiceNow instance. String length must be at least 1.
 	Instance pulumi.StringPtrInput `pulumi:"instance"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	InstanceAwsSecretsManager ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrInput `pulumi:"instanceAwsSecretsManager"`
 	// ServiceNow password. String length must be at least 1.
 	Password pulumi.StringPtrInput `pulumi:"password"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	PasswordAwsSecretsManager ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrInput `pulumi:"passwordAwsSecretsManager"`
 	// ServiceNow username. String length must be at least 1.
 	Username pulumi.StringPtrInput `pulumi:"username"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	UsernameAwsSecretsManager ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrInput `pulumi:"usernameAwsSecretsManager"`
 }
 
 func (ActionConnectionServiceNowBasicAuthArgs) ElementType() reflect.Type {
@@ -6743,14 +12935,35 @@ func (o ActionConnectionServiceNowBasicAuthOutput) Instance() pulumi.StringPtrOu
 	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuth) *string { return v.Instance }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionServiceNowBasicAuthOutput) InstanceAwsSecretsManager() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuth) *ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager {
+		return v.InstanceAwsSecretsManager
+	}).(ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput)
+}
+
 // ServiceNow password. String length must be at least 1.
 func (o ActionConnectionServiceNowBasicAuthOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuth) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionServiceNowBasicAuthOutput) PasswordAwsSecretsManager() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuth) *ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager {
+		return v.PasswordAwsSecretsManager
+	}).(ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput)
+}
+
 // ServiceNow username. String length must be at least 1.
 func (o ActionConnectionServiceNowBasicAuthOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuth) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionServiceNowBasicAuthOutput) UsernameAwsSecretsManager() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuth) *ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager {
+		return v.UsernameAwsSecretsManager
+	}).(ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput)
 }
 
 type ActionConnectionServiceNowBasicAuthPtrOutput struct{ *pulumi.OutputState }
@@ -6787,6 +13000,16 @@ func (o ActionConnectionServiceNowBasicAuthPtrOutput) Instance() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionServiceNowBasicAuthPtrOutput) InstanceAwsSecretsManager() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuth) *ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceAwsSecretsManager
+	}).(ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput)
+}
+
 // ServiceNow password. String length must be at least 1.
 func (o ActionConnectionServiceNowBasicAuthPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuth) *string {
@@ -6797,6 +13020,16 @@ func (o ActionConnectionServiceNowBasicAuthPtrOutput) Password() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionServiceNowBasicAuthPtrOutput) PasswordAwsSecretsManager() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuth) *ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordAwsSecretsManager
+	}).(ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput)
+}
+
 // ServiceNow username. String length must be at least 1.
 func (o ActionConnectionServiceNowBasicAuthPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuth) *string {
@@ -6804,6 +13037,598 @@ func (o ActionConnectionServiceNowBasicAuthPtrOutput) Username() pulumi.StringPt
 			return nil
 		}
 		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionServiceNowBasicAuthPtrOutput) UsernameAwsSecretsManager() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuth) *ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameAwsSecretsManager
+	}).(ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerInput is an input type that accepts ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs and ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerInput` via:
+//
+//	ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs{...}
+type ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput
+	ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput
+}
+
+type ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput {
+	return i.ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput).ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs, ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtr and ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput
+	ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrType ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs
+
+func ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtr(v *ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs) ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrInput {
+	return (*actionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrType) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrType) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager) *ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager {
+		return &v
+	}).(ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput) ToActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput) Elem() ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager) ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager
+		return ret
+	}).(ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerInput is an input type that accepts ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs and ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerInput` via:
+//
+//	ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs{...}
+type ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput
+	ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput
+}
+
+type ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput {
+	return i.ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput).ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs, ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtr and ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput
+	ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrType ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs
+
+func ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtr(v *ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs) ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrInput {
+	return (*actionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrType) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrType) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager) *ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager {
+		return &v
+	}).(ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput) ToActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput) Elem() ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager) ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager
+		return ret
+	}).(ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerInput is an input type that accepts ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs and ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerInput` via:
+//
+//	ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs{...}
+type ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput
+	ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput
+}
+
+type ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput {
+	return i.ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput).ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs, ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtr and ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput
+	ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrType ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs
+
+func ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtr(v *ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs) ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrInput {
+	return (*actionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrType) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrType) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager) *ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager {
+		return &v
+	}).(ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput) ToActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput) Elem() ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager) ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager
+		return ret
+	}).(ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6947,6 +13772,8 @@ func (o ActionConnectionSplitPtrOutput) ApiKey() ActionConnectionSplitApiKeyPtrO
 type ActionConnectionSplitApiKey struct {
 	// Split API key. String length must be at least 1.
 	ApiKey *string `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager *ActionConnectionSplitApiKeyApiKeyAwsSecretsManager `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 // ActionConnectionSplitApiKeyInput is an input type that accepts ActionConnectionSplitApiKeyArgs and ActionConnectionSplitApiKeyOutput values.
@@ -6963,6 +13790,8 @@ type ActionConnectionSplitApiKeyInput interface {
 type ActionConnectionSplitApiKeyArgs struct {
 	// Split API key. String length must be at least 1.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrInput `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 func (ActionConnectionSplitApiKeyArgs) ElementType() reflect.Type {
@@ -7047,6 +13876,13 @@ func (o ActionConnectionSplitApiKeyOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionSplitApiKey) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionSplitApiKeyOutput) ApiKeyAwsSecretsManager() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionSplitApiKey) *ActionConnectionSplitApiKeyApiKeyAwsSecretsManager {
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionSplitApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionSplitApiKeyPtrOutput) ElementType() reflect.Type {
@@ -7078,6 +13914,210 @@ func (o ActionConnectionSplitApiKeyPtrOutput) ApiKey() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.ApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionSplitApiKeyPtrOutput) ApiKeyAwsSecretsManager() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionSplitApiKey) *ActionConnectionSplitApiKeyApiKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionSplitApiKeyApiKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs and ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs{...}
+type ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput
+	ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionSplitApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput).ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs, ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtr and ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrType ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs
+
+func ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtr(v *ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs) ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionSplitApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionSplitApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionSplitApiKeyApiKeyAwsSecretsManager) *ActionConnectionSplitApiKeyApiKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionSplitApiKeyApiKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionSplitApiKeyApiKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionSplitApiKeyApiKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionSplitApiKeyApiKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionSplitApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionSplitApiKeyApiKeyAwsSecretsManager) ActionConnectionSplitApiKeyApiKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionSplitApiKeyApiKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionSplitApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionSplitApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionSplitApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionSplitApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7221,6 +14261,8 @@ func (o ActionConnectionStatsigPtrOutput) ApiKey() ActionConnectionStatsigApiKey
 type ActionConnectionStatsigApiKey struct {
 	// Statsig API key. String length must be at least 1.
 	ApiKey *string `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager *ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 // ActionConnectionStatsigApiKeyInput is an input type that accepts ActionConnectionStatsigApiKeyArgs and ActionConnectionStatsigApiKeyOutput values.
@@ -7237,6 +14279,8 @@ type ActionConnectionStatsigApiKeyInput interface {
 type ActionConnectionStatsigApiKeyArgs struct {
 	// Statsig API key. String length must be at least 1.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrInput `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 func (ActionConnectionStatsigApiKeyArgs) ElementType() reflect.Type {
@@ -7321,6 +14365,13 @@ func (o ActionConnectionStatsigApiKeyOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionConnectionStatsigApiKey) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionStatsigApiKeyOutput) ApiKeyAwsSecretsManager() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionStatsigApiKey) *ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager {
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionStatsigApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionStatsigApiKeyPtrOutput) ElementType() reflect.Type {
@@ -7352,6 +14403,210 @@ func (o ActionConnectionStatsigApiKeyPtrOutput) ApiKey() pulumi.StringPtrOutput 
 			return nil
 		}
 		return v.ApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionStatsigApiKeyPtrOutput) ApiKeyAwsSecretsManager() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionStatsigApiKey) *ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs and ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs{...}
+type ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput
+	ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput).ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs, ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtr and ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrType ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs
+
+func ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtr(v *ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs) ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager) *ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager) ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7495,6 +14750,8 @@ func (o ActionConnectionVirusTotalPtrOutput) ApiKey() ActionConnectionVirusTotal
 type ActionConnectionVirusTotalApiKey struct {
 	// VirusTotal API key. String length must be at least 1.
 	ApiKey *string `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager *ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 // ActionConnectionVirusTotalApiKeyInput is an input type that accepts ActionConnectionVirusTotalApiKeyArgs and ActionConnectionVirusTotalApiKeyOutput values.
@@ -7511,6 +14768,8 @@ type ActionConnectionVirusTotalApiKeyInput interface {
 type ActionConnectionVirusTotalApiKeyArgs struct {
 	// VirusTotal API key. String length must be at least 1.
 	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+	ApiKeyAwsSecretsManager ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrInput `pulumi:"apiKeyAwsSecretsManager"`
 }
 
 func (ActionConnectionVirusTotalApiKeyArgs) ElementType() reflect.Type {
@@ -7595,6 +14854,13 @@ func (o ActionConnectionVirusTotalApiKeyOutput) ApiKey() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ActionConnectionVirusTotalApiKey) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionVirusTotalApiKeyOutput) ApiKeyAwsSecretsManager() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v ActionConnectionVirusTotalApiKey) *ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager {
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
 type ActionConnectionVirusTotalApiKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionConnectionVirusTotalApiKeyPtrOutput) ElementType() reflect.Type {
@@ -7629,10 +14895,214 @@ func (o ActionConnectionVirusTotalApiKeyPtrOutput) ApiKey() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+func (o ActionConnectionVirusTotalApiKeyPtrOutput) ApiKeyAwsSecretsManager() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionVirusTotalApiKey) *ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKeyAwsSecretsManager
+	}).(ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key *string `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId string `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId *string `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage *string `pulumi:"versionStage"`
+}
+
+// ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerInput is an input type that accepts ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs and ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput values.
+// You can construct a concrete instance of `ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerInput` via:
+//
+//	ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs{...}
+type ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerInput interface {
+	pulumi.Input
+
+	ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput
+	ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Context) ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput
+}
+
+type ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs struct {
+	// Top-level JSON key to extract. Omit to use the entire secret string.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Name or ARN of the secret. String length must be at least 1.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput {
+	return i.ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+func (i ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput).ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx)
+}
+
+// ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrInput is an input type that accepts ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs, ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtr and ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput values.
+// You can construct a concrete instance of `ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrInput` via:
+//
+//	        ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrInput interface {
+	pulumi.Input
+
+	ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput
+	ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Context) ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput
+}
+
+type actionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrType ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs
+
+func ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtr(v *ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs) ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrInput {
+	return (*actionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrType)(v)
+}
+
+func (*actionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (i *actionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return i.ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (i *actionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrType) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+type ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutputWithContext(ctx context.Context) ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput {
+	return o
+}
+
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager) *ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager {
+		return &v
+	}).(ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager)(nil)).Elem()
+}
+
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput) ToActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutputWithContext(ctx context.Context) ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput {
+	return o
+}
+
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput) Elem() ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput {
+	return o.ApplyT(func(v *ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager) ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager
+		return ret
+	}).(ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput)
+}
+
+// Top-level JSON key to extract. Omit to use the entire secret string.
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name or ARN of the secret. String length must be at least 1.
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+func (o ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionStage
+	}).(pulumi.StringPtrOutput)
+}
+
 type ActionExecutionPolicyActionPattern struct {
 	// The fully qualified action names this policy matches. Use `*` to match all actions of the integration, or a fully qualified name prefixed with the integration's action namespace (for example `com.datadoghq.script.*` for the Script integration).
 	ActionFqns []string `pulumi:"actionFqns"`
-	// The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+	// The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
 	Integration string `pulumi:"integration"`
 }
 
@@ -7650,7 +15120,7 @@ type ActionExecutionPolicyActionPatternInput interface {
 type ActionExecutionPolicyActionPatternArgs struct {
 	// The fully qualified action names this policy matches. Use `*` to match all actions of the integration, or a fully qualified name prefixed with the integration's action namespace (for example `com.datadoghq.script.*` for the Script integration).
 	ActionFqns pulumi.StringArrayInput `pulumi:"actionFqns"`
-	// The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+	// The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
 	Integration pulumi.StringInput `pulumi:"integration"`
 }
 
@@ -7736,7 +15206,7 @@ func (o ActionExecutionPolicyActionPatternOutput) ActionFqns() pulumi.StringArra
 	return o.ApplyT(func(v ActionExecutionPolicyActionPattern) []string { return v.ActionFqns }).(pulumi.StringArrayOutput)
 }
 
-// The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+// The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
 func (o ActionExecutionPolicyActionPatternOutput) Integration() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionExecutionPolicyActionPattern) string { return v.Integration }).(pulumi.StringOutput)
 }
@@ -7775,7 +15245,7 @@ func (o ActionExecutionPolicyActionPatternPtrOutput) ActionFqns() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+// The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
 func (o ActionExecutionPolicyActionPatternPtrOutput) Integration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionExecutionPolicyActionPattern) *string {
 		if v == nil {
@@ -7792,6 +15262,8 @@ type ActionExecutionPolicyScope struct {
 	RemoteActionRshell *ActionExecutionPolicyScopeRemoteActionRshell `pulumi:"remoteActionRshell"`
 	// Restricts the policy to specific scripts. Requires `action_pattern.integration` to be `INTEGRATION_SCRIPT`.
 	Scripts *ActionExecutionPolicyScopeScripts `pulumi:"scripts"`
+	// Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+	Slack *ActionExecutionPolicyScopeSlack `pulumi:"slack"`
 }
 
 // ActionExecutionPolicyScopeInput is an input type that accepts ActionExecutionPolicyScopeArgs and ActionExecutionPolicyScopeOutput values.
@@ -7812,6 +15284,8 @@ type ActionExecutionPolicyScopeArgs struct {
 	RemoteActionRshell ActionExecutionPolicyScopeRemoteActionRshellPtrInput `pulumi:"remoteActionRshell"`
 	// Restricts the policy to specific scripts. Requires `action_pattern.integration` to be `INTEGRATION_SCRIPT`.
 	Scripts ActionExecutionPolicyScopeScriptsPtrInput `pulumi:"scripts"`
+	// Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+	Slack ActionExecutionPolicyScopeSlackPtrInput `pulumi:"slack"`
 }
 
 func (ActionExecutionPolicyScopeArgs) ElementType() reflect.Type {
@@ -7908,6 +15382,11 @@ func (o ActionExecutionPolicyScopeOutput) Scripts() ActionExecutionPolicyScopeSc
 	return o.ApplyT(func(v ActionExecutionPolicyScope) *ActionExecutionPolicyScopeScripts { return v.Scripts }).(ActionExecutionPolicyScopeScriptsPtrOutput)
 }
 
+// Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+func (o ActionExecutionPolicyScopeOutput) Slack() ActionExecutionPolicyScopeSlackPtrOutput {
+	return o.ApplyT(func(v ActionExecutionPolicyScope) *ActionExecutionPolicyScopeSlack { return v.Slack }).(ActionExecutionPolicyScopeSlackPtrOutput)
+}
+
 type ActionExecutionPolicyScopePtrOutput struct{ *pulumi.OutputState }
 
 func (ActionExecutionPolicyScopePtrOutput) ElementType() reflect.Type {
@@ -7960,6 +15439,16 @@ func (o ActionExecutionPolicyScopePtrOutput) Scripts() ActionExecutionPolicyScop
 		}
 		return v.Scripts
 	}).(ActionExecutionPolicyScopeScriptsPtrOutput)
+}
+
+// Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+func (o ActionExecutionPolicyScopePtrOutput) Slack() ActionExecutionPolicyScopeSlackPtrOutput {
+	return o.ApplyT(func(v *ActionExecutionPolicyScope) *ActionExecutionPolicyScopeSlack {
+		if v == nil {
+			return nil
+		}
+		return v.Slack
+	}).(ActionExecutionPolicyScopeSlackPtrOutput)
 }
 
 type ActionExecutionPolicyScopeKubernetes struct {
@@ -8677,8 +16166,242 @@ func (o ActionExecutionPolicyScopeScriptsRuleArrayOutput) Index(i pulumi.IntInpu
 	}).(ActionExecutionPolicyScopeScriptsRuleOutput)
 }
 
+type ActionExecutionPolicyScopeSlack struct {
+	// A rule restricting the Slack scope to specific channel names.
+	Rules []ActionExecutionPolicyScopeSlackRule `pulumi:"rules"`
+}
+
+// ActionExecutionPolicyScopeSlackInput is an input type that accepts ActionExecutionPolicyScopeSlackArgs and ActionExecutionPolicyScopeSlackOutput values.
+// You can construct a concrete instance of `ActionExecutionPolicyScopeSlackInput` via:
+//
+//	ActionExecutionPolicyScopeSlackArgs{...}
+type ActionExecutionPolicyScopeSlackInput interface {
+	pulumi.Input
+
+	ToActionExecutionPolicyScopeSlackOutput() ActionExecutionPolicyScopeSlackOutput
+	ToActionExecutionPolicyScopeSlackOutputWithContext(context.Context) ActionExecutionPolicyScopeSlackOutput
+}
+
+type ActionExecutionPolicyScopeSlackArgs struct {
+	// A rule restricting the Slack scope to specific channel names.
+	Rules ActionExecutionPolicyScopeSlackRuleArrayInput `pulumi:"rules"`
+}
+
+func (ActionExecutionPolicyScopeSlackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionExecutionPolicyScopeSlack)(nil)).Elem()
+}
+
+func (i ActionExecutionPolicyScopeSlackArgs) ToActionExecutionPolicyScopeSlackOutput() ActionExecutionPolicyScopeSlackOutput {
+	return i.ToActionExecutionPolicyScopeSlackOutputWithContext(context.Background())
+}
+
+func (i ActionExecutionPolicyScopeSlackArgs) ToActionExecutionPolicyScopeSlackOutputWithContext(ctx context.Context) ActionExecutionPolicyScopeSlackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionExecutionPolicyScopeSlackOutput)
+}
+
+func (i ActionExecutionPolicyScopeSlackArgs) ToActionExecutionPolicyScopeSlackPtrOutput() ActionExecutionPolicyScopeSlackPtrOutput {
+	return i.ToActionExecutionPolicyScopeSlackPtrOutputWithContext(context.Background())
+}
+
+func (i ActionExecutionPolicyScopeSlackArgs) ToActionExecutionPolicyScopeSlackPtrOutputWithContext(ctx context.Context) ActionExecutionPolicyScopeSlackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionExecutionPolicyScopeSlackOutput).ToActionExecutionPolicyScopeSlackPtrOutputWithContext(ctx)
+}
+
+// ActionExecutionPolicyScopeSlackPtrInput is an input type that accepts ActionExecutionPolicyScopeSlackArgs, ActionExecutionPolicyScopeSlackPtr and ActionExecutionPolicyScopeSlackPtrOutput values.
+// You can construct a concrete instance of `ActionExecutionPolicyScopeSlackPtrInput` via:
+//
+//	        ActionExecutionPolicyScopeSlackArgs{...}
+//
+//	or:
+//
+//	        nil
+type ActionExecutionPolicyScopeSlackPtrInput interface {
+	pulumi.Input
+
+	ToActionExecutionPolicyScopeSlackPtrOutput() ActionExecutionPolicyScopeSlackPtrOutput
+	ToActionExecutionPolicyScopeSlackPtrOutputWithContext(context.Context) ActionExecutionPolicyScopeSlackPtrOutput
+}
+
+type actionExecutionPolicyScopeSlackPtrType ActionExecutionPolicyScopeSlackArgs
+
+func ActionExecutionPolicyScopeSlackPtr(v *ActionExecutionPolicyScopeSlackArgs) ActionExecutionPolicyScopeSlackPtrInput {
+	return (*actionExecutionPolicyScopeSlackPtrType)(v)
+}
+
+func (*actionExecutionPolicyScopeSlackPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionExecutionPolicyScopeSlack)(nil)).Elem()
+}
+
+func (i *actionExecutionPolicyScopeSlackPtrType) ToActionExecutionPolicyScopeSlackPtrOutput() ActionExecutionPolicyScopeSlackPtrOutput {
+	return i.ToActionExecutionPolicyScopeSlackPtrOutputWithContext(context.Background())
+}
+
+func (i *actionExecutionPolicyScopeSlackPtrType) ToActionExecutionPolicyScopeSlackPtrOutputWithContext(ctx context.Context) ActionExecutionPolicyScopeSlackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionExecutionPolicyScopeSlackPtrOutput)
+}
+
+type ActionExecutionPolicyScopeSlackOutput struct{ *pulumi.OutputState }
+
+func (ActionExecutionPolicyScopeSlackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionExecutionPolicyScopeSlack)(nil)).Elem()
+}
+
+func (o ActionExecutionPolicyScopeSlackOutput) ToActionExecutionPolicyScopeSlackOutput() ActionExecutionPolicyScopeSlackOutput {
+	return o
+}
+
+func (o ActionExecutionPolicyScopeSlackOutput) ToActionExecutionPolicyScopeSlackOutputWithContext(ctx context.Context) ActionExecutionPolicyScopeSlackOutput {
+	return o
+}
+
+func (o ActionExecutionPolicyScopeSlackOutput) ToActionExecutionPolicyScopeSlackPtrOutput() ActionExecutionPolicyScopeSlackPtrOutput {
+	return o.ToActionExecutionPolicyScopeSlackPtrOutputWithContext(context.Background())
+}
+
+func (o ActionExecutionPolicyScopeSlackOutput) ToActionExecutionPolicyScopeSlackPtrOutputWithContext(ctx context.Context) ActionExecutionPolicyScopeSlackPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionExecutionPolicyScopeSlack) *ActionExecutionPolicyScopeSlack {
+		return &v
+	}).(ActionExecutionPolicyScopeSlackPtrOutput)
+}
+
+// A rule restricting the Slack scope to specific channel names.
+func (o ActionExecutionPolicyScopeSlackOutput) Rules() ActionExecutionPolicyScopeSlackRuleArrayOutput {
+	return o.ApplyT(func(v ActionExecutionPolicyScopeSlack) []ActionExecutionPolicyScopeSlackRule { return v.Rules }).(ActionExecutionPolicyScopeSlackRuleArrayOutput)
+}
+
+type ActionExecutionPolicyScopeSlackPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionExecutionPolicyScopeSlackPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionExecutionPolicyScopeSlack)(nil)).Elem()
+}
+
+func (o ActionExecutionPolicyScopeSlackPtrOutput) ToActionExecutionPolicyScopeSlackPtrOutput() ActionExecutionPolicyScopeSlackPtrOutput {
+	return o
+}
+
+func (o ActionExecutionPolicyScopeSlackPtrOutput) ToActionExecutionPolicyScopeSlackPtrOutputWithContext(ctx context.Context) ActionExecutionPolicyScopeSlackPtrOutput {
+	return o
+}
+
+func (o ActionExecutionPolicyScopeSlackPtrOutput) Elem() ActionExecutionPolicyScopeSlackOutput {
+	return o.ApplyT(func(v *ActionExecutionPolicyScopeSlack) ActionExecutionPolicyScopeSlack {
+		if v != nil {
+			return *v
+		}
+		var ret ActionExecutionPolicyScopeSlack
+		return ret
+	}).(ActionExecutionPolicyScopeSlackOutput)
+}
+
+// A rule restricting the Slack scope to specific channel names.
+func (o ActionExecutionPolicyScopeSlackPtrOutput) Rules() ActionExecutionPolicyScopeSlackRuleArrayOutput {
+	return o.ApplyT(func(v *ActionExecutionPolicyScopeSlack) []ActionExecutionPolicyScopeSlackRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(ActionExecutionPolicyScopeSlackRuleArrayOutput)
+}
+
+type ActionExecutionPolicyScopeSlackRule struct {
+	// The channel name selectors this rule applies to, for example `incident-*`. Use `*` to match any channel name.
+	ChannelNameSelectors []string `pulumi:"channelNameSelectors"`
+}
+
+// ActionExecutionPolicyScopeSlackRuleInput is an input type that accepts ActionExecutionPolicyScopeSlackRuleArgs and ActionExecutionPolicyScopeSlackRuleOutput values.
+// You can construct a concrete instance of `ActionExecutionPolicyScopeSlackRuleInput` via:
+//
+//	ActionExecutionPolicyScopeSlackRuleArgs{...}
+type ActionExecutionPolicyScopeSlackRuleInput interface {
+	pulumi.Input
+
+	ToActionExecutionPolicyScopeSlackRuleOutput() ActionExecutionPolicyScopeSlackRuleOutput
+	ToActionExecutionPolicyScopeSlackRuleOutputWithContext(context.Context) ActionExecutionPolicyScopeSlackRuleOutput
+}
+
+type ActionExecutionPolicyScopeSlackRuleArgs struct {
+	// The channel name selectors this rule applies to, for example `incident-*`. Use `*` to match any channel name.
+	ChannelNameSelectors pulumi.StringArrayInput `pulumi:"channelNameSelectors"`
+}
+
+func (ActionExecutionPolicyScopeSlackRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionExecutionPolicyScopeSlackRule)(nil)).Elem()
+}
+
+func (i ActionExecutionPolicyScopeSlackRuleArgs) ToActionExecutionPolicyScopeSlackRuleOutput() ActionExecutionPolicyScopeSlackRuleOutput {
+	return i.ToActionExecutionPolicyScopeSlackRuleOutputWithContext(context.Background())
+}
+
+func (i ActionExecutionPolicyScopeSlackRuleArgs) ToActionExecutionPolicyScopeSlackRuleOutputWithContext(ctx context.Context) ActionExecutionPolicyScopeSlackRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionExecutionPolicyScopeSlackRuleOutput)
+}
+
+// ActionExecutionPolicyScopeSlackRuleArrayInput is an input type that accepts ActionExecutionPolicyScopeSlackRuleArray and ActionExecutionPolicyScopeSlackRuleArrayOutput values.
+// You can construct a concrete instance of `ActionExecutionPolicyScopeSlackRuleArrayInput` via:
+//
+//	ActionExecutionPolicyScopeSlackRuleArray{ ActionExecutionPolicyScopeSlackRuleArgs{...} }
+type ActionExecutionPolicyScopeSlackRuleArrayInput interface {
+	pulumi.Input
+
+	ToActionExecutionPolicyScopeSlackRuleArrayOutput() ActionExecutionPolicyScopeSlackRuleArrayOutput
+	ToActionExecutionPolicyScopeSlackRuleArrayOutputWithContext(context.Context) ActionExecutionPolicyScopeSlackRuleArrayOutput
+}
+
+type ActionExecutionPolicyScopeSlackRuleArray []ActionExecutionPolicyScopeSlackRuleInput
+
+func (ActionExecutionPolicyScopeSlackRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionExecutionPolicyScopeSlackRule)(nil)).Elem()
+}
+
+func (i ActionExecutionPolicyScopeSlackRuleArray) ToActionExecutionPolicyScopeSlackRuleArrayOutput() ActionExecutionPolicyScopeSlackRuleArrayOutput {
+	return i.ToActionExecutionPolicyScopeSlackRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ActionExecutionPolicyScopeSlackRuleArray) ToActionExecutionPolicyScopeSlackRuleArrayOutputWithContext(ctx context.Context) ActionExecutionPolicyScopeSlackRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionExecutionPolicyScopeSlackRuleArrayOutput)
+}
+
+type ActionExecutionPolicyScopeSlackRuleOutput struct{ *pulumi.OutputState }
+
+func (ActionExecutionPolicyScopeSlackRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionExecutionPolicyScopeSlackRule)(nil)).Elem()
+}
+
+func (o ActionExecutionPolicyScopeSlackRuleOutput) ToActionExecutionPolicyScopeSlackRuleOutput() ActionExecutionPolicyScopeSlackRuleOutput {
+	return o
+}
+
+func (o ActionExecutionPolicyScopeSlackRuleOutput) ToActionExecutionPolicyScopeSlackRuleOutputWithContext(ctx context.Context) ActionExecutionPolicyScopeSlackRuleOutput {
+	return o
+}
+
+// The channel name selectors this rule applies to, for example `incident-*`. Use `*` to match any channel name.
+func (o ActionExecutionPolicyScopeSlackRuleOutput) ChannelNameSelectors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionExecutionPolicyScopeSlackRule) []string { return v.ChannelNameSelectors }).(pulumi.StringArrayOutput)
+}
+
+type ActionExecutionPolicyScopeSlackRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionExecutionPolicyScopeSlackRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionExecutionPolicyScopeSlackRule)(nil)).Elem()
+}
+
+func (o ActionExecutionPolicyScopeSlackRuleArrayOutput) ToActionExecutionPolicyScopeSlackRuleArrayOutput() ActionExecutionPolicyScopeSlackRuleArrayOutput {
+	return o
+}
+
+func (o ActionExecutionPolicyScopeSlackRuleArrayOutput) ToActionExecutionPolicyScopeSlackRuleArrayOutputWithContext(ctx context.Context) ActionExecutionPolicyScopeSlackRuleArrayOutput {
+	return o
+}
+
+func (o ActionExecutionPolicyScopeSlackRuleArrayOutput) Index(i pulumi.IntInput) ActionExecutionPolicyScopeSlackRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionExecutionPolicyScopeSlackRule {
+		return vs[0].([]ActionExecutionPolicyScopeSlackRule)[vs[1].(int)]
+	}).(ActionExecutionPolicyScopeSlackRuleOutput)
+}
+
 type ActionExecutionPolicyTarget struct {
-	// The Agent tags identifying the target, for example `env:prod`.
+	// The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
 	AgentTags []string `pulumi:"agentTags"`
 	// A human-readable name for the target.
 	Name *string `pulumi:"name"`
@@ -8696,7 +16419,7 @@ type ActionExecutionPolicyTargetInput interface {
 }
 
 type ActionExecutionPolicyTargetArgs struct {
-	// The Agent tags identifying the target, for example `env:prod`.
+	// The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
 	AgentTags pulumi.StringArrayInput `pulumi:"agentTags"`
 	// A human-readable name for the target.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -8753,7 +16476,7 @@ func (o ActionExecutionPolicyTargetOutput) ToActionExecutionPolicyTargetOutputWi
 	return o
 }
 
-// The Agent tags identifying the target, for example `env:prod`.
+// The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
 func (o ActionExecutionPolicyTargetOutput) AgentTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionExecutionPolicyTarget) []string { return v.AgentTags }).(pulumi.StringArrayOutput)
 }
@@ -77846,7041 +85569,19 @@ func (o DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-type DashboardV2WidgetIframeDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// DashboardV2WidgetIframeDefinitionTimeLiveInput is an input type that accepts DashboardV2WidgetIframeDefinitionTimeLiveArgs and DashboardV2WidgetIframeDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetIframeDefinitionTimeLiveInput` via:
-//
-//	DashboardV2WidgetIframeDefinitionTimeLiveArgs{...}
-type DashboardV2WidgetIframeDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetIframeDefinitionTimeLiveOutput() DashboardV2WidgetIframeDefinitionTimeLiveOutput
-	ToDashboardV2WidgetIframeDefinitionTimeLiveOutputWithContext(context.Context) DashboardV2WidgetIframeDefinitionTimeLiveOutput
-}
-
-type DashboardV2WidgetIframeDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (DashboardV2WidgetIframeDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeLiveArgs) ToDashboardV2WidgetIframeDefinitionTimeLiveOutput() DashboardV2WidgetIframeDefinitionTimeLiveOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeLiveArgs) ToDashboardV2WidgetIframeDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionTimeLiveOutput)
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeLiveArgs) ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutput() DashboardV2WidgetIframeDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeLiveArgs) ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionTimeLiveOutput).ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetIframeDefinitionTimeLivePtrInput is an input type that accepts DashboardV2WidgetIframeDefinitionTimeLiveArgs, DashboardV2WidgetIframeDefinitionTimeLivePtr and DashboardV2WidgetIframeDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetIframeDefinitionTimeLivePtrInput` via:
-//
-//	        DashboardV2WidgetIframeDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetIframeDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutput() DashboardV2WidgetIframeDefinitionTimeLivePtrOutput
-	ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutputWithContext(context.Context) DashboardV2WidgetIframeDefinitionTimeLivePtrOutput
-}
-
-type dashboardV2WidgetIframeDefinitionTimeLivePtrType DashboardV2WidgetIframeDefinitionTimeLiveArgs
-
-func DashboardV2WidgetIframeDefinitionTimeLivePtr(v *DashboardV2WidgetIframeDefinitionTimeLiveArgs) DashboardV2WidgetIframeDefinitionTimeLivePtrInput {
-	return (*dashboardV2WidgetIframeDefinitionTimeLivePtrType)(v)
-}
-
-func (*dashboardV2WidgetIframeDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetIframeDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetIframeDefinitionTimeLivePtrType) ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutput() DashboardV2WidgetIframeDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetIframeDefinitionTimeLivePtrType) ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetIframeDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetIframeDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeLiveOutput) ToDashboardV2WidgetIframeDefinitionTimeLiveOutput() DashboardV2WidgetIframeDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeLiveOutput) ToDashboardV2WidgetIframeDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeLiveOutput) ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutput() DashboardV2WidgetIframeDefinitionTimeLivePtrOutput {
-	return o.ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeLiveOutput) ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetIframeDefinitionTimeLive) *DashboardV2WidgetIframeDefinitionTimeLive {
-		return &v
-	}).(DashboardV2WidgetIframeDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetIframeDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetIframeDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetIframeDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetIframeDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetIframeDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeLivePtrOutput) ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutput() DashboardV2WidgetIframeDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeLivePtrOutput) ToDashboardV2WidgetIframeDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeLivePtrOutput) Elem() DashboardV2WidgetIframeDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinitionTimeLive) DashboardV2WidgetIframeDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetIframeDefinitionTimeLive
-		return ret
-	}).(DashboardV2WidgetIframeDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetIframeDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetIframeDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetImageDefinition struct {
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Whether to display a background or not. Defaults to `true`.
-	HasBackground *bool `pulumi:"hasBackground"`
-	// Whether to display a border or not. Defaults to `true`.
-	HasBorder *bool `pulumi:"hasBorder"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
-	HorizontalAlign *string `pulumi:"horizontalAlign"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
-	Margin *string `pulumi:"margin"`
-	// The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
-	Sizing *string `pulumi:"sizing"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *DashboardV2WidgetImageDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-	// URL of the image.
-	Url string `pulumi:"url"`
-	// URL of the image in dark mode.
-	UrlDarkTheme *string `pulumi:"urlDarkTheme"`
-	// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
-	VerticalAlign *string `pulumi:"verticalAlign"`
-}
-
-// DashboardV2WidgetImageDefinitionInput is an input type that accepts DashboardV2WidgetImageDefinitionArgs and DashboardV2WidgetImageDefinitionOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetImageDefinitionInput` via:
-//
-//	DashboardV2WidgetImageDefinitionArgs{...}
-type DashboardV2WidgetImageDefinitionInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetImageDefinitionOutput() DashboardV2WidgetImageDefinitionOutput
-	ToDashboardV2WidgetImageDefinitionOutputWithContext(context.Context) DashboardV2WidgetImageDefinitionOutput
-}
-
-type DashboardV2WidgetImageDefinitionArgs struct {
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Whether to display a background or not. Defaults to `true`.
-	HasBackground pulumi.BoolPtrInput `pulumi:"hasBackground"`
-	// Whether to display a border or not. Defaults to `true`.
-	HasBorder pulumi.BoolPtrInput `pulumi:"hasBorder"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
-	HorizontalAlign pulumi.StringPtrInput `pulumi:"horizontalAlign"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
-	Margin pulumi.StringPtrInput `pulumi:"margin"`
-	// The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
-	Sizing pulumi.StringPtrInput `pulumi:"sizing"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time DashboardV2WidgetImageDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-	// URL of the image.
-	Url pulumi.StringInput `pulumi:"url"`
-	// URL of the image in dark mode.
-	UrlDarkTheme pulumi.StringPtrInput `pulumi:"urlDarkTheme"`
-	// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
-	VerticalAlign pulumi.StringPtrInput `pulumi:"verticalAlign"`
-}
-
-func (DashboardV2WidgetImageDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetImageDefinition)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetImageDefinitionArgs) ToDashboardV2WidgetImageDefinitionOutput() DashboardV2WidgetImageDefinitionOutput {
-	return i.ToDashboardV2WidgetImageDefinitionOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetImageDefinitionArgs) ToDashboardV2WidgetImageDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionOutput)
-}
-
-func (i DashboardV2WidgetImageDefinitionArgs) ToDashboardV2WidgetImageDefinitionPtrOutput() DashboardV2WidgetImageDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetImageDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetImageDefinitionArgs) ToDashboardV2WidgetImageDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionOutput).ToDashboardV2WidgetImageDefinitionPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetImageDefinitionPtrInput is an input type that accepts DashboardV2WidgetImageDefinitionArgs, DashboardV2WidgetImageDefinitionPtr and DashboardV2WidgetImageDefinitionPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetImageDefinitionPtrInput` via:
-//
-//	        DashboardV2WidgetImageDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetImageDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetImageDefinitionPtrOutput() DashboardV2WidgetImageDefinitionPtrOutput
-	ToDashboardV2WidgetImageDefinitionPtrOutputWithContext(context.Context) DashboardV2WidgetImageDefinitionPtrOutput
-}
-
-type dashboardV2WidgetImageDefinitionPtrType DashboardV2WidgetImageDefinitionArgs
-
-func DashboardV2WidgetImageDefinitionPtr(v *DashboardV2WidgetImageDefinitionArgs) DashboardV2WidgetImageDefinitionPtrInput {
-	return (*dashboardV2WidgetImageDefinitionPtrType)(v)
-}
-
-func (*dashboardV2WidgetImageDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetImageDefinition)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetImageDefinitionPtrType) ToDashboardV2WidgetImageDefinitionPtrOutput() DashboardV2WidgetImageDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetImageDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetImageDefinitionPtrType) ToDashboardV2WidgetImageDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionPtrOutput)
-}
-
-type DashboardV2WidgetImageDefinitionOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetImageDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetImageDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetImageDefinitionOutput) ToDashboardV2WidgetImageDefinitionOutput() DashboardV2WidgetImageDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionOutput) ToDashboardV2WidgetImageDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionOutput) ToDashboardV2WidgetImageDefinitionPtrOutput() DashboardV2WidgetImageDefinitionPtrOutput {
-	return o.ToDashboardV2WidgetImageDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetImageDefinitionOutput) ToDashboardV2WidgetImageDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetImageDefinition) *DashboardV2WidgetImageDefinition {
-		return &v
-	}).(DashboardV2WidgetImageDefinitionPtrOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetImageDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Whether to display a background or not. Defaults to `true`.
-func (o DashboardV2WidgetImageDefinitionOutput) HasBackground() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *bool { return v.HasBackground }).(pulumi.BoolPtrOutput)
-}
-
-// Whether to display a border or not. Defaults to `true`.
-func (o DashboardV2WidgetImageDefinitionOutput) HasBorder() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *bool { return v.HasBorder }).(pulumi.BoolPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetImageDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetImageDefinitionOutput) HorizontalAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *string { return v.HorizontalAlign }).(pulumi.StringPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetImageDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
-func (o DashboardV2WidgetImageDefinitionOutput) Margin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *string { return v.Margin }).(pulumi.StringPtrOutput)
-}
-
-// The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
-func (o DashboardV2WidgetImageDefinitionOutput) Sizing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *string { return v.Sizing }).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetImageDefinitionOutput) Time() DashboardV2WidgetImageDefinitionTimePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *DashboardV2WidgetImageDefinitionTime { return v.Time }).(DashboardV2WidgetImageDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetImageDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetImageDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetImageDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-// URL of the image.
-func (o DashboardV2WidgetImageDefinitionOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) string { return v.Url }).(pulumi.StringOutput)
-}
-
-// URL of the image in dark mode.
-func (o DashboardV2WidgetImageDefinitionOutput) UrlDarkTheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *string { return v.UrlDarkTheme }).(pulumi.StringPtrOutput)
-}
-
-// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
-func (o DashboardV2WidgetImageDefinitionOutput) VerticalAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinition) *string { return v.VerticalAlign }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetImageDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetImageDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetImageDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetImageDefinitionPtrOutput) ToDashboardV2WidgetImageDefinitionPtrOutput() DashboardV2WidgetImageDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionPtrOutput) ToDashboardV2WidgetImageDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionPtrOutput) Elem() DashboardV2WidgetImageDefinitionOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) DashboardV2WidgetImageDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetImageDefinition
-		return ret
-	}).(DashboardV2WidgetImageDefinitionOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to display a background or not. Defaults to `true`.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) HasBackground() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HasBackground
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether to display a border or not. Defaults to `true`.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) HasBorder() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HasBorder
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The horizontal alignment for the widget. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) HorizontalAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HorizontalAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// The margins to use around the image. Note: `small` and `large` values are deprecated. Valid values are `sm`, `md`, `lg`, `small`, `large`.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) Margin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Margin
-	}).(pulumi.StringPtrOutput)
-}
-
-// The preferred method to adapt the dimensions of the image. The values are based on the image `object-fit` CSS properties. Note: `zoom`, `fit` and `center` values are deprecated. Valid values are `fill`, `contain`, `cover`, `none`, `scale-down`, `zoom`, `fit`, `center`.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) Sizing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Sizing
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) Time() DashboardV2WidgetImageDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *DashboardV2WidgetImageDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(DashboardV2WidgetImageDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetImageDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// URL of the image.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Url
-	}).(pulumi.StringPtrOutput)
-}
-
-// URL of the image in dark mode.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) UrlDarkTheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UrlDarkTheme
-	}).(pulumi.StringPtrOutput)
-}
-
-// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
-func (o DashboardV2WidgetImageDefinitionPtrOutput) VerticalAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VerticalAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetImageDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *DashboardV2WidgetImageDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *DashboardV2WidgetImageDefinitionTimeLive `pulumi:"live"`
-}
-
-// DashboardV2WidgetImageDefinitionTimeInput is an input type that accepts DashboardV2WidgetImageDefinitionTimeArgs and DashboardV2WidgetImageDefinitionTimeOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetImageDefinitionTimeInput` via:
-//
-//	DashboardV2WidgetImageDefinitionTimeArgs{...}
-type DashboardV2WidgetImageDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetImageDefinitionTimeOutput() DashboardV2WidgetImageDefinitionTimeOutput
-	ToDashboardV2WidgetImageDefinitionTimeOutputWithContext(context.Context) DashboardV2WidgetImageDefinitionTimeOutput
-}
-
-type DashboardV2WidgetImageDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed DashboardV2WidgetImageDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live DashboardV2WidgetImageDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (DashboardV2WidgetImageDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetImageDefinitionTime)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeArgs) ToDashboardV2WidgetImageDefinitionTimeOutput() DashboardV2WidgetImageDefinitionTimeOutput {
-	return i.ToDashboardV2WidgetImageDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeArgs) ToDashboardV2WidgetImageDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionTimeOutput)
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeArgs) ToDashboardV2WidgetImageDefinitionTimePtrOutput() DashboardV2WidgetImageDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetImageDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeArgs) ToDashboardV2WidgetImageDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionTimeOutput).ToDashboardV2WidgetImageDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetImageDefinitionTimePtrInput is an input type that accepts DashboardV2WidgetImageDefinitionTimeArgs, DashboardV2WidgetImageDefinitionTimePtr and DashboardV2WidgetImageDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetImageDefinitionTimePtrInput` via:
-//
-//	        DashboardV2WidgetImageDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetImageDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetImageDefinitionTimePtrOutput() DashboardV2WidgetImageDefinitionTimePtrOutput
-	ToDashboardV2WidgetImageDefinitionTimePtrOutputWithContext(context.Context) DashboardV2WidgetImageDefinitionTimePtrOutput
-}
-
-type dashboardV2WidgetImageDefinitionTimePtrType DashboardV2WidgetImageDefinitionTimeArgs
-
-func DashboardV2WidgetImageDefinitionTimePtr(v *DashboardV2WidgetImageDefinitionTimeArgs) DashboardV2WidgetImageDefinitionTimePtrInput {
-	return (*dashboardV2WidgetImageDefinitionTimePtrType)(v)
-}
-
-func (*dashboardV2WidgetImageDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetImageDefinitionTime)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetImageDefinitionTimePtrType) ToDashboardV2WidgetImageDefinitionTimePtrOutput() DashboardV2WidgetImageDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetImageDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetImageDefinitionTimePtrType) ToDashboardV2WidgetImageDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionTimePtrOutput)
-}
-
-type DashboardV2WidgetImageDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetImageDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetImageDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeOutput) ToDashboardV2WidgetImageDefinitionTimeOutput() DashboardV2WidgetImageDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeOutput) ToDashboardV2WidgetImageDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeOutput) ToDashboardV2WidgetImageDefinitionTimePtrOutput() DashboardV2WidgetImageDefinitionTimePtrOutput {
-	return o.ToDashboardV2WidgetImageDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeOutput) ToDashboardV2WidgetImageDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetImageDefinitionTime) *DashboardV2WidgetImageDefinitionTime {
-		return &v
-	}).(DashboardV2WidgetImageDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetImageDefinitionTimeOutput) Fixed() DashboardV2WidgetImageDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinitionTime) *DashboardV2WidgetImageDefinitionTimeFixed {
-		return v.Fixed
-	}).(DashboardV2WidgetImageDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetImageDefinitionTimeOutput) Live() DashboardV2WidgetImageDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinitionTime) *DashboardV2WidgetImageDefinitionTimeLive { return v.Live }).(DashboardV2WidgetImageDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetImageDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetImageDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetImageDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetImageDefinitionTimePtrOutput) ToDashboardV2WidgetImageDefinitionTimePtrOutput() DashboardV2WidgetImageDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimePtrOutput) ToDashboardV2WidgetImageDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimePtrOutput) Elem() DashboardV2WidgetImageDefinitionTimeOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinitionTime) DashboardV2WidgetImageDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetImageDefinitionTime
-		return ret
-	}).(DashboardV2WidgetImageDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetImageDefinitionTimePtrOutput) Fixed() DashboardV2WidgetImageDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinitionTime) *DashboardV2WidgetImageDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(DashboardV2WidgetImageDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetImageDefinitionTimePtrOutput) Live() DashboardV2WidgetImageDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinitionTime) *DashboardV2WidgetImageDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(DashboardV2WidgetImageDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetImageDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// DashboardV2WidgetImageDefinitionTimeFixedInput is an input type that accepts DashboardV2WidgetImageDefinitionTimeFixedArgs and DashboardV2WidgetImageDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetImageDefinitionTimeFixedInput` via:
-//
-//	DashboardV2WidgetImageDefinitionTimeFixedArgs{...}
-type DashboardV2WidgetImageDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetImageDefinitionTimeFixedOutput() DashboardV2WidgetImageDefinitionTimeFixedOutput
-	ToDashboardV2WidgetImageDefinitionTimeFixedOutputWithContext(context.Context) DashboardV2WidgetImageDefinitionTimeFixedOutput
-}
-
-type DashboardV2WidgetImageDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (DashboardV2WidgetImageDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetImageDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeFixedArgs) ToDashboardV2WidgetImageDefinitionTimeFixedOutput() DashboardV2WidgetImageDefinitionTimeFixedOutput {
-	return i.ToDashboardV2WidgetImageDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeFixedArgs) ToDashboardV2WidgetImageDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionTimeFixedOutput)
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeFixedArgs) ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutput() DashboardV2WidgetImageDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeFixedArgs) ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionTimeFixedOutput).ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetImageDefinitionTimeFixedPtrInput is an input type that accepts DashboardV2WidgetImageDefinitionTimeFixedArgs, DashboardV2WidgetImageDefinitionTimeFixedPtr and DashboardV2WidgetImageDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetImageDefinitionTimeFixedPtrInput` via:
-//
-//	        DashboardV2WidgetImageDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetImageDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutput() DashboardV2WidgetImageDefinitionTimeFixedPtrOutput
-	ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutputWithContext(context.Context) DashboardV2WidgetImageDefinitionTimeFixedPtrOutput
-}
-
-type dashboardV2WidgetImageDefinitionTimeFixedPtrType DashboardV2WidgetImageDefinitionTimeFixedArgs
-
-func DashboardV2WidgetImageDefinitionTimeFixedPtr(v *DashboardV2WidgetImageDefinitionTimeFixedArgs) DashboardV2WidgetImageDefinitionTimeFixedPtrInput {
-	return (*dashboardV2WidgetImageDefinitionTimeFixedPtrType)(v)
-}
-
-func (*dashboardV2WidgetImageDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetImageDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetImageDefinitionTimeFixedPtrType) ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutput() DashboardV2WidgetImageDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetImageDefinitionTimeFixedPtrType) ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionTimeFixedPtrOutput)
-}
-
-type DashboardV2WidgetImageDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetImageDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetImageDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeFixedOutput) ToDashboardV2WidgetImageDefinitionTimeFixedOutput() DashboardV2WidgetImageDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeFixedOutput) ToDashboardV2WidgetImageDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeFixedOutput) ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutput() DashboardV2WidgetImageDefinitionTimeFixedPtrOutput {
-	return o.ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeFixedOutput) ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetImageDefinitionTimeFixed) *DashboardV2WidgetImageDefinitionTimeFixed {
-		return &v
-	}).(DashboardV2WidgetImageDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetImageDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetImageDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetImageDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetImageDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetImageDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutput() DashboardV2WidgetImageDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetImageDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeFixedPtrOutput) Elem() DashboardV2WidgetImageDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinitionTimeFixed) DashboardV2WidgetImageDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetImageDefinitionTimeFixed
-		return ret
-	}).(DashboardV2WidgetImageDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetImageDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetImageDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetImageDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// DashboardV2WidgetImageDefinitionTimeLiveInput is an input type that accepts DashboardV2WidgetImageDefinitionTimeLiveArgs and DashboardV2WidgetImageDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetImageDefinitionTimeLiveInput` via:
-//
-//	DashboardV2WidgetImageDefinitionTimeLiveArgs{...}
-type DashboardV2WidgetImageDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetImageDefinitionTimeLiveOutput() DashboardV2WidgetImageDefinitionTimeLiveOutput
-	ToDashboardV2WidgetImageDefinitionTimeLiveOutputWithContext(context.Context) DashboardV2WidgetImageDefinitionTimeLiveOutput
-}
-
-type DashboardV2WidgetImageDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (DashboardV2WidgetImageDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetImageDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeLiveArgs) ToDashboardV2WidgetImageDefinitionTimeLiveOutput() DashboardV2WidgetImageDefinitionTimeLiveOutput {
-	return i.ToDashboardV2WidgetImageDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeLiveArgs) ToDashboardV2WidgetImageDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionTimeLiveOutput)
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeLiveArgs) ToDashboardV2WidgetImageDefinitionTimeLivePtrOutput() DashboardV2WidgetImageDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetImageDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetImageDefinitionTimeLiveArgs) ToDashboardV2WidgetImageDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionTimeLiveOutput).ToDashboardV2WidgetImageDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetImageDefinitionTimeLivePtrInput is an input type that accepts DashboardV2WidgetImageDefinitionTimeLiveArgs, DashboardV2WidgetImageDefinitionTimeLivePtr and DashboardV2WidgetImageDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetImageDefinitionTimeLivePtrInput` via:
-//
-//	        DashboardV2WidgetImageDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetImageDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetImageDefinitionTimeLivePtrOutput() DashboardV2WidgetImageDefinitionTimeLivePtrOutput
-	ToDashboardV2WidgetImageDefinitionTimeLivePtrOutputWithContext(context.Context) DashboardV2WidgetImageDefinitionTimeLivePtrOutput
-}
-
-type dashboardV2WidgetImageDefinitionTimeLivePtrType DashboardV2WidgetImageDefinitionTimeLiveArgs
-
-func DashboardV2WidgetImageDefinitionTimeLivePtr(v *DashboardV2WidgetImageDefinitionTimeLiveArgs) DashboardV2WidgetImageDefinitionTimeLivePtrInput {
-	return (*dashboardV2WidgetImageDefinitionTimeLivePtrType)(v)
-}
-
-func (*dashboardV2WidgetImageDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetImageDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetImageDefinitionTimeLivePtrType) ToDashboardV2WidgetImageDefinitionTimeLivePtrOutput() DashboardV2WidgetImageDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetImageDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetImageDefinitionTimeLivePtrType) ToDashboardV2WidgetImageDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetImageDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetImageDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetImageDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetImageDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeLiveOutput) ToDashboardV2WidgetImageDefinitionTimeLiveOutput() DashboardV2WidgetImageDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeLiveOutput) ToDashboardV2WidgetImageDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeLiveOutput) ToDashboardV2WidgetImageDefinitionTimeLivePtrOutput() DashboardV2WidgetImageDefinitionTimeLivePtrOutput {
-	return o.ToDashboardV2WidgetImageDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeLiveOutput) ToDashboardV2WidgetImageDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetImageDefinitionTimeLive) *DashboardV2WidgetImageDefinitionTimeLive {
-		return &v
-	}).(DashboardV2WidgetImageDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetImageDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetImageDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetImageDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetImageDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetImageDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetImageDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeLivePtrOutput) ToDashboardV2WidgetImageDefinitionTimeLivePtrOutput() DashboardV2WidgetImageDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeLivePtrOutput) ToDashboardV2WidgetImageDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetImageDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetImageDefinitionTimeLivePtrOutput) Elem() DashboardV2WidgetImageDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinitionTimeLive) DashboardV2WidgetImageDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetImageDefinitionTimeLive
-		return ret
-	}).(DashboardV2WidgetImageDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetImageDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetImageDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetImageDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinition struct {
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The size of the legend displayed in the widget.
-	LegendSize *string `pulumi:"legendSize"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// Nested block describing the requests to use when displaying the widget. Multiple `request` blocks are allowed with the structure below.
-	Requests []DashboardV2WidgetListStreamDefinitionRequest `pulumi:"requests"`
-	// Whether or not to show the legend on this widget.
-	ShowLegend *bool `pulumi:"showLegend"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *DashboardV2WidgetListStreamDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-}
-
-// DashboardV2WidgetListStreamDefinitionInput is an input type that accepts DashboardV2WidgetListStreamDefinitionArgs and DashboardV2WidgetListStreamDefinitionOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionArgs{...}
-type DashboardV2WidgetListStreamDefinitionInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionOutput() DashboardV2WidgetListStreamDefinitionOutput
-	ToDashboardV2WidgetListStreamDefinitionOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionArgs struct {
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The size of the legend displayed in the widget.
-	LegendSize pulumi.StringPtrInput `pulumi:"legendSize"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// Nested block describing the requests to use when displaying the widget. Multiple `request` blocks are allowed with the structure below.
-	Requests DashboardV2WidgetListStreamDefinitionRequestArrayInput `pulumi:"requests"`
-	// Whether or not to show the legend on this widget.
-	ShowLegend pulumi.BoolPtrInput `pulumi:"showLegend"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time DashboardV2WidgetListStreamDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-}
-
-func (DashboardV2WidgetListStreamDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinition)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionArgs) ToDashboardV2WidgetListStreamDefinitionOutput() DashboardV2WidgetListStreamDefinitionOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionArgs) ToDashboardV2WidgetListStreamDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionOutput)
-}
-
-func (i DashboardV2WidgetListStreamDefinitionArgs) ToDashboardV2WidgetListStreamDefinitionPtrOutput() DashboardV2WidgetListStreamDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionArgs) ToDashboardV2WidgetListStreamDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionOutput).ToDashboardV2WidgetListStreamDefinitionPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetListStreamDefinitionPtrInput is an input type that accepts DashboardV2WidgetListStreamDefinitionArgs, DashboardV2WidgetListStreamDefinitionPtr and DashboardV2WidgetListStreamDefinitionPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionPtrInput` via:
-//
-//	        DashboardV2WidgetListStreamDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetListStreamDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionPtrOutput() DashboardV2WidgetListStreamDefinitionPtrOutput
-	ToDashboardV2WidgetListStreamDefinitionPtrOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionPtrOutput
-}
-
-type dashboardV2WidgetListStreamDefinitionPtrType DashboardV2WidgetListStreamDefinitionArgs
-
-func DashboardV2WidgetListStreamDefinitionPtr(v *DashboardV2WidgetListStreamDefinitionArgs) DashboardV2WidgetListStreamDefinitionPtrInput {
-	return (*dashboardV2WidgetListStreamDefinitionPtrType)(v)
-}
-
-func (*dashboardV2WidgetListStreamDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetListStreamDefinition)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetListStreamDefinitionPtrType) ToDashboardV2WidgetListStreamDefinitionPtrOutput() DashboardV2WidgetListStreamDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetListStreamDefinitionPtrType) ToDashboardV2WidgetListStreamDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionPtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionOutput) ToDashboardV2WidgetListStreamDefinitionOutput() DashboardV2WidgetListStreamDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionOutput) ToDashboardV2WidgetListStreamDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionOutput) ToDashboardV2WidgetListStreamDefinitionPtrOutput() DashboardV2WidgetListStreamDefinitionPtrOutput {
-	return o.ToDashboardV2WidgetListStreamDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetListStreamDefinitionOutput) ToDashboardV2WidgetListStreamDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetListStreamDefinition) *DashboardV2WidgetListStreamDefinition {
-		return &v
-	}).(DashboardV2WidgetListStreamDefinitionPtrOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetListStreamDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetListStreamDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The size of the legend displayed in the widget.
-func (o DashboardV2WidgetListStreamDefinitionOutput) LegendSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinition) *string { return v.LegendSize }).(pulumi.StringPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetListStreamDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// Nested block describing the requests to use when displaying the widget. Multiple `request` blocks are allowed with the structure below.
-func (o DashboardV2WidgetListStreamDefinitionOutput) Requests() DashboardV2WidgetListStreamDefinitionRequestArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinition) []DashboardV2WidgetListStreamDefinitionRequest {
-		return v.Requests
-	}).(DashboardV2WidgetListStreamDefinitionRequestArrayOutput)
-}
-
-// Whether or not to show the legend on this widget.
-func (o DashboardV2WidgetListStreamDefinitionOutput) ShowLegend() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinition) *bool { return v.ShowLegend }).(pulumi.BoolPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetListStreamDefinitionOutput) Time() DashboardV2WidgetListStreamDefinitionTimePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinition) *DashboardV2WidgetListStreamDefinitionTime {
-		return v.Time
-	}).(DashboardV2WidgetListStreamDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetListStreamDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetListStreamDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetListStreamDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetListStreamDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) ToDashboardV2WidgetListStreamDefinitionPtrOutput() DashboardV2WidgetListStreamDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) ToDashboardV2WidgetListStreamDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) Elem() DashboardV2WidgetListStreamDefinitionOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) DashboardV2WidgetListStreamDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetListStreamDefinition
-		return ret
-	}).(DashboardV2WidgetListStreamDefinitionOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The size of the legend displayed in the widget.
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) LegendSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LegendSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// Nested block describing the requests to use when displaying the widget. Multiple `request` blocks are allowed with the structure below.
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) Requests() DashboardV2WidgetListStreamDefinitionRequestArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) []DashboardV2WidgetListStreamDefinitionRequest {
-		if v == nil {
-			return nil
-		}
-		return v.Requests
-	}).(DashboardV2WidgetListStreamDefinitionRequestArrayOutput)
-}
-
-// Whether or not to show the legend on this widget.
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) ShowLegend() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ShowLegend
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) Time() DashboardV2WidgetListStreamDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) *DashboardV2WidgetListStreamDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(DashboardV2WidgetListStreamDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetListStreamDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequest struct {
-	// Widget columns.
-	Columns []DashboardV2WidgetListStreamDefinitionRequestColumn `pulumi:"columns"`
-	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-	//
-	// Deprecated: This field has no effect and will be removed in a future release.
-	Description *string `pulumi:"description"`
-	// Updated list stream widget.
-	Query DashboardV2WidgetListStreamDefinitionRequestQuery `pulumi:"query"`
-	// Widget response format. Valid values are `eventList`.
-	ResponseFormat string `pulumi:"responseFormat"`
-}
-
-// DashboardV2WidgetListStreamDefinitionRequestInput is an input type that accepts DashboardV2WidgetListStreamDefinitionRequestArgs and DashboardV2WidgetListStreamDefinitionRequestOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionRequestInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionRequestArgs{...}
-type DashboardV2WidgetListStreamDefinitionRequestInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionRequestOutput() DashboardV2WidgetListStreamDefinitionRequestOutput
-	ToDashboardV2WidgetListStreamDefinitionRequestOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionRequestOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestArgs struct {
-	// Widget columns.
-	Columns DashboardV2WidgetListStreamDefinitionRequestColumnArrayInput `pulumi:"columns"`
-	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-	//
-	// Deprecated: This field has no effect and will be removed in a future release.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Updated list stream widget.
-	Query DashboardV2WidgetListStreamDefinitionRequestQueryInput `pulumi:"query"`
-	// Widget response format. Valid values are `eventList`.
-	ResponseFormat pulumi.StringInput `pulumi:"responseFormat"`
-}
-
-func (DashboardV2WidgetListStreamDefinitionRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequest)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestArgs) ToDashboardV2WidgetListStreamDefinitionRequestOutput() DashboardV2WidgetListStreamDefinitionRequestOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionRequestOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestArgs) ToDashboardV2WidgetListStreamDefinitionRequestOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionRequestOutput)
-}
-
-// DashboardV2WidgetListStreamDefinitionRequestArrayInput is an input type that accepts DashboardV2WidgetListStreamDefinitionRequestArray and DashboardV2WidgetListStreamDefinitionRequestArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionRequestArrayInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionRequestArray{ DashboardV2WidgetListStreamDefinitionRequestArgs{...} }
-type DashboardV2WidgetListStreamDefinitionRequestArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionRequestArrayOutput() DashboardV2WidgetListStreamDefinitionRequestArrayOutput
-	ToDashboardV2WidgetListStreamDefinitionRequestArrayOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionRequestArrayOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestArray []DashboardV2WidgetListStreamDefinitionRequestInput
-
-func (DashboardV2WidgetListStreamDefinitionRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetListStreamDefinitionRequest)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestArray) ToDashboardV2WidgetListStreamDefinitionRequestArrayOutput() DashboardV2WidgetListStreamDefinitionRequestArrayOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionRequestArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestArray) ToDashboardV2WidgetListStreamDefinitionRequestArrayOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionRequestArrayOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequest)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestOutput) ToDashboardV2WidgetListStreamDefinitionRequestOutput() DashboardV2WidgetListStreamDefinitionRequestOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestOutput) ToDashboardV2WidgetListStreamDefinitionRequestOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestOutput {
-	return o
-}
-
-// Widget columns.
-func (o DashboardV2WidgetListStreamDefinitionRequestOutput) Columns() DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequest) []DashboardV2WidgetListStreamDefinitionRequestColumn {
-		return v.Columns
-	}).(DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput)
-}
-
-// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-//
-// Deprecated: This field has no effect and will be removed in a future release.
-func (o DashboardV2WidgetListStreamDefinitionRequestOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequest) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Updated list stream widget.
-func (o DashboardV2WidgetListStreamDefinitionRequestOutput) Query() DashboardV2WidgetListStreamDefinitionRequestQueryOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequest) DashboardV2WidgetListStreamDefinitionRequestQuery {
-		return v.Query
-	}).(DashboardV2WidgetListStreamDefinitionRequestQueryOutput)
-}
-
-// Widget response format. Valid values are `eventList`.
-func (o DashboardV2WidgetListStreamDefinitionRequestOutput) ResponseFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequest) string { return v.ResponseFormat }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetListStreamDefinitionRequest)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestArrayOutput) ToDashboardV2WidgetListStreamDefinitionRequestArrayOutput() DashboardV2WidgetListStreamDefinitionRequestArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestArrayOutput) ToDashboardV2WidgetListStreamDefinitionRequestArrayOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetListStreamDefinitionRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetListStreamDefinitionRequest {
-		return vs[0].([]DashboardV2WidgetListStreamDefinitionRequest)[vs[1].(int)]
-	}).(DashboardV2WidgetListStreamDefinitionRequestOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestColumn struct {
-	// Widget column field.
-	Field *string `pulumi:"field"`
-	// Widget column width. Valid values are `auto`, `compact`, `full`.
-	Width *string `pulumi:"width"`
-}
-
-// DashboardV2WidgetListStreamDefinitionRequestColumnInput is an input type that accepts DashboardV2WidgetListStreamDefinitionRequestColumnArgs and DashboardV2WidgetListStreamDefinitionRequestColumnOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionRequestColumnInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionRequestColumnArgs{...}
-type DashboardV2WidgetListStreamDefinitionRequestColumnInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionRequestColumnOutput() DashboardV2WidgetListStreamDefinitionRequestColumnOutput
-	ToDashboardV2WidgetListStreamDefinitionRequestColumnOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionRequestColumnOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestColumnArgs struct {
-	// Widget column field.
-	Field pulumi.StringPtrInput `pulumi:"field"`
-	// Widget column width. Valid values are `auto`, `compact`, `full`.
-	Width pulumi.StringPtrInput `pulumi:"width"`
-}
-
-func (DashboardV2WidgetListStreamDefinitionRequestColumnArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestColumn)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestColumnArgs) ToDashboardV2WidgetListStreamDefinitionRequestColumnOutput() DashboardV2WidgetListStreamDefinitionRequestColumnOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionRequestColumnOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestColumnArgs) ToDashboardV2WidgetListStreamDefinitionRequestColumnOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestColumnOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionRequestColumnOutput)
-}
-
-// DashboardV2WidgetListStreamDefinitionRequestColumnArrayInput is an input type that accepts DashboardV2WidgetListStreamDefinitionRequestColumnArray and DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionRequestColumnArrayInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionRequestColumnArray{ DashboardV2WidgetListStreamDefinitionRequestColumnArgs{...} }
-type DashboardV2WidgetListStreamDefinitionRequestColumnArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput() DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput
-	ToDashboardV2WidgetListStreamDefinitionRequestColumnArrayOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestColumnArray []DashboardV2WidgetListStreamDefinitionRequestColumnInput
-
-func (DashboardV2WidgetListStreamDefinitionRequestColumnArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetListStreamDefinitionRequestColumn)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestColumnArray) ToDashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput() DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionRequestColumnArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestColumnArray) ToDashboardV2WidgetListStreamDefinitionRequestColumnArrayOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestColumnOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionRequestColumnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestColumn)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestColumnOutput) ToDashboardV2WidgetListStreamDefinitionRequestColumnOutput() DashboardV2WidgetListStreamDefinitionRequestColumnOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestColumnOutput) ToDashboardV2WidgetListStreamDefinitionRequestColumnOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestColumnOutput {
-	return o
-}
-
-// Widget column field.
-func (o DashboardV2WidgetListStreamDefinitionRequestColumnOutput) Field() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestColumn) *string { return v.Field }).(pulumi.StringPtrOutput)
-}
-
-// Widget column width. Valid values are `auto`, `compact`, `full`.
-func (o DashboardV2WidgetListStreamDefinitionRequestColumnOutput) Width() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestColumn) *string { return v.Width }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetListStreamDefinitionRequestColumn)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput) ToDashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput() DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput) ToDashboardV2WidgetListStreamDefinitionRequestColumnArrayOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetListStreamDefinitionRequestColumnOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetListStreamDefinitionRequestColumn {
-		return vs[0].([]DashboardV2WidgetListStreamDefinitionRequestColumn)[vs[1].(int)]
-	}).(DashboardV2WidgetListStreamDefinitionRequestColumnOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQuery struct {
-	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
-	ClusteringPatternFieldPath *string `pulumi:"clusteringPatternFieldPath"`
-	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
-	DataSource string `pulumi:"dataSource"`
-	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
-	EventSize *string `pulumi:"eventSize"`
-	// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
-	GroupBies []DashboardV2WidgetListStreamDefinitionRequestQueryGroupBy `pulumi:"groupBies"`
-	// List of indexes.
-	Indexes []string `pulumi:"indexes"`
-	// Widget query.
-	QueryString *string `pulumi:"queryString"`
-	// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-	Sort *DashboardV2WidgetListStreamDefinitionRequestQuerySort `pulumi:"sort"`
-	// Storage location (private beta).
-	Storage *string `pulumi:"storage"`
-}
-
-// DashboardV2WidgetListStreamDefinitionRequestQueryInput is an input type that accepts DashboardV2WidgetListStreamDefinitionRequestQueryArgs and DashboardV2WidgetListStreamDefinitionRequestQueryOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionRequestQueryInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionRequestQueryArgs{...}
-type DashboardV2WidgetListStreamDefinitionRequestQueryInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionRequestQueryOutput() DashboardV2WidgetListStreamDefinitionRequestQueryOutput
-	ToDashboardV2WidgetListStreamDefinitionRequestQueryOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionRequestQueryOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQueryArgs struct {
-	// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
-	ClusteringPatternFieldPath pulumi.StringPtrInput `pulumi:"clusteringPatternFieldPath"`
-	// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
-	EventSize pulumi.StringPtrInput `pulumi:"eventSize"`
-	// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
-	GroupBies DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayInput `pulumi:"groupBies"`
-	// List of indexes.
-	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
-	// Widget query.
-	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
-	// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-	Sort DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrInput `pulumi:"sort"`
-	// Storage location (private beta).
-	Storage pulumi.StringPtrInput `pulumi:"storage"`
-}
-
-func (DashboardV2WidgetListStreamDefinitionRequestQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestQueryArgs) ToDashboardV2WidgetListStreamDefinitionRequestQueryOutput() DashboardV2WidgetListStreamDefinitionRequestQueryOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionRequestQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestQueryArgs) ToDashboardV2WidgetListStreamDefinitionRequestQueryOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionRequestQueryOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionRequestQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryOutput) ToDashboardV2WidgetListStreamDefinitionRequestQueryOutput() DashboardV2WidgetListStreamDefinitionRequestQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryOutput) ToDashboardV2WidgetListStreamDefinitionRequestQueryOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQueryOutput {
-	return o
-}
-
-// Specifies the field for logs pattern clustering. Can only be used with `logsPatternStream`.
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryOutput) ClusteringPatternFieldPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuery) *string { return v.ClusteringPatternFieldPath }).(pulumi.StringPtrOutput)
-}
-
-// Source from which to query items to display in the stream. Valid values are `logsStream`, `auditStream`, `ciPipelineStream`, `ciTestStream`, `rumIssueStream`, `apmIssueStream`, `traceStream`, `logsIssueStream`, `logsPatternStream`, `logsTransactionStream`, `eventStream`, `rumStream`, `llmObservabilityStream`, `issueStream`, `securityRuntimeStream`, `securitySignalsStream`, `incidentsStream`, `caseStream`.
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// Size of events displayed in widget. Required if `dataSource` is `eventStream`. Valid values are `s`, `l`.
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryOutput) EventSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuery) *string { return v.EventSize }).(pulumi.StringPtrOutput)
-}
-
-// Group by configuration for the List Stream widget. Group by can only be used with `logsPatternStream` (up to 4 items) or `logsTransactionStream` (one group by item is required) list stream source.
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryOutput) GroupBies() DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuery) []DashboardV2WidgetListStreamDefinitionRequestQueryGroupBy {
-		return v.GroupBies
-	}).(DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput)
-}
-
-// List of indexes.
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
-}
-
-// Widget query.
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryOutput) QueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuery) *string { return v.QueryString }).(pulumi.StringPtrOutput)
-}
-
-// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryOutput) Sort() DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuery) *DashboardV2WidgetListStreamDefinitionRequestQuerySort {
-		return v.Sort
-	}).(DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput)
-}
-
-// Storage location (private beta).
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryOutput) Storage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQueryGroupBy struct {
-	// Facet name
-	Facet string `pulumi:"facet"`
-}
-
-// DashboardV2WidgetListStreamDefinitionRequestQueryGroupByInput is an input type that accepts DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArgs and DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionRequestQueryGroupByInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArgs{...}
-type DashboardV2WidgetListStreamDefinitionRequestQueryGroupByInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput() DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput
-	ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArgs struct {
-	// Facet name
-	Facet pulumi.StringInput `pulumi:"facet"`
-}
-
-func (DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArgs) ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput() DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArgs) ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput)
-}
-
-// DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayInput is an input type that accepts DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArray and DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArray{ DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArgs{...} }
-type DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput() DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput
-	ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArray []DashboardV2WidgetListStreamDefinitionRequestQueryGroupByInput
-
-func (DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetListStreamDefinitionRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArray) ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput() DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArray) ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput) ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput() DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput) ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput {
-	return o
-}
-
-// Facet name
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput) Facet() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetListStreamDefinitionRequestQueryGroupBy)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput) ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput() DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput) ToDashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetListStreamDefinitionRequestQueryGroupBy {
-		return vs[0].([]DashboardV2WidgetListStreamDefinitionRequestQueryGroupBy)[vs[1].(int)]
-	}).(DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQuerySort struct {
-	// The facet path for the column.
-	Column string `pulumi:"column"`
-	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-	//
-	// Deprecated: This field has no effect and will be removed in a future release.
-	Description *string `pulumi:"description"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order string `pulumi:"order"`
-}
-
-// DashboardV2WidgetListStreamDefinitionRequestQuerySortInput is an input type that accepts DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs and DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionRequestQuerySortInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs{...}
-type DashboardV2WidgetListStreamDefinitionRequestQuerySortInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionRequestQuerySortOutput() DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput
-	ToDashboardV2WidgetListStreamDefinitionRequestQuerySortOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs struct {
-	// The facet path for the column.
-	Column pulumi.StringInput `pulumi:"column"`
-	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-	//
-	// Deprecated: This field has no effect and will be removed in a future release.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order pulumi.StringInput `pulumi:"order"`
-}
-
-func (DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQuerySort)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortOutput() DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionRequestQuerySortOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput)
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput() DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput).ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrInput is an input type that accepts DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs, DashboardV2WidgetListStreamDefinitionRequestQuerySortPtr and DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrInput` via:
-//
-//	        DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput() DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput
-	ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput
-}
-
-type dashboardV2WidgetListStreamDefinitionRequestQuerySortPtrType DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs
-
-func DashboardV2WidgetListStreamDefinitionRequestQuerySortPtr(v *DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs) DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrInput {
-	return (*dashboardV2WidgetListStreamDefinitionRequestQuerySortPtrType)(v)
-}
-
-func (*dashboardV2WidgetListStreamDefinitionRequestQuerySortPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetListStreamDefinitionRequestQuerySort)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetListStreamDefinitionRequestQuerySortPtrType) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput() DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetListStreamDefinitionRequestQuerySortPtrType) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQuerySort)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortOutput() DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput() DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput {
-	return o.ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetListStreamDefinitionRequestQuerySort) *DashboardV2WidgetListStreamDefinitionRequestQuerySort {
-		return &v
-	}).(DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput)
-}
-
-// The facet path for the column.
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) Column() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuerySort) string { return v.Column }).(pulumi.StringOutput)
-}
-
-// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-//
-// Deprecated: This field has no effect and will be removed in a future release.
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuerySort) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput) Order() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionRequestQuerySort) string { return v.Order }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetListStreamDefinitionRequestQuerySort)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput() DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput) ToDashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput) Elem() DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionRequestQuerySort) DashboardV2WidgetListStreamDefinitionRequestQuerySort {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetListStreamDefinitionRequestQuerySort
-		return ret
-	}).(DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput)
-}
-
-// The facet path for the column.
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput) Column() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionRequestQuerySort) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Column
-	}).(pulumi.StringPtrOutput)
-}
-
-// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-//
-// Deprecated: This field has no effect and will be removed in a future release.
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionRequestQuerySort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionRequestQuerySort) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *DashboardV2WidgetListStreamDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *DashboardV2WidgetListStreamDefinitionTimeLive `pulumi:"live"`
-}
-
-// DashboardV2WidgetListStreamDefinitionTimeInput is an input type that accepts DashboardV2WidgetListStreamDefinitionTimeArgs and DashboardV2WidgetListStreamDefinitionTimeOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionTimeInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionTimeArgs{...}
-type DashboardV2WidgetListStreamDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionTimeOutput() DashboardV2WidgetListStreamDefinitionTimeOutput
-	ToDashboardV2WidgetListStreamDefinitionTimeOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionTimeOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed DashboardV2WidgetListStreamDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live DashboardV2WidgetListStreamDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (DashboardV2WidgetListStreamDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTime)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeArgs) ToDashboardV2WidgetListStreamDefinitionTimeOutput() DashboardV2WidgetListStreamDefinitionTimeOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeArgs) ToDashboardV2WidgetListStreamDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionTimeOutput)
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeArgs) ToDashboardV2WidgetListStreamDefinitionTimePtrOutput() DashboardV2WidgetListStreamDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeArgs) ToDashboardV2WidgetListStreamDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionTimeOutput).ToDashboardV2WidgetListStreamDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetListStreamDefinitionTimePtrInput is an input type that accepts DashboardV2WidgetListStreamDefinitionTimeArgs, DashboardV2WidgetListStreamDefinitionTimePtr and DashboardV2WidgetListStreamDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionTimePtrInput` via:
-//
-//	        DashboardV2WidgetListStreamDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetListStreamDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionTimePtrOutput() DashboardV2WidgetListStreamDefinitionTimePtrOutput
-	ToDashboardV2WidgetListStreamDefinitionTimePtrOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionTimePtrOutput
-}
-
-type dashboardV2WidgetListStreamDefinitionTimePtrType DashboardV2WidgetListStreamDefinitionTimeArgs
-
-func DashboardV2WidgetListStreamDefinitionTimePtr(v *DashboardV2WidgetListStreamDefinitionTimeArgs) DashboardV2WidgetListStreamDefinitionTimePtrInput {
-	return (*dashboardV2WidgetListStreamDefinitionTimePtrType)(v)
-}
-
-func (*dashboardV2WidgetListStreamDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetListStreamDefinitionTime)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetListStreamDefinitionTimePtrType) ToDashboardV2WidgetListStreamDefinitionTimePtrOutput() DashboardV2WidgetListStreamDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetListStreamDefinitionTimePtrType) ToDashboardV2WidgetListStreamDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionTimePtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeOutput) ToDashboardV2WidgetListStreamDefinitionTimeOutput() DashboardV2WidgetListStreamDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeOutput) ToDashboardV2WidgetListStreamDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeOutput) ToDashboardV2WidgetListStreamDefinitionTimePtrOutput() DashboardV2WidgetListStreamDefinitionTimePtrOutput {
-	return o.ToDashboardV2WidgetListStreamDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeOutput) ToDashboardV2WidgetListStreamDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetListStreamDefinitionTime) *DashboardV2WidgetListStreamDefinitionTime {
-		return &v
-	}).(DashboardV2WidgetListStreamDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetListStreamDefinitionTimeOutput) Fixed() DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionTime) *DashboardV2WidgetListStreamDefinitionTimeFixed {
-		return v.Fixed
-	}).(DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetListStreamDefinitionTimeOutput) Live() DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionTime) *DashboardV2WidgetListStreamDefinitionTimeLive {
-		return v.Live
-	}).(DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetListStreamDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimePtrOutput) ToDashboardV2WidgetListStreamDefinitionTimePtrOutput() DashboardV2WidgetListStreamDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimePtrOutput) ToDashboardV2WidgetListStreamDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimePtrOutput) Elem() DashboardV2WidgetListStreamDefinitionTimeOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionTime) DashboardV2WidgetListStreamDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetListStreamDefinitionTime
-		return ret
-	}).(DashboardV2WidgetListStreamDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetListStreamDefinitionTimePtrOutput) Fixed() DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionTime) *DashboardV2WidgetListStreamDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetListStreamDefinitionTimePtrOutput) Live() DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionTime) *DashboardV2WidgetListStreamDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// DashboardV2WidgetListStreamDefinitionTimeFixedInput is an input type that accepts DashboardV2WidgetListStreamDefinitionTimeFixedArgs and DashboardV2WidgetListStreamDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionTimeFixedInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionTimeFixedArgs{...}
-type DashboardV2WidgetListStreamDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionTimeFixedOutput() DashboardV2WidgetListStreamDefinitionTimeFixedOutput
-	ToDashboardV2WidgetListStreamDefinitionTimeFixedOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionTimeFixedOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (DashboardV2WidgetListStreamDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeFixedArgs) ToDashboardV2WidgetListStreamDefinitionTimeFixedOutput() DashboardV2WidgetListStreamDefinitionTimeFixedOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeFixedArgs) ToDashboardV2WidgetListStreamDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionTimeFixedOutput)
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeFixedArgs) ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput() DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeFixedArgs) ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionTimeFixedOutput).ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetListStreamDefinitionTimeFixedPtrInput is an input type that accepts DashboardV2WidgetListStreamDefinitionTimeFixedArgs, DashboardV2WidgetListStreamDefinitionTimeFixedPtr and DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionTimeFixedPtrInput` via:
-//
-//	        DashboardV2WidgetListStreamDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetListStreamDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput() DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput
-	ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput
-}
-
-type dashboardV2WidgetListStreamDefinitionTimeFixedPtrType DashboardV2WidgetListStreamDefinitionTimeFixedArgs
-
-func DashboardV2WidgetListStreamDefinitionTimeFixedPtr(v *DashboardV2WidgetListStreamDefinitionTimeFixedArgs) DashboardV2WidgetListStreamDefinitionTimeFixedPtrInput {
-	return (*dashboardV2WidgetListStreamDefinitionTimeFixedPtrType)(v)
-}
-
-func (*dashboardV2WidgetListStreamDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetListStreamDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetListStreamDefinitionTimeFixedPtrType) ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput() DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetListStreamDefinitionTimeFixedPtrType) ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedOutput) ToDashboardV2WidgetListStreamDefinitionTimeFixedOutput() DashboardV2WidgetListStreamDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedOutput) ToDashboardV2WidgetListStreamDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedOutput) ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput() DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput {
-	return o.ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedOutput) ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetListStreamDefinitionTimeFixed) *DashboardV2WidgetListStreamDefinitionTimeFixed {
-		return &v
-	}).(DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetListStreamDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput() DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetListStreamDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput) Elem() DashboardV2WidgetListStreamDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionTimeFixed) DashboardV2WidgetListStreamDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetListStreamDefinitionTimeFixed
-		return ret
-	}).(DashboardV2WidgetListStreamDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// DashboardV2WidgetListStreamDefinitionTimeLiveInput is an input type that accepts DashboardV2WidgetListStreamDefinitionTimeLiveArgs and DashboardV2WidgetListStreamDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionTimeLiveInput` via:
-//
-//	DashboardV2WidgetListStreamDefinitionTimeLiveArgs{...}
-type DashboardV2WidgetListStreamDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionTimeLiveOutput() DashboardV2WidgetListStreamDefinitionTimeLiveOutput
-	ToDashboardV2WidgetListStreamDefinitionTimeLiveOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionTimeLiveOutput
-}
-
-type DashboardV2WidgetListStreamDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (DashboardV2WidgetListStreamDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeLiveArgs) ToDashboardV2WidgetListStreamDefinitionTimeLiveOutput() DashboardV2WidgetListStreamDefinitionTimeLiveOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeLiveArgs) ToDashboardV2WidgetListStreamDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionTimeLiveOutput)
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeLiveArgs) ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutput() DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetListStreamDefinitionTimeLiveArgs) ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionTimeLiveOutput).ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetListStreamDefinitionTimeLivePtrInput is an input type that accepts DashboardV2WidgetListStreamDefinitionTimeLiveArgs, DashboardV2WidgetListStreamDefinitionTimeLivePtr and DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetListStreamDefinitionTimeLivePtrInput` via:
-//
-//	        DashboardV2WidgetListStreamDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetListStreamDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutput() DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput
-	ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutputWithContext(context.Context) DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput
-}
-
-type dashboardV2WidgetListStreamDefinitionTimeLivePtrType DashboardV2WidgetListStreamDefinitionTimeLiveArgs
-
-func DashboardV2WidgetListStreamDefinitionTimeLivePtr(v *DashboardV2WidgetListStreamDefinitionTimeLiveArgs) DashboardV2WidgetListStreamDefinitionTimeLivePtrInput {
-	return (*dashboardV2WidgetListStreamDefinitionTimeLivePtrType)(v)
-}
-
-func (*dashboardV2WidgetListStreamDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetListStreamDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetListStreamDefinitionTimeLivePtrType) ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutput() DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetListStreamDefinitionTimeLivePtrType) ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeLiveOutput) ToDashboardV2WidgetListStreamDefinitionTimeLiveOutput() DashboardV2WidgetListStreamDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeLiveOutput) ToDashboardV2WidgetListStreamDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeLiveOutput) ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutput() DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput {
-	return o.ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeLiveOutput) ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetListStreamDefinitionTimeLive) *DashboardV2WidgetListStreamDefinitionTimeLive {
-		return &v
-	}).(DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetListStreamDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetListStreamDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetListStreamDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetListStreamDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput) ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutput() DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput) ToDashboardV2WidgetListStreamDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput) Elem() DashboardV2WidgetListStreamDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionTimeLive) DashboardV2WidgetListStreamDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetListStreamDefinitionTimeLive
-		return ret
-	}).(DashboardV2WidgetListStreamDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetListStreamDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetLogQuery struct {
-	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
-	ComputeQuery *DashboardV2WidgetLogQueryComputeQuery `pulumi:"computeQuery"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
-	GroupBies []DashboardV2WidgetLogQueryGroupBy `pulumi:"groupBies"`
-	// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
-	Index string `pulumi:"index"`
-	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-	MultiComputes []DashboardV2WidgetLogQueryMultiCompute `pulumi:"multiComputes"`
-	// The search query to use.
-	SearchQuery *string `pulumi:"searchQuery"`
-}
-
-// DashboardV2WidgetLogQueryInput is an input type that accepts DashboardV2WidgetLogQueryArgs and DashboardV2WidgetLogQueryOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogQueryInput` via:
-//
-//	DashboardV2WidgetLogQueryArgs{...}
-type DashboardV2WidgetLogQueryInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogQueryOutput() DashboardV2WidgetLogQueryOutput
-	ToDashboardV2WidgetLogQueryOutputWithContext(context.Context) DashboardV2WidgetLogQueryOutput
-}
-
-type DashboardV2WidgetLogQueryArgs struct {
-	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
-	ComputeQuery DashboardV2WidgetLogQueryComputeQueryPtrInput `pulumi:"computeQuery"`
-	// Multiple `groupBy` blocks are allowed using the structure below.
-	GroupBies DashboardV2WidgetLogQueryGroupByArrayInput `pulumi:"groupBies"`
-	// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
-	Index pulumi.StringInput `pulumi:"index"`
-	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-	MultiComputes DashboardV2WidgetLogQueryMultiComputeArrayInput `pulumi:"multiComputes"`
-	// The search query to use.
-	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
-}
-
-func (DashboardV2WidgetLogQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogQuery)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogQueryArgs) ToDashboardV2WidgetLogQueryOutput() DashboardV2WidgetLogQueryOutput {
-	return i.ToDashboardV2WidgetLogQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogQueryArgs) ToDashboardV2WidgetLogQueryOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryOutput)
-}
-
-func (i DashboardV2WidgetLogQueryArgs) ToDashboardV2WidgetLogQueryPtrOutput() DashboardV2WidgetLogQueryPtrOutput {
-	return i.ToDashboardV2WidgetLogQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogQueryArgs) ToDashboardV2WidgetLogQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryOutput).ToDashboardV2WidgetLogQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetLogQueryPtrInput is an input type that accepts DashboardV2WidgetLogQueryArgs, DashboardV2WidgetLogQueryPtr and DashboardV2WidgetLogQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogQueryPtrInput` via:
-//
-//	        DashboardV2WidgetLogQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetLogQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogQueryPtrOutput() DashboardV2WidgetLogQueryPtrOutput
-	ToDashboardV2WidgetLogQueryPtrOutputWithContext(context.Context) DashboardV2WidgetLogQueryPtrOutput
-}
-
-type dashboardV2WidgetLogQueryPtrType DashboardV2WidgetLogQueryArgs
-
-func DashboardV2WidgetLogQueryPtr(v *DashboardV2WidgetLogQueryArgs) DashboardV2WidgetLogQueryPtrInput {
-	return (*dashboardV2WidgetLogQueryPtrType)(v)
-}
-
-func (*dashboardV2WidgetLogQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogQuery)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetLogQueryPtrType) ToDashboardV2WidgetLogQueryPtrOutput() DashboardV2WidgetLogQueryPtrOutput {
-	return i.ToDashboardV2WidgetLogQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetLogQueryPtrType) ToDashboardV2WidgetLogQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryPtrOutput)
-}
-
-type DashboardV2WidgetLogQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogQueryOutput) ToDashboardV2WidgetLogQueryOutput() DashboardV2WidgetLogQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryOutput) ToDashboardV2WidgetLogQueryOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryOutput) ToDashboardV2WidgetLogQueryPtrOutput() DashboardV2WidgetLogQueryPtrOutput {
-	return o.ToDashboardV2WidgetLogQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetLogQueryOutput) ToDashboardV2WidgetLogQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetLogQuery) *DashboardV2WidgetLogQuery {
-		return &v
-	}).(DashboardV2WidgetLogQueryPtrOutput)
-}
-
-// `computeQuery` or `multiCompute` is required. The map keys are listed below.
-func (o DashboardV2WidgetLogQueryOutput) ComputeQuery() DashboardV2WidgetLogQueryComputeQueryPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQuery) *DashboardV2WidgetLogQueryComputeQuery { return v.ComputeQuery }).(DashboardV2WidgetLogQueryComputeQueryPtrOutput)
-}
-
-// Multiple `groupBy` blocks are allowed using the structure below.
-func (o DashboardV2WidgetLogQueryOutput) GroupBies() DashboardV2WidgetLogQueryGroupByArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQuery) []DashboardV2WidgetLogQueryGroupBy { return v.GroupBies }).(DashboardV2WidgetLogQueryGroupByArrayOutput)
-}
-
-// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
-func (o DashboardV2WidgetLogQueryOutput) Index() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQuery) string { return v.Index }).(pulumi.StringOutput)
-}
-
-// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-func (o DashboardV2WidgetLogQueryOutput) MultiComputes() DashboardV2WidgetLogQueryMultiComputeArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQuery) []DashboardV2WidgetLogQueryMultiCompute { return v.MultiComputes }).(DashboardV2WidgetLogQueryMultiComputeArrayOutput)
-}
-
-// The search query to use.
-func (o DashboardV2WidgetLogQueryOutput) SearchQuery() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetLogQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogQueryPtrOutput) ToDashboardV2WidgetLogQueryPtrOutput() DashboardV2WidgetLogQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryPtrOutput) ToDashboardV2WidgetLogQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryPtrOutput) Elem() DashboardV2WidgetLogQueryOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQuery) DashboardV2WidgetLogQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetLogQuery
-		return ret
-	}).(DashboardV2WidgetLogQueryOutput)
-}
-
-// `computeQuery` or `multiCompute` is required. The map keys are listed below.
-func (o DashboardV2WidgetLogQueryPtrOutput) ComputeQuery() DashboardV2WidgetLogQueryComputeQueryPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQuery) *DashboardV2WidgetLogQueryComputeQuery {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeQuery
-	}).(DashboardV2WidgetLogQueryComputeQueryPtrOutput)
-}
-
-// Multiple `groupBy` blocks are allowed using the structure below.
-func (o DashboardV2WidgetLogQueryPtrOutput) GroupBies() DashboardV2WidgetLogQueryGroupByArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQuery) []DashboardV2WidgetLogQueryGroupBy {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(DashboardV2WidgetLogQueryGroupByArrayOutput)
-}
-
-// A comma separated-list of index names. Use `*` to query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes).
-func (o DashboardV2WidgetLogQueryPtrOutput) Index() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Index
-	}).(pulumi.StringPtrOutput)
-}
-
-// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
-func (o DashboardV2WidgetLogQueryPtrOutput) MultiComputes() DashboardV2WidgetLogQueryMultiComputeArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQuery) []DashboardV2WidgetLogQueryMultiCompute {
-		if v == nil {
-			return nil
-		}
-		return v.MultiComputes
-	}).(DashboardV2WidgetLogQueryMultiComputeArrayOutput)
-}
-
-// The search query to use.
-func (o DashboardV2WidgetLogQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SearchQuery
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetLogQueryComputeQuery struct {
-	// The aggregation method.
-	Aggregation string `pulumi:"aggregation"`
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// Define the time interval in seconds.
-	Interval *int `pulumi:"interval"`
-}
-
-// DashboardV2WidgetLogQueryComputeQueryInput is an input type that accepts DashboardV2WidgetLogQueryComputeQueryArgs and DashboardV2WidgetLogQueryComputeQueryOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogQueryComputeQueryInput` via:
-//
-//	DashboardV2WidgetLogQueryComputeQueryArgs{...}
-type DashboardV2WidgetLogQueryComputeQueryInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogQueryComputeQueryOutput() DashboardV2WidgetLogQueryComputeQueryOutput
-	ToDashboardV2WidgetLogQueryComputeQueryOutputWithContext(context.Context) DashboardV2WidgetLogQueryComputeQueryOutput
-}
-
-type DashboardV2WidgetLogQueryComputeQueryArgs struct {
-	// The aggregation method.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// Define the time interval in seconds.
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
-}
-
-func (DashboardV2WidgetLogQueryComputeQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogQueryComputeQuery)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogQueryComputeQueryArgs) ToDashboardV2WidgetLogQueryComputeQueryOutput() DashboardV2WidgetLogQueryComputeQueryOutput {
-	return i.ToDashboardV2WidgetLogQueryComputeQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogQueryComputeQueryArgs) ToDashboardV2WidgetLogQueryComputeQueryOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryComputeQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryComputeQueryOutput)
-}
-
-func (i DashboardV2WidgetLogQueryComputeQueryArgs) ToDashboardV2WidgetLogQueryComputeQueryPtrOutput() DashboardV2WidgetLogQueryComputeQueryPtrOutput {
-	return i.ToDashboardV2WidgetLogQueryComputeQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogQueryComputeQueryArgs) ToDashboardV2WidgetLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryComputeQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryComputeQueryOutput).ToDashboardV2WidgetLogQueryComputeQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetLogQueryComputeQueryPtrInput is an input type that accepts DashboardV2WidgetLogQueryComputeQueryArgs, DashboardV2WidgetLogQueryComputeQueryPtr and DashboardV2WidgetLogQueryComputeQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogQueryComputeQueryPtrInput` via:
-//
-//	        DashboardV2WidgetLogQueryComputeQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetLogQueryComputeQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogQueryComputeQueryPtrOutput() DashboardV2WidgetLogQueryComputeQueryPtrOutput
-	ToDashboardV2WidgetLogQueryComputeQueryPtrOutputWithContext(context.Context) DashboardV2WidgetLogQueryComputeQueryPtrOutput
-}
-
-type dashboardV2WidgetLogQueryComputeQueryPtrType DashboardV2WidgetLogQueryComputeQueryArgs
-
-func DashboardV2WidgetLogQueryComputeQueryPtr(v *DashboardV2WidgetLogQueryComputeQueryArgs) DashboardV2WidgetLogQueryComputeQueryPtrInput {
-	return (*dashboardV2WidgetLogQueryComputeQueryPtrType)(v)
-}
-
-func (*dashboardV2WidgetLogQueryComputeQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogQueryComputeQuery)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetLogQueryComputeQueryPtrType) ToDashboardV2WidgetLogQueryComputeQueryPtrOutput() DashboardV2WidgetLogQueryComputeQueryPtrOutput {
-	return i.ToDashboardV2WidgetLogQueryComputeQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetLogQueryComputeQueryPtrType) ToDashboardV2WidgetLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryComputeQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryComputeQueryPtrOutput)
-}
-
-type DashboardV2WidgetLogQueryComputeQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogQueryComputeQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogQueryComputeQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogQueryComputeQueryOutput) ToDashboardV2WidgetLogQueryComputeQueryOutput() DashboardV2WidgetLogQueryComputeQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryComputeQueryOutput) ToDashboardV2WidgetLogQueryComputeQueryOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryComputeQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryComputeQueryOutput) ToDashboardV2WidgetLogQueryComputeQueryPtrOutput() DashboardV2WidgetLogQueryComputeQueryPtrOutput {
-	return o.ToDashboardV2WidgetLogQueryComputeQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetLogQueryComputeQueryOutput) ToDashboardV2WidgetLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryComputeQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetLogQueryComputeQuery) *DashboardV2WidgetLogQueryComputeQuery {
-		return &v
-	}).(DashboardV2WidgetLogQueryComputeQueryPtrOutput)
-}
-
-// The aggregation method.
-func (o DashboardV2WidgetLogQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
-}
-
-// The facet name.
-func (o DashboardV2WidgetLogQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// Define the time interval in seconds.
-func (o DashboardV2WidgetLogQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetLogQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogQueryComputeQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogQueryComputeQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogQueryComputeQueryPtrOutput) ToDashboardV2WidgetLogQueryComputeQueryPtrOutput() DashboardV2WidgetLogQueryComputeQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryComputeQueryPtrOutput) ToDashboardV2WidgetLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryComputeQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryComputeQueryPtrOutput) Elem() DashboardV2WidgetLogQueryComputeQueryOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQueryComputeQuery) DashboardV2WidgetLogQueryComputeQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetLogQueryComputeQuery
-		return ret
-	}).(DashboardV2WidgetLogQueryComputeQueryOutput)
-}
-
-// The aggregation method.
-func (o DashboardV2WidgetLogQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQueryComputeQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Aggregation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The facet name.
-func (o DashboardV2WidgetLogQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQueryComputeQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Facet
-	}).(pulumi.StringPtrOutput)
-}
-
-// Define the time interval in seconds.
-func (o DashboardV2WidgetLogQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQueryComputeQuery) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Interval
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetLogQueryGroupBy struct {
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// The maximum number of items in the group.
-	Limit *int `pulumi:"limit"`
-	// A list of exactly one element describing the sort query to use.
-	SortQuery *DashboardV2WidgetLogQueryGroupBySortQuery `pulumi:"sortQuery"`
-}
-
-// DashboardV2WidgetLogQueryGroupByInput is an input type that accepts DashboardV2WidgetLogQueryGroupByArgs and DashboardV2WidgetLogQueryGroupByOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogQueryGroupByInput` via:
-//
-//	DashboardV2WidgetLogQueryGroupByArgs{...}
-type DashboardV2WidgetLogQueryGroupByInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogQueryGroupByOutput() DashboardV2WidgetLogQueryGroupByOutput
-	ToDashboardV2WidgetLogQueryGroupByOutputWithContext(context.Context) DashboardV2WidgetLogQueryGroupByOutput
-}
-
-type DashboardV2WidgetLogQueryGroupByArgs struct {
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// The maximum number of items in the group.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// A list of exactly one element describing the sort query to use.
-	SortQuery DashboardV2WidgetLogQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
-}
-
-func (DashboardV2WidgetLogQueryGroupByArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogQueryGroupBy)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogQueryGroupByArgs) ToDashboardV2WidgetLogQueryGroupByOutput() DashboardV2WidgetLogQueryGroupByOutput {
-	return i.ToDashboardV2WidgetLogQueryGroupByOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogQueryGroupByArgs) ToDashboardV2WidgetLogQueryGroupByOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryGroupByOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryGroupByOutput)
-}
-
-// DashboardV2WidgetLogQueryGroupByArrayInput is an input type that accepts DashboardV2WidgetLogQueryGroupByArray and DashboardV2WidgetLogQueryGroupByArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogQueryGroupByArrayInput` via:
-//
-//	DashboardV2WidgetLogQueryGroupByArray{ DashboardV2WidgetLogQueryGroupByArgs{...} }
-type DashboardV2WidgetLogQueryGroupByArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogQueryGroupByArrayOutput() DashboardV2WidgetLogQueryGroupByArrayOutput
-	ToDashboardV2WidgetLogQueryGroupByArrayOutputWithContext(context.Context) DashboardV2WidgetLogQueryGroupByArrayOutput
-}
-
-type DashboardV2WidgetLogQueryGroupByArray []DashboardV2WidgetLogQueryGroupByInput
-
-func (DashboardV2WidgetLogQueryGroupByArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetLogQueryGroupBy)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogQueryGroupByArray) ToDashboardV2WidgetLogQueryGroupByArrayOutput() DashboardV2WidgetLogQueryGroupByArrayOutput {
-	return i.ToDashboardV2WidgetLogQueryGroupByArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogQueryGroupByArray) ToDashboardV2WidgetLogQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryGroupByArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryGroupByArrayOutput)
-}
-
-type DashboardV2WidgetLogQueryGroupByOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogQueryGroupByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogQueryGroupBy)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogQueryGroupByOutput) ToDashboardV2WidgetLogQueryGroupByOutput() DashboardV2WidgetLogQueryGroupByOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryGroupByOutput) ToDashboardV2WidgetLogQueryGroupByOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryGroupByOutput {
-	return o
-}
-
-// The facet name.
-func (o DashboardV2WidgetLogQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of items in the group.
-func (o DashboardV2WidgetLogQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// A list of exactly one element describing the sort query to use.
-func (o DashboardV2WidgetLogQueryGroupByOutput) SortQuery() DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryGroupBy) *DashboardV2WidgetLogQueryGroupBySortQuery {
-		return v.SortQuery
-	}).(DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput)
-}
-
-type DashboardV2WidgetLogQueryGroupByArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogQueryGroupByArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetLogQueryGroupBy)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogQueryGroupByArrayOutput) ToDashboardV2WidgetLogQueryGroupByArrayOutput() DashboardV2WidgetLogQueryGroupByArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryGroupByArrayOutput) ToDashboardV2WidgetLogQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryGroupByArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryGroupByArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetLogQueryGroupByOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetLogQueryGroupBy {
-		return vs[0].([]DashboardV2WidgetLogQueryGroupBy)[vs[1].(int)]
-	}).(DashboardV2WidgetLogQueryGroupByOutput)
-}
-
-type DashboardV2WidgetLogQueryGroupBySortQuery struct {
-	// The aggregation method.
-	Aggregation string `pulumi:"aggregation"`
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order string `pulumi:"order"`
-}
-
-// DashboardV2WidgetLogQueryGroupBySortQueryInput is an input type that accepts DashboardV2WidgetLogQueryGroupBySortQueryArgs and DashboardV2WidgetLogQueryGroupBySortQueryOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogQueryGroupBySortQueryInput` via:
-//
-//	DashboardV2WidgetLogQueryGroupBySortQueryArgs{...}
-type DashboardV2WidgetLogQueryGroupBySortQueryInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogQueryGroupBySortQueryOutput() DashboardV2WidgetLogQueryGroupBySortQueryOutput
-	ToDashboardV2WidgetLogQueryGroupBySortQueryOutputWithContext(context.Context) DashboardV2WidgetLogQueryGroupBySortQueryOutput
-}
-
-type DashboardV2WidgetLogQueryGroupBySortQueryArgs struct {
-	// The aggregation method.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order pulumi.StringInput `pulumi:"order"`
-}
-
-func (DashboardV2WidgetLogQueryGroupBySortQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogQueryGroupBySortQueryArgs) ToDashboardV2WidgetLogQueryGroupBySortQueryOutput() DashboardV2WidgetLogQueryGroupBySortQueryOutput {
-	return i.ToDashboardV2WidgetLogQueryGroupBySortQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogQueryGroupBySortQueryArgs) ToDashboardV2WidgetLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryGroupBySortQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryGroupBySortQueryOutput)
-}
-
-func (i DashboardV2WidgetLogQueryGroupBySortQueryArgs) ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutput() DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput {
-	return i.ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogQueryGroupBySortQueryArgs) ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryGroupBySortQueryOutput).ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetLogQueryGroupBySortQueryPtrInput is an input type that accepts DashboardV2WidgetLogQueryGroupBySortQueryArgs, DashboardV2WidgetLogQueryGroupBySortQueryPtr and DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogQueryGroupBySortQueryPtrInput` via:
-//
-//	        DashboardV2WidgetLogQueryGroupBySortQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetLogQueryGroupBySortQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutput() DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput
-	ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutputWithContext(context.Context) DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput
-}
-
-type dashboardV2WidgetLogQueryGroupBySortQueryPtrType DashboardV2WidgetLogQueryGroupBySortQueryArgs
-
-func DashboardV2WidgetLogQueryGroupBySortQueryPtr(v *DashboardV2WidgetLogQueryGroupBySortQueryArgs) DashboardV2WidgetLogQueryGroupBySortQueryPtrInput {
-	return (*dashboardV2WidgetLogQueryGroupBySortQueryPtrType)(v)
-}
-
-func (*dashboardV2WidgetLogQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetLogQueryGroupBySortQueryPtrType) ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutput() DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput {
-	return i.ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetLogQueryGroupBySortQueryPtrType) ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput)
-}
-
-type DashboardV2WidgetLogQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogQueryGroupBySortQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogQueryGroupBySortQueryOutput) ToDashboardV2WidgetLogQueryGroupBySortQueryOutput() DashboardV2WidgetLogQueryGroupBySortQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryGroupBySortQueryOutput) ToDashboardV2WidgetLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryGroupBySortQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryGroupBySortQueryOutput) ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutput() DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput {
-	return o.ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetLogQueryGroupBySortQueryOutput) ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetLogQueryGroupBySortQuery) *DashboardV2WidgetLogQueryGroupBySortQuery {
-		return &v
-	}).(DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput)
-}
-
-// The aggregation method.
-func (o DashboardV2WidgetLogQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryGroupBySortQuery) string { return v.Aggregation }).(pulumi.StringOutput)
-}
-
-// The facet name.
-func (o DashboardV2WidgetLogQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetLogQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogQueryGroupBySortQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput) ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutput() DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput) ToDashboardV2WidgetLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput) Elem() DashboardV2WidgetLogQueryGroupBySortQueryOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQueryGroupBySortQuery) DashboardV2WidgetLogQueryGroupBySortQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetLogQueryGroupBySortQuery
-		return ret
-	}).(DashboardV2WidgetLogQueryGroupBySortQueryOutput)
-}
-
-// The aggregation method.
-func (o DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Aggregation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The facet name.
-func (o DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Facet
-	}).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogQueryGroupBySortQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetLogQueryMultiCompute struct {
-	// The aggregation method.
-	Aggregation string `pulumi:"aggregation"`
-	// The facet name.
-	Facet *string `pulumi:"facet"`
-	// Define the time interval in seconds.
-	Interval *int `pulumi:"interval"`
-}
-
-// DashboardV2WidgetLogQueryMultiComputeInput is an input type that accepts DashboardV2WidgetLogQueryMultiComputeArgs and DashboardV2WidgetLogQueryMultiComputeOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogQueryMultiComputeInput` via:
-//
-//	DashboardV2WidgetLogQueryMultiComputeArgs{...}
-type DashboardV2WidgetLogQueryMultiComputeInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogQueryMultiComputeOutput() DashboardV2WidgetLogQueryMultiComputeOutput
-	ToDashboardV2WidgetLogQueryMultiComputeOutputWithContext(context.Context) DashboardV2WidgetLogQueryMultiComputeOutput
-}
-
-type DashboardV2WidgetLogQueryMultiComputeArgs struct {
-	// The aggregation method.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The facet name.
-	Facet pulumi.StringPtrInput `pulumi:"facet"`
-	// Define the time interval in seconds.
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
-}
-
-func (DashboardV2WidgetLogQueryMultiComputeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogQueryMultiCompute)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogQueryMultiComputeArgs) ToDashboardV2WidgetLogQueryMultiComputeOutput() DashboardV2WidgetLogQueryMultiComputeOutput {
-	return i.ToDashboardV2WidgetLogQueryMultiComputeOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogQueryMultiComputeArgs) ToDashboardV2WidgetLogQueryMultiComputeOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryMultiComputeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryMultiComputeOutput)
-}
-
-// DashboardV2WidgetLogQueryMultiComputeArrayInput is an input type that accepts DashboardV2WidgetLogQueryMultiComputeArray and DashboardV2WidgetLogQueryMultiComputeArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogQueryMultiComputeArrayInput` via:
-//
-//	DashboardV2WidgetLogQueryMultiComputeArray{ DashboardV2WidgetLogQueryMultiComputeArgs{...} }
-type DashboardV2WidgetLogQueryMultiComputeArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogQueryMultiComputeArrayOutput() DashboardV2WidgetLogQueryMultiComputeArrayOutput
-	ToDashboardV2WidgetLogQueryMultiComputeArrayOutputWithContext(context.Context) DashboardV2WidgetLogQueryMultiComputeArrayOutput
-}
-
-type DashboardV2WidgetLogQueryMultiComputeArray []DashboardV2WidgetLogQueryMultiComputeInput
-
-func (DashboardV2WidgetLogQueryMultiComputeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetLogQueryMultiCompute)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogQueryMultiComputeArray) ToDashboardV2WidgetLogQueryMultiComputeArrayOutput() DashboardV2WidgetLogQueryMultiComputeArrayOutput {
-	return i.ToDashboardV2WidgetLogQueryMultiComputeArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogQueryMultiComputeArray) ToDashboardV2WidgetLogQueryMultiComputeArrayOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryMultiComputeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogQueryMultiComputeArrayOutput)
-}
-
-type DashboardV2WidgetLogQueryMultiComputeOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogQueryMultiComputeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogQueryMultiCompute)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogQueryMultiComputeOutput) ToDashboardV2WidgetLogQueryMultiComputeOutput() DashboardV2WidgetLogQueryMultiComputeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryMultiComputeOutput) ToDashboardV2WidgetLogQueryMultiComputeOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryMultiComputeOutput {
-	return o
-}
-
-// The aggregation method.
-func (o DashboardV2WidgetLogQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
-}
-
-// The facet name.
-func (o DashboardV2WidgetLogQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
-}
-
-// Define the time interval in seconds.
-func (o DashboardV2WidgetLogQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetLogQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogQueryMultiComputeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetLogQueryMultiCompute)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogQueryMultiComputeArrayOutput) ToDashboardV2WidgetLogQueryMultiComputeArrayOutput() DashboardV2WidgetLogQueryMultiComputeArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryMultiComputeArrayOutput) ToDashboardV2WidgetLogQueryMultiComputeArrayOutputWithContext(ctx context.Context) DashboardV2WidgetLogQueryMultiComputeArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetLogQueryMultiComputeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetLogQueryMultiCompute {
-		return vs[0].([]DashboardV2WidgetLogQueryMultiCompute)[vs[1].(int)]
-	}).(DashboardV2WidgetLogQueryMultiComputeOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinition struct {
-	// Stringified list of columns to use, for example: `["column1","column2","column3"]`.
-	Columns []string `pulumi:"columns"`
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// An array of index names to query in the stream.
-	Indexes []string `pulumi:"indexes"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
-	MessageDisplay *string `pulumi:"messageDisplay"`
-	// Query to filter the log stream with.
-	Query *string `pulumi:"query"`
-	// If the date column should be displayed.
-	ShowDateColumn *bool `pulumi:"showDateColumn"`
-	// If the message column should be displayed.
-	ShowMessageColumn *bool `pulumi:"showMessageColumn"`
-	// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-	Sort *DashboardV2WidgetLogStreamDefinitionSort `pulumi:"sort"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *DashboardV2WidgetLogStreamDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-}
-
-// DashboardV2WidgetLogStreamDefinitionInput is an input type that accepts DashboardV2WidgetLogStreamDefinitionArgs and DashboardV2WidgetLogStreamDefinitionOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogStreamDefinitionInput` via:
-//
-//	DashboardV2WidgetLogStreamDefinitionArgs{...}
-type DashboardV2WidgetLogStreamDefinitionInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogStreamDefinitionOutput() DashboardV2WidgetLogStreamDefinitionOutput
-	ToDashboardV2WidgetLogStreamDefinitionOutputWithContext(context.Context) DashboardV2WidgetLogStreamDefinitionOutput
-}
-
-type DashboardV2WidgetLogStreamDefinitionArgs struct {
-	// Stringified list of columns to use, for example: `["column1","column2","column3"]`.
-	Columns pulumi.StringArrayInput `pulumi:"columns"`
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// An array of index names to query in the stream.
-	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
-	MessageDisplay pulumi.StringPtrInput `pulumi:"messageDisplay"`
-	// Query to filter the log stream with.
-	Query pulumi.StringPtrInput `pulumi:"query"`
-	// If the date column should be displayed.
-	ShowDateColumn pulumi.BoolPtrInput `pulumi:"showDateColumn"`
-	// If the message column should be displayed.
-	ShowMessageColumn pulumi.BoolPtrInput `pulumi:"showMessageColumn"`
-	// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-	Sort DashboardV2WidgetLogStreamDefinitionSortPtrInput `pulumi:"sort"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time DashboardV2WidgetLogStreamDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-}
-
-func (DashboardV2WidgetLogStreamDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogStreamDefinition)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionArgs) ToDashboardV2WidgetLogStreamDefinitionOutput() DashboardV2WidgetLogStreamDefinitionOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionArgs) ToDashboardV2WidgetLogStreamDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionOutput)
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionArgs) ToDashboardV2WidgetLogStreamDefinitionPtrOutput() DashboardV2WidgetLogStreamDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionArgs) ToDashboardV2WidgetLogStreamDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionOutput).ToDashboardV2WidgetLogStreamDefinitionPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetLogStreamDefinitionPtrInput is an input type that accepts DashboardV2WidgetLogStreamDefinitionArgs, DashboardV2WidgetLogStreamDefinitionPtr and DashboardV2WidgetLogStreamDefinitionPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogStreamDefinitionPtrInput` via:
-//
-//	        DashboardV2WidgetLogStreamDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetLogStreamDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogStreamDefinitionPtrOutput() DashboardV2WidgetLogStreamDefinitionPtrOutput
-	ToDashboardV2WidgetLogStreamDefinitionPtrOutputWithContext(context.Context) DashboardV2WidgetLogStreamDefinitionPtrOutput
-}
-
-type dashboardV2WidgetLogStreamDefinitionPtrType DashboardV2WidgetLogStreamDefinitionArgs
-
-func DashboardV2WidgetLogStreamDefinitionPtr(v *DashboardV2WidgetLogStreamDefinitionArgs) DashboardV2WidgetLogStreamDefinitionPtrInput {
-	return (*dashboardV2WidgetLogStreamDefinitionPtrType)(v)
-}
-
-func (*dashboardV2WidgetLogStreamDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogStreamDefinition)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetLogStreamDefinitionPtrType) ToDashboardV2WidgetLogStreamDefinitionPtrOutput() DashboardV2WidgetLogStreamDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetLogStreamDefinitionPtrType) ToDashboardV2WidgetLogStreamDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionPtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogStreamDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogStreamDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionOutput) ToDashboardV2WidgetLogStreamDefinitionOutput() DashboardV2WidgetLogStreamDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionOutput) ToDashboardV2WidgetLogStreamDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionOutput) ToDashboardV2WidgetLogStreamDefinitionPtrOutput() DashboardV2WidgetLogStreamDefinitionPtrOutput {
-	return o.ToDashboardV2WidgetLogStreamDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionOutput) ToDashboardV2WidgetLogStreamDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetLogStreamDefinition) *DashboardV2WidgetLogStreamDefinition {
-		return &v
-	}).(DashboardV2WidgetLogStreamDefinitionPtrOutput)
-}
-
-// Stringified list of columns to use, for example: `["column1","column2","column3"]`.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) Columns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) []string { return v.Columns }).(pulumi.StringArrayOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// An array of index names to query in the stream.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) []string { return v.Indexes }).(pulumi.StringArrayOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) MessageDisplay() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *string { return v.MessageDisplay }).(pulumi.StringPtrOutput)
-}
-
-// Query to filter the log stream with.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *string { return v.Query }).(pulumi.StringPtrOutput)
-}
-
-// If the date column should be displayed.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) ShowDateColumn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *bool { return v.ShowDateColumn }).(pulumi.BoolPtrOutput)
-}
-
-// If the message column should be displayed.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) ShowMessageColumn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *bool { return v.ShowMessageColumn }).(pulumi.BoolPtrOutput)
-}
-
-// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) Sort() DashboardV2WidgetLogStreamDefinitionSortPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *DashboardV2WidgetLogStreamDefinitionSort { return v.Sort }).(DashboardV2WidgetLogStreamDefinitionSortPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) Time() DashboardV2WidgetLogStreamDefinitionTimePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *DashboardV2WidgetLogStreamDefinitionTime { return v.Time }).(DashboardV2WidgetLogStreamDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetLogStreamDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetLogStreamDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogStreamDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogStreamDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) ToDashboardV2WidgetLogStreamDefinitionPtrOutput() DashboardV2WidgetLogStreamDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) ToDashboardV2WidgetLogStreamDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) Elem() DashboardV2WidgetLogStreamDefinitionOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) DashboardV2WidgetLogStreamDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetLogStreamDefinition
-		return ret
-	}).(DashboardV2WidgetLogStreamDefinitionOutput)
-}
-
-// Stringified list of columns to use, for example: `["column1","column2","column3"]`.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) Columns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Columns
-	}).(pulumi.StringArrayOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// An array of index names to query in the stream.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Indexes
-	}).(pulumi.StringArrayOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of log lines to display. Valid values are `inline`, `expanded-md`, `expanded-lg`.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) MessageDisplay() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MessageDisplay
-	}).(pulumi.StringPtrOutput)
-}
-
-// Query to filter the log stream with.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-// If the date column should be displayed.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) ShowDateColumn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ShowDateColumn
-	}).(pulumi.BoolPtrOutput)
-}
-
-// If the message column should be displayed.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) ShowMessageColumn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ShowMessageColumn
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The facet and order to sort the data, for example: `{"column": "time", "order": "desc"}`.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) Sort() DashboardV2WidgetLogStreamDefinitionSortPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *DashboardV2WidgetLogStreamDefinitionSort {
-		if v == nil {
-			return nil
-		}
-		return v.Sort
-	}).(DashboardV2WidgetLogStreamDefinitionSortPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) Time() DashboardV2WidgetLogStreamDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *DashboardV2WidgetLogStreamDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(DashboardV2WidgetLogStreamDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetLogStreamDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionSort struct {
-	// The facet path for the column.
-	Column string `pulumi:"column"`
-	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-	//
-	// Deprecated: This field has no effect and will be removed in a future release.
-	Description *string `pulumi:"description"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order string `pulumi:"order"`
-}
-
-// DashboardV2WidgetLogStreamDefinitionSortInput is an input type that accepts DashboardV2WidgetLogStreamDefinitionSortArgs and DashboardV2WidgetLogStreamDefinitionSortOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogStreamDefinitionSortInput` via:
-//
-//	DashboardV2WidgetLogStreamDefinitionSortArgs{...}
-type DashboardV2WidgetLogStreamDefinitionSortInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogStreamDefinitionSortOutput() DashboardV2WidgetLogStreamDefinitionSortOutput
-	ToDashboardV2WidgetLogStreamDefinitionSortOutputWithContext(context.Context) DashboardV2WidgetLogStreamDefinitionSortOutput
-}
-
-type DashboardV2WidgetLogStreamDefinitionSortArgs struct {
-	// The facet path for the column.
-	Column pulumi.StringInput `pulumi:"column"`
-	// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-	//
-	// Deprecated: This field has no effect and will be removed in a future release.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order pulumi.StringInput `pulumi:"order"`
-}
-
-func (DashboardV2WidgetLogStreamDefinitionSortArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionSort)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionSortArgs) ToDashboardV2WidgetLogStreamDefinitionSortOutput() DashboardV2WidgetLogStreamDefinitionSortOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionSortOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionSortArgs) ToDashboardV2WidgetLogStreamDefinitionSortOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionSortOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionSortOutput)
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionSortArgs) ToDashboardV2WidgetLogStreamDefinitionSortPtrOutput() DashboardV2WidgetLogStreamDefinitionSortPtrOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionSortPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionSortArgs) ToDashboardV2WidgetLogStreamDefinitionSortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionSortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionSortOutput).ToDashboardV2WidgetLogStreamDefinitionSortPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetLogStreamDefinitionSortPtrInput is an input type that accepts DashboardV2WidgetLogStreamDefinitionSortArgs, DashboardV2WidgetLogStreamDefinitionSortPtr and DashboardV2WidgetLogStreamDefinitionSortPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogStreamDefinitionSortPtrInput` via:
-//
-//	        DashboardV2WidgetLogStreamDefinitionSortArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetLogStreamDefinitionSortPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogStreamDefinitionSortPtrOutput() DashboardV2WidgetLogStreamDefinitionSortPtrOutput
-	ToDashboardV2WidgetLogStreamDefinitionSortPtrOutputWithContext(context.Context) DashboardV2WidgetLogStreamDefinitionSortPtrOutput
-}
-
-type dashboardV2WidgetLogStreamDefinitionSortPtrType DashboardV2WidgetLogStreamDefinitionSortArgs
-
-func DashboardV2WidgetLogStreamDefinitionSortPtr(v *DashboardV2WidgetLogStreamDefinitionSortArgs) DashboardV2WidgetLogStreamDefinitionSortPtrInput {
-	return (*dashboardV2WidgetLogStreamDefinitionSortPtrType)(v)
-}
-
-func (*dashboardV2WidgetLogStreamDefinitionSortPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogStreamDefinitionSort)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetLogStreamDefinitionSortPtrType) ToDashboardV2WidgetLogStreamDefinitionSortPtrOutput() DashboardV2WidgetLogStreamDefinitionSortPtrOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionSortPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetLogStreamDefinitionSortPtrType) ToDashboardV2WidgetLogStreamDefinitionSortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionSortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionSortPtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionSortOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogStreamDefinitionSortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionSort)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionSortOutput) ToDashboardV2WidgetLogStreamDefinitionSortOutput() DashboardV2WidgetLogStreamDefinitionSortOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionSortOutput) ToDashboardV2WidgetLogStreamDefinitionSortOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionSortOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionSortOutput) ToDashboardV2WidgetLogStreamDefinitionSortPtrOutput() DashboardV2WidgetLogStreamDefinitionSortPtrOutput {
-	return o.ToDashboardV2WidgetLogStreamDefinitionSortPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionSortOutput) ToDashboardV2WidgetLogStreamDefinitionSortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionSortPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetLogStreamDefinitionSort) *DashboardV2WidgetLogStreamDefinitionSort {
-		return &v
-	}).(DashboardV2WidgetLogStreamDefinitionSortPtrOutput)
-}
-
-// The facet path for the column.
-func (o DashboardV2WidgetLogStreamDefinitionSortOutput) Column() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionSort) string { return v.Column }).(pulumi.StringOutput)
-}
-
-// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-//
-// Deprecated: This field has no effect and will be removed in a future release.
-func (o DashboardV2WidgetLogStreamDefinitionSortOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionSort) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetLogStreamDefinitionSortOutput) Order() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionSort) string { return v.Order }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionSortPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogStreamDefinitionSortPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogStreamDefinitionSort)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionSortPtrOutput) ToDashboardV2WidgetLogStreamDefinitionSortPtrOutput() DashboardV2WidgetLogStreamDefinitionSortPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionSortPtrOutput) ToDashboardV2WidgetLogStreamDefinitionSortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionSortPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionSortPtrOutput) Elem() DashboardV2WidgetLogStreamDefinitionSortOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionSort) DashboardV2WidgetLogStreamDefinitionSort {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetLogStreamDefinitionSort
-		return ret
-	}).(DashboardV2WidgetLogStreamDefinitionSortOutput)
-}
-
-// The facet path for the column.
-func (o DashboardV2WidgetLogStreamDefinitionSortPtrOutput) Column() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionSort) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Column
-	}).(pulumi.StringPtrOutput)
-}
-
-// This field has no effect and is not sent to the Datadog API. **Deprecated.** This field has no effect and will be removed in a future release.
-//
-// Deprecated: This field has no effect and will be removed in a future release.
-func (o DashboardV2WidgetLogStreamDefinitionSortPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionSort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetLogStreamDefinitionSortPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionSort) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *DashboardV2WidgetLogStreamDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *DashboardV2WidgetLogStreamDefinitionTimeLive `pulumi:"live"`
-}
-
-// DashboardV2WidgetLogStreamDefinitionTimeInput is an input type that accepts DashboardV2WidgetLogStreamDefinitionTimeArgs and DashboardV2WidgetLogStreamDefinitionTimeOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogStreamDefinitionTimeInput` via:
-//
-//	DashboardV2WidgetLogStreamDefinitionTimeArgs{...}
-type DashboardV2WidgetLogStreamDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogStreamDefinitionTimeOutput() DashboardV2WidgetLogStreamDefinitionTimeOutput
-	ToDashboardV2WidgetLogStreamDefinitionTimeOutputWithContext(context.Context) DashboardV2WidgetLogStreamDefinitionTimeOutput
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed DashboardV2WidgetLogStreamDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live DashboardV2WidgetLogStreamDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (DashboardV2WidgetLogStreamDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTime)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeArgs) ToDashboardV2WidgetLogStreamDefinitionTimeOutput() DashboardV2WidgetLogStreamDefinitionTimeOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeArgs) ToDashboardV2WidgetLogStreamDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionTimeOutput)
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeArgs) ToDashboardV2WidgetLogStreamDefinitionTimePtrOutput() DashboardV2WidgetLogStreamDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeArgs) ToDashboardV2WidgetLogStreamDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionTimeOutput).ToDashboardV2WidgetLogStreamDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetLogStreamDefinitionTimePtrInput is an input type that accepts DashboardV2WidgetLogStreamDefinitionTimeArgs, DashboardV2WidgetLogStreamDefinitionTimePtr and DashboardV2WidgetLogStreamDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogStreamDefinitionTimePtrInput` via:
-//
-//	        DashboardV2WidgetLogStreamDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetLogStreamDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogStreamDefinitionTimePtrOutput() DashboardV2WidgetLogStreamDefinitionTimePtrOutput
-	ToDashboardV2WidgetLogStreamDefinitionTimePtrOutputWithContext(context.Context) DashboardV2WidgetLogStreamDefinitionTimePtrOutput
-}
-
-type dashboardV2WidgetLogStreamDefinitionTimePtrType DashboardV2WidgetLogStreamDefinitionTimeArgs
-
-func DashboardV2WidgetLogStreamDefinitionTimePtr(v *DashboardV2WidgetLogStreamDefinitionTimeArgs) DashboardV2WidgetLogStreamDefinitionTimePtrInput {
-	return (*dashboardV2WidgetLogStreamDefinitionTimePtrType)(v)
-}
-
-func (*dashboardV2WidgetLogStreamDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogStreamDefinitionTime)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetLogStreamDefinitionTimePtrType) ToDashboardV2WidgetLogStreamDefinitionTimePtrOutput() DashboardV2WidgetLogStreamDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetLogStreamDefinitionTimePtrType) ToDashboardV2WidgetLogStreamDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionTimePtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogStreamDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeOutput) ToDashboardV2WidgetLogStreamDefinitionTimeOutput() DashboardV2WidgetLogStreamDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeOutput) ToDashboardV2WidgetLogStreamDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeOutput) ToDashboardV2WidgetLogStreamDefinitionTimePtrOutput() DashboardV2WidgetLogStreamDefinitionTimePtrOutput {
-	return o.ToDashboardV2WidgetLogStreamDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeOutput) ToDashboardV2WidgetLogStreamDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetLogStreamDefinitionTime) *DashboardV2WidgetLogStreamDefinitionTime {
-		return &v
-	}).(DashboardV2WidgetLogStreamDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetLogStreamDefinitionTimeOutput) Fixed() DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionTime) *DashboardV2WidgetLogStreamDefinitionTimeFixed {
-		return v.Fixed
-	}).(DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetLogStreamDefinitionTimeOutput) Live() DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionTime) *DashboardV2WidgetLogStreamDefinitionTimeLive {
-		return v.Live
-	}).(DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogStreamDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogStreamDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimePtrOutput) ToDashboardV2WidgetLogStreamDefinitionTimePtrOutput() DashboardV2WidgetLogStreamDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimePtrOutput) ToDashboardV2WidgetLogStreamDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimePtrOutput) Elem() DashboardV2WidgetLogStreamDefinitionTimeOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionTime) DashboardV2WidgetLogStreamDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetLogStreamDefinitionTime
-		return ret
-	}).(DashboardV2WidgetLogStreamDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetLogStreamDefinitionTimePtrOutput) Fixed() DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionTime) *DashboardV2WidgetLogStreamDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetLogStreamDefinitionTimePtrOutput) Live() DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionTime) *DashboardV2WidgetLogStreamDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// DashboardV2WidgetLogStreamDefinitionTimeFixedInput is an input type that accepts DashboardV2WidgetLogStreamDefinitionTimeFixedArgs and DashboardV2WidgetLogStreamDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogStreamDefinitionTimeFixedInput` via:
-//
-//	DashboardV2WidgetLogStreamDefinitionTimeFixedArgs{...}
-type DashboardV2WidgetLogStreamDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogStreamDefinitionTimeFixedOutput() DashboardV2WidgetLogStreamDefinitionTimeFixedOutput
-	ToDashboardV2WidgetLogStreamDefinitionTimeFixedOutputWithContext(context.Context) DashboardV2WidgetLogStreamDefinitionTimeFixedOutput
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (DashboardV2WidgetLogStreamDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeFixedArgs) ToDashboardV2WidgetLogStreamDefinitionTimeFixedOutput() DashboardV2WidgetLogStreamDefinitionTimeFixedOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeFixedArgs) ToDashboardV2WidgetLogStreamDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionTimeFixedOutput)
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeFixedArgs) ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput() DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeFixedArgs) ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionTimeFixedOutput).ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetLogStreamDefinitionTimeFixedPtrInput is an input type that accepts DashboardV2WidgetLogStreamDefinitionTimeFixedArgs, DashboardV2WidgetLogStreamDefinitionTimeFixedPtr and DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogStreamDefinitionTimeFixedPtrInput` via:
-//
-//	        DashboardV2WidgetLogStreamDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetLogStreamDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput() DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput
-	ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutputWithContext(context.Context) DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput
-}
-
-type dashboardV2WidgetLogStreamDefinitionTimeFixedPtrType DashboardV2WidgetLogStreamDefinitionTimeFixedArgs
-
-func DashboardV2WidgetLogStreamDefinitionTimeFixedPtr(v *DashboardV2WidgetLogStreamDefinitionTimeFixedArgs) DashboardV2WidgetLogStreamDefinitionTimeFixedPtrInput {
-	return (*dashboardV2WidgetLogStreamDefinitionTimeFixedPtrType)(v)
-}
-
-func (*dashboardV2WidgetLogStreamDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogStreamDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetLogStreamDefinitionTimeFixedPtrType) ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput() DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetLogStreamDefinitionTimeFixedPtrType) ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogStreamDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedOutput) ToDashboardV2WidgetLogStreamDefinitionTimeFixedOutput() DashboardV2WidgetLogStreamDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedOutput) ToDashboardV2WidgetLogStreamDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedOutput) ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput() DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput {
-	return o.ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedOutput) ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetLogStreamDefinitionTimeFixed) *DashboardV2WidgetLogStreamDefinitionTimeFixed {
-		return &v
-	}).(DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogStreamDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput() DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput) Elem() DashboardV2WidgetLogStreamDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionTimeFixed) DashboardV2WidgetLogStreamDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetLogStreamDefinitionTimeFixed
-		return ret
-	}).(DashboardV2WidgetLogStreamDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// DashboardV2WidgetLogStreamDefinitionTimeLiveInput is an input type that accepts DashboardV2WidgetLogStreamDefinitionTimeLiveArgs and DashboardV2WidgetLogStreamDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogStreamDefinitionTimeLiveInput` via:
-//
-//	DashboardV2WidgetLogStreamDefinitionTimeLiveArgs{...}
-type DashboardV2WidgetLogStreamDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogStreamDefinitionTimeLiveOutput() DashboardV2WidgetLogStreamDefinitionTimeLiveOutput
-	ToDashboardV2WidgetLogStreamDefinitionTimeLiveOutputWithContext(context.Context) DashboardV2WidgetLogStreamDefinitionTimeLiveOutput
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (DashboardV2WidgetLogStreamDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeLiveArgs) ToDashboardV2WidgetLogStreamDefinitionTimeLiveOutput() DashboardV2WidgetLogStreamDefinitionTimeLiveOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeLiveArgs) ToDashboardV2WidgetLogStreamDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionTimeLiveOutput)
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeLiveArgs) ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput() DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetLogStreamDefinitionTimeLiveArgs) ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionTimeLiveOutput).ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetLogStreamDefinitionTimeLivePtrInput is an input type that accepts DashboardV2WidgetLogStreamDefinitionTimeLiveArgs, DashboardV2WidgetLogStreamDefinitionTimeLivePtr and DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetLogStreamDefinitionTimeLivePtrInput` via:
-//
-//	        DashboardV2WidgetLogStreamDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetLogStreamDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput() DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput
-	ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutputWithContext(context.Context) DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput
-}
-
-type dashboardV2WidgetLogStreamDefinitionTimeLivePtrType DashboardV2WidgetLogStreamDefinitionTimeLiveArgs
-
-func DashboardV2WidgetLogStreamDefinitionTimeLivePtr(v *DashboardV2WidgetLogStreamDefinitionTimeLiveArgs) DashboardV2WidgetLogStreamDefinitionTimeLivePtrInput {
-	return (*dashboardV2WidgetLogStreamDefinitionTimeLivePtrType)(v)
-}
-
-func (*dashboardV2WidgetLogStreamDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogStreamDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetLogStreamDefinitionTimeLivePtrType) ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput() DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetLogStreamDefinitionTimeLivePtrType) ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogStreamDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeLiveOutput) ToDashboardV2WidgetLogStreamDefinitionTimeLiveOutput() DashboardV2WidgetLogStreamDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeLiveOutput) ToDashboardV2WidgetLogStreamDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeLiveOutput) ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput() DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput {
-	return o.ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeLiveOutput) ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetLogStreamDefinitionTimeLive) *DashboardV2WidgetLogStreamDefinitionTimeLive {
-		return &v
-	}).(DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetLogStreamDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetLogStreamDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetLogStreamDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetLogStreamDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput) ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput() DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput) ToDashboardV2WidgetLogStreamDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput) Elem() DashboardV2WidgetLogStreamDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionTimeLive) DashboardV2WidgetLogStreamDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetLogStreamDefinitionTimeLive
-		return ret
-	}).(DashboardV2WidgetLogStreamDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetLogStreamDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinition struct {
-	// Whether to colorize text or background. Valid values are `background`, `text`.
-	ColorPreference *string `pulumi:"colorPreference"`
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
-	DisplayFormat *string `pulumi:"displayFormat"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// A Boolean indicating whether to hide empty categories.
-	HideZeroCounts *bool `pulumi:"hideZeroCounts"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// Query to filter the monitors with.
-	Query string `pulumi:"query"`
-	// Whether to show the time that has elapsed since the monitor/group triggered.
-	ShowLastTriggered *bool `pulumi:"showLastTriggered"`
-	// Whether to show the priorities column.
-	ShowPriority *bool `pulumi:"showPriority"`
-	// The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
-	Sort *string `pulumi:"sort"`
-	// The summary type to use. Valid values are `monitors`, `groups`, `combined`.
-	SummaryType *string `pulumi:"summaryType"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *DashboardV2WidgetManageStatusDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-}
-
-// DashboardV2WidgetManageStatusDefinitionInput is an input type that accepts DashboardV2WidgetManageStatusDefinitionArgs and DashboardV2WidgetManageStatusDefinitionOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetManageStatusDefinitionInput` via:
-//
-//	DashboardV2WidgetManageStatusDefinitionArgs{...}
-type DashboardV2WidgetManageStatusDefinitionInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetManageStatusDefinitionOutput() DashboardV2WidgetManageStatusDefinitionOutput
-	ToDashboardV2WidgetManageStatusDefinitionOutputWithContext(context.Context) DashboardV2WidgetManageStatusDefinitionOutput
-}
-
-type DashboardV2WidgetManageStatusDefinitionArgs struct {
-	// Whether to colorize text or background. Valid values are `background`, `text`.
-	ColorPreference pulumi.StringPtrInput `pulumi:"colorPreference"`
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
-	DisplayFormat pulumi.StringPtrInput `pulumi:"displayFormat"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// A Boolean indicating whether to hide empty categories.
-	HideZeroCounts pulumi.BoolPtrInput `pulumi:"hideZeroCounts"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// Query to filter the monitors with.
-	Query pulumi.StringInput `pulumi:"query"`
-	// Whether to show the time that has elapsed since the monitor/group triggered.
-	ShowLastTriggered pulumi.BoolPtrInput `pulumi:"showLastTriggered"`
-	// Whether to show the priorities column.
-	ShowPriority pulumi.BoolPtrInput `pulumi:"showPriority"`
-	// The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
-	Sort pulumi.StringPtrInput `pulumi:"sort"`
-	// The summary type to use. Valid values are `monitors`, `groups`, `combined`.
-	SummaryType pulumi.StringPtrInput `pulumi:"summaryType"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time DashboardV2WidgetManageStatusDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-}
-
-func (DashboardV2WidgetManageStatusDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetManageStatusDefinition)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionArgs) ToDashboardV2WidgetManageStatusDefinitionOutput() DashboardV2WidgetManageStatusDefinitionOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionArgs) ToDashboardV2WidgetManageStatusDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionOutput)
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionArgs) ToDashboardV2WidgetManageStatusDefinitionPtrOutput() DashboardV2WidgetManageStatusDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionArgs) ToDashboardV2WidgetManageStatusDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionOutput).ToDashboardV2WidgetManageStatusDefinitionPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetManageStatusDefinitionPtrInput is an input type that accepts DashboardV2WidgetManageStatusDefinitionArgs, DashboardV2WidgetManageStatusDefinitionPtr and DashboardV2WidgetManageStatusDefinitionPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetManageStatusDefinitionPtrInput` via:
-//
-//	        DashboardV2WidgetManageStatusDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetManageStatusDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetManageStatusDefinitionPtrOutput() DashboardV2WidgetManageStatusDefinitionPtrOutput
-	ToDashboardV2WidgetManageStatusDefinitionPtrOutputWithContext(context.Context) DashboardV2WidgetManageStatusDefinitionPtrOutput
-}
-
-type dashboardV2WidgetManageStatusDefinitionPtrType DashboardV2WidgetManageStatusDefinitionArgs
-
-func DashboardV2WidgetManageStatusDefinitionPtr(v *DashboardV2WidgetManageStatusDefinitionArgs) DashboardV2WidgetManageStatusDefinitionPtrInput {
-	return (*dashboardV2WidgetManageStatusDefinitionPtrType)(v)
-}
-
-func (*dashboardV2WidgetManageStatusDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetManageStatusDefinition)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetManageStatusDefinitionPtrType) ToDashboardV2WidgetManageStatusDefinitionPtrOutput() DashboardV2WidgetManageStatusDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetManageStatusDefinitionPtrType) ToDashboardV2WidgetManageStatusDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionPtrOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetManageStatusDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetManageStatusDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionOutput) ToDashboardV2WidgetManageStatusDefinitionOutput() DashboardV2WidgetManageStatusDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionOutput) ToDashboardV2WidgetManageStatusDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionOutput) ToDashboardV2WidgetManageStatusDefinitionPtrOutput() DashboardV2WidgetManageStatusDefinitionPtrOutput {
-	return o.ToDashboardV2WidgetManageStatusDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionOutput) ToDashboardV2WidgetManageStatusDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetManageStatusDefinition) *DashboardV2WidgetManageStatusDefinition {
-		return &v
-	}).(DashboardV2WidgetManageStatusDefinitionPtrOutput)
-}
-
-// Whether to colorize text or background. Valid values are `background`, `text`.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) ColorPreference() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *string { return v.ColorPreference }).(pulumi.StringPtrOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) DisplayFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *string { return v.DisplayFormat }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean indicating whether to hide empty categories.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) HideZeroCounts() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *bool { return v.HideZeroCounts }).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// Query to filter the monitors with.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) string { return v.Query }).(pulumi.StringOutput)
-}
-
-// Whether to show the time that has elapsed since the monitor/group triggered.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) ShowLastTriggered() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *bool { return v.ShowLastTriggered }).(pulumi.BoolPtrOutput)
-}
-
-// Whether to show the priorities column.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) ShowPriority() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *bool { return v.ShowPriority }).(pulumi.BoolPtrOutput)
-}
-
-// The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) Sort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *string { return v.Sort }).(pulumi.StringPtrOutput)
-}
-
-// The summary type to use. Valid values are `monitors`, `groups`, `combined`.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) SummaryType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *string { return v.SummaryType }).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) Time() DashboardV2WidgetManageStatusDefinitionTimePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *DashboardV2WidgetManageStatusDefinitionTime {
-		return v.Time
-	}).(DashboardV2WidgetManageStatusDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetManageStatusDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetManageStatusDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetManageStatusDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetManageStatusDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) ToDashboardV2WidgetManageStatusDefinitionPtrOutput() DashboardV2WidgetManageStatusDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) ToDashboardV2WidgetManageStatusDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) Elem() DashboardV2WidgetManageStatusDefinitionOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) DashboardV2WidgetManageStatusDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetManageStatusDefinition
-		return ret
-	}).(DashboardV2WidgetManageStatusDefinitionOutput)
-}
-
-// Whether to colorize text or background. Valid values are `background`, `text`.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) ColorPreference() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ColorPreference
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The display setting to use. Valid values are `counts`, `countsAndList`, `list`.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) DisplayFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A Boolean indicating whether to hide empty categories.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) HideZeroCounts() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideZeroCounts
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// Query to filter the monitors with.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to show the time that has elapsed since the monitor/group triggered.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) ShowLastTriggered() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ShowLastTriggered
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether to show the priorities column.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) ShowPriority() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ShowPriority
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The method to sort the monitors. Valid values are `name`, `group`, `status`, `tags`, `triggered`, `group,asc`, `group,desc`, `name,asc`, `name,desc`, `status,asc`, `status,desc`, `tags,asc`, `tags,desc`, `triggered,asc`, `triggered,desc`, `priority,asc`, `priority,desc`.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) Sort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Sort
-	}).(pulumi.StringPtrOutput)
-}
-
-// The summary type to use. Valid values are `monitors`, `groups`, `combined`.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) SummaryType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SummaryType
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) Time() DashboardV2WidgetManageStatusDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *DashboardV2WidgetManageStatusDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(DashboardV2WidgetManageStatusDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetManageStatusDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *DashboardV2WidgetManageStatusDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *DashboardV2WidgetManageStatusDefinitionTimeLive `pulumi:"live"`
-}
-
-// DashboardV2WidgetManageStatusDefinitionTimeInput is an input type that accepts DashboardV2WidgetManageStatusDefinitionTimeArgs and DashboardV2WidgetManageStatusDefinitionTimeOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetManageStatusDefinitionTimeInput` via:
-//
-//	DashboardV2WidgetManageStatusDefinitionTimeArgs{...}
-type DashboardV2WidgetManageStatusDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetManageStatusDefinitionTimeOutput() DashboardV2WidgetManageStatusDefinitionTimeOutput
-	ToDashboardV2WidgetManageStatusDefinitionTimeOutputWithContext(context.Context) DashboardV2WidgetManageStatusDefinitionTimeOutput
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed DashboardV2WidgetManageStatusDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live DashboardV2WidgetManageStatusDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (DashboardV2WidgetManageStatusDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTime)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeArgs) ToDashboardV2WidgetManageStatusDefinitionTimeOutput() DashboardV2WidgetManageStatusDefinitionTimeOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeArgs) ToDashboardV2WidgetManageStatusDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionTimeOutput)
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeArgs) ToDashboardV2WidgetManageStatusDefinitionTimePtrOutput() DashboardV2WidgetManageStatusDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeArgs) ToDashboardV2WidgetManageStatusDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionTimeOutput).ToDashboardV2WidgetManageStatusDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetManageStatusDefinitionTimePtrInput is an input type that accepts DashboardV2WidgetManageStatusDefinitionTimeArgs, DashboardV2WidgetManageStatusDefinitionTimePtr and DashboardV2WidgetManageStatusDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetManageStatusDefinitionTimePtrInput` via:
-//
-//	        DashboardV2WidgetManageStatusDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetManageStatusDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetManageStatusDefinitionTimePtrOutput() DashboardV2WidgetManageStatusDefinitionTimePtrOutput
-	ToDashboardV2WidgetManageStatusDefinitionTimePtrOutputWithContext(context.Context) DashboardV2WidgetManageStatusDefinitionTimePtrOutput
-}
-
-type dashboardV2WidgetManageStatusDefinitionTimePtrType DashboardV2WidgetManageStatusDefinitionTimeArgs
-
-func DashboardV2WidgetManageStatusDefinitionTimePtr(v *DashboardV2WidgetManageStatusDefinitionTimeArgs) DashboardV2WidgetManageStatusDefinitionTimePtrInput {
-	return (*dashboardV2WidgetManageStatusDefinitionTimePtrType)(v)
-}
-
-func (*dashboardV2WidgetManageStatusDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetManageStatusDefinitionTime)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetManageStatusDefinitionTimePtrType) ToDashboardV2WidgetManageStatusDefinitionTimePtrOutput() DashboardV2WidgetManageStatusDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetManageStatusDefinitionTimePtrType) ToDashboardV2WidgetManageStatusDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionTimePtrOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetManageStatusDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeOutput) ToDashboardV2WidgetManageStatusDefinitionTimeOutput() DashboardV2WidgetManageStatusDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeOutput) ToDashboardV2WidgetManageStatusDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeOutput) ToDashboardV2WidgetManageStatusDefinitionTimePtrOutput() DashboardV2WidgetManageStatusDefinitionTimePtrOutput {
-	return o.ToDashboardV2WidgetManageStatusDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeOutput) ToDashboardV2WidgetManageStatusDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetManageStatusDefinitionTime) *DashboardV2WidgetManageStatusDefinitionTime {
-		return &v
-	}).(DashboardV2WidgetManageStatusDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetManageStatusDefinitionTimeOutput) Fixed() DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinitionTime) *DashboardV2WidgetManageStatusDefinitionTimeFixed {
-		return v.Fixed
-	}).(DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetManageStatusDefinitionTimeOutput) Live() DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinitionTime) *DashboardV2WidgetManageStatusDefinitionTimeLive {
-		return v.Live
-	}).(DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetManageStatusDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetManageStatusDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimePtrOutput) ToDashboardV2WidgetManageStatusDefinitionTimePtrOutput() DashboardV2WidgetManageStatusDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimePtrOutput) ToDashboardV2WidgetManageStatusDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimePtrOutput) Elem() DashboardV2WidgetManageStatusDefinitionTimeOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinitionTime) DashboardV2WidgetManageStatusDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetManageStatusDefinitionTime
-		return ret
-	}).(DashboardV2WidgetManageStatusDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetManageStatusDefinitionTimePtrOutput) Fixed() DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinitionTime) *DashboardV2WidgetManageStatusDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetManageStatusDefinitionTimePtrOutput) Live() DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinitionTime) *DashboardV2WidgetManageStatusDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// DashboardV2WidgetManageStatusDefinitionTimeFixedInput is an input type that accepts DashboardV2WidgetManageStatusDefinitionTimeFixedArgs and DashboardV2WidgetManageStatusDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetManageStatusDefinitionTimeFixedInput` via:
-//
-//	DashboardV2WidgetManageStatusDefinitionTimeFixedArgs{...}
-type DashboardV2WidgetManageStatusDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetManageStatusDefinitionTimeFixedOutput() DashboardV2WidgetManageStatusDefinitionTimeFixedOutput
-	ToDashboardV2WidgetManageStatusDefinitionTimeFixedOutputWithContext(context.Context) DashboardV2WidgetManageStatusDefinitionTimeFixedOutput
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (DashboardV2WidgetManageStatusDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeFixedArgs) ToDashboardV2WidgetManageStatusDefinitionTimeFixedOutput() DashboardV2WidgetManageStatusDefinitionTimeFixedOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeFixedArgs) ToDashboardV2WidgetManageStatusDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionTimeFixedOutput)
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeFixedArgs) ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput() DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeFixedArgs) ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionTimeFixedOutput).ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetManageStatusDefinitionTimeFixedPtrInput is an input type that accepts DashboardV2WidgetManageStatusDefinitionTimeFixedArgs, DashboardV2WidgetManageStatusDefinitionTimeFixedPtr and DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetManageStatusDefinitionTimeFixedPtrInput` via:
-//
-//	        DashboardV2WidgetManageStatusDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetManageStatusDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput() DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput
-	ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutputWithContext(context.Context) DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput
-}
-
-type dashboardV2WidgetManageStatusDefinitionTimeFixedPtrType DashboardV2WidgetManageStatusDefinitionTimeFixedArgs
-
-func DashboardV2WidgetManageStatusDefinitionTimeFixedPtr(v *DashboardV2WidgetManageStatusDefinitionTimeFixedArgs) DashboardV2WidgetManageStatusDefinitionTimeFixedPtrInput {
-	return (*dashboardV2WidgetManageStatusDefinitionTimeFixedPtrType)(v)
-}
-
-func (*dashboardV2WidgetManageStatusDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetManageStatusDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetManageStatusDefinitionTimeFixedPtrType) ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput() DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetManageStatusDefinitionTimeFixedPtrType) ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetManageStatusDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedOutput) ToDashboardV2WidgetManageStatusDefinitionTimeFixedOutput() DashboardV2WidgetManageStatusDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedOutput) ToDashboardV2WidgetManageStatusDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedOutput) ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput() DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput {
-	return o.ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedOutput) ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetManageStatusDefinitionTimeFixed) *DashboardV2WidgetManageStatusDefinitionTimeFixed {
-		return &v
-	}).(DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetManageStatusDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput() DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput) Elem() DashboardV2WidgetManageStatusDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinitionTimeFixed) DashboardV2WidgetManageStatusDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetManageStatusDefinitionTimeFixed
-		return ret
-	}).(DashboardV2WidgetManageStatusDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// DashboardV2WidgetManageStatusDefinitionTimeLiveInput is an input type that accepts DashboardV2WidgetManageStatusDefinitionTimeLiveArgs and DashboardV2WidgetManageStatusDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetManageStatusDefinitionTimeLiveInput` via:
-//
-//	DashboardV2WidgetManageStatusDefinitionTimeLiveArgs{...}
-type DashboardV2WidgetManageStatusDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetManageStatusDefinitionTimeLiveOutput() DashboardV2WidgetManageStatusDefinitionTimeLiveOutput
-	ToDashboardV2WidgetManageStatusDefinitionTimeLiveOutputWithContext(context.Context) DashboardV2WidgetManageStatusDefinitionTimeLiveOutput
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (DashboardV2WidgetManageStatusDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeLiveArgs) ToDashboardV2WidgetManageStatusDefinitionTimeLiveOutput() DashboardV2WidgetManageStatusDefinitionTimeLiveOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeLiveArgs) ToDashboardV2WidgetManageStatusDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionTimeLiveOutput)
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeLiveArgs) ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput() DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetManageStatusDefinitionTimeLiveArgs) ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionTimeLiveOutput).ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetManageStatusDefinitionTimeLivePtrInput is an input type that accepts DashboardV2WidgetManageStatusDefinitionTimeLiveArgs, DashboardV2WidgetManageStatusDefinitionTimeLivePtr and DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetManageStatusDefinitionTimeLivePtrInput` via:
-//
-//	        DashboardV2WidgetManageStatusDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetManageStatusDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput() DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput
-	ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutputWithContext(context.Context) DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput
-}
-
-type dashboardV2WidgetManageStatusDefinitionTimeLivePtrType DashboardV2WidgetManageStatusDefinitionTimeLiveArgs
-
-func DashboardV2WidgetManageStatusDefinitionTimeLivePtr(v *DashboardV2WidgetManageStatusDefinitionTimeLiveArgs) DashboardV2WidgetManageStatusDefinitionTimeLivePtrInput {
-	return (*dashboardV2WidgetManageStatusDefinitionTimeLivePtrType)(v)
-}
-
-func (*dashboardV2WidgetManageStatusDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetManageStatusDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetManageStatusDefinitionTimeLivePtrType) ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput() DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetManageStatusDefinitionTimeLivePtrType) ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetManageStatusDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeLiveOutput) ToDashboardV2WidgetManageStatusDefinitionTimeLiveOutput() DashboardV2WidgetManageStatusDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeLiveOutput) ToDashboardV2WidgetManageStatusDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeLiveOutput) ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput() DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput {
-	return o.ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeLiveOutput) ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetManageStatusDefinitionTimeLive) *DashboardV2WidgetManageStatusDefinitionTimeLive {
-		return &v
-	}).(DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetManageStatusDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetManageStatusDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetManageStatusDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetManageStatusDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput) ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput() DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput) ToDashboardV2WidgetManageStatusDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput) Elem() DashboardV2WidgetManageStatusDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinitionTimeLive) DashboardV2WidgetManageStatusDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetManageStatusDefinitionTimeLive
-		return ret
-	}).(DashboardV2WidgetManageStatusDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetManageStatusDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetMetricQuery struct {
-	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-	Aggregator *string `pulumi:"aggregator"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for metrics queries. Defaults to `"metrics"`.
-	DataSource *string `pulumi:"dataSource"`
-	// The name of the query for use in formulas.
-	Name string `pulumi:"name"`
-	// The metrics query definition.
-	Query string `pulumi:"query"`
-	// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
-	SemanticMode *string `pulumi:"semanticMode"`
-}
-
-// DashboardV2WidgetMetricQueryInput is an input type that accepts DashboardV2WidgetMetricQueryArgs and DashboardV2WidgetMetricQueryOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetMetricQueryInput` via:
-//
-//	DashboardV2WidgetMetricQueryArgs{...}
-type DashboardV2WidgetMetricQueryInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetMetricQueryOutput() DashboardV2WidgetMetricQueryOutput
-	ToDashboardV2WidgetMetricQueryOutputWithContext(context.Context) DashboardV2WidgetMetricQueryOutput
-}
-
-type DashboardV2WidgetMetricQueryArgs struct {
-	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for metrics queries. Defaults to `"metrics"`.
-	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
-	// The name of the query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The metrics query definition.
-	Query pulumi.StringInput `pulumi:"query"`
-	// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
-	SemanticMode pulumi.StringPtrInput `pulumi:"semanticMode"`
-}
-
-func (DashboardV2WidgetMetricQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetMetricQuery)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetMetricQueryArgs) ToDashboardV2WidgetMetricQueryOutput() DashboardV2WidgetMetricQueryOutput {
-	return i.ToDashboardV2WidgetMetricQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetMetricQueryArgs) ToDashboardV2WidgetMetricQueryOutputWithContext(ctx context.Context) DashboardV2WidgetMetricQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetMetricQueryOutput)
-}
-
-func (i DashboardV2WidgetMetricQueryArgs) ToDashboardV2WidgetMetricQueryPtrOutput() DashboardV2WidgetMetricQueryPtrOutput {
-	return i.ToDashboardV2WidgetMetricQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetMetricQueryArgs) ToDashboardV2WidgetMetricQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetMetricQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetMetricQueryOutput).ToDashboardV2WidgetMetricQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetMetricQueryPtrInput is an input type that accepts DashboardV2WidgetMetricQueryArgs, DashboardV2WidgetMetricQueryPtr and DashboardV2WidgetMetricQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetMetricQueryPtrInput` via:
-//
-//	        DashboardV2WidgetMetricQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetMetricQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetMetricQueryPtrOutput() DashboardV2WidgetMetricQueryPtrOutput
-	ToDashboardV2WidgetMetricQueryPtrOutputWithContext(context.Context) DashboardV2WidgetMetricQueryPtrOutput
-}
-
-type dashboardV2WidgetMetricQueryPtrType DashboardV2WidgetMetricQueryArgs
-
-func DashboardV2WidgetMetricQueryPtr(v *DashboardV2WidgetMetricQueryArgs) DashboardV2WidgetMetricQueryPtrInput {
-	return (*dashboardV2WidgetMetricQueryPtrType)(v)
-}
-
-func (*dashboardV2WidgetMetricQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetMetricQuery)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetMetricQueryPtrType) ToDashboardV2WidgetMetricQueryPtrOutput() DashboardV2WidgetMetricQueryPtrOutput {
-	return i.ToDashboardV2WidgetMetricQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetMetricQueryPtrType) ToDashboardV2WidgetMetricQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetMetricQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetMetricQueryPtrOutput)
-}
-
-type DashboardV2WidgetMetricQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetMetricQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetMetricQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetMetricQueryOutput) ToDashboardV2WidgetMetricQueryOutput() DashboardV2WidgetMetricQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetMetricQueryOutput) ToDashboardV2WidgetMetricQueryOutputWithContext(ctx context.Context) DashboardV2WidgetMetricQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetMetricQueryOutput) ToDashboardV2WidgetMetricQueryPtrOutput() DashboardV2WidgetMetricQueryPtrOutput {
-	return o.ToDashboardV2WidgetMetricQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetMetricQueryOutput) ToDashboardV2WidgetMetricQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetMetricQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetMetricQuery) *DashboardV2WidgetMetricQuery {
-		return &v
-	}).(DashboardV2WidgetMetricQueryPtrOutput)
-}
-
-// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-func (o DashboardV2WidgetMetricQueryOutput) Aggregator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetMetricQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardV2WidgetMetricQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetMetricQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
-}
-
-// The data source for metrics queries. Defaults to `"metrics"`.
-func (o DashboardV2WidgetMetricQueryOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetMetricQuery) *string { return v.DataSource }).(pulumi.StringPtrOutput)
-}
-
-// The name of the query for use in formulas.
-func (o DashboardV2WidgetMetricQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetMetricQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The metrics query definition.
-func (o DashboardV2WidgetMetricQueryOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetMetricQuery) string { return v.Query }).(pulumi.StringOutput)
-}
-
-// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
-func (o DashboardV2WidgetMetricQueryOutput) SemanticMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetMetricQuery) *string { return v.SemanticMode }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetMetricQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetMetricQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetMetricQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetMetricQueryPtrOutput) ToDashboardV2WidgetMetricQueryPtrOutput() DashboardV2WidgetMetricQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetMetricQueryPtrOutput) ToDashboardV2WidgetMetricQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetMetricQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetMetricQueryPtrOutput) Elem() DashboardV2WidgetMetricQueryOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetMetricQuery) DashboardV2WidgetMetricQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetMetricQuery
-		return ret
-	}).(DashboardV2WidgetMetricQueryOutput)
-}
-
-// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-func (o DashboardV2WidgetMetricQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetMetricQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Aggregator
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardV2WidgetMetricQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetMetricQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for metrics queries. Defaults to `"metrics"`.
-func (o DashboardV2WidgetMetricQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetMetricQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the query for use in formulas.
-func (o DashboardV2WidgetMetricQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetMetricQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The metrics query definition.
-func (o DashboardV2WidgetMetricQueryPtrOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetMetricQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-// Semantic mode for metrics queries. This determines how metrics from different sources are combined or displayed. Valid values are `combined`, `native`.
-func (o DashboardV2WidgetMetricQueryPtrOutput) SemanticMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetMetricQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SemanticMode
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetNoteDefinition struct {
-	// The background color of the note.
-	BackgroundColor *string `pulumi:"backgroundColor"`
-	// The content of the note.
-	Content string `pulumi:"content"`
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// The size of the text.
-	FontSize *string `pulumi:"fontSize"`
-	// Whether to add padding or not. Defaults to `true`.
-	HasPadding *bool `pulumi:"hasPadding"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// Whether to show a tick or not.
-	ShowTick *bool `pulumi:"showTick"`
-	// The alignment of the widget's text. Valid values are `center`, `left`, `right`.
-	TextAlign *string `pulumi:"textAlign"`
-	// When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
-	TickEdge *string `pulumi:"tickEdge"`
-	// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
-	TickPos *string `pulumi:"tickPos"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *DashboardV2WidgetNoteDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-	// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
-	VerticalAlign *string `pulumi:"verticalAlign"`
-}
-
-// DashboardV2WidgetNoteDefinitionInput is an input type that accepts DashboardV2WidgetNoteDefinitionArgs and DashboardV2WidgetNoteDefinitionOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetNoteDefinitionInput` via:
-//
-//	DashboardV2WidgetNoteDefinitionArgs{...}
-type DashboardV2WidgetNoteDefinitionInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetNoteDefinitionOutput() DashboardV2WidgetNoteDefinitionOutput
-	ToDashboardV2WidgetNoteDefinitionOutputWithContext(context.Context) DashboardV2WidgetNoteDefinitionOutput
-}
-
-type DashboardV2WidgetNoteDefinitionArgs struct {
-	// The background color of the note.
-	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
-	// The content of the note.
-	Content pulumi.StringInput `pulumi:"content"`
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The size of the text.
-	FontSize pulumi.StringPtrInput `pulumi:"fontSize"`
-	// Whether to add padding or not. Defaults to `true`.
-	HasPadding pulumi.BoolPtrInput `pulumi:"hasPadding"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// Whether to show a tick or not.
-	ShowTick pulumi.BoolPtrInput `pulumi:"showTick"`
-	// The alignment of the widget's text. Valid values are `center`, `left`, `right`.
-	TextAlign pulumi.StringPtrInput `pulumi:"textAlign"`
-	// When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
-	TickEdge pulumi.StringPtrInput `pulumi:"tickEdge"`
-	// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
-	TickPos pulumi.StringPtrInput `pulumi:"tickPos"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time DashboardV2WidgetNoteDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-	// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
-	VerticalAlign pulumi.StringPtrInput `pulumi:"verticalAlign"`
-}
-
-func (DashboardV2WidgetNoteDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetNoteDefinition)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetNoteDefinitionArgs) ToDashboardV2WidgetNoteDefinitionOutput() DashboardV2WidgetNoteDefinitionOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetNoteDefinitionArgs) ToDashboardV2WidgetNoteDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionOutput)
-}
-
-func (i DashboardV2WidgetNoteDefinitionArgs) ToDashboardV2WidgetNoteDefinitionPtrOutput() DashboardV2WidgetNoteDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetNoteDefinitionArgs) ToDashboardV2WidgetNoteDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionOutput).ToDashboardV2WidgetNoteDefinitionPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetNoteDefinitionPtrInput is an input type that accepts DashboardV2WidgetNoteDefinitionArgs, DashboardV2WidgetNoteDefinitionPtr and DashboardV2WidgetNoteDefinitionPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetNoteDefinitionPtrInput` via:
-//
-//	        DashboardV2WidgetNoteDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetNoteDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetNoteDefinitionPtrOutput() DashboardV2WidgetNoteDefinitionPtrOutput
-	ToDashboardV2WidgetNoteDefinitionPtrOutputWithContext(context.Context) DashboardV2WidgetNoteDefinitionPtrOutput
-}
-
-type dashboardV2WidgetNoteDefinitionPtrType DashboardV2WidgetNoteDefinitionArgs
-
-func DashboardV2WidgetNoteDefinitionPtr(v *DashboardV2WidgetNoteDefinitionArgs) DashboardV2WidgetNoteDefinitionPtrInput {
-	return (*dashboardV2WidgetNoteDefinitionPtrType)(v)
-}
-
-func (*dashboardV2WidgetNoteDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetNoteDefinition)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetNoteDefinitionPtrType) ToDashboardV2WidgetNoteDefinitionPtrOutput() DashboardV2WidgetNoteDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetNoteDefinitionPtrType) ToDashboardV2WidgetNoteDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionPtrOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetNoteDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetNoteDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetNoteDefinitionOutput) ToDashboardV2WidgetNoteDefinitionOutput() DashboardV2WidgetNoteDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionOutput) ToDashboardV2WidgetNoteDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionOutput) ToDashboardV2WidgetNoteDefinitionPtrOutput() DashboardV2WidgetNoteDefinitionPtrOutput {
-	return o.ToDashboardV2WidgetNoteDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetNoteDefinitionOutput) ToDashboardV2WidgetNoteDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetNoteDefinition) *DashboardV2WidgetNoteDefinition {
-		return &v
-	}).(DashboardV2WidgetNoteDefinitionPtrOutput)
-}
-
-// The background color of the note.
-func (o DashboardV2WidgetNoteDefinitionOutput) BackgroundColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
-}
-
-// The content of the note.
-func (o DashboardV2WidgetNoteDefinitionOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) string { return v.Content }).(pulumi.StringOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetNoteDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The size of the text.
-func (o DashboardV2WidgetNoteDefinitionOutput) FontSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.FontSize }).(pulumi.StringPtrOutput)
-}
-
-// Whether to add padding or not. Defaults to `true`.
-func (o DashboardV2WidgetNoteDefinitionOutput) HasPadding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *bool { return v.HasPadding }).(pulumi.BoolPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetNoteDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetNoteDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// Whether to show a tick or not.
-func (o DashboardV2WidgetNoteDefinitionOutput) ShowTick() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *bool { return v.ShowTick }).(pulumi.BoolPtrOutput)
-}
-
-// The alignment of the widget's text. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetNoteDefinitionOutput) TextAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.TextAlign }).(pulumi.StringPtrOutput)
-}
-
-// When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
-func (o DashboardV2WidgetNoteDefinitionOutput) TickEdge() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.TickEdge }).(pulumi.StringPtrOutput)
-}
-
-// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
-func (o DashboardV2WidgetNoteDefinitionOutput) TickPos() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.TickPos }).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetNoteDefinitionOutput) Time() DashboardV2WidgetNoteDefinitionTimePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *DashboardV2WidgetNoteDefinitionTime { return v.Time }).(DashboardV2WidgetNoteDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetNoteDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetNoteDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetNoteDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
-func (o DashboardV2WidgetNoteDefinitionOutput) VerticalAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinition) *string { return v.VerticalAlign }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetNoteDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetNoteDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) ToDashboardV2WidgetNoteDefinitionPtrOutput() DashboardV2WidgetNoteDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) ToDashboardV2WidgetNoteDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) Elem() DashboardV2WidgetNoteDefinitionOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) DashboardV2WidgetNoteDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetNoteDefinition
-		return ret
-	}).(DashboardV2WidgetNoteDefinitionOutput)
-}
-
-// The background color of the note.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) BackgroundColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BackgroundColor
-	}).(pulumi.StringPtrOutput)
-}
-
-// The content of the note.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) Content() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Content
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the text.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) FontSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FontSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to add padding or not. Defaults to `true`.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) HasPadding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HasPadding
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to show a tick or not.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) ShowTick() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ShowTick
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The alignment of the widget's text. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) TextAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TextAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// When `tick = true`, a string indicating on which side of the widget the tick should be displayed. Valid values are `bottom`, `left`, `right`, `top`.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) TickEdge() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TickEdge
-	}).(pulumi.StringPtrOutput)
-}
-
-// When `tick = true`, a string with a percent sign indicating the position of the tick, for example: `tickPos = "50%"` is centered alignment.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) TickPos() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TickPos
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) Time() DashboardV2WidgetNoteDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *DashboardV2WidgetNoteDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(DashboardV2WidgetNoteDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// The vertical alignment for the widget. Valid values are `center`, `top`, `bottom`.
-func (o DashboardV2WidgetNoteDefinitionPtrOutput) VerticalAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VerticalAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *DashboardV2WidgetNoteDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *DashboardV2WidgetNoteDefinitionTimeLive `pulumi:"live"`
-}
-
-// DashboardV2WidgetNoteDefinitionTimeInput is an input type that accepts DashboardV2WidgetNoteDefinitionTimeArgs and DashboardV2WidgetNoteDefinitionTimeOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetNoteDefinitionTimeInput` via:
-//
-//	DashboardV2WidgetNoteDefinitionTimeArgs{...}
-type DashboardV2WidgetNoteDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetNoteDefinitionTimeOutput() DashboardV2WidgetNoteDefinitionTimeOutput
-	ToDashboardV2WidgetNoteDefinitionTimeOutputWithContext(context.Context) DashboardV2WidgetNoteDefinitionTimeOutput
-}
-
-type DashboardV2WidgetNoteDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed DashboardV2WidgetNoteDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live DashboardV2WidgetNoteDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (DashboardV2WidgetNoteDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTime)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeArgs) ToDashboardV2WidgetNoteDefinitionTimeOutput() DashboardV2WidgetNoteDefinitionTimeOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeArgs) ToDashboardV2WidgetNoteDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionTimeOutput)
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeArgs) ToDashboardV2WidgetNoteDefinitionTimePtrOutput() DashboardV2WidgetNoteDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeArgs) ToDashboardV2WidgetNoteDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionTimeOutput).ToDashboardV2WidgetNoteDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetNoteDefinitionTimePtrInput is an input type that accepts DashboardV2WidgetNoteDefinitionTimeArgs, DashboardV2WidgetNoteDefinitionTimePtr and DashboardV2WidgetNoteDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetNoteDefinitionTimePtrInput` via:
-//
-//	        DashboardV2WidgetNoteDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetNoteDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetNoteDefinitionTimePtrOutput() DashboardV2WidgetNoteDefinitionTimePtrOutput
-	ToDashboardV2WidgetNoteDefinitionTimePtrOutputWithContext(context.Context) DashboardV2WidgetNoteDefinitionTimePtrOutput
-}
-
-type dashboardV2WidgetNoteDefinitionTimePtrType DashboardV2WidgetNoteDefinitionTimeArgs
-
-func DashboardV2WidgetNoteDefinitionTimePtr(v *DashboardV2WidgetNoteDefinitionTimeArgs) DashboardV2WidgetNoteDefinitionTimePtrInput {
-	return (*dashboardV2WidgetNoteDefinitionTimePtrType)(v)
-}
-
-func (*dashboardV2WidgetNoteDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetNoteDefinitionTime)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetNoteDefinitionTimePtrType) ToDashboardV2WidgetNoteDefinitionTimePtrOutput() DashboardV2WidgetNoteDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetNoteDefinitionTimePtrType) ToDashboardV2WidgetNoteDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionTimePtrOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetNoteDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeOutput) ToDashboardV2WidgetNoteDefinitionTimeOutput() DashboardV2WidgetNoteDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeOutput) ToDashboardV2WidgetNoteDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeOutput) ToDashboardV2WidgetNoteDefinitionTimePtrOutput() DashboardV2WidgetNoteDefinitionTimePtrOutput {
-	return o.ToDashboardV2WidgetNoteDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeOutput) ToDashboardV2WidgetNoteDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetNoteDefinitionTime) *DashboardV2WidgetNoteDefinitionTime {
-		return &v
-	}).(DashboardV2WidgetNoteDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetNoteDefinitionTimeOutput) Fixed() DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinitionTime) *DashboardV2WidgetNoteDefinitionTimeFixed { return v.Fixed }).(DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetNoteDefinitionTimeOutput) Live() DashboardV2WidgetNoteDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinitionTime) *DashboardV2WidgetNoteDefinitionTimeLive { return v.Live }).(DashboardV2WidgetNoteDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetNoteDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetNoteDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimePtrOutput) ToDashboardV2WidgetNoteDefinitionTimePtrOutput() DashboardV2WidgetNoteDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimePtrOutput) ToDashboardV2WidgetNoteDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimePtrOutput) Elem() DashboardV2WidgetNoteDefinitionTimeOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinitionTime) DashboardV2WidgetNoteDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetNoteDefinitionTime
-		return ret
-	}).(DashboardV2WidgetNoteDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetNoteDefinitionTimePtrOutput) Fixed() DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinitionTime) *DashboardV2WidgetNoteDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetNoteDefinitionTimePtrOutput) Live() DashboardV2WidgetNoteDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinitionTime) *DashboardV2WidgetNoteDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(DashboardV2WidgetNoteDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// DashboardV2WidgetNoteDefinitionTimeFixedInput is an input type that accepts DashboardV2WidgetNoteDefinitionTimeFixedArgs and DashboardV2WidgetNoteDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetNoteDefinitionTimeFixedInput` via:
-//
-//	DashboardV2WidgetNoteDefinitionTimeFixedArgs{...}
-type DashboardV2WidgetNoteDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetNoteDefinitionTimeFixedOutput() DashboardV2WidgetNoteDefinitionTimeFixedOutput
-	ToDashboardV2WidgetNoteDefinitionTimeFixedOutputWithContext(context.Context) DashboardV2WidgetNoteDefinitionTimeFixedOutput
-}
-
-type DashboardV2WidgetNoteDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (DashboardV2WidgetNoteDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeFixedArgs) ToDashboardV2WidgetNoteDefinitionTimeFixedOutput() DashboardV2WidgetNoteDefinitionTimeFixedOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeFixedArgs) ToDashboardV2WidgetNoteDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionTimeFixedOutput)
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeFixedArgs) ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutput() DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeFixedArgs) ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionTimeFixedOutput).ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetNoteDefinitionTimeFixedPtrInput is an input type that accepts DashboardV2WidgetNoteDefinitionTimeFixedArgs, DashboardV2WidgetNoteDefinitionTimeFixedPtr and DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetNoteDefinitionTimeFixedPtrInput` via:
-//
-//	        DashboardV2WidgetNoteDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetNoteDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutput() DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput
-	ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutputWithContext(context.Context) DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput
-}
-
-type dashboardV2WidgetNoteDefinitionTimeFixedPtrType DashboardV2WidgetNoteDefinitionTimeFixedArgs
-
-func DashboardV2WidgetNoteDefinitionTimeFixedPtr(v *DashboardV2WidgetNoteDefinitionTimeFixedArgs) DashboardV2WidgetNoteDefinitionTimeFixedPtrInput {
-	return (*dashboardV2WidgetNoteDefinitionTimeFixedPtrType)(v)
-}
-
-func (*dashboardV2WidgetNoteDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetNoteDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetNoteDefinitionTimeFixedPtrType) ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutput() DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetNoteDefinitionTimeFixedPtrType) ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetNoteDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeFixedOutput) ToDashboardV2WidgetNoteDefinitionTimeFixedOutput() DashboardV2WidgetNoteDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeFixedOutput) ToDashboardV2WidgetNoteDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeFixedOutput) ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutput() DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput {
-	return o.ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeFixedOutput) ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetNoteDefinitionTimeFixed) *DashboardV2WidgetNoteDefinitionTimeFixed {
-		return &v
-	}).(DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetNoteDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetNoteDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetNoteDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutput() DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetNoteDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput) Elem() DashboardV2WidgetNoteDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinitionTimeFixed) DashboardV2WidgetNoteDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetNoteDefinitionTimeFixed
-		return ret
-	}).(DashboardV2WidgetNoteDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// DashboardV2WidgetNoteDefinitionTimeLiveInput is an input type that accepts DashboardV2WidgetNoteDefinitionTimeLiveArgs and DashboardV2WidgetNoteDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetNoteDefinitionTimeLiveInput` via:
-//
-//	DashboardV2WidgetNoteDefinitionTimeLiveArgs{...}
-type DashboardV2WidgetNoteDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetNoteDefinitionTimeLiveOutput() DashboardV2WidgetNoteDefinitionTimeLiveOutput
-	ToDashboardV2WidgetNoteDefinitionTimeLiveOutputWithContext(context.Context) DashboardV2WidgetNoteDefinitionTimeLiveOutput
-}
-
-type DashboardV2WidgetNoteDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (DashboardV2WidgetNoteDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeLiveArgs) ToDashboardV2WidgetNoteDefinitionTimeLiveOutput() DashboardV2WidgetNoteDefinitionTimeLiveOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeLiveArgs) ToDashboardV2WidgetNoteDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionTimeLiveOutput)
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeLiveArgs) ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutput() DashboardV2WidgetNoteDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetNoteDefinitionTimeLiveArgs) ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionTimeLiveOutput).ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetNoteDefinitionTimeLivePtrInput is an input type that accepts DashboardV2WidgetNoteDefinitionTimeLiveArgs, DashboardV2WidgetNoteDefinitionTimeLivePtr and DashboardV2WidgetNoteDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetNoteDefinitionTimeLivePtrInput` via:
-//
-//	        DashboardV2WidgetNoteDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetNoteDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutput() DashboardV2WidgetNoteDefinitionTimeLivePtrOutput
-	ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutputWithContext(context.Context) DashboardV2WidgetNoteDefinitionTimeLivePtrOutput
-}
-
-type dashboardV2WidgetNoteDefinitionTimeLivePtrType DashboardV2WidgetNoteDefinitionTimeLiveArgs
-
-func DashboardV2WidgetNoteDefinitionTimeLivePtr(v *DashboardV2WidgetNoteDefinitionTimeLiveArgs) DashboardV2WidgetNoteDefinitionTimeLivePtrInput {
-	return (*dashboardV2WidgetNoteDefinitionTimeLivePtrType)(v)
-}
-
-func (*dashboardV2WidgetNoteDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetNoteDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetNoteDefinitionTimeLivePtrType) ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutput() DashboardV2WidgetNoteDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetNoteDefinitionTimeLivePtrType) ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetNoteDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetNoteDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeLiveOutput) ToDashboardV2WidgetNoteDefinitionTimeLiveOutput() DashboardV2WidgetNoteDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeLiveOutput) ToDashboardV2WidgetNoteDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeLiveOutput) ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutput() DashboardV2WidgetNoteDefinitionTimeLivePtrOutput {
-	return o.ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeLiveOutput) ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetNoteDefinitionTimeLive) *DashboardV2WidgetNoteDefinitionTimeLive {
-		return &v
-	}).(DashboardV2WidgetNoteDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetNoteDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetNoteDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetNoteDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetNoteDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetNoteDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetNoteDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeLivePtrOutput) ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutput() DashboardV2WidgetNoteDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeLivePtrOutput) ToDashboardV2WidgetNoteDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetNoteDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetNoteDefinitionTimeLivePtrOutput) Elem() DashboardV2WidgetNoteDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinitionTimeLive) DashboardV2WidgetNoteDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetNoteDefinitionTimeLive
-		return ret
-	}).(DashboardV2WidgetNoteDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetNoteDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetNoteDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetNoteDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinition struct {
-	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-	CustomLinks []DashboardV2WidgetPointPlotDefinitionCustomLink `pulumi:"customLinks"`
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// Legend configuration for the widget.
-	Legend *DashboardV2WidgetPointPlotDefinitionLegend `pulumi:"legend"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// A nested block describing a marker to use when displaying the widget. Multiple `marker` blocks are allowed.
-	Markers []DashboardV2WidgetPointPlotDefinitionMarker `pulumi:"markers"`
-	// A nested block describing the request to use when displaying the widget.
-	Requests []DashboardV2WidgetPointPlotDefinitionRequest `pulumi:"requests"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *DashboardV2WidgetPointPlotDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-	// A nested block describing the Y-Axis Controls. The structure of this block is described below.
-	Yaxis *DashboardV2WidgetPointPlotDefinitionYaxis `pulumi:"yaxis"`
-}
-
-// DashboardV2WidgetPointPlotDefinitionInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionArgs and DashboardV2WidgetPointPlotDefinitionOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionArgs{...}
-type DashboardV2WidgetPointPlotDefinitionInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionOutput() DashboardV2WidgetPointPlotDefinitionOutput
-	ToDashboardV2WidgetPointPlotDefinitionOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionArgs struct {
-	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-	CustomLinks DashboardV2WidgetPointPlotDefinitionCustomLinkArrayInput `pulumi:"customLinks"`
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// Legend configuration for the widget.
-	Legend DashboardV2WidgetPointPlotDefinitionLegendPtrInput `pulumi:"legend"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// A nested block describing a marker to use when displaying the widget. Multiple `marker` blocks are allowed.
-	Markers DashboardV2WidgetPointPlotDefinitionMarkerArrayInput `pulumi:"markers"`
-	// A nested block describing the request to use when displaying the widget.
-	Requests DashboardV2WidgetPointPlotDefinitionRequestArrayInput `pulumi:"requests"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time DashboardV2WidgetPointPlotDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-	// A nested block describing the Y-Axis Controls. The structure of this block is described below.
-	Yaxis DashboardV2WidgetPointPlotDefinitionYaxisPtrInput `pulumi:"yaxis"`
-}
-
-func (DashboardV2WidgetPointPlotDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinition)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionArgs) ToDashboardV2WidgetPointPlotDefinitionOutput() DashboardV2WidgetPointPlotDefinitionOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionArgs) ToDashboardV2WidgetPointPlotDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionOutput)
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionArgs) ToDashboardV2WidgetPointPlotDefinitionPtrOutput() DashboardV2WidgetPointPlotDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionArgs) ToDashboardV2WidgetPointPlotDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionOutput).ToDashboardV2WidgetPointPlotDefinitionPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetPointPlotDefinitionPtrInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionArgs, DashboardV2WidgetPointPlotDefinitionPtr and DashboardV2WidgetPointPlotDefinitionPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionPtrInput` via:
-//
-//	        DashboardV2WidgetPointPlotDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetPointPlotDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionPtrOutput() DashboardV2WidgetPointPlotDefinitionPtrOutput
-	ToDashboardV2WidgetPointPlotDefinitionPtrOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionPtrOutput
-}
-
-type dashboardV2WidgetPointPlotDefinitionPtrType DashboardV2WidgetPointPlotDefinitionArgs
-
-func DashboardV2WidgetPointPlotDefinitionPtr(v *DashboardV2WidgetPointPlotDefinitionArgs) DashboardV2WidgetPointPlotDefinitionPtrInput {
-	return (*dashboardV2WidgetPointPlotDefinitionPtrType)(v)
-}
-
-func (*dashboardV2WidgetPointPlotDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinition)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetPointPlotDefinitionPtrType) ToDashboardV2WidgetPointPlotDefinitionPtrOutput() DashboardV2WidgetPointPlotDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetPointPlotDefinitionPtrType) ToDashboardV2WidgetPointPlotDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionPtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionOutput) ToDashboardV2WidgetPointPlotDefinitionOutput() DashboardV2WidgetPointPlotDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionOutput) ToDashboardV2WidgetPointPlotDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionOutput) ToDashboardV2WidgetPointPlotDefinitionPtrOutput() DashboardV2WidgetPointPlotDefinitionPtrOutput {
-	return o.ToDashboardV2WidgetPointPlotDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionOutput) ToDashboardV2WidgetPointPlotDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetPointPlotDefinition) *DashboardV2WidgetPointPlotDefinition {
-		return &v
-	}).(DashboardV2WidgetPointPlotDefinitionPtrOutput)
-}
-
-// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) CustomLinks() DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) []DashboardV2WidgetPointPlotDefinitionCustomLink {
-		return v.CustomLinks
-	}).(DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// Legend configuration for the widget.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) Legend() DashboardV2WidgetPointPlotDefinitionLegendPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) *DashboardV2WidgetPointPlotDefinitionLegend {
-		return v.Legend
-	}).(DashboardV2WidgetPointPlotDefinitionLegendPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing a marker to use when displaying the widget. Multiple `marker` blocks are allowed.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) Markers() DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) []DashboardV2WidgetPointPlotDefinitionMarker {
-		return v.Markers
-	}).(DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput)
-}
-
-// A nested block describing the request to use when displaying the widget.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) Requests() DashboardV2WidgetPointPlotDefinitionRequestArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) []DashboardV2WidgetPointPlotDefinitionRequest {
-		return v.Requests
-	}).(DashboardV2WidgetPointPlotDefinitionRequestArrayOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) Time() DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) *DashboardV2WidgetPointPlotDefinitionTime { return v.Time }).(DashboardV2WidgetPointPlotDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetPointPlotDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing the Y-Axis Controls. The structure of this block is described below.
-func (o DashboardV2WidgetPointPlotDefinitionOutput) Yaxis() DashboardV2WidgetPointPlotDefinitionYaxisPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinition) *DashboardV2WidgetPointPlotDefinitionYaxis {
-		return v.Yaxis
-	}).(DashboardV2WidgetPointPlotDefinitionYaxisPtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) ToDashboardV2WidgetPointPlotDefinitionPtrOutput() DashboardV2WidgetPointPlotDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) ToDashboardV2WidgetPointPlotDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) Elem() DashboardV2WidgetPointPlotDefinitionOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) DashboardV2WidgetPointPlotDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetPointPlotDefinition
-		return ret
-	}).(DashboardV2WidgetPointPlotDefinitionOutput)
-}
-
-// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) CustomLinks() DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) []DashboardV2WidgetPointPlotDefinitionCustomLink {
-		if v == nil {
-			return nil
-		}
-		return v.CustomLinks
-	}).(DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Legend configuration for the widget.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) Legend() DashboardV2WidgetPointPlotDefinitionLegendPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) *DashboardV2WidgetPointPlotDefinitionLegend {
-		if v == nil {
-			return nil
-		}
-		return v.Legend
-	}).(DashboardV2WidgetPointPlotDefinitionLegendPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing a marker to use when displaying the widget. Multiple `marker` blocks are allowed.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) Markers() DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) []DashboardV2WidgetPointPlotDefinitionMarker {
-		if v == nil {
-			return nil
-		}
-		return v.Markers
-	}).(DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput)
-}
-
-// A nested block describing the request to use when displaying the widget.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) Requests() DashboardV2WidgetPointPlotDefinitionRequestArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) []DashboardV2WidgetPointPlotDefinitionRequest {
-		if v == nil {
-			return nil
-		}
-		return v.Requests
-	}).(DashboardV2WidgetPointPlotDefinitionRequestArrayOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) Time() DashboardV2WidgetPointPlotDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) *DashboardV2WidgetPointPlotDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(DashboardV2WidgetPointPlotDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing the Y-Axis Controls. The structure of this block is described below.
-func (o DashboardV2WidgetPointPlotDefinitionPtrOutput) Yaxis() DashboardV2WidgetPointPlotDefinitionYaxisPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinition) *DashboardV2WidgetPointPlotDefinitionYaxis {
-		if v == nil {
-			return nil
-		}
-		return v.Yaxis
-	}).(DashboardV2WidgetPointPlotDefinitionYaxisPtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionCustomLink struct {
-	// The flag for toggling context menu link visibility.
-	IsHidden *bool `pulumi:"isHidden"`
-	// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-	Label *string `pulumi:"label"`
-	// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-	Link *string `pulumi:"link"`
-	// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-	OverrideLabel *string `pulumi:"overrideLabel"`
-}
-
-// DashboardV2WidgetPointPlotDefinitionCustomLinkInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionCustomLinkArgs and DashboardV2WidgetPointPlotDefinitionCustomLinkOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionCustomLinkInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionCustomLinkArgs{...}
-type DashboardV2WidgetPointPlotDefinitionCustomLinkInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionCustomLinkOutput() DashboardV2WidgetPointPlotDefinitionCustomLinkOutput
-	ToDashboardV2WidgetPointPlotDefinitionCustomLinkOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionCustomLinkOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionCustomLinkArgs struct {
-	// The flag for toggling context menu link visibility.
-	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
-	// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-	OverrideLabel pulumi.StringPtrInput `pulumi:"overrideLabel"`
-}
-
-func (DashboardV2WidgetPointPlotDefinitionCustomLinkArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionCustomLink)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionCustomLinkArgs) ToDashboardV2WidgetPointPlotDefinitionCustomLinkOutput() DashboardV2WidgetPointPlotDefinitionCustomLinkOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionCustomLinkOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionCustomLinkArgs) ToDashboardV2WidgetPointPlotDefinitionCustomLinkOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionCustomLinkOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionCustomLinkOutput)
-}
-
-// DashboardV2WidgetPointPlotDefinitionCustomLinkArrayInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionCustomLinkArray and DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionCustomLinkArrayInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionCustomLinkArray{ DashboardV2WidgetPointPlotDefinitionCustomLinkArgs{...} }
-type DashboardV2WidgetPointPlotDefinitionCustomLinkArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput() DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput
-	ToDashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionCustomLinkArray []DashboardV2WidgetPointPlotDefinitionCustomLinkInput
-
-func (DashboardV2WidgetPointPlotDefinitionCustomLinkArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionCustomLink)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionCustomLinkArray) ToDashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput() DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionCustomLinkArray) ToDashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionCustomLinkOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionCustomLinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionCustomLink)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionCustomLinkOutput) ToDashboardV2WidgetPointPlotDefinitionCustomLinkOutput() DashboardV2WidgetPointPlotDefinitionCustomLinkOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionCustomLinkOutput) ToDashboardV2WidgetPointPlotDefinitionCustomLinkOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionCustomLinkOutput {
-	return o
-}
-
-// The flag for toggling context menu link visibility.
-func (o DashboardV2WidgetPointPlotDefinitionCustomLinkOutput) IsHidden() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionCustomLink) *bool { return v.IsHidden }).(pulumi.BoolPtrOutput)
-}
-
-// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-func (o DashboardV2WidgetPointPlotDefinitionCustomLinkOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionCustomLink) *string { return v.Label }).(pulumi.StringPtrOutput)
-}
-
-// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-func (o DashboardV2WidgetPointPlotDefinitionCustomLinkOutput) Link() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionCustomLink) *string { return v.Link }).(pulumi.StringPtrOutput)
-}
-
-// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-func (o DashboardV2WidgetPointPlotDefinitionCustomLinkOutput) OverrideLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionCustomLink) *string { return v.OverrideLabel }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionCustomLink)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput) ToDashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput() DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput) ToDashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetPointPlotDefinitionCustomLinkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetPointPlotDefinitionCustomLink {
-		return vs[0].([]DashboardV2WidgetPointPlotDefinitionCustomLink)[vs[1].(int)]
-	}).(DashboardV2WidgetPointPlotDefinitionCustomLinkOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionLegend struct {
-	// Type of legend to show for the point plot widget. Valid values are `automatic`, `none`.
-	Type string `pulumi:"type"`
-}
-
-// DashboardV2WidgetPointPlotDefinitionLegendInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionLegendArgs and DashboardV2WidgetPointPlotDefinitionLegendOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionLegendInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionLegendArgs{...}
-type DashboardV2WidgetPointPlotDefinitionLegendInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionLegendOutput() DashboardV2WidgetPointPlotDefinitionLegendOutput
-	ToDashboardV2WidgetPointPlotDefinitionLegendOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionLegendOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionLegendArgs struct {
-	// Type of legend to show for the point plot widget. Valid values are `automatic`, `none`.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DashboardV2WidgetPointPlotDefinitionLegendArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionLegend)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionLegendArgs) ToDashboardV2WidgetPointPlotDefinitionLegendOutput() DashboardV2WidgetPointPlotDefinitionLegendOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionLegendOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionLegendArgs) ToDashboardV2WidgetPointPlotDefinitionLegendOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionLegendOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionLegendOutput)
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionLegendArgs) ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutput() DashboardV2WidgetPointPlotDefinitionLegendPtrOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionLegendArgs) ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionLegendPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionLegendOutput).ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetPointPlotDefinitionLegendPtrInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionLegendArgs, DashboardV2WidgetPointPlotDefinitionLegendPtr and DashboardV2WidgetPointPlotDefinitionLegendPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionLegendPtrInput` via:
-//
-//	        DashboardV2WidgetPointPlotDefinitionLegendArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetPointPlotDefinitionLegendPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutput() DashboardV2WidgetPointPlotDefinitionLegendPtrOutput
-	ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionLegendPtrOutput
-}
-
-type dashboardV2WidgetPointPlotDefinitionLegendPtrType DashboardV2WidgetPointPlotDefinitionLegendArgs
-
-func DashboardV2WidgetPointPlotDefinitionLegendPtr(v *DashboardV2WidgetPointPlotDefinitionLegendArgs) DashboardV2WidgetPointPlotDefinitionLegendPtrInput {
-	return (*dashboardV2WidgetPointPlotDefinitionLegendPtrType)(v)
-}
-
-func (*dashboardV2WidgetPointPlotDefinitionLegendPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinitionLegend)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetPointPlotDefinitionLegendPtrType) ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutput() DashboardV2WidgetPointPlotDefinitionLegendPtrOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetPointPlotDefinitionLegendPtrType) ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionLegendPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionLegendPtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionLegendOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionLegendOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionLegend)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionLegendOutput) ToDashboardV2WidgetPointPlotDefinitionLegendOutput() DashboardV2WidgetPointPlotDefinitionLegendOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionLegendOutput) ToDashboardV2WidgetPointPlotDefinitionLegendOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionLegendOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionLegendOutput) ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutput() DashboardV2WidgetPointPlotDefinitionLegendPtrOutput {
-	return o.ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionLegendOutput) ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionLegendPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetPointPlotDefinitionLegend) *DashboardV2WidgetPointPlotDefinitionLegend {
-		return &v
-	}).(DashboardV2WidgetPointPlotDefinitionLegendPtrOutput)
-}
-
-// Type of legend to show for the point plot widget. Valid values are `automatic`, `none`.
-func (o DashboardV2WidgetPointPlotDefinitionLegendOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionLegend) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionLegendPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionLegendPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetPointPlotDefinitionLegend)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionLegendPtrOutput) ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutput() DashboardV2WidgetPointPlotDefinitionLegendPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionLegendPtrOutput) ToDashboardV2WidgetPointPlotDefinitionLegendPtrOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionLegendPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionLegendPtrOutput) Elem() DashboardV2WidgetPointPlotDefinitionLegendOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionLegend) DashboardV2WidgetPointPlotDefinitionLegend {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetPointPlotDefinitionLegend
-		return ret
-	}).(DashboardV2WidgetPointPlotDefinitionLegendOutput)
-}
-
-// Type of legend to show for the point plot widget. Valid values are `automatic`, `none`.
-func (o DashboardV2WidgetPointPlotDefinitionLegendPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetPointPlotDefinitionLegend) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionMarker struct {
-	// Combination of a severity (`error`, `warning`, `ok`, or `info`) and a line type (`dashed`, `solid`, or `bold`). For Distribution widgets, this can be set to `percentile`. Example: `error dashed`.
-	DisplayType *string `pulumi:"displayType"`
-	// Label to display over the marker.
-	Label *string `pulumi:"label"`
-	// Timestamp for the marker position.
-	Time *string `pulumi:"time"`
-	// Value to apply. Can be a single value `y = 15` or a range of values `0 < y < 10`. For Distribution widgets with `displayType` set to `percentile`, this should be a numeric percentile value (for example, `90` for P90).
-	Value string `pulumi:"value"`
-}
-
-// DashboardV2WidgetPointPlotDefinitionMarkerInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionMarkerArgs and DashboardV2WidgetPointPlotDefinitionMarkerOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionMarkerInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionMarkerArgs{...}
-type DashboardV2WidgetPointPlotDefinitionMarkerInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionMarkerOutput() DashboardV2WidgetPointPlotDefinitionMarkerOutput
-	ToDashboardV2WidgetPointPlotDefinitionMarkerOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionMarkerOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionMarkerArgs struct {
-	// Combination of a severity (`error`, `warning`, `ok`, or `info`) and a line type (`dashed`, `solid`, or `bold`). For Distribution widgets, this can be set to `percentile`. Example: `error dashed`.
-	DisplayType pulumi.StringPtrInput `pulumi:"displayType"`
-	// Label to display over the marker.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Timestamp for the marker position.
-	Time pulumi.StringPtrInput `pulumi:"time"`
-	// Value to apply. Can be a single value `y = 15` or a range of values `0 < y < 10`. For Distribution widgets with `displayType` set to `percentile`, this should be a numeric percentile value (for example, `90` for P90).
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DashboardV2WidgetPointPlotDefinitionMarkerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionMarker)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionMarkerArgs) ToDashboardV2WidgetPointPlotDefinitionMarkerOutput() DashboardV2WidgetPointPlotDefinitionMarkerOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionMarkerOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionMarkerArgs) ToDashboardV2WidgetPointPlotDefinitionMarkerOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionMarkerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionMarkerOutput)
-}
-
-// DashboardV2WidgetPointPlotDefinitionMarkerArrayInput is an input type that accepts DashboardV2WidgetPointPlotDefinitionMarkerArray and DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetPointPlotDefinitionMarkerArrayInput` via:
-//
-//	DashboardV2WidgetPointPlotDefinitionMarkerArray{ DashboardV2WidgetPointPlotDefinitionMarkerArgs{...} }
-type DashboardV2WidgetPointPlotDefinitionMarkerArrayInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetPointPlotDefinitionMarkerArrayOutput() DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput
-	ToDashboardV2WidgetPointPlotDefinitionMarkerArrayOutputWithContext(context.Context) DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput
-}
-
-type DashboardV2WidgetPointPlotDefinitionMarkerArray []DashboardV2WidgetPointPlotDefinitionMarkerInput
-
-func (DashboardV2WidgetPointPlotDefinitionMarkerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionMarker)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionMarkerArray) ToDashboardV2WidgetPointPlotDefinitionMarkerArrayOutput() DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput {
-	return i.ToDashboardV2WidgetPointPlotDefinitionMarkerArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetPointPlotDefinitionMarkerArray) ToDashboardV2WidgetPointPlotDefinitionMarkerArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionMarkerOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionMarkerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionMarker)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionMarkerOutput) ToDashboardV2WidgetPointPlotDefinitionMarkerOutput() DashboardV2WidgetPointPlotDefinitionMarkerOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionMarkerOutput) ToDashboardV2WidgetPointPlotDefinitionMarkerOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionMarkerOutput {
-	return o
-}
-
-// Combination of a severity (`error`, `warning`, `ok`, or `info`) and a line type (`dashed`, `solid`, or `bold`). For Distribution widgets, this can be set to `percentile`. Example: `error dashed`.
-func (o DashboardV2WidgetPointPlotDefinitionMarkerOutput) DisplayType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionMarker) *string { return v.DisplayType }).(pulumi.StringPtrOutput)
-}
-
-// Label to display over the marker.
-func (o DashboardV2WidgetPointPlotDefinitionMarkerOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionMarker) *string { return v.Label }).(pulumi.StringPtrOutput)
-}
-
-// Timestamp for the marker position.
-func (o DashboardV2WidgetPointPlotDefinitionMarkerOutput) Time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionMarker) *string { return v.Time }).(pulumi.StringPtrOutput)
-}
-
-// Value to apply. Can be a single value `y = 15` or a range of values `0 < y < 10`. For Distribution widgets with `displayType` set to `percentile`, this should be a numeric percentile value (for example, `90` for P90).
-func (o DashboardV2WidgetPointPlotDefinitionMarkerOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetPointPlotDefinitionMarker) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardV2WidgetPointPlotDefinitionMarker)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput) ToDashboardV2WidgetPointPlotDefinitionMarkerArrayOutput() DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput) ToDashboardV2WidgetPointPlotDefinitionMarkerArrayOutputWithContext(ctx context.Context) DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput {
-	return o
-}
-
-func (o DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput) Index(i pulumi.IntInput) DashboardV2WidgetPointPlotDefinitionMarkerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardV2WidgetPointPlotDefinitionMarker {
-		return vs[0].([]DashboardV2WidgetPointPlotDefinitionMarker)[vs[1].(int)]
-	}).(DashboardV2WidgetPointPlotDefinitionMarkerOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAnthropicInput)(nil)).Elem(), ActionConnectionAnthropicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAnthropicPtrInput)(nil)).Elem(), ActionConnectionAnthropicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAnthropicApiKeyInput)(nil)).Elem(), ActionConnectionAnthropicApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAnthropicApiKeyPtrInput)(nil)).Elem(), ActionConnectionAnthropicApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAsanaInput)(nil)).Elem(), ActionConnectionAsanaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAsanaPtrInput)(nil)).Elem(), ActionConnectionAsanaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAsanaAccessTokenInput)(nil)).Elem(), ActionConnectionAsanaAccessTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAsanaAccessTokenPtrInput)(nil)).Elem(), ActionConnectionAsanaAccessTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAwsInput)(nil)).Elem(), ActionConnectionAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAwsPtrInput)(nil)).Elem(), ActionConnectionAwsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAwsAssumeRoleInput)(nil)).Elem(), ActionConnectionAwsAssumeRoleArgs{})
@@ -84893,48 +85594,90 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCircleCiPtrInput)(nil)).Elem(), ActionConnectionCircleCiArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCircleCiApiKeyInput)(nil)).Elem(), ActionConnectionCircleCiApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCircleCiApiKeyPtrInput)(nil)).Elem(), ActionConnectionCircleCiApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionClickupInput)(nil)).Elem(), ActionConnectionClickupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionClickupPtrInput)(nil)).Elem(), ActionConnectionClickupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionClickupApiKeyInput)(nil)).Elem(), ActionConnectionClickupApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionClickupApiKeyPtrInput)(nil)).Elem(), ActionConnectionClickupApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareInput)(nil)).Elem(), ActionConnectionCloudflareArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflarePtrInput)(nil)).Elem(), ActionConnectionCloudflareArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareApiTokenInput)(nil)).Elem(), ActionConnectionCloudflareApiTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareApiTokenPtrInput)(nil)).Elem(), ActionConnectionCloudflareApiTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareGlobalApiTokenInput)(nil)).Elem(), ActionConnectionCloudflareGlobalApiTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareGlobalApiTokenPtrInput)(nil)).Elem(), ActionConnectionCloudflareGlobalApiTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionConfigCatInput)(nil)).Elem(), ActionConnectionConfigCatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionConfigCatPtrInput)(nil)).Elem(), ActionConnectionConfigCatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionConfigCatSdkKeyInput)(nil)).Elem(), ActionConnectionConfigCatSdkKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionConfigCatSdkKeyPtrInput)(nil)).Elem(), ActionConnectionConfigCatSdkKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogInput)(nil)).Elem(), ActionConnectionDatadogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogPtrInput)(nil)).Elem(), ActionConnectionDatadogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogApiKeyInput)(nil)).Elem(), ActionConnectionDatadogApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogApiKeyPtrInput)(nil)).Elem(), ActionConnectionDatadogApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionExternalSecretsManagerInput)(nil)).Elem(), ActionConnectionExternalSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionExternalSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionExternalSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFastlyInput)(nil)).Elem(), ActionConnectionFastlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFastlyPtrInput)(nil)).Elem(), ActionConnectionFastlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFastlyApiKeyInput)(nil)).Elem(), ActionConnectionFastlyApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFastlyApiKeyPtrInput)(nil)).Elem(), ActionConnectionFastlyApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFreshserviceInput)(nil)).Elem(), ActionConnectionFreshserviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFreshservicePtrInput)(nil)).Elem(), ActionConnectionFreshserviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFreshserviceApiKeyInput)(nil)).Elem(), ActionConnectionFreshserviceApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFreshserviceApiKeyPtrInput)(nil)).Elem(), ActionConnectionFreshserviceApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGcpInput)(nil)).Elem(), ActionConnectionGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGcpPtrInput)(nil)).Elem(), ActionConnectionGcpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGcpServiceAccountInput)(nil)).Elem(), ActionConnectionGcpServiceAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGcpServiceAccountPtrInput)(nil)).Elem(), ActionConnectionGcpServiceAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGeminiInput)(nil)).Elem(), ActionConnectionGeminiArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGeminiPtrInput)(nil)).Elem(), ActionConnectionGeminiArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGeminiApiKeyInput)(nil)).Elem(), ActionConnectionGeminiApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGeminiApiKeyPtrInput)(nil)).Elem(), ActionConnectionGeminiApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGitlabInput)(nil)).Elem(), ActionConnectionGitlabArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGitlabPtrInput)(nil)).Elem(), ActionConnectionGitlabArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGitlabApiKeyInput)(nil)).Elem(), ActionConnectionGitlabApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGitlabApiKeyPtrInput)(nil)).Elem(), ActionConnectionGitlabApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGreyNoiseInput)(nil)).Elem(), ActionConnectionGreyNoiseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGreyNoisePtrInput)(nil)).Elem(), ActionConnectionGreyNoiseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGreyNoiseApiKeyInput)(nil)).Elem(), ActionConnectionGreyNoiseApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGreyNoiseApiKeyPtrInput)(nil)).Elem(), ActionConnectionGreyNoiseApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionHttpInput)(nil)).Elem(), ActionConnectionHttpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionHttpPtrInput)(nil)).Elem(), ActionConnectionHttpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionHttpTokenAuthInput)(nil)).Elem(), ActionConnectionHttpTokenAuthArgs{})
@@ -84945,40 +85688,64 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionHttpTokenAuthHeaderArrayInput)(nil)).Elem(), ActionConnectionHttpTokenAuthHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionHttpTokenAuthTokenInput)(nil)).Elem(), ActionConnectionHttpTokenAuthTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionHttpTokenAuthTokenArrayInput)(nil)).Elem(), ActionConnectionHttpTokenAuthTokenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionHttpTokenAuthUrlParameterInput)(nil)).Elem(), ActionConnectionHttpTokenAuthUrlParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionHttpTokenAuthUrlParameterArrayInput)(nil)).Elem(), ActionConnectionHttpTokenAuthUrlParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionLaunchDarklyInput)(nil)).Elem(), ActionConnectionLaunchDarklyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionLaunchDarklyPtrInput)(nil)).Elem(), ActionConnectionLaunchDarklyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionLaunchDarklyApiKeyInput)(nil)).Elem(), ActionConnectionLaunchDarklyApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionLaunchDarklyApiKeyPtrInput)(nil)).Elem(), ActionConnectionLaunchDarklyApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionNotionInput)(nil)).Elem(), ActionConnectionNotionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionNotionPtrInput)(nil)).Elem(), ActionConnectionNotionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionNotionApiKeyInput)(nil)).Elem(), ActionConnectionNotionApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionNotionApiKeyPtrInput)(nil)).Elem(), ActionConnectionNotionApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOktaInput)(nil)).Elem(), ActionConnectionOktaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOktaPtrInput)(nil)).Elem(), ActionConnectionOktaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOktaApiTokenInput)(nil)).Elem(), ActionConnectionOktaApiTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOktaApiTokenPtrInput)(nil)).Elem(), ActionConnectionOktaApiTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOktaApiTokenDomainAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOpenaiInput)(nil)).Elem(), ActionConnectionOpenaiArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOpenaiPtrInput)(nil)).Elem(), ActionConnectionOpenaiArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOpenaiApiKeyInput)(nil)).Elem(), ActionConnectionOpenaiApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOpenaiApiKeyPtrInput)(nil)).Elem(), ActionConnectionOpenaiApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionServiceNowInput)(nil)).Elem(), ActionConnectionServiceNowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionServiceNowPtrInput)(nil)).Elem(), ActionConnectionServiceNowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionServiceNowBasicAuthInput)(nil)).Elem(), ActionConnectionServiceNowBasicAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionServiceNowBasicAuthPtrInput)(nil)).Elem(), ActionConnectionServiceNowBasicAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionSplitInput)(nil)).Elem(), ActionConnectionSplitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionSplitPtrInput)(nil)).Elem(), ActionConnectionSplitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionSplitApiKeyInput)(nil)).Elem(), ActionConnectionSplitApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionSplitApiKeyPtrInput)(nil)).Elem(), ActionConnectionSplitApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionStatsigInput)(nil)).Elem(), ActionConnectionStatsigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionStatsigPtrInput)(nil)).Elem(), ActionConnectionStatsigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionStatsigApiKeyInput)(nil)).Elem(), ActionConnectionStatsigApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionStatsigApiKeyPtrInput)(nil)).Elem(), ActionConnectionStatsigApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionVirusTotalInput)(nil)).Elem(), ActionConnectionVirusTotalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionVirusTotalPtrInput)(nil)).Elem(), ActionConnectionVirusTotalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionVirusTotalApiKeyInput)(nil)).Elem(), ActionConnectionVirusTotalApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionVirusTotalApiKeyPtrInput)(nil)).Elem(), ActionConnectionVirusTotalApiKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerInput)(nil)).Elem(), ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrInput)(nil)).Elem(), ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyActionPatternInput)(nil)).Elem(), ActionExecutionPolicyActionPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyActionPatternPtrInput)(nil)).Elem(), ActionExecutionPolicyActionPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyScopeInput)(nil)).Elem(), ActionExecutionPolicyScopeArgs{})
@@ -84995,6 +85762,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyScopeScriptsPtrInput)(nil)).Elem(), ActionExecutionPolicyScopeScriptsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyScopeScriptsRuleInput)(nil)).Elem(), ActionExecutionPolicyScopeScriptsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyScopeScriptsRuleArrayInput)(nil)).Elem(), ActionExecutionPolicyScopeScriptsRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyScopeSlackInput)(nil)).Elem(), ActionExecutionPolicyScopeSlackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyScopeSlackPtrInput)(nil)).Elem(), ActionExecutionPolicyScopeSlackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyScopeSlackRuleInput)(nil)).Elem(), ActionExecutionPolicyScopeSlackRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyScopeSlackRuleArrayInput)(nil)).Elem(), ActionExecutionPolicyScopeSlackRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyTargetInput)(nil)).Elem(), ActionExecutionPolicyTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyTargetArrayInput)(nil)).Elem(), ActionExecutionPolicyTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApmRetentionFilterFilterInput)(nil)).Elem(), ApmRetentionFilterFilterArgs{})
@@ -85791,87 +86562,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionTimeFixedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeLiveInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeLivePtrInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetImageDefinitionInput)(nil)).Elem(), DashboardV2WidgetImageDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetImageDefinitionPtrInput)(nil)).Elem(), DashboardV2WidgetImageDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetImageDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetImageDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetImageDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetImageDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetImageDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetImageDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetImageDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetImageDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetImageDefinitionTimeLiveInput)(nil)).Elem(), DashboardV2WidgetImageDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetImageDefinitionTimeLivePtrInput)(nil)).Elem(), DashboardV2WidgetImageDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionPtrInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestArrayInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionRequestArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestColumnInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionRequestColumnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestColumnArrayInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionRequestColumnArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQueryInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionRequestQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQueryGroupByInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQuerySortInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionRequestQuerySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTimeLiveInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetListStreamDefinitionTimeLivePtrInput)(nil)).Elem(), DashboardV2WidgetListStreamDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogQueryInput)(nil)).Elem(), DashboardV2WidgetLogQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogQueryPtrInput)(nil)).Elem(), DashboardV2WidgetLogQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogQueryComputeQueryInput)(nil)).Elem(), DashboardV2WidgetLogQueryComputeQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogQueryComputeQueryPtrInput)(nil)).Elem(), DashboardV2WidgetLogQueryComputeQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogQueryGroupByInput)(nil)).Elem(), DashboardV2WidgetLogQueryGroupByArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogQueryGroupByArrayInput)(nil)).Elem(), DashboardV2WidgetLogQueryGroupByArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogQueryGroupBySortQueryInput)(nil)).Elem(), DashboardV2WidgetLogQueryGroupBySortQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogQueryGroupBySortQueryPtrInput)(nil)).Elem(), DashboardV2WidgetLogQueryGroupBySortQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogQueryMultiComputeInput)(nil)).Elem(), DashboardV2WidgetLogQueryMultiComputeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogQueryMultiComputeArrayInput)(nil)).Elem(), DashboardV2WidgetLogQueryMultiComputeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionInput)(nil)).Elem(), DashboardV2WidgetLogStreamDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionPtrInput)(nil)).Elem(), DashboardV2WidgetLogStreamDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionSortInput)(nil)).Elem(), DashboardV2WidgetLogStreamDefinitionSortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionSortPtrInput)(nil)).Elem(), DashboardV2WidgetLogStreamDefinitionSortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetLogStreamDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetLogStreamDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetLogStreamDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetLogStreamDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTimeLiveInput)(nil)).Elem(), DashboardV2WidgetLogStreamDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetLogStreamDefinitionTimeLivePtrInput)(nil)).Elem(), DashboardV2WidgetLogStreamDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionInput)(nil)).Elem(), DashboardV2WidgetManageStatusDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionPtrInput)(nil)).Elem(), DashboardV2WidgetManageStatusDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetManageStatusDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetManageStatusDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetManageStatusDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetManageStatusDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTimeLiveInput)(nil)).Elem(), DashboardV2WidgetManageStatusDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetManageStatusDefinitionTimeLivePtrInput)(nil)).Elem(), DashboardV2WidgetManageStatusDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetMetricQueryInput)(nil)).Elem(), DashboardV2WidgetMetricQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetMetricQueryPtrInput)(nil)).Elem(), DashboardV2WidgetMetricQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetNoteDefinitionInput)(nil)).Elem(), DashboardV2WidgetNoteDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetNoteDefinitionPtrInput)(nil)).Elem(), DashboardV2WidgetNoteDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetNoteDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetNoteDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetNoteDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetNoteDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTimeLiveInput)(nil)).Elem(), DashboardV2WidgetNoteDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetNoteDefinitionTimeLivePtrInput)(nil)).Elem(), DashboardV2WidgetNoteDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionPtrInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionCustomLinkInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionCustomLinkArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionCustomLinkArrayInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionCustomLinkArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionLegendInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionLegendArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionLegendPtrInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionLegendArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionMarkerInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionMarkerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetPointPlotDefinitionMarkerArrayInput)(nil)).Elem(), DashboardV2WidgetPointPlotDefinitionMarkerArray{})
 	pulumi.RegisterOutputType(ActionConnectionAnthropicOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAnthropicPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAnthropicApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAnthropicApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAsanaOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAsanaPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAsanaAccessTokenOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAsanaAccessTokenPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAwsOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAwsPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAwsAssumeRoleOutput{})
@@ -85884,48 +86586,90 @@ func init() {
 	pulumi.RegisterOutputType(ActionConnectionCircleCiPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionCircleCiApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionCircleCiApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionClickupOutput{})
 	pulumi.RegisterOutputType(ActionConnectionClickupPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionClickupApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionClickupApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionCloudflareOutput{})
 	pulumi.RegisterOutputType(ActionConnectionCloudflarePtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionCloudflareApiTokenOutput{})
 	pulumi.RegisterOutputType(ActionConnectionCloudflareApiTokenPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionCloudflareGlobalApiTokenOutput{})
 	pulumi.RegisterOutputType(ActionConnectionCloudflareGlobalApiTokenPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionConfigCatOutput{})
 	pulumi.RegisterOutputType(ActionConnectionConfigCatPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionConfigCatSdkKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionConfigCatSdkKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionDatadogOutput{})
 	pulumi.RegisterOutputType(ActionConnectionDatadogPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionDatadogApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionDatadogApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionExternalSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionExternalSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionFastlyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionFastlyPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionFastlyApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionFastlyApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionFreshserviceOutput{})
 	pulumi.RegisterOutputType(ActionConnectionFreshservicePtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionFreshserviceApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionFreshserviceApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGcpOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGcpPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGcpServiceAccountOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGcpServiceAccountPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGeminiOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGeminiPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGeminiApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGeminiApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGitlabOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGitlabPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGitlabApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGitlabApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGreyNoiseOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGreyNoisePtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGreyNoiseApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionGreyNoiseApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionHttpOutput{})
 	pulumi.RegisterOutputType(ActionConnectionHttpPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionHttpTokenAuthOutput{})
@@ -85936,40 +86680,64 @@ func init() {
 	pulumi.RegisterOutputType(ActionConnectionHttpTokenAuthHeaderArrayOutput{})
 	pulumi.RegisterOutputType(ActionConnectionHttpTokenAuthTokenOutput{})
 	pulumi.RegisterOutputType(ActionConnectionHttpTokenAuthTokenArrayOutput{})
+	pulumi.RegisterOutputType(ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionHttpTokenAuthUrlParameterOutput{})
 	pulumi.RegisterOutputType(ActionConnectionHttpTokenAuthUrlParameterArrayOutput{})
 	pulumi.RegisterOutputType(ActionConnectionLaunchDarklyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionLaunchDarklyPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionLaunchDarklyApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionLaunchDarklyApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionNotionOutput{})
 	pulumi.RegisterOutputType(ActionConnectionNotionPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionNotionApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionNotionApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionOktaOutput{})
 	pulumi.RegisterOutputType(ActionConnectionOktaPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionOktaApiTokenOutput{})
 	pulumi.RegisterOutputType(ActionConnectionOktaApiTokenPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionOktaApiTokenDomainAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionOktaApiTokenDomainAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionOpenaiOutput{})
 	pulumi.RegisterOutputType(ActionConnectionOpenaiPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionOpenaiApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionOpenaiApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionServiceNowOutput{})
 	pulumi.RegisterOutputType(ActionConnectionServiceNowPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionServiceNowBasicAuthOutput{})
 	pulumi.RegisterOutputType(ActionConnectionServiceNowBasicAuthPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionSplitOutput{})
 	pulumi.RegisterOutputType(ActionConnectionSplitPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionSplitApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionSplitApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionStatsigOutput{})
 	pulumi.RegisterOutputType(ActionConnectionStatsigPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionStatsigApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionStatsigApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionVirusTotalOutput{})
 	pulumi.RegisterOutputType(ActionConnectionVirusTotalPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionVirusTotalApiKeyOutput{})
 	pulumi.RegisterOutputType(ActionConnectionVirusTotalApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerOutput{})
+	pulumi.RegisterOutputType(ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerPtrOutput{})
 	pulumi.RegisterOutputType(ActionExecutionPolicyActionPatternOutput{})
 	pulumi.RegisterOutputType(ActionExecutionPolicyActionPatternPtrOutput{})
 	pulumi.RegisterOutputType(ActionExecutionPolicyScopeOutput{})
@@ -85986,6 +86754,10 @@ func init() {
 	pulumi.RegisterOutputType(ActionExecutionPolicyScopeScriptsPtrOutput{})
 	pulumi.RegisterOutputType(ActionExecutionPolicyScopeScriptsRuleOutput{})
 	pulumi.RegisterOutputType(ActionExecutionPolicyScopeScriptsRuleArrayOutput{})
+	pulumi.RegisterOutputType(ActionExecutionPolicyScopeSlackOutput{})
+	pulumi.RegisterOutputType(ActionExecutionPolicyScopeSlackPtrOutput{})
+	pulumi.RegisterOutputType(ActionExecutionPolicyScopeSlackRuleOutput{})
+	pulumi.RegisterOutputType(ActionExecutionPolicyScopeSlackRuleArrayOutput{})
 	pulumi.RegisterOutputType(ActionExecutionPolicyTargetOutput{})
 	pulumi.RegisterOutputType(ActionExecutionPolicyTargetArrayOutput{})
 	pulumi.RegisterOutputType(ApmRetentionFilterFilterOutput{})
@@ -86782,77 +87554,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionTimePtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionTimeFixedOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetImageDefinitionOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetImageDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetImageDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetImageDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetImageDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetImageDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetImageDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetImageDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionRequestOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionRequestArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionRequestColumnOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionRequestColumnArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionRequestQueryOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionRequestQueryGroupByOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionRequestQueryGroupByArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionRequestQuerySortOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionRequestQuerySortPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetListStreamDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogQueryOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogQueryComputeQueryOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogQueryComputeQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogQueryGroupByOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogQueryGroupByArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogQueryGroupBySortQueryOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogQueryGroupBySortQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogQueryMultiComputeOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogQueryMultiComputeArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogStreamDefinitionOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogStreamDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogStreamDefinitionSortOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogStreamDefinitionSortPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogStreamDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogStreamDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogStreamDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogStreamDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogStreamDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetLogStreamDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetManageStatusDefinitionOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetManageStatusDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetManageStatusDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetManageStatusDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetManageStatusDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetManageStatusDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetManageStatusDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetManageStatusDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetMetricQueryOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetMetricQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetNoteDefinitionOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetNoteDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetNoteDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetNoteDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetNoteDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetNoteDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetNoteDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetNoteDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionCustomLinkOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionCustomLinkArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionLegendOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionLegendPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionMarkerOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetPointPlotDefinitionMarkerArrayOutput{})
 }

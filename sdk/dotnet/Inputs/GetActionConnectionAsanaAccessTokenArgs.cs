@@ -28,6 +28,12 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("accessTokenAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerInputArgs>? AccessTokenAwsSecretsManager { get; set; }
+
         public GetActionConnectionAsanaAccessTokenInputArgs()
         {
         }

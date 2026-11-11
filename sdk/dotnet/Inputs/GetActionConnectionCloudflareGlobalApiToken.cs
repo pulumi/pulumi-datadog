@@ -18,6 +18,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("authEmail", required: true)]
         public string AuthEmail { get; set; } = null!;
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("authEmailAwsSecretsManager")]
+        public Inputs.GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs? AuthEmailAwsSecretsManager { get; set; }
+
         [Input("globalApiKey", required: true)]
         private string? _globalApiKey;
 
@@ -29,6 +35,12 @@ namespace Pulumi.Datadog.Inputs
             get => _globalApiKey;
             set => _globalApiKey = value;
         }
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("globalApiKeyAwsSecretsManager")]
+        public Inputs.GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs? GlobalApiKeyAwsSecretsManager { get; set; }
 
         public GetActionConnectionCloudflareGlobalApiTokenArgs()
         {

@@ -30,6 +30,14 @@ namespace Pulumi.Datadog
     ///         ProductAnalyticsRetentionState = "NONE",
     ///     });
     /// 
+    ///     // Create the application without the default retention filters to manage them yourself.
+    ///     var rumApplicationCustomFilters = new Datadog.RumApplication("rum_application_custom_filters", new()
+    ///     {
+    ///         Name = "my-application-custom-filters",
+    ///         Type = "browser",
+    ///         CreateDefaultRetentionFilters = false,
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -57,25 +65,31 @@ namespace Pulumi.Datadog
         public Output<string> ClientToken { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `True` on the API side. Set to `False` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn't add or remove filters.
+        /// </summary>
+        [Output("createDefaultRetentionFilters")]
+        public Output<bool?> CreateDefaultRetentionFilters { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the RUM application.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        /// Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
         /// </summary>
         [Output("productAnalyticsRetentionState")]
         public Output<string> ProductAnalyticsRetentionState { get; private set; } = null!;
 
         /// <summary>
-        /// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        /// Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         /// </summary>
         [Output("rumEventProcessingState")]
         public Output<string> RumEventProcessingState { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the RUM application. Supported values are `Browser`, `Ios`, `Android`, `react-native`, `Flutter`. Defaults to `"browser"`.
+        /// Type of the RUM application. Supported values are `Browser`, `Ios`, `Android`, `react-native`, `Flutter`, `Roku`, `Electron`, `Unity`, `kotlin-multiplatform`. Defaults to `"browser"`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -127,25 +141,31 @@ namespace Pulumi.Datadog
     public sealed class RumApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `True` on the API side. Set to `False` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn't add or remove filters.
+        /// </summary>
+        [Input("createDefaultRetentionFilters")]
+        public Input<bool>? CreateDefaultRetentionFilters { get; set; }
+
+        /// <summary>
         /// Name of the RUM application.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        /// Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
         /// </summary>
         [Input("productAnalyticsRetentionState")]
         public Input<string>? ProductAnalyticsRetentionState { get; set; }
 
         /// <summary>
-        /// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        /// Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         /// </summary>
         [Input("rumEventProcessingState")]
         public Input<string>? RumEventProcessingState { get; set; }
 
         /// <summary>
-        /// Type of the RUM application. Supported values are `Browser`, `Ios`, `Android`, `react-native`, `Flutter`. Defaults to `"browser"`.
+        /// Type of the RUM application. Supported values are `Browser`, `Ios`, `Android`, `react-native`, `Flutter`, `Roku`, `Electron`, `Unity`, `kotlin-multiplatform`. Defaults to `"browser"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -171,25 +191,31 @@ namespace Pulumi.Datadog
         public Input<string>? ClientToken { get; set; }
 
         /// <summary>
+        /// Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `True` on the API side. Set to `False` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn't add or remove filters.
+        /// </summary>
+        [Input("createDefaultRetentionFilters")]
+        public Input<bool>? CreateDefaultRetentionFilters { get; set; }
+
+        /// <summary>
         /// Name of the RUM application.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+        /// Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
         /// </summary>
         [Input("productAnalyticsRetentionState")]
         public Input<string>? ProductAnalyticsRetentionState { get; set; }
 
         /// <summary>
-        /// Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+        /// Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
         /// </summary>
         [Input("rumEventProcessingState")]
         public Input<string>? RumEventProcessingState { get; set; }
 
         /// <summary>
-        /// Type of the RUM application. Supported values are `Browser`, `Ios`, `Android`, `react-native`, `Flutter`. Defaults to `"browser"`.
+        /// Type of the RUM application. Supported values are `Browser`, `Ios`, `Android`, `react-native`, `Flutter`, `Roku`, `Electron`, `Unity`, `kotlin-multiplatform`. Defaults to `"browser"`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

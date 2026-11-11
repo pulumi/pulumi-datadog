@@ -5,9 +5,12 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionAsanaAccessTokenArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +32,26 @@ public final class GetActionConnectionAsanaAccessTokenArgs extends com.pulumi.re
         return this.accessToken;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="accessTokenAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs> accessTokenAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs>> accessTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.accessTokenAwsSecretsManager);
+    }
+
     private GetActionConnectionAsanaAccessTokenArgs() {}
 
     private GetActionConnectionAsanaAccessTokenArgs(GetActionConnectionAsanaAccessTokenArgs $) {
         this.accessToken = $.accessToken;
+        this.accessTokenAwsSecretsManager = $.accessTokenAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -72,6 +91,27 @@ public final class GetActionConnectionAsanaAccessTokenArgs extends com.pulumi.re
          */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
+        }
+
+        /**
+         * @param accessTokenAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessTokenAwsSecretsManager(@Nullable Output<GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs> accessTokenAwsSecretsManager) {
+            $.accessTokenAwsSecretsManager = accessTokenAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param accessTokenAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessTokenAwsSecretsManager(GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs accessTokenAwsSecretsManager) {
+            return accessTokenAwsSecretsManager(Output.of(accessTokenAwsSecretsManager));
         }
 
         public GetActionConnectionAsanaAccessTokenArgs build() {

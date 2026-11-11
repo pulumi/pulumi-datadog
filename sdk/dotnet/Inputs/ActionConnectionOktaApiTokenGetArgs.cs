@@ -29,10 +29,22 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("apiTokenAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerGetArgs>? ApiTokenAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// Okta domain. String length must be at least 1.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("domainAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionOktaApiTokenDomainAwsSecretsManagerGetArgs>? DomainAwsSecretsManager { get; set; }
 
         public ActionConnectionOktaApiTokenGetArgs()
         {

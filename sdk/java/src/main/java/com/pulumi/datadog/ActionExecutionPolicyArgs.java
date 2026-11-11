@@ -66,14 +66,14 @@ public final class ActionExecutionPolicyArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+     * Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<ActionExecutionPolicyScopeArgs> scope;
 
     /**
-     * @return Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+     * @return Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
      * 
      */
     public Optional<Output<ActionExecutionPolicyScopeArgs>> scope() {
@@ -81,14 +81,14 @@ public final class ActionExecutionPolicyArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+     * A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
      * 
      */
     @Import(name="targets")
     private @Nullable Output<List<ActionExecutionPolicyTargetArgs>> targets;
 
     /**
-     * @return A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+     * @return A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
      * 
      */
     public Optional<Output<List<ActionExecutionPolicyTargetArgs>>> targets() {
@@ -187,7 +187,7 @@ public final class ActionExecutionPolicyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scope Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+         * @param scope Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class ActionExecutionPolicyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scope Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+         * @param scope Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class ActionExecutionPolicyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targets A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+         * @param targets A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class ActionExecutionPolicyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targets A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+         * @param targets A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class ActionExecutionPolicyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targets A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+         * @param targets A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
          * 
          * @return builder
          * 

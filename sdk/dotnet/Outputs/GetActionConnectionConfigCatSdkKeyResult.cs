@@ -18,25 +18,46 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string ApiPassword;
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerResult? ApiPasswordAwsSecretsManager;
+        /// <summary>
         /// ConfigCat Public Management API username
         /// </summary>
         public readonly string ApiUsername;
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerResult? ApiUsernameAwsSecretsManager;
+        /// <summary>
         /// ConfigCat SDK key
         /// </summary>
         public readonly string SdkKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerResult? SdkKeyAwsSecretsManager;
 
         [OutputConstructor]
         private GetActionConnectionConfigCatSdkKeyResult(
             string apiPassword,
 
+            Outputs.GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerResult? apiPasswordAwsSecretsManager,
+
             string apiUsername,
 
-            string sdkKey)
+            Outputs.GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerResult? apiUsernameAwsSecretsManager,
+
+            string sdkKey,
+
+            Outputs.GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerResult? sdkKeyAwsSecretsManager)
         {
             ApiPassword = apiPassword;
+            ApiPasswordAwsSecretsManager = apiPasswordAwsSecretsManager;
             ApiUsername = apiUsername;
+            ApiUsernameAwsSecretsManager = apiUsernameAwsSecretsManager;
             SdkKey = sdkKey;
+            SdkKeyAwsSecretsManager = sdkKeyAwsSecretsManager;
         }
     }
 }

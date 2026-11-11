@@ -5,9 +5,13 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionFreshserviceApiKeyArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,6 +34,21 @@ public final class GetActionConnectionFreshserviceApiKeyArgs extends com.pulumi.
     }
 
     /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="apiKeyAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs> apiKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs>> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
+    }
+
+    /**
      * Freshservice domain
      * 
      */
@@ -44,11 +63,28 @@ public final class GetActionConnectionFreshserviceApiKeyArgs extends com.pulumi.
         return this.domain;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="domainAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs> domainAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs>> domainAwsSecretsManager() {
+        return Optional.ofNullable(this.domainAwsSecretsManager);
+    }
+
     private GetActionConnectionFreshserviceApiKeyArgs() {}
 
     private GetActionConnectionFreshserviceApiKeyArgs(GetActionConnectionFreshserviceApiKeyArgs $) {
         this.apiKey = $.apiKey;
+        this.apiKeyAwsSecretsManager = $.apiKeyAwsSecretsManager;
         this.domain = $.domain;
+        this.domainAwsSecretsManager = $.domainAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -91,6 +127,27 @@ public final class GetActionConnectionFreshserviceApiKeyArgs extends com.pulumi.
         }
 
         /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(@Nullable Output<GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs> apiKeyAwsSecretsManager) {
+            $.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs apiKeyAwsSecretsManager) {
+            return apiKeyAwsSecretsManager(Output.of(apiKeyAwsSecretsManager));
+        }
+
+        /**
          * @param domain Freshservice domain
          * 
          * @return builder
@@ -109,6 +166,27 @@ public final class GetActionConnectionFreshserviceApiKeyArgs extends com.pulumi.
          */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
+        }
+
+        /**
+         * @param domainAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainAwsSecretsManager(@Nullable Output<GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs> domainAwsSecretsManager) {
+            $.domainAwsSecretsManager = domainAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param domainAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainAwsSecretsManager(GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs domainAwsSecretsManager) {
+            return domainAwsSecretsManager(Output.of(domainAwsSecretsManager));
         }
 
         public GetActionConnectionFreshserviceApiKeyArgs build() {

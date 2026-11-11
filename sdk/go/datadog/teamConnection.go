@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. GitHub).
+// Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. a GitHub team or a ServiceNow group).
 //
 // ## Example Usage
 //
@@ -54,6 +54,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a connection between a Datadog team and a ServiceNow group
+//			_, err = datadog.NewTeamConnection(ctx, "servicenow", &datadog.TeamConnectionArgs{
+//				Team: datadog.TeamConnectionTeamArgs{
+//					map[string]interface{}{
+//						"id":   example.ID(),
+//						"type": "team",
+//					},
+//				},
+//				ConnectedTeam: datadog.TeamConnectionConnectedTeamArgs{
+//					map[string]string{
+//						"id":   "my-instance/0123456789abcdef0123456789abcdef",
+//						"type": "servicenow_team",
+//					},
+//				},
+//				Source: pulumi.String("servicenow"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -70,9 +89,9 @@ import (
 type TeamConnection struct {
 	pulumi.CustomResourceState
 
-	// The external connected team reference (e.g. a GitHub team).
+	// The external connected team reference (e.g. a GitHub team or a ServiceNow group).
 	ConnectedTeam TeamConnectionConnectedTeamOutput `pulumi:"connectedTeam"`
-	// The source of the connection (e.g. github).
+	// The name of the external source, such as `github` or `servicenow`.
 	Source pulumi.StringOutput `pulumi:"source"`
 	// The Datadog team reference.
 	Team TeamConnectionTeamOutput `pulumi:"team"`
@@ -114,18 +133,18 @@ func GetTeamConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TeamConnection resources.
 type teamConnectionState struct {
-	// The external connected team reference (e.g. a GitHub team).
+	// The external connected team reference (e.g. a GitHub team or a ServiceNow group).
 	ConnectedTeam *TeamConnectionConnectedTeam `pulumi:"connectedTeam"`
-	// The source of the connection (e.g. github).
+	// The name of the external source, such as `github` or `servicenow`.
 	Source *string `pulumi:"source"`
 	// The Datadog team reference.
 	Team *TeamConnectionTeam `pulumi:"team"`
 }
 
 type TeamConnectionState struct {
-	// The external connected team reference (e.g. a GitHub team).
+	// The external connected team reference (e.g. a GitHub team or a ServiceNow group).
 	ConnectedTeam TeamConnectionConnectedTeamPtrInput
-	// The source of the connection (e.g. github).
+	// The name of the external source, such as `github` or `servicenow`.
 	Source pulumi.StringPtrInput
 	// The Datadog team reference.
 	Team TeamConnectionTeamPtrInput
@@ -142,9 +161,9 @@ func TeamConnectionExists(ctx *pulumi.Context,
 }
 
 type teamConnectionArgs struct {
-	// The external connected team reference (e.g. a GitHub team).
+	// The external connected team reference (e.g. a GitHub team or a ServiceNow group).
 	ConnectedTeam TeamConnectionConnectedTeam `pulumi:"connectedTeam"`
-	// The source of the connection (e.g. github).
+	// The name of the external source, such as `github` or `servicenow`.
 	Source *string `pulumi:"source"`
 	// The Datadog team reference.
 	Team TeamConnectionTeam `pulumi:"team"`
@@ -152,9 +171,9 @@ type teamConnectionArgs struct {
 
 // The set of arguments for constructing a TeamConnection resource.
 type TeamConnectionArgs struct {
-	// The external connected team reference (e.g. a GitHub team).
+	// The external connected team reference (e.g. a GitHub team or a ServiceNow group).
 	ConnectedTeam TeamConnectionConnectedTeamInput
-	// The source of the connection (e.g. github).
+	// The name of the external source, such as `github` or `servicenow`.
 	Source pulumi.StringPtrInput
 	// The Datadog team reference.
 	Team TeamConnectionTeamInput
@@ -247,12 +266,12 @@ func (o TeamConnectionOutput) ToTeamConnectionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The external connected team reference (e.g. a GitHub team).
+// The external connected team reference (e.g. a GitHub team or a ServiceNow group).
 func (o TeamConnectionOutput) ConnectedTeam() TeamConnectionConnectedTeamOutput {
 	return o.ApplyT(func(v *TeamConnection) TeamConnectionConnectedTeamOutput { return v.ConnectedTeam }).(TeamConnectionConnectedTeamOutput)
 }
 
-// The source of the connection (e.g. github).
+// The name of the external source, such as `github` or `servicenow`.
 func (o TeamConnectionOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamConnection) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }

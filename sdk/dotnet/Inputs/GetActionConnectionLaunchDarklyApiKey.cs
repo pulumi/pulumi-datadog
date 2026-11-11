@@ -24,6 +24,12 @@ namespace Pulumi.Datadog.Inputs
             set => _apiToken = value;
         }
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("apiTokenAwsSecretsManager")]
+        public Inputs.GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs? ApiTokenAwsSecretsManager { get; set; }
+
         public GetActionConnectionLaunchDarklyApiKeyArgs()
         {
         }

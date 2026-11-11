@@ -5,6 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +33,21 @@ public final class ActionConnectionFreshserviceApiKeyArgs extends com.pulumi.res
     }
 
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="apiKeyAwsSecretsManager")
+    private @Nullable Output<ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs> apiKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs>> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
+    }
+
+    /**
      * Freshservice domain. String length must be at least 1.
      * 
      */
@@ -45,11 +62,28 @@ public final class ActionConnectionFreshserviceApiKeyArgs extends com.pulumi.res
         return Optional.ofNullable(this.domain);
     }
 
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="domainAwsSecretsManager")
+    private @Nullable Output<ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs> domainAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs>> domainAwsSecretsManager() {
+        return Optional.ofNullable(this.domainAwsSecretsManager);
+    }
+
     private ActionConnectionFreshserviceApiKeyArgs() {}
 
     private ActionConnectionFreshserviceApiKeyArgs(ActionConnectionFreshserviceApiKeyArgs $) {
         this.apiKey = $.apiKey;
+        this.apiKeyAwsSecretsManager = $.apiKeyAwsSecretsManager;
         this.domain = $.domain;
+        this.domainAwsSecretsManager = $.domainAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -92,6 +126,27 @@ public final class ActionConnectionFreshserviceApiKeyArgs extends com.pulumi.res
         }
 
         /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(@Nullable Output<ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs> apiKeyAwsSecretsManager) {
+            $.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs apiKeyAwsSecretsManager) {
+            return apiKeyAwsSecretsManager(Output.of(apiKeyAwsSecretsManager));
+        }
+
+        /**
          * @param domain Freshservice domain. String length must be at least 1.
          * 
          * @return builder
@@ -110,6 +165,27 @@ public final class ActionConnectionFreshserviceApiKeyArgs extends com.pulumi.res
          */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
+        }
+
+        /**
+         * @param domainAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainAwsSecretsManager(@Nullable Output<ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs> domainAwsSecretsManager) {
+            $.domainAwsSecretsManager = domainAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param domainAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainAwsSecretsManager(ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs domainAwsSecretsManager) {
+            return domainAwsSecretsManager(Output.of(domainAwsSecretsManager));
         }
 
         public ActionConnectionFreshserviceApiKeyArgs build() {

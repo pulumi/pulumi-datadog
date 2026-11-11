@@ -19,6 +19,7 @@ import com.pulumi.datadog.outputs.ActionConnectionClickup;
 import com.pulumi.datadog.outputs.ActionConnectionCloudflare;
 import com.pulumi.datadog.outputs.ActionConnectionConfigCat;
 import com.pulumi.datadog.outputs.ActionConnectionDatadog;
+import com.pulumi.datadog.outputs.ActionConnectionExternalSecretsManager;
 import com.pulumi.datadog.outputs.ActionConnectionFastly;
 import com.pulumi.datadog.outputs.ActionConnectionFreshservice;
 import com.pulumi.datadog.outputs.ActionConnectionGcp;
@@ -40,7 +41,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
+ * A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource creates connections that run in Datadog&#39;s cloud. AWS Secrets Manager references are available for supported token-based credentials and HTTP authentication token values. AWS AssumeRole credentials, Azure credentials, and HTTP request metadata don&#39;t support AWS Secrets Manager references and must use literal values. This resource requires a registered application key.
  * 
  * ## Example Usage
  * 
@@ -53,6 +54,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.datadog.ActionConnection;
  * import com.pulumi.datadog.ActionConnectionArgs;
+ * import com.pulumi.datadog.inputs.ActionConnectionExternalSecretsManagerArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -124,6 +126,28 @@ import javax.annotation.Nullable;
  *                                 jsonProperty("key", "mykey"),
  *                                 jsonProperty("value", "maybe with a secret: {{ token2 }}")
  *                             )))
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // Datadog resolves these references at runtime. Pulumi stores only the
+ *         // references and does not retrieve the GCP credential values.
+ *         var gcpConnection = new ActionConnection("gcpConnection", ActionConnectionArgs.builder()
+ *             .name("My GCP connection with AWS Secrets Manager")
+ *             .externalSecretsManager(ActionConnectionExternalSecretsManagerArgs.builder()
+ *                 .connection_id(awsConnection.id())
+ *                 .region("us-east-1")
+ *                 .build())
+ *             .gcp(com.pulumi.datadog.inputs.ActionConnectionGcpArgs.builder()
+ *                 .serviceAccount(com.pulumi.datadog.inputs.ActionConnectionGcpServiceAccountArgs.builder()
+ *                     .privateKeyAwsSecretsManager(com.pulumi.datadog.inputs.ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs.builder()
+ *                         .secret_id("example/gcp/service-account")
+ *                         .key("private_key")
+ *                         .build())
+ *                     .serviceAccountEmailAwsSecretsManager(com.pulumi.datadog.inputs.ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs.builder()
+ *                         .secret_id("example/gcp/service-account")
+ *                         .key("client_email")
  *                         .build())
  *                     .build())
  *                 .build())
@@ -284,6 +308,20 @@ public class ActionConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> effectiveTags() {
         return this.effectiveTags;
+    }
+    /**
+     * AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Export(name="externalSecretsManager", refs={ActionConnectionExternalSecretsManager.class}, tree="[0]")
+    private Output</* @Nullable */ ActionConnectionExternalSecretsManager> externalSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Output<Optional<ActionConnectionExternalSecretsManager>> externalSecretsManager() {
+        return Codegen.optional(this.externalSecretsManager);
     }
     /**
      * Configuration for a Fastly connection

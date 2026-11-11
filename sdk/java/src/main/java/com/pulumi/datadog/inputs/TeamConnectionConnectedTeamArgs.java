@@ -15,14 +15,14 @@ public final class TeamConnectionConnectedTeamArgs extends com.pulumi.resources.
     public static final TeamConnectionConnectedTeamArgs Empty = new TeamConnectionConnectedTeamArgs();
 
     /**
-     * The ID of the external connected team.
+     * The ID of the external connected team. For GitHub teams, this is `{@literal @}&lt;organization&gt;/&lt;team-slug&gt;`. For ServiceNow groups, this is `&lt;instance_name&gt;/&lt;sys_id&gt;`.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The ID of the external connected team.
+     * @return The ID of the external connected team. For GitHub teams, this is `{@literal @}&lt;organization&gt;/&lt;team-slug&gt;`. For ServiceNow groups, this is `&lt;instance_name&gt;/&lt;sys_id&gt;`.
      * 
      */
     public Output<String> id() {
@@ -30,14 +30,14 @@ public final class TeamConnectionConnectedTeamArgs extends com.pulumi.resources.
     }
 
     /**
-     * The resource type of the external connected team. Valid values are `githubTeam`.
+     * The resource type of the external connected team. Valid values are `githubTeam`, `servicenowTeam`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The resource type of the external connected team. Valid values are `githubTeam`.
+     * @return The resource type of the external connected team. Valid values are `githubTeam`, `servicenowTeam`.
      * 
      */
     public Output<String> type() {
@@ -70,7 +70,7 @@ public final class TeamConnectionConnectedTeamArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param id The ID of the external connected team.
+         * @param id The ID of the external connected team. For GitHub teams, this is `{@literal @}&lt;organization&gt;/&lt;team-slug&gt;`. For ServiceNow groups, this is `&lt;instance_name&gt;/&lt;sys_id&gt;`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TeamConnectionConnectedTeamArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param id The ID of the external connected team.
+         * @param id The ID of the external connected team. For GitHub teams, this is `{@literal @}&lt;organization&gt;/&lt;team-slug&gt;`. For ServiceNow groups, this is `&lt;instance_name&gt;/&lt;sys_id&gt;`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class TeamConnectionConnectedTeamArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param type The resource type of the external connected team. Valid values are `githubTeam`.
+         * @param type The resource type of the external connected team. Valid values are `githubTeam`, `servicenowTeam`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class TeamConnectionConnectedTeamArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param type The resource type of the external connected team. Valid values are `githubTeam`.
+         * @param type The resource type of the external connected team. Valid values are `githubTeam`, `servicenowTeam`.
          * 
          * @return builder
          * 

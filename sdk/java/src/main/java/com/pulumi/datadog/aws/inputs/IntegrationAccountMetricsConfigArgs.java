@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigMetricNameFilterArgs;
 import com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigNamespaceFiltersArgs;
+import com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigResourceTypeTagFilterArgs;
 import com.pulumi.datadog.aws.inputs.IntegrationAccountMetricsConfigTagFilterArgs;
 import java.lang.Boolean;
 import java.util.List;
@@ -125,16 +126,37 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
     }
 
     /**
-     * AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+     * AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
      * 
      */
+    @Import(name="resourceTypeTagFilters")
+    private @Nullable Output<List<IntegrationAccountMetricsConfigResourceTypeTagFilterArgs>> resourceTypeTagFilters;
+
+    /**
+     * @return AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+     * 
+     */
+    public Optional<Output<List<IntegrationAccountMetricsConfigResourceTypeTagFilterArgs>>> resourceTypeTagFilters() {
+        return Optional.ofNullable(this.resourceTypeTagFilters);
+    }
+
+    /**
+     * AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+     * 
+     * @deprecated Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
+     * 
+     */
+    @Deprecated
     @Import(name="tagFilters")
     private @Nullable Output<List<IntegrationAccountMetricsConfigTagFilterArgs>> tagFilters;
 
     /**
      * @return AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
      * 
+     * @deprecated Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
+     * 
      */
+    @Deprecated
     public Optional<Output<List<IntegrationAccountMetricsConfigTagFilterArgs>>> tagFilters() {
         return Optional.ofNullable(this.tagFilters);
     }
@@ -149,6 +171,7 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
         this.enabled = $.enabled;
         this.metricNameFilters = $.metricNameFilters;
         this.namespaceFilters = $.namespaceFilters;
+        this.resourceTypeTagFilters = $.resourceTypeTagFilters;
         this.tagFilters = $.tagFilters;
     }
 
@@ -328,11 +351,45 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param tagFilters AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+         * @param resourceTypeTagFilters AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
          * 
          * @return builder
          * 
          */
+        public Builder resourceTypeTagFilters(@Nullable Output<List<IntegrationAccountMetricsConfigResourceTypeTagFilterArgs>> resourceTypeTagFilters) {
+            $.resourceTypeTagFilters = resourceTypeTagFilters;
+            return this;
+        }
+
+        /**
+         * @param resourceTypeTagFilters AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTypeTagFilters(List<IntegrationAccountMetricsConfigResourceTypeTagFilterArgs> resourceTypeTagFilters) {
+            return resourceTypeTagFilters(Output.of(resourceTypeTagFilters));
+        }
+
+        /**
+         * @param resourceTypeTagFilters AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTypeTagFilters(IntegrationAccountMetricsConfigResourceTypeTagFilterArgs... resourceTypeTagFilters) {
+            return resourceTypeTagFilters(List.of(resourceTypeTagFilters));
+        }
+
+        /**
+         * @param tagFilters AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+         * 
+         * @return builder
+         * 
+         * @deprecated Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
+         * 
+         */
+        @Deprecated
         public Builder tagFilters(@Nullable Output<List<IntegrationAccountMetricsConfigTagFilterArgs>> tagFilters) {
             $.tagFilters = tagFilters;
             return this;
@@ -343,7 +400,10 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
          * 
          * @return builder
          * 
+         * @deprecated Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
+         * 
          */
+        @Deprecated
         public Builder tagFilters(List<IntegrationAccountMetricsConfigTagFilterArgs> tagFilters) {
             return tagFilters(Output.of(tagFilters));
         }
@@ -353,7 +413,10 @@ public final class IntegrationAccountMetricsConfigArgs extends com.pulumi.resour
          * 
          * @return builder
          * 
+         * @deprecated Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
+         * 
          */
+        @Deprecated
         public Builder tagFilters(IntegrationAccountMetricsConfigTagFilterArgs... tagFilters) {
             return tagFilters(List.of(tagFilters));
         }

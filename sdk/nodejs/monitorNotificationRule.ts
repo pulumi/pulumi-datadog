@@ -116,6 +116,10 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
      * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      */
     declare public readonly recipients: pulumi.Output<string[] | undefined>;
+    /**
+     * Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+     */
+    declare public readonly ruleOptions: pulumi.Output<outputs.MonitorNotificationRuleRuleOptions>;
 
     /**
      * Create a MonitorNotificationRule resource with the given unique name, arguments, and options.
@@ -135,6 +139,7 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
             resourceInputs["filter"] = state?.filter;
             resourceInputs["name"] = state?.name;
             resourceInputs["recipients"] = state?.recipients;
+            resourceInputs["ruleOptions"] = state?.ruleOptions;
         } else {
             const args = argsOrState as MonitorNotificationRuleArgs | undefined;
             if (args?.filter === undefined && !opts.urn) {
@@ -148,6 +153,7 @@ export class MonitorNotificationRule extends pulumi.CustomResource {
             resourceInputs["filter"] = args?.filter;
             resourceInputs["name"] = args?.name;
             resourceInputs["recipients"] = args?.recipients;
+            resourceInputs["ruleOptions"] = args?.ruleOptions;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MonitorNotificationRule.__pulumiType, name, resourceInputs, opts);
@@ -178,6 +184,10 @@ export interface MonitorNotificationRuleState {
      * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      */
     recipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+     */
+    ruleOptions?: pulumi.Input<inputs.MonitorNotificationRuleRuleOptions | undefined>;
 }
 
 /**
@@ -204,4 +214,8 @@ export interface MonitorNotificationRuleArgs {
      * List of recipients to notify. Cannot be used with `conditionalRecipients`.
      */
     recipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+     */
+    ruleOptions?: pulumi.Input<inputs.MonitorNotificationRuleRuleOptions | undefined>;
 }

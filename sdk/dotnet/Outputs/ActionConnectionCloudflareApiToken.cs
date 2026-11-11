@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Cloudflare API token. String length must be at least 1.
         /// </summary>
         public readonly string? ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private ActionConnectionCloudflareApiToken(string? apiToken)
+        private ActionConnectionCloudflareApiToken(
+            string? apiToken,
+
+            Outputs.ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

@@ -32,8 +32,8 @@ class ActionExecutionPolicyArgs:
         :param pulumi.Input[_builtins.str] effect: Whether the policy allows or denies the matched actions. Valid values are `allow`, `deny`.
         :param pulumi.Input[_builtins.str] name: The name of the execution policy.
         :param pulumi.Input['ActionExecutionPolicyActionPatternArgs'] action_pattern: The set of actions this policy applies to. Required.
-        :param pulumi.Input['ActionExecutionPolicyScopeArgs'] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
-        :param pulumi.Input[Sequence[pulumi.Input['ActionExecutionPolicyTargetArgs']]] targets: A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+        :param pulumi.Input['ActionExecutionPolicyScopeArgs'] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts`, `remote_action_rshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+        :param pulumi.Input[Sequence[pulumi.Input['ActionExecutionPolicyTargetArgs']]] targets: A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
         """
         pulumi.set(__self__, "effect", effect)
         pulumi.set(__self__, "name", name)
@@ -84,7 +84,7 @@ class ActionExecutionPolicyArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[Optional['ActionExecutionPolicyScopeArgs']]:
         """
-        Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+        Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts`, `remote_action_rshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
         """
         return pulumi.get(self, "scope")
 
@@ -96,7 +96,7 @@ class ActionExecutionPolicyArgs:
     @pulumi.getter
     def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActionExecutionPolicyTargetArgs']]]]:
         """
-        A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+        A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
         """
         return pulumi.get(self, "targets")
 
@@ -126,8 +126,8 @@ class _ActionExecutionPolicyState:
         :param pulumi.Input[_builtins.str] created_by: The ID of the user who created the execution policy.
         :param pulumi.Input[_builtins.str] effect: Whether the policy allows or denies the matched actions. Valid values are `allow`, `deny`.
         :param pulumi.Input[_builtins.str] name: The name of the execution policy.
-        :param pulumi.Input['ActionExecutionPolicyScopeArgs'] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
-        :param pulumi.Input[Sequence[pulumi.Input['ActionExecutionPolicyTargetArgs']]] targets: A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+        :param pulumi.Input['ActionExecutionPolicyScopeArgs'] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts`, `remote_action_rshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+        :param pulumi.Input[Sequence[pulumi.Input['ActionExecutionPolicyTargetArgs']]] targets: A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
         :param pulumi.Input[_builtins.str] updated_at: The date and time the execution policy was last updated, as an RFC3339 timestamp.
         :param pulumi.Input[_builtins.str] updated_by: The ID of the user who last updated the execution policy.
         :param pulumi.Input[_builtins.int] version: The version of the execution policy. Incremented by Datadog on every update.
@@ -217,7 +217,7 @@ class _ActionExecutionPolicyState:
     @pulumi.getter
     def scope(self) -> pulumi.Input[Optional['ActionExecutionPolicyScopeArgs']]:
         """
-        Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+        Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts`, `remote_action_rshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
         """
         return pulumi.get(self, "scope")
 
@@ -229,7 +229,7 @@ class _ActionExecutionPolicyState:
     @pulumi.getter
     def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActionExecutionPolicyTargetArgs']]]]:
         """
-        A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+        A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
         """
         return pulumi.get(self, "targets")
 
@@ -287,7 +287,7 @@ class ActionExecutionPolicy(pulumi.CustomResource):
                  targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run against your infrastructure, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts or remote shell paths, and optionally scoped to agents matching a set of Fleet Automation tags.
+        Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts, remote shell paths or Slack channel names, and optionally scoped to targets matching a set of tags, such as agents matching Fleet Automation tags or a Slack workspace.
 
         ## Example Usage
 
@@ -368,6 +368,25 @@ class ActionExecutionPolicy(pulumi.CustomResource):
                         "targetScriptNames": ["dangerous-cleanup.sh"],
                     }],
                 }],
+            }])
+        # Slack: allow posting messages to incident channels in one Slack workspace.
+        slack_incident_channels = datadog.ActionExecutionPolicy("slack_incident_channels",
+            name="slack-incident-channels",
+            effect="allow",
+            action_pattern=[{
+                "integration": "INTEGRATION_SLACK",
+                "actionFqns": ["com.datadoghq.slack.send_simple_message"],
+            }],
+            scope=[{
+                "slack": [{
+                    "rules": [{
+                        "channelNameSelectors": ["incident-*"],
+                    }],
+                }],
+            }],
+            targets=[{
+                "name": "main-workspace",
+                "agent_tags": ["slack_workspace_id:T0123456789"],
             }])
         # Access to a policy is managed separately via datadog_restriction_policy,
         # keyed by "execution-policy:<id>".
@@ -393,8 +412,8 @@ class ActionExecutionPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union['ActionExecutionPolicyActionPatternArgs', 'ActionExecutionPolicyActionPatternArgsDict', 'outputs.ActionExecutionPolicyActionPattern']] action_pattern: The set of actions this policy applies to. Required.
         :param pulumi.Input[_builtins.str] effect: Whether the policy allows or denies the matched actions. Valid values are `allow`, `deny`.
         :param pulumi.Input[_builtins.str] name: The name of the execution policy.
-        :param pulumi.Input[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict', 'outputs.ActionExecutionPolicyScope']] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]] targets: A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+        :param pulumi.Input[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict', 'outputs.ActionExecutionPolicyScope']] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts`, `remote_action_rshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]] targets: A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
         """
         ...
     @overload
@@ -403,7 +422,7 @@ class ActionExecutionPolicy(pulumi.CustomResource):
                  args: ActionExecutionPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run against your infrastructure, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts or remote shell paths, and optionally scoped to agents matching a set of Fleet Automation tags.
+        Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts, remote shell paths or Slack channel names, and optionally scoped to targets matching a set of tags, such as agents matching Fleet Automation tags or a Slack workspace.
 
         ## Example Usage
 
@@ -484,6 +503,25 @@ class ActionExecutionPolicy(pulumi.CustomResource):
                         "targetScriptNames": ["dangerous-cleanup.sh"],
                     }],
                 }],
+            }])
+        # Slack: allow posting messages to incident channels in one Slack workspace.
+        slack_incident_channels = datadog.ActionExecutionPolicy("slack_incident_channels",
+            name="slack-incident-channels",
+            effect="allow",
+            action_pattern=[{
+                "integration": "INTEGRATION_SLACK",
+                "actionFqns": ["com.datadoghq.slack.send_simple_message"],
+            }],
+            scope=[{
+                "slack": [{
+                    "rules": [{
+                        "channelNameSelectors": ["incident-*"],
+                    }],
+                }],
+            }],
+            targets=[{
+                "name": "main-workspace",
+                "agent_tags": ["slack_workspace_id:T0123456789"],
             }])
         # Access to a policy is managed separately via datadog_restriction_policy,
         # keyed by "execution-policy:<id>".
@@ -579,8 +617,8 @@ class ActionExecutionPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_by: The ID of the user who created the execution policy.
         :param pulumi.Input[_builtins.str] effect: Whether the policy allows or denies the matched actions. Valid values are `allow`, `deny`.
         :param pulumi.Input[_builtins.str] name: The name of the execution policy.
-        :param pulumi.Input[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict', 'outputs.ActionExecutionPolicyScope']] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]] targets: A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+        :param pulumi.Input[Union['ActionExecutionPolicyScopeArgs', 'ActionExecutionPolicyScopeArgsDict', 'outputs.ActionExecutionPolicyScope']] scope: Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts`, `remote_action_rshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionExecutionPolicyTargetArgs', 'ActionExecutionPolicyTargetArgsDict', 'outputs.ActionExecutionPolicyTarget']]]] targets: A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
         :param pulumi.Input[_builtins.str] updated_at: The date and time the execution policy was last updated, as an RFC3339 timestamp.
         :param pulumi.Input[_builtins.str] updated_by: The ID of the user who last updated the execution policy.
         :param pulumi.Input[_builtins.int] version: The version of the execution policy. Incremented by Datadog on every update.
@@ -671,7 +709,7 @@ class ActionExecutionPolicy(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional['outputs.ActionExecutionPolicyScope']]:
         """
-        Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts` or `remote_action_rshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+        Restricts where the policy applies, beyond `action_pattern`. When configured, exactly one of `kubernetes`, `scripts`, `remote_action_rshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
         """
         return pulumi.get(self, "scope")
 
@@ -679,7 +717,7 @@ class ActionExecutionPolicy(pulumi.CustomResource):
     @pulumi.getter
     def targets(self) -> pulumi.Output[Optional[Sequence['outputs.ActionExecutionPolicyTarget']]]:
         """
-        A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+        A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
         """
         return pulumi.get(self, "targets")
 

@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub) into Datadog.
+ * Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub or ServiceNow) into Datadog.
  *
  * ## Example Usage
  *
@@ -30,6 +30,18 @@ import * as utilities from "./utilities";
  *         }],
  *     }],
  * });
+ * // Configure team synchronization from ServiceNow
+ * const servicenow = new datadog.TeamSync("servicenow", {
+ *     source: "servicenow",
+ *     type: "link",
+ *     frequency: "continuously",
+ *     selectionStates: [{
+ *         externalId: [{
+ *             type: "organization",
+ *             value: "my-instance",
+ *         }],
+ *     }],
+ * });
  * ```
  *
  * ## Import
@@ -38,6 +50,7 @@ import * as utilities from "./utilities";
  *
  * ```sh
  * $ pulumi import datadog:index/teamSync:TeamSync example "github"
+ * $ pulumi import datadog:index/teamSync:TeamSync servicenow "servicenow"
  * ```
  */
 export class TeamSync extends pulumi.CustomResource {
@@ -88,7 +101,7 @@ export class TeamSync extends pulumi.CustomResource {
      */
     declare public readonly selectionStates: pulumi.Output<outputs.TeamSyncSelectionState[] | undefined>;
     /**
-     * The external source platform for team synchronization. Valid values are `github`.
+     * The external source platform for team synchronization. Valid values are `github`, `servicenow`.
      */
     declare public readonly source: pulumi.Output<string>;
     /**
@@ -150,7 +163,7 @@ export interface TeamSyncState {
      */
     selectionStates?: pulumi.Input<pulumi.Input<inputs.TeamSyncSelectionState>[] | undefined>;
     /**
-     * The external source platform for team synchronization. Valid values are `github`.
+     * The external source platform for team synchronization. Valid values are `github`, `servicenow`.
      */
     source?: pulumi.Input<string | undefined>;
     /**
@@ -176,7 +189,7 @@ export interface TeamSyncArgs {
      */
     selectionStates?: pulumi.Input<pulumi.Input<inputs.TeamSyncSelectionState>[] | undefined>;
     /**
-     * The external source platform for team synchronization. Valid values are `github`.
+     * The external source platform for team synchronization. Valid values are `github`, `servicenow`.
      */
     source: pulumi.Input<string>;
     /**

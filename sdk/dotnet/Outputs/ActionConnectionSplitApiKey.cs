@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Split API key. String length must be at least 1.
         /// </summary>
         public readonly string? ApiKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionSplitApiKeyApiKeyAwsSecretsManager? ApiKeyAwsSecretsManager;
 
         [OutputConstructor]
-        private ActionConnectionSplitApiKey(string? apiKey)
+        private ActionConnectionSplitApiKey(
+            string? apiKey,
+
+            Outputs.ActionConnectionSplitApiKeyApiKeyAwsSecretsManager? apiKeyAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
         }
     }
 }

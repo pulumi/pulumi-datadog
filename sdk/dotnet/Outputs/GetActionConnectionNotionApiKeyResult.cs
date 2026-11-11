@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Notion API token
         /// </summary>
         public readonly string ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerResult? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionNotionApiKeyResult(string apiToken)
+        private GetActionConnectionNotionApiKeyResult(
+            string apiToken,
+
+            Outputs.GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerResult? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

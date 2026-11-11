@@ -5,9 +5,13 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionOktaApiTokenArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,6 +34,21 @@ public final class GetActionConnectionOktaApiTokenArgs extends com.pulumi.resour
     }
 
     /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="apiTokenAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs> apiTokenAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs>> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
+    }
+
+    /**
      * Okta domain
      * 
      */
@@ -44,11 +63,28 @@ public final class GetActionConnectionOktaApiTokenArgs extends com.pulumi.resour
         return this.domain;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="domainAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs> domainAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs>> domainAwsSecretsManager() {
+        return Optional.ofNullable(this.domainAwsSecretsManager);
+    }
+
     private GetActionConnectionOktaApiTokenArgs() {}
 
     private GetActionConnectionOktaApiTokenArgs(GetActionConnectionOktaApiTokenArgs $) {
         this.apiToken = $.apiToken;
+        this.apiTokenAwsSecretsManager = $.apiTokenAwsSecretsManager;
         this.domain = $.domain;
+        this.domainAwsSecretsManager = $.domainAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -91,6 +127,27 @@ public final class GetActionConnectionOktaApiTokenArgs extends com.pulumi.resour
         }
 
         /**
+         * @param apiTokenAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTokenAwsSecretsManager(@Nullable Output<GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs> apiTokenAwsSecretsManager) {
+            $.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiTokenAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTokenAwsSecretsManager(GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs apiTokenAwsSecretsManager) {
+            return apiTokenAwsSecretsManager(Output.of(apiTokenAwsSecretsManager));
+        }
+
+        /**
          * @param domain Okta domain
          * 
          * @return builder
@@ -109,6 +166,27 @@ public final class GetActionConnectionOktaApiTokenArgs extends com.pulumi.resour
          */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
+        }
+
+        /**
+         * @param domainAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainAwsSecretsManager(@Nullable Output<GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs> domainAwsSecretsManager) {
+            $.domainAwsSecretsManager = domainAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param domainAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainAwsSecretsManager(GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs domainAwsSecretsManager) {
+            return domainAwsSecretsManager(Output.of(domainAwsSecretsManager));
         }
 
         public GetActionConnectionOktaApiTokenArgs build() {

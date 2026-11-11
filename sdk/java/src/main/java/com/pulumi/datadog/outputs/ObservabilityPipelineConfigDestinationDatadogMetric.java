@@ -4,11 +4,27 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigDestinationDatadogMetricBuffer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigDestinationDatadogMetric {
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigDestinationDatadogMetricBuffer buffer;
+
     private ObservabilityPipelineConfigDestinationDatadogMetric() {}
+    /**
+     * @return Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigDestinationDatadogMetricBuffer> buffer() {
+        return Optional.ofNullable(this.buffer);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +35,22 @@ public final class ObservabilityPipelineConfigDestinationDatadogMetric {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ObservabilityPipelineConfigDestinationDatadogMetricBuffer buffer;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigDestinationDatadogMetric defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.buffer = defaults.buffer;
         }
 
+        @CustomType.Setter
+        public Builder buffer(@Nullable ObservabilityPipelineConfigDestinationDatadogMetricBuffer buffer) {
+
+            this.buffer = buffer;
+            return this;
+        }
         public ObservabilityPipelineConfigDestinationDatadogMetric build() {
             final var _resultValue = new ObservabilityPipelineConfigDestinationDatadogMetric();
+            _resultValue.buffer = buffer;
             return _resultValue;
         }
     }
